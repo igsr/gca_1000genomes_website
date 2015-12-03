@@ -1,0 +1,109 @@
+---
+layout: page
+title: "tools | 1000 Genomes"
+permalink: /tools/
+---
+    <div id="main" class="column grid-13 ">
+  	  <div id="content">
+  	    <div id="content-inner">
+
+          <div class="breadcrumb"><a href="/">Home</a> › </div>
+          
+          
+                    
+          
+          <div id="main-content" class="region clear-block">
+            
+<div id="node-53" class="node node-type-page"><div class="node-inner ">
+
+  
+  
+  
+  
+  <div class="content">
+    
+<div class="enclosed">
+ <h1 class="section_title">Software Tools</h1>
+ <p>Major tools used by the 1000 Genomes Project to process data are detailed on this page. Many tools may be published and are certainly in active development and it is possible that for many tools the most current version downloaded from the developers web sites is updated from the version that was used to create the relevant 1000 Genomes release files.</p>
+ <h2>Recalibration</h2>
+ <p>Quality scores form mulitple centers and platforms must be callibrated for data to be used together for combined analysis. For example, due to a number of experimental and technical valiables, bases with reported quality of Q25 may actually mismatch the reference at a rate of 1 in 1000 and so should be recorded as Q30. The recalibration procedure aligns reads from a given run, determines the empirical mismatch rates and produces re-calibrated quality values from the analysis.</p>
+ <p>The recalibration tool used by the 1000 Genomes project is imbedded in the <a href="http://www.broadinstitute.org/gsa/wiki/index.php/The_Genome_Analysis_Toolkit">Genome Analysis Tool Kit</a> (GATK) developed by the Broad Institute.</p>
+ <p>Further information on the recalibration tool and how it is used is avalibale <a href="http://www.broadinstitute.org/gsa/wiki/index.php/Quality_scores_recalibration">here</a>.</p>
+ <h2>Alignment</h2>
+ <p>The 1000 Genomes Pilot Project used the following alignment programs:</p>
+ <ul>
+  <li>MAQ: [<a href="http://www.ncbi.nlm.nih.gov/pubmed/18714091">Pubmed</a>] [<a href="http://maq.sourceforge.net/">Homepage/Source Code</a>]</li>
+  <li>MOSAIK [<a href="http://bioinformatics.bc.edu/marthlab/Mosaik">Homepage/Source code</a>]</li>
+  <li>SSAHA2 [<a href="http://www.ncbi.nlm.nih.gov/pubmed/11591649">Pubmed</a>] [<a href="http://www.sanger.ac.uk/resources/software/ssaha/">Homepage/Source code</a>]</li>
+  <li>Corona lite [<a href="http://solidsoftwaretools.com/gf/project/corona/">Homepage/Source code</a>]</li>
+  <li>cross_match [<a href="http://www.phrap.org/phredphrapconsed.html">Homepage/Source code</a>]</li>
+ </ul>
+ <p>For pilots 1 and 2, MAQ was used to align Illumina data, Corona lite was used to align SOLiD data and SSAHA2 for 454 data. All pilot 3 data was aligned MOSAIK. Depending on the production center, other pilot 3 data was aligned with SSAHA2, cross_match, MAQ or Corona lite.</p>
+ <p>The 1000 genomes full project is using the following aligners:</p>
+ <ul>
+  <li>BWA: [<a href="http://www.ncbi.nlm.nih.gov/pubmed/20080505">Pubmed</a>] [<a href="http://bio-bwa.sourceforge.net/">Homepage/Source Code</a>]</li>
+  <li>BFAST: [<a href="http://www.ncbi.nlm.nih.gov/pubmed/19907642">Pubmed</a>] [<a href="http://sourceforge.net/apps/mediawiki/bfast/index.php?title=Main_Page">Homepage/Source Code</a>]</li>
+  <li>MOSAIK: [<a href="http://bioinformatics.bc.edu/marthlab/Mosaik">Homepage/Source code</a>]</li>
+ </ul>
+ <p>For the low coverage project the low coverage Illumina runs are aligned independently using both BWA and MOSAIK and the SOLiD runs are aligned using BFAST</p>
+ <h2>Assembly</h2>
+ <p>Efforts to create <em>de novo</em> assemblies of 1000 Genomes data are currently underway, but no assemblies have been released by the project.</p>
+ <p>The Gerstein Lab at Yale University has created a version of the NA12878 genome based on NCBI build 36 and incororating SNPs, indels and SVs identified by the 1000 Genomes project. This genome sequence is available at <a href="http://sv.gersteinlab.org/NA12878_diploid">http://sv.gersteinlab.org/NA12878_diploid</a>. Users of this assembly are requested to cite: Rozowsky J et al.<em>Coordination between Allele Specific Expression and Binding in a Network Framework. (submitted)</em></p>
+ <h2>SNP calling</h2>
+ <ul>
+  <li>GATK: [<a href="http://www.ncbi.nlm.nih.gov/pubmed/20644199">Pubmed</a>] [<a href="http://www.broadinstitute.org/gsa/wiki/index.php/The_Genome_Analysis_Toolkit">Homepage/Source code</a>]</li>
+  <li>GlfMultiples: [<a href="http://genome.sph.umich.edu/wiki/GlfMultiples">Homepage/Source code</a>]</li>
+  <li>FreeBayes: [<a href="https://github.com/ekg/freebayes">Homepage/Source code</a>]</li>
+  <li>bcftools/mpileup: [<a href="http://samtools.sourceforge.net/mpileup.shtml">Homepage/Source code</a>]</li>
+ </ul>
+ <h2>CNV discovery</h2>
+ <h2>Phasing</h2>
+</div>
+  </div>
+
+  
+</div></div> <!-- /node-inner, /node -->          </div> <!-- /#main-content -->
+
+          
+		
+		</div> <!-- // #content-inner -->
+	  </div> <!-- //#content -->
+	</div> <!-- //end #main -->
+
+    
+        <div id="sidebar-right" class="column sidebar region grid-3">
+	    <div id="sidebar-right-inner">
+          <div id="block-user-1" class="block block-user region-odd odd region-count-1 count-1"><div class="block-inner">
+
+      <h2 class="title">Navigation</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first last"><a href="/faq">Frequently Asked Questions</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-block-3" class="block block-block region-even even region-count-2 count-2"><div class="block-inner">
+
+      <h2 class="title">Links</h2>
+  
+  <div class="content">
+    
+<ul class="rightbar">
+ <li id="megaphone"><a href="/announcements"><span>All project announcements</span></a></li>
+ <li id="floppy"><a href="/formats"><span>Files and formats</span></a></li>
+ <li id="tools"><a href="/tools"><span>Software tools</span></a></li>
+ <li id="star"><a href="/sites/1000genomes.org/files/docs/nature09534.pdf"><span>Download the 1000 Genomes Pilot Paper</span></a></li>
+</ul>
+<ul class="rightbar">
+ <li>&nbsp;</li>
+ <li id="email"><a href="/contact"><span>Project Contacts</span></a></li>
+</ul>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+      </div>
+    </div> <!--//end #sidebar-right-inner -->
+    
+

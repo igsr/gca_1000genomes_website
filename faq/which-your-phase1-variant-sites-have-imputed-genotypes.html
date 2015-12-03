@@ -1,0 +1,77 @@
+---
+layout: page
+title: "Which of your phase1 variant sites have imputed genotypes? | 1000 Genomes"
+permalink: /faq/which-your-phase1-variant-sites-have-imputed-genotypes/
+---
+    <div id="main" class="column grid-13 ">
+  	  <div id="content">
+  	    <div id="content-inner">
+
+          <div class="breadcrumb"><a href="/">Home</a> › </div>
+          
+          
+                    
+          
+          <div id="main-content" class="region clear-block">
+            
+<div id="node-832" class="node node-type-faq-question"><div class="node-inner onethousand_clean">
+
+  
+      <h2 class="title">
+      <a href="/faq/which-your-phase1-variant-sites-have-imputed-genotypes" title="Which of your phase1 variant sites have imputed genotypes?">Which of your phase1 variant sites have imputed genotypes?</a>
+    </h2>
+  
+  
+      <div class="meta">
+      
+              <div class="terms terms-inline"><ul class="links inline"><li class="taxonomy_term_7 first"><a href="/category/data-analysis" rel="tag" title="">Data Analysis</a></li>
+<li class="taxonomy_term_142"><a href="/category/frequently-asked-questions/depth" rel="tag" title="">depth</a></li>
+<li class="taxonomy_term_15"><a href="/category/imputation" rel="tag" title="">imputation</a></li>
+<li class="taxonomy_term_6 last"><a href="/category/variants" rel="tag" title="">variants</a></li>
+</ul></div>
+          </div>
+  
+  <div class="content">
+    <div class="field field-type-text field-field-faq-answer">
+      <div class="field-label">Answer:&nbsp;</div>
+    <div class="field-items">
+            <div class="field-item odd">
+                    
+<p>As the majority of sites in the genome only has only been sequenced to low coverage, in&nbsp;all our individuals some sites genotypes will be&nbsp;based on imputation.<br />
+<br />
+The process used to create our genotypes first gave our merged sites&nbsp;and genotype likelihoods sets to <a href="http://faculty.washington.edu/browning/beagle/beagle.html">beagle</a> to generate initial haplotypes&nbsp;(using 50 interations across all samples) and these were refined using&nbsp;a modified version of <a href="http://genome.sph.umich.edu/wiki/Thunder">thunder</a> (it used 300 states chosen by longest&nbsp;matching haplotype at each iteration in addition to 100 randomly&nbsp;chosen states).<br />
+<br />
+This process means we are unable to precisely identify which sites&nbsp;used imputation to generate their genotype. Without this process the approximate error rate for our heterozygous sites would be 20% so you can estimate that 20% of our heterozgous sites will have been changed on the basis of imputation. The sites covered by our exome sequencing represent our highest accuracy sites and these are the least likely to have been changed by this process. The converse is also true any site without any sequence alignment will have been imputed. You can find the <a href="/faq/what-depth-coverage-your-phase1-variants">depth of coverage at any site</a> using our bam files.&nbsp;Other sites may have been given greater evidence&nbsp;on the basis of the imputation and refinement process.<br />
+<br />
+You can find out more about this in our <a href="/announcements/integrated-map-genetic-variation-1092-human-genomes-2012-10-31">Phase1 paper</a>.</p>
+        </div>
+        </div>
+</div>
+  </div>
+
+  
+</div></div> <!-- /node-inner, /node -->          </div> <!-- /#main-content -->
+
+          
+		
+		</div> <!-- // #content-inner -->
+	  </div> <!-- //#content -->
+	</div> <!-- //end #main -->
+
+    
+        <div id="sidebar-right" class="column sidebar region grid-3">
+	    <div id="sidebar-right-inner">
+          <div id="block-user-1" class="block block-user region-odd odd region-count-1 count-1"><div class="block-inner">
+
+      <h2 class="title">Navigation</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first last"><a href="/faq">Frequently Asked Questions</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+      </div>
+    </div> <!--//end #sidebar-right-inner -->
+    
+

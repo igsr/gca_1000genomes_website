@@ -1,0 +1,519 @@
+---
+layout: page
+title: "About | 1000 Genomes"
+permalink: /about/
+tags: About
+---
+    <div id="main" class="column grid-13 ">
+  	  <div id="content">
+  	    <div id="content-inner">
+
+          <div class="breadcrumb"><a href="/">Home</a> › </div>
+          
+          
+                    
+          
+          <div id="main-content" class="region clear-block">
+            
+<div id="node-3" class="node node-type-page"><div class="node-inner ">
+
+  
+  
+  
+  
+  <div class="content">
+    
+<div class="enclosed">
+ <h1 class="section_title">About the 1000 Genomes Project</h1>
+ <a href="#ProjectOverview">Project Overview</a> <br />
+ <a href="#ProjectDesign">Project Design</a> <br />
+ <a href="#ProjectDataUse">Use of the Project data and samples</a> <br />
+ <a href="#ProjectSamples">Samples included in the project</a> <br />
+ <a href="#PublicationsProjectDocuments">Publications and project documents</a>
+</div>
+<p><a name="ProjectOverview" id="ProjectOverview"></a></p>
+<div class="enclosed">
+ <h1 class="section_title">Project Overview</h1>
+ <p>Recent improvements in sequencing technology ("next-gen" sequencing platforms) have sharply reduced the cost of sequencing. The 1000 Genomes Project is the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation.</p>
+ <p>As with other major human genome reference projects, data from the 1000 Genomes Project will be made available quickly to the worldwide scientific community through freely accessible public databases. (See <a href="#ProjectDataUse">Data use statement</a>.)</p>
+ <p>The goal of the 1000 Genomes Project is to find most genetic variants that have frequencies of at least 1% in the populations studied. This goal can be attained by sequencing many individuals lightly. To sequence a person's genome, many copies of the DNA are broken into short pieces and each piece is sequenced. The many copies of DNA mean that the DNA pieces are more-or-less randomly distributed across the genome. The pieces are then aligned to the reference sequence and joined together. To find the complete genomic sequence of one person with current sequencing platforms requires sequencing that person's DNA the equivalent of about 28 times (called 28X). If the amount of sequence done is only an average of once across the genome (1X), then much of the sequence will be missed, because some genomic locations will be covered by several pieces while others will have none. The deeper the sequencing coverage, the more of the genome will be covered at least once. Also, people are diploid; the deeper the sequencing coverage, the more likely that both chromosomes at a location will be included. In addition, deeper coverage is particularly useful for detecting structural variants, and allows sequencing errors to be corrected.</p>
+ <p>Sequencing is still too expensive to deeply sequence the many samples being studied for this project. However, any particular region of the genome generally contains a limited number of haplotypes. Data can be combined across many samples to allow efficient detection of most of the variants in a region. The Project currently plans to sequence each sample to about 4X coverage; at this depth sequencing cannot provide the complete genotype of each sample, but should allow the detection of most variants with frequencies as low as 1%. Combining the data from 2500 samples should allow highly accurate estimation (imputation) of the variants and genotypes for each sample that were not seen directly by the light sequencing.</p>
+</div>
+<p><a name="ProjectDesign" id="ProjectDesign"></a></p>
+<div class="enclosed">
+ <h1 class="section_title">Project Design</h1>
+ <h2>Pilot Project</h2>
+ <p>Three pilot studies provided data to inform the design of the full-scale project:</p>
+ <table class="samples">
+  <thead>
+   <tr class="odd">
+    <th>Pilot</th>
+    <th>Purpose</th>
+    <th>Coverage</th>
+    <th>Strategy</th>
+    <th>Status</th>
+   </tr>
+  </thead>
+  <tbody>
+  <tr>
+   <td>1 - low coverage</td>
+   <td>Assess strategy of sharing data across samples</td>
+   <td>2-4X</td>
+   <td>Whole-genome sequencing of 180 samples</td>
+   <td>Sequencing completed October 2008</td>
+  </tr>
+  <tr class="odd">
+   <td>2 - trios</td>
+   <td>Assess coverage and platforms and centers</td>
+   <td>20-60X</td>
+   <td>Whole-genome sequencing of 2 mother-father-adult child trios</td>
+   <td>Sequencing completed October 2008</td>
+  </tr>
+  <tr>
+   <td>3 - gene regions</td>
+   <td>Assess methods for gene-region-capture</td>
+   <td>50X</td>
+   <td>1000 gene regions in 900 samples</td>
+   <td>Sequencing completed June 2009</td>
+  </tr>
+  </tbody>
+ </table>
+ <p>Public releases of summary processed data and variant calls are available through the <a href="/data">data tab</a> of this website. The data from the pilot projects have been analyzed, especially to determine whether the strategy of 4X coverage is adequate to meet the goals of the Project. A paper describing the analyses of the pilot data and design of the full project was published in October in the journal <em>Nature</em> and is available <a href="/sites/1000genomes.org/files/docs/nature09534.pdf">here</a>.</p>
+ <p>A summary of sequencing done for each of the three pilot projects is available <a href="/sites/1000genomes.org/files/docs/PilotsSummary.pdf">here</a>. And the list of samples and allocations is provided in a <a href="/sites/1000genomes.org/files/documents/20101214_1000genomes_samples.xls">spreadsheet</a>. Regions targeted in Pilot 3 are available on the project <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/technical/reference/">FTP site</a>.</p>
+ <h2>Main Project</h2>
+ <p>The plan for the full project is to sequence about 2,500 samples at 4X coverage. The first set of samples for sequencing includes 1167 samples that already existed or could be collected quickly, from 13 populations, for sequencing in 2010 and early 2011. The second set includes 633 samples that are being collected, from 7 populations, for sequencing in early 2011. The third set, consisting of 700 samples, is expected to be available for sequencing in late 2011. Full details of the samples to be sequenced are <a href="#ProjectSamples">below</a>.</p>
+</div>
+<p><a name="ProjectDataUse" id="ProjectDataUse"></a></p>
+<div class="enclosed">
+ <h1 class="section_title">Use of the Project data and samples</h1>
+ <p>In genome-wide association (GWA) studies, researchers aim to discover regions of the genome that are associated with particular diseases or traits. They genotype samples from hundreds to thousands of people with a disease and without a disease for hundreds of thousands to about a million SNPs and structural variants. They look for which regions have variants that are more common (containing risk variants) or less common (containing protective variants) in the people with the disease as compared to those without the disease. Because genetic variants in a region are generally associated with many other variants in the region (linkage disequilibrium, LD), a variant associated with a disease is a marker for the region it is in, but the LD patterns do not allow a determination of which particular variant or, frequently, which gene or genetic element, causally contributes to the risk for the disease.</p>
+ <p>Disease researchers will use 1000 Genomes data in two ways. They will combine the 1000 Genomes data with the genotype data in their disease GWA study to impute the genotypes in their samples for millions of additional variants beyond those they genotyped directly. They will do this computationally, with no genotyping cost. The additional genotype data will allow the researchers to localize the disease-associated regions more precisely.</p>
+ <p>Once the disease-associated regions are identified, researchers will want to know all of the variants in those regions. The Project will provide data on almost all of the variants with a frequency of at least 1% in the populations studied. This will save disease researchers the time and expense of having to sequence their own samples. Although this list will not tell them which variants cause the increased risk for the disease, it will give them the set of suspects. They will then do experimental studies to determine which genes, genetic elements, and variants functionally cause the increased risk of disease.</p>
+ <p>Many researchers will compare the allele frequencies and LD patterns that they find in their studies with those in the 1000 Genomes data. Researchers will also examine the 1000 Genomes data to study recombination, natural selection, and population structure and admixture.</p>
+ <p>DNA from the samples will be available for researchers to follow up with more detailed studies of variation in particular regions. The cell lines will allow researches to study cellular phenotypes such as gene expression, epigenetic patterns, and drug response. The extensive genotype data available on the samples, and the trio samples for some of the populations, will allow researchers to map regions of the genome computationally that affect the cellular phenotypes, and to study the heritability of these phenotypes. See <a href="http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&amp;coll=GM">http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&amp;coll=GM</a></p>
+</div>
+<p><a name="ProjectSamples" id="ProjectSamples"></a></p>
+<div class="enclosed">
+ <h1 class="section_title">Samples included in the project</h1>
+ <p>The 1000 Genomes Project developed guidelines on ethical considerations for investigators doing sampling, outlined in the&nbsp; <a href="/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf">Informed Consent Background Document</a> and the <a href="/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf">Informed Consent Form Template</a> for new collections. All new collections included in the Project followed these ethical guidelines and model informed consent language. The 1000 Genomes Project Steering Committee, with input from the Project's Samples and ELSI Group, made final decisions about which populations and sample sets to include in the Project.</p>
+ <p>The samples for the 1000 Genomes Project mostly are anonymous and have no associated medical or phenotype data; for some of the populations the collectors have phenotype data but these data are not at Coriell and are not distributed. Although the 1000 Genomes samples have no phenotype data, the genetic variation data produced by the Project will be used by researchers to study many diseases, in sets of disease and control samples that have been carefully phenotyped. More information about using the 1000 Genomes project data is available on the <a href="/data">data tab</a> of this website.</p>
+ <p>Below is a summary of the samples the 1000 Genomes project has sequenced. A full list of these samples is available from our <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/">sample spreadsheet</a> . Cell lines for all these samples should be available from the <a href="http://ccr.coriell.org/">Coriell Cell Repository</a></p>
+ <p>&nbsp;</p>
+ <table class="samples">
+  <thead>
+   <tr class="odd">
+    <th class="header" colspan="8">1000 Genomes Samples</th>
+   </tr>
+   <tr>
+    <th>Population</th>
+    <th>DNA sequenced from blood</th>
+    <th>Offspring Samples from Trios Available</th>
+    <th>Pilot Samples</th>
+    <th>Phase 1 Samples</th>
+    <th>Final Phase Discovery Sample</th>
+    <th>Final Release Sample</th>
+    <th>Total</th>
+   </tr>
+  </thead>
+  <tbody>
+  <tr class="odd">
+   <td style="text-align: left;">Chinese Dai in Xishuangbanna, China(<strong>CDX</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>99</td>
+   <td>93</td>
+   <td>99</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Han Chinese in Bejing, China (<strong>CHB</strong>)</td>
+   <td>no</td>
+   <td>no</td>
+   <td>91</td>
+   <td>97</td>
+   <td>103</td>
+   <td>103</td>
+   <td>106</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Japanese in Tokyo, Japan (J<strong>PT</strong>)</td>
+   <td>no</td>
+   <td>no</td>
+   <td>94</td>
+   <td>89</td>
+   <td>104</td>
+   <td>104</td>
+   <td>105</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Kinh in Ho Chi Minh City, Vietnam (<strong>KHV</strong>)</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>101</td>
+   <td>99</td>
+   <td>101</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Southern Han Chinese, China (<strong>CHS</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>100</td>
+   <td>108</td>
+   <td>105</td>
+   <td>112</td>
+  </tr>
+  <tr>
+   <th style="text-align: left;"><strong>Total East Asian Ancestry (EAS</strong>)</th>
+   <th><strong>&nbsp;</strong></th>
+   <th><strong>&nbsp;</strong></th>
+   <th><strong>185</strong></th>
+   <th><strong>286</strong></th>
+   <th><strong>515</strong></th>
+   <th><strong>504</strong></th>
+   <th><strong>523</strong></th>
+  </tr>
+  <tr>
+   <td colspan="8">&nbsp;</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Bengali in Bangladesh (<strong>BEB</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>86</td>
+   <td>86</td>
+   <td>86</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Gujarati Indian in Houston,TX (<strong>GIH</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>106</td>
+   <td>103</td>
+   <td>106</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Indian Telugu in the UK (<strong>ITU</strong>)</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>103</td>
+   <td>102</td>
+   <td>103</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Punjabi in Lahore,Pakistan (<strong>PJL</strong>)</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>96</td>
+   <td>96</td>
+   <td>96</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Sri Lankan Tamil in the UK (<strong>STU</strong>)</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>103</td>
+   <td>102</td>
+   <td>103</td>
+  </tr>
+  <tr>
+   <th style="text-align: left;"><strong>Total South Asian Ancestry (SAS</strong>)</th>
+   <th>&nbsp;</th>
+   <th>&nbsp;</th>
+   <th><strong>0</strong></th>
+   <th><strong>0</strong></th>
+   <th><strong>494</strong></th>
+   <th><strong>489</strong></th>
+   <th><strong>494</strong></th>
+  </tr>
+  <tr>
+   <td colspan="8">&nbsp;</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">African Ancestry in Southwest US (<strong>ASW</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>61</td>
+   <td>66</td>
+   <td>61</td>
+   <td>66</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">African Caribbean in Barbados (<strong>ACB</strong>)</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>96</td>
+   <td>96</td>
+   <td>96</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Esan in Nigeria (<strong>ESN</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>99</td>
+   <td>99</td>
+   <td>99</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Gambian in Western Division, The Gambia (<strong>GWD</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>113</td>
+   <td>113</td>
+   <td>113</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Luhya in Webuye, Kenya (<strong>LWK</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>102</td>
+   <td>97</td>
+   <td>101</td>
+   <td>99</td>
+   <td>116</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Mende in Sierra Leone (<strong>MSL</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>&nbsp;</td>
+   <td>85</td>
+   <td>85</td>
+   <td>85</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Yoruba in Ibadan, Nigeria (<strong>YRI</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>106</td>
+   <td>88</td>
+   <td>109</td>
+   <td>108</td>
+   <td>116</td>
+  </tr>
+  <tr>
+   <th style="text-align: left;"><strong>Total African Ancestry (AFR)</strong></th>
+   <th>&nbsp;</th>
+   <th><strong>&nbsp;</strong></th>
+   <th><strong>208</strong></th>
+   <th><strong>246</strong></th>
+   <th><strong>669</strong></th>
+   <th><strong>661</strong></th>
+   <th><strong>691</strong></th>
+  </tr>
+  <tr>
+   <td colspan="8">&nbsp;</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">British in England and Scotland (<strong>GBR</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>89</td>
+   <td>92</td>
+   <td>91</td>
+   <td>94</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Finnish in Finland (<strong>FIN</strong>)</td>
+   <td>no</td>
+   <td>no</td>
+   <td>0</td>
+   <td>93</td>
+   <td>99</td>
+   <td>99</td>
+   <td>100</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Iberian populations in Spain (<strong>IBS</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>14</td>
+   <td>107</td>
+   <td>107</td>
+   <td>107</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Toscani in Italia (<strong>TSI</strong>)</td>
+   <td>no</td>
+   <td>no</td>
+   <td>66</td>
+   <td>98</td>
+   <td>108</td>
+   <td>107</td>
+   <td>110</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Utah residents with Northern and Western European ancestry (<strong>CEU</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>94</td>
+   <td>85</td>
+   <td>99</td>
+   <td>99</td>
+   <td>103</td>
+  </tr>
+  <tr>
+   <th style="text-align: left;"><strong>Total European Ancestry (EUR)</strong></th>
+   <th>&nbsp;</th>
+   <th>&nbsp;</th>
+   <th><strong>160</strong></th>
+   <th><strong>379</strong></th>
+   <th><strong>505</strong></th>
+   <th><strong>503</strong></th>
+   <th><strong>514</strong></th>
+  </tr>
+  <tr>
+   <td colspan="8">&nbsp;</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Colombian in Medellin, Colombia (<strong>CLM</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>60</td>
+   <td>94</td>
+   <td>94</td>
+   <td>95</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Mexican Ancestry in Los Angeles, California (<strong>MXL</strong>)</td>
+   <td>no</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>66</td>
+   <td>67</td>
+   <td>64</td>
+   <td>69</td>
+  </tr>
+  <tr class="odd">
+   <td style="text-align: left;">Peruvian in Lima, Peru (<strong>PEL</strong>)</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>0</td>
+   <td>86</td>
+   <td>85</td>
+   <td>86</td>
+  </tr>
+  <tr>
+   <td style="text-align: left;">Puerto Rican in Puerto Rico (<strong>PUR</strong>)</td>
+   <td>yes</td>
+   <td>yes</td>
+   <td>0</td>
+   <td>55</td>
+   <td>105</td>
+   <td>104</td>
+   <td>105</td>
+  </tr>
+  <tr>
+   <th style="text-align: left;"><strong>Total Americas Ancestry (AMR)</strong></th>
+   <th>&nbsp;</th>
+   <th>&nbsp;</th>
+   <th>&nbsp;</th>
+   <th><strong>181</strong></th>
+   <th><strong>352</strong></th>
+   <th><strong>347</strong></th>
+   <th><strong>355</strong></th>
+  </tr>
+  <tr>
+   <td colspan="8">&nbsp;</td>
+  </tr>
+  <tr>
+   <th style="text-align: left;"><strong>Total</strong></th>
+   <th>&nbsp;</th>
+   <th>&nbsp;</th>
+   <th><strong>553</strong></th>
+   <th><strong>1092</strong></th>
+   <th><strong>2535</strong></th>
+   <th><strong>2504</strong></th>
+   <th><strong>2577</strong></th>
+  </tr>
+  </tbody>
+ </table>
+ <p>Note. Some samples from the pilot or phase1 did not progress to the final phase for reasons of quality control or changing criteria with respect to complete samples, This causes some discrepancies in the total numbers of samples compared to the numbers in the final phase.</p>
+ <h2>Summary of all Samples</h2>
+ <p>A&nbsp; <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx">spreadsheet</a> &nbsp;detailing the samples we are sequencing and related samples for which we have HD genotype data for is available from the&nbsp; <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/">ftp site</a> . The columns are documented in the&nbsp; <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/README_20130606_sample_info">README</a> . There is also a&nbsp; <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_g1k.ped">pedigree file</a> &nbsp;available.&nbsp;</p>
+ <p>The samples, as cell lines and DNA, are available to researchers from the non-profit Coriell Institute for Medical Research, or will become available when the cell lines have been made. For some of the populations, additional samples are available, including ones from the children in mother-father-adult child trios. See&nbsp; <a href="http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&amp;coll=GM"></a><a href="http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&amp;coll=GM" title="http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&amp;coll=GM">http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&amp;coll=GM</a></p>
+ You can see summaries of how much sequencing was carried out for the pilot and phase1 studies in the two respective publication supplementary information&nbsp;<a href="http://www.nature.com/nature/journal/v467/n7319/extref/nature09534-s2.xls">http://www.nature.com/nature/journal/v467/n7319/extref/nature09534-s2.xls&nbsp;</a>and <a href="http://www.nature.com/nature/journal/v491/n7422/extref/nature11632-s1.pdf"></a><a href="http://www.nature.com/nature/journal/v491/n7422/extref/nature11632-s1.pdf" title="http://www.nature.com/nature/journal/v491/n7422/extref/nature11632-s1.pdf">http://www.nature.com/nature/journal/v491/n7422/extref/nature11632-s1.pdf</a>
+</div>
+<p><a name="PublicationsProjectDocuments" id="PublicationsProjectDocuments"></a></p>
+<div class="enclosed">
+ <h1 class="section_title">Publications and project documents</h1>
+ <h2>Project Documents</h2>
+ <p><span class="date-display-single">May 2011</span> <br />
+ <a href="/sites/1000genomes.org/files/documents/20110517_ensembl_62_quickstart.pdf">1000 Genomes Browser Quick Start Guide</a></p>
+ <p><span class="date-display-single">October 2010</span> <br />
+ <a href="http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html">1000 genomes pilot paper</a></p>
+ <p><span class="date-display-single">September 2007</span> <br />
+ <a href="/sites/1000genomes.org/files/docs/1000Genomes-MeetingReport.pdf">Report of the 1000 Genomes planning meeting</a></p>
+</div>
+  </div>
+
+  
+</div></div> <!-- /node-inner, /node -->          </div> <!-- /#main-content -->
+
+          
+		
+		</div> <!-- // #content-inner -->
+	  </div> <!-- //#content -->
+	</div> <!-- //end #main -->
+
+    
+        <div id="sidebar-right" class="column sidebar region grid-3">
+	    <div id="sidebar-right-inner">
+          <div id="block-user-1" class="block block-user region-odd odd region-count-1 count-1"><div class="block-inner">
+
+      <h2 class="title">Navigation</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first last"><a href="/faq">Frequently Asked Questions</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-block-2" class="block block-block region-even even region-count-2 count-2"><div class="block-inner">
+
+      <h2 class="title">Links</h2>
+  
+  <div class="content">
+    
+<ul class="rightbar">
+ <li id="megaphone"><a href="/announcements"><span>All Project announcements</span></a></li>
+ <li id="newspaper"><a href="/media"><span>Media Archive</span></a></li>
+ <li id="star"><a href="/sites/1000genomes.org/files/docs/nature09534.pdf"><span>Download the 1000 Genomes Pilot Paper</span></a></li>
+</ul>
+<ul class="rightbar">
+ <li>&nbsp;</li>
+ <li id="email"><a href="/contact"><span>Project Contacts</span></a></li>
+</ul>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+      </div>
+    </div> <!--//end #sidebar-right-inner -->
+    
+

@@ -1,0 +1,243 @@
+---
+layout: page
+title: "formats | 1000 Genomes"
+permalink: /formats/
+---
+    <div id="main" class="column grid-13 ">
+  	  <div id="content">
+  	    <div id="content-inner">
+
+          <div class="breadcrumb"><a href="/">Home</a> › </div>
+          
+          
+                    
+          
+          <div id="main-content" class="region clear-block">
+            
+<div id="node-52" class="node node-type-page"><div class="node-inner ">
+
+  
+  
+  
+  
+  <div class="content">
+    
+<div class="enclosed">
+ <h1 class="section_title">Key file formats</h1>
+ <p>Information on key file formants is normally provided within README files located near the relevant data on the FTP site. Information on the major formats is also collected here. Tools developed by the 1000 Genomes project or appropirate to work with the data from the project are listed on the <a href="/tools">tools</a> page.</p>
+ <a href="#IndexFiles">Index file formats</a><br />
+ <a href="#DataFiles">Data file formats</a>
+</div>
+<p><a name="IndexFiles" id="IndexFiles"></a></p>
+<div class="enclosed">
+ <h1 class="section_title">Index file formats</h1>
+ <h2>Sequence index</h2>
+ <p>The sequence.index file is a tab delimited file containing all the meta data you should need to download and subset the files on this ftp site by individual, library, experiment and sequencing technology.</p>
+ <p>The columns are:</p>
+ <p>1. FASTQ_FILE, path to fastq file on ftp site<br />
+ 2. MD5, md5sum of file<br />
+ 3. RUN_ID, SRA/ERA run accession<br />
+ 4. STUDY_ID, SRA/ERA study accession<br />
+ 5. STUDY_NAME, Name of stury<br />
+ 6. CENTER_NAME, Submission centre name<br />
+ 7. SUBMISSION_ID, SRA/ERA submission accession<br />
+ 8. SUBMISSION_DATE, Date sequence submitted, YYYY-MM-DAY<br />
+ 9. SAMPLE_ID, SRA/ERA sample accession<br />
+ 10. SAMPLE_NAME, Sample name<br />
+ 11. POPULATION, Sample population<br />
+ 12. EXPERIMENT_ID, Experiment accession<br />
+ 13. INSTRUMENT_PLATFORM, Type of sequencing machine<br />
+ 14. INSTRUMENT_MODEL, Model of sequencing machine<br />
+ 15. LIBRARY_NAME, Library name<br />
+ 16. RUN_NAME, Name of machine run<br />
+ 17. RUN_BLOCK_NAME, Name of machine run sector<br />
+ 18. INSERT_SIZE, Submitter specifed insert size<br />
+ 19. LIBRARY_LAYOUT, Library layout, this can be either PAIRED or SINGLE<br />
+ 20. PAIRED_FASTQ, Name of mate pair file if exists (Runs with failed mates will have a library layout of PAIRED but no paired fastq file)<br />
+ 21. WITHDRAWN, 0/1 to indicate if the file has been withdrawn, only present if a file has been withdrawn<br />
+ 22. WITHDRAWN_DATE, date of withdrawal, this should only be defined if a file is withdrawn<br />
+ 23. COMMENT, comment about reason for withdrawal<br />
+ 24. READ_COUNT, read count for the file<br />
+ 25. BASE_COUNT, basepair count for the file<br />
+ 26. ANALYSIS_GROUP, the analysis group of the sequence, this reflects sequencinq strategy. Current this includes low coverage, high coverage and exon targetted to reflect the 3 stratergies used by the 1000 genomes project.</p>
+ <p>Any run_id can have up to 3 files associated with it. Single runs have one file. Paired runs can have anywhere from 1 to 3 files depending on the success of the pairing.</p>
+ <p>&nbsp;</p>
+ <h2>Alignment Index</h2>
+ <p>The&nbsp;alignment.index&nbsp;file is a tab delimited file containing all the meta data needed to download the bam alignment files from the ftp site. The alignment file&nbsp;formants&nbsp;are described&nbsp;<a href="#DataFiles">below</a>.</p>
+ <p>The columns are:</p>
+ 1. bam file<br />
+ 2.&nbsp;MD5<br />
+ 3.&nbsp;bai&nbsp;index file<br />
+ 4.&nbsp;bai&nbsp;index file&nbsp;md5<br />
+ 5. bas statistics file<br />
+ 6. bas statistic file&nbsp;md5
+ <p>All other meta information associated with a particular file can be found in the filename&nbsp;e.gHG00098.chrom1.ILLUMINA.bwa.GBR.low_coverage.20100804.bam</p>
+ <p>The fields represent:</p>
+ Sample Name<br />
+ Chromosome name,&nbsp;nonchrom&nbsp;represents the reads mapped to non chromosomal parts of the reference genome and unmapped represents&nbsp;readpairs&nbsp;which did not map to the reference genome<br />
+ Instrument Platform, the sequencing platform the sequence comes from.<br />
+ Algorithm, the algorithm used to map the data<br />
+ Population, the population the sample comes from<br />
+ Analysis group, the sequencing strategy used to generate the sequence data<br />
+ Sequence index date, the date from the&nbsp;sequence.index&nbsp;used to supply the input sequence data for the alignment
+ <p>Each bam file is paired with an index file which has the same name but the extension&nbsp;.bai&nbsp;and a statistic file which has the extension .bas. More information about the files can be found in <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.alignment_data">README.alignment_data</a></p>
+ <p>The sequence files all use the reference genome which can be found under:<br />
+ <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/</a><br />
+ <a href="ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference/">ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference/</a></p>
+ <p>&nbsp;</p>
+ <h2>Bas File</h2>
+ <div>
+  .bas files are bam statistic files, one line per&nbsp;readgroup, columns separated by tabs. The first line is a header that describes each column. The first 6 columns provide meta information about each&nbsp;readgroup.
+ </div>
+ <div>
+  &nbsp;
+ </div>
+ <div>
+  <div>
+   The remaining columns provide various statistics about the&nbsp;readgroup, calculated by going through the release&nbsp;bams. Where data isn&#39;t available to calculate the result for a column the default value will be 0.
+  </div>
+  <div>
+   &nbsp;
+  </div>
+  <div>
+   Each column is described in detail below.
+  </div>
+  <div>
+   &nbsp;
+  </div>
+  <div>
+   Column 1 &#39;bam_filename&#39;: The&nbsp;DCC&nbsp;bam file name in which the&nbsp;readgroup&nbsp;data can&nbsp;be found.
+  </div>
+  <div>
+   Column 2 &#39;md5&#39;: The&nbsp;md5&nbsp;checksum of the bam file named in column 1.
+  </div>
+  <div>
+   Column 3 &#39;study&#39;: The&nbsp;SRA&nbsp;study id this&nbsp;readgroup&nbsp;belongs to.
+  </div>
+  <div>
+   Column 4 &#39;sample&#39;: The sample (individual) identifier the&nbsp;readgroup&nbsp;came from.
+  </div>
+  <div>
+   Column 5 &#39;platform&#39;: The sequencing platform (technology) used to sequence the&nbsp;readgroup.
+  </div>
+  <div>
+   Column 6 &#39;library&#39;: The name of the library used for the&nbsp;readgroup.
+  </div>
+  <div>
+   Column 7 &#39;readgroup&#39;: The&nbsp;readgroup&nbsp;identifier. This is unique per .bas file.
+  </div>
+  <div>
+   &nbsp;
+  </div>
+  <div>
+   The remaining columns&nbsp;summarise&nbsp;data for reads with this&nbsp;RG&nbsp;tag in the bam&nbsp;file given in column 1.
+  </div>
+  <div>
+   &nbsp;
+  </div>
+  <div>
+   Column 8 &nbsp; &#39;#_total_bases&#39;: The sum of the length of all reads in this&nbsp;readgroup.
+  </div>
+  <div>
+   Column 9 &nbsp; &#39;#_mapped_bases&#39;: The sum of the length of all reads in this&nbsp;readgroup&nbsp;that did not have flag 4 (== unmapped).
+  </div>
+  <div>
+   Column 10 &#39;#_total_reads&#39;: The total number of reads in this&nbsp;readgroup.
+  </div>
+  <div>
+   Column 11 &#39;#_mapped_reads&#39;: The total number of reads in this&nbsp;readgroup&nbsp;that did&nbsp;not have flag 4 (== unmapped).
+  </div>
+  <div>
+   Column 12 &#39;#_mapped_reads_paired_in_sequencing&#39;: As for column 10, but also&nbsp;requiring flag 1 (== reads paired in&nbsp;sequencing).
+  </div>
+  <div>
+   Column 13 &#39;#_mapped_reads_properly_paired&#39;: As for column 10, but also requiring&nbsp;flag 2 (== mapped in a proper pair, inferred during alignment).
+  </div>
+  <div>
+   Column 14 &#39;%_of_mismatched_bases&#39;: Calculated by summing the read lengths of all&nbsp;reads in this&nbsp;readgroup&nbsp;that have an NM tag, summing the edit distances&nbsp;obtained from the NM tags, and getting the percentage of the latter out of&nbsp;the former to 2 decimal places.
+  </div>
+  <div>
+   <div>
+    Column 15 &#39;average_quality_of_mapped_bases&#39;: The mean of all the base qualities&nbsp;of the bases counted for column 8, to 2 decimal places.
+   </div>
+   <div>
+    Column 16 &#39;mean_insert_size&#39;: The mean of all insert sizes (ISIZE&nbsp;field) greater&nbsp;than 0 for properly paired reads (as counted in column 12) and with a&nbsp;mapping quality (MAPQ&nbsp;field) greater than 0. Rounded to the nearest whole&nbsp;number.
+   </div>
+   <div>
+    Column 17 &#39;insert_size_sd&#39;: The standard deviation from the mean of insert sizes&nbsp;considered for column 15. To 2 decimal places.
+   </div>
+   <div>
+    Column 18 &#39;median_insert_size&#39;: The median insert size, using the same set of&nbsp;insert sizes considered for column 15.
+   </div>
+   <div>
+    Column 19 &#39;insert_size_median_absolute_deviation&#39;: The median absolute deviation&nbsp;of the column 17 data.
+   </div>
+   <div>
+    Column 20 &#39;#_duplicate_reads&#39;: The number of reads which were marked as&nbsp;duplicates
+   </div>
+   <div>
+    &nbsp;
+   </div>
+  </div>
+ </div>
+</div>
+<p><a name="DataFiles" id="DataFiles"></a></p>
+<div class="enclosed">
+ <h2>&nbsp;</h2>
+ <h1 class="section_title">Data file formats</h1>
+ <h2>Alignment files (BAM)</h2>
+ <p>BAM files are binary representations of the Sequence Alignment/Map format. These files and the associated SAMtools package are described in a recent <a href="http://bioinformatics.oxfordjournals.org/cgi/content/abstract/25/16/2078">Bioinformatics publication</a>.</p>
+ <p>Additional information about SAM/BAM is available at the SAMtools development site: <a href="http://samtools.sourceforge.net/">http://samtools.sourceforge.net/</a>.</p>
+ <p>Additional tools used by the 1000 Genomes project that use BAM files are described on the <a href="/tools">tools</a> page.</p>
+ <h2>Variant Call Format (VCF)</h2>
+ <p>The VCF format is a tab delimited format for storing variant calls and and individual genotypes. It is able to store all variant calls from single nucleotide variants to large scale insertions and deletions.</p>
+ <p>The format is still under development and the current format definition is available on a publicly visiable page of the 1000 Genomes Wiki: <a href="/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-40">VCF 4.0</a></p>
+</div>
+  </div>
+
+  
+</div></div> <!-- /node-inner, /node -->          </div> <!-- /#main-content -->
+
+          
+		
+		</div> <!-- // #content-inner -->
+	  </div> <!-- //#content -->
+	</div> <!-- //end #main -->
+
+    
+        <div id="sidebar-right" class="column sidebar region grid-3">
+	    <div id="sidebar-right-inner">
+          <div id="block-user-1" class="block block-user region-odd odd region-count-1 count-1"><div class="block-inner">
+
+      <h2 class="title">Navigation</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first last"><a href="/faq">Frequently Asked Questions</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-block-3" class="block block-block region-even even region-count-2 count-2"><div class="block-inner">
+
+      <h2 class="title">Links</h2>
+  
+  <div class="content">
+    
+<ul class="rightbar">
+ <li id="megaphone"><a href="/announcements"><span>All project announcements</span></a></li>
+ <li id="floppy"><a href="/formats"><span>Files and formats</span></a></li>
+ <li id="tools"><a href="/tools"><span>Software tools</span></a></li>
+ <li id="star"><a href="/sites/1000genomes.org/files/docs/nature09534.pdf"><span>Download the 1000 Genomes Pilot Paper</span></a></li>
+</ul>
+<ul class="rightbar">
+ <li>&nbsp;</li>
+ <li id="email"><a href="/contact"><span>Project Contacts</span></a></li>
+</ul>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+      </div>
+    </div> <!--//end #sidebar-right-inner -->
+    
+

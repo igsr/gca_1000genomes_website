@@ -1,0 +1,98 @@
+---
+layout: page
+title: "How to download files using aspera | 1000 Genomes"
+permalink: /faq/how-download-files-using-aspera/
+---
+    <div id="main" class="column grid-13 ">
+  	  <div id="content">
+  	    <div id="content-inner">
+
+          <div class="breadcrumb"><a href="/">Home</a> › <a href="/faq">FAQ</a> › </div>
+          
+          
+                    
+          
+          <div id="main-content" class="region clear-block">
+            
+<div id="node-736" class="node node-type-faq-question"><div class="node-inner onethousand_clean">
+
+  
+      <h2 class="title">
+      <a href="/faq/how-download-files-using-aspera" title="How to download files using aspera">How to download files using aspera</a>
+    </h2>
+  
+  
+      <div class="meta">
+      
+              <div class="terms terms-inline"><ul class="links inline"><li class="taxonomy_term_45 first"><a href="/category/aspera" rel="tag" title="">Aspera</a></li>
+<li class="taxonomy_term_2"><a href="/category/data-access" rel="tag" title="">Data Access</a></li>
+<li class="taxonomy_term_17 last"><a href="/category/tools" rel="tag" title="">tools</a></li>
+</ul></div>
+          </div>
+  
+  <div class="content">
+    <div class="field field-type-text field-field-faq-answer">
+      <div class="field-label">Answer:&nbsp;</div>
+    <div class="field-items">
+            <div class="field-item odd">
+                    
+<p>The data is available via an Aspera server from both the EBI and NCBI. To be able to use this service you need to download the&nbsp;<a href="http://asperasoft.com/software/transfer-clients/connect-web-browser-plug-in/">Aspera connect</a>&nbsp;software. This provides both a browser plug in for downloading data and a bulk download client called ascp</p>
+<p>The plugin should automatically start when you visit either the&nbsp;<a href="http://dev.1000genomes.org/aspera">EBI Aspera site</a> or <a href="http://www.ncbi.nlm.nih.gov/projects/faspftp/1000genomes/">NCBI Aspera site</a>.</p>
+<p>An example command line for ascp looks like:</p>
+<p>&nbsp;</p>
+<pre>ascp -i bin/aspera/etc/asperaweb_id_dsa.putty -Tr -Q -l 100M -L- fasp-g1k@fasp.1000genomes.ebi.ac.uk:vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz ./</pre>
+<p>&nbsp;</p>
+<p>The argument to -i may be different depending on the location of the default key file. This command should not ask you for a password. All the 1000 genomes data is freely accessible but you do need to give ascp the ssh key to complete the command.</p>
+        </div>
+        </div>
+</div>
+<div class="field field-type-nodereference field-field-faq-related">
+      <div class="field-label">Related questions:&nbsp;</div>
+    <div class="field-items">
+            <div class="field-item odd">
+                    <a href="/faq/can-i-search-ftp-site">Can I search the ftp site?</a>        </div>
+              <div class="field-item even">
+                    <a href="/faq/where-most-recent-release">Where is the most recent release?</a>        </div>
+              <div class="field-item odd">
+                    <a href="/faq/where-are-your-alignment-files-located">Where are your alignment files located?</a>        </div>
+              <div class="field-item even">
+                    <a href="/faq/can-i-access-1000-genomes-data-globus-online">Can I access 1000 Genomes data with Globus Online?</a>        </div>
+        </div>
+</div>
+  <div id="book-navigation-503" class="book-navigation">
+    
+        <div class="page-links clear-block">
+              <a href="/faq/how-do-i-cite-1000-genomes-project" class="page-previous" title="Go to previous page">‹ How do I cite the 1000 genomes project</a>
+                    <a href="/faq" class="page-up" title="Go to parent page">up</a>
+                    <a href="/faq/1000-genomes-sequencing-data-contaminated-mycoplasma" class="page-next" title="Go to next page">Is the 1000 Genomes sequencing data contaminated with mycoplasma? ›</a>
+          </div>
+    
+  </div>
+  </div>
+
+  
+</div></div> <!-- /node-inner, /node -->          </div> <!-- /#main-content -->
+
+          
+		
+		</div> <!-- // #content-inner -->
+	  </div> <!-- //#content -->
+	</div> <!-- //end #main -->
+
+    
+        <div id="sidebar-right" class="column sidebar region grid-3">
+	    <div id="sidebar-right-inner">
+          <div id="block-user-1" class="block block-user region-odd odd region-count-1 count-1"><div class="block-inner">
+
+      <h2 class="title">Navigation</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first last"><a href="/faq">Frequently Asked Questions</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+      </div>
+    </div> <!--//end #sidebar-right-inner -->
+    
+
