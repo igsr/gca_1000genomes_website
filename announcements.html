@@ -26,7 +26,7 @@ permalink: /announcements/
         <div class="views-row views-row-1 views-row-odd views-row-first">
       
   <div class="views-field-field-announcement-date-value">
-                <span class="field-content"><span class="date-display-single">{{announcement.date}}</span></span>
+                <span class="field-content"><span class="date-display-single">{{announcement.date | date: '%A %B %d, %Y' }}</span></span>
   </div>
   
   <div class="views-field-title">
