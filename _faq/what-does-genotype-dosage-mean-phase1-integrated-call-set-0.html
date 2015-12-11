@@ -1,0 +1,13 @@
+---
+layout: faq
+title: "What does Genotype Dosage mean in the phase1 integrated call set?"
+faq_tags:
+  - data-analysis
+  - dosage
+  - genotypes
+---
+                    
+<p>The Genotype Dosage value comes from <a href="http://genome.sph.umich.edu/wiki/UMAKE">Mach/Thunder</a>, imputation engine used for genotype refinement in the <a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/">phase1 data set</a>.&nbsp;</p>
+<p>The Dosage represents the predicted dosage of the non reference allele given the data available, it will always have a value between 0 and 2.</p>
+<p><span>The formula is <strong>Dosage = Pr(Het|Data) +&nbsp;</strong></span><strong>2*Pr(Alt|Data)</strong></p>
+<p>The dosage value gives an indication of how well the genotype is supported by the imputation engine. The genotype likelihood gives an indication of how well the genotype is supported by the sequence data.</p>

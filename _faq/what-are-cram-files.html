@@ -1,0 +1,19 @@
+---
+layout: faq
+title: "What are CRAM files?"
+faq_tags:
+  - alignment
+  - bam
+  - cram
+  - data-access
+  - data-analysis
+faq_related:
+  - what-format-are-your-alignments-and-what-do-names-mean
+  - where-are-your-alignment-files-located
+---
+                    
+<p>CRAM files are alignment files like BAM files. They represent a compressed version of the alignment. This compression is driven by the reference the sequence data is aligned to.</p>
+<p>The file format was designed by the <a href="http://www.ebi.ac.uk/ena/about/cram_toolkit">EBI</a> to reduce the disk foot print of alignment data in these days of ever increasing data volumes.&nbsp;</p>
+<p>The CRAM files the 1000 genomes project distributes are lossy cram files which reduce the base quality scores using the Illumina 8 bin compression scheme as describe in the lossy compression section on the <a href="http://www.ebi.ac.uk/ena/about/cram_usage">cram usage page</a></p>
+<p>There is a <a href="http://listserver.ebi.ac.uk/mailman/listinfo/cram-dev">cram developers mailing list</a> where the format is discussed and help can be found.</p>
+<p>CRAM files can be read using many Picard tools and work is being done to ensure samtools can also read the file format natively.</p>

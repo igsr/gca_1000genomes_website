@@ -1,0 +1,85 @@
+{% include head.html %}
+
+<body class="front not-logged-in node-type-page one-sidebar sidebar-right">
+{% include base_header.html %}
+
+  <div id="page" class="container-16 clear-block">
+
+    <a name="navigation-top" id="navigation-top"></a>
+    
+{% include header.html %}
+
+    <div id="main" class="column grid-13 ">
+  	  <div id="content">
+  	    <div id="content-inner">
+
+          <div id="main-content" class="region clear-block">
+            <div class="view view-taxonomy-term view-id-taxonomy_term view-display-id-page">
+      <div class="view-content">
+
+
+        <div class="views-row">
+    
+{% assign short_name = (page.relative_path | remove_first: site.collections.faq_categories.relative_directory | remove_first: '/' | remove: '.html') %}
+{% for faq in site.faq %}{% for matched_tag in faq.faq_tags %}{% if short_name == matched_tag %}
+<div class="node node-teaser node-type-faq-question"><div class="node-inner onethousand_clean">
+
+  
+      <h2 class="title">
+      <a href="{{ faq.url }}" title="{{ faq.title }}">{{ faq.title }}</a>
+    </h2>
+  
+  
+      <div class="meta">
+              <div class="terms terms-inline"><ul class="links inline">
+{% for tag in faq.faq_tags %}
+<li class="taxonomy_term_2"><a href="/category/{{ tag }}" rel="tag" title="">{{ tag }}</a></li>
+{% endfor %}
+</ul></div>
+          </div>
+  
+  <div class="content">
+    <div class="field field-type-text field-field-faq-answer">
+      <div class="field-label">Answer:&nbsp;</div>
+    <div class="field-items">
+            <div class="field-item odd">
+
+    {{ faq.content }}
+                    
+        </div>
+        </div>
+</div>
+<div class="field field-type-nodereference field-field-faq-related">
+      <div class="field-label">Related questions:&nbsp;</div>
+    <div class="field-items">
+    {% for faq_related in faq.faq_related %}{% capture url_related %}{{ faq_related | prepend: '/faq/' | append: '/' }}{% endcapture %}
+    {% assign matched_faq = (site.faq | where: "url", url_related) %}
+    {% for faq2 in matched_faq %}<div class="field-item {% cycle 'odd', 'even' %}">
+        <a href="{{faq2.url}}">{{faq2.title}}</a>
+    </div>{% endfor %}
+    {% endfor %}
+        </div>
+</div>
+  </div>
+
+  
+</div></div> <!-- /node-inner, /node -->  </div>
+{% endif %}{% endfor %}{% endfor %}
+</div></div></div></div>
+		</div> <!-- // #content-inner -->
+	  </div> <!-- //#content -->
+	</div> <!-- //end #main -->
+
+
+  </div> <!-- /#page -->
+
+    <div id="footer" class="prefix-1 suffix-1">
+      
+              <div id="footer-message" class="grid-16">
+          &copy; 1000 Genomes 2008-2012
+<p>Site maintained by the External Services team at <a href="http://www.ebi.ac.uk/">EMBL-EBI</a> | <a href="http://www.ebi.ac.uk/Information/termsofuse.html">Terms of Use</a> | <a href="http://www.ebi.ac.uk/Information/privacy.html">Privacy</a> | <a href="http://www.ebi.ac.uk/Information/e-directive.html">Cookies</a></p>        </div>
+          </div> <!-- /#footer -->
+
+
+</body>
+</html>

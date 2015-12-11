@@ -1,74 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
-
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>{{page.title}}</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="shortcut icon" href="/sites/1000genomes.org/themes/custom/one_thousand_genomes/favicon.ico" type="image/x-icon" />
-  <link type="text/css" rel="stylesheet" media="all" href="/sites/1000genomes.org/files/css/css_40b21829dd68eadd3eb689e208cb07c8.css" />
-<link type="text/css" rel="stylesheet" media="print" href="/sites/1000genomes.org/files/css/css_9f46ba886d657fe8c90a9ab4d2395a33.css" />
-<!--[if IE]>
-<link type="text/css" rel="stylesheet" media="all" href="/sites/1000genomes.org/themes/contrib/zen_ninesixty/ie.css?O" />
-<![endif]-->
-  <script type="text/javascript" src="/sites/1000genomes.org/files/js/js_a3830ab130d8d6ac8d362216f42cce18.js"></script>
-<script type="text/javascript">
-<!--//--><![CDATA[//><!--
-jQuery.extend(Drupal.settings, {"basePath":"\/"});
-//--><!]]>
-</script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-<script type="text/javascript">   var $jq = jQuery.noConflict(); </script>
-</head>
+{% include head.html %}
 
 <body class="front not-logged-in node-type-page one-sidebar sidebar-right">
-<div id="header-top-colouring"><div id="header-top-logo"></div></div>
+{% include base_header.html %}
+
   <div id="page" class="container-16 clear-block">
 
     <a name="navigation-top" id="navigation-top"></a>
     
-    <div id="site-header" class="clear-block">
-	    <div id="header-inner">
-        <div id="branding" class="grid-8 clear-block">
-                    		  		  <div id="site-name" class="grid-7 omega">
-          	<a href="/" title="Home" rel="home">1000 Genomes</a>
-		  </div>
-					                        <div id="site-slogan" class="grid-8 omega">A Deep Catalog of Human Genetic Variation</div>
-                  </div> <!--/#branding -->
-
-                <div id="site-menu" class="grid-12 clear-block">
-          <div id="navbar-inner">
-            <ul class="links main-menu"><li class="menu-485 first{% if page.tags contains "Home" %} active-trail active{% endif %}"><a href="/home" title="Home"{% if page.tags contains "Home" %} class="active"{% endif %}>Home</a></li>
-<li class="menu-486{% if page.tags contains "About" %} active-trail active{% endif %}"><a href="/about" title="About"{% if page.tags contains "About" %} class="active"{% endif %}>About</a></li>
-<li class="menu-487{% if page.tags contains "Data" %} active-trail active{% endif %}"><a href="/data" title="Data"{% if page.tags contains "Data" %} class="active"{% endif %}>Data</a></li>
-<li class="menu-744{% if page.tags contains "Analysis" %} active-trail active{% endif %}"><a href="/analysis" title="Analysis"{% if page.tags contains "Analysis" %} class="active"{% endif %}>Analysis</a></li>
-<li class="menu-489{% if page.tags contains "Participants" %} active-trail active{% endif %}"><a href="/participants" title="Participants"{% if page.tags contains "Participants" %} class="active"{% endif %}>Participants</a></li>
-<li class="menu-490{% if page.tags contains "Contact" %} active-trail active{% endif %}"><a href="/contact" title="Contact"{% if page.tags contains "Contact" %} class="active"{% endif %}>Contact</a></li>
-<li class="menu-491{% if page.tags contains "Browser" %} active-trail active{% endif %}"><a href="/1000-genomes-browsers" title="The 1000 Genomes Browser"{% if page.tags contains "Browser" %} class="active"{% endif %}>Browser</a></li>
-</ul>                      </div> <!--/#navbar-inner -->
-        </div> <!--/#site-menu -->
-                          <div id="search-box" class="grid-4"><form action="/"  accept-charset="UTF-8" method="post" id="search-theme-form">
-<div><div id="search" class="container-inline">
-  <div class="form-item" id="edit-search-theme-form-1-wrapper">
- <label for="edit-search-theme-form-1">Search this site: </label>
- <input type="text" maxlength="128" name="search_theme_form" id="edit-search-theme-form-1" size="15" value="" title="Enter the terms you wish to search for." disabled="disabled" class="form-text" />
-</div>
-<input type="submit" name="op" id="edit-submit" value="Search"  disabled="disabled" class="form-submit" />
-<input type="hidden" name="form_build_id" id="form-M6z54kAuPIbC2FHaQTrzs3VaR98MKUgKS2y8D_lDug4" value="form-M6z54kAuPIbC2FHaQTrzs3VaR98MKUgKS2y8D_lDug4"  disabled="disabled" />
-<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form"  disabled="disabled" />
-</div>
-
-</div></form>
-</div>
-        
-      </div> <!--/#header-inner -->
-
-      <div id="site-subheader" class="prefix-1 suffix-1 clear-block">
-        
-              </div> <!--/#site-subheader -->
-	  </div> <!--/#site-header -->
+{% include header.html %}
 
           {{ content }}
 

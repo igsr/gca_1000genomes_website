@@ -1,0 +1,33 @@
+---
+layout: faq
+title: "What is the depth of coverage of your Phase1 variants?"
+faq_tags:
+  - data-access
+  - data-analysis
+  - data-slicer
+  - depth
+  - vcf
+faq_related:
+  - how-do-i-get-sub-section-vcf-file
+  - can-i-convert-vcf-files-plinkped-format
+  - can-i-get-genotypes-specific-individualpopulation-your-vcf-files
+---
+                    
+<p>The&nbsp;<a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/">Phase1 integrated variant</a>&nbsp;set does not report the depth of coverage for each individual at each site. We instead report genotype likelihoods and dosage. If you would like to see depth of coverage numbers you will need to calculate them directly.</p>
+<p>The&nbsp;<a href="http://code.google.com/p/bedtools/">bedtools</a>&nbsp;suite provides a method to do this.&nbsp;</p>
+<p><strong>genomeCoverageBed</strong>&nbsp;is a tool which can provide a bed file which specifies coverage for every base in the genome and&nbsp;<strong>i</strong><strong>ntersectBed</strong>&nbsp;which will provide an intersection between two vcf/bed/bam files</p>
+<p>These commands also require&nbsp;<a href="http://samtools.sourceforge.net/">samtools</a>,&nbsp;<a href="http://sourceforge.net/projects/samtools/files/tabix/">tabix</a>&nbsp;&nbsp;and&nbsp;<a href="http://vcftools.sourceforge.net/">vcftools</a>&nbsp;to be installed</p>
+<p>an example set of commands would be</p>
+<p>&nbsp;</p>
+<pre>samtools view -b  <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data/HG01375/alignment/HG01375.mapped.ILLUMINA.bwa.CLM.low_coverage.20120522.bam" title="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data/HG01375/alignment/HG01375.mapped.ILLUMINA.bwa.CLM.low_coverage.20120522.bam">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data/HG01375/alignment/HG01375.mapped.ILLUMINA.bwa.CLM.low_coverage.20120522.bam</a> 2:1,000,000-2,000,000 | genomeCoverageBed -ibam stdin -bg &gt; coverage.bg </pre>
+<p>&nbsp;</p>
+<p>This command gives you a bedgraph file of the coverage of the HG01375 bam between 2:1,000,000-2,000,000</p>
+<p>&nbsp;</p>
+<pre>tabix -h <a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.vcf.gz" title="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.vcf.gz">http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/ALL.chr2.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.vcf.gz</a> 2:1,000,000-2,000,000 | vcf-subset -c HG01375 | bgzip -c &gt; HG01375.vcf.gz</pre>
+<p>&nbsp;</p>
+<p>This command gives you the vcf file for 2:1,000,000-2,000,000 with just the genotypes for HG01375</p>
+<p>To get the coverage for all those sites you would use</p>
+<p>&nbsp;</p>
+<pre>intersectBed -a HG01375.vcf.gz -b coverage.bg -wb &gt; depth_numbers.vcf</pre>
+<p>You can find more information about bed file formats please see the&nbsp;<a href="http://genome.ucsc.edu/FAQ/FAQformat.html">UCSC File Formats Help</a></p>
+<p>For more information you may wish to look at our documentation about&nbsp;<a href="/faq/how-do-i-get-slice-your-vcf-files">data slicing</a></p>

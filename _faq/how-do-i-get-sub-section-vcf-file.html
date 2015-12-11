@@ -1,0 +1,24 @@
+---
+layout: faq
+title: "How do I get a sub-section of a vcf file?"
+faq_tags:
+  - data-access
+  - tabix
+  - tools
+  - variants
+  - vcf
+faq_related:
+  - can-i-convert-vcf-files-plinkped-format
+  - what-depth-coverage-your-phase1-variants
+  - can-i-find-genomic-position-list-dbsnp-rs-numbers-0
+  - can-i-get-genotypes-specific-individualpopulation-your-vcf-files
+  - can-i-get-individual-genotype-information-browser1000genomesorg
+---
+                    
+<p>There are two ways to get subsections of our VCF files.</p>
+<p>The first is to use the&nbsp;<a href="http://browser.1000genomes.org/tools.html">Data Slicer tool</a>&nbsp;from our&nbsp;<a href="http://browser.1000genomes.org/">browser</a>&nbsp;which is&nbsp;<a href="/data-slicer">documented here</a>. This tool gives you a web interface requesting the url of any vcf file and the genomic location you wish to get a sub slice for. This tool also works for BAM files. This tool also allows you to filter the file for particular individuals or populations if you also provide a panel file.</p>
+<p>The second method is using <a href="http://sourceforge.net/projects/samtools/files/tabix/">tabix</a> on the command line. e.g&nbsp;</p>
+<pre>tabix -h <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz" title="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz</a> 2:39967768-39967768</pre>
+<p>The VCF format and a c++ and perl tool set for vcf files can be found at <a href="http://vcftools.sourceforge.net/">vcftools on sourceforge</a></p>
+<p>Please note all our vcf files using straight intergers and X/Y for their chromosome names in the Ensembl style rather than using chr1 in the UCSC style. If you request a subsection of a vcf file using a chromosome name in the style chrN as shown below it will not work.</p>
+<pre>  tabix -h <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz" title="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz">ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz</a> chr2:39967768-39967768</pre>

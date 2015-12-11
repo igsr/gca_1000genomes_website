@@ -5,9 +5,16 @@ description: > # this means to ignore newlines until "baseurl:"
   1000 genomes is an international research effort to establish by far the most detailed catalogue of human genetic variation
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://hipsci.github.io" # the base hostname & protocol for your site
-permalink: /:categories/:title
+permalink: /:categories/:title/
 gems:
     - jekyll-redirect-from
+collections:
+    faq_categories:
+        output: true
+        permalink: /category/:path/
+    faq:
+        output: true
+        permalink: /faq/:path/
 
 # Build settings
 markdown: kramdown

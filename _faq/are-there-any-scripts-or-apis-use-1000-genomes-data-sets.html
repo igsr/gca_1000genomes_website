@@ -1,0 +1,18 @@
+---
+layout: faq
+title: "Are there any scripts or apis for use with the 1000 genomes data sets?"
+faq_tags:
+  - bam
+  - data-access
+  - tools
+  - vcf
+faq_related:
+  - can-i-access-databases-associated-browser
+  - 1000-genomes-data-available-genome-browsers
+  - can-i-get-genotypes-specific-individualpopulation-your-vcf-files
+---
+                    
+<p>There are no 1000 genomes specific apis or tools. Our data is all in standard formats like SAM and VCF and these do have tools associated with them.</p>
+<p>To manipulate SAM/BAM files look at <a href="http://samtools.sourceforge.net/">samtools</a> for a C based toolkit and links to apis in other languages.</p>
+<p>To interact with VCF files look at <a href="http://vcftools.sourceforge.net" target="_blank">vcftools</a> which is a set of perl and c++ code.</p>
+<p>We also provide a public mysql instance with copies of the databases behind our Ensembl browser for 1000 genomes data. These databases are described <a href="/public-ensembl-mysql-instance">on our public instance page</a></p>
