@@ -11,11 +11,11 @@ layout: null
 {% for announcement in site.categories.announcements %}
           <item>
     <title>{{announcement.title}}</title>
-    <link>{{announcement.url}}</link>
+    <link>{{site.url}}{{announcement.url}}</link>
     <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
     &lt;div class=&quot;field-items&quot;&gt;
             &lt;div class=&quot;field-item odd&quot;&gt;
-                    &lt;span class=&quot;date-display-single&quot;&gt;{{announcement.date | date_to_rfc822 }}&lt;/span&gt;        &lt;/div&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;{{announcement.date | date: '%A %B %d, %Y' }}&lt;/span&gt;        &lt;/div&gt;
         &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
@@ -27,14 +27,14 @@ layout: null
 &lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
     &lt;div class=&quot;field-items&quot;&gt;
             &lt;div class=&quot;field-item odd&quot;&gt;
-{{ post.content | xml_escape }}
+{{ announcement.content | xml_escape }}
         &lt;/div&gt;
         &lt;/div&gt;
 &lt;/div&gt;
 </description>
-     <pubDate>Fri, 27 Nov 2015 13:44:50 +0000</pubDate>
+     <pubDate>{{announcement.date | date_to_rfc822}}</pubDate>
  <dc:creator>laura@ebi.ac.uk</dc:creator>
  <guid isPermaLink="false">1148 at http://local-prod-portals.1000genomes.org</guid>
-  </item>{%endfor}
+  </item>{%endfor%}
   </channel>
 </rss>

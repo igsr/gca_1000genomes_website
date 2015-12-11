@@ -1,0 +1,18 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% for post in site.posts %}<url>
+    <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
+    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+  </url>
+  {% endfor %}{% for page in site.html_pages %}<url>
+    <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
+    <lastmod>{{ site.default_sitemap_lastmod | date_to_xmlschema }}</lastmod>
+  </url>
+  {% endfor %}{% for statis in site.html_files %}<url>
+    <loc>{{ static.path | prepend: site.baseurl | prepend: site.url }}</loc>
+    <lastmod>{{ static.modified_time | date_to_xmlschema }}</lastmod>
+  </url>
+  {% endfor %}</urlset>
