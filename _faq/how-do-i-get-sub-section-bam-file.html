@@ -13,7 +13,7 @@ faq_related:
 ---
                     
 <p>There are two ways to get subsections of our bam files.</p>
-<p>The first is to use the <a href="http://browser.1000genomes.org/tools.html">Data Slicer tool</a> from our <a href="http://browser.1000genomes.org/">browser</a> which is <a href="/data-slicer">documented here</a>. This tool gives you a web interface requesting the url of any bam file and the genomic location you wish to get a sub slice for. This tool also works for VCF files.</p>
+<p>The first is to use the <a href="http://browser.1000genomes.org/tools.html">Data Slicer tool</a> from our <a href="http://browser.1000genomes.org/">browser</a> which is <a href="http://www.1000genomes.org/data-slicer">documented here</a>. This tool gives you a web interface requesting the url of any bam file and the genomic location you wish to get a sub slice for. This tool also works for VCF files.</p>
 <p>The second it to use <a href="http://samtools.sourceforge.net/">samtools</a> on the command line, e.g</p>
 <pre>samtools view -h <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data/NA18130/alignment/NA18130.chrom17.LS454.ssaha2.CHD.exon_targetted.20100311.bam" target="_blank">ftp</a><a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data/NA18130/alignment/NA18130.chrom17.LS454.ssaha2.CHD.exon_targetted.20100311.bam" target="_blank">://ftp.1000genomes.ebi.ac.uk/vol1/ftp</a>/phase1/data/HG00154/alignment/HG00154.mapped.ILLUMINA.bwa.GBR.low_coverage.20101123.bam 17:7512445-7513455</pre>
 <p>Samtools supports streaming files and piping commands together both using local and remote files. You can get more help with samtools from the <a href="http://sourceforge.net/mail/?group_id=246254">samtools help mailing list</a></p>

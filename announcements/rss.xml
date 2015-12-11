@@ -5,6 +5,256 @@
     <description></description>
     <language>en</language>
           <item>
+    <title>Changes to the 1000 Genomes Globus endpoint</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/changes-1000-genomes-globus-endpoint-2015-11-27</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Friday November 27, 2015&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Normal        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;EMBL-EBI has recently rearranged its Globus hosted endpoints.&lt;/p&gt;
+&lt;p&gt;This means the Globus endpoint for 1000G data is changing from ebi#1000g to ebi#public (&#039;1000g&#039; subfolder). The old endpoint will be discontinued shortly. The new endpoint is configured to achieve increased reliability and performance. If you have any questions about the change please contact &lt;a href=&quot;mailto:info@1000genomes.org&quot;&gt;info@1000genomes.org&lt;/a&gt;.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Fri, 27 Nov 2015 13:44:50 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">1148 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>GRCh38 mapping of the Illumina Platinum Genomes CEU pedigree</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/grch38-mapping-illumina-platinum-genomes-ceu-pedigree-2015-10-16</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Friday October 16, 2015&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Normal        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;We have aligned the &lt;a href=&quot;http://www.illumina.com/platinumgenomes/&quot;&gt;Illumina Platinum pedigree&lt;/a&gt; sequence data to GRCh38. The data was aligned to the full assembly including the GRC maintained alternate loci along with decoy and &lt;a href=&quot;https://www.ebi.ac.uk/ipd/imgt/hla/&quot;&gt;additional HLA sequences from the IMGT&lt;/a&gt;. A copy of the FASTA file can be found in &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/&quot;&gt;our reference directory&lt;/a&gt;. The alignment was carried out using a new alt-aware version of BWA-mem.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;The alignment files themselves can be found in the &lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/data&quot;&gt;data_collections/illumina_platinum_pedigree/data&lt;/a&gt;&amp;nbsp;directory.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/illumina_platinum_ped.GRCh38DH.alignment.index&quot;&gt;alignment index&lt;/a&gt; and &lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/illumina_platinum_ped.sequence.index&quot;&gt;sequence index&lt;/a&gt;&amp;nbsp;can be found in the &lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/&quot;&gt;data_collections/illumina_platinum_pedigree&lt;/a&gt; directory.&lt;/p&gt;
+&lt;p&gt;Please note, alignment files are now being distributed in CRAM format, rather than BAM format. You can find more details about CRAM in this &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_using_1000genomes_cram.md&quot;&gt;README&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Further details of our alignment pipeline can be found in the &lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/README_illumina_platinum_pedigree.md&quot;&gt;data collection README&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have any questions please email &lt;a href=&quot;mailto:info@1000genomes.org&quot;&gt;info@1000genomes.org&lt;/a&gt;.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Fri, 16 Oct 2015 12:21:35 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">1146 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>Slides are now available from the #ASHG15 1000 Genomes Tutorial</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/slides-are-now-available-ashg15-1000-genomes-tutorial-2015-10-14</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Wednesday October 14, 2015&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Normal        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;You can now find the slides presented at the ASHG 2015 1000 Genomes tutorial in Baltimore on the &lt;a href=&quot;http://www.1000genomes.org/ashg-2015-1000-genomes-tutorial-thursday-october-8th-7-9pm-baltimore-convention-center-room-327-leve&quot;&gt;tutorial page.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you have any questions about the contents of the slides or our data please email &lt;a href=&quot;mailto:info@1000genomes.org&quot;&gt;info@1000genomes.org&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Wed, 14 Oct 2015 10:10:16 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">1144 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>GRCh38 mapping of the 1000 Genomes low coverage data is now available</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/grch38-mapping-1000-genomes-low-coverage-data-now-available-2015-10-10</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Saturday October 10, 2015&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Normal        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;We have realigned the low coverage 1000 Genomes sequence data to GRCh38. We aligned to the full assembly including the GRC maintained alternate loci sequences and decoy and &lt;a href=&quot;https://www.ebi.ac.uk/ipd/imgt/hla/&quot;&gt;additional HLA sequences from the IMGT&lt;/a&gt;, our fasta file can be found in &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/&quot;&gt;our reference directory&lt;/a&gt;. The alignment was carried out using a new alt-aware version of &lt;a href=&quot;https://github.com/lh3/bwa/tree/master/bwakit&quot;&gt;BWA-mem&lt;/a&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;The alignment files themselves can be found in the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/data&quot;&gt;data_collections/1000_genomes_project/data&lt;/a&gt; directory.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/1000genomes.low_coverage.GRCh38DH.alignment.index&quot;&gt;alignment index&lt;/a&gt; and &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/1000genomes.sequence.index&quot;&gt;sequence.index&lt;/a&gt;&amp;nbsp;can be found in the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/&quot;&gt;data_collections/1000_genomes_project&lt;/a&gt;directory.&lt;/p&gt;
+&lt;p&gt;Please note, these files are now being distributed in CRAM format, rather than BAM format. You can find more details about CRAM in this &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_using_1000genomes_cram.md&quot;&gt;README&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Full details of our alignment pipeline can be found in the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/README.1000genomes.GRCh38DH.alignment&quot;&gt;alignment pipeline README&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you have any questions please email &lt;a href=&quot;mailto:info@1000genomes.org&quot;&gt;info@1000genomes.org&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Sat, 10 Oct 2015 19:48:36 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">1142 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>Phase3 Mitochondrial Chromosome Variants now available</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/phase3-mitochondrial-chromosome-variants-now-available-2015-10-06</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Tuesday October 06, 2015&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Normal        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;Mitochondrial chromosome variants are now available for the Phase 3 individuals from our &lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/&quot;&gt;FTP site&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For any more information about the variants or the rest of the dataset please email &lt;a href=&quot;mailto:info@1000genomes.org&quot;&gt;info@1000genomes.org&amp;nbsp;&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Tue, 06 Oct 2015 21:30:21 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">1140 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>A global reference for human genetic variation</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/global-reference-human-genetic-variation-2015-09-30</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Wednesday September 30, 2015&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Special        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;The Phase 3 publication, &lt;a href=&quot;http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html&quot;&gt;A global reference for human genetic variation&lt;/a&gt; and the Phase 3 Structural variation publication, &lt;a href=&quot;http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html&quot;&gt;An integrated map of structural variation in 2,504 human genomes&lt;/a&gt;&amp;nbsp;are now available from &lt;a href=&quot;http://www.nature.com/nature/index.html&quot;&gt;Nature&lt;/a&gt; alongside a &lt;a href=&quot;http://www.nature.com/collections/dcfqmlgsrw&quot;&gt;celebration of 25 years of the Human Genome Project&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The variants from the Phase 3 analysis are available in &lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/&quot;&gt;ftp/release/20130502/&lt;/a&gt;&amp;nbsp;and extended information about the SV dataset can be found in &lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/&quot;&gt;ftp/phase3/integrated_sv_map/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Both these papers are open access and should be free for everyone to read and download.&lt;/p&gt;
+&lt;p&gt;If you have any questions about the data these papers are based on or how to access it please email &lt;a href=&quot;mailto:info@1000genomes.org&quot;&gt;info@1000genomes.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/&quot; title=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/&quot;&gt;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Wed, 30 Sep 2015 17:34:55 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">1136 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>#ASHG2015 The 1000 Genomes Data Tutorial - 8th October, 7-9pm Baltimore Convention Centre, Room 327, Level 3</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/ashg2015-1000-genomes-data-tutorial-8th-october-7-9pm-baltimore-convention-centre-room</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Tuesday September 15, 2015&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Normal        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;The 1000 Genomes Project is holding a tutorial giving and overview of the 1000 Genomes Project, how to access the data and explaining different use cases for the data.&lt;/p&gt;
+&lt;p&gt;This tutorial will be held in the Baltimore Convention Centre, Room 327, Level 3.&lt;/p&gt;
+&lt;p&gt;For more details about the program please see the&amp;nbsp;&lt;a href=&quot;http://www.1000genomes.org/ashg-2015-1000-genomes-tutorial-thursday-october-8th-7-9pm-baltimore-convention-center-room-327-leve&quot;&gt;tutorial page&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;No registration is needed.&lt;/p&gt;
+&lt;p&gt;Email &lt;a href=&quot;mailto:info@1000genomes.org&quot;&gt;info@1000genomes.org&lt;/a&gt; if you have any questions.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Tue, 15 Sep 2015 08:41:33 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">1134 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>Our plan to rearrange the 1000 Genomes FTP site</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/our-plan-rearrange-1000-genomes-ftp-site-2015-09-07</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Monday September 07, 2015&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Special        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;Starting from the 14th September, we plan to rearrange the 1000 Genomes FTP site to reflect our on going efforts to provide support for the data generated by the 1000 Genomes Project and other data created on the 1000 Genomes cell lines.&lt;/p&gt;
+&lt;p&gt;This restructure involved creating a data_collections directory which will hold directories for each project or dataset. We plan to remove the headline ftp/data directory and move specific datasets into those data collection directories.&lt;/p&gt;
+&lt;p&gt;We are also improving our top level FTP READMEs and index files and the old files will be moved into a historical_data directory.&lt;/p&gt;
+&lt;p&gt;You can get an overview of the planned changes from this &lt;a href=&quot;/sites/1000genomes.org/files/documents/ftp_site_proposed_changes_20150901.pdf&quot;&gt;attached pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We will produce full changelogs which reflect these file moves and no files will be deleted.&lt;/p&gt;
+&lt;p&gt;If you have any questions about our plans please email&amp;nbsp;&lt;a href=&quot;mailto:info@1000genomes.org&quot;&gt;info@1000genomes.org&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Mon, 07 Sep 2015 08:54:20 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">1132 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
     <title>Phase3 alignment BAM files and sequence read fastq files have been moved </title>
     <link>http://local-prod-portals.1000genomes.org/announcements/phase3-alignment-bam-files-and-sequence-read-fastq-files-have-been-moved-2015-05-27</link>
     <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
@@ -477,7 +727,7 @@
                     
 &lt;p&gt;The 1000 Genomes project is giving a tutorial during ASHG 2013 in Boston. This meeting is free for the public to attend.&lt;/p&gt;
 &lt;p&gt;This meeting is free for the public to attend but we ask that you &lt;a href=&quot;http://www.bc.edu/content/bc/schools/cas/biology/Genomicsregistrationform.html&quot;&gt;register&lt;/a&gt;&amp;nbsp;so we know how many people to expect.&lt;/p&gt;
-&lt;p&gt;For full details of the schedule please see our &lt;a href=&quot;http://local-prod-portals.1000genomes.org/ashg13-1000-genomes-project-tutorial-october-23rd-boston-convention-exhibition-center-meetings-rooms&quot;&gt;2013 tutorial page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;For full details of the schedule please see our &lt;a href=&quot;http://www.1000genomes.org/node/955&quot;&gt;2013 tutorial page&lt;/a&gt;.&lt;/p&gt;
         &lt;/div&gt;
         &lt;/div&gt;
 &lt;/div&gt;
@@ -506,8 +756,9 @@
             &lt;div class=&quot;field-item odd&quot;&gt;
                     
 &lt;p&gt;The Functional Analysis group from the 1000 Genomes Project Consortium have published its findings based on the Phase 1 integrated analysis in &lt;a href=&quot;http://www.sciencemag.org/content/342/6154/1235587.abstract?rss=1&quot;&gt;Science&lt;/a&gt; today.&amp;nbsp;&lt;/p&gt;
-&lt;p&gt;The functional anotation itself is available from the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/functional_annotation/&quot;&gt;phase1 analysis results directory&lt;/a&gt; on our ftp site.&lt;/p&gt;
+&lt;p&gt;The functional annotation itself is available from the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/functional_annotation/&quot;&gt;phase1 analysis results directory&lt;/a&gt; on our FTP site.&lt;/p&gt;
 &lt;p&gt;We also provide the supplementary information associated with the paper in the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/paper/integrative_annotation/&quot;&gt;phase1 paper directory&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Please note if you end up here after the 30th September 2015, it is likely due to an error in twitter links. You are probably looking for our &lt;a href=&quot;http://www.1000genomes.org/announcements/global-reference-human-genetic-variation-2015-09-30&quot;&gt;Phase 3 publication announcement.&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
         &lt;/div&gt;
 &lt;/div&gt;
@@ -1310,34 +1561,6 @@
  <guid isPermaLink="false">686 at http://local-prod-portals.1000genomes.org</guid>
   </item>
   <item>
-    <title>New Alignment Release</title>
-    <link>http://local-prod-portals.1000genomes.org/announcements/new-alignment-release-2012-12-11</link>
-    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
-    &lt;div class=&quot;field-items&quot;&gt;
-            &lt;div class=&quot;field-item odd&quot;&gt;
-                    &lt;span class=&quot;date-display-single&quot;&gt;Tuesday December 11, 2012&lt;/span&gt;        &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
-    &lt;div class=&quot;field-items&quot;&gt;
-            &lt;div class=&quot;field-item odd&quot;&gt;
-                    Normal        &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
-    &lt;div class=&quot;field-items&quot;&gt;
-            &lt;div class=&quot;field-item odd&quot;&gt;
-                    
-&lt;p&gt;A new alignment release is available on the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;ftp site&lt;/a&gt;. The &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment_indices/20120522.exome.alignment.index&quot;&gt;exome&lt;/a&gt; and &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment_indices/20120522.alignment.index&quot;&gt;low coverage alignment.index&lt;/a&gt; files describes the location of all the alignment files This has been made based on the&amp;nbsp;&lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20120522.analysis.sequence.index&quot;&gt;20120522.analysis.sequence.index&lt;/a&gt;.&amp;nbsp;&lt;span&gt;All BAMs have gone through the DCC QA process; samples and runs identified as problematic have been withdrawn.&lt;/span&gt;&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-</description>
-     <pubDate>Tue, 11 Dec 2012 09:37:06 +0000</pubDate>
- <dc:creator>laura@ebi.ac.uk</dc:creator>
- <guid isPermaLink="false">674 at http://local-prod-portals.1000genomes.org</guid>
-  </item>
-  <item>
     <title>New Sequence Data is Available</title>
     <link>http://local-prod-portals.1000genomes.org/announcements/new-sequence-data-available-2012-12-11</link>
     <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
@@ -1370,6 +1593,34 @@
      <pubDate>Tue, 11 Dec 2012 15:29:38 +0000</pubDate>
  <dc:creator>laura@ebi.ac.uk</dc:creator>
  <guid isPermaLink="false">680 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>New Alignment Release</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/new-alignment-release-2012-12-11</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Tuesday December 11, 2012&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Normal        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;A new alignment release is available on the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;ftp site&lt;/a&gt;. The &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment_indices/20120522.exome.alignment.index&quot;&gt;exome&lt;/a&gt; and &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment_indices/20120522.alignment.index&quot;&gt;low coverage alignment.index&lt;/a&gt; files describes the location of all the alignment files This has been made based on the&amp;nbsp;&lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20120522.analysis.sequence.index&quot;&gt;20120522.analysis.sequence.index&lt;/a&gt;.&amp;nbsp;&lt;span&gt;All BAMs have gone through the DCC QA process; samples and runs identified as problematic have been withdrawn.&lt;/span&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Tue, 11 Dec 2012 09:37:06 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">674 at http://local-prod-portals.1000genomes.org</guid>
   </item>
   <item>
     <title>1000 Genomes Tutorial and Poster Slides #ASHG2012 </title>
@@ -1422,6 +1673,7 @@
                     
 &lt;p&gt;The Phase 1 publication, &lt;a href=&quot;http://www.nature.com/nature/journal/v491/n7422/full/nature11632.html&quot;&gt;An Integrated map of genetic variation from 1092 human genomes&lt;/a&gt; is now available from &lt;a href=&quot;http://www.nature.com/nature/index.html&quot;&gt;Nature&lt;/a&gt;&amp;nbsp;and can be downloaded directly from the&amp;nbsp;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/paper/&quot; target=&quot;_blank&quot;&gt;ftp site&lt;/a&gt;. &amp;nbsp;The paper is distributed under a&amp;nbsp;Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported licence. &amp;nbsp;Please share our paper appropriately.&lt;/p&gt;
 &lt;p&gt;All the data files associated with this paper can be found in our &lt;a href=&quot;http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/&quot;&gt;phase1 analysis results directory&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please note if you are looking for our Phase 3 paper, you might be here from twitter in error, our Phase 3 announcement is &lt;a href=&quot;http://www.1000genomes.org/announcements/global-reference-human-genetic-variation-2015-09-30&quot;&gt;a global reference for human variation&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
         &lt;/div&gt;
 &lt;/div&gt;
@@ -1877,7 +2129,7 @@
                     
 &lt;p&gt;This &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120316_phase1_integrated_release_version2&quot;&gt;February 2012&lt;/a&gt; release represents a new improved set of phased genotypes for our integrated phase 1 variant release. This release contains SNPS, short INDELs and Deletions based on low coverage and exome sequencing data across 1092 individuals.&lt;/p&gt;
 &lt;p&gt;Please note the sites list has been filtered to remove a small number of indels which were discovered to have a high false positve rate. There is more information about this in the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/README.phase1_integrated_release_version2_20120214&quot;&gt;README&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Our &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq&quot;&gt;FAQ&lt;/a&gt; contains instructions on how to get &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-do-i-get-sub-section-vcf-file&quot;&gt;smaller subsections&lt;/a&gt; of these files&lt;/p&gt;
+&lt;p&gt;Our &lt;a href=&quot;faq&quot;&gt;FAQ&lt;/a&gt; contains instructions on how to get &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-do-i-get-sub-section-vcf-file&quot;&gt;smaller subsections&lt;/a&gt; of these files&lt;/p&gt;
 &lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521&quot;&gt;EBI&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20110521&quot;&gt;NCBI&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Link to additional information:&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120316_phase1_integrated_release_version2/README.phase1_integrated_release_version2_20120214&quot;&gt;README file&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
@@ -1912,7 +2164,7 @@
   &lt;div class=&quot;field-item odd&quot;&gt;
    &lt;p&gt;Additional sequence data from the 1000 Genomes full project are now available. The current &lt;span&gt;&lt;span&gt;sequence.index&lt;/span&gt;&lt;/span&gt; file can be found at:&lt;/p&gt;
    &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20120130.sequence.index&quot; target=&quot;_blank&quot;&gt;20120130.sequence.index&lt;/a&gt;&lt;/p&gt;
-   &lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;data#DataAccess&quot;&gt;Instructions for data download and Aspera&lt;/a&gt;&lt;/p&gt;
+   &lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and Aspera&lt;/a&gt;&lt;/p&gt;
    &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/&quot;&gt;Sequence index and Statistics files&lt;/a&gt;&lt;/p&gt;
    &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data&quot;&gt;Sequence index file format&lt;/a&gt;&lt;/p&gt;
   &lt;/div&gt;
@@ -2253,7 +2505,7 @@
                     
 &lt;p&gt;Additional sequence data from the 1000 Genomes full project are now available. The current &lt;span&gt;&lt;span&gt;sequence.index&lt;/span&gt;&lt;/span&gt; file can be found at:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20110920.sequence.index&quot;&gt;20110920.sequence.index&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;data&quot;&gt;Instructions for data download and &lt;span&gt;&lt;span&gt;Aspera&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and &lt;span&gt;&lt;span&gt;Aspera&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/&quot;&gt;Sequence index and Statistics files&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data&quot;&gt;Sequence index file format&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
@@ -2315,7 +2567,7 @@
 &lt;div&gt;
  &lt;p&gt;The alignments based on the&amp;nbsp;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20110521.sequence.index&quot;&gt;&lt;span&gt;20110521.sequence.index&lt;/span&gt;&lt;/a&gt;&amp;nbsp;have been updated.&amp;nbsp;&lt;/p&gt;
  &lt;p&gt;&lt;span&gt;Illumina&lt;/span&gt;&amp;nbsp;data was aligned at Boston College and&amp;nbsp;&lt;span&gt;SOLiD&lt;/span&gt;&amp;nbsp;data at Baylor College of Medicine. Full project data is aligned to the&amp;nbsp;&lt;span&gt;GRCh37&lt;/span&gt;&amp;nbsp;human assembly. In the updated release, all Baylor SOLiD BAMs and associated bai and bas files have been replaced; the new BAMs are now re-calibrated and locally re-aligned.&lt;/p&gt;
- &lt;p&gt;Data access links:&amp;nbsp;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt;&amp;nbsp;/&amp;nbsp;&lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt;&amp;nbsp;/&amp;nbsp;&lt;a href=&quot;data&quot;&gt;Instructions for data download and&amp;nbsp;&lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+ &lt;p&gt;Data access links:&amp;nbsp;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt;&amp;nbsp;/&amp;nbsp;&lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt;&amp;nbsp;/&amp;nbsp;&lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and&amp;nbsp;&lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
         &lt;/div&gt;
         &lt;/div&gt;
@@ -2345,7 +2597,7 @@
             &lt;div class=&quot;field-item odd&quot;&gt;
                     
 &lt;p&gt;Additional sequence data from the 1000 Genomes full project are now available. The current &lt;span&gt;&lt;span&gt;sequence.index&lt;/span&gt;&lt;/span&gt; file can be found at: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20110719.sequence.index&quot;&gt;&lt;span&gt;&lt;span&gt;20110719.sequence.index&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;data&quot;&gt;Instructions for data download and &lt;span&gt;&lt;span&gt;Aspera&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and &lt;span&gt;&lt;span&gt;Aspera&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/&quot;&gt;Sequence index and Statistics files&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data&quot;&gt;Sequence index file format&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
@@ -2377,7 +2629,7 @@
                     
 &lt;p&gt;The alignments based on the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20110521.sequence.index&quot;&gt;&lt;span&gt;20110521.sequence.index&lt;/span&gt;&lt;/a&gt; have been released. This is the first set of &lt;span&gt;exome&lt;/span&gt; alignments to be released by the project.&lt;/p&gt;
 &lt;p&gt;&lt;span&gt;Illumina&lt;/span&gt; data was aligned at Boston College and &lt;span&gt;SOLiD&lt;/span&gt; data at Baylor College of Medicine. Full project data is aligned to the &lt;span&gt;GRCh37&lt;/span&gt; human assembly.&lt;/p&gt;
-&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;data&quot;&gt;Instructions for data download and &lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and &lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
         &lt;/div&gt;
 &lt;/div&gt;
@@ -2436,7 +2688,7 @@
     &lt;div class=&quot;field-items&quot;&gt;
             &lt;div class=&quot;field-item odd&quot;&gt;
                     
-&lt;p&gt;Genotypes for 1094 individuals for the &lt;a href=&quot;http://local-prod-portals.1000genomes.org/announcements/may-2011-data-release-2011-05-12&quot;&gt;May 2011 snp calls&lt;/a&gt; from the 20101123 sequence and alignment release of the 1000 genomes project has now been made. This release is based on the &lt;span&gt;GRCh37&lt;/span&gt; assembly of the human genome and is released in the format &lt;a href=&quot;http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-40&quot;&gt;VCF 4.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Genotypes for 1094 individuals for the &lt;a href=&quot;/node/506&quot;&gt;May 2011 snp calls&lt;/a&gt; from the 20101123 sequence and alignment release of the 1000 genomes project has now been made. This release is based on the &lt;span&gt;GRCh37&lt;/span&gt; assembly of the human genome and is released in the format &lt;a href=&quot;http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-40&quot;&gt;VCF 4.0&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Our &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq&quot;&gt;FAQ&lt;/a&gt; contains instructions on how to get &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-do-i-get-sub-section-vcf-file&quot;&gt;smaller subsections&lt;/a&gt; of these files&lt;/p&gt;
 &lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20101123/interim_phase1_release/&quot;&gt;EBI&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20101123/interim_phase1_release/&quot;&gt;NCBI&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Link to additional information:&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20101123/interim_phase1_release/README.20110511_interim_phase1_release&quot;&gt;README file&lt;/a&gt;&lt;/p&gt;
@@ -2509,37 +2761,6 @@
   </item>
   <item>
     <title>New Sequence Data is available</title>
-    <link>http://local-prod-portals.1000genomes.org/announcements/new-sequence-data-available-2011-05-21</link>
-    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
-    &lt;div class=&quot;field-items&quot;&gt;
-            &lt;div class=&quot;field-item odd&quot;&gt;
-                    &lt;span class=&quot;date-display-single&quot;&gt;Saturday May 21, 2011&lt;/span&gt;        &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
-    &lt;div class=&quot;field-items&quot;&gt;
-            &lt;div class=&quot;field-item odd&quot;&gt;
-                    Normal        &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
-    &lt;div class=&quot;field-items&quot;&gt;
-            &lt;div class=&quot;field-item odd&quot;&gt;
-                    
-&lt;p&gt;Additional sequence data from the 1000 Genomes full project are now available. The current &lt;span&gt;sequence.index&lt;/span&gt; file can be found at: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20110521.sequence.index&quot;&gt;&lt;span&gt;20110521.sequence.index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;data&quot;&gt;Instructions for data download and &lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/&quot;&gt;Sequence index and Statistics files&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data&quot;&gt;Sequence index file format&lt;/a&gt;&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-</description>
-     <pubDate>Sat, 21 May 2011 09:26:41 +0000</pubDate>
- <dc:creator>laura@ebi.ac.uk</dc:creator>
- <guid isPermaLink="false">509 at http://local-prod-portals.1000genomes.org</guid>
-  </item>
-  <item>
-    <title>New Sequence Data is available</title>
     <link>http://local-prod-portals.1000genomes.org/announcements/new-sequence-data-available-2011-05-21-0</link>
     <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
     &lt;div class=&quot;field-items&quot;&gt;
@@ -2558,7 +2779,7 @@
             &lt;div class=&quot;field-item odd&quot;&gt;
                     
 &lt;p&gt;Additional sequence data from the 1000 Genomes full project are now available. The current &lt;span&gt;&lt;span&gt;sequence.index&lt;/span&gt;&lt;/span&gt; file can be found at: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20110521.sequence.index&quot;&gt;&lt;span&gt;&lt;span&gt;20110521.sequence.index&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;data&quot;&gt;Instructions for data download and &lt;span&gt;&lt;span&gt;Aspera&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and &lt;span&gt;&lt;span&gt;Aspera&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/&quot;&gt;Sequence index and Statistics files&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data&quot;&gt;Sequence index file format&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
@@ -2568,6 +2789,37 @@
      <pubDate>Tue, 19 Jul 2011 14:06:07 +0000</pubDate>
  <dc:creator>laura@ebi.ac.uk</dc:creator>
  <guid isPermaLink="false">532 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>New Sequence Data is available</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/new-sequence-data-available-2011-05-21</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Saturday May 21, 2011&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Normal        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;Additional sequence data from the 1000 Genomes full project are now available. The current &lt;span&gt;sequence.index&lt;/span&gt; file can be found at: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20110521.sequence.index&quot;&gt;&lt;span&gt;20110521.sequence.index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and &lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/&quot;&gt;Sequence index and Statistics files&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data&quot;&gt;Sequence index file format&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Sat, 21 May 2011 09:26:41 +0000</pubDate>
+ <dc:creator>laura@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">509 at http://local-prod-portals.1000genomes.org</guid>
   </item>
   <item>
     <title>May 2011 Data Release</title>
@@ -2589,7 +2841,7 @@
             &lt;div class=&quot;field-item odd&quot;&gt;
                     
 &lt;h2&gt;Full Project low coverage SNP call release&lt;/h2&gt;
-&lt;p&gt;SNP calls based on 1094 individuals from the 20101123 sequence and alignment release of the 1000 genomes project has now been made. This release is based on the &lt;span&gt;GRCh37&lt;/span&gt; assembly of the human genome and are released in the format &lt;a href=&quot;/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-40&quot;&gt;&lt;span&gt;VCF&lt;/span&gt; 4.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;SNP calls based on 1094 individuals from the 20101123 sequence and alignment release of the 1000 genomes project has now been made. This release is based on the &lt;span&gt;GRCh37&lt;/span&gt; assembly of the human genome and are released in the format &lt;span&gt;VCF&lt;/span&gt; 4.0&lt;/p&gt;
 &lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20101123/interim_phase1_release/&quot;&gt;EBI&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20101123/interim_phase1_release/&quot;&gt;NCBI&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Link to additional information:&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20101123/interim_phase1_release/README.20110511_interim_phase1_release&quot;&gt;README file&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
@@ -2620,7 +2872,7 @@
             &lt;div class=&quot;field-item odd&quot;&gt;
                     
 &lt;p&gt;Additional sequence data from the 1000 Genomes full project are now available. The current &lt;span&gt;sequence.index&lt;/span&gt; file can be found at: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20110506.sequence.index&quot;&gt;&lt;span&gt;20110506.sequence.index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;data&quot;&gt;Instructions for data download and &lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and &lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/&quot;&gt;Sequence index and Statistics files&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data&quot;&gt;Sequence index file format&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
@@ -2682,7 +2934,7 @@
             &lt;div class=&quot;field-item odd&quot;&gt;
                     
 &lt;p&gt;Additional sequence data from the 1000 Genomes full project are now available. The current &lt;span&gt;sequence.index&lt;/span&gt; file can be found at: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20110411.sequence.index&quot;&gt;&lt;span&gt;20110411.sequence.index&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;data&quot;&gt;Instructions for data download and &lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and &lt;span&gt;Aspera&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/&quot;&gt;Sequence index and Statistics files&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data&quot;&gt;Sequence index file format&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
@@ -2744,7 +2996,7 @@
                     
 &lt;p&gt;The alignments based on the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20101123.sequence.index&quot;&gt;20101123.sequence.index&lt;/a&gt; have been released. There are both new BAM files and updated BAM files with more data were added. For the case of updated files, the older, redundant files have been withdrawn.&lt;/p&gt;
 &lt;p&gt;Illumina data was aligned at the Sanger Institute and SOLiD data at TGEN. Full project data is aligned to the GRCh37 human assembly.&lt;/p&gt;
-&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;EBI&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/&quot;&gt;NCBI&lt;/a&gt; / &lt;a href=&quot;data&quot;&gt;Instructions for data download and Aspera&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;EBI&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/&quot;&gt;NCBI&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and Aspera&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
         &lt;/div&gt;
 &lt;/div&gt;
@@ -2773,7 +3025,7 @@
             &lt;div class=&quot;field-item odd&quot;&gt;
                     
 &lt;h2&gt;&lt;strong&gt;Full Project Indel Release&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Indels calls from &lt;a href=&quot;http://www.sanger.ac.uk/resources/software/dindel/&quot;&gt;Dindel&lt;/a&gt;. T&lt;span&gt;hese&lt;/span&gt; &lt;span&gt;calls are&lt;/span&gt;based on 629 individuals from the 20100804 sequence and alignment release of the 1000 genomes project. This release is based on the &lt;span&gt;&lt;span&gt;GRCh37&lt;/span&gt;&lt;/span&gt; assembly of the human genome and are released in the format &lt;a href=&quot;http://local-prod-portals.1000genomes.org/wiki/Analysis/vcf4.0&quot;&gt;&lt;span&gt;&lt;span&gt;VCF&lt;/span&gt;&lt;/span&gt; 4.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Indels calls from &lt;a href=&quot;http://www.sanger.ac.uk/resources/software/dindel/&quot;&gt;Dindel&lt;/a&gt;. T&lt;span&gt;hese&lt;/span&gt; &lt;span&gt;calls are&lt;/span&gt;based on 629 individuals from the 20100804 sequence and alignment release of the 1000 genomes project. This release is based on the &lt;span&gt;&lt;span&gt;GRCh37&lt;/span&gt;&lt;/span&gt; assembly of the human genome and are released in the format &lt;span&gt;&lt;span&gt;VCF&lt;/span&gt;&lt;/span&gt; 4.0&lt;/p&gt;
 &lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/&quot;&gt;&lt;span&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20100804/&quot;&gt;&lt;span&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Link to additional information:&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/README.20100804.dindel_calls&quot;&gt;&lt;span&gt;&lt;span&gt;README&lt;/span&gt;&lt;/span&gt; file&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
@@ -2863,7 +3115,7 @@
             &lt;div class=&quot;field-item odd&quot;&gt;
                     
 &lt;h2&gt;Full Project Genotype Release&lt;/h2&gt;
-&lt;p&gt;&lt;span&gt;Genotypes and haplotypes have been added to the SNP calls released in November. These calls are&lt;/span&gt;based on 629 individuals from the 20100804 sequence and alignment release of the 1000 genomes project. This release is based on the &lt;span&gt;GRCh37&lt;/span&gt; assembly of the human genome and are released in the format &lt;a href=&quot;http://local-prod-portals.1000genomes.org/wiki/Analysis/vcf4.0&quot;&gt;&lt;span&gt;VCF&lt;/span&gt; 4.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;Genotypes and haplotypes have been added to the SNP calls released in November. These calls are&lt;/span&gt;based on 629 individuals from the 20100804 sequence and alignment release of the 1000 genomes project. This release is based on the &lt;span&gt;GRCh37&lt;/span&gt; assembly of the human genome and are released in the format &lt;a href=&quot;/node/101&quot;&gt;&lt;span&gt;VCF&lt;/span&gt; 4.0&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/&quot;&gt;&lt;span&gt;EBI&lt;/span&gt;&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20100804/&quot;&gt;&lt;span&gt;NCBI&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Link to additional information:&lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/README.20100804_genotypes_and_imputation&quot;&gt;&lt;span&gt;README&lt;/span&gt; file&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
@@ -3013,7 +3265,7 @@
                     
 &lt;p&gt;The alignments based on the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20100804.sequence.index&quot;&gt;20100804.sequence.index&lt;/a&gt; have been released. There are both new BAM files and updated BAM files with more data were added. For the case of updated files, the older, redundant files have been withdrawn.&lt;/p&gt;
 &lt;p&gt;Illumina data was aligned at the Sanger Institute and SOLiD data at TGEN. More information is available in the README file linked below. Full project data is aligned to the GRCh37 human assembly.&lt;/p&gt;
-&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;EBI&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/&quot;&gt;NCBI&lt;/a&gt; / &lt;a href=&quot;data&quot;&gt;Instructions for data download and Aspera&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Data access links: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data&quot;&gt;EBI&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/&quot;&gt;NCBI&lt;/a&gt; / &lt;a href=&quot;http://local-prod-portals.1000genomes.org/faq/how-download-files-using-aspera&quot;&gt;Instructions for data download and Aspera&lt;/a&gt;&lt;/p&gt;
         &lt;/div&gt;
         &lt;/div&gt;
 &lt;/div&gt;
@@ -3804,40 +4056,6 @@
  <guid isPermaLink="false">38 at http://local-prod-portals.1000genomes.org</guid>
   </item>
   <item>
-    <title>Release of 1000 Genomes main project reference genome</title>
-    <link>http://local-prod-portals.1000genomes.org/announcements/release-1000-genomes-main-project-reference-genome-2009-10-12</link>
-    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
-    &lt;div class=&quot;field-items&quot;&gt;
-            &lt;div class=&quot;field-item odd&quot;&gt;
-                    &lt;span class=&quot;date-display-single&quot;&gt;Monday October 12, 2009&lt;/span&gt;        &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
-    &lt;div class=&quot;field-items&quot;&gt;
-            &lt;div class=&quot;field-item odd&quot;&gt;
-                    Normal        &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
-    &lt;div class=&quot;field-items&quot;&gt;
-            &lt;div class=&quot;field-item odd&quot;&gt;
-                    
-&lt;p&gt;The reference genome to be used for the main project is GRCh37 and the files to be used for alignment in the main project are now available. The procedure for creating the reference genome is:&lt;/p&gt;
-&lt;p&gt;1. Download individual chrs for the GRCh37 assembly from Ensembl: &lt;a href=&quot;ftp://ftp.ensembl.org/pub/current_fasta/homo_sapiens/dna/&quot;&gt;FTP site&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2. Download the newer version of the MT (NC_012920): &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/nuccore/251831106&quot;&gt;Data link&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;3. Create a reference with chrs1-22, X, Y, NC_012920 MT, and include the non-chromosomal supercontigs.&lt;/p&gt;
-&lt;p&gt;Links to data: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference&quot;&gt;EBI&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference&quot;&gt;NCBI&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The pilot project reference genome (based on NCBI build 36) remains available in the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/retired_reference&quot;&gt;retired_reference&lt;/a&gt; directory on the FTP site.&lt;/p&gt;
-&lt;p&gt;Link to additional information: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/changelog_details/changelog_details_20091012_new_reference_genome&quot;&gt;Changelog (file locations)&lt;/a&gt;&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;/div&gt;
-&lt;/div&gt;
-</description>
-     <pubDate>Mon, 12 Oct 2009 14:22:15 +0000</pubDate>
- <dc:creator>flicek@ebi.ac.uk</dc:creator>
- <guid isPermaLink="false">41 at http://local-prod-portals.1000genomes.org</guid>
-  </item>
-  <item>
     <title>Pilot 3 consensus target regions and gene list</title>
     <link>http://local-prod-portals.1000genomes.org/announcements/pilot-3-consensus-target-regions-and-gene-list-2009-10-12</link>
     <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
@@ -3895,6 +4113,40 @@
      <pubDate>Mon, 12 Oct 2009 14:19:13 +0000</pubDate>
  <dc:creator>flicek@ebi.ac.uk</dc:creator>
  <guid isPermaLink="false">40 at http://local-prod-portals.1000genomes.org</guid>
+  </item>
+  <item>
+    <title>Release of 1000 Genomes main project reference genome</title>
+    <link>http://local-prod-portals.1000genomes.org/announcements/release-1000-genomes-main-project-reference-genome-2009-10-12</link>
+    <description>&lt;div class=&quot;field field-type-date field-field-announcement-date&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    &lt;span class=&quot;date-display-single&quot;&gt;Monday October 12, 2009&lt;/span&gt;        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-type&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    Normal        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;field field-type-text field-field-announcement-text&quot;&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+            &lt;div class=&quot;field-item odd&quot;&gt;
+                    
+&lt;p&gt;The reference genome to be used for the main project is GRCh37 and the files to be used for alignment in the main project are now available. The procedure for creating the reference genome is:&lt;/p&gt;
+&lt;p&gt;1. Download individual chrs for the GRCh37 assembly from Ensembl: &lt;a href=&quot;ftp://ftp.ensembl.org/pub/current_fasta/homo_sapiens/dna/&quot;&gt;FTP site&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2. Download the newer version of the MT (NC_012920): &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/nuccore/251831106&quot;&gt;Data link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3. Create a reference with chrs1-22, X, Y, NC_012920 MT, and include the non-chromosomal supercontigs.&lt;/p&gt;
+&lt;p&gt;Links to data: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference&quot;&gt;EBI&lt;/a&gt; / &lt;a href=&quot;ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference&quot;&gt;NCBI&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The pilot project reference genome (based on NCBI build 36) remains available in the &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/retired_reference&quot;&gt;retired_reference&lt;/a&gt; directory on the FTP site.&lt;/p&gt;
+&lt;p&gt;Link to additional information: &lt;a href=&quot;ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/changelog_details/changelog_details_20091012_new_reference_genome&quot;&gt;Changelog (file locations)&lt;/a&gt;&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</description>
+     <pubDate>Mon, 12 Oct 2009 14:22:15 +0000</pubDate>
+ <dc:creator>flicek@ebi.ac.uk</dc:creator>
+ <guid isPermaLink="false">41 at http://local-prod-portals.1000genomes.org</guid>
   </item>
   <item>
     <title>Updated sequence files and new CHB/YRI data</title>
