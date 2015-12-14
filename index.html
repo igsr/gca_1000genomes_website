@@ -154,36 +154,19 @@ tags: Home
   
   
       <div class="view-content">
+{% assign sorted_media = site.media | sort: 'date' %}
+{% for media in sorted_media reversed limit:3 %}
         <div class="views-row views-row-1 views-row-odd views-row-first">
       
   <div class="views-field-field-press-date-value">
-                <span class="field-content">The Guardian: <span class="date-display-single">Wednesday October 31, 2012</span></span>
+                <span class="field-content">{{ media.publication }}: <span class="date-display-single">{{ media.date | date: '%A %B %d, %Y' }}</span>
   </div>
   
   <div class="views-field-title">
-                <span class="field-content"><a href="http://www.guardian.co.uk/science/2012/oct/31/genomes-project-inventory-human-genetic-variation">Genomes project publishes inventory of human genetic variation</a></span>
+                <span class="field-content"><a href="{{ media.url }}">{{ media.title }}</a></span>
   </div>
   </div>
-  <div class="views-row views-row-2 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">New York Times: <span class="date-display-single">Thursday March 29, 2012</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://bits.blogs.nytimes.com/2012/03/29/amazon-web-services-big-free-genetic-database/?scp=1&amp;sq=Genomes&amp;st=cse">Amazon Web Services’ Big Free Genetic Database</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-3 views-row-odd views-row-last">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">In Sequence: <span class="date-display-single">Tuesday June 22, 2010</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sequencing/1000-genomes-project-releases-pilot-project-data-plans-sequence-2500-genomes-tot">1000 Genomes Project Releases Pilot Project Data, Plans to Sequence 2,500 Genomes in Total</a></span>
-  </div>
-  </div>
+{% endfor %}
     </div>
   
   
@@ -208,36 +191,19 @@ tags: Home
   
   
       <div class="view-content">
+{% assign sorted_press_release = site.press_release | sort: 'date' %}
+{% for press_release in sorted_press_release reversed limit:3 %}
         <div class="views-row views-row-1 views-row-odd views-row-first">
       
   <div class="views-field-field-press-date-value">
-                <span class="field-content"><span class="date-display-single">Thursday November 01, 2012</span></span>
+                <span class="field-content"><span class="date-display-single">{{press_release.date | date: '%A %B %d, %Y' }}</span></span>
   </div>
   
   <div class="views-field-title">
-                <span class="field-content"><a href="http://www.embl.de/aboutus/communication_outreach/media_relations/2012/121031_Heidelberg_Hinxton/">Spot the Difference, The 1000 Genomes Phase 1 Publication</a></span>
+                <span class="field-content"><a href="{{ press_release.url }}">{{ press_release.title }}</a></span>
   </div>
   </div>
-  <div class="views-row views-row-2 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content"><span class="date-display-single">Thursday March 29, 2012</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.nih.gov/news/health/mar2012/nhgri-29.htm">1000 Genomes Project data available on Amazon Cloud</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-3 views-row-odd views-row-last">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content"><span class="date-display-single">Monday June 21, 2010</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.1000genomes.org/sites/1000genomes.org/files/docs/100621.1000genomespressrelease.pdf">1000 Genomes Project Releases Data from Pilot Projects on Path to Providing Database for 2,500 Human Genomes</a></span>
-  </div>
-  </div>
+{% endfor %}
     </div>
   
   

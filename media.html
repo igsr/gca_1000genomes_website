@@ -25,60 +25,20 @@ permalink: /media/
   
   
       <div class="view-content">
+{% assign sorted_press_release = site.press_release | sort: 'date' %}
+{% for press_release in sorted_press_release reversed %}
         <div class="views-row views-row-1 views-row-odd views-row-first">
       
   <div class="views-field-field-press-date-value">
-                <span class="field-content"><span class="date-display-single">Thursday November 01, 2012</span></span>
+                <span class="field-content"><span class="date-display-single">{{press_release.date | date: '%A %B %d, %Y' }}</span></span>
   </div>
   
   <div class="views-field-title">
-                <span class="field-content"><a href="http://www.embl.de/aboutus/communication_outreach/media_relations/2012/121031_Heidelberg_Hinxton/">Spot the Difference, The 1000 Genomes Phase 1 Publication</a></span>
+                <span class="field-content"><a href="{{ press_release.url }}">{{ press_release.title }}</a></span>
   </div>
   </div>
-  <div class="views-row views-row-2 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content"><span class="date-display-single">Thursday March 29, 2012</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.nih.gov/news/health/mar2012/nhgri-29.htm">1000 Genomes Project data available on Amazon Cloud</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-3 views-row-odd">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content"><span class="date-display-single">Monday June 21, 2010</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.1000genomes.org/sites/1000genomes.org/files/docs/100621.1000genomespressrelease.pdf">1000 Genomes Project Releases Data from Pilot Projects on Path to Providing Database for 2,500 Human Genomes</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-4 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content"><span class="date-display-single">Wednesday June 11, 2008</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.1000genomes.org/sites/1000genomes.org/files/docs/sequencing_companies_join_1000_genome_project.pdf">Three Sequencing Companies Join 1000 Genomes Project</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-5 views-row-odd views-row-last">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content"><span class="date-display-single">Tuesday January 22, 2008</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.1000genomes.org/sites/1000genomes.org/files/docs/1000genomes-newsrelease.pdf">International Consortium Announces the 1000 Genomes Project</a></span>
-  </div>
-  </div>
+{% endfor %}
     </div>
-  
-  
-  
   
   
   
@@ -118,171 +78,20 @@ permalink: /media/
   
   
       <div class="view-content">
+{% assign sorted_media = site.media | sort: 'date' %}
+{% for media in sorted_media reversed %}
         <div class="views-row views-row-1 views-row-odd views-row-first">
       
   <div class="views-field-field-press-date-value">
-                <span class="field-content">The Guardian: <span class="date-display-single">Wednesday October 31, 2012</span>
+                <span class="field-content">{{ media.publication }}: <span class="date-display-single">{{ media.date | date: '%A %B %d, %Y' }}</span>
 </span>
   </div>
   
   <div class="views-field-title">
-                <span class="field-content"><a href="http://www.guardian.co.uk/science/2012/oct/31/genomes-project-inventory-human-genetic-variation">Genomes project publishes inventory of human genetic variation</a></span>
+                <span class="field-content"><a href="{{ media.url }}">{{ media.title }}</a></span>
   </div>
   </div>
-  <div class="views-row views-row-2 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">New York Times: <span class="date-display-single">Thursday March 29, 2012</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://bits.blogs.nytimes.com/2012/03/29/amazon-web-services-big-free-genetic-database/?scp=1&amp;sq=Genomes&amp;st=cse">Amazon Web Services’ Big Free Genetic Database</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-3 views-row-odd">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">In Sequence: <span class="date-display-single">Tuesday June 22, 2010</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sequencing/1000-genomes-project-releases-pilot-project-data-plans-sequence-2500-genomes-tot">1000 Genomes Project Releases Pilot Project Data, Plans to Sequence 2,500 Genomes in Total</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-4 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">GenomeWeb Daily News: <span class="date-display-single">Friday May 14, 2010</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sequencing/1000-genomes-project-sequence-2500-genomes-end-next-year">1000 Genomes Project to Sequence 2,500 Genomes By End of Next Year</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-5 views-row-odd">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">GenomeWeb Daily News: <span class="date-display-single">Thursday October 22, 2009</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sequencing/researchers-discuss-1000-genomes-progress-ashg">Researchers Discuss 1000 Genomes Progress at ASHG</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-6 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">In Sequence: <span class="date-display-single">Tuesday September 08, 2009</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sequencing/1000-genomes-project-sequence-nearly-1000-more-samples-early-2010-new-samples-co">1000 Genomes Project to Sequence Nearly 1,000 More Samples by Early 2010; New Samples Collected</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-7 views-row-odd">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">Times of London: <span class="date-display-single">Tuesday May 19, 2009</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.timesonline.co.uk/tol/news/uk/science/article6314464.ece">Discovery of DNA variations promises bespoke treatment for disease</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-8 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">In Sequence: <span class="date-display-single">Tuesday May 12, 2009</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sequencing/1000-genomes-pilot-analysis-shows-combining-data-different-platforms-yields-best">1000 Genomes Pilot Analysis Shows Combining Data from Different Platforms Yields Best Results</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-9 views-row-odd">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">GenomeWeb Daily News: <span class="date-display-single">Friday May 08, 2009</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/informatics/researchers-uncovering-variants-1000-genomes-pilot-data">Researchers Uncovering Variants in 1000 Genomes Pilot Data</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-10 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">Apple.com: <span class="date-display-single">Tuesday December 09, 2008</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.apple.com/science/#bioinformatics">Paul Flicek discusses the 1000 Genomes Project</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-11 views-row-odd">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">GenomeWeb Daily News: <span class="date-display-single">Friday November 14, 2008</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sequencing/1000-genomes-project-data-be-released-within-months-pilot-phase-nears-completion">1000 Genomes Project Data To Be Released Within Months as Pilot Phase Nears Completion</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-12 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">Genome Technology: <span class="date-display-single">Saturday November 01, 2008</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/1000-genomes-project-approaches-3-tb-sequence-data-0">1,000 Genomes Project Approaches 3 TB of Sequence Data</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-13 views-row-odd">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">GenomeWeb Daily News: <span class="date-display-single">Monday October 13, 2008</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sequencing/1000-genomes-project-nears-3-terabases-sequence-data-berlins-mpi-joins-effort">1000 Genomes Project Nears 3 Terabases of Sequence Data; Berlin&#039;s MPI Joins Effort</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-14 views-row-even">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">In Sequence: <span class="date-display-single">Sunday June 08, 2008</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sequencing/1000-genomes-project%39s-steering-committee-co-chairman-discusses-initiative%39s-pro">Interview with Richard Durbin: 1000 Genomes Project’s Steering Committee Co-Chairman Discusses Initiative’s Progress</a></span>
-  </div>
-  </div>
-  <div class="views-row views-row-15 views-row-odd views-row-last">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">GenomeWeb Daily News: <span class="date-display-single">Thursday May 08, 2008</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="http://www.genomeweb.com/sangers-durbin-says-1000-genomes-project-has-surpassed-300-gigabases-date">Sanger’s Durbin Says 1000 Genomes Project Has Surpassed 300 Gigabases To Date</a></span>
-  </div>
-  </div>
+{% endfor %}
     </div>
   
   

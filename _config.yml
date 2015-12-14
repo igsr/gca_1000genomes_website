@@ -15,6 +15,10 @@ collections:
     faq:
         output: true
         permalink: /faq/:path/
+    media:
+        output: false
+    press_release:
+        output: false
 defaults:
     -
         scope: 
