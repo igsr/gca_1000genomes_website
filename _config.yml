@@ -15,6 +15,14 @@ collections:
     faq:
         output: true
         permalink: /faq/:path/
+defaults:
+    -
+        scope: 
+            type: "posts"
+            path: "announcements"
+        values:
+            pinned: false
+            layout: "announcement"
 
 # Build settings
 markdown: kramdown

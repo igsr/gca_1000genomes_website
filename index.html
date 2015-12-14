@@ -26,31 +26,27 @@ tags: Home
   
   
       <div class="view-content">
+{% assign pinned_announcements = site.categories.announcements | where: "pinned", true %}
         <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
     
       <div>
   
     
-      <span class="date-display-single">Wednesday September 30, 2015</span>
+      <span class="date-display-single">{{pinned_announcements.last.date | date: '%A %B %d, %Y' }}</span>
       </div>
   
 
       <div class="special">
   
     
-      <a href="/announcements/global-reference-human-genetic-variation-2015-09-30"><h2>A global reference for human genetic variation</h2></a>
+      <a href="{{pinned_announcements.first.url}}"><h2>{{pinned_announcements.first.title}}</h2></a>
       </div>
   
 
       <div>
   
+{{pinned_announcements.first.content}}
     
-      
-<p>The Phase 3 publication, <a href="http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html">A global reference for human genetic variation</a> and the Phase 3 Structural variation publication, <a href="http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html">An integrated map of structural variation in 2,504 human genomes</a>&nbsp;are now available from <a href="http://www.nature.com/nature/index.html">Nature</a> alongside a <a href="http://www.nature.com/collections/dcfqmlgsrw">celebration of 25 years of the Human Genome Project</a></p>
-<p>The variants from the Phase 3 analysis are available in <a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/">ftp/release/20130502/</a>&nbsp;and extended information about the SV dataset can be found in <a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/">ftp/phase3/integrated_sv_map/</a>.</p>
-<p>Both these papers are open access and should be free for everyone to read and download.</p>
-<p>If you have any questions about the data these papers are based on or how to access it please email <a href="mailto:info@1000genomes.org">info@1000genomes.org</a></p>
-<p><a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/" title="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/">http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/</a></p>
 
 <br />
 <hr />
@@ -81,67 +77,27 @@ tags: Home
   
   
       <div class="view-content">
+{% assign unpinned_announcements = site.categories.announcements | where: "pinned", false %}
+{% for announcement in unpinned_announcements limit:3 %}
         <div class="views-row views-row-1 views-row-odd views-row-first">
       
   <div class="views-field-field-announcement-date-value">
-                <span class="field-content"><span class="date-display-single">Friday November 27, 2015</span></span>
+                <span class="field-content"><span class="date-display-single">{{announcement.date | date: '%A %B %d, %Y' }}</span></span>
   </div>
   
   <div class="views-field-title">
-                <span class="field-content"><a href="/announcements/changes-1000-genomes-globus-endpoint-2015-11-27"><h2>Changes to the 1000 Genomes Globus endpoint</h2></a></span>
+                <span class="field-content"><a href="{{ announcement.url }}"><h2>{{announcement.title}}</h2></a></span>
   </div>
   
   <div class="views-field-field-announcement-text-value">
                 <div class="field-content">
-<p>EMBL-EBI has recently rearranged its Globus hosted endpoints.</p>
-<p>This means the Globus endpoint for 1000G data is changing from ebi#1000g to ebi#public ('1000g' subfolder). The old endpoint will be discontinued shortly. The new endpoint is configured to achieve increased reliability and performance. If you have any questions about the change please contact <a href="mailto:info@1000genomes.org">info@1000genomes.org</a>.</p>
+{{ announcement.content }}
 
 <br />
 <hr /></div>
   </div>
   </div>
-  <div class="views-row views-row-2 views-row-even">
-      
-  <div class="views-field-field-announcement-date-value">
-                <span class="field-content"><span class="date-display-single">Friday October 16, 2015</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="/announcements/grch38-mapping-illumina-platinum-genomes-ceu-pedigree-2015-10-16"><h2>GRCh38 mapping of the Illumina Platinum Genomes CEU pedigree</h2></a></span>
-  </div>
-  
-  <div class="views-field-field-announcement-text-value">
-                <div class="field-content">
-<p>We have aligned the <a href="http://www.illumina.com/platinumgenomes/">Illumina Platinum pedigree</a> sequence data to GRCh38. The data was aligned to the full assembly including the GRC maintained alternate loci along with decoy and <a href="https://www.ebi.ac.uk/ipd/imgt/hla/">additional HLA sequences from the IMGT</a>. A copy of the FASTA file can be found in <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/">our reference directory</a>. The alignment was carried out using a new alt-aware version of BWA-mem.&nbsp;</p>
-<p>The alignment files themselves can be found in the <a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/data">data_collections/illumina_platinum_pedigree/data</a>&nbsp;directory.</p>
-<p>The <a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/illumina_platinum_ped.GRCh38DH.alignment.index">alignment index</a> and <a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/illumina_platinum_ped.sequence.index">sequence index</a>&nbsp;can be found in the <a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/">data_collections/illumina_platinum_pedigree</a> directory.</p>
-<p>Please note, alignment files are now being distributed in CRAM format, rather than BAM format. You can find more details about CRAM in this <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_using_1000genomes_cram.md">README</a></p>
-<p>Further details of our alignment pipeline can be found in the <a href="http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/README_illumina_platinum_pedigree.md">data collection README</a>.</p>
-<p>If you have any questions please email <a href="mailto:info@1000genomes.org">info@1000genomes.org</a>.</p>
-
-<br />
-<hr /></div>
-  </div>
-  </div>
-  <div class="views-row views-row-3 views-row-odd views-row-last">
-      
-  <div class="views-field-field-announcement-date-value">
-                <span class="field-content"><span class="date-display-single">Wednesday October 14, 2015</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="/announcements/slides-are-now-available-ashg15-1000-genomes-tutorial-2015-10-14"><h2>Slides are now available from the #ASHG15 1000 Genomes Tutorial</h2></a></span>
-  </div>
-  
-  <div class="views-field-field-announcement-text-value">
-                <div class="field-content">
-<p>You can now find the slides presented at the ASHG 2015 1000 Genomes tutorial in Baltimore on the <a href="http://www.1000genomes.org/ashg-2015-1000-genomes-tutorial-thursday-october-8th-7-9pm-baltimore-convention-center-room-327-leve">tutorial page.</a></p>
-<p>If you have any questions about the contents of the slides or our data please email <a href="mailto:info@1000genomes.org">info@1000genomes.org</a></p>
-
-<br />
-<hr /></div>
-  </div>
-  </div>
+{% endfor %}
     </div>
   
   
