@@ -43,10 +43,11 @@ layout: page
 
   
 </div></div> <!-- /block-inner, /block -->
-  <div id="block-block-2" class="block block-block region-even even region-count-2 count-2"><div class="block-inner">
 
+
+{% if page.nav_buttons.size > 0 %}
+  <div id="block-block-2" class="block block-block region-even even region-count-2 count-2"><div class="block-inner">
       <h2 class="title">Links</h2>
-  
   <div class="content">
     
 <ul class="rightbar">
@@ -59,10 +60,10 @@ layout: page
 {% if nav_button == 'software_tools' %}<li id="tools"><a href="/tools"><span>Software tools</span></a></li>{% endif %}
 {% endfor %}
 </ul>
-  </div>
+ </div></div></div> <!-- /block-inner, /block -->
+{% endif %}
 
-  
-</div></div> <!-- /block-inner, /block -->
+
       </div>
     </div> <!--//end #sidebar-right-inner -->
     
