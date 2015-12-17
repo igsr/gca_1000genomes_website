@@ -20,9 +20,9 @@ nav_buttons:
 
 [Project Overview](#project-overview)  
 [Project Design](#project-design)  
-[Use of the Project data and samples](#project-data-use)  
-[Samples included in the project](#project-samples)  
-[Publications and project documents](#publications-project-documents)
+[Use of the Project data and samples](#use-of-the-project-data-and-samples)  
+[Samples included in the project](#samples-included-in-the-project)  
+[Publications and project documents](#publications-and-project-documents)
 
 </div>
 
