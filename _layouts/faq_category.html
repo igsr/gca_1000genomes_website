@@ -21,7 +21,7 @@
         <div class="views-row">
     
 {% assign short_name = (page.relative_path | remove_first: site.collections.faq_categories.relative_directory | remove_first: '/' | remove: '.html') %}
-{% for faq in site.faq %}{% for matched_tag in faq.faq_tags %}{% if short_name == matched_tag %}
+{% for faq in site.faq %}{% if faq.faq_tags contains short_name %}
 <div class="node node-teaser node-type-faq-question"><div class="node-inner onethousand_clean">
 
   
@@ -64,7 +64,7 @@
 
   
 </div></div> <!-- /node-inner, /node -->  </div>
-{% endif %}{% endfor %}{% endfor %}
+{% endif %}{% endfor %}
 </div></div></div></div>
 		</div> <!-- // #content-inner -->
 	  </div> <!-- //#content -->
