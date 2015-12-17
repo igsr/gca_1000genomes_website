@@ -1,0 +1,67 @@
+---
+layout: page
+---
+
+    <div id="main" class="column grid-13 ">
+  	  <div id="content">
+  	    <div id="content-inner">
+
+          <div class="breadcrumb"><a href="/">Home</a> › </div>
+          
+          
+                    
+          
+          <div id="main-content" class="region clear-block">
+            
+<div id="node-3" class="node node-type-page"><div class="node-inner ">
+  
+  <div class="content">
+
+{{ content }}
+
+  </div>
+
+  
+</div></div> <!-- /node-inner, /node -->          </div> <!-- /#main-content -->
+
+          
+		
+		</div> <!-- // #content-inner -->
+	  </div> <!-- //#content -->
+	</div> <!-- //end #main -->
+
+    
+        <div id="sidebar-right" class="column sidebar region grid-3">
+	    <div id="sidebar-right-inner">
+          <div id="block-user-1" class="block block-user region-odd odd region-count-1 count-1"><div class="block-inner">
+
+      <h2 class="title">Navigation</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first last"><a href="/faq">Frequently Asked Questions</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-block-2" class="block block-block region-even even region-count-2 count-2"><div class="block-inner">
+
+      <h2 class="title">Links</h2>
+  
+  <div class="content">
+    
+<ul class="rightbar">
+{% for nav_button in page.nav_buttons %}
+{% if nav_button == 'announcements' %}<li id="megaphone"><a href="/announcements"><span>All Project announcements</span></a></li>{% endif %}
+{% if nav_button == 'media' %}<li id="newspaper"><a href="/media"><span>Media Archive</span></a></li>{% endif %}
+{% if nav_button == 'pilot_paper' %}<li id="star"><a href="/sites/1000genomes.org/files/docs/nature09534.pdf"><span>Download the 1000 Genomes Pilot Paper</span></a></li>{% endif %}
+{% if nav_button == 'contacts' %}<li id="email"><a href="/contact"><span>Project Contacts</span></a></li>{% endif %}
+{% endfor %}
+</ul>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+      </div>
+    </div> <!--//end #sidebar-right-inner -->
+    
+
