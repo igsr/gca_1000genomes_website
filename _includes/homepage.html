@@ -1,0 +1,260 @@
+    <div id="main" class="column grid-13 ">
+  	  <div id="content">
+  	    <div id="content-inner">
+
+          
+          
+          
+                    
+                    <div id="content-top" class="region region-content_top">
+              <div id="block-views-list_announcements-block_2" class="block block-views region-odd odd region-count-1 count-3"><div class="block-inner">
+
+  
+  <div class="content">
+    <div class="view view-list-announcements view-id-list_announcements view-display-id-block_2 view-dom-id-1">
+        <div class="view-header">
+      
+<h2 class="section_title">Latest Announcements</h2>
+    </div>
+  
+  
+  
+      <div class="view-content">
+{% assign pinned_announcements = site.categories.announcements | where: "pinned", true %}
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    
+      <div>
+  
+    
+      <span class="date-display-single">{{pinned_announcements.last.date | date: '%A %B %d, %Y' }}</span>
+      </div>
+  
+
+      <div class="special">
+  
+    
+      <a href="{{pinned_announcements.first.url}}"><h2>{{pinned_announcements.first.title}}</h2></a>
+      </div>
+  
+
+      <div>
+  
+{{pinned_announcements.first.content}}
+    
+
+<br />
+<hr />
+      </div>
+  
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-views-list_announcements-block_1" class="block block-views region-even even region-count-2 count-4"><div class="block-inner">
+
+  
+  <div class="content">
+    <div class="view view-list-announcements view-id-list_announcements view-display-id-block_1 view-dom-id-2">
+        <div class="view-header">
+      
+<h2 class="orange">Recent project announcements</h2>
+    </div>
+  
+  
+  
+      <div class="view-content">
+{% assign unpinned_announcements = site.categories.announcements | where: "pinned", false %}
+{% for announcement in unpinned_announcements limit:3 %}
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field-field-announcement-date-value">
+                <span class="field-content"><span class="date-display-single">{{announcement.date | date: '%A %B %d, %Y' }}</span></span>
+  </div>
+  
+  <div class="views-field-title">
+                <span class="field-content"><a href="{{ announcement.url }}"><h2>{{announcement.title}}</h2></a></span>
+  </div>
+  
+  <div class="views-field-field-announcement-text-value">
+                <div class="field-content">
+{{ announcement.content }}
+
+<br />
+<hr /></div>
+  </div>
+  </div>
+{% endfor %}
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      
+<p><a href="/announcements">Complete current and previous announcements</a></p>
+<p><a href="/data">Information regarding data access</a></p>
+    </div>
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+          </div> <!-- /#content-top -->
+          
+          <div id="main-content" class="region clear-block">
+            
+<div id="node-2" class="node node-type-page"><div class="node-inner ">
+
+  
+  
+  
+  
+  <div class="content">
+    
+<div class="enclosed">
+ <h2 class="section_title">Project Overview</h2>
+ <p>The 1000 Genomes Project is an international collaboration to produce an extensive public catalog of human genetic variation, including SNPs and structural variants, and their haplotype contexts. This resource will support genome-wide association studies and other medical research studies.<br />
+ <br />
+ The genomes of about 2500 unidentified people from about 25 populations around the world will be sequenced using next-generation sequencing technologies. The results of the study will be freely and publicly accessible to researchers worldwide.<br />
+ <br />
+ Further information about the project is available in the About tab. Information about downloading, browsing or using the 1000 Genomes data is available in the Data tab.</p>
+</div>
+  </div>
+
+  
+</div></div> <!-- /node-inner, /node -->          </div> <!-- /#main-content -->
+
+          
+				  <div id="content-bottom" class="region region-content_bottom">
+		      <div id="block-views-list_media-block_1" class="block block-views region-odd odd region-count-1 count-5"><div class="block-inner">
+
+  
+  <div class="content">
+    <div class="view view-list-media view-id-list_media view-display-id-block_1 view-dom-id-3">
+        <div class="view-header">
+      
+<h2 class="section_title">Recent media coverage</h2>
+    </div>
+  
+  
+  
+      <div class="view-content">
+{% assign sorted_media = site.media | sort: 'date' %}
+{% for media in sorted_media reversed limit:3 %}
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field-field-press-date-value">
+                <span class="field-content">{{ media.publication }}: <span class="date-display-single">{{ media.date | date: '%A %B %d, %Y' }}</span>
+  </div>
+  
+  <div class="views-field-title">
+                <span class="field-content"><a href="{{ media.link_url }}">{{ media.title }}</a></span>
+  </div>
+  </div>
+{% endfor %}
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-views-list_media-block_2" class="block block-views region-even even region-count-2 count-6"><div class="block-inner">
+
+  
+  <div class="content">
+    <div class="view view-list-media view-id-list_media view-display-id-block_2 view-dom-id-4">
+        <div class="view-header">
+      
+<h2 class="section_title">Press releases</h2>
+    </div>
+  
+  
+  
+      <div class="view-content">
+{% assign sorted_press_release = site.press_release | sort: 'date' %}
+{% for press_release in sorted_press_release reversed limit:3 %}
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field-field-press-date-value">
+                <span class="field-content"><span class="date-display-single">{{press_release.date | date: '%A %B %d, %Y' }}</span></span>
+  </div>
+  
+  <div class="views-field-title">
+                <span class="field-content"><a href="{{ press_release.link_url }}">{{ press_release.title }}</a></span>
+  </div>
+  </div>
+{% endfor %}
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      
+<p>&nbsp;</p>
+<a href="/media">Full media archive</a>    </div>
+  
+  
+</div>   </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+		  </div> <!-- /#content-bottom -->
+		
+		</div> <!-- // #content-inner -->
+	  </div> <!-- //#content -->
+	</div> <!-- //end #main -->
+
+    
+        <div id="sidebar-right" class="column sidebar region grid-3">
+	    <div id="sidebar-right-inner">
+          <div id="block-user-1" class="block block-user region-odd odd region-count-1 count-1"><div class="block-inner">
+
+      <h2 class="title">Navigation</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="leaf first last"><a href="/faq">Frequently Asked Questions</a></li>
+</ul>  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+  <div id="block-block-1" class="block block-block region-even even region-count-2 count-2"><div class="block-inner">
+
+      <h2 class="title">Links</h2>
+  
+  <div class="content">
+    
+<ul class="rightbar">
+ <li id="megaphone"><a href="/announcements"><span>All Project Announcements</span></a></li>
+ <li id="data"><a href="/about"><span>Sample and Project Information</span></a></li>
+ <li id="newspaper"><a href="/media"><span>Media Archive</span></a></li>
+ <li id="star"><a href="http://www.1000genomes.org/1000-genomes-project-publications"><span>Find the 1000 Genomes Project Publications</span></a></li>
+</ul>
+<ul class="rightbar">
+ <li>&nbsp;</li>
+ <li id="email"><a href="/contact"><span>Project Contacts</span></a></li>
+ <li id="rss_feed"><a href="/announcements/rss.xml"><span>RSS Feed</span></a></li>
+ <li id="twitter"><a href="http://twitter.com/1000genomes"><span>Twitter</span></a></li>
+</ul>
+  </div>
+
+  
+</div></div> <!-- /block-inner, /block -->
+      </div>
+    </div> <!--//end #sidebar-right-inner -->
+    
+

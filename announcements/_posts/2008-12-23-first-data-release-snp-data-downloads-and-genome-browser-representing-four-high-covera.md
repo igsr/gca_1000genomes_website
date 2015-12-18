@@ -4,7 +4,7 @@ title: "First data release: SNP data downloads and genome browser representing f
                     
 The first set of SNP calls representing the preliminary analysis of four genome sequences are now available to download through the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk){:target="_blank"} and the [NCBI FTP site](ftp://ftp-trace.ncbi.nih.gov/1000genomes/){:target="_blank"}. The README file dealing with the FTP structure will help you find the data you are looking for.
 
-The data can also be viewed directly through the 1000 Genomes browser at [http://browser.1000genomes.org](http://browser.1000genomes.org){:target="_blank"}. Launch the browser and [view a sample region here.](http://browser.1000genomes.org/Homo_sapiens/contigview?bottom=\|variation_NA1%3Aon\|variation_NA2%3Aon\|variation_NA3%3Aon\|variation_NA4%3Aon&w=100001&c=2%3A85383054.5%3A1&h=2&pop=){:target="_blank"}
+The data can also be viewed directly through the 1000 Genomes browser at [http://browser.1000genomes.org](http://browser.1000genomes.org){:target="_blank"}. Launch the browser and [view a sample region here.](http://browser.1000genomes.org/Homo_sapiens/contigview?bottom=%7Cvariation_NA1%3Aon%7Cvariation_NA2%3Aon%7Cvariation_NA3%3Aon%7Cvariation_NA4%3Aon&w=100001&c=2%3A85383054.5%3A1&h=2&pop=){:target="_blank"}
 
 **For more information about using the 1000 Genomes browser, download the [Quick start guide](/sites/1000genomes.org/files/docs/1kg_browser_demo.pdf){:target="_blank"}**.
 
