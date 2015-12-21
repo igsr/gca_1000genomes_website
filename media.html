@@ -1,128 +1,27 @@
 ---
-layout: page
+layout: content_page
 title: "Media"
 permalink: /media/
 ---
-    <div id="main" class="column grid-13 ">
-  	  <div id="content">
-  	    <div id="content-inner">
 
-          <div class="breadcrumb"><a href="/">Home</a> › </div>
-          
-          
-                    
-                    <div id="content-top" class="region region-content_top">
-              <div id="block-views-list_media-block_4" class="block block-views region-odd even region-count-1 count-2"><div class="block-inner">
-
-  
-  <div class="content">
-    <div class="view view-list-media view-id-list_media view-display-id-block_4 view-dom-id-1">
-        <div class="view-header">
+<div class="enclosed">
       
-<h2 class="section_title">Project press releases</h2>
-    </div>
+<h2>Project press releases</h2>
   
-  
-  
-      <div class="view-content">
 {% assign sorted_press_release = site.press_release | sort: 'date' %}
 {% for press_release in sorted_press_release reversed %}
-        <div class="views-row views-row-1 views-row-odd views-row-first">
-      
-  <div class="views-field-field-press-date-value">
-                <span class="field-content"><span class="date-display-single">{{press_release.date | date: '%A %B %d, %Y' }}</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="{{ press_release.link_url }}">{{ press_release.title }}</a></span>
-  </div>
-  </div>
+<h5>{{press_release.date | date: '%A %B %d, %Y' }}</h5>
+<p><a href="{{ press_release.link_url }}">{{ press_release.title }}</a></p>
 {% endfor %}
-    </div>
-  
-  
-  
-</div>   </div>
-
-  
-</div></div> <!-- /block-inner, /block -->
-          </div> <!-- /#content-top -->
-          
-          <div id="main-content" class="region clear-block">
-            
-<div id="node-10" class="node node-type-page"><div class="node-inner ">
-
-  
-  
-  
-  
-  <div class="content">
-    <br />
-  </div>
-
-  
-</div></div> <!-- /node-inner, /node -->          </div> <!-- /#main-content -->
-
-          
-				  <div id="content-bottom" class="region region-content_bottom">
-		      <div id="block-views-list_media-block_3" class="block block-views region-odd odd region-count-1 count-3"><div class="block-inner">
-
-  
-  <div class="content">
-    <div class="view view-list-media view-id-list_media view-display-id-block_3 view-dom-id-2">
-        <div class="view-header">
+</div>
       
+<div class="enclosed">
 <h2 class="section_title">Media coverage</h2>
-    </div>
-  
-  
-  
-      <div class="view-content">
+
 {% assign sorted_media = site.media | sort: 'date' %}
 {% for media in sorted_media reversed %}
-        <div class="views-row views-row-1 views-row-odd views-row-first">
       
-  <div class="views-field-field-press-date-value">
-                <span class="field-content">{{ media.publication }}: <span class="date-display-single">{{ media.date | date: '%A %B %d, %Y' }}</span>
-</span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="{{ media.link_url }}">{{ media.title }}</a></span>
-  </div>
-  </div>
+<h5>{{ media.publication }}: {{ media.date | date: '%A %B %d, %Y' }}</h5>
+<p><a href="{{ media.link_url }}">{{ media.title }}</a></p>
 {% endfor %}
-    </div>
-  
-  
-  
-  
-  
-  
-</div>   </div>
-
-  
-</div></div> <!-- /block-inner, /block -->
-		  </div> <!-- /#content-bottom -->
-		
-		</div> <!-- // #content-inner -->
-	  </div> <!-- //#content -->
-	</div> <!-- //end #main -->
-
-    
-        <div id="sidebar-right" class="column sidebar region grid-3">
-	    <div id="sidebar-right-inner">
-          <div id="block-user-1" class="block block-user region-odd odd region-count-1 count-1"><div class="block-inner">
-
-      <h2 class="title">Navigation</h2>
-  
-  <div class="content">
-    <ul class="menu"><li class="leaf first last"><a href="/faq">Frequently Asked Questions</a></li>
-</ul>  </div>
-
-  
-</div></div> <!-- /block-inner, /block -->
-      </div>
-    </div> <!--//end #sidebar-right-inner -->
-    
-
+</div>
