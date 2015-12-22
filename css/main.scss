@@ -1,0 +1,86 @@
+---
+---
+
+body {
+    background-color: #EAE9E5;
+}
+
+header {
+
+    div.top-banner {
+        background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/body_back.png");
+        background-color: #131C22;
+        background-repeat: repeat-x;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 200px;
+
+        div.top-banner-img {
+            background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/header_back.jpg");
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: right center;
+            height: 154px;
+            margin-top: 6px;
+            width: 100%;
+        }
+    }
+
+    div.top-banner-content {
+      height: 148px;
+      margin-top: 12px;
+
+      h2#site-slogan {
+         color: #FFF;
+      }
+
+      h1#site-title {
+        color: #DAA406;
+      }
+    }
+
+    nav.navbar {
+        ul.navbar-nav {
+            li a {
+                color: #79C7E7;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            li.active a {
+                color: #FFF;
+            }
+
+        }
+
+        form.navbar-form {
+            margin-top: 4px;
+            margin-bottom: 4px;
+        }
+        input.form-control {
+            height: 32px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+        button.btn {
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+    }
+
+}
+
+
+div.section {
+    background-color: white;
+    border-width: 5px 1px 1px 1px;
+    border-color: #C3C3C0;
+    border-top-color: #F67C16;
+    border-style: solid;
+    background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/block_top_arrow.png");
+    background-repeat: no-repeat;
+    margin: 20px 0px 20px 0px;
+
+}

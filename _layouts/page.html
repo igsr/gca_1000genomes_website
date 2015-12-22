@@ -1,25 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
 {% include head.html %}
 
-<body class="front not-logged-in node-type-page one-sidebar sidebar-right">
-{% include base_header.html %}
+<body role="document">
 
-  <div id="page" class="container-16 clear-block">
+    {% include header.html %}
 
-    <a name="navigation-top" id="navigation-top"></a>
-    
-{% include header.html %}
+<div class="container">
+    {{ content }}
+</div>
 
-          {{ content }}
-
-
-  </div> <!-- /#page -->
-
-    <div id="footer" class="prefix-1 suffix-1">
       
-              <div id="footer-message" class="grid-16">
-          &copy; 1000 Genomes 2008-2012
-<p>Site maintained by the External Services team at <a href="http://www.ebi.ac.uk/">EMBL-EBI</a> | <a href="http://www.ebi.ac.uk/Information/termsofuse.html">Terms of Use</a> | <a href="http://www.ebi.ac.uk/Information/privacy.html">Privacy</a> | <a href="http://www.ebi.ac.uk/Information/e-directive.html">Cookies</a></p>        </div>
-          </div> <!-- /#footer -->
+<p> &copy; 1000 Genomes 2008-2012</p>
+<p>Site maintained by the External Services team at <a href="http://www.ebi.ac.uk/">EMBL-EBI</a> | <a href="http://www.ebi.ac.uk/Information/termsofuse.html">Terms of Use</a> | <a href="http://www.ebi.ac.uk/Information/privacy.html">Privacy</a> | <a href="http://www.ebi.ac.uk/Information/e-directive.html">Cookies</a></p>
 
 
 </body>
