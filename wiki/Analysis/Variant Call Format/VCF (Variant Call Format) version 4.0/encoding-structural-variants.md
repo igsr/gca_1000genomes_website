@@ -1,12 +1,8 @@
 ---
-layout: content_page
+layout: single_section
 title: "Encoding Structural Variants in VCF (Variant Call Format) version 4.0"
 permalink: /wiki/Analysis/Variant Call Format/VCF (Variant Call Format) version 4.0/encoding-structural-variants/
 ---
-
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
 
 ## {{page.title}}
     
@@ -153,10 +149,6 @@ For precise variants, the consensus sequence the alternate allele assembly is de
 **\##FORMAT=<ID=CNQ,Number=1,Type=Float,Description=“Copy number genotype quality for imprecise events”>**
 
 These keys are analogous to GT/GQ and are provided for genotyping imprecise events by copy number (either because there is an unknown number of alternate alleles or because the haplotypes cannot be determined). CN specifies the integer copy number of the variant in this sample. CNQ is encoded as a phred quality -10log_10p(copy number genotype call is wrong). When possible, GT/GQ should be used instead of (or in addition to) these keys.
-
-
-</div>
-
 
 
 *[URL]: Uniform Resource Locator

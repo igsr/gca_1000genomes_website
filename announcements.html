@@ -1,29 +1,13 @@
 ---
-layout: content_page
+layout: single_section
 title: "1000 Genomes"
 permalink: /announcements/
 ---
   
-<div class="section">
 {% for announcement in site.categories.announcements %}
-        <div class="views-row views-row-1 views-row-odd views-row-first">
-      
-  <div class="views-field-field-announcement-date-value">
-                <span class="field-content"><span class="date-display-single">{{announcement.date | date: '%A %B %d, %Y' }}</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="{{ announcement.url }}"><h2>{{announcement.title}}</h2></a></span>
-  </div>
-  
-  <div class="views-field-field-announcement-text-value">
-                <div class="field-content">
+<h5>{{announcement.date | date: '%A %B %d, %Y' }}</h5>
+<p><a href="{{ announcement.url }}"><h2>{{announcement.title}}</h2></a></p>
 
 {{ announcement.content }}
 
-<br />
-<hr /></div>
-  </div>
-  </div>
 {% endfor %}
-</div>

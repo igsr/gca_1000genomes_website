@@ -1,15 +1,11 @@
 ---
-layout: content_page
+layout: single_section
 title: "Public Ensembl Mysql instance"
 permalink: /public-ensembl-mysql-instance/
 tags: About
 redirect_from:
     - /node/517/
 ---
-
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
 
 # Public Mysql Instance
 
@@ -33,4 +29,3 @@ If you have any questions about 1000 genomes data please email [info@1000genomes
 
 The [ftp directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/) also contains schema dumps for the databases in case you wish to setup your own instance of the Ensembl database
 
-</div>

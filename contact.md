@@ -1,5 +1,5 @@
 ---
-layout: content_page
+layout: single_section
 title: "Contact"
 permalink: /contact/
 tags: Contact
@@ -7,10 +7,6 @@ nav_buttons:
     - pilot_paper
     - contacts
 ---
-
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
 
 
 ## Contact Information
@@ -59,4 +55,3 @@ European Bioinformatics Institute
 Stephen Sherry, PhD  
 National Center for Biotechnology Information
 
-</div>

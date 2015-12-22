@@ -1,5 +1,5 @@
 ---
-layout: content_page
+layout: single_section
 title: "tools"
 permalink: /tools/
 nav_buttons:
@@ -9,10 +9,6 @@ nav_buttons:
     - pilot_paper
     - contacts
 ---
-
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
 
 # Software Tools
 
@@ -63,6 +59,3 @@ The Gerstein Lab at Yale University has created a version of the NA12878 genome 
 
 ## Phasing
 
-
-
-</div>

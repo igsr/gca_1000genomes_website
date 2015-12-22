@@ -1,5 +1,5 @@
 ---
-layout: content_page
+layout: single_section
 title: "Analysis"
 permalink: /analysis/
 tags: Analysis
@@ -11,10 +11,6 @@ nav_buttons:
     - contacts
 ---
 
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
-    
 # Analysis description
 
 The following analysis methods were used to create the data provided by the 1000 Genomes project and released through the FTP site
@@ -86,5 +82,3 @@ Dindel: [http://sites.google.com/site/keesalbers/soft/dindel](http://sites.googl
 
 Several methods were used to discover structural variants (SVs) from trio and low coverage raw sequencing reads. Algorithms underlying several distinct rationales for SV detection have been used in the SV discovery process. The high-confidence SV set reported in this study is based on validated SVs and on such discovered by algorithms achieving an FDR ≤10%. Further details can be found in the 1000 Genomes Pilot Project publication.
 
-
-</div>

@@ -1,5 +1,5 @@
 ---
-layout: content_page
+layout: multi_section
 title: "Data"
 permalink: /data/
 tags: Data
@@ -11,10 +11,7 @@ nav_buttons:
     - contacts
 ---
 
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
-
+{% capture links %}
 # 1000 Genomes Data and Sample Information
 
 The 1000 Genomes Project is a community resource project that aims to release data rapidly for the benefit of the scientific community.
@@ -24,13 +21,11 @@ The 1000 Genomes Project is a community resource project that aims to release da
 [Data Release Policy](#data-release-policy)  
 [Sample Availability](#sample-availability)  
 [Use of the Project data, presentations and publications, and authorship](#DataUse)
+{% endcapture links %}
+{% include section_md.html content=links %}
 
-</div>
 
-
-
-<div class="enclosed">
-
+{% capture data_released %}
 # Data released by the 1000 Genomes Project
 
 ## Sample lists and sequencing progress
@@ -50,13 +45,12 @@ The main project alignments are available in [BAM](http://samtools.sourceforge.n
 
 The main project raw sequence data is available in fastq format. A list of files currently available can be found in the sequence.index [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence.index)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/sequence.index) Sequence statistics can be found in the sequence_indices directory [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/sequence_indices). There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.sequence_data) which explains the sequence processing and the file layout
 
-</div>
+{% endcapture %}
+{% include section_md.html content=data_released %}
 
 
 
-
-<div class="enclosed">
-
+{% capture access %}
 # How to Access 1000 Genomes Data
 
 ## Download data
@@ -70,10 +64,10 @@ The data can be downloaded via FTP, aspera and globus gridftp. More information 
 
 The NCBI and the Amazon S3 bucket still hosts 1000 Genomes data but no longer mirrors new data posted by the ongoing project. Both these locations reflect the structure of the FTP site in August 2015 and hold all the pilot, phase1 and phase3 data.
 
-NCBI FTP Site : [ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp  
-](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp)Amazon S3 : [s3://1000genomes](denied:s3://1000genomes)
+NCBI FTP Site : [ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp)  
+Amazon S3 : [s3://1000genomes](denied:s3://1000genomes)
 
-<span style="font-size: 1.5em;">FTP Hierarchy </span>
+FTP Hierarchy
 
 The FTP structure was changed in September 2015\. The new structure is described in the [FTP site structure README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_ftp_site_structure.md) 
 
@@ -87,26 +81,28 @@ The first set of SNP calls representing the [July 2010](ftp://ftp.1000genomes.eb
 
 The alignment files for the 1000 Genomes Pilot Porject are available as a [public data set](http://aws.amazon.com/publicdatasets/) via Amazon Web Services (AWS). Further information can be found on 1000 Genomes [public data set page](http://aws.amazon.com/datasets/4383) or directly on [http://s3.amazonaws.com/1000genomes](http://s3.amazonaws.com/1000genomes).
 
-</div>
+{% endcapture access %}
+{% include section_md.html content=access %}
 
-<div class="enclosed">
 
+{% capture policy %}
 # Data release policy
 
 As a community resource project, the 1000 Genomes Project publicly releases data on a regular basis. The sequencing centers release the raw reads to the SRA. The Data Processing Group, Analysis Group, and DCC release alignments, re-calibrated error rates, and SNP calls on individual samples. Data that passed quality filters are the most visible, but data that did not pass quality filters are also available. When the Structural Variation Group has developed its methods, the structural variant calls on individual samples will be released. Eventually the Project will release haplotypes and imputed variant calls. Data formats and analysis software developed by the Project are also made publicly available.
 
-</div>
+{% endcapture policy %}
+{% include section_md.html content=policy %}
 
 
-<div class="enclosed">
-
+{% capture availability %}
 # Sample Availability
 
 All the samples studied by the 1000 Genomes Project are or will be available as DNA and cell lines to scientific investigators for research projects. Many of the samples are currently available from the non-profit [Coriell Institute for Medical Research](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM). Cell lines and DNA from additional populations will become available through 2011.
 
-</div>
+{% endcapture %}
+{% include section_md.html content=availability %}
 
-<div class="enclosed">
+{% capture data_use %}
 
 # Use of the Project data, presentations and publications, and authorship
 {: #DataUse}
@@ -135,5 +131,5 @@ Researchers may use Project data as controls or additional information for compa
 
 Researchers who have questions about whether they may make presentations or submit papers using Project data, or whether to include the 1000 Genomes Consortium as an author, may [contact](/contact) Richard Durbin, David Altshuler, Gil McVean, Gonçalo Abecasis, or Lisa Brooks.
 
-</div>
-
+{% endcapture %}
+{% include section_md.html content=data_use %}

@@ -1,13 +1,9 @@
 ---
-layout: content_page
+layout: single_section
 title: "VCF (Variant Call Format) version 4.0"
 permalink: /wiki/Analysis/Variant Call Format/vcf-variant-call-format-version-40/
 ---
 
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
-    
 Please see [VCF_4.0_sv](/wiki/Analysis/Variant%20Call%20Format/VCF%20%28Variant%20Call%20Format%29%20version%204.0/encoding-structural-variants "analysis:vcf_4.0_sv") for the conventions and extensions adopted by the 1000 Genomes Project for encoding structural variations in VCF 4.0 format.
 
 ### 0\. Example
@@ -263,4 +259,3 @@ Note that in all of these examples dashes have been added to make the haplotypes
        : a t c g - - - - a // following the C base is a deletion of 2 bases
        : a t c g c g c g a // following the C base is a insertion of 2 bases
 
-</div>

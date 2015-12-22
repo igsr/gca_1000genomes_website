@@ -1,13 +1,9 @@
 ---
-layout: content_page
+layout: single_section
 title: "The 1000 Genomes Browsers"
 permalink: /1000-genomes-browsers/
 tags: Browser
 ---
-
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
 
 # 1000 Genomes Browsers
 
@@ -27,4 +23,3 @@ There are also more tips for ensembl both on the [main ensembl site](http://www.
 
 The [NCBI](http://www.ncbi.nlm.nih.gov) also provide a [1000 genomes browser](http://www.ncbi.nlm.nih.gov/variation/tools/1000genomes/) hosted on their site
 
-</div>

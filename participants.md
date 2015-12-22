@@ -1,5 +1,5 @@
 ---
-layout: content_page
+layout: single_section
 title: "Participants"
 permalink: /participants/
 tags: Participants
@@ -7,10 +7,6 @@ nav_buttons:
     - pilot_paper
     - contacts
 ---
-
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
 
 # Participants list for the 1000 genomes Project
 
@@ -841,5 +837,3 @@ nav_buttons:
 **Jane Peterson** NIH National Human Genome Research Institute  
 **Zhiwu Ren** National Planning and Development Committee, China  
 **Jian Wang** BGI-Shenzhen
-
-</div>

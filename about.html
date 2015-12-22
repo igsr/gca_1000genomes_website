@@ -1,5 +1,5 @@
 ---
-layout: content_page
+layout: multi_section
 title: "About"
 permalink: /about/
 tags: About
@@ -12,10 +12,7 @@ nav_buttons:
     - contacts
 ---
 
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
-
+{% capture links %}
 # About the 1000 Genomes Project
 
 [Project Overview](#project-overview)  
@@ -24,10 +21,12 @@ nav_buttons:
 [Samples included in the project](#samples-included-in-the-project)  
 [Publications and project documents](#publications-and-project-documents)
 
-</div>
+{% endcapture %}
+{% include section_md.html content=links %}
 
-<div class="enclosed">
 
+
+{% capture overview %}
 # Project Overview
 
 Recent improvements in sequencing technology ("next-gen" sequencing platforms) have sharply reduced the cost of sequencing. The 1000 Genomes Project is the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation.
@@ -38,12 +37,11 @@ The goal of the 1000 Genomes Project is to find most genetic variants that have 
 
 Sequencing is still too expensive to deeply sequence the many samples being studied for this project. However, any particular region of the genome generally contains a limited number of haplotypes. Data can be combined across many samples to allow efficient detection of most of the variants in a region. The Project currently plans to sequence each sample to about 4X coverage; at this depth sequencing cannot provide the complete genotype of each sample, but should allow the detection of most variants with frequencies as low as 1%. Combining the data from 2500 samples should allow highly accurate estimation (imputation) of the variants and genotypes for each sample that were not seen directly by the light sequencing.
 
-</div>
+{% endcapture %}
+{% include section_md.html content=overview %}
 
 
-
-
-<div class="enclosed">
+{% capture design %}
 
 # Project Design
 
@@ -65,9 +63,11 @@ Three pilot studies provided data to inform the design of the full-scale project
 
 The plan for the full project is to sequence about 2,500 samples at 4X coverage. The first set of samples for sequencing includes 1167 samples that already existed or could be collected quickly, from 13 populations, for sequencing in 2010 and early 2011\. The second set includes 633 samples that are being collected, from 7 populations, for sequencing in early 2011\. The third set, consisting of 700 samples, is expected to be available for sequencing in late 2011\. Full details of the samples to be sequenced are [below](#ProjectSamples).
 
-</div>
+{% endcapture %}
+{% include section_md.html content=design %}
 
-<div class="enclosed">
+
+{% capture data_use %}
 
 # Use of the Project data and samples
 
@@ -81,11 +81,10 @@ Many researchers will compare the allele frequencies and LD patterns that they f
 
 DNA from the samples will be available for researchers to follow up with more detailed studies of variation in particular regions. The cell lines will allow researches to study cellular phenotypes such as gene expression, epigenetic patterns, and drug response. The extensive genotype data available on the samples, and the trio samples for some of the populations, will allow researchers to map regions of the genome computationally that affect the cellular phenotypes, and to study the heritability of these phenotypes. See [http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM)
 
-</div>
+{% endcapture %}
+{% include section_md.html content=data_use %}
 
-
-<div class="enclosed">
-
+{% capture samples %}
 # Samples included in the project
 
 The 1000 Genomes Project developed guidelines on ethical considerations for investigators doing sampling, outlined in the  [Informed Consent Background Document](/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf) and the [Informed Consent Form Template](/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf) for new collections. All new collections included in the Project followed these ethical guidelines and model informed consent language. The 1000 Genomes Project Steering Committee, with input from the Project's Samples and ELSI Group, made final decisions about which populations and sample sets to include in the Project.
@@ -150,12 +149,13 @@ The samples, as cell lines and DNA, are available to researchers from the non-pr
 
 You can see summaries of how much sequencing was carried out for the pilot and phase1 studies in the two respective publication supplementary information [http://www.nature.com/nature/journal/v467/n7319/extref/nature09534-s2.xls](http://www.nature.com/nature/journal/v467/n7319/extref/nature09534-s2.xls) and [http://www.nature.com/nature/journal/v491/n7422/extref/nature11632-s1.pdf](http://www.nature.com/nature/journal/v491/n7422/extref/nature11632-s1.pdf)
 
-</div>
+{% endcapture %}
+{% include section_md.html content=samples %}
 
 
 
 
-<div class="enclosed">
+{% capture publications %}
 
 # Publications and project documents
 
@@ -173,4 +173,5 @@ You can see summaries of how much sequencing was carried out for the pilot and p
 
 [Report of the 1000 Genomes planning meeting](/sites/1000genomes.org/files/docs/1000Genomes-MeetingReport.pdf)
 
-</div>
+{% endcapture %}
+{% include section_md.html content=publications %}

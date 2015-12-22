@@ -1,12 +1,8 @@
 ---
-layout: content_page
+layout: single_section
 title: "Variant Call Format"
 permalink: /wiki/Analysis/variant-call-format/
 ---
-
-{::options parse_block_html="true" /}
-
-<div class="enclosed">
 
 The VCF specification is no longer maintained by the 1000 Genomes Project. The group leading the management and expansion of the format is the Global Alliance for Genomics and Health Data Working group file format team, [http://ga4gh.org/#/fileformats-team](http://ga4gh.org/#/fileformats-team)
 
@@ -18,5 +14,3 @@ A PDF of the v4.1 spec is [http://samtools.github.io/hts-specs/VCFv4.1.pdf](http
 A PDF of the v4.2 spec is [http://samtools.github.io/hts-specs/VCFv4.2.pdf](http://samtools.github.io/hts-specs/VCFv4.2.pdf)
 
 VCFTools host a discussion list about the specification called vcf-spec [http://sourceforge.net/p/vcftools/mailman/](http://sourceforge.net/p/vcftools/mailman/)
-
-</div>

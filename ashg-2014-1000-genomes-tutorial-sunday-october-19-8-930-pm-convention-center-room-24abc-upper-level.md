@@ -1,11 +1,8 @@
 ---
-layout: content_page
+layout: single_section
 title: "ASHG 2014 1000 genomes tutorial"
 permalink: /ashg-2014-1000-genomes-tutorial-sunday-october-19-8-930-pm-convention-center-room-24abc-upper-level/
 ---
-
-{::options parse_block_html="true" /}
-<div class="enclosed">
 
 The 1000 Genomes project is holding a tutorial during [ASHG 2014](http://www.ashg.org/cgi-bin/2014/ashg14SOE.pl).
 
@@ -34,4 +31,3 @@ The complete slide set and where available powerpoint format slides can be found
 
 Please send any questions about this meeting to [info@1000genomes.org](mailto:info@1000genomes.org)
 
-</div>

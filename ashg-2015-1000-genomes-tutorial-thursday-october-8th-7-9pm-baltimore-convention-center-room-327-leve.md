@@ -1,11 +1,8 @@
 ---
-layout: content_page
+layout: single_section
 title: "ASHG 2015 1000 genomes tutorial"
 permalink: /ashg-2015-1000-genomes-tutorial-thursday-october-8th-7-9pm-baltimore-convention-center-room-327-leve/
 ---
-
-{::options parse_block_html="true" /}
-<div class="enclosed">
 
 The 1000 Genomes project is holding a tutorial at ASHG 2015.  
 
@@ -25,6 +22,3 @@ The speaker schedule is:
 No registration is needed for this meeting. Slides will be posted after the meeting is finished.
 
 If you have any questions about this tutorial please email [info@1000genomes.org](mailto:info@1000genomes.org)
-
-
-</div>

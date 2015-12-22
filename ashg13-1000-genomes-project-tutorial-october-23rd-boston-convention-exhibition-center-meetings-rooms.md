@@ -1,13 +1,10 @@
 ---
-layout: content_page
+layout: single_section
 title: "ASHG 2013 1000 genomes project tutorial"
 permalink: /ashg13-1000-genomes-project-tutorial-october-23rd-boston-convention-exhibition-center-meetings-rooms/
 redirect_from:
     - /node/955/
 ---
-
-{::options parse_block_html="true" /}
-<div class="enclosed">
     
 This meeting is free to attend but so we know how many people to expect please register at the [Boston College registration page](http://www.bc.edu/content/bc/schools/cas/biology/Genomicsregistrationform.html)
 
@@ -30,5 +27,3 @@ Meetings Rooms 156ABC
 
 All the slides are available via our [FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20131013_ashg2013_tutorial/) as is the [poster](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20131013_ashg2013_tutorial/20131023_auton_1000genomes_poster.pdf) Adam Auton presented on Wednesday aswell.
 
-
-</div>
