@@ -1,77 +1,16 @@
 ---
-layout: page
+layout: content_page
 title: "1000 Genomes"
 permalink: /announcements/
 ---
-    <div id="main" class="column grid-13 ">
-  	  <div id="content">
-  	    <div id="content-inner">
 
-          <div class="breadcrumb"><a href="/">Home</a> › </div>
-          
-          
-                    
-          
-          <div id="main-content" class="region clear-block">
-            <div class="view view-list-announcements view-id-list_announcements view-display-id-page_1 view-dom-id-1">
-        <div class="view-header">
-      
+<div class="enclosed">
 <h2 class="section_title">Announcements</h2>
-    </div>
-  
-  
-  
-      <div class="view-content">
 {% for announcement in site.categories.announcements %}
-        <div class="views-row views-row-1 views-row-odd views-row-first">
-      
-  <div class="views-field-field-announcement-date-value">
-                <span class="field-content"><span class="date-display-single">{{announcement.date | date: '%A %B %d, %Y' }}</span></span>
-  </div>
-  
-  <div class="views-field-title">
-                <span class="field-content"><a href="{{ announcement.url }}"><h2>{{announcement.title}}</h2></a></span>
-  </div>
-  
-  <div class="views-field-field-announcement-text-value">
-                <div class="field-content">
+<h5>{{announcement.date | date: '%A %B %d, %Y' }}</h5>
+<p><a href="{{ announcement.url }}"><h2>{{announcement.title}}</h2></a></p>
 
 {{ announcement.content }}
-
-<br />
-<hr /></div>
-  </div>
-  </div>
 {% endfor %}
-    </div>
+</div>
   
-  
-  
-  
-  
-  
-</div>           </div> <!-- /#main-content -->
-
-          
-		
-		</div> <!-- // #content-inner -->
-	  </div> <!-- //#content -->
-	</div> <!-- //end #main -->
-
-    
-        <div id="sidebar-right" class="column sidebar region grid-3">
-	    <div id="sidebar-right-inner">
-          <div id="block-user-1" class="block block-user region-odd odd region-count-1 count-1"><div class="block-inner">
-
-      <h2 class="title">Navigation</h2>
-  
-  <div class="content">
-    <ul class="menu"><li class="leaf first last"><a href="/faq">Frequently Asked Questions</a></li>
-</ul>  </div>
-
-  
-</div></div> <!-- /block-inner, /block -->
-      </div>
-    </div> <!--//end #sidebar-right-inner -->
-    
-
