@@ -30,5 +30,5 @@ defaults:
 
 # Build settings
 markdown: kramdown
-exclude: ['README.md', 'Gemfile', 'Gemfile.lock', '_faq']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock']
 default_sitemap_lastmod: 2015-12-11T00:00:00+00:00

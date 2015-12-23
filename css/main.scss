@@ -7,28 +7,38 @@ body {
 
 header {
 
-    div.top-banner {
-        background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/body_back.png");
-        background-repeat: repeat-x;
-        background-color: transparent;
-        position: absolute;
-        top: 0px;
+    div.top-banners {
         width: 100%;
-        height: 200px;
-
-        div.top-banner-img {
-            background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/header_back.jpg");
+        height: 158px;
+        div.title-banner {
+            background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/body_back.png");
+            background-repeat: repeat-x;
             background-color: transparent;
-            background-repeat: no-repeat;
-            background-position: right center;
-            height: 154px;
-            margin-top: 6px;
             width: 100%;
+            height: 158px;
+            position: absolute;
+            top: 0px;
+
+            div.title-banner-img {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/header_back.jpg");
+                background-color: transparent;
+                background-repeat: no-repeat;
+                background-position: right top;
+                position: absolute;
+                top: 0px;
+                height: 152px;
+                margin-top: 6px;
+                width: 100%;
+            }
         }
+    }
+    div.nav-banner {
+        width: 100%;
+        background-color: #262626;
+        margin-bottom: 20px;
     }
 
     div.top-banner-content {
-      height: 148px;
       margin-top: 12px;
 
       h2#site-slogan {
@@ -42,6 +52,8 @@ header {
 
     nav.navbar {
         background: transparent;
+        margin-bottom: 0px;
+        min-height: 40px;
 
         .navbar-toggle {
             border-color: #79C7E7;
@@ -63,6 +75,13 @@ header {
 
             li.active a {
                 color: #FFF;
+                outline: none;
+            }
+            li {
+                a:focus, a:hover {
+                    color: #FFF;
+                    background-color: transparent;
+                }
             }
 
         }
