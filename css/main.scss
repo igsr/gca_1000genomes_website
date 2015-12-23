@@ -9,8 +9,8 @@ header {
 
     div.top-banner {
         background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/body_back.png");
-        background-color: #131C22;
         background-repeat: repeat-x;
+        background-color: transparent;
         position: absolute;
         top: 0px;
         width: 100%;
@@ -41,8 +41,21 @@ header {
     }
 
     nav.navbar {
+        background: transparent;
+
+        .navbar-toggle {
+            border-color: #79C7E7;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            .icon-bar {
+                background-color: #79C7E7;
+            }
+        }
+
         ul.navbar-nav {
-            li a {
+            li >a {
                 color: #79C7E7;
                 padding-top: 10px;
                 padding-bottom: 10px;
