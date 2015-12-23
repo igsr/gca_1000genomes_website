@@ -2,35 +2,36 @@
 layout: page
 ---
 
-<div class="col-md-10">
-<div class="row">
-
-{{ content }}
-
-</div>
-</div>
-
-<div class="col-md-2">
+<div class="col-md-3 col-md-push-9">
   <h2>Navigation</h2>
   <p><a href="/faq">Frequently Asked Questions</a></p>
 
 
 {% if page.nav_buttons.size > 0 %}
-  <h2>Links</h2>
-<ul>
+<h2>Links</h2>
+<div class="row nav-column">
 {% for nav_button in page.nav_buttons %}
-{% if nav_button == 'announcements' %}<li><a href="/announcements">All Project announcements</a></li>{% endif %}
-{% if nav_button == 'media' %}<li><a href="/media">Media Archive</a></li>{% endif %}
-{% if nav_button == 'pilot_paper' %}<li><a href="/sites/1000genomes.org/files/docs/nature09534.pdf">Download the 1000 Genomes Pilot Paper</a></li>{% endif %}
-{% if nav_button == 'contacts' %}<li><a href="/contact">Project Contacts</a></li>{% endif %}
-{% if nav_button == 'files_formats' %}<li><a href="/formats">Files and formats</a></li>{% endif %}
-{% if nav_button == 'software_tools' %}<li><a href="/tools">Software tools</a></li>{% endif %}
-{% if nav_button == 'sample_project_info' %}<li><a href="/about">Sample and Project Information</a></li>{% endif %}
-{% if nav_button == 'publications' %}<li><a href="/1000-genomes-project-publications">Find the 1000 Genomes Project Publications></a></li>{% endif %}
-{% if nav_button == 'rss' %}<li><a href="/announcements/rss.xml">RSS Feed></a></li>{% endif %}
-{% if nav_button == 'twitter' %}<li><a href="http://twitter.com/1000genomes">Twitter></a></li>{% endif %}
+{% if nav_button == 'announcements' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="/announcements"><div class="nav-item-content nav-item-announcements">All Project announcements</div></a></div>{% endif %}
+{% if nav_button == 'media' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="/media"><div class="nav-item-content nav-item-media">Media Archive</div></a></div>{% endif %}
+{% if nav_button == 'pilot_paper' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="/sites/1000genomes.org/files/docs/nature09534.pdf"><div class="nav-item-content nav-item-pilot-paper">Download the 1000 Genomes Pilot Paper</div></a></div>{% endif %}
+{% if nav_button == 'contacts' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="/contact"><div class="nav-item-content nav-item-contacts">Project Contacts</div></a></div>{% endif %}
+{% if nav_button == 'files_formats' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="/formats"><div class="nav-item-content nav-item-files-formats">Files and formats</div></a></div>{% endif %}
+{% if nav_button == 'software_tools' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="/tools"><div class="nav-item-content nav-item-software-tools">Software tools</div></a></div>{% endif %}
+{% if nav_button == 'sample_project_info' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="/about"><div class="nav-item-content nav-item-sample-project-info">Sample and Project Information</div></a></div>{% endif %}
+{% if nav_button == 'publications' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="/1000-genomes-project-publications"><div class="nav-item-content nav-item-publications">Find the 1000 Genomes Project Publications</div></a></div>{% endif %}
+{% if nav_button == 'rss' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="/announcements/rss.xml"><div class="nav-item-content nav-item-rss">RSS Feed</div></a></div>{% endif %}
+{% if nav_button == 'twitter' %}<div class="col-md-12 col-sm-6 col-xs-6 nav-item"><a href="http://twitter.com/1000genomes"><div class="nav-item-content nav-item-twitter">Twitter</div></a></div>{% endif %}
 {% endfor %}
-</ul>
+</div>
 {% endif %}
+</div>
+
+
+<div class="col-md-9 col-md-pull-3">
+<div class="row">
+
+{{ content }}
+
+</div>
 </div>
 

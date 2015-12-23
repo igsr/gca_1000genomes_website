@@ -116,3 +116,48 @@ div.section {
     margin: 20px 0px 20px 0px;
 
 }
+
+div.nav-column {
+    div.nav-item {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        >a {
+            display: block;
+        }
+
+        div.nav-item-content {
+            min-height: 64px;
+            padding-left: 70px;
+            padding-top: 5px;
+            background-repeat: no-repeat;
+        }
+
+        div.nav-item-content.nav-item-announcements {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/icons/megaphone.png");
+            }
+        div.nav-item-content.nav-item-media {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/icons/newspaper.png");
+            }
+        div.nav-item-content.nav-item-pilot-paper {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/icons/star.png");
+            }
+        div.nav-item-content.nav-item-contacts {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/icons/email.png");
+            }
+        div.nav-item-content.nav-item-files-formats {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/icons/floppy.png");
+            }
+        div.nav-item-content.nav-item-sample-project-info {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/icons/data.png");
+            }
+        div.nav-item-content.nav-item-publications {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/icons/star.png");
+            }
+        div.nav-item-content.nav-item-rss {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/icons/rss_feed.png");
+            }
+        div.nav-item-content.nav-item-twitter {
+                background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/icons/twitter.png");
+            }
+    }
+}
