@@ -147,6 +147,11 @@ div.nav-column {
             padding-left: 70px;
             padding-top: 5px;
             background-repeat: no-repeat;
+
+            @media (max-width: 500px) {
+                background-size: 25% auto;
+                padding-left: 30%;
+            }
         }
 
         div.nav-item-content.nav-item-announcements {
