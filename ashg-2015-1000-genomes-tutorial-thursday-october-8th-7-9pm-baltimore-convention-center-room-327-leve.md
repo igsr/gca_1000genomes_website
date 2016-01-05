@@ -1,8 +1,10 @@
 ---
 layout: single_section
-title: "ASHG 2015 1000 genomes tutorial"
+title: "ASHG 2015 1000 Genomes Tutorial - Thursday October 8th - 7-9pm -  Baltimore Convention Center Room 327, level 3"
 permalink: /ashg-2015-1000-genomes-tutorial-thursday-october-8th-7-9pm-baltimore-convention-center-room-327-leve/
 ---
+
+## {{page.title}}
 
 The 1000 Genomes project is holding a tutorial at ASHG 2015.  
 

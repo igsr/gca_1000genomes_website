@@ -1,10 +1,12 @@
 ---
 layout: single_section
-title: "ASHG 2013 1000 genomes project tutorial"
+title: "#ASHG13 1000 Genomes Project Tutorial, October 23rd, Boston Convention &amp; Exhibition Center, Meetings Rooms 156ABC"
 permalink: /ashg13-1000-genomes-project-tutorial-october-23rd-boston-convention-exhibition-center-meetings-rooms/
 redirect_from:
     - /node/955/
 ---
+
+## {{page.title}}
     
 This meeting is free to attend but so we know how many people to expect please register at the [Boston College registration page](http://www.bc.edu/content/bc/schools/cas/biology/Genomicsregistrationform.html)
 
