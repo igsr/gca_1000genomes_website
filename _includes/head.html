@@ -2,7 +2,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{page.title}}</title>
+  <title>{% if page.title and page.use_default_title_element != true %}{{ page.title }} | 1000 Genomes{% else %}{{ site.default_title_element }}{% endif %}</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link rel="shortcut icon" href="/sites/1000genomes.org/themes/custom/one_thousand_genomes/favicon.ico" type="image/x-icon" />
 
