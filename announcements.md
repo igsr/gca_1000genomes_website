@@ -1,9 +1,11 @@
 ---
 layout: single_section
-title: "1000 Genomes"
+title: "Announcements"
 permalink: /announcements/
+redirect_from:
+    - /announcements/faq/
 ---
-
+  
 ## Announcements
 {% for announcement in site.categories.announcements %}
 ##### {{announcement.date | date: '%A %B %d, %Y' }}
