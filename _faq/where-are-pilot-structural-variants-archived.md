@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where are the pilot structural variants archived?"
 faq_tags:
   - data-access

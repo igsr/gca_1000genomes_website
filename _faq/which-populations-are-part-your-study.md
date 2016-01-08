@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Which populations are part of your study?"
 faq_tags:
   - phenotype

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where are the snps for the X/Y/Mitochondrial chr?"
 faq_tags:
   - data-access

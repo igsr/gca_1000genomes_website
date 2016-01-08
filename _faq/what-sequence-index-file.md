@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is a sequence index file?"
 faq_tags:
   - data-access

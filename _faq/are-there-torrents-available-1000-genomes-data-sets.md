@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are there torrents available for the 1000 genomes data sets?"
 faq_tags:
   - data-access

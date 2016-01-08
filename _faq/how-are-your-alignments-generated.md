@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How are your alignments generated?"
 faq_tags:
   - bam

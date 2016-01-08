@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Which samples are you sequencing?"
 faq_tags:
   - data-access

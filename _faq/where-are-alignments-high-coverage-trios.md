@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where are the alignments for the high coverage trios?"
 faq_tags:
   - data-access

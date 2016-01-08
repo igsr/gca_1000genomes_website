@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are my snps found by the 1000 genomes project?"
 faq_tags:
   - data-access

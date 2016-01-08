@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why are there more than one set of fastq files associated with an individual?"
 faq_tags:
   - data-access

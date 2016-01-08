@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Do I need a password to access 1000 genomes data?"
 faq_tags:
   - data-access

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why does a tabix fetch fail?"
 faq_tags:
   - data-access

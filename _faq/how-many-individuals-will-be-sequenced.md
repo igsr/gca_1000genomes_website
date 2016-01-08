@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How many individuals will be sequenced?"
 faq_tags:
   - data-access

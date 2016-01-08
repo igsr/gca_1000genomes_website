@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is a panel file?"
 faq_tags:
   - data-access

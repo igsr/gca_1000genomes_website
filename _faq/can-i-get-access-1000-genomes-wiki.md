@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I get access to the 1000 genomes Wiki?"
 faq_tags:
   - data-access

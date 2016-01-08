@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are the 1000 genomes variants in dbSNP?"
 faq_tags:
   - data-access
@@ -9,7 +8,7 @@ faq_tags:
 faq_related:
   - can-i-find-genomic-position-list-dbsnp-rs-numbers-0
   - can-i-access-databases-associated-browser
-  - why-isn%27t-snp-dbsnp-or-hapmap
+  - "why-isn't-snp-dbsnp-or-hapmap"
 ---
                     
 The 1000 genomes snp and short indel all get submitted to [dbSNP](http://www.ncbi.nlm.nih.gov/snp/) and longer structural variants get submitted to the [D GVa](http://www.ebi.ac.uk/dgva/)

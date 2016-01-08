@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How much sequence data has been generated for single individuals?"
 faq_tags:
   - data-access

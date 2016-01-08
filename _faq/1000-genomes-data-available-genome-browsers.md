@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Is the 1000 genomes data available in genome browsers?"
 faq_tags:
   - data-access

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are all the genotype calls in the current release VCF files bi-allelic?"
 faq_tags:
   - allele

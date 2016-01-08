@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are there any fasta files containing 1000 genomes variants or haplotypes?"
 faq_tags:
   - assembly

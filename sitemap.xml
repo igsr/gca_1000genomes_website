@@ -11,7 +11,7 @@ layout: null
     <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
     <lastmod>{{ site.default_sitemap_lastmod | date_to_xmlschema }}</lastmod>
   </url>
-  {% endfor %}{% for statis in site.html_files %}<url>
+  {% endfor %}{% for static in site.html_files %}<url>
     <loc>{{ static.path | prepend: site.baseurl | prepend: site.url }}</loc>
     <lastmod>{{ static.modified_time | date_to_xmlschema }}</lastmod>
   </url>

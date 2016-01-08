@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What do the pilot project, phase 1, phase 2 and phase 3 mean?"
 faq_tags:
   - data-analysis

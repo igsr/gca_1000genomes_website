@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How to download files using aspera?"
 faq_tags:
   - aspera

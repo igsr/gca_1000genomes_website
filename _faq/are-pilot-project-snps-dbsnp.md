@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are the pilot project snps in dbSNP?"
 faq_tags:
   - data-access

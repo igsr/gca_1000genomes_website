@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why do some of your vcf genotype files have genotypes of ./. in them?"
 faq_tags:
   - data-access

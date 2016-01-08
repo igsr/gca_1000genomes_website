@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where are the alignment files for the exon targetted individuals?"
 faq_tags:
   - data-access

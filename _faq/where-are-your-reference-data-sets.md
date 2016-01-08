@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where are your reference data sets?"
 faq_tags:
   - data-access

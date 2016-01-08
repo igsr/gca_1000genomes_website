@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why are there chrom 11 and chrom 20 alignment files?"
 faq_tags:
   - alignment

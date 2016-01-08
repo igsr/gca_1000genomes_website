@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What strand are the variants in your vcf file on?"
 faq_tags:
   - data-access

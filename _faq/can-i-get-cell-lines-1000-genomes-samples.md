@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I get cell lines for 1000 genomes Samples?"
 faq_tags:
   - cell-lines

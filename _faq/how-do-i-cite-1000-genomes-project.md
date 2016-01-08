@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How do I cite the 1000 genomes project?"
 faq_tags:
   - citation

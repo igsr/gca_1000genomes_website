@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I get individual genotype information from browser.1000genomes.org?"
 faq_tags:
   - data-access

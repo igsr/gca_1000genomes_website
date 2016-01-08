@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I get image files for any of the 1000 genomes sequencing runs?"
 faq_tags:
   - data-access

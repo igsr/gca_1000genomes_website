@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Does the 1000 genomes project use HapMap data?"
 faq_tags:
   - data-analysis

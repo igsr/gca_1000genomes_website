@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where is the most recent release?"
 faq_tags:
   - data-access

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What are CRAM files?"
 faq_tags:
   - alignment

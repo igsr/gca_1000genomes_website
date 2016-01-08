@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What library insert sizes where used in the 1000 genomes project?"
 faq_tags:
   - data-access

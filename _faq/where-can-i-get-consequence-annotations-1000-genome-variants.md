@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where can I get consequence annotations for the 1000 genome variants?"
 faq_tags:
   - annotation

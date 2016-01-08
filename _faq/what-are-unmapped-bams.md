@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What are the unmapped bams?"
 faq_tags:
   - alignment

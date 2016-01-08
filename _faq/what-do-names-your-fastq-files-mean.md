@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What do the names of your fastq files mean?"
 faq_tags:
   - data-access

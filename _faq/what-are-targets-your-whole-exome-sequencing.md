@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What are the targets for your whole exome sequencing?"
 faq_tags:
   - data-access

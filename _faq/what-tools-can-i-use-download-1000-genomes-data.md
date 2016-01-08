@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What tools can I use to download 1000 genomes data?"
 faq_tags:
   - aspera

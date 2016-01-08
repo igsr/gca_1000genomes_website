@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why is the Allele frequency different from Allele Count/Allele Number?"
 faq_tags:
   - data-analysis

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is the difference between your data directory and the pilot_data/data directory?"
 faq_tags:
   - data-access

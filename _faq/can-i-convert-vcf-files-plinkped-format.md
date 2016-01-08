@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I convert vcf files to plink/ped format?"
 faq_tags:
   - data-access

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What format are your alignments in and what do the names mean?"
 faq_tags:
   - bam

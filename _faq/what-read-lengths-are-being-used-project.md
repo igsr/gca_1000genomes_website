@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What read lengths are being used by the project?"
 faq_tags:
   - data-access

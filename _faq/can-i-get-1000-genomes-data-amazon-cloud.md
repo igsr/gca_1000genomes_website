@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I get 1000 genomes data on the Amazon Cloud?"
 faq_tags:
   - amazon

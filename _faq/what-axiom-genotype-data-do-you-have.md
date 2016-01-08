@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What Axiom genotype data do you have?"
 faq_tags:
   - axiom

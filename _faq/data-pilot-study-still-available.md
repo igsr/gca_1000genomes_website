@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Is the data for the pilot study still available?"
 faq_tags:
   - alignment

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I blast against the 1000 genomes data sets?"
 faq_tags:
   - data-access

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How do I contact you?"
 faq_tags:
   - contact

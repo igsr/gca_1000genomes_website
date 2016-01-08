@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is the difference between the analysis groups exome and exon targetted in the sequence index?"
 faq_tags:
   - data-access

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Is the 1000 Genomes sequencing data contaminated with mycoplasma?"
 faq_tags:
   - data-analysis

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What does an individual have a genotype in a location where it has no sequence coverage?"
 faq_tags:
   - data-analysis

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Which reference assembly do you use?"
 faq_tags:
   - assembly

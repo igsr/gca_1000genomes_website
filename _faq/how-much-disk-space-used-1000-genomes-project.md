@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How much disk space is used by the 1000 genomes project?"
 faq_tags:
   - data-access

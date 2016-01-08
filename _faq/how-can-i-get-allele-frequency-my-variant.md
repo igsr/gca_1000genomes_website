@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How can I get the allele frequency of my variant?"
 faq_tags:
   - data-access

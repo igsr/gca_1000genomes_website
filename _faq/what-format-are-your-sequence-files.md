@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What format are your sequence files?"
 faq_tags:
   - data-access

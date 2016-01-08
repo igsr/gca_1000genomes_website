@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is the Data Slicer?"
 faq_tags:
   - bam

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I get genotypes for a specific individual/population from your vcf files?"
 faq_tags:
   - data-access

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I search the website?"
 faq_tags:
   - data-access

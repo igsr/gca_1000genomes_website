@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I get haplotype data for the 1000 genomes individuals?"
 faq_tags:
   - data-analysis

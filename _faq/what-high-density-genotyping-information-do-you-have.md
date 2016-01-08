@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What High Density Genotyping information do you have?"
 faq_tags:
   - axiom

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is the depth of coverage of your Phase1 variants?"
 faq_tags:
   - data-access

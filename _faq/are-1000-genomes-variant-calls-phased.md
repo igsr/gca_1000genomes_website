@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are the 1000 genomes variant calls phased?"
 faq_tags:
   - data-analysis

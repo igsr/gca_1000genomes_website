@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are there any assemblies available for the 1000 genomes samples?"
 faq_tags:
   - assembly

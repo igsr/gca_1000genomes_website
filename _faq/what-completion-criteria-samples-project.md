@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is the completion criteria for samples in the project?"
 faq_tags:
   - completion

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I access 1000 Genomes data with Globus Online?"
 faq_tags:
   - data-access

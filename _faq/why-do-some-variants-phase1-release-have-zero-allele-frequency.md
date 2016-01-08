@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why do some variants in the phase1 release have an zero Allele Frequency?"
 faq_tags:
   - allele-frequency

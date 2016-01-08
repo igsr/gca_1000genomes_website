@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why isn&#039;t a snp in dbSNP or HapMap?"
 faq_tags:
   - data-access
@@ -8,7 +7,7 @@ faq_tags:
   - variants
 faq_related:
   - can-i-find-genomic-position-list-dbsnp-rs-numbers-0
-  - why-isn%27t-my-snp-browser1000genomesorg
+  - "why-isn't-my-snp-browser1000genomesorg"
 ---
                     
 The 1000 genomes project submits all its variants to archives like dbSNP or the DGVa. If it hasn't yet made it to dbSNP this means it is likely to be a new site which we haven't yet submitted. There may also be some old sites which we subsequently discover to be false discoveries which we then suppress.

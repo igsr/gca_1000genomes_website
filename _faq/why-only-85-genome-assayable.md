@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why is only 85% of the genome assayable?"
 faq_tags:
   - data-analysis

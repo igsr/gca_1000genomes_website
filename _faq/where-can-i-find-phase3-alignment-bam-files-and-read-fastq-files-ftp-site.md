@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where can I find phase3 alignment BAM files and read fastq files on the ftp site?"
 faq_tags:
   - alignment

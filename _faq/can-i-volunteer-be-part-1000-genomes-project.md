@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I volunteer to be part of the 1000 genomes project?"
 faq_tags:
   - data-access

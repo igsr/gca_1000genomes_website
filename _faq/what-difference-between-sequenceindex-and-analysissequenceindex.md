@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is the difference between the sequence.index and the analysis.sequence.index?"
 faq_tags:
   - alignment

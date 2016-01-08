@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I find the genomic position for a list of dbSNP rs numbers?"
 faq_tags:
   - data-access

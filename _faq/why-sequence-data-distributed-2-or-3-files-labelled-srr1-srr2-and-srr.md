@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why is the sequence data distributed in 2 or 3 files labelled SRR_1, SRR_2 and SRR?"
 faq_tags:
   - data-access

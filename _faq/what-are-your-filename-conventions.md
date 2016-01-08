@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What are your filename conventions?"
 faq_tags:
   - data-access

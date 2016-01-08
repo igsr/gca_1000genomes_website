@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why are the coordinates of your pilot variants different to what is displayed in Ensembl or UCSC?"
 faq_tags:
   - assembly

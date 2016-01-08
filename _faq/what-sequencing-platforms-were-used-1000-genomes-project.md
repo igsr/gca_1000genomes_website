@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What Sequencing Platforms were used for the 1000 genomes project?"
 faq_tags:
   - data-access

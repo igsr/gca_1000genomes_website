@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I use the 1000 genomes data for imputation?"
 faq_tags:
   - data-analysis

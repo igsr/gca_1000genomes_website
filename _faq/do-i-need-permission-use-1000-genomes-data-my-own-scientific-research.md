@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Do I need permission to use the 1000 genomes data in my own scientific research?"
 faq_tags:
   - data-access

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What was the source of the DNA for sequencing?"
 faq_tags:
   - cell-lines

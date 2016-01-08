@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What version of vcf are your vcf files in?"
 faq_tags:
   - data-access

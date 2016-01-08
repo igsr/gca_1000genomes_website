@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What Structural variant data is available for the project?"
 faq_tags:
   - data-access

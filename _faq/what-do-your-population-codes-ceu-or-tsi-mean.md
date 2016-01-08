@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What do your population codes like CEU or TSI mean?"
 faq_tags:
   - data-access

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I get phenotype, gender and family relationship information for the samples?"
 faq_tags:
   - data-access

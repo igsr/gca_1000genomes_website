@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What Omni genotype data do you have?"
 faq_tags:
   - data-access

@@ -27,6 +27,12 @@ defaults:
         values:
             pinned: false
             layout: "announcement"
+    -
+        scope: 
+            type: "faq"
+            path: "faq"
+        values:
+            layout: "faq"
 
 # Build settings
 markdown: kramdown

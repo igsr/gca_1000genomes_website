@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What does the LDAF value mean in your phase1 VCF files?"
 faq_tags:
   - allele-frequency

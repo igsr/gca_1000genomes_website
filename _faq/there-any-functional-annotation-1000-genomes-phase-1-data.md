@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Is there any functional annotation for the 1000 Genomes phase 1 data?"
 faq_tags:
   - data-access

@@ -4,28 +4,20 @@ layout: single_section
 
 <h2><a href="{{ page.url }}" title="{{ page.title }}">{{ page.title }}</a> </h2>
 
-<div class="meta">
-<div class="terms terms-inline">
-<ul class="links inline">
+<ul>
 {% for tag in page.faq_tags %}
-<li class="taxonomy_term_2"><a href="/category/{{ tag }}" rel="tag" title="">{{ tag }}</a></li>
+{% assign faq_category = site.data['faq_category_map'][tag] %}
+<li><a href="{{faq_category.url}}" title="">{{faq_category.title}}</a></li>
 {% endfor %}
 </ul>
-</div>
-</div>
 
 
 {{ content }}
 
-<div class="field field-type-nodereference field-field-faq-related">
-      <div class="field-label">Related questions:&nbsp;</div>
-    <div class="field-items">
-    {% for faq_related in page.faq_related %}{% capture url_related %}{{ faq_related | prepend: '/faq/' | append: '/' }}{% endcapture %}
-    {% assign matched_faq = (site.faq | where: "url", url_related) %}
-    {% for faq in matched_faq %}<div class="field-item {% cycle 'odd', 'even' %}">
-        <a href="{{faq.url}}">{{faq.title}}</a>
-    </div>{% endfor %}
-    {% endfor %}
-        </div>
-</div>
-</div>
+<h2>Related questions:</h2>
+<ul>
+{% for faq_related_stub in page.faq_related %}
+{% assign faq_related = site.data['faq_map'][faq_related_stub] %}
+<li><a href="{{faq_related.url}}">{{faq_related.title}}</a></li>
+{% endfor %}
+</ul>

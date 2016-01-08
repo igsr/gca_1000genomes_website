@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What does Genotype Dosage mean in the phase1 integrated call set?"
 faq_tags:
   - data-analysis

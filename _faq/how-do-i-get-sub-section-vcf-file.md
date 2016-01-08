@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How do I get a sub-section of a vcf file?"
 faq_tags:
   - data-access

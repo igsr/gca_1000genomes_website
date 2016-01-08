@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Is there any gene expression data available for the 1000 genomes project samples?"
 faq_tags:
   - gene-expression

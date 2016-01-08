@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What do the names of your variant files mean and what format are the files?"
 faq_tags:
   - data-access

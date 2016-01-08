@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where are your variant files located?"
 faq_tags:
   - data-access

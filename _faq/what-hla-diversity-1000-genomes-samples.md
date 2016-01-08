@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is the HLA Diversity in 1000 Genomes Samples?"
 faq_tags:
   - data-access

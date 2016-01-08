@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are all the variants displayed on the 1000 Genomes Project Browser discovered by the project?"
 faq_tags:
   - browser

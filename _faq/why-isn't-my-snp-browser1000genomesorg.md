@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why isn&#039;t my snp in browser.1000genomes.org?"
 faq_tags:
   - browser

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "How do I find out about new 1000 genomes releases?"
 faq_tags:
   - annoucements

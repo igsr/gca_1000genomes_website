@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What are the targets for your exon targetted pilot study?"
 faq_tags:
   - data-access

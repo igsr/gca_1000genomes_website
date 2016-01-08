@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What capture technology does the Exome sequencing used?"
 faq_tags:
   - capture

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where does the Ancestral Allele Information for your variants come from?"
 faq_tags:
   - data-analysis

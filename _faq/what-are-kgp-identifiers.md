@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What are the kgp identifiers?"
 faq_tags:
   - assembly-conversion

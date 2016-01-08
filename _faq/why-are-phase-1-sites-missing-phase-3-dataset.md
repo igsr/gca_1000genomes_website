@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Why are phase 1 sites missing from the phase 3 dataset?"
 faq_tags:
   - data-analysis

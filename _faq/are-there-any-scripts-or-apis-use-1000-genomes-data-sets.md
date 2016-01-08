@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Are there any scripts or apis for use with the 1000 genomes data sets?"
 faq_tags:
   - bam

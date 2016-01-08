@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Can I map your snp coordinates between NCBI36 and GRCh37?"
 faq_tags:
   - assembly

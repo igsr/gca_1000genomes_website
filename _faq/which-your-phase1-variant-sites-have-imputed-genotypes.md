@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Which of your phase1 variant sites have imputed genotypes?"
 faq_tags:
   - data-analysis

@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "Where are your alignment files located?"
 faq_tags:
   - alignment

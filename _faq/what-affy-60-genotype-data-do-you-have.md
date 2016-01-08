@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What Affy 6.0 genotype data do you have?"
 faq_tags:
   - affy

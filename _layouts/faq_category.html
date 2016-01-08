@@ -2,47 +2,29 @@
 layout: multi_section
 ---
     
-{% assign short_name = (page.relative_path | remove_first: site.collections.faq_categories.relative_directory | remove_first: '/' | remove: '.html') %}
-
-{% for faq in site.faq %}{% if faq.faq_tags contains short_name %}
+{% for faq in site.faq %}{% if faq.faq_tags contains page.stub_name %}
 {% capture faq_content %}
 <h2 class="title">
       <a href="{{ faq.url }}" title="{{ faq.title }}">{{ faq.title }}</a>
     </h2>
   
   
-      <div class="meta">
-              <div class="terms terms-inline"><ul class="links inline">
+<ul>
 {% for tag in faq.faq_tags %}
-<li class="taxonomy_term_2"><a href="/category/{{ tag }}" rel="tag" title="">{{ tag }}</a></li>
+{% assign faq_category = site.data['faq_category_map'][tag] %}
+<li><a href="{{faq_category.url}}" title="">{{faq_category.title}}</a></li>
 {% endfor %}
-</ul></div>
-          </div>
-  
-  <div class="content">
-    <div class="field field-type-text field-field-faq-answer">
-      <div class="field-label">Answer:&nbsp;</div>
-    <div class="field-items">
-            <div class="field-item odd">
+</ul>
 
-    {{ faq.content }}
-                    
-        </div>
-        </div>
-</div>
-<div class="field field-type-nodereference field-field-faq-related">
-      <div class="field-label">Related questions:&nbsp;</div>
-    <div class="field-items">
-    {% for faq_related in faq.faq_related %}{% capture url_related %}{{ faq_related | prepend: '/faq/' | append: '/' }}{% endcapture %}
-    {% assign matched_faq = (site.faq | where: "url", url_related) %}
-    {% for faq2 in matched_faq %}<div class="field-item {% cycle 'odd', 'even' %}">
-        <a href="{{faq2.url}}">{{faq2.title}}</a>
-    </div>{% endfor %}
-    {% endfor %}
-        </div>
-</div>
-  </div>
+<h2>Answer:</h2>
 
-  
-</div></div> <!-- /node-inner, /node -->  </div>
-{% endcapture %}{% endif %}{% include section.html content=faq_content %}{% endfor %}
+    {{ faq.content | markdownify }}
+
+<h2>Related questions:</h2>
+<ul>
+{% for faq_related_stub in faq.faq_related %}
+{% assign faq_related = site.data['faq_map'][faq_related_stub] %}
+<li><a href="{{faq_related.url}}">{{faq_related.title}}</a></li>
+{% endfor %}
+</ul>
+{% endcapture %}{% include section.html content=faq_content %}{% endif %}{% endfor %}

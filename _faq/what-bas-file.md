@@ -1,5 +1,4 @@
 ---
-layout: faq
 title: "What is a bas file?"
 faq_tags:
   - alignment
