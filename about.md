@@ -62,7 +62,7 @@ The 1000 Genomes Project developed guidelines on ethical considerations for inve
 
 Data from the 1000 Genomes Project is available without embargo, following the final publications from the project. Use of the data should be cited in the usual way, with current details available [here](http://www.1000genomes.org/faq/how-do-i-cite-1000-genomes-project). Additional details on data use can be found [here](https://github.com/igsr/1000Genomes_data_indexes/blob/master/IGSR_data_disclaimer.md).
 
-The available data from the 1000 Genomes Project can be explored [here](http://www.1000genomes.org/data), alongside other data in IGSR. Cell lines and DNA are avaiable for all 1000 Genomes Samples and can be obtained from the [Coriell Institute](https://catalog.coriell.org).
+The available data from the 1000 Genomes Project can be explored [here](http://www.1000genomes.org/data), alongside other data in IGSR. Cell lines and DNA are avaiable for all 1000 Genomes samples and can be obtained from the [Coriell Institute](https://catalog.coriell.org).
 
 The samples for the 1000 Genomes Project mostly are anonymous and have no associated medical or phenotype data; for some of the populations the collectors have phenotype data but these data are not at Coriell and are not distributed.
 
