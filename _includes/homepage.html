@@ -6,7 +6,7 @@
 <h5>{{pinned_announcements.last.date | date: '%A %B %d, %Y' }}</h5>
 <p><a href="{{pinned_announcements.first.url}}"><h2>{{pinned_announcements.first.title}}</h2></a></p>
   
-{{pinned_announcements.first.content}}
+{{pinned_announcements.first.content | markdownify}}
 {% endcapture %}
 {% include section.html content=pinned_announcements %}
       
@@ -17,7 +17,7 @@
 <h5>{{announcement.date | date: '%A %B %d, %Y' }}</h5>
 <p><a href="{{ announcement.url }}"><h2>{{announcement.title}}</h2></a></p>
 
-{{ announcement.content }}
+{{ announcement.content | markdownify }}
 {% endfor %}
 
 <p><a href="/announcements">Complete current and previous announcements</a></p>
