@@ -22,6 +22,12 @@ The 1000 Genomes Project, set up in 2008, was the first large-scale project to u
 
 ## The 1000 Genomes Project
 
+The 1000 Genomes Project took advantage of developments in sequencing technology, which sharply reduced the cost of sequencing. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through freely accessible public databases (see [Data use statement](#ProjectDataUse)).
+
+The goal of the 1000 Genomes Project was to find most genetic variants with frequencies of at least 1% in the populations studied.
+
+Sequencing was too expensive to deeply sequence the many samples being studied in the project. However, any particular region of the genome generally contains a limited number of haplotypes. Data could be combined across samples to allow efficient detection of most of the variants in a region. The Project planned to sequence each sample to about 4X coverage; at this depth sequencing could not provide the complete genotype of each sample, but was expected to allow the detection of most variants with frequencies as low as 1%. Combining the data from 2504 samples was anticipated to allow highly accurate estimation (imputation) of the variants and genotypes for each sample that was not seen directly by the low coverage sequencing.
+
 
 [Project Overview](#project-overview)  
 [Project Design](#project-design)  
@@ -36,9 +42,6 @@ The 1000 Genomes Project, set up in 2008, was the first large-scale project to u
 {% capture overview %}
 # Project Overview
 
-Recent improvements in sequencing technology ("next-gen" sequencing platforms) have sharply reduced the cost of sequencing. The 1000 Genomes Project is the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation.
-
-As with other major human genome reference projects, data from the 1000 Genomes Project will be made available quickly to the worldwide scientific community through freely accessible public databases. (See [Data use statement](#ProjectDataUse).)
 
 The goal of the 1000 Genomes Project is to find most genetic variants that have frequencies of at least 1% in the populations studied. This goal can be attained by sequencing many individuals lightly. To sequence a person's genome, many copies of the DNA are broken into short pieces and each piece is sequenced. The many copies of DNA mean that the DNA pieces are more-or-less randomly distributed across the genome. The pieces are then aligned to the reference sequence and joined together. To find the complete genomic sequence of one person with current sequencing platforms requires sequencing that person's DNA the equivalent of about 28 times (called 28X). If the amount of sequence done is only an average of once across the genome (1X), then much of the sequence will be missed, because some genomic locations will be covered by several pieces while others will have none. The deeper the sequencing coverage, the more of the genome will be covered at least once. Also, people are diploid; the deeper the sequencing coverage, the more likely that both chromosomes at a location will be included. In addition, deeper coverage is particularly useful for detecting structural variants, and allows sequencing errors to be corrected.
 
