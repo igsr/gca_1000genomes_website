@@ -58,43 +58,22 @@ Analyses were conducted looking at both the comparatively simple short variation
 
 ###Data from the 1000 Genomes Project
 
+Data from the 1000 Genomes Project is available without embargo, following the final publications from the project. Use of the data should be cited in the usual way, with current details available at [here](http://www.1000genomes.org/faq/how-do-i-cite-1000-genomes-project). Additional details on data use can be found [here](https://github.com/igsr/1000Genomes_data_indexes/blob/master/IGSR_data_disclaimer.md).
 
-[Project Overview](#project-overview)  
-[Project Design](#project-design)  
-[Use of the Project data and samples](#use-of-the-project-data-and-samples)  
-[Samples included in the project](#samples-included-in-the-project)  
-[Publications and project documents](#publications-and-project-documents)
+The available data from the 1000 Genomes Project can be explored (here)[http://www.1000genomes.org/data), alongside other data in IGSR.
 
+###Key publications and documents from the 1000 Genomes Project
 
+####October 2015
 
+[1000 genomes main project paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html)
+[1000 geneomes structural variation paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)
 
-
-{% capture overview %}
-# Project Overview
-
-
-
-{% endcapture %}
-{% include section_md.html content=overview %}
-
-
-{% capture design %}
-
-
-
-# Publications and project documents
-
-## Project Documents
-
-###May 2011
-
-[1000 Genomes Browser Quick Start Guide](/sites/1000genomes.org/files/documents/20110517_ensembl_62_quickstart.pdf)
-
-###October 2010
+####October 2010
 
 [1000 genomes pilot paper](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html)
 
-###September 2007
+####September 2007
 
 [Report of the 1000 Genomes planning meeting](/sites/1000genomes.org/files/docs/1000Genomes-MeetingReport.pdf)
 
