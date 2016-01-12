@@ -50,7 +50,7 @@ Data from the pilot projects was analyzed to determine whether the strategy of 4
 
 ####Main project
 
-Sequencing was carried out in phases one and three of the main project, with data releases and analysis corresponding to each. The final data freeze, assoicated with the third and final phase, took place on the 2nd May 2013. This data set represented the finalised data set upon which analysis the phase three analysis was based, superseding previous releases. During the course of the project, analysis methods were also developed and the phase three analysis replaces earlier versions.
+Sequencing was carried out in phases one and three of the main project, with data releases and analysis corresponding to each. The final data freeze, assoicated with the third and final phase, took place on the 2nd May 2013. This data set represented the finalised data set upon which the phase three analysis was based and superseded previous data releases. During the course of the project, analysis methods were further developed and the phase three analysis replaces earlier versions.
 
 [Project Overview](#project-overview)  
 [Project Design](#project-design)  
