@@ -60,13 +60,14 @@ Analyses were conducted looking at both the comparatively simple short variation
 
 Data from the 1000 Genomes Project is available without embargo, following the final publications from the project. Use of the data should be cited in the usual way, with current details available at [here](http://www.1000genomes.org/faq/how-do-i-cite-1000-genomes-project). Additional details on data use can be found [here](https://github.com/igsr/1000Genomes_data_indexes/blob/master/IGSR_data_disclaimer.md).
 
-The available data from the 1000 Genomes Project can be explored (here)[http://www.1000genomes.org/data), alongside other data in IGSR.
+The available data from the 1000 Genomes Project can be explored [here](http://www.1000genomes.org/data), alongside other data in IGSR.
 
 ###Key publications and documents from the 1000 Genomes Project
 
 ####October 2015
 
 [1000 genomes main project paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html)
+
 [1000 geneomes structural variation paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)
 
 ####October 2010
