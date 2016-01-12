@@ -28,9 +28,16 @@ The 1000 Genomes Project took advantage of developments in sequencing technology
 
 The goal of the 1000 Genomes Project was to find most genetic variants with frequencies of at least 1% in the populations studied.
 
-Sequencing remained too expensive to deeply sequence the many samples being studied in the project. However, any particular region of the genome generally contains a limited number of haplotypes. Data was combined across samples to allow efficient detection of most of the variants in a region. The Project planned to sequence each sample to about 4x coverage; at this depth sequencing can not provide the complete genotype of each sample, but can allow the detection of most variants with frequencies as low as 1%. The data from 2,504 samples was combined to allow highly accurate estimation (imputation) of the variants and genotypes for each sample, even where not seen directly by low coverage sequencing.
+Sequencing remained too expensive to deeply sequence the many samples being studied in the project. However, any particular region of the genome generally contains a limited number of haplotypes. Data was combined across samples to allow efficient detection of most of the variants in a region. The project planned to sequence each sample to about 4x coverage; at this depth sequencing can not provide the complete genotype of each sample, but can allow the detection of most variants with frequencies as low as 1%. The data from 2,504 samples was combined to allow highly accurate estimation (imputation) of the variants and genotypes for each sample, even where not seen directly by low coverage sequencing.
 
 The contribution of the 1000 Genomes Project was summarised in [Nature](http://www.nature.com/nature/journal/v526/n7571/full/526052a.html) in the issue containing the final publications from the main project.
+
+###Project design
+
+The Project was conducted in four stages: a pilot phase and three phases of the main project. In the main project, phases one and three produced data, with phase two concentrating on technical development.
+
+####Pilot project
+
 
 [Project Overview](#project-overview)  
 [Project Design](#project-design)  
