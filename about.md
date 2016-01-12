@@ -92,8 +92,6 @@ The samples for the 1000 Genomes Project mostly are anonymous and have no associ
 
 As stated, IGSR was set up to ensure the future usability and accessibility of data from the 1000 Genomes Project and to extend the data set to include new data on the 1000 Genomes samples and new populations where sampling has been carried out in line with IGSR sampling principles.
 
-The three central aims of IGSR, and how we are working to achieve them, are described below.
-
 ###1. Ensuring the future usability of the 1000 Genomes reference data
 
 In 2014, the [Genome Reference Consortium](http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/) released an update of the human assembly, GRCh38. This update to the human reference assembly shows a significant improvement in the quantity of alternative loci represented. It now contains 178 genomc regions with associated alt loci (2% of chromosome sequence (61.9 Mb)). This is made up from 261 alternative loci (containing 3.6 Mb novel sequence relative to chromosomes). The GRC were also able to resolve more than 1000 issues from the previous version of the assembly.
