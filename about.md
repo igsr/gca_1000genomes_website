@@ -56,11 +56,14 @@ The final data set contains data for 2,504 individuals from 26 populations. Low 
 
 Analyses were conducted looking at both the comparatively simple short variations (up to 500 base pairs in length) and also structural variations. These analyses were published at the conclusion of the project in 2015 by [The 1000 Genomes Project Consortium](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) and [Sudmant _et al._](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html) respectively.
 
-###Data from the 1000 Genomes Project
+###1000 Genomes Project samples and data
+
+The 1000 Genomes Project developed guidelines on ethical considerations for investigators doing sampling, outlined in the  [Informed Consent Background Document](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf) and the [Informed Consent Form Template](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf). All collections included in the Project followed these ethical guidelines and model informed consent language. The 1000 Genomes Project Steering Committee, with input from the Project's Samples and ELSI Group, made final decisions about which populations and sample sets to include in the Project.
 
 Data from the 1000 Genomes Project is available without embargo, following the final publications from the project. Use of the data should be cited in the usual way, with current details available at [here](http://www.1000genomes.org/faq/how-do-i-cite-1000-genomes-project). Additional details on data use can be found [here](https://github.com/igsr/1000Genomes_data_indexes/blob/master/IGSR_data_disclaimer.md).
 
-The available data from the 1000 Genomes Project can be explored [here](http://www.1000genomes.org/data), alongside other data in IGSR.
+The available data from the 1000 Genomes Project can be explored [here](http://www.1000genomes.org/data), alongside other data in IGSR. Cell lines and DNA are avaiable for all 1000 Genomes Samples and can be obtained from the [Coriell Institute](https://catalog.coriell.org).
+
 
 ###Key publications and documents from the 1000 Genomes Project
 
@@ -78,5 +81,10 @@ The available data from the 1000 Genomes Project can be explored [here](http://w
 
 [Report of the 1000 Genomes planning meeting](/sites/1000genomes.org/files/docs/1000Genomes-MeetingReport.pdf)
 
-{% endcapture %}
-{% include section_md.html content=publications %}
+####Consent documents
+
+[Informed Consent Background Document](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf)
+
+[Informed Consent Form Template](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf)
+
+
