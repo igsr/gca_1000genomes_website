@@ -88,4 +88,8 @@ The samples for the 1000 Genomes Project mostly are anonymous and have no associ
 
 [Informed Consent Form Template](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf)
 
+##IGSR
 
+As stated, IGSR was set up to ensure the future usability and accessibility of data from the 1000 Genomes Project and to extend the data set to include new data on the 1000 Genomes samples and new populations where sampling has been carried out in line with IGSR sampling principles.
+
+The three central aims of IGSR, and how we are working to achieve them, are described below.
