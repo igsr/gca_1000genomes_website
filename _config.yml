@@ -19,6 +19,8 @@ collections:
         output: false
     press_release:
         output: false
+    searchable:
+        output: true
 defaults:
     -
         scope: 

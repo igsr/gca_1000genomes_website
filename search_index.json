@@ -1,0 +1,20 @@
+---
+---
+
+[
+{% for page in site.posts %}  {
+    "url": {{ page.url | prepend: site.baseurl | prepend: site.url | jsonify}},
+    "title": {{page.title | jsonify}},
+    "content": {{ page.content | strip_html | jsonify | replace: '\n', ' '}}
+  },{% endfor %}
+{% for page in site.faq %}  {
+    "url": {{ page.url | prepend: site.baseurl | prepend: site.url | jsonify}},
+    "title": {{page.title | jsonify}},
+    "content": {{ page.content | strip_html | jsonify | replace: '\n', ' '}}
+  },{% endfor %}
+{% for page in site.searchable %}  {
+    "url": {{ page.url | prepend: site.baseurl | prepend: site.url | jsonify}},
+    "title": {{page.title | jsonify}},
+    "content": {{ page.content | strip_html | jsonify | replace: '\n', ' '}}
+  }{% if forloop.last %}{% else %},{% endif %}{% endfor %}
+]
