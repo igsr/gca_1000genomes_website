@@ -38,6 +38,18 @@ The Project was conducted in four stages: a pilot phase and three phases of the 
 
 ####Pilot project
 
+Three pilot studies provided data to inform the design of the full-scale project:
+
+| Pilot | Purpose | Coverage | Strategy | Status
+|:-:|:-:|:-:|:-:|:-:|
+| 1 - low coverage | Assess strategy of sharing data across samples | 2-4X | Whole-genome sequencing of 180 samples | Sequencing completed October 2008 |
+| 2 - trios | Assess coverage and platforms and centers | 20-60X | Whole-genome sequencing of 2 mother-father-adult child trios | Sequencing completed October 2008 |
+| 3 - gene regions | Assess methods for gene-region-capture | 50X | 1000 gene regions in 900 samples | Sequencing completed June 2009 |
+
+Data from the pilot projects was analyzed to determine whether the strategy of 4x coverage was adequate to meet the goals of the project. A paper describing the analyses of the pilot data and design of the full project was published in October in the journal _Nature_ and is available [here](/sites/1000genomes.org/files/docs/nature09534.pdf).
+
+A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). And the list of samples and allocations is provided in a [spreadsheet](/sites/1000genomes.org/files/documents/20101214_1000genomes_samples.xls). Regions targeted in Pilot 3 are available on the project [FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/technical/reference/).
+
 
 [Project Overview](#project-overview)  
 [Project Design](#project-design)  
