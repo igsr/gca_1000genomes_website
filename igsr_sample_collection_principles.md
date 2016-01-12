@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: single_section
 title: Sample Collection Principles
 permalink: /sample_collection_principles/
 order: 10
