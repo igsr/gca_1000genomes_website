@@ -98,7 +98,7 @@ In 2014, the [Genome Reference Consortium](http://www.ncbi.nlm.nih.gov/projects/
 
 Taking advantage of the alternative loci when identifying variation and calling genotypes is an important step in improving our ability to discover human variation. Currently very few tools can use the alternative loci data. IGSR has remapped the [phase 3 1000 Genomes data](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) to GRCh38 in an alt aware manner using [BWA mem](http://bio-bwa.sourceforge.net/). This will provide the method development community with a source of alignments that can drive new methods forward and as well as providing the wider community with upto date alignments, ensuring everyone can benefit from the data in the context of the new assembly.
 
-In addition, further sets of genomic sequence data are being aligned to GRCh38, with the [Platinum Genomes data from Illumina](http://www.illumina.com/platinumgenomes/) being the first new collection of data to be added.
+In addition, further sets of genomic sequence data are being aligned to GRCh38, with the [Platinum Genomes data from Illumina](http://www.illumina.com/platinumgenomes/) being the first new collection of data to be aligned.
 
 ###2. Incorporate published genomic data on the 1000 Genomes samples
 
