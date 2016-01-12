@@ -52,6 +52,8 @@ Data from the pilot projects was analyzed to determine whether the strategy of 4
 
 Sequencing was carried out in phases one and three of the main project, with data releases and analysis corresponding to each. The final data freeze, assoicated with the third and final phase, took place on the 2nd May 2013. This data set represented the finalised data set upon which the phase three analysis was based and superseded previous data releases. During the course of the project, analysis methods were further developed and the phase three analysis replaces earlier versions.
 
+The final data set contains data for 2,504 individuals from 26 populations. Low coverage sequence data is present for all individuals, with additional high coverage and exome sequence data being produced for some samples.
+
 [Project Overview](#project-overview)  
 [Project Design](#project-design)  
 [Use of the Project data and samples](#use-of-the-project-data-and-samples)  
@@ -77,15 +79,7 @@ Sequencing was carried out in phases one and three of the main project, with dat
 
 
 
-## Main Project
 
-The plan for the full project is to sequence about 2,500 samples at 4X coverage. The first set of samples for sequencing includes 1167 samples that already existed or could be collected quickly, from 13 populations, for sequencing in 2010 and early 2011\. The second set includes 633 samples that are being collected, from 7 populations, for sequencing in early 2011\. The third set, consisting of 700 samples, is expected to be available for sequencing in late 2011\. Full details of the samples to be sequenced are [below](#ProjectSamples).
-
-{% endcapture %}
-{% include section_md.html content=design %}
-
-
-{% capture data_use %}
 
 # Use of the Project data and samples
 
