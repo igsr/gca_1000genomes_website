@@ -50,7 +50,7 @@ Data from the pilot projects was analyzed to determine whether the strategy of 4
 
 ####Main project
 
-Sequencing was carried out in phases one and three of the main project, with data releases and analysis corresponding to each. The final data freeze, assoicated with the third and final phase, took place on the 2nd May 2013. This data set represented the finalised data set upon which the phase three analysis was based and superseded previous data releases. During the course of the project, analysis methods were further developed and the phase three analysis replaces earlier versions.
+Sequencing was carried out in phases one and three of the main project, with data releases and analysis corresponding to each. The final data freeze, associated with the third and final phase, took place on the 2nd May 2013. This data set represented the finalised data set upon which the phase three analysis was based and superseded previous data releases. During the course of the project, analysis methods were further developed and the phase three analysis replaces earlier versions.
 
 The final data set contains data for 2,504 individuals from 26 populations. Low coverage sequence data is present for all individuals, with additional high coverage and exome sequence data being produced for some samples.
 
