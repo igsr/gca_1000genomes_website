@@ -22,7 +22,7 @@ The 1000 Genomes Project, set up in 2008, was the first large-scale project to u
 
 ## The 1000 Genomes Project
 
-###Project overview
+###Overview of the 1000 Genomes Project
 
 The 1000 Genomes Project took advantage of developments in sequencing technology, which sharply reduced the cost of sequencing. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through freely accessible public databases (see [Data use statement](#ProjectDataUse)).
 
@@ -32,7 +32,7 @@ Sequencing remained too expensive to deeply sequence the many samples being stud
 
 The contribution of the 1000 Genomes Project was summarised in [_Nature_](http://www.nature.com/nature/journal/v526/n7571/full/526052a.html) in the issue containing the final publications from the main project.
 
-###Project design
+###Design of the 1000 Genomes Project
 
 The Project was conducted in four stages: a pilot phase and three phases of the main project. In the main project, phases one and three produced data, with phase two concentrating on technical development.
 
