@@ -22,11 +22,13 @@ The 1000 Genomes Project, set up in 2008, was the first large-scale project to u
 
 ## The 1000 Genomes Project
 
+###Project overview
+
 The 1000 Genomes Project took advantage of developments in sequencing technology, which sharply reduced the cost of sequencing. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through freely accessible public databases (see [Data use statement](#ProjectDataUse)).
 
 The goal of the 1000 Genomes Project was to find most genetic variants with frequencies of at least 1% in the populations studied.
 
-Sequencing was too expensive to deeply sequence the many samples being studied in the project. However, any particular region of the genome generally contains a limited number of haplotypes. Data was combined across samples to allow efficient detection of most of the variants in a region. The Project planned to sequence each sample to about 4x coverage; at this depth sequencing can not provide the complete genotype of each sample, but can allow the detection of most variants with frequencies as low as 1%. The data from 2,504 samples was combined to allow highly accurate estimation (imputation) of the variants and genotypes for each sample, even where not seen directly by low coverage sequencing.
+Sequencing remained too expensive to deeply sequence the many samples being studied in the project. However, any particular region of the genome generally contains a limited number of haplotypes. Data was combined across samples to allow efficient detection of most of the variants in a region. The Project planned to sequence each sample to about 4x coverage; at this depth sequencing can not provide the complete genotype of each sample, but can allow the detection of most variants with frequencies as low as 1%. The data from 2,504 samples was combined to allow highly accurate estimation (imputation) of the variants and genotypes for each sample, even where not seen directly by low coverage sequencing.
 
 The contribution of the 1000 Genomes Project was summarised in [Nature](http://www.nature.com/nature/journal/v526/n7571/full/526052a.html) in the issue containing the final publications from the main project.
 
@@ -44,9 +46,6 @@ The contribution of the 1000 Genomes Project was summarised in [Nature](http://w
 # Project Overview
 
 
-The goal of the 1000 Genomes Project is to find most genetic variants that have frequencies of at least 1% in the populations studied. This goal can be attained by sequencing many individuals lightly. To sequence a person's genome, many copies of the DNA are broken into short pieces and each piece is sequenced. The many copies of DNA mean that the DNA pieces are more-or-less randomly distributed across the genome. The pieces are then aligned to the reference sequence and joined together. To find the complete genomic sequence of one person with current sequencing platforms requires sequencing that person's DNA the equivalent of about 28 times (called 28X). If the amount of sequence done is only an average of once across the genome (1X), then much of the sequence will be missed, because some genomic locations will be covered by several pieces while others will have none. The deeper the sequencing coverage, the more of the genome will be covered at least once. Also, people are diploid; the deeper the sequencing coverage, the more likely that both chromosomes at a location will be included. In addition, deeper coverage is particularly useful for detecting structural variants, and allows sequencing errors to be corrected.
-
-Sequencing is still too expensive to deeply sequence the many samples being studied for this project. However, any particular region of the genome generally contains a limited number of haplotypes. Data can be combined across many samples to allow efficient detection of most of the variants in a region. The Project currently plans to sequence each sample to about 4X coverage; at this depth sequencing cannot provide the complete genotype of each sample, but should allow the detection of most variants with frequencies as low as 1%. Combining the data from 2500 samples should allow highly accurate estimation (imputation) of the variants and genotypes for each sample that were not seen directly by the light sequencing.
 
 {% endcapture %}
 {% include section_md.html content=overview %}
