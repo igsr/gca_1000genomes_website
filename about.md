@@ -46,7 +46,7 @@ Three pilot studies provided data to inform the design of the full-scale project
 | 2 - trios | Assess coverage and platforms and centers | 20-60X | Whole-genome sequencing of 2 mother-father-adult child trios | Sequencing completed October 2008 |
 | 3 - gene regions | Assess methods for gene-region-capture | 50X | 1000 gene regions in 900 samples | Sequencing completed June 2009 |
 
-Data from the pilot projects was analyzed to determine whether the strategy of 4x coverage was adequate to meet the goals of the project. A paper describing the analyses of the pilot data and design of the full project was published in October in the journal _Nature_ and is available [here](/sites/1000genomes.org/files/docs/nature09534.pdf).
+Data from the pilot projects was analyzed to determine whether the strategy of 4x coverage was adequate to meet the goals of the project. A paper describing the analyses of the pilot data and design of the full project was published in October 2010 in the journal _Nature_ and is available [here](/sites/1000genomes.org/files/docs/nature09534.pdf).
 
 ####Main project
 
