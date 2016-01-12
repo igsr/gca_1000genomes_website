@@ -24,7 +24,7 @@ The 1000 Genomes Project, set up in 2008, was the first large-scale project to u
 
 ###Overview of the 1000 Genomes Project
 
-The 1000 Genomes Project took advantage of developments in sequencing technology, which sharply reduced the cost of sequencing. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through freely accessible public databases (see [Data use statement](#ProjectDataUse)).
+The 1000 Genomes Project took advantage of developments in sequencing technology, which sharply reduced the cost of sequencing. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through freely accessible public databases.
 
 The goal of the 1000 Genomes Project was to find most genetic variants with frequencies of at least 1% in the populations studied.
 
@@ -64,6 +64,7 @@ Data from the 1000 Genomes Project is available without embargo, following the f
 
 The available data from the 1000 Genomes Project can be explored [here](http://www.1000genomes.org/data), alongside other data in IGSR. Cell lines and DNA are avaiable for all 1000 Genomes Samples and can be obtained from the [Coriell Institute](https://catalog.coriell.org).
 
+The samples for the 1000 Genomes Project mostly are anonymous and have no associated medical or phenotype data; for some of the populations the collectors have phenotype data but these data are not at Coriell and are not distributed. Although the 1000 Genomes samples have no phenotype data, the genetic variation data produced by the Project is used by researchers to study many diseases, in sets of disease and control samples that have been carefully phenotyped.
 
 ###Key publications and documents from the 1000 Genomes Project
 
