@@ -48,8 +48,9 @@ Three pilot studies provided data to inform the design of the full-scale project
 
 Data from the pilot projects was analyzed to determine whether the strategy of 4x coverage was adequate to meet the goals of the project. A paper describing the analyses of the pilot data and design of the full project was published in October in the journal _Nature_ and is available [here](/sites/1000genomes.org/files/docs/nature09534.pdf).
 
-A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). And the list of samples and allocations is provided in a [spreadsheet](/sites/1000genomes.org/files/documents/20101214_1000genomes_samples.xls). Regions targeted in Pilot 3 are available on the project [FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/technical/reference/).
+####Main project
 
+Sequencing was carried out in phases one and three of the main project, with data releases and analysis corresponding to each. The final data freeze, assoicated with the third and final phase, took place on the 2nd May 2013. This data set represented the finalised data set upon which analysis the phase three analysis was based, superseding previous releases. During the course of the project, analysis methods were also developed and the phase three analysis replaces earlier versions.
 
 [Project Overview](#project-overview)  
 [Project Design](#project-design)  
@@ -74,19 +75,7 @@ A summary of sequencing done for each of the three pilot projects is available [
 
 # Project Design
 
-## Pilot Project
 
-Three pilot studies provided data to inform the design of the full-scale project:
-
-| Pilot | Purpose | Coverage | Strategy | Status
-|:-:|:-:|:-:|:-:|:-:|
-| 1 - low coverage | Assess strategy of sharing data across samples | 2-4X | Whole-genome sequencing of 180 samples | Sequencing completed October 2008 |
-| 2 - trios | Assess coverage and platforms and centers | 20-60X | Whole-genome sequencing of 2 mother-father-adult child trios | Sequencing completed October 2008 |
-| 3 - gene regions | Assess methods for gene-region-capture | 50X | 1000 gene regions in 900 samples | Sequencing completed June 2009 |
-
- Public releases of summary processed data and variant calls are available through the [data tab](/data) of this website. The data from the pilot projects have been analyzed, especially to determine whether the strategy of 4X coverage is adequate to meet the goals of the Project. A paper describing the analyses of the pilot data and design of the full project was published in October in the journal _Nature_ and is available [here](/sites/1000genomes.org/files/docs/nature09534.pdf).
-
- A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). And the list of samples and allocations is provided in a [spreadsheet](/sites/1000genomes.org/files/documents/20101214_1000genomes_samples.xls). Regions targeted in Pilot 3 are available on the project [FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/technical/reference/).
 
 ## Main Project
 
