@@ -54,6 +54,8 @@ Sequencing was carried out in phases one and three of the main project, with dat
 
 The final data set contains data for 2,504 individuals from 26 populations. Low coverage sequence data is present for all individuals, with additional high coverage and exome sequence data being produced for some samples.
 
+Analyses were conducted looking at both the comparatively simple short variations (up to 500 base pairs in length) and also structural variations. These analyses were published at the conclusion of the project by [The 1000 Genomes Project Consortium](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) and [Sudmant _et al._](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html) respectively.
+
 [Project Overview](#project-overview)  
 [Project Design](#project-design)  
 [Use of the Project data and samples](#use-of-the-project-data-and-samples)  
