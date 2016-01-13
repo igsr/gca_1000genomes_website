@@ -8,7 +8,7 @@ nav_buttons:
     - contacts
 ---
 
-# Participants list for the 1000 genomes Project
+# Participants list for the 1000 Genomes Project
 
 ## Steering Committee
 
