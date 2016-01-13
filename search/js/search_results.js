@@ -7,7 +7,7 @@ var dependencies = [
 
 var app = angular.module('searchResults', dependencies);
 
-app.config(['%locationProvider', function($locationProvider) {
+app.config(['$locationProvider', function($locationProvider) {
     $locationProvider.html5Mode(true);
 }]);
 
