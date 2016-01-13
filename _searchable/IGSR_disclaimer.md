@@ -1,3 +1,10 @@
+---
+layout: single_section
+title: "IGSR Disclaimer"
+permalink: /IGSR_disclaimer/
+tags: IGSR disclaimer
+---
+
 #International Genome Sample Resource (IGSR) Disclaimer
 
 IGSR is part of [EMBL](http://www.embl.org) - [European Bioinformatics Institute (EBI)](http://www.ebi.ac.uk) and the [“Terms of Use for EMBL-EBI Services”]( https://www.ebi.ac.uk/about/terms-of-use) apply to online services, data and software provided by IGSR. The following information specific to IGSR should be read in addition to the Terms of Use for EMBL-EBI Services. 
