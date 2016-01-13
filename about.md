@@ -14,7 +14,7 @@ nav_buttons:
 
 # About IGSR and the 1000 Genomes Project
 
-The 1000 Genomes Project, set up in 2008, was the first large-scale project to use genome wide sequencing to catalogue human variation and created open and freely available data sets, which have become widely used references. To preserve and extend the usability of the 1000 Genomes data following completion of the project in 2015, the International Genome Sample Resource (IGSR) was set up with the following aims:
+The 1000 Genomes Project, set up in 2008, was the first large-scale project to use genome wide sequencing to catalogue human variation and create open and freely available data sets, which have become widely used references. To preserve and extend the usability of the 1000 Genomes data following completion of the project in 2015, the International Genome Sample Resource (IGSR) was established with the following aims:
 
 1. Ensure the future usability of the 1000 Genomes reference data
 2. Incorporate additional published genomic data on the 1000 Genomes samples
