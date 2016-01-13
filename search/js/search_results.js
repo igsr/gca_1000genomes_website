@@ -32,7 +32,7 @@ app.controller('SearchCtrl', ['$location', '$http', '$scope', function($location
                 pre_tags: ['<em><strong>'], post_tags: ['</strong></em>']
             }
         }
-        $http.post('/lines/api/sitemap/_search', postBody).then(
+        $http.post('/api/sitemap/_search', postBody).then(
             function(response) {
                 controller.siteHits = response.data.hits;
             }
