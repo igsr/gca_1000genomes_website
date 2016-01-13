@@ -40,8 +40,8 @@ The Project was conducted in four stages: a pilot phase and three phases of the 
 
 Three pilot studies provided data to inform the design of the full-scale project:
 
-| Pilot | Purpose | Coverage | Strategy | Status
-|:---:|:---:|:---:|:---:|:---:|
+| Pilot | Purpose | Coverage | Strategy | Status |
+|:-----:|:-------:|:--------:|:--------:|:------:|
 | 1 - low coverage | Assess strategy of sharing data across samples | 2-4X | Whole-genome sequencing of 180 samples | Sequencing completed October 2008 |
 | 2 - trios | Assess coverage and platforms and centers | 20-60X | Whole-genome sequencing of 2 mother-father-adult child trios | Sequencing completed October 2008 |
 | 3 - gene regions | Assess methods for gene-region-capture | 50X | 1000 gene regions in 900 samples | Sequencing completed June 2009 |
