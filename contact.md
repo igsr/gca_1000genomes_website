@@ -14,3 +14,5 @@ nav_buttons:
 Please direct any questions about the IGSR or the 1000 Genomes Project to [info@1000genomes.org](mailto:info@1000genomes.org)
 
 IGSR is based at [EMBL-EBI](http://www.ebi.ac.uk). Further contact details can be found on the [EMBL-EBI contacts page](http://www.ebi.ac.uk/about/contact).
+
+IGSR can also be found on Twitter at [@1000genomes](www.twitter.com/1000genomes).
