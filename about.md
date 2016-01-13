@@ -14,7 +14,7 @@ nav_buttons:
 
 # About IGSR and the 1000 Genomes Project
 
-The 1000 Genomes Project, set up in 2008, was the first large-scale project to use genome wide sequencing to catalogue human variation and created open and freely available data sets, which have become widely used references. To preserve and extend the usability of the 1000 Genomes data following completion of the project in 2015, the International Genome Sample Resource (IGSR) was set up with the following aims:
+The 1000 Genomes Project, set up in 2008, was the first large-scale project to use genome wide sequencing to catalogue human variation and create open and freely available data sets, which have become widely used references. To preserve and extend the usability of the 1000 Genomes data following completion of the project in 2015, the International Genome Sample Resource (IGSR) was established with the following aims:
 
 1. Ensure the future usability of the 1000 Genomes reference data
 2. Incorporate additional published genomic data on the 1000 Genomes samples
@@ -24,7 +24,7 @@ The 1000 Genomes Project, set up in 2008, was the first large-scale project to u
 
 ###Overview of the 1000 Genomes Project
 
-The 1000 Genomes Project took advantage of developments in sequencing technology, which sharply reduced the cost of sequencing. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through freely accessible public databases.
+The 1000 Genomes Project was established in 2008 to take advantage of developments in sequencing technology and undertake large scale population level sequencing to discover variation. This was made possible by the sharp reduction in the cost of sequencing which began in the mid 2000s and continues to today. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through the sequence archives hosted at [EMBL-EBI](http://www.ebi.ac.uk) and NCBI and through the project's own FTP site.
 
 The goal of the 1000 Genomes Project was to find most genetic variants with frequencies of at least 1% in the populations studied.
 
