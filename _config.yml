@@ -21,6 +21,9 @@ collections:
         output: false
     searchable:
         output: true
+    mojo_templates :
+        output: true
+        permalink: /_mojo_templates/:path.html.ep
 defaults:
     -
         scope: 
