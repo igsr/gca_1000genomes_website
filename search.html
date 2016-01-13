@@ -16,9 +16,9 @@ head_meta:
 <div ng-app="searchResults" ng-controller="SearchCtrl as SearchCtrl">
 <h2>Search results: <span ng-bind="SearchCtrl.searchPhrase"></span></h2>
   <div ng-if="SearchCtrl.siteHits.total">
-      <div ng-repeat="hit in SearchCtrl.siteHits.hits" class="nav-item nav-item-xl">
-        <a ng-href="{{hit._source.url}}"><h3 ng-bind="hit._source.title"></h3>
-        <blockquote><p ng-bind-html="hit.highlight.content.join('&#133')"></p></blockquote></a>
+      <div ng-repeat="hit in SearchCtrl.siteHits.hits">
+        <a ng-href="{{hit._source.url}}"><h3 ng-bind="hit._source.title"></h3></a>
+        <p ng-bind-html="hit.highlight.content.join('&#133')"></p>
       </div>
   </div>
 </div>
