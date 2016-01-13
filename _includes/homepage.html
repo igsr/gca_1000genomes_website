@@ -1,3 +1,9 @@
+{% capture map_overview %}
+<h2>IGSR and the 1000 Genomes Project</h2>
+![1000 Genomes map](/sites/1000genomes.org/files/images/1000g_map.png?raw=true)
+
+{% endcapture %}
+{% include section.html content=map_overview %}
 
 {% capture pinned_announcements %}
 <h2>Latest Announcements</h2>
@@ -9,12 +15,6 @@
 {{pinned_announcements.first.content | markdownify}}
 {% endcapture %}
 {% include section.html content=pinned_announcements %}
-      
-{% capture map_overview %}
-<h2>IGSR and the 1000 Genomes Project</h2>
-![1000 Genomes map](/sites/1000genomes.org/files/images/1000g_map.png?raw=true)
-
-{% endcapture %}
       
 {% capture recent_announcements %}
 <h2 class="orange">Recent project announcements</h2>
