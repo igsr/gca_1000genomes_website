@@ -40,25 +40,13 @@
     </ul>
     
 
-    <script type="text/javascript">
-    {% raw %}
-    function goTo() {
-    {% endraw %}
-        q=document.getElementById('search_id').value;
-        if (q.length >0) {
-            location.href = '{{ site.baseurl }}/search/#?q='+q;
-        }
-    {% raw %}
-    }
-    {% endraw %}
-    </script>
-    <form class="navbar-form navbar-right" role="search">
+    <form class="navbar-form navbar-right" role="search" action="/search/" method="get">
     <div class="input-group center">
     <div class="form-group">
-        <input type="text" class="form-control" placeholder='Search 1000genomes' id="search_id" onKeydown='javascript: if (event.keyCode==13) goTo();'>
+        <input type="text" class="form-control" placeholder="Search 1000genomes" name="q">
     </div>
     <span class="input-group-btn">
-    <button class="btn btn-default" type="button" onClick='javascript:goTo();'>Go</button>
+    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
     </span>
     </div>
     </form>

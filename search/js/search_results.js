@@ -7,6 +7,10 @@ var dependencies = [
 
 var app = angular.module('searchResults', dependencies);
 
+app.config(['%locationProvider', function($locationProvider) {
+    $locationProvider.html5Mode(true);
+}]);
+
 app.controller('SearchCtrl', ['$location', '$http', '$scope', function($location, $http, $scope) {
     var controller = this
     controller.siteHits = [];
