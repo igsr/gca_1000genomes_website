@@ -76,4 +76,4 @@ The first set of SNP calls representing the [July 2010](ftp://ftp.1000genomes.eb
 
 ## Amazon Web Services
 
-The alignment files for the 1000 Genomes Pilot Porject are available as a [public data set](http://aws.amazon.com/publicdatasets/) via Amazon Web Services (AWS). Further information can be found on 1000 Genomes [public data set page](http://aws.amazon.com/datasets/4383) or directly on [http://s3.amazonaws.com/1000genomes](http://s3.amazonaws.com/1000genomes).
+The alignment files for the 1000 Genomes Pilot Project are available as a [public data set](http://aws.amazon.com/publicdatasets/) via Amazon Web Services (AWS). Further information can be found on 1000 Genomes [public data set page](http://aws.amazon.com/datasets/4383) or directly on [http://s3.amazonaws.com/1000genomes](http://s3.amazonaws.com/1000genomes).
