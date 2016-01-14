@@ -29,9 +29,26 @@ If you want to use data from IGSR for any purpose, you should read the informati
 
 ###Data released by the 1000 Genomes Project
 
-As a community resource project, the 1000 Genomes Project publicly released data on a regular basis. The sequencing centers released the raw reads to the SRA. The Data Processing Group, Analysis Group, and DCC released alignments, re-calibrated error rates, and SNP calls on individual samples. Data that passed quality filters are the most visible, but data that did not pass quality filters are also available. Structural variant calls on individual samples were also released. The final
+#### Sample lists and sequencing progress
 
-Eventually the Project will release haplotypes and imputed variant calls. Data formats and analysis software developed by the Project are also made publicly available.
+A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). 
+
+The list of samples and allocations is provided in a [spreadsheet](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/wo
+rking/20130606_sample_info/20130606_sample_info.xlsx).
+
+#### Variant Calls
+
+Our variant calls are always released in [VCF format](https://samtools.github.io/hts-specs/). The released calls from the final phase of the project can be found in the release directory for 2nd May 2013 on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502).
+
+#### Alignments
+
+The main project alignments are available in the [BAM and CRAM](https://samtools.github.io/hts-specs/) formats. A list of the files currently available can be found in the alignment index [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment.index)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/alignment.index). Alignment statistics can be found in the alignment_indices directory [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment_indices)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/alignment_indices). There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md) which explains the alignment process and file layout
+
+#### Raw sequence files
+
+The main project raw sequence data is available in fastq format. A list of files currently available can be found in the sequence.index [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence.index)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/sequence.index) Sequence statistics can be found in the sequence_indices directory [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/sequence_indices). There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.sequence_data) which explains the sequence processing and the file layout
+
+
 
 
 # Sample Availability
@@ -42,23 +59,6 @@ The 1000 Genomes Project is a community resource project that aims to release da
 
 
 # Data released by the 1000 Genomes Project
-
-## Sample lists and sequencing progress
-
-A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). The list of samples and allocations is provided in a [spreadsheet](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/wo
-rking/20130606_sample_info/20130606_sample_info.xlsx).
-
-## Variant Calls
-
-Our variant calls are always released in [vcf format](/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41). The released can be found in the release directory [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release).
-
-## Alignments
-
-The main project alignments are available in [BAM](http://samtools.sourceforge.net/) format. A list of the files currently available can be found in the alignment index [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment.index)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/alignment.index). Alignment statistics can be found in the alignment_indices directory [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment_indices)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/alignment_indices). There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md) which explains the alignment process and file layout
-
-## Raw sequence files
-
-The main project raw sequence data is available in fastq format. A list of files currently available can be found in the sequence.index [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence.index)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/sequence.index) Sequence statistics can be found in the sequence_indices directory [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/sequence_indices). There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.sequence_data) which explains the sequence processing and the file layout
 
 
 
