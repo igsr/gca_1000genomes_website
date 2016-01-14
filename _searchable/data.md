@@ -23,6 +23,19 @@ A browser similar to the one we hope to provide can be seen by visiting the [Hip
 
 If you want to use data from IGSR for any purpose, you should read the information relating to [data reuse](/IGSR_disclaimer) and check what policy or policies apply to the data you wish to use.
 
+##Types of available data
+
+###Data released by the 1000 Genomes Project
+
+As a community resource project, the 1000 Genomes Project publicly released data on a regular basis. The sequencing centers released the raw reads to the SRA. The Data Processing Group, Analysis Group, and DCC released alignments, re-calibrated error rates, and SNP calls on individual samples. Data that passed quality filters are the most visible, but data that did not pass quality filters are also available. Structural variant calls on individual samples were also released. The final
+
+Eventually the Project will release haplotypes and imputed variant calls. Data formats and analysis software developed by the Project are also made publicly available.
+
+
+# Sample Availability
+
+All the samples studied by the 1000 Genomes Project are or will be available as DNA and cell lines to scientific investigators for research projects. Many of the samples are currently available from the non-profit [Coriell Institute for Medical Research](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM). Cell lines and DNA from additional populations will become available through 2011.
+
 The 1000 Genomes Project is a community resource project that aims to release data rapidly for the benefit of the scientific community.
 
 
@@ -76,20 +89,3 @@ The first set of SNP calls representing the [July 2010](ftp://ftp.1000genomes.eb
 ## Amazon Web Services
 
 The alignment files for the 1000 Genomes Pilot Porject are available as a [public data set](http://aws.amazon.com/publicdatasets/) via Amazon Web Services (AWS). Further information can be found on 1000 Genomes [public data set page](http://aws.amazon.com/datasets/4383) or directly on [http://s3.amazonaws.com/1000genomes](http://s3.amazonaws.com/1000genomes).
-
-
-
-
-
-# Data release policy
-
-As a community resource project, the 1000 Genomes Project publicly releases data on a regular basis. The sequencing centers release the raw reads to the SRA. The Data Processing Group, Analysis Group, and DCC release alignments, re-calibrated error rates, and SNP calls on individual samples. Data that passed quality filters are the most visible, but data that did not pass quality filters are also available. When the Structural Variation Group has developed its methods, the structural variant calls on individual samples will be released. Eventually the Project will release haplotypes and imputed variant calls. Data formats and analysis software developed by the Project are also made publicly available.
-
-
-# Sample Availability
-
-All the samples studied by the 1000 Genomes Project are or will be available as DNA and cell lines to scientific investigators for research projects. Many of the samples are currently available from the non-profit [Coriell Institute for Medical Research](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM). Cell lines and DNA from additional populations will become available through 2011.
-
-
-
-
