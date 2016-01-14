@@ -34,18 +34,11 @@ Corona Lite: [http://solidsoftwaretools.com/gf/project/corona/](http://solidsoft
 SSAHA2: [http://www.sanger.ac.uk/resources/software/ssaha2/](http://www.sanger.ac.uk/resources/software/ssaha2/)  
 MOSAIK: [http://code.google.com/p/mosaik-aligner/](http://code.google.com/p/mosaik-aligner/)
 
-##1000 Genomes Project
-
-### SNP calling
+##SNP calling in the 1000 Genomes Project
 
 Multiple SNP calling procedures were used by the 1000 Genomes Project. It was found that the consensus of multiple primary call sets from different methods proved of higher quality than any of the primary call sets themselves.
 
-#### Low Coverage SNP Calling
-
-Calling was separate for three analysis panels, CEU, YRI and CHB+JPT. For each, three primary SNP call sets were generated, from the Broad Institute (Broad), the University of Michigan (Michigan) and the Sanger Institute (Sanger). Details of the methods are given in separate publications (DePristo, Banks *et al.* 2010; Le and Durbin 2010; Li, Willer *et al.* 2010). Consensus genotypes were defined using a simple majority vote among callers.
-
-
-#### Low Coverage Phasing
+Calling was separate for three analysis panels, CEU, YRI and CHB+JPT. For each, three primary SNP call sets were generated, from the Broad Institute (Broad), the University of Michigan (Michigan) and the Sanger Institute (Sanger). Details of the methods are given in separate publications (DePristo, Banks *et al.* 2010; Le and Durbin 2010; Li, Willer *et al.* 2010). Consensus genotypes were defined using a simple majority vote among callers
 
 The low coverage call set merging produced a set of partially phased haplotypes. We sought to "phase-finish" these haplotypes by using an LD-based method to place the remaining unphased alleles onto the haplotype scaffold that resulted from the merging. This was achieved using the IMPUTE2 software (Howie, Donnelly *et al.* 2009) to produce best-guess haplotypes from unphased genotype data. Howie *et al.* (2009) explain the basic procedure for sampling from the joint posterior distribution of haplotypes underlying the genotypes of a number of individuals: the IMPUTE model (Marchini, Howie *et al.* 2007) is embedded in a Gibbs sampler, and at each iteration every individual samples a new pair of haplotypes, conditional on the current guesses of the other individuals.
 
