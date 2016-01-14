@@ -35,7 +35,7 @@ You can find instructions for how to use our browser [in .doc format](http://ftp
 
 You can also access the databases which sit behind our browser, for more details about this please look at [the Public MySQL Instance](/node/517) page.
 
-There are also more tips for Ensembl both on the [main ensembl site](http://www.ensembl.org/info/website/tutorials/index.html) and their [blog](http://www.ensembl.info/)
+There are also more tips for Ensembl both on the [main ensembl site](http://www.ensembl.org/info/website/tutorials/index.html) and their [blog](http://www.ensembl.info/).
 
-The [NCBI](http://www.ncbi.nlm.nih.gov) also provide a [1000 genomes browser](http://www.ncbi.nlm.nih.gov/variation/tools/1000genomes/) hosted on their site
+The [NCBI](http://www.ncbi.nlm.nih.gov) also provide a [1000 genomes browser](http://www.ncbi.nlm.nih.gov/variation/tools/1000genomes/) hosted on their site.
 
