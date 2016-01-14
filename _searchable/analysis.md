@@ -50,34 +50,3 @@ Calling was separate for three analysis panels, CEU, YRI and CHB+JPT. For each, 
 The low coverage call set merging produced a set of partially phased haplotypes. We sought to "phase-finish" these haplotypes by using an LD-based method to place the remaining unphased alleles onto the haplotype scaffold that resulted from the merging. This was achieved using the IMPUTE2 software (Howie, Donnelly *et al.* 2009) to produce best-guess haplotypes from unphased genotype data. Howie *et al.* (2009) explain the basic procedure for sampling from the joint posterior distribution of haplotypes underlying the genotypes of a number of individuals: the IMPUTE model (Marchini, Howie *et al.* 2007) is embedded in a Gibbs sampler, and at each iteration every individual samples a new pair of haplotypes, conditional on the current guesses of the other individuals.
 
 IMPUTE2: [http://mathgen.stats.ox.ac.uk/impute/impute_v2.html](http://mathgen.stats.ox.ac.uk/impute/impute_v2.html)
-
-#### Trio SNP calling
-
-Trio SNP calling was analogous to low coverage calling except that only two call sets were generated, from Broad and Michigan, and the LD/imputation based refinement stage that was relevant to population data was simply removed in the Broad set, which relied on much deeper data, and replaced in the Michigan set by a structured prior that enforced Mendelian segregation. The intersection of the two call sets was taken as the consensus.
-
-#### Trio Phasing
-
-Once the trio genotypes were called, we set aside all SNPs that violated the rules of Mendelian inheritance (these were later used in the analysis of de novo mutation and structural variation). We then phased as many of the remaining SNPs as possible by identifying unambiguous transmissions from at least one parent. SNPs that are heterozygous in the child and both parents cannot be phased in this way, and we sought to recover some of these by borrowing LD information from the low coverage pilot.
-
-For each trio, we used IMPUTE2 to phase the intersection of the SNPs called in the low-coverage pilot dataset and the corresponding trio pilot dataset (CEU and YRI, respectively). We fixed the phase of the low coverage haplotypes (following the phase-finishing step described earlier), as well as the haplotypes of the trio parents at SNPs with unambiguous phase. We then phased the remaining SNPs in the parents, separately for CEU and YRI.
-
-The trio parents were phased as if they were unrelated, in the sense that the model did not force the parents to transmit opposite alleles at SNPs that were heterozygous in both parents and their child. Instead, this constraint was enforced post-hoc by recalculating the marginal posterior probabilities for each unphased genotype, conditional on the parents transmitting opposite alleles.
-
-#### Exon SNP calling
-
-The Exon Pilot SNP call set was composed of the intersection of SNP calls made using the GATK Unified Genotyper essentially as described above for low coverage and trio calls, with calls from an alternate pipeline using the MOSAIK read mapper and the GigaBayes SNP caller. Note that unlike the low coverage and trio pilots, the different SNP call sets started with different read alignments. SNP calls were made separately for each of the 7 Exon Project populations.
-
-### Indel Calling
-
-The process of generating indel variant and genotype calls for the genome wide data was broken up into three stages: candidate indel identification, calculation of genotype likelihood through local re-alignment, and LD-based genotype inference and calling. This workflow was chosen because, in contrast to SNPs, it is not possible to enumerate all potential indel mutations, and compute the posterior support of each. Instead, a pseudo-Bayesian approach was used, in which potential candidates are first obtained, and then subsequently tested (together with the reference) in a Bayesian framework.
-
-All likelihood-based calculations were made from the Illumina data, although candidate indels from the 454 and SOLiD reads were considered.
-
-The Low Coverage Pilot release consists of indel calls on the finished autosomal sequence. No indel calls on the X, Y, mitochondrial, or unplaced chromosomes have been made.
-
-Dindel: [http://sites.google.com/site/keesalbers/soft/dindel](http://sites.google.com/site/keesalbers/soft/dindel)
-
-### Structural Variant Discovery
-
-Several methods were used to discover structural variants (SVs) from trio and low coverage raw sequencing reads. Algorithms underlying several distinct rationales for SV detection have been used in the SV discovery process. The high-confidence SV set reported in this study is based on validated SVs and on such discovered by algorithms achieving an FDR ≤10%. Further details can be found in the 1000 Genomes Pilot Project publication.
-
