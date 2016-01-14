@@ -74,7 +74,7 @@ The samples for the 1000 Genomes Project mostly are anonymous and have no associ
 
 - [1000 genomes main project paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html)
 
-- [1000 geneomes structural variation paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)
+- [1000 genomes structural variation paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)
 
 ####October 2010
 
