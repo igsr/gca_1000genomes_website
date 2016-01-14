@@ -11,7 +11,9 @@ nav_buttons:
     - contacts
 ---
 
-# Analysis description
+# Analysis
+
+The analysis pipelines used by IGSR build on those created for the 1000 Genomes Project. For detailed information on the analysis methods used by the 1000 Genomes Project, the pilot, phase 1, phase 3 and phase 3 structural variation publications should be referred to.
 
 The following analysis methods were used to create the data provided by the 1000 Genomes project and released through the FTP site
 
