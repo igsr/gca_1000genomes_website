@@ -5,14 +5,18 @@ layout: null
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {% for post in site.posts %}<url>
     <loc>{{ post.url | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+    <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
   </url>
-  {% endfor %}{% for page in site.html_pages %}<url>
+  {% endfor %}{% for page in site.faq %}<url>
     <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ site.default_sitemap_lastmod | date_to_xmlschema }}</lastmod>
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
   </url>
-  {% endfor %}{% for static in site.html_files %}<url>
-    <loc>{{ static.path | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ static.modified_time | date_to_xmlschema }}</lastmod>
+  {% endfor %}{% for page in site.searchable %}<url>
+    <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
   </url>
-  {% endfor %}</urlset>
+  {% endfor %}{% for page in site.html_pages %}{% if page.include_in_sitemap %}<url>
+    <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
+    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
+  </url>
+  {% endif %}{% endfor %}</urlset>

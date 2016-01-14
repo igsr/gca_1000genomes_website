@@ -3,6 +3,7 @@ layout: single_section
 title: "The 1000 Genomes Browsers"
 permalink: /1000-genomes-browsers/
 tags: Browser
+include_in_sitemap: true
 ---
 
 # 1000 Genomes Browsers

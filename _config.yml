@@ -8,6 +8,7 @@ url: "http://www.1000genomes.org" # the base hostname & protocol for your site
 permalink: /:categories/:title/
 gems:
     - jekyll-redirect-from
+    - jekyll-last-modified-at
 collections:
     faq_categories:
         output: true

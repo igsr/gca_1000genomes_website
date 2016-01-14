@@ -10,6 +10,7 @@ nav_buttons:
     - media
     - pilot_paper
     - contacts
+include_in_sitemap: true
 ---
 
 # About IGSR and the 1000 Genomes Project

@@ -4,6 +4,7 @@ title: "Announcements"
 permalink: /announcements/
 redirect_from:
     - /announcements/faq/
+include_in_sitemap: true
 ---
   
 ## Announcements

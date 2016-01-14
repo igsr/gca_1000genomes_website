@@ -6,6 +6,7 @@ tags: Contact
 nav_buttons:
     - pilot_paper
     - contacts
+include_in_sitemap: true
 ---
 
 
