@@ -51,7 +51,7 @@ All the samples studied by the 1000 Genomes Project are available as DNA and cel
 
 ## Browse data
 
-Data from the 1000 Genomes Project can be viewed in genomic context in genome browsers. Further details about browsing the data in this way can be found [here](/browser).
+Data from the 1000 Genomes Project can be viewed in genomic context in genome browsers. Further details about browsing the data in this way can be found [here](/1000-genomes-browsers).
 
 ## Download data
 
