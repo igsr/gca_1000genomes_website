@@ -70,30 +70,25 @@ The samples for the 1000 Genomes Project mostly are anonymous and have no associ
 
 ###Key publications and documents from the 1000 Genomes Project
 
-{: .table .table-striped}
-|--------------|------------|
-| October 2015 | [1000 genomes main project paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) |
-|              | [1000 geneomes structural variation paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)|
-|--------------|-----------------------|
 ####October 2015
 
-[1000 genomes main project paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html)
+-[1000 genomes main project paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html)
 
-[1000 geneomes structural variation paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)
+-[1000 geneomes structural variation paper](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)
 
 ####October 2010
 
-[1000 genomes pilot paper](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html)
+-[1000 genomes pilot paper](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html)
 
 ####September 2007
 
-[Report of the 1000 Genomes planning meeting](/sites/1000genomes.org/files/docs/1000Genomes-MeetingReport.pdf)
+-[Report of the 1000 Genomes planning meeting](/sites/1000genomes.org/files/docs/1000Genomes-MeetingReport.pdf)
 
 ####Consent documents
 
-[Informed Consent Background Document](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf)
+-[Informed Consent Background Document](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf)
 
-[Informed Consent Form Template](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf)
+-[Informed Consent Form Template](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf)
 
 ##IGSR
 
