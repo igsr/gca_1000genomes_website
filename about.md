@@ -40,6 +40,7 @@ The Project was conducted in four stages: a pilot phase and three phases of the 
 
 Three pilot studies provided data to inform the design of the full-scale project:
 
+{: .table .table-striped}
 | Pilot | Purpose | Coverage | Strategy | Status |
 |:-----:|:-------:|:--------:|:--------:|:------:|
 | 1 - low coverage | Assess strategy of sharing data across samples | 2-4X | Whole-genome sequencing of 180 samples | Sequencing completed October 2008 |
