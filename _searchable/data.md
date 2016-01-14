@@ -60,7 +60,7 @@ The data can be downloaded via FTP, Aspera and Globus GridFTP. More information 
 
 ####FTP Hierarchy
 
-The FTP structure was changed in September 2015. The new structure is described in the [FTP site structure README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_ftp_site_structure.md) 
+The FTP structure was changed in September 2015. The new structure is described in the [FTP site structure README](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_ftp_site_structure.md) 
 
 The NCBI and the Amazon S3 bucket still host 1000 Genomes data but no longer mirrors new data posted as of September 2015. Both these locations reflect the structure of the FTP site in August 2015 and hold all the pilot, phase 1 and phase 3 data. NCBI and Amazon do not hold data based on GRCh38, the current reference genome.
 
