@@ -27,32 +27,14 @@ If you want to use data from IGSR for any purpose, you should read the informati
 
 ##1000 Genomes Project
 
-<table class='table table-striped'>
-  <thead>
-    <tr>
-      <th>1000 Genomes Release</th>
-      <th>Variants</th>
-      <th>Individuals</th>
-      <th>Populations</th>
-      <th>VCF</th>
-      <th>Sequence and Alignments</th>
-      <th>Supporting Data</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for release in site.data.phasedata %}
-    <tr>
-      <td>{{release.release}}</td>
-      <td>{{release.variants}}</td>
-      <td>{{release.individuals}}</td>
-      <td>{{release.populations}}</td>
-      <td><a href='{{release.vcf}}' target="_blank">VCF</a></td>
-      <td><a href='{{release.seq}}' target="_blank">Alignments</a></td>
-      <td>{% if release.supporting %}<a href='{{release.supporting}}' target="_blank">Supporting Data</a>{% else %} - {% endif %}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+{: .table .table-striped}
+| 1000 Genomes Release | Variants |	Individuals	| Populations |	VCF	| Sequence and Alignments |	Supporting Data |
+|:--------------------:|:--------:|:-----------:|:-----------:|:---:|:-----------------------:|:---------------:|
+|Phase 3 | 84.4 million | 2504 | 26 | VCF | Alignments | Supporting Data |
+|Phase 1 | 37.9 million | 1092 | 14 | VCF | Alignments | Supporting Data |
+| Pilot | 14.8 million | 179 | 4 | VCF | Alignments | Supporting Data|
+
+
 
 ## Lists of samples from the 1000 Genomes Project
 
