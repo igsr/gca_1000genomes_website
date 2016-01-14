@@ -15,9 +15,12 @@ nav_buttons:
 
 The analysis pipelines used by IGSR build on those created for the 1000 Genomes Project. For detailed information on the analysis methods used by the 1000 Genomes Project, the [pilot](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html), [phase 1](http://www.nature.com/nature/journal/v491/n7422/full/nature11632.html), [phase 3](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) and [phase 3 structural variation](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html) publications should be referred to.
 
-The following analysis methods were used to create the data provided by the 1000 Genomes project and released through the FTP site
-
 ## Alignment
+
+###GRCh38 with alternative sequences, plus decoys and HLA
+
+
+###GRCh37
 
 Sequence reads were aligned to the human genome reference sequence, The copy of the fasta file that is used for the alignments can be found on our ftp site [here](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/human_g1k_v37.fasta.gz) It currently represents the full chromosomes of the [GRCh37](http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/index.shtml) build of the human reference.
 
