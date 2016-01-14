@@ -53,7 +53,7 @@ All the samples studied by the 1000 Genomes Project are available as DNA and cel
 
 The data contained in IGSR can be downloaded from the FTP site hosted at the EBI [ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/).
 
-The data can be downloaded via FTP, Aspera and Globus GridFTP. More information about using Aspera or Globus can be found in our FAQ:
+The data can be downloaded via FTP, Aspera and Globus GridFTP. More information about using Aspera or Globus can be found in our FAQ.
 
 [How to download files using Aspera](http://www.1000genomes.org/faq/how-download-files-using-aspera)  
 [How to download files using Globus](http://www.1000genomes.org/faq/can-i-access-1000-genomes-data-globus-online)
