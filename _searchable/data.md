@@ -31,7 +31,7 @@ If you want to use data from IGSR for any purpose, you should read the informati
 
 A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). 
 
-The list of samples and allocations is provided in a [spreadsheet](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx).
+The list of samples and allocations is provided in a [spreadsheet](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx).
 
 ### Variant Calls
 
