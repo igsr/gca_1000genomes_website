@@ -27,7 +27,7 @@ If you want to use data from IGSR for any purpose, you should read the informati
 
 ##Types of available data
 
-### Samples from the 1000 Genomes Project lists and sequencing progress
+### Lists of samples from the 1000 Genomes Project
 
 A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). 
 
