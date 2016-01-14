@@ -36,29 +36,19 @@ rking/20130606_sample_info/20130606_sample_info.xlsx).
 
 ### Variant Calls
 
-Our variant calls are always released in [VCF format](https://samtools.github.io/hts-specs/). The released calls from the final phase of the project can be found in the release directory for 2nd May 2013 on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502).
+Our variant calls are always released in [VCF format](https://samtools.github.io/hts-specs/). The released calls from the final phase of the 1000 Genomes Project can be found in the release directory for 2nd May 2013 on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502).
 
 ### Alignments
 
 Alignments are available in [BAM or CRAM](https://samtools.github.io/hts-specs/) format. Within IGSR, data are grouped in data collections, such as the 1000 Genomes Project or the Illumina Platinum Genomes. A list of the alignment files currently available for a given data collection can be found in the alignment index  for that collection on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). READMEs describing the alignment process can be found in the same directories. There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md) which explains the file layout.
 
-#### Raw sequence files
+### Raw sequence files
 
-The main project raw sequence data is available in fastq format. A list of files currently available can be found in the sequence.index [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence.index)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/sequence.index) Sequence statistics can be found in the sequence_indices directory [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/sequence_indices). There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.sequence_data) which explains the sequence processing and the file layout
+Sequence data is available from the ENA. A list of files currently available can be found in the sequence.index file for each data collection on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.sequence_data) which explains the file layout.
 
+### Sample Availability
 
-
-
-# Sample Availability
-
-All the samples studied by the 1000 Genomes Project are or will be available as DNA and cell lines to scientific investigators for research projects. Many of the samples are currently available from the non-profit [Coriell Institute for Medical Research](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM). Cell lines and DNA from additional populations will become available through 2011.
-
-The 1000 Genomes Project is a community resource project that aims to release data rapidly for the benefit of the scientific community.
-
-
-# Data released by the 1000 Genomes Project
-
-
+All the samples studied by the 1000 Genomes Project are available as DNA and cell lines to scientific investigators for research projects. Samples are currently available from the non-profit [Coriell Institute for Medical Research](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM).
 
 # How to Access 1000 Genomes Data
 
