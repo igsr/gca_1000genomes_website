@@ -21,6 +21,8 @@ A browser similar to the one we hope to provide can be seen by visiting the [Hip
 
 #Accessing and using data
 
+##Using data from IGSR
+
 If you want to use data from IGSR for any purpose, you should read the information relating to [data reuse](/IGSR_disclaimer) and check what policy or policies apply to the data you wish to use.
 
 ##Types of available data
