@@ -49,6 +49,10 @@ All the samples studied by the 1000 Genomes Project are available as DNA and cel
 
 # How to Access Data
 
+## Browse data
+
+Data from the 1000 Genomes Project can be viewed in genomic context in genome browsers. Further details about browsing the data in this way can be found [here](/browser).
+
 ## Download data
 
 The data contained in IGSR can be downloaded from the FTP site hosted at the EBI [ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/).
@@ -67,13 +71,10 @@ The NCBI and the Amazon S3 bucket still host 1000 Genomes data but no longer mir
 NCBI FTP Site : [ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp)  
 Amazon S3 : [s3://1000genomes](denied:s3://1000genomes)
 
+Further information on Amazon Web Services can be found on 1000 Genomes [public data set page](http://aws.amazon.com/datasets/4383) or directly on [http://s3.amazonaws.com/1000genomes](http://s3.amazonaws.com/1000genomes).
 
-## Browse data
 
-The first set of SNP calls representing the [July 2010](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/) data release can be viewed directly through the 1000 Genomes browser at [http://browser.1000genomes.org](http://browser.1000genomes.org "http://browser.1000genomes.org"). Launch the browser and [view a sample region here.](http://browser.1000genomes.org/Homo_sapiens/Location/View?r=6:133017695-133161157)
 
-**For more information about using the 1000 Genomes browser, download the [Quick start guide](/sites/1000genomes.org/files/documents/1000genomes_browser_quickstart.pdf)**
 
-## Amazon Web Services
 
-Information can be found on 1000 Genomes [public data set page](http://aws.amazon.com/datasets/4383) or directly on [http://s3.amazonaws.com/1000genomes](http://s3.amazonaws.com/1000genomes).
+
