@@ -15,7 +15,7 @@ During the 1000 Genomes project, GRCh37 was used as the reference genome. The da
 
 ##1000 Genomes Browsers
 
-While the 1000 Genomes Project was active, it maintained a project specific version of the [Ensembl Browser](http://www.ensembl.org) to visualise its variants. This browser can be found at [http://browser.1000g enomes.org.](http://browser.1000genomes.org)
+While the 1000 Genomes Project was active, it maintained a project specific version of the [Ensembl Browser](http://www.ensembl.org), based on GRCh37, to visualise its variants. This browser can be found at [http://browser.1000g enomes.org.](http://browser.1000genomes.org)
 
 ###Phase 3
 
