@@ -23,26 +23,24 @@ A browser similar to the one we hope to provide can be seen by visiting the [Hip
 
 ##Using data from IGSR
 
-If you want to use data from IGSR for any purpose, you should read the information relating to [data reuse](/IGSR_disclaimer) and check what policy or policies apply to the data you wish to use.
+If you want to use data from IGSR for any purpose, you should read the information relating to [data use](/IGSR_disclaimer).
 
 ##Types of available data
 
-###Data released by the 1000 Genomes Project
-
-#### Sample lists and sequencing progress
+### Samples from the 1000 Genomes Project lists and sequencing progress
 
 A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). 
 
 The list of samples and allocations is provided in a [spreadsheet](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/wo
 rking/20130606_sample_info/20130606_sample_info.xlsx).
 
-#### Variant Calls
+### Variant Calls
 
 Our variant calls are always released in [VCF format](https://samtools.github.io/hts-specs/). The released calls from the final phase of the project can be found in the release directory for 2nd May 2013 on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502).
 
-#### Alignments
+### Alignments
 
-The main project alignments are available in the [BAM and CRAM](https://samtools.github.io/hts-specs/) formats. A list of the files currently available can be found in the alignment index [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment.index)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/alignment.index). Alignment statistics can be found in the alignment_indices directory [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/alignment_indices)\|[NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/alignment_indices). There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md) which explains the alignment process and file layout
+Alignments are available in [BAM or CRAM](https://samtools.github.io/hts-specs/) format. Within IGSR, data are grouped in data collections, such as the 1000 Genomes Project or the Illumina Platinum Genomes. A list of the alignment files currently available for a given data collection can be found in the alignment index  for that collection on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). READMEs describing the alignment process can be found in the same directories. There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md) which explains the file layout.
 
 #### Raw sequence files
 
