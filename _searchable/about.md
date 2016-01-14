@@ -21,6 +21,8 @@ The 1000 Genomes Project, set up in 2008, was the first large-scale project to u
 2. [Incorporate additional published genomic data on the 1000 Genomes samples](#aim2)
 3. [Expand the data collection to include new populations not represented in the 1000 Genomes Project](#aim3)
 
+Data in IGSR must comply with the [IGSR Sample Collection Principles](/sample_collection_principles).
+
 ## The 1000 Genomes Project
 
 ###Overview of the 1000 Genomes Project
