@@ -31,7 +31,7 @@ There is also a version of the browser which holds the pilot data from [A map of
 
 ###Tutorials and guides
 
-You can find instructions for how to use our browser [here](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/1000genomes_browser_main_project_20110521/The_1000_Genomes_Browser_Tutorial.ensembl_65.doc) in doc format.There is also a tutorial for the pilot browser [here](/sites/1000genomes.org/files/documents/1000_genomes_browser_pilot_20110506.doc) and a [Quickstart Guide](/sites/1000genomes.org/files/documents/1000genomes_browser_quickstart.pdf)
+You can find instructions for how to use our browser [in .doc format](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/1000genomes_browser_main_project_20110521/The_1000_Genomes_Browser_Tutorial.ensembl_65.doc). There is also a [tutorial](/sites/1000genomes.org/files/documents/1000_genomes_browser_pilot_20110506.doc) for the pilot browser and a [Quickstart Guide](/sites/1000genomes.org/files/documents/1000genomes_browser_quickstart.pdf).
 
 You can also access the databases which sit behind our browser, for more details about this please look at [the Public MySQL Instance](/node/517) page.
 
