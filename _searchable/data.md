@@ -58,11 +58,11 @@ The data can be downloaded via FTP, Aspera and Globus GridFTP. More information 
 [How to download files using Aspera](http://www.1000genomes.org/faq/how-download-files-using-aspera)  
 [How to download files using Globus](http://www.1000genomes.org/faq/can-i-access-1000-genomes-data-globus-online)
 
-###FTP Hierarchy
+####FTP Hierarchy
 
 The FTP structure was changed in September 2015. The new structure is described in the [FTP site structure README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_ftp_site_structure.md) 
 
-The NCBI and the Amazon S3 bucket still host 1000 Genomes data but no longer mirrors new data posted as of September 2015. Both these locations reflect the structure of the FTP site in August 2015 and hold all the pilot, phase 1 and phase 3 data. **They do not contain data based on the current reference assembly GRCh38.**
+The NCBI and the Amazon S3 bucket still host 1000 Genomes data but no longer mirrors new data posted as of September 2015. Both these locations reflect the structure of the FTP site in August 2015 and hold all the pilot, phase 1 and phase 3 data. NCBI and Amazon do not contain data based on the current reference assembly GRCh38.
 
 NCBI FTP Site : [ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp)  
 Amazon S3 : [s3://1000genomes](denied:s3://1000genomes)
