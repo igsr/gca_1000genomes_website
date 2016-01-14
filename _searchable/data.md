@@ -30,7 +30,7 @@ If you want to use data from IGSR for any purpose, you should read the informati
 {: .table .table-striped}
 | 1000 Genomes Release | Variants |	Individuals	| Populations |	VCF	| Sequence and Alignments |	Supporting Data |
 |:--------------------:|:--------:|:-----------:|:-----------:|:---:|:-----------------------:|:---------------:|
-|Phase 3 | 84.4 million | 2504 | 26 | VCF | Alignments | Supporting Data |
+|Phase 3 | 84.4 million | 2504 | 26 | [VCF](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) | [Alignments](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3) | [Supporting Data](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/) |
 |Phase 1 | 37.9 million | 1092 | 14 | VCF | Alignments | Supporting Data |
 | Pilot | 14.8 million | 179 | 4 | VCF | Alignments | Supporting Data|
 
