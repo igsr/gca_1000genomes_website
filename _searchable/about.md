@@ -1,7 +1,7 @@
 ---
 layout: single_section
 title: "About"
-permalink: /about2/
+permalink: /about/
 tags: About
 redirect_from:
     - /node/3/
@@ -20,6 +20,8 @@ The 1000 Genomes Project, set up in 2008, was the first large-scale project to u
 1. [Ensure the future usability of the 1000 Genomes reference data](#aim1)
 2. [Incorporate additional published genomic data on the 1000 Genomes samples](#aim2)
 3. [Expand the data collection to include new populations not represented in the 1000 Genomes Project](#aim3)
+
+The IGSR Sample Collection Principles can be viewed [here](/sample_collection_principles).
 
 ## The 1000 Genomes Project
 
@@ -111,4 +113,3 @@ The 1000 Genomes samples have proved a popular resource for molecular phenotypin
 The IGSR recognises that the current 1000 Genomes Project samples do not reflect all populations. An important aim for IGSR is to expand the populations represented in the collection and ensure the available public data represents the maximum possible population diversity. This will ensure the 1000 Genomes dataset remains a valuable open resource for the community over the next five years. The IGSR will work with the groups who were unable to contribute samples to the 1000 Genomes Project before it finished sample collection and investigate collaborations with other groups to ensure the population diversity gaps are filled. You can find more details about this on our [sample collection principles page](/sample_collection_principles).
 
 Questions about any of the above can be sent to info@1000genomes.org.
-

@@ -2,6 +2,7 @@
 layout: single_section
 title: "FAQ"
 permalink: /faq/
+tags: FAQ
 include_in_sitemap: true
 ---
 
