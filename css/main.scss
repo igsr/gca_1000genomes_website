@@ -47,6 +47,15 @@ header {
 
       h1#site-title {
         color: #DAA406;
+        a {
+            color: inherit;
+        }
+      }
+
+      span.top-banner-text, a.top-banner-text {
+            background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/top_banner_back.png");
+            padding-top: 4px;
+            padding-bottom: 4px;
       }
     }
 
