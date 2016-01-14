@@ -19,7 +19,7 @@ The analysis pipelines used by IGSR build on those created for the 1000 Genomes 
 
 ###GRCh38 with alternative sequences, plus decoys and HLA
 
-IGSR is employing an alt-aware alignment strategy using the most recent version of BWA-mem to align data to GRCh38. This uses the [full GRCh38 reference, including ALT contigs, decoy and the HLA sequences](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/) compiled by Heng Li from the IMGT/HLA database provided by the Immuno Polymorphism Database (IPD).  The pipeline aligns sequence data at the run level and then merges runs belonging to the same sample together to produce sample level alignments. GATK BAM improvement steps are used, as in the 1000 Genomes phase 3 pipeline.
+IGSR is employing an alt-aware alignment strategy using the most recent version of BWA-mem to align data to GRCh38. This uses the [full GRCh38 reference, including ALT contigs, decoy and the HLA sequences](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/) compiled by Heng Li from the IMGT/HLA database provided by the Immuno Polymorphism Database (IPD).  The pipeline aligns sequence data at the run level and then merges runs belonging to the same sample together to produce sample level alignments. GATK BAM improvement steps are used, as in the 1000 Genomes phase 3 pipeline. Use of this more complete sequence set should improve read mapping accuracy, providing a better foundation for further analyses.
 
 Information on alt-aware BWA can be found [here](https://github.com/lh3/bwa/blob/master/README-alt.md).
 
