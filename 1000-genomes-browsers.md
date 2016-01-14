@@ -11,7 +11,7 @@ tags: Browser
 
 Data from the 1000 Genomes Project can be viewed in Ensembl. The current release of Ensembl, which uses GRCh38, can be found [here](http://www.ensembl.org/Homo_sapiens/Info/Index).
 
-During the 1000 Genomes project GRCh37 was used as the reference genome. The data can be viewed on this original reference genome in Ensembl [here](http://grch37.ensembl.org/Homo_sapiens/Info/Index).
+During the 1000 Genomes project, GRCh37 was used as the reference genome. The data can be viewed on this original reference genome in Ensembl [here](http://grch37.ensembl.org/Homo_sapiens/Info/Index).
 
 ##1000 Genomes Browsers
 
