@@ -39,11 +39,11 @@ Our variant calls are always released in [VCF format](https://samtools.github.io
 
 ### Alignments
 
-Alignments are available in [BAM or CRAM](https://samtools.github.io/hts-specs/) format. Within IGSR, data are grouped in data collections, such as the 1000 Genomes Project or the Illumina Platinum Genomes. A list of the alignment files currently available for a given data collection can be found in the alignment index  for that collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). READMEs describing the alignment process can be found in the same directories. There is also a [README](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md) which explains the file layout.
+Alignments are available in [BAM or CRAM](https://samtools.github.io/hts-specs/) format. Within IGSR, data are grouped in data collections, such as the 1000 Genomes Project or the Illumina Platinum Genomes. A list of the alignment files currently available for a given data collection can be found in the alignment index  for that collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). Information on the contents of the index file can be found in the file header.
 
 ### Raw sequence files
 
-Sequence data is available from the ENA. A list of files currently available can be found in the sequence.index file for each data collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). There is also a [README](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.sequence_data) which explains the file layout.
+Sequence data is available from the ENA. A list of files currently available can be found in the sequence.index file for each data collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). Information on the contents of the index file can be found in the file header.
 
 ### Sample Availability
 
