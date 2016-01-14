@@ -17,9 +17,9 @@ include_in_sitemap: true
 
 The 1000 Genomes Project, set up in 2008, was the first large-scale project to use genome wide sequencing to catalogue human variation and created open and freely available data sets, which have become widely used references. To preserve and extend the usability of the 1000 Genomes data following completion of the project in 2015, the International Genome Sample Resource (IGSR) was set up with the following aims:
 
-1. Ensure the future usability of the 1000 Genomes reference data
-2. Incorporate additional published genomic data on the 1000 Genomes samples
-3. Expand the data collection to include new populations not represented in the 1000 Genomes Project
+[1. Ensure the future usability of the 1000 Genomes reference data](#aim1)
+[2. Incorporate additional published genomic data on the 1000 Genomes samples](#aim2)
+[3. Expand the data collection to include new populations not represented in the 1000 Genomes Project](#aim3)
 
 ## The 1000 Genomes Project
 
@@ -94,7 +94,7 @@ The samples for the 1000 Genomes Project mostly are anonymous and have no associ
 
 As stated, IGSR was set up to ensure the future usability and accessibility of data from the 1000 Genomes Project and to extend the data set to include new data on the 1000 Genomes samples and new populations where sampling has been carried out in line with IGSR sampling principles.
 
-###1. Ensuring the future usability of the 1000 Genomes reference data
+###<a name="aim1">1. Ensuring the future usability of the 1000 Genomes reference data</a>
 
 In 2014, the [Genome Reference Consortium](http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/) released an update of the human assembly, GRCh38. This update to the human reference assembly shows a significant improvement in the quantity of alternative loci represented. It now contains 178 genomic regions with associated alternative loci (2% of chromosomal sequence (61.9 Mb)). This is made up from 261 alternative loci (containing 3.6 Mb novel sequence relative to chromosomes). The GRC were also able to resolve more than 1000 issues from the previous version of the assembly.
 
@@ -102,11 +102,11 @@ Taking advantage of the alternative loci when identifying variation and calling 
 
 In addition, further sets of genomic sequence data are being aligned to GRCh38, with the [Platinum Genomes data from Illumina](http://www.illumina.com/platinumgenomes/) being the first new collection of data to be aligned.
 
-###2. Incorporate published genomic data on the 1000 Genomes samples
+###<a name="aim2">2. Incorporate published genomic data on the 1000 Genomes samples</a>
 
 The 1000 Genomes samples have proved a popular resource for molecular phenotyping experiments and investigating the associations between genetic variation and expression or measurements of epigenetic state. Large datasets have been generated on these samples by projects such as [GEUVADIS](http://www.geuvadis.org/web/geuvadis), who generated [RNA-Seq data](http://www.geuvadis.org/web/geuvadis/rnaseq-project) on the 1000 Genomes European samples and the YRI population, and [ENCODE](https://www.encodeproject.org/), who have carried out extensive assays on the [NA12878](https://www.encodeproject.org/search/?searchTerm=GM12878) cell line. Many other groups have also conducted assays on the 1000 Genomes samples. The IGSR would like to present all this information in a unified manner so the community can benefit from all the data which exists on these samples.
 
-###3. Expand the data collection to include new populations
+###<a name="aim3">3. Expand the data collection to include new populations</a>
 
 The IGSR recognises that the current 1000 Genomes Project samples do not reflect all populations. An important aim for IGSR is to expand the populations represented in the collection and ensure the available public data represents the maximum possible population diversity. This will ensure the 1000 Genomes dataset remains a valuable open resource for the community over the next five years. The IGSR will work with the groups who were unable to contribute samples to the 1000 Genomes Project before it finished sample collection and investigate collaborations with other groups to ensure the population diversity gaps are filled. You can find more details about this on our [sample collection principles page](/sample_collection_principles).
 
