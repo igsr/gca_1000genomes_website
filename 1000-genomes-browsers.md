@@ -27,7 +27,7 @@ The phase 1 browser is still available at [http://phase1browser.1000genomes.org/
 
 ###Pilot
 
-There is also a version of the browser which holds the pilot data from [A map of human genome variation from population-scale sequencing , Nature 467 ,1061.1073](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html) at [http://pilotbrowser.1000genomes.org](http://pilotbrowser.1000genomes.org/index.html). This uses Ensembl version 60.
+There is also a version of the browser which holds the pilot data from [A map of human genome variation from population-scale sequencing, Nature 467, 1061-1073](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html) at [http://pilotbrowser.1000genomes.org](http://pilotbrowser.1000genomes.org/index.html). This uses Ensembl version 60.
 
 ###Tutorials and guides
 
