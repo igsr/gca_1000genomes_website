@@ -17,7 +17,7 @@ include_in_sitemap: true
 
 The 1000 Genomes Project, set up in 2008, was the first large-scale project to use genome wide sequencing to catalogue human variation and created open and freely available data sets, which have become widely used references. To preserve and extend the usability of the 1000 Genomes data following completion of the project in 2015, the International Genome Sample Resource (IGSR) was set up with the following aims:
 
-1. [Ensure the future usability of the 1000 Genomes reference data](#aim1)
+1. [Ensure the future access to and usability of the 1000 Genomes reference data](#aim1)
 2. [Incorporate additional published genomic data on the 1000 Genomes samples](#aim2)
 3. [Expand the data collection to include new populations not represented in the 1000 Genomes Project](#aim3)
 
@@ -27,9 +27,9 @@ The IGSR Sample Collection Principles can be viewed [here](/sample_collection_pr
 
 ###Overview of the 1000 Genomes Project
 
-The 1000 Genomes Project took advantage of developments in sequencing technology, which sharply reduced the cost of sequencing. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through freely accessible public databases.
-
 The goal of the 1000 Genomes Project was to find most genetic variants with frequencies of at least 1% in the populations studied.
+
+The 1000 Genomes Project took advantage of developments in sequencing technology, which sharply reduced the cost of sequencing. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through freely accessible public databases.
 
 Sequencing remained too expensive to deeply sequence the many samples being studied in the project. However, any particular region of the genome generally contains a limited number of haplotypes. Data was combined across samples to allow efficient detection of most of the variants in a region. The project planned to sequence each sample to about 4x coverage; at this depth sequencing can not provide the complete genotype of each sample, but can allow the detection of most variants with frequencies as low as 1%. The data from 2,504 samples was combined to allow highly accurate estimation (imputation) of the variants and genotypes for each sample, even where not seen directly by low coverage sequencing.
 
@@ -47,14 +47,14 @@ Three pilot studies provided data to inform the design of the full-scale project
 | Pilot | Purpose | Coverage | Strategy | Status |
 |:-----:|:-------:|:--------:|:--------:|:------:|
 | 1 - low coverage | Assess strategy of sharing data across samples | 2-4X | Whole-genome sequencing of 180 samples | Sequencing completed October 2008 |
-| 2 - trios | Assess coverage and platforms and centers | 20-60X | Whole-genome sequencing of 2 mother-father-adult child trios | Sequencing completed October 2008 |
+| 2 - trios | Assess coverage and platforms and centres | 20-60X | Whole-genome sequencing of 2 mother-father-adult child trios | Sequencing completed October 2008 |
 | 3 - gene regions | Assess methods for gene-region-capture | 50X | 1000 gene regions in 900 samples | Sequencing completed June 2009 |
 
-Data from the pilot projects was analyzed to determine whether the strategy of 4x coverage was adequate to meet the goals of the project. A paper describing the analyses of the pilot data and design of the full project was published in October 2010 in the journal _Nature_ and is available [here](/sites/1000genomes.org/files/docs/nature09534.pdf).
+Data from the pilot projects was analysed to determine whether the strategy of 4x coverage was adequate to meet the goals of the project. A paper describing the analyses of the pilot data and design of the full project was published in October 2010 in the journal _Nature_ and is available [here](/sites/1000genomes.org/files/docs/nature09534.pdf).
 
 ####Main project
 
-Sequencing was carried out in phases one and three of the main project, with data releases and analysis corresponding to each. The final data freeze, associated with the third and final phase, took place on the 2nd May 2013. This data set represented the finalised data set upon which the phase three analysis was based and superseded previous data releases. During the course of the project, analysis methods were further developed and the phase three analysis replaces earlier versions.
+Sequencing was carried out in phases one and three of the main project (not during phase two, which was used for technical development), with data releases and analysis corresponding to both sequencing phases. The final data freeze, associated with the third and final phase, took place on the 2nd May 2013. This data set represented the finalised data set upon which the phase three analysis was based and superseded previous data releases. During the course of the project, analysis methods were further developed and the phase three analysis replaces earlier versions.
 
 The final data set contains data for 2,504 individuals from 26 populations. Low coverage sequence data is present for all individuals, with additional high coverage and exome sequence data being produced for some samples.
 
