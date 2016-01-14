@@ -71,8 +71,6 @@ The NCBI and the Amazon S3 bucket still host 1000 Genomes data but no longer mir
 NCBI FTP Site : [ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp)  
 Amazon S3 : [s3://1000genomes](denied:s3://1000genomes)
 
-####Amazon Web Services
-
 Information on Amazon Web Services can be found on 1000 Genomes [public data set page](http://aws.amazon.com/datasets/4383) or directly on [http://s3.amazonaws.com/1000genomes](http://s3.amazonaws.com/1000genomes).
 
 
