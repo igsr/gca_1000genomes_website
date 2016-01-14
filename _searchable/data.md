@@ -35,15 +35,15 @@ The list of samples and allocations is provided in a [spreadsheet](http://ftp.10
 
 ### Variant Calls
 
-Our variant calls are always released in [VCF format](https://samtools.github.io/hts-specs/). The released calls from the final phase of the 1000 Genomes Project can be found in the release directory for 2nd May 2013 on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502).
+Our variant calls are always released in [VCF format](https://samtools.github.io/hts-specs/). The released calls from the final phase of the 1000 Genomes Project can be found in the release directory for 2nd May 2013 on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502).
 
 ### Alignments
 
-Alignments are available in [BAM or CRAM](https://samtools.github.io/hts-specs/) format. Within IGSR, data are grouped in data collections, such as the 1000 Genomes Project or the Illumina Platinum Genomes. A list of the alignment files currently available for a given data collection can be found in the alignment index  for that collection on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). READMEs describing the alignment process can be found in the same directories. There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md) which explains the file layout.
+Alignments are available in [BAM or CRAM](https://samtools.github.io/hts-specs/) format. Within IGSR, data are grouped in data collections, such as the 1000 Genomes Project or the Illumina Platinum Genomes. A list of the alignment files currently available for a given data collection can be found in the alignment index  for that collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). READMEs describing the alignment process can be found in the same directories. There is also a [README](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md) which explains the file layout.
 
 ### Raw sequence files
 
-Sequence data is available from the ENA. A list of files currently available can be found in the sequence.index file for each data collection on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). There is also a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.sequence_data) which explains the file layout.
+Sequence data is available from the ENA. A list of files currently available can be found in the sequence.index file for each data collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). There is also a [README](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.sequence_data) which explains the file layout.
 
 ### Sample Availability
 
@@ -53,7 +53,7 @@ All the samples studied by the 1000 Genomes Project are available as DNA and cel
 
 ## Download data
 
-The data for this project can be downloaded from the 1000 Genomes FTP site hosted at the EBI [ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/)
+The data for this project can be downloaded from the 1000 Genomes FTP site hosted at the EBI [ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/)
 
 The data can be downloaded via FTP, aspera and globus gridftp. More information about using aspera or globus can be found in our FAQ
 
