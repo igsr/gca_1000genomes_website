@@ -31,8 +31,8 @@ If you want to use data from IGSR for any purpose, you should read the informati
 | 1000 Genomes Release | Variants |	Individuals	| Populations |	VCF	| Sequence and Alignments |	Supporting Data |
 |:--------------------:|:--------:|:-----------:|:-----------:|:---:|:-----------------------:|:---------------:|
 |Phase 3 | 84.4 million | 2504 | 26 | [VCF](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) | [Alignments](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3) | [Supporting Data](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/) |
-|Phase 1 | 37.9 million | 1092 | 14 | VCF | Alignments | Supporting Data |
-| Pilot | 14.8 million | 179 | 4 | VCF | Alignments | Supporting Data|
+|Phase 1 | 37.9 million | 1092 | 14 | [VCF](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/) | [Alignments](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/) | [Supporting Data](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/) |
+| Pilot | 14.8 million | 179 | 4 | [VCF](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/paper_data_sets/a_map_of_human_variation/low_coverage) | [Alignments](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/data) | [Supporting Data](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/paper_data_sets/a_map_of_human_variation/) |
 
 
 
