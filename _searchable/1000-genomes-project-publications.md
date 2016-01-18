@@ -7,7 +7,7 @@ include_in_sitemap: true
 ---
 #The 1000 Genomes Project Publications
 
-The main publications from the 1000 Genomes Project are the final publications from phase 3 of the project, which were publisheed in *Nature* in October 2015.
+The main publications from the 1000 Genomes Project are the final publications from phase 3 of the project, which were published in *Nature* in October 2015.
 
 - ["A global reference for human genetic variation" *Nature* 2015](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html)
 
