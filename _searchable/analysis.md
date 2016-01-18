@@ -9,6 +9,8 @@ tags: Analysis
 
 The analysis pipelines used by IGSR build on those created for the 1000 Genomes Project. For more detailed information about the analysis methods used by the 1000 Genomes Project in its different phases, please refer to our publications. 
 
+##Publications
+
 - [pilot](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html)
 - [phase 1](http://www.nature.com/nature/journal/v491/n7422/full/nature11632.html)
 - [phase 3](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) 
@@ -28,7 +30,7 @@ Information on alt-aware BWA can be found [on the bwa site](https://github.com/l
 
 During the main 1000 Genomes Project, sequence reads were aligned to GRCh37. In phase 1, reference as providing by the Genome Refererence Consortium was used, in phase 3, decoy sequence was added to the reference to reduce the rate of mismapping. 
 
-The phase1 reference FASTA can be found in [technical/reference directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/human_g1k_v37.fasta.gz). It represented the full chromosomes of the [GRCh37](http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/index.shtml) build of the human reference. The phase 3 reference can be found in the [phase2_reference_assembly_sequence directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/). This contains both the full reference and the additional decoy sequence.
+The phase1 reference FASTA can be found in [technical/reference directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/human_g1k_v37.fasta.gz) . It represented the full chromosomes of the [GRCh37](http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/index.shtml) build of the human reference. The phase 3 reference can be found in the [phase2_reference_assembly_sequence directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/) . This contains both the full reference and the additional decoy sequence.
 
 ###NCBI36
 
