@@ -11,7 +11,7 @@ tags: Browser
 
 Data from the 1000 Genomes Project can be viewed in Ensembl. The current release of Ensembl, which uses GRCh38, can be found on [http://www.ensembl.org](http://www.ensembl.org/Homo_sapiens/Info/Index).
 
-During the 1000 Genomes project, GRCh37 was used as the reference genome. Ensembl mantains an GRCh37 version of their browser on [http://grch37.ensembl.org](http://grch37.ensembl.org/Homo_sapiens/Info/Index).
+During the 1000 Genomes project, GRCh37 was used as the reference genome. Ensembl maintains a GRCh37 version of their browser on [http://grch37.ensembl.org](http://grch37.ensembl.org/Homo_sapiens/Info/Index).
 
 ##1000 Genomes Browsers
 
@@ -35,7 +35,7 @@ You can find instructions for how to use our browser [in .doc format](http://ftp
 
 You can also access the databases which sit behind our browser, for more details about this please look at [the Public MySQL Instance](/node/517) page.
 
-There are also more tips for Ensembl both on the [main ensembl site](http://www.ensembl.org/info/website/tutorials/index.html) and their [blog](http://www.ensembl.info/).
+There are also more tips for Ensembl both on the [main Ensembl site](http://www.ensembl.org/info/website/tutorials/index.html) and their [blog](http://www.ensembl.info/).
 
 The [NCBI](http://www.ncbi.nlm.nih.gov) also provide a [1000 genomes browser](http://www.ncbi.nlm.nih.gov/variation/tools/1000genomes/) hosted on their site.
 
