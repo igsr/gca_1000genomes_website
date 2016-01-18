@@ -23,7 +23,7 @@ The VCF format is a tab delimited format for storing variant calls and individua
 
 The specifications for these file formats continue to develop. Current specifications for [SAM/BAM, CRAM and VCF can be found at hts-specs](https://samtools.github.io/hts-specs/).
 
-#Summary files
+#Summary file formats
 
 ##BAS
 .bas files contain statistics relating to .bam or .cram files, with one line per readgroup and columns separated by
