@@ -19,4 +19,4 @@ Phase 2 of the project, which focused on technical development, did not lead dir
 
 - [1000 genomes pilot paper](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html)
 
-A full list of Consortium publications is available from [Europe PMC](http://europepmc.org/search?page=1&amp;query=AUTH:%221000+Genomes+Project+Consortium%22&amp;restrict=All+results).
+A full list of Consortium publications is available from [Europe PMC](http://europepmc.org/search?page=1&query=AUTH:%221000+Genomes+Project+Consortium%22&restrict=All+results).
