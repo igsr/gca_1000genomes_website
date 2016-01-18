@@ -13,7 +13,7 @@ nav_buttons:
 
 #Using data from IGSR
 
-If you want to use data from IGSR for any purpose, you should read the information relating to [data use](/IGSR_disclaimer).
+The IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer).
 
 #Available data
 
@@ -32,7 +32,7 @@ If you want to use data from IGSR for any purpose, you should read the informati
 
 A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). 
 
-The list of samples and allocations is provided in a [spreadsheet](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx).
+The list of samples collected by the project and what sequence data or other assay data that has been generated for them is available in this [spreadsheet](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx).
 
 ## Variant Calls
 
@@ -40,15 +40,15 @@ Our variant calls are always released in [VCF format](https://samtools.github.io
 
 ## Alignments
 
-Alignments are available in [BAM or CRAM](https://samtools.github.io/hts-specs/) format. Within IGSR, data are grouped in data collections, such as the 1000 Genomes Project or the Illumina Platinum Genomes. A list of the alignment files currently available for a given data collection can be found in the alignment index  for that collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). Information on the contents of the index file can be found in the file header.
+Alignments are available in [BAM or CRAM](https://samtools.github.io/hts-specs/) format. Within IGSR, data are grouped in data collections, such as the [1000 Genomes Project](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/) or the [Illumina Platinum Genomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/). A list of the alignment files currently available for a given data collection can be found in the alignment index  for that collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). Information on the contents of the index file can be found in the file header.
 
 ## Raw sequence files
 
-Sequence data is available from the ENA. A list of files currently available can be found in the sequence.index file for each data collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). Information on the contents of the index file can be found in the file header.
+Sequence data is available from the ENA. A list of files currently available can be found in the sequence.index file for each data collection on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). These files contain the FTP url for each sequence fastq file, as well as other metadata information about the sequencing run and file. More information on the contents of the index file can be found in the file header.
 
 ## Sample Availability
 
-All the samples studied by the 1000 Genomes Project are available as DNA and cell lines to scientific investigators for research projects. Samples are currently available from the non-profit [Coriell Institute for Medical Research](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM).
+All the samples studied by the 1000 Genomes Project are available as DNA and cell lines to scientific investigators for research projects. Samples are currently available from the non-profit [Coriell Institute for Medical Research](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM). Details of the population collections available from Coriell can be found on the [cell lines and DNA page](/cell-lines-and-dna-coriell)
 
 # How to Access Data
 
@@ -58,7 +58,7 @@ Data from the 1000 Genomes Project can be viewed in genomic context in genome br
 
 ## Download data
 
-The data contained in IGSR can be downloaded from the FTP site hosted at the EBI [ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/).
+The data contained in IGSR can be downloaded from the FTP site hosted at the EBI [ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/).
 
 The data can be downloaded via FTP, Aspera and Globus GridFTP. More information about using Aspera or Globus can be found in our FAQ.
 
@@ -67,9 +67,9 @@ The data can be downloaded via FTP, Aspera and Globus GridFTP. More information 
 
 ####FTP Hierarchy
 
-The FTP structure was changed in September 2015. The new structure is described in the [FTP site structure README](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_ftp_site_structure.md) 
+The FTP structure was changed in September 2015. The new structure is described in the [FTP site structure README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_ftp_site_structure.md) 
 
-The NCBI and the Amazon S3 bucket still host 1000 Genomes data but no longer mirror new data posted as of September 2015. Both these locations reflect the structure of the FTP site in August 2015 and hold all the pilot, phase 1 and phase 3 data. NCBI and Amazon do not hold new alignments based on GRCh38, the current reference genome.
+During the main 1000 Genomes project, the NCBI acted as a mirror of the EBI hosted 1000 Genomes FTP site and also uploaded alignments and variant calls to an Amazon S3 bucket. This mirroring process stopped in September 2015. The NCBI FTP site and the Amazon S3 bucket still host 1000 Genomes data but no longer mirror new data. Both these locations reflect the structure of the FTP site in August 2015 and hold all the pilot, phase 1 and phase 3 data. NCBI and Amazon do not hold new alignments based on GRCh38, the current reference genome.
 
 NCBI FTP Site : [ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp)  
 Amazon S3 : [s3://1000genomes](denied:s3://1000genomes)
