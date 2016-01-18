@@ -19,39 +19,6 @@
 {% endcapture %}
 {% include section.html content=pinned_announcements %}
       
-{% capture recent_announcements %}
-<h2 class="orange">Recent project announcements</h2>
-{% assign unpinned_announcements = site.categories.announcements | where: "pinned", false %}
-{% for announcement in unpinned_announcements limit:3 %}
-<h5>{{announcement.date | date: '%A %B %d, %Y' }}</h5>
-<p><a href="{{ announcement.url }}"><h2>{{announcement.title}}</h2></a></p>
-
-{{ announcement.content | markdownify }}
-{% endfor %}
-
-<p><a href="/announcements">Complete current and previous announcements</a></p>
-<p><a href="/data">Information regarding data access</a></p>
-{% endcapture %}
-{% include section.html content=recent_announcements %}
 
 
 
-{% capture media %}
-<h2>Recent media coverage</h2>
-{% assign sorted_media = site.media | sort: 'date' %}
-{% for media in sorted_media reversed limit:3 %}
-<h5>{{ media.date | date: '%A %B %d, %Y' }}</h5>
-<p><a href="{{ media.link_url }}">{{ media.title }}</a></p>
-{% endfor %}
-{% endcapture %}
-{% include section.html content=media %}
-
-{% capture press_releases %}
-<h2>Press releases</h2>
-{% assign sorted_press_release = site.press_release | sort: 'date' %}
-{% for press_release in sorted_press_release reversed limit:3 %}
-<h5>{{press_release.date | date: '%A %B %d, %Y' }}</h5>
-<p><a href="{{ press_release.link_url }}">{{ press_release.title }}</a></p>
-{% endfor %}
-{% endcapture %}
-{% include section.html content=press_releases %}
