@@ -21,8 +21,6 @@ The [1000 Genomes Project](#1000G_PROJECT) ran between 2008 and 2015, creating t
 2. [Incorporate additional published genomic data on the 1000 Genomes samples](#aim2)
 3. [Expand the data collection to include new populations not represented in the 1000 Genomes Project](#aim3)
 
-The IGSR Sample Collection Principles can be viewed [here](/sample_collection_principles).
-
 ##<a name="1000G_PROJECT"></a>The 1000 Genomes Project
 
 ###Overview of the 1000 Genomes Project
