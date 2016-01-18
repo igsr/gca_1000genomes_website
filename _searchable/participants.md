@@ -3,9 +3,6 @@ layout: single_section
 title: "Participants"
 permalink: /participants/
 tags: Participants
-nav_buttons:
-    - pilot_paper
-    - contacts
 ---
 
 # Participants list for the 1000 Genomes Project
