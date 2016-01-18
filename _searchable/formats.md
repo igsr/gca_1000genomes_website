@@ -3,20 +3,26 @@ layout: multi_section
 title: "formats"
 permalink: /formats/
 ---
+# Data file formats
 
-{% capture links %}
+## Alignment files (BAM)
+
+BAM files are binary representations of the Sequence Alignment/Map format. These files and the associated SAMtools package are described in a recent [Bioinformatics publication](http://bioinformatics.oxfordjournals.org/cgi/content/abstract/25/16/2078).
+
+Additional information about SAM/BAM is available at the SAMtools development site: [http://samtools.sourceforge.net/](http://samtools.sourceforge.net/).
+
+Additional tools used by the 1000 Genomes project that use BAM files are described on the [tools](/tools) page.
+
+## Variant Call Format (VCF)
+
+The VCF format is a tab delimited format for storing variant calls and and individual genotypes. It is able to store all variant calls from single nucleotide variants to large scale insertions and deletions.
+
+The format is still under development and the current format definition is available on a publicly visiable page of the 1000 Genomes Wiki: [VCF 4.0](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-40)
+
+
 # Key file formats
 
 Information on key file formants is normally provided within README files located near the relevant data on the FTP site. Information on the major formats is also collected here. Tools developed by the 1000 Genomes project or appropirate to work with the data from t he project are listed on the [tools](/tools) page.
-
-[Index file formats](#index-file-formats)  
-[Data file formats](#data-file-formats)
-
-{% endcapture %}
-{% include section_md.html content=links %}
-
-
-{% capture index_file_formats %}
 
 # Index file formats
 
@@ -138,27 +144,4 @@ Column 19 'insert_size_median_absolute_deviation': The median absolute deviation
 Column 20 '#_duplicate_reads': The number of reads which were marked as duplicates
 
 
-{% endcapture %}
-{% include section_md.html content=index_file_formats %}
 
-
-{% capture data_file_formats %}
-
-# Data file formats
-
-## Alignment files (BAM)
-
-BAM files are binary representations of the Sequence Alignment/Map format. These files and the associated SAMtools package are described in a recent [Bioinformatics publication](http://bioinformatics.oxfordjournals.org/cgi/content/abstract/25/16/2078).
-
-Additional information about SAM/BAM is available at the SAMtools development site: [http://samtools.sourceforge.net/](http://samtools.sourceforge.net/).
-
-Additional tools used by the 1000 Genomes project that use BAM files are described on the [tools](/tools) page.
-
-## Variant Call Format (VCF)
-
-The VCF format is a tab delimited format for storing variant calls and and individual genotypes. It is able to store all variant calls from single nucleotide variants to large scale insertions and deletions.
-
-The format is still under development and the current format definition is available on a publicly visiable page of the 1000 Genomes Wiki: [VCF 4.0](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-40)
-
-{% endcapture %}
-{% include section_md.html content=data_file_formats %}
