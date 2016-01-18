@@ -19,7 +19,7 @@ Information on working with IGSR CRAM files are available on the [FTP site](http
 
 The VCF format is a tab delimited format for storing variant calls and individual genotypes. It is able to store all variant calls from single nucleotide variants to large scale insertions and deletions.
 
-##Data file format specifications
+##Data file specifications
 
 The specifications for these file formats continue to develop. Current specifications for [SAM/BAM, CRAM and VCF can be found at hts-specs](https://samtools.github.io/hts-specs/).
 
