@@ -3,12 +3,6 @@ layout: single_section
 title: "Data"
 permalink: /data/
 tags: Data
-nav_buttons:
-    - announcements
-    - files_formats
-    - software_tools
-    - pilot_paper
-    - contacts
 ---
 
 #Using data from IGSR
