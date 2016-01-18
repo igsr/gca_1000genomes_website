@@ -2,12 +2,6 @@
 layout: single_section
 title: "tools"
 permalink: /tools/
-nav_buttons:
-    - announcements
-    - files_formats
-    - software_tools
-    - pilot_paper
-    - contacts
 ---
 
 # Software Tools
