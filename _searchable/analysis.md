@@ -44,11 +44,11 @@ During the 1000 Genomes Project, different mapping algorithms were used for data
 | Phase   | Techology | Low Coverage | Exome/Exon Targetted | High Coverage |
 |:-------:|:---------:|:------------:|:--------------------:|:-------------:|
 | Pilot   | Illumina  | MAQ          | MOSAIK               | MAQ           |
-|         | 454       | MAQ          | MOSAIK               | MAQ           |
-|         | SOLiD     | corona       | N/A                  | corona        |
+| Pilot   | 454       | MAQ          | MOSAIK               | MAQ           |
+| Pilot   | SOLiD     | corona       | N/A                  | corona        |
 | Phase 1 | Illumina  | bwa          | bfast                | N/A           |
-|         | 454       | bwa          | bfast                | N/A           |
-|         | SOLiD     | bfast        | bfast                | N/A           |
+| Phase 1 | 454       | bwa          | bfast                | N/A           |
+| Phase 1 | SOLiD     | bfast        | bfast                | N/A           |
 | Phase 3 | Illumina  | bwa          | N/A                  | N/A           |
 
 
