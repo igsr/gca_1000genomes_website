@@ -11,10 +11,10 @@ The analysis pipelines used by IGSR build on those created for the 1000 Genomes 
 
 ##Publications
 
-- [pilot](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html)
-- [phase 1](http://www.nature.com/nature/journal/v491/n7422/full/nature11632.html)
-- [phase 3](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) 
-- [phase 3 structural variation](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)
+- [Pilot](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html)
+- [Phase 1](http://www.nature.com/nature/journal/v491/n7422/full/nature11632.html)
+- [Phase 3](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) 
+- [Phase 3 structural variation](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html)
 
 ## Alignment
 
