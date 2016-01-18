@@ -52,11 +52,11 @@ During the 1000 Genomes Project, different mapping algorithms were used for data
 | Phase 3 | Illumina  | bwa          | N/A                  | N/A           |
 
 
-MAQ: [http://maq.sourceforge.net/](http://maq.sourceforge.net/)  
-Corona Lite: [http://solidsoftwaretools.com/gf/project/corona/](http://solidsoftwaretools.com/gf/project/corona/)  
-MOSAIK: [http://code.google.com/p/mosaik-aligner/](http://code.google.com/p/mosaik-aligner/)
-bwa: [http://bio-bwa.sourceforge.net/](http://bio-bwa.sourceforge.net/)
-bfast: [http://sourceforge.net/projects/bfast/](http://sourceforge.net/projects/bfast/)
+ - MAQ: [http://maq.sourceforge.net/](http://maq.sourceforge.net/)  
+ - Corona Lite: [http://solidsoftwaretools.com/gf/project/corona/](http://solidsoftwaretools.com/gf/project/corona/)  
+ - MOSAIK: [http://code.google.com/p/mosaik-aligner/](http://code.google.com/p/mosaik-aligner/)
+ - BWA: [http://bio-bwa.sourceforge.net/](http://bio-bwa.sourceforge.net/)
+ - bfast: [http://sourceforge.net/projects/bfast/](http://sourceforge.net/projects/bfast/)
 
 ##SNP calling in the 1000 Genomes Project
 
