@@ -3,12 +3,6 @@ layout: single_section
 title: "Analysis"
 permalink: /analysis/
 tags: Analysis
-nav_buttons:
-    - announcements
-    - files_formats
-    - software_tools
-    - pilot_paper
-    - contacts
 ---
 
 # Analysis
