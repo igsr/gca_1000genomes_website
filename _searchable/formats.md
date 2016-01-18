@@ -1,5 +1,5 @@
 ---
-layout: multi_section
+layout: single_section
 title: "formats"
 permalink: /formats/
 ---
