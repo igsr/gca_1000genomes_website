@@ -1,0 +1,14 @@
+---
+---
+{% for page in site.posts %}{% if page.redirect_from %}	{% for redirect in page.redirect_from %}
+{{ page.url}}	{{ redirect }}
+{% endfor %}{% endif %}{% endfor %}
+{% for page in site.pages %}{% if page.redirect_from %}{% for redirect in page.redirect_from %}
+{{ page.url}}	{{ redirect }}
+{% endfor %}{% endif %}{% endfor %}
+{% for page in site.searchable %}{% if page.redirect_from %}{% for redirect in page.redirect_from %}
+{{ page.url}}	{{ redirect }}
+{% endfor %}{% endif %}{% endfor %}
+{% for page in site.faq %}{% if page.redirect_from %}{% for redirect in page.redirect_from %}
+{{ page.url}}	{{ redirect }}
+{% endfor %}{% endif %}{% endfor %}
