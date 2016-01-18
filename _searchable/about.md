@@ -5,11 +5,6 @@ permalink: /about/
 tags: About
 redirect_from:
     - /node/3/
-nav_buttons:
-    - announcements
-    - media
-    - pilot_paper
-    - contacts
 include_in_sitemap: true
 ---
 
