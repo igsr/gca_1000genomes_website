@@ -8,7 +8,7 @@ permalink: /tools/
 
 The IGSR and the 1000 Genomes Project have used a variety of tools. For details of the software used by the 1000 Genomes Project, please see the [1000 Genomes Project publications](/1000-genomes-project-publications).
 
-Links to some of the software used by the projects are given below. Please be aware that as many of these programs continue to be developed, newer versions of the software may be available than those that were used by either 1000 Genomes or IGSR for given pieces of analysis.
+Links to a selection of the software used by the projects are given below. Please be aware that as many of these programs continue to be developed, newer versions of the software may be available than those that were used by either 1000 Genomes or IGSR for given pieces of analysis.
 
 #### Recalibration
 
