@@ -5,13 +5,13 @@ permalink: /formats/
 ---
 # Data file formats
 
-## Alignment files (BAM)
+## Alignment files: BAM and CRAM
 
-BAM files are binary representations of the Sequence Alignment/Map format. These files and the associated SAMtools package are described in a recent [Bioinformatics publication](http://bioinformatics.oxfordjournals.org/cgi/content/abstract/25/16/2078).
+BAM files are binary representations of the Sequence Alignment/Map format. These files and the associated SAMtools package are described in this [Bioinformatics publication](http://bioinformatics.oxfordjournals.org/cgi/content/abstract/25/16/2078).
 
 Additional information about SAM/BAM is available at the SAMtools development site: [http://samtools.sourceforge.net/](http://samtools.sourceforge.net/).
 
-Additional tools used by the 1000 Genomes project that use BAM files are described on the [tools](/tools) page.
+CRAM files are similar to BAM files but give a compressed representation of the alignment. This compression is driven by the reference the sequence data is aligned to. The file format was designed to reduce the disk foot print of alignment data by the [EBI, who provide further information on the format](http://www.ebi.ac.uk/ena/software/cram-toolkit).
 
 ## Variant Call Format (VCF)
 
