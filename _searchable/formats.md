@@ -15,10 +15,11 @@ CRAM files are similar to BAM files but give a compressed representation of the 
 
 ## Variant Call Format (VCF)
 
-The VCF format is a tab delimited format for storing variant calls and and individual genotypes. It is able to store all variant calls from single nucleotide variants to large scale insertions and deletions.
+The VCF format is a tab delimited format for storing variant calls and individual genotypes. It is able to store all variant calls from single nucleotide variants to large scale insertions and deletions.
 
-The format is still under development and the current format definition is available on a publicly visiable page of the 1000 Genomes Wiki: [VCF 4.0](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-40)
+##Data file format specifications
 
+The specifications for these file formats continue to develop. Current specifications for [SAM/BAM, CRAM and VCF can be found at hts-specs](https://samtools.github.io/hts-specs/).
 
 # Key file formats
 
