@@ -40,8 +40,9 @@ In the pilot phase of the 1000 Genomes Project, the data was mapped to sex match
 
 During the 1000 Genomes Project, different mapping algorithms were used for data data types. The table below describes which algorithms were used for the different data types and technology combinations in the different phases of the project.
 
+{: .table .table-striped}
 | Phase   | Techology | Low Coverage | Exome/Exon Targetted | High Coverage |
-|---------|-----------|--------------|----------------------|---------------|
+|:-------:|:---------:|:------------:|:--------------------:|:-------------:|
 | Pilot   | Illumina  | MAQ          | MOSAIK               | MAQ           |
 |         | 454       | MAQ          | MOSAIK               | MAQ           |
 |         | SOLiD     | corona       | N/A                  | corona        |
