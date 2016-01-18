@@ -36,9 +36,9 @@ The phase1 reference FASTA can be found in [technical/reference directory](ftp:/
 
 In the pilot phase of the 1000 Genomes Project, the data was mapped to sex matched copies of NCBI36. Our reference files can be found under the [pilot_data directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/technical/reference/)
 
-###Mapping Algortims
+###Mapping Algorithms
 
-During the 1000 Genomes Project, different mapping algorithms were used for data data types. The table below describes which algortims were used for the different data types and technology combinations in the different phases of the project.
+During the 1000 Genomes Project, different mapping algorithms were used for data data types. The table below describes which algorithms were used for the different data types and technology combinations in the different phases of the project.
 
 | Phase   | Techology | Low Coverage | Exome/Exon Targetted | High Coverage |
 |---------|-----------|--------------|----------------------|---------------|
