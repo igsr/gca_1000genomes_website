@@ -38,3 +38,7 @@ permalink: /cell-lines-and-dna-coriell/
 | [Esan in Nigeria](http://ccr.coriell.org/Sections/Collections/NHGRI/1000Esan.aspx?PgId=760&amp;coll=HG) | ESN | [MGP00023](http://ccr.coriell.org/Sections/Search/Panel_Detail.aspx?Ref=MGP00023) |
 | [Sri Lankan Tamil in the UK](http://ccr.coriell.org/Sections/Collections/NHGRI/1000Tamil.aspx?PgId=765&amp;coll=HG) | STU | [MGP00024](http://ccr.coriell.org/Sections/Search/Panel_Detail.aspx?Ref=MGP00024) |
 | [Indian Telugu in the UK](http://ccr.coriell.org/Sections/Collections/NHGRI/1000Telugu.aspx?PgId=766&amp;coll=HG) | ITU | [MGP00025](http://ccr.coriell.org/Sections/Search/Panel_Detail.aspx?Ref=MGP00025) |
+
+There is also a [leaflet](/sites/1000genomes.org/files/documents/nhgri_flyer_2013.pdf) from Coriell describing these panels.
+
+The [CEU](http://ccr.coriell.org/Sections/Collections/NIGMS/CEPHResources.aspx?PgId=525&coll=GM) population is not listed here. This is also available from Coriell but as part of [NIGMS Collection](http://ccr.coriell.org/Sections/Collections/NIGMS/?SsId=8)
