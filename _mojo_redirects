@@ -1,6 +1,6 @@
 ---
 ---
-{% for page in site.posts %}{% if page.redirect_from %}	{% for redirect in page.redirect_from %}
+{% for page in site.posts %}{% if page.redirect_from %}{% for redirect in page.redirect_from %}
 {{ redirect }}	{{ page.url }}
 {% endfor %}{% endif %}{% endfor %}
 {% for page in site.pages %}{% if page.redirect_from %}{% for redirect in page.redirect_from %}
@@ -12,3 +12,6 @@
 {% for page in site.faq %}{% if page.redirect_from %}{% for redirect in page.redirect_from %}
 {{ redirect }}	{{ page.url }}
 {% endfor %}{% endif %}{% endfor %}
+{% for page in site.faq_categories %}
+{{ page.url | replace: '/category/', '/category/frequently-asked-questions/' }}	{{ page.url }}
+{% endfor %}
