@@ -12,9 +12,9 @@ layout: multi_section
 {% if faq.faq_tags %}
 <ul class="breadcrumb">
 {% for tag in faq.faq_tags %}
-{% assign faq_category = site.data['faq_category_map'][tag] %}
+{% assign faq_category = site.data['faq_category_map'][tag] %}{% if faq_category %}
 <li><a href="{{faq_category.url}}" title="">{{faq_category.title}}</a></li>
-{% endfor %}
+{% endif %}{% endfor %}
 </ul>
 {% endif %}
 
@@ -22,11 +22,13 @@ layout: multi_section
 
     {{ faq.content | markdownify }}
 
+{% if faq.faq_related %}
 <h2>Related questions:</h2>
 <ul>
 {% for faq_related_stub in faq.faq_related %}
-{% assign faq_related = site.data['faq_map'][faq_related_stub] %}
+{% assign faq_related = site.data['faq_map'][faq_related_stub] %}{% if faq_related %}
 <li><a href="{{faq_related.url}}">{{faq_related.title}}</a></li>
-{% endfor %}
+{% endif %}{% endfor %}
 </ul>
+{% endif %}
 {% endcapture %}{% include section.html content=faq_content %}{% endif %}{% endfor %}
