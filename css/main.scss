@@ -39,24 +39,31 @@ header {
     }
 
     div.top-banner-content {
-      margin-top: 12px;
+      margin-top: 15px;
+
+      div.top-banner-inline {
+         display: inline-block;
+         background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/top_banner_back.png");
+      }
+
+      div.top-banner-row {
+          display: block;
+          padding-top: 10px;
+      }
 
       h2#site-slogan {
          color: #FFF;
+         margin: 5px;
       }
 
       h1#site-title {
         color: #DAA406;
+        margin: 5px;
         a {
             color: inherit;
         }
       }
 
-      span.top-banner-text, a.top-banner-text {
-            background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/top_banner_back.png");
-            padding-top: 4px;
-            padding-bottom: 4px;
-      }
     }
 
     nav.navbar {
