@@ -11,12 +11,8 @@ layout: null
     <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
     <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
   </url>
-  {% endfor %}{% for page in site.searchable %}<url>
+  {% endfor %}{% for page in site.html_pages %}<url>
     <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
     <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
   </url>
-  {% endfor %}{% for page in site.html_pages %}{% if page.include_in_sitemap %}<url>
-    <loc>{{ page.url | prepend: site.baseurl | prepend: site.url }}</loc>
-    <lastmod>{{ page.last_modified_at | date_to_xmlschema }}</lastmod>
-  </url>
-  {% endif %}{% endfor %}</urlset>
+  {% endfor %}</urlset>

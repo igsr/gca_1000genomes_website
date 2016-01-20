@@ -1,6 +1,7 @@
 ---
 ---
 
+{% assign searchable_html_pages = site.html_pages | where: 'exclude_from_search', false %}
 [
 {% for page in site.posts %}  {
     "url": {{ page.url | prepend: site.baseurl | prepend: site.url | jsonify}},
@@ -12,7 +13,7 @@
     "title": {{page.title | jsonify}},
     "content": {{ page.content | strip_html | jsonify | replace: '\n', ' '}}
   },{% endfor %}
-{% for page in site.searchable %}  {
+{% for page in searchable_html_pages %}  {
     "url": {{ page.url | prepend: site.baseurl | prepend: site.url | jsonify}},
     "title": {{page.title | jsonify}},
     "content": {{ page.content | strip_html | jsonify | replace: '\n', ' '}}

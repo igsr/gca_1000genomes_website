@@ -19,8 +19,6 @@ collections:
         output: false
     press_release:
         output: false
-    searchable:
-        output: true
     mojo_templates :
         output: true
         permalink: /_mojo_templates/:path.html.ep
@@ -38,6 +36,11 @@ defaults:
             path: "faq"
         values:
             layout: "faq"
+    -
+        scope: 
+            path: ""
+        values:
+            exclude_from_search: false
 
 # Build settings
 markdown: kramdown

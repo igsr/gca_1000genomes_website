@@ -3,7 +3,7 @@ layout: single_section
 title: "Contact"
 permalink: /contact/
 tags: Contact
-include_in_sitemap: true
+exclude_from_search: true
 ---
 
 

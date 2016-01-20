@@ -3,7 +3,7 @@ layout: single_section
 title: "FAQ"
 permalink: /faq/
 tags: FAQ
-include_in_sitemap: true
+exclude_from_search: true
 ---
 
 ## {{page.title}}
