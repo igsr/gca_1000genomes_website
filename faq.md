@@ -4,6 +4,8 @@ title: "FAQ"
 permalink: /faq/
 tags: FAQ
 exclude_from_search: true
+redirect_from:
+    - /node/503/
 ---
 
 ## {{page.title}}
