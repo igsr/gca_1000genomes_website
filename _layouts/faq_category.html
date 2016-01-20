@@ -9,12 +9,14 @@ layout: multi_section
     </h2>
   
   
-<ul>
+{% if faq.faq_tags %}
+<ul class="breadcrumb">
 {% for tag in faq.faq_tags %}
 {% assign faq_category = site.data['faq_category_map'][tag] %}
 <li><a href="{{faq_category.url}}" title="">{{faq_category.title}}</a></li>
 {% endfor %}
 </ul>
+{% endif %}
 
 <h2>Answer:</h2>
 
