@@ -5,7 +5,6 @@ faq_tags:
   - data-access
   - tools
 faq_related:
-  - can-i-search-ftp-site
   - where-most-recent-release
   - where-are-your-alignment-files-located
   - can-i-access-1000-genomes-data-globus-online

@@ -6,7 +6,6 @@ faq_tags:
   - torrent
 faq_related:
   - what-tools-can-i-use-download-1000-genomes-data
-  - can-i-search-ftp-site
   - there-corrupt-file-your-ftp-site
 ---
                     

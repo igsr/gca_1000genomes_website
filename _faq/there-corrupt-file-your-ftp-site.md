@@ -5,7 +5,6 @@ faq_tags:
   - data-access
   - md5
 faq_related:
-  - can-i-search-ftp-site
   - how-do-i-contact-you
   - what-tools-can-i-use-download-1000-genomes-data
 ---

@@ -7,7 +7,6 @@ faq_tags:
 faq_related:
   - how-download-files-using-aspera
   - do-i-need-password-access-1000-genomes-data
-  - can-i-search-ftp-site
   - where-most-recent-release
 ---
                     

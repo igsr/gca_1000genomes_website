@@ -7,7 +7,6 @@ faq_tags:
   - sequence
   - variants
 faq_related:
-  - can-i-search-ftp-site
   - where-most-recent-release
   - how-do-i-find-out-about-new-1000-genomes-releases
 ---

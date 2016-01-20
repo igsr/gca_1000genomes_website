@@ -5,7 +5,6 @@ faq_tags:
   - search
   - website
 faq_related:
-  - can-i-search-ftp-site
   - do-i-need-permission-use-1000-genomes-data-my-own-scientific-research
 ---
                     

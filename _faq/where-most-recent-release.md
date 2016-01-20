@@ -5,7 +5,6 @@ faq_tags:
   - data-analysis
   - release
 faq_related:
-  - can-i-search-ftp-site
   - are-there-any-statistics-about-how-much-sequence-data-has-been-generated-project
   - where-are-your-variant-files-located
   - what-do-names-your-variant-files-mean-and-what-format-are-files

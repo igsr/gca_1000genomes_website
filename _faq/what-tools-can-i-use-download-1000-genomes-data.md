@@ -7,7 +7,6 @@ faq_tags:
   - tools
 faq_related:
   - how-download-files-using-aspera
-  - can-i-search-ftp-site
   - there-corrupt-file-your-ftp-site
 ---
                     
