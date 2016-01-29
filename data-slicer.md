@@ -14,7 +14,7 @@ The input interface is shown below.
 
 ![data slicer input field](/sites/1000genomes.org/files/resize/documents/data_slicer_input_test-722x306.jpg "data slicer input")
 
-You must provide a publicly visible URL for your BAM or VCF file which must be accompanied by either a tabix index (.tbi) or BAM index (.bai) of the same name. All 1000 genomes VCF and BAM files on the FTP site have these indices with them. Please note that this service will only work for other BAM files over http.
+You must provide a publicly visible URL for your BAM or VCF file which must be accompanied by either a tabix index (.tbi) or BAM index (.bai) of the same name. All 1000 Genomes VCF and BAM files on the FTP site have these indices with them. Please note that this service will only work for other BAM files over http.
 
 If you are slicing a VCF file you can also subset the data by individual and population. If you are going to subset by population you much also provide a file like [20100804.ALL.panel](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/20100804.ALL.panel).
 
