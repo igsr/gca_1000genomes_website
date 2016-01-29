@@ -44,6 +44,6 @@ If the firewall has UDP flood protection, it must be turned off for port 33001.
 
 ###Further details
 
-All data provided by IGSR is available via the [EBI Aspera site](http://dev.1000genomes.org/aspera). During the 1000 Genomes Project, NCBI provided an Aspera service. The [NCBI Aspera site](http://www.ncbi.nlm.nih.gov/projects/faspftp/1000genomes/) provides access to the data as it was when the main 1000 Genomes Project conlcuded and does not include any updates to the data.
+All data provided by IGSR is available via the [EBI Aspera site](http://www.1000genomes.org/aspera). During the 1000 Genomes Project, NCBI provided an Aspera service. The [NCBI Aspera site](http://www.ncbi.nlm.nih.gov/projects/faspftp/1000genomes/) provides access to the data as it was when the main 1000 Genomes Project conlcuded and does not include any updates to the data.
 
 For further information, please contact info@1000genomes.org.
