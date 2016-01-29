@@ -14,7 +14,7 @@ The AF Calculator takes a VCF file containing individual genotypes and a sample 
 
 The VCF file format specifications can be found at [the hts-specs website](http://samtools.github.io/hts-specs/).
 
-The VCF files must be indexed by tabix. All vcf files found on the 1000 Genomes FTP site are indexed using this method. The tabix software is available from [the samtools sourceforge project](http://sourceforge.net/projects/samtools/files/tabix/).
+The VCF files must be indexed by tabix. All vcf files found on the 1000 Genomes FTP site are indexed using this method. The tabix software is available from [the SAMtools sourceforge project](http://sourceforge.net/projects/samtools/files/tabix/).
 
 The sample to population mapping file is a tab-delimitated file; the first column is sample id; the second column is population. Additional columns will be ignored. An example can be found at the project ftp site in the phase1 integrated variant calls directory:
 
