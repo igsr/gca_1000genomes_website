@@ -56,8 +56,8 @@ The data contained in IGSR can be downloaded from the FTP site hosted at the EBI
 
 The data can be downloaded via FTP, Aspera and Globus GridFTP. More information about using Aspera or Globus can be found in our FAQ.
 
-[How to download files using Aspera](http://www.1000genomes.org/faq/how-download-files-using-aspera)  
-[How to download files using Globus](http://www.1000genomes.org/faq/can-i-access-1000-genomes-data-globus-online)
+[How to download files using Aspera](/faq/how-download-files-using-aspera)  
+[How to download files using Globus](/faq/can-i-access-1000-genomes-data-globus-online)
 
 ####FTP Hierarchy
 
