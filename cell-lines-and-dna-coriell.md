@@ -6,7 +6,7 @@ permalink: /cell-lines-and-dna-coriell/
 
 ## Cell lines and DNA from Coriell for 1000 genomes samples
 
-<span>All the samples from the 1000 genomes are available as lymphoblastoid cell lines </span><span>(LCLs) and LCL derived DNA </span><span>from the [Coriell Cell Repository](http://ccr.coriell.org/) as part of the [NHGRI Catalog](http://ccr.coriell.org/Sections/Collections/NHGRI/?SsId=11)</span><span>. In addition Standard Population DNA Panels for the 1000 Genomes and HapMap projects are available at $1000 or less each (see panel identifiers below).</span>
+<span>All the samples from the 1000 Genomes Project are available as lymphoblastoid cell lines </span><span>(LCLs) and LCL derived DNA </span><span>from the [Coriell Cell Repository](http://ccr.coriell.org/) as part of the [NHGRI Catalog](http://ccr.coriell.org/Sections/Collections/NHGRI/?SsId=11)</span><span>. In addition, Standard Population DNA Panels for the 1000 Genomes and HapMap projects are available at $1000 or less each (see panel identifiers below).</span>
 
 ![Coriell 1000 Genomes Map](/sites/1000genomes.org/files/documents/1000-genomes-map_11-6-12-2_750.jpg)
 
