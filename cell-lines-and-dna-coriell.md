@@ -41,4 +41,4 @@ permalink: /cell-lines-and-dna-coriell/
 
 There is also a [leaflet](/sites/1000genomes.org/files/documents/nhgri_flyer_2013.pdf) from Coriell describing these panels.
 
-The [CEU](http://ccr.coriell.org/Sections/Collections/NIGMS/CEPHResources.aspx?PgId=525&coll=GM) population is not listed here. This is also available from Coriell but as part of [NIGMS Collection](http://ccr.coriell.org/Sections/Collections/NIGMS/?SsId=8)
+The [CEU](http://ccr.coriell.org/Sections/Collections/NIGMS/CEPHResources.aspx?PgId=525&coll=GM) population is not listed here. This is also available from Coriell but as part of [NIGMS Collection](http://ccr.coriell.org/Sections/Collections/NIGMS/?SsId=8).
