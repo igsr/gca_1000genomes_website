@@ -3,7 +3,7 @@ title: "Which populations are part of your study?"
 faq_tags:
   - phenotype
   - population
-  - samples
+  - sample
 faq_related:
   - which-samples-are-you-sequencing
   - can-i-get-phenotype-gender-and-family-relationship-information-samples
