@@ -4,7 +4,7 @@ faq_tags:
   - alignment
   - bam
   - fastq
-  - phase3
+  - phase-3
   - reads
 ---
                     
