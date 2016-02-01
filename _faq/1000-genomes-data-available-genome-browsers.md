@@ -11,7 +11,7 @@ faq_related:
   - where-most-recent-release
 ---
                     
-1000 genomes data sets are available at both [Ensembl](http://www.ensembl.org) and the [UCSC Genome Browser](http://genome.ucsc.edu/).
+1000 Genomes Project data is available at both [Ensembl](http://www.ensembl.org) and the [UCSC Genome Browser](http://genome.ucsc.edu/).
 
 More information on accessing 1000 Genomes Project data in genome browsers can be found on the [Browser page](/1000-genomes-browsers).
 
