@@ -1,5 +1,5 @@
 ---
-title: "Are all the genotype calls in the current release VCF files bi-allelic?"
+title: "Are all the genotype calls in the 1000 Genomes Project current release VCF files bi-allelic?"
 faq_tags:
   - allele
   - bi-allelic
