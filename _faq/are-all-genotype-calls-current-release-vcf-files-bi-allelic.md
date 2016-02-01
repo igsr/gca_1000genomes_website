@@ -12,6 +12,8 @@ faq_related:
   - can-i-get-genotypes-specific-individualpopulation-your-vcf-files
 ---
                     
-The programs used to genotype our early releases including [phase1](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/) are unable to genotype sites with more then two alleles. In most cases the highest frequency alternative allele was chosen and genotyped, depth and base and mapping quality were also used when making this decision
+No. While bi-allelic calling was used in earlier phases of the 1000 Genomes Project, multi-allelic SNPs, indels, and a diverse set of structural variants (SVs) were called in the final phase 3 call set. More information can be found in the [main phase 3 publication from the 1000 Genomes Project](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) and the [structural variation publication](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html). The supplementary information for both papers provides further detail.
 
-We intend to resolve this problem before the end of the project.
+In earlier phases of the 1000 Genomes Project, the programs used for genotyping were unable to genotype sites with more then two alleles. In most cases, the highest frequency alternative allele was chosen and genotyped. Depth of coverage, base quality and mapping quality were also used when making this decision. This was the approach used in phase 1 of the 1000 Genomes Project. As methods were developed during the 1000 Genomes Project, it is recommended to use the final phase 3 data in preference to earlier call sets.
+
+
