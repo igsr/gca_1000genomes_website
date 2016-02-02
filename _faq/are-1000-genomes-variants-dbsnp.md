@@ -11,7 +11,7 @@ faq_related:
   - "why-isn't-snp-dbsnp-or-hapmap"
 ---
                     
-The 1000 Genomes SNPs and short indels get submitted to [dbSNP](http://www.ncbi.nlm.nih.gov/snp/) and longer structural variants get submitted to the [DGVa](http://www.ebi.ac.uk/dgva/).
+The 1000 Genomes Project SNPs and short indels get submitted to [dbSNP](http://www.ncbi.nlm.nih.gov/snp/) and longer structural variants get submitted to the [DGVa](http://www.ebi.ac.uk/dgva/).
 
 Where possible, release VCF files contain the appropriate IDs in the ID column, such as dbSNP rs IDs.
 
