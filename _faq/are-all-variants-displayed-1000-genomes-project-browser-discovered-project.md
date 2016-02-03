@@ -12,8 +12,10 @@ faq_related:
   - 1000-genomes-data-available-genome-browsers
 ---
 
-No, not all the variants in the [1000 Genomes Browser](http://browser.1000genomes.org) were discovered by the 1000 Genomes Project.  
+No, not all the variants in the [browsers produced by the 1000 Genomes Project](http://browser.1000genomes.org) were discovered by the 1000 Genomes Project.  
 
-The content of the 1000 Genomes Project Browser is based on a custom version of the Ensembl browser. These databases contain the Ensembl core features (genes and transcripts), regulatory elements from the Ensembl Regulatory Build and variation data from Ensembl Variation database.
+The data from the 1000 Genomes Project is available in a number of browsers, including browsers produced by the 1000 Genomes Project, which reflect the major data releases associated with the pilot, phase 1 and phase 3 publications from the 1000 Genomes Project. More information on this is available on the [browsers page](/1000-genomes-browsers).
 
-We load the newest version of the 1000 genoems data if it is not yet in dbSNP.  As well as our variation data, Ensembl variation contains data from dbSNP, ClinVar, COSMIC, dbGaP, dbVAR, EGA and many other sources. We currently use the Ensembl 75 databases. For a complete list of the sources for the Ensembl Variation, please see [http://feb2014.archive.ensembl.org/info/genome/variation/sources_documentation.html](http://feb2014.archive.ensembl.org/info/genome/variation/sources_documentation.html) for details.
+The content of the 1000 Genomes Project Browsers, maintained during the 1000 Genomes Project, are based on custom versions of the Ensembl browser. These databases contain the Ensembl core features (genes and transcripts), regulatory elements from the Ensembl Regulatory Build and variation data from the Ensembl Variation database.
+
+As well as 1000 Genomes Project variation data, Ensembl variation contains data from dbSNP, ClinVar, COSMIC, dbGaP, dbVAR, EGA and many other sources.
