@@ -11,7 +11,7 @@ faq_related:
   - can-i-get-genotypes-specific-individualpopulation-your-vcf-files
 ---
                     
-We provide a [VCF to PED tool](http://browser.1000genomes.org/Homo_sapiens/UserData/Haploview) to convert from VCF to PLINK PED format. This tool has documentation for both the [web interface](http://www.1000genomes.org/vcf-ped-converter#Online) and the [Perl script](http://www.1000genomes.org/vcf-ped-converter#API%20Script)
+We provide a [VCF to PED tool](http://browser.1000genomes.org/Homo_sapiens/UserData/Haploview) to convert from VCF to [PLINK](http://pngu.mgh.harvard.edu/~purcell/plink/index.shtml) PED format. This tool has documentation for both the [web interface](http://www.1000genomes.org/vcf-ped-converter#Online) and the [Perl script](http://www.1000genomes.org/vcf-ped-converter#API%20Script)
 
 An example Perl command to run the script would be:
 
