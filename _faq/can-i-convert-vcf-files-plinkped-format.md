@@ -1,5 +1,5 @@
 ---
-title: "Can I convert vcf files to plink/ped format?"
+title: "Can I convert VCF files to PLINK/PED format?"
 faq_tags:
   - data-access
   - file-format
@@ -11,9 +11,9 @@ faq_related:
   - can-i-get-genotypes-specific-individualpopulation-your-vcf-files
 ---
                     
-We provide a [vcf to ped tool](http://browser.1000genomes.org/Homo_sapiens/UserData/Haploview) to convert from vcf to plink format. This tool has documentation for both the [web interface](http://www.1000genomes.org/vcf-ped-converter#Online) and the [perl script](http://www.1000genomes.org/vcf-ped-converter#API%20Script)
+We provide a [VCF to PED tool](http://browser.1000genomes.org/Homo_sapiens/UserData/Haploview) to convert from VCF to PLINK PED format. This tool has documentation for both the [web interface](http://www.1000genomes.org/vcf-ped-converter#Online) and the [Perl script](http://www.1000genomes.org/vcf-ped-converter#API%20Script)
 
-An example perl command to run the script would be
+An example Perl command to run the script would be:
 
     perl vcf_to_ped_converter.pl -vcf ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr13.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf.gz
         -sample_panel_file ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/phase1_integrated_calls.20101123.ALL.sample_panel
