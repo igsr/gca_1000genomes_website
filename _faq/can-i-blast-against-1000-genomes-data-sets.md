@@ -1,5 +1,5 @@
 ---
-title: "Can I blast against the 1000 genomes data sets?"
+title: "Can I BLAST against the 1000 Genomes data sets?"
 faq_tags:
   - data-access
   - ensembl
@@ -12,4 +12,4 @@ faq_related:
   - can-i-find-genomic-position-list-dbsnp-rs-numbers-0
 ---
                     
-The 1000 genomes raw sequence data represents more then 30000x coverage of the human genome and there are no tools currently available to search against the complete data sets. You can use the [Ensembl](http://www.ensembl.org/Homo_sapiens/blastview) or [NCBI](http://blast.ncbi.nlm.nih.gov/Blast.cgi) blast services and then use these results to find the 1000 genomes variants already in dbSNP.
+The 1000 Genomes raw sequence data represents more then 30,000x coverage of the human genome and there are no tools currently available to search against the complete data set. You can, however, use the [Ensembl](http://www.ensembl.org/Homo_sapiens/blastview) or [NCBI](http://blast.ncbi.nlm.nih.gov/Blast.cgi) BLAST services and then use these results to find 1000 Genomes Project variants in dbSNP.
