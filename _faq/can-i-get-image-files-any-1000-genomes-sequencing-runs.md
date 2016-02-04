@@ -1,5 +1,5 @@
 ---
-title: "Can I get image files for any of the 1000 genomes sequencing runs?"
+title: "Can I get image files for any of the 1000 Genomes sequencing runs?"
 faq_tags:
   - data-access
   - images
@@ -10,4 +10,4 @@ faq_related:
   - are-there-any-statistics-about-how-much-sequence-data-has-been-generated-project
 ---
                     
-The image files produced by next generation sequencing runs are always very big. The production centers do not submit them to the archives and they are not available to downstream users.
+The image files produced by next generation sequencing runs are always very big. The production centres do not submit them to the archives and they are not available to downstream users.
