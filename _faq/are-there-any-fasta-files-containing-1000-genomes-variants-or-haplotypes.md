@@ -19,4 +19,4 @@ An example set of command lines would be:
     tabix -p vcf HG00098.vcf.gz
     cat ref.fa | vcf-consensus HG00098.vcf.gz > HG00098.fa
 
-You can get more support for VCFtools on their [help mailing list](http://sourceforge.net/p/vcftools/mailman/)
+You can get more support for VCFtools on their [help mailing list](http://sourceforge.net/p/vcftools/mailman/).
