@@ -1,5 +1,5 @@
 ---
-title: "Are there torrents available for the 1000 genomes data sets?"
+title: "Are there torrents available for the 1000 Genomes data sets?"
 faq_tags:
   - data-access
   - tools
@@ -9,4 +9,4 @@ faq_related:
   - there-corrupt-file-your-ftp-site
 ---
                     
-There are no official torrents of the 1000 genomes data sets
+There are no official torrents of the 1000 Genomes Project data sets.
