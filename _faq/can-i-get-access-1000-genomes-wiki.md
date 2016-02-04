@@ -1,5 +1,5 @@
 ---
-title: "Can I get access to the 1000 genomes Wiki?"
+title: "Can I get access to the 1000 Genomes Wiki?"
 faq_tags:
   - data-access
   - password
@@ -8,6 +8,6 @@ faq_related:
   - where-most-recent-release
 ---
                     
-The 1000 genomes website does have an wiki but this is used for internal project discussions and membership is not provided to people outside the consortium.
+For the duration of the 1000 Genomes Project, a wiki was part of the project website. It was used for internal project discussions and membership was not provided to people outside the consortium.
 
-If you are a member of the consortium and do not have access please email [info@1000genomes.org](mailto:info@1000genomes.org)
+For members of the consortium with quesries regarding access to the wiki, please email [info@1000genomes.org](mailto:info@1000genomes.org).
