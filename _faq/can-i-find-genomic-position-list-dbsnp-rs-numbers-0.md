@@ -10,9 +10,9 @@ faq_related:
   - are-my-snps-found-1000-genomes-project
 ---
                     
-This is not a service that the 1000 genomes project provides itself but it is a query you can do with [Ensembl Biomart](http://www.ensembl.org/biomart/martview){:target="_blank"}.
+This can be done using [Ensembl's Biomart](http://www.ensembl.org/biomart/martview).
 
-This [youtube](http://www.youtube.com/watch?v=paC3sOANSJA&feature=youtu.be){:target="_blank"} video gives a tutorial on how to do it
+This [YouTube](http://www.youtube.com/watch?v=paC3sOANSJA&feature=youtu.be) video gives a tutorial on how to do it.
 
 The basic steps are:
 
@@ -21,6 +21,6 @@ The basic steps are:
 3.  Select the Filters menu from the left hand side
 4.  Select the General Variation Filters section
 5.  Check the Filter by Variation ID box
-6.  Add your list of rs numbers to the box or browse for a file which contains this list.
+6.  Add your list of rs numbers to the box or browse for a file which contains this list
 7.  Click on the Results Button in the headline section
-8.  This should provide you with a table of results which you can also download in excel or csv format.
+8.  This should provide you with a table of results which you can also download in Excel or CSV format
