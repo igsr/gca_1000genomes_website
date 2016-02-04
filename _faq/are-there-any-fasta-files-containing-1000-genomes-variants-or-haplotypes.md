@@ -11,7 +11,7 @@ faq_related:
   - where-most-recent-release
 ---
                     
-We do not provide FASTA files annotated for 1000 Genomes variants. You can create such a file with a [VCFtools](http://vcftools.github.io/) perl script called [vcf-consensus](http://vcftools.github.io/perl_module.html#vcf-consensus).
+We do not provide FASTA files annotated for 1000 Genomes variants. You can create such a file with a [VCFtools](http://vcftools.github.io/) Perl script called [vcf-consensus](http://vcftools.github.io/perl_module.html#vcf-consensus).
 
 An example set of command lines would be:
 
