@@ -1,5 +1,5 @@
 ---
-title: "Can I access the databases associated with the browser?"
+title: "Can I access the databases associated with the 1000 Genomes browser?"
 faq_tags:
   - api
   - data-access
@@ -11,4 +11,4 @@ faq_related:
   - "why-isn't-my-snp-browser1000genomesorg"
 ---
                     
-We provide a public mysql instance with copies of the databases behind our Ensembl browser for 1000 genomes data. These databases are described [on our public instance page](http://www.1000genomes.org/node/517)
+We provide a public MySQL instance with copies of the databases behind the 1000 Genomes Project Ensembl browsers. These databases are described [on our public instance page](http://www.1000genomes.org/node/517). More information about the browsers and their history can be found on the [browsers](/1000-genomes-browsers) page.
