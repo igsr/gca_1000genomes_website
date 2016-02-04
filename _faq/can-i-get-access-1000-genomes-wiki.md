@@ -10,4 +10,4 @@ faq_related:
                     
 For the duration of the 1000 Genomes Project, a wiki was part of the project website. It was used for internal project discussions and membership was not provided to people outside the consortium.
 
-For members of the consortium with quesries regarding access to the wiki, please email [info@1000genomes.org](mailto:info@1000genomes.org).
+Members of the 1000 Genomes Project consortium with quesries regarding access to the wiki should email [info@1000genomes.org](mailto:info@1000genomes.org).
