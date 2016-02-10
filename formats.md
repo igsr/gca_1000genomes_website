@@ -32,5 +32,5 @@ provide meta information about each readgroup, with the remaining columns provid
 result for a column, the default value will be 0. Further information is available on the [FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_file_formats_and_descriptions.md).
 
 
-##Index files
+##Summary index files
 Various types of index file exist on the site, primarily listing available sequence data and alignments. The index files are tab-delimited files where the data is arranged in columns. Immediately before the body of the file there is a header line, which starts with #, that gives the column names. In addition, index files may have further information at the head of the file. These lines start with ## and can provide descriptions of the columns, the date the index was generated and other pieces of information, as appropriate to the file and data set. Further information is available on the [FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_file_formats_and_descriptions.md).
