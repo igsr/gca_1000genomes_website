@@ -13,6 +13,7 @@ Links to a selection of the software used by the projects are given below. Pleas
 #### Recalibration
 
  *  [Genome Analysis Tool Kit](http://www.broadinstitute.org/gsa/wiki/index.php/The_Genome_Analysis_Toolkit) (GATK) developed by the Broad Institute.
+ *  [BioBamBam](https://github.com/gt1/biobambam) for mark duplicate hits
 
 #### Alignment
 
