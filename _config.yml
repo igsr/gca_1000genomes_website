@@ -38,6 +38,12 @@ defaults:
             layout: "faq"
     -
         scope: 
+            type: "faq_categories"
+            path: "category"
+        values:
+            layout: "faq_category"
+    -
+        scope: 
             path: ""
         values:
             exclude_from_search: false
