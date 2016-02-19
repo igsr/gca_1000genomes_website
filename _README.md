@@ -26,6 +26,8 @@ Any file in this directory becomes a category for grouping together related faq 
 
 This contains any little fragment of html (or markdown) that you can include from anywhere in any page e.g. {% include google_analytics.html %}
 
+An important one is _includes/homepage.html.  This is included from both index.html and from home.html.  We do this so that these two urls show identical content: www.1000genomes.org/ and www.1000genomes.org/home.
+
 ###_layouts
 
 Files in this directory define the layouts available for any page you create.
