@@ -19,7 +19,7 @@ While the 1000 Genomes Project was active, it maintained a project specific vers
 
 ###Phase 3
 
-The [main browser](http://browser.1000g enomes.org) currently displays the SNPs and indels from the [Phase 3 Release](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/). This runs Ensembl version 80.
+The [main browser](http://browser.1000genomes.org) currently displays the SNPs and indels from the [Phase 3 Release](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/). This runs Ensembl version 80.
 
 ###Phase 1
 
