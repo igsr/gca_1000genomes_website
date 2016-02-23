@@ -1,6 +1,5 @@
 ---
 title: "A global reference for human genetic variation"
-pinned: true
 ---
                     
 The Phase 3 publication, [A global reference for human genetic variation](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) and the Phase 3 Structural variation publication, [An integrated map of structural variation in 2,504 human genomes](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html) are now available from [Nature](http://www.nature.com/nature/index.html) alongside a [celebration of 25 years of the Human Genome Project](http://www.nature.com/collections/dcfqmlgsrw)
