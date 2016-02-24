@@ -42,7 +42,7 @@ In the initial implementation, the functional elements considered are DNAse1 hot
 
 For each set of test SNPs, an overlap analysis is performed against the functional elements from either data source for each cell sample separately (125 samples for ENCODE, 299 for Roadmap), and the number of overlaps is counted. A background distribution of the expected overlap counts for this SNP set is obtained by picking sets of the same number of SNPs as the test SNP set, matched in decile bins for G+C content (GC), minor allele frequency (maf) and distance to the nearest transcription start site (TSS). The matched background sets are then overlapped with the functional elements and the background distribution of overlaps determined. By default 100 matched sets are used, but this can be increased. The enrichment value for the test SNP set is expressed as the [standard score (Z score)](http://en.wikipedia.org/wiki/Standard_score) (x-μ)/σ. Enrichments outside the nominal 99th and 99.9th percentile of the normal distribution (i.e. Z scores of >=2.58 and >= 3.39, respectively) are considered significant. A schematic of the analysis is shown below.
 
-<span>_FORGE Analysis Strategy_</span>
+_FORGE Analysis Strategy_
 
 ![image](/sites/1000genomes.org/files/documents/zscore_enrichment_0.png)
 
@@ -59,7 +59,7 @@ You can supply a list of SNPs by their [dbSNP ](http://www.ncbi.nlm.nih.gov/sn
 Alternatively you can upload a file from disk or via a URL. The file should contain 
 
 *   a list of SNPs by RefSNP ID, one per line as above ([example rsid format file](http://browser.1000genomes.org/forge/Pulmonary_function.rsid "Pulmonary_function.rsid")),
-*   SNPs in VCF ([Variant Call Format](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41)) format ([example VCF format file](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt "Pulmonary_function.vcf")),
+*   SNPs in VCF ([Variant Call Format](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41)) format ([example VCF format file](sites/1000genomes.org/files/documents/Pulmonary_function.vcf.txt "Pulmonary_function.vcf")),
 *   SNPs in BED (e.g. [Personal Genome SNP format](http://genome.ucsc.edu/FAQ/FAQformat.html#format10))format, ([example BED format file](http://browser.1000genomes.org/forge/Pulmonary_function.pgsnp.bed.txt "Pulmonary_function.pgsnp.bed")). 
 
 In fact any BED format with 3 columns (0 based, chrN) will work e.g.
@@ -96,46 +96,42 @@ Illumina_Human660W-quad
 
 In both cases SNPs have to be both present on the arrays AND in the [1000 genomes phase 1 integrated call data set](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets) to be included in the background calculation.
 
-<div class="form-field">_<label class="ff-label" for="1HCXsIM7_4">Background repetitions</label>_
+_Background repetitions_
 
-<div class="ff-right">Define the number of matching background SNP sets to analyse for the background overlap distribution. By default this is set to 100 background SNP sets, but larger numbers (e.g. up to 1000) will reduce false positive effects, at the expense of analysis speed. </div>
+Define the number of matching background SNP sets to analyse for the background overlap distribution. By default this is set to 100 background SNP sets, but larger numbers (e.g. up to 1000) will reduce false positive effects, at the expense of analysis speed. 
 
-</div>
 
-<div class="form-field">_<label class="ff-label">Significance thresholds</label>_</div>
+_Significance thresholds_
 
-<div class="form-field">These are the Z score thresholds used to colour the points red (by default >= 3.39) or pink (>=2.58). We estimate false positive rates at around 0.5% and 1-2% at these thresholds, respectively for 20 or more SNPs in the set. Increasing the thresholds will reduce false positive rates as shown in the [plot below](#false_positives). Our tests suggest that using values of 3.7 and 2.83 increases stringency but does not alter the qualitative observations on the GWAS catalog phenotypes.</div>
+These are the Z score thresholds used to colour the points red (by default >= 3.39) or pink (>=2.58). We estimate false positive rates at around 0.5% and 1-2% at these thresholds, respectively for 20 or more SNPs in the set. Increasing the thresholds will reduce false positive rates as shown in the [plot below](#false_positives). Our tests suggest that using values of 3.7 and 2.83 increases stringency but does not alter the qualitative observations on the GWAS catalog phenotypes.</div>
 
-<div class="form-field">
 
 **<a name="Outputs"></a>Outputs**
-
-</div>
 
 Several outputs are produced and provided from the results page.  
 
 > 1.  An interactive table of the overlaps by cell is given by default on the results page. 
 > 2.  The _[PDF](http://browser.1000genomes.org/forge/chart.pdf%20)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
-> 3.  The _[Interactive chart](http://test.1000genomes.org/forge/dchart.htm)_ link provides an interactive chart to explore the data.
-> 4.  The _[TSV](http://test.1000genomes.org/forge/chart.tsv)_ link provides the FORGE analysis results in tab separated format. 
+> 3.  The _[Interactive chart](http://browser.1000genomes.org/forge/dchart.htm)_ link provides an interactive chart to explore the data.
+> 4.  The _[TSV](http://browser.1000genomes.org/forge/chart.tsv)_ link provides the FORGE analysis results in tab separated format. 
 
 Each of the graphics presents the Z scores by cell sample. Cells are grouped alphabetically by tissue and then organised alphabetically by cell name. In each of the graphics the colouring is consistent, blue (Z < 2.58), pink (2.58 =< Z < 3.39), and red (Z >= 3.39). 
 
-<span>**<a name="Output_examples"></a>Example Outputs**</span>
+**<a name="Output_examples"></a>Example Outputs**
 
-<span>See the following graphics/links for examples of the output for the default Pulmonary_function SNPs:</span>
+See the following graphics/links for examples of the output for the default Pulmonary_function SNPs:
 
-<span>_Interactive Chart_</span>
+_Interactive Chart_
 
-<span>The [interactive chart](http://test.1000genomes.org/forge/dchart.htm) presents the Z scores by tissue.  Each point is a Z score for a cell type with the different cells organised alphabetically within the tissues. Where the same cell type is assayed (either the same cell line, or the same sample type from different individuals) the results are stacked at the same x axis position which provides useful validation of results where there are replicate or equivalent cell samples. Mouseover the individual points will show a tooltip giving the information from the results table. The fields called _Class_ and _Number_ are for plotting purposes only and should be ignored. </span>
+The [interactive chart](http://browser.1000genomes.org/forge/dchart.htm) presents the Z scores by tissue.  Each point is a Z score for a cell type with the different cells organised alphabetically within the tissues. Where the same cell type is assayed (either the same cell line, or the same sample type from different individuals) the results are stacked at the same x axis position which provides useful validation of results where there are replicate or equivalent cell samples. Mouseover the individual points will show a tooltip giving the information from the results table. The fields called _Class_ and _Number_ are for plotting purposes only and should be ignored. 
 
-<span>_PDF_</span>
+_PDF_
 
-<span>The [pdf output](http://browser.1000genomes.org/forge/chart.pdf) pres</span>ents the<span> Z scores in a similar way organised alphabetically by Tissue and Cell, but without stacking duplicate samples. For guidance the Tissues are divided by the brown vertical lines. Horizontal pink lines show the Z score thresholds. A thumbnail example is shown below but the original is available [here](http://browser.1000genomes.org/forge/chart.pdf). Threshold lines are not necessarily plotted if the results are all below threshold.</span>
+The [pdf output](http://browser.1000genomes.org/forge/chart.pdf) presents the Z scores in a similar way organised alphabetically by Tissue and Cell, but without stacking duplicate samples. For guidance the Tissues are divided by the brown vertical lines. Horizontal pink lines show the Z score thresholds. A thumbnail example is shown below but the original is available [here](http://browser.1000genomes.org/forge/chart.pdf). Threshold lines are not necessarily plotted if the results are all below threshold.
 
-<span>_[![Pulmonary Function thumb](/sites/1000genomes.org/files/documents/chart.png "Pulmonary Function thumb")](http://browser.1000genomes.org/forge/chart.pdf)TSV file_</span>
+_[![Pulmonary Function thumb](/sites/1000genomes.org/files/documents/chart.png "Pulmonary Function thumb")](http://browser.1000genomes.org/forge/chart.pdf)TSV file_
 
-<span><span>The results are also available as a tab separated value file ([TSV](http://test.1000genomes.org/forge/chart.tsv))</span></span> with columns as follows:
+The results are also available as a tab separated value file ([TSV](http://browser.1000genomes.org/forge/chart.tsv)) with columns as follows:
 
 *   Zscore - The Zscore of the test data enrichment count versus the background
 *   Cell - The cell for which the enrichment is calculated
@@ -149,7 +145,7 @@ Each of the graphics presents the Z scores by cell sample. Cells are grouped alp
 
 <a name="Methods"></a>**Methods**
 
-<span>_Data_</span>
+_Data_
 
 ENCODE consortium hotspots were obtained from [ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/](ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/ "ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/")
 
@@ -173,7 +169,7 @@ _Estimating False Positive Rates by SNP count in the Test SNP Set_
 
 To estimate false positive rates, 1000 randomly chosen SNP sets for each of a series of SNP counts between 10 and 100 SNPs were analysed using FORGE on the Roadmap and ENCODE data. The false positive rate was calculated as the number of cell enrichments greater than the two standard thresholds used by FORGE expressed as the proportion of the total number of cell overlap tests performed (424000).
 
-<span>_<a name="false_positives"></a>False Positive Rate by SNP set Count_</span>
+_<a name="false_positives"></a>False Positive Rate by SNP set Count_
 
 ![image](/sites/1000genomes.org/files/documents/fpr_test.png)
 
@@ -183,7 +179,7 @@ This plot suggests that for a SNP set of >= 20, a threshold of Z >= 3.39 mainta
 
 The source code for FORGE is available on Github at [https://github.com/iandunham/Forge](https://github.com/iandunham/Forge). It has been installed and run on Mac OSX 10.8.4, 10.8.5 and Red Hat Linux. To run you also need to download the Forge.db database and background selection hash tables from 
 
-<span></span>[ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge).
+[ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge).
 
 **<a name="Citation"></a>Citation**
 
