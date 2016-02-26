@@ -16,11 +16,13 @@ This [YouTube](http://www.youtube.com/watch?v=paC3sOANSJA&feature=youtu.be) vide
 
 The basic steps are:
 
-1.  Select the Ensembl Variation Database
-2.  Select the Homo Sapiens Variation (dbSNP) dataset
-3.  Select the Filters menu from the left hand side
-4.  Select the General Variation Filters section
-5.  Check the Filter by Variation ID box
+1.  Select the *Ensembl Variation* Database
+2.  Select the *Homo sapiens Short Variants (SNPs and indels excluding flagged variants)* dataset
+3.  Select the *Filters* menu from the left hand side
+4.  Expand the *General Variant Filters* section
+5.  Check the *Filter by Variant Name (e.g. rs123, CM000001) [Max 500 advised]* box
 6.  Add your list of rs numbers to the box or browse for a file which contains this list
-7.  Click on the Results Button in the headline section
+7.  Click on the *Results* Button in the headline section
 8.  This should provide you with a table of results which you can also download in Excel or CSV format
+
+If you would like the coordinates on GRCh38, you should use the [main Ensembl site](http://www.ensembl.org/biomart/martview/), however if you would like the coordinates on GRCh37, you should use the [dedicated GRCh37 site](http://grch37.ensembl.org/biomart/martview).
