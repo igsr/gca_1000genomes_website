@@ -53,7 +53,7 @@ _FORGE Analysis Strategy_
 
 <span style="font-size: 10px;">![Forge Strategy](/sites/1000genomes.org/files/documents/Forge_1.1.png "Forge Strategy")</span>
 
-<span style="font-size: 10px;">The results are presented by cell sample in either graphic (interactive </span>[Dimple](http://dimplejs.org)<span style="font-size: 10px;"> chart or static pdf) or tabular (interactive </span>[DataTables](https://datatables.net)<span style="font-size: 10px;"> table or tab separated file) forms. Typical results may show an enrichment of overlap (red or pink points) for the GWAS SNP set in a tissue of mechanistic relevance to the phenotype under analysis, for instance fetal lung tissue and lung cell lines for Pulmonary function SNPs. </span>
+The results are presented by cell sample in either graphic (interactive </span>[Dimple](http://dimplejs.org)<span style="font-size: 10px;"> chart or static pdf) or tabular (interactive </span>[DataTables](https://datatables.net)<span style="font-size: 10px;"> table or tab separated file) forms. Typical results may show an enrichment of overlap (red or pink points) for the GWAS SNP set in a tissue of mechanistic relevance to the phenotype under analysis, for instance fetal lung tissue and lung cell lines for Pulmonary function SNPs. 
 
 Alternatively there may be no enrichment and all points will be blue below the -log<sub>10</sub> P value thresholds. This could be because there is no regulatory component underlying the GWAS association, or because the relevant tissue is not present in the available functional element datasets, or for other technical reasons (e.g. too few overlaps or wrong genome build). 
 
