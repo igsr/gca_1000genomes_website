@@ -8,7 +8,7 @@ include_in_sitemap: true
 
 **FORGE Analysis Tool **
 
-The FORGE tool performs **F**unctional element **O**verlap analysis of the **R**esults of **G**enome Wide Association Study (GWAS)**E**xperiments, to identify tissue specific signals within the set of GWAS SNPs.
+The FORGE tool performs **F**unctional element **O**verlap analysis of the **R**esults of **G**enome Wide Association Study (GWAS) **E**xperiments, to identify tissue specific signals within the set of GWAS SNPs.
 
 This page refers to the updated<span> version of Forge (1.1). Version 1.1 is the result of a number of criticisms and suggestions from reviewers after an initial manuscript was originally submitted to Genome Medicine. The major changes are: </span>
 
@@ -51,7 +51,7 @@ For each set of test SNPs, an overlap analysis is performed against the function
 
 _FORGE Analysis Strategy_
 
-<span style="font-size: 10px;">![Forge Strategy](/sites/1000genomes.org/files/documents/forge_1.1_0.png "Forge Strategy")</span>
+<span style="font-size: 10px;">![Forge Strategy](/sites/1000genomes.org/files/documents/Forge_1.1.png "Forge Strategy")</span>
 
 <span style="font-size: 10px;">The results are presented by cell sample in either graphic (interactive </span>[Dimple](http://dimplejs.org)<span style="font-size: 10px;"> chart or static pdf) or tabular (interactive </span>[DataTables](https://datatables.net)<span style="font-size: 10px;"> table or tab separated file) forms. Typical results may show an enrichment of overlap (red or pink points) for the GWAS SNP set in a tissue of mechanistic relevance to the phenotype under analysis, for instance fetal lung tissue and lung cell lines for Pulmonary function SNPs. </span>
 
@@ -77,7 +77,7 @@ If you experiment you'll find that FORGE will also accept chromosome names as j
 
 SNPs have to be present in the [1000 genomes phase 1 integrated call data set](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets) to work in the analysis. Any SNPs provided not in this set will be excluded from the analysis and this is reported to you. Also note that at least 5 input SNPs are required in the set for the web based analysis. There is no maximum, but very large sets will be slow to analyse. See [below](#false_positives) for false discovery rate analysis. 
 
-**Options**
+**<a name="Options"></a>Options**
 
 _Name for this data_
 
@@ -132,7 +132,7 @@ Several outputs are produced and provided from the results page.  
 > 1.  An interactive table of the overlaps by cell is given by default on the results page. 
 > 2.  The _[PDF](http://browser.1000genomes.org/forge11/chart.pdf%20)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
 > 3.  The _[Interactive chart](http://browser.1000genomes.org/forge11/dchart.htm%20)_ link provides an interactive chart to explore the data.
-> 4.  The _[TSV](http://browser.1000genomes.org/forge11/chart.tsv%20)_ link provides the FORGE analysis results in tab separated format. 
+> 4.  The _[TSV](http://browser.1000genomes.org/forge11/chart.tsv)_ link provides the FORGE analysis results in tab separated format. 
 
 Each of the graphics presents the -log<sub>10</sub> P value by cell sample. Cells are grouped alphabetically by tissue and then organised alphabetically by cell name. In each of the graphics the colouring is consistent, blue (P > 0.05), pink (0.05 => P  > 0.01), and red (P <= 0.01), before multiple testing correction, by default.
 
@@ -142,7 +142,7 @@ See the following graphics/links for examples of the output for the default Pulm
 
 _Interactive Chart_
 
-The [interactive chart](http://browser.1000genomes.org/forge11/dchart.htm%20) presents the Z scores by tissue.  Each point is a Z score for a cell type with the different cells organised alphabetically within the tissues. Where the same cell type is assayed (either the same cell line, or the same sample type from different individuals) the results are stacked at the same x axis position which provides useful validation of results where there are replicate or equivalent cell samples. Mouseover the individual points will show a tooltip giving the information from the results table. The fields called _Class_ and _Number_ are for plotting purposes only and should be ignored. 
+The [interactive chart](http://browser.1000genomes.org/forge11/dchart.htm) presents the Z scores by tissue.  Each point is a Z score for a cell type with the different cells organised alphabetically within the tissues. Where the same cell type is assayed (either the same cell line, or the same sample type from different individuals) the results are stacked at the same x axis position which provides useful validation of results where there are replicate or equivalent cell samples. Mouseover the individual points will show a tooltip giving the information from the results table. The fields called _Class_ and _Number_ are for plotting purposes only and should be ignored. 
 
 _PDF_
 
