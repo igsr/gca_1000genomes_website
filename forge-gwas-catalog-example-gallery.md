@@ -38,7 +38,7 @@ There is a clear enrichment pattern for overlap with hotspots in various myeloid
 
 On the Roadmap Epigenome data, there is an enrichment signal for CD14 and CD34 cells. This is consistent with a role for macrophages in the aetiology.
 
-[![Ankylosing spondylitis on ERC](/sites/1000genomes.org/files/images/forge/ankylosing_spondylitis.snp_.erc_.chart__0.png "Ankylosing spondylitis on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Ankylosing_spondylitis.snp.erc.chart.pdf)
+[![Ankylosing spondylitis on ERC](/sites/1000genomes.org/files/images/forge/ankylosing_spondylitis.snp_.erc_.chart__0.png) "Ankylosing spondylitis on ERC"](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Ankylosing_spondylitis.snp.erc.chart.pdf)
 
 #### _Celiac disease_
 
