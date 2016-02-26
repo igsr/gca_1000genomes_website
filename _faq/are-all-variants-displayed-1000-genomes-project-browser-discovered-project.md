@@ -18,4 +18,4 @@ The data from the 1000 Genomes Project is available in a number of browsers, inc
 
 The content of the 1000 Genomes Project Browsers, maintained during the 1000 Genomes Project, are based on custom versions of the Ensembl browser. These databases contain the Ensembl core features (genes and transcripts), regulatory elements from the Ensembl Regulatory Build and variation data from the Ensembl Variation database.
 
-As well as 1000 Genomes Project variation data, Ensembl variation contains data from dbSNP, ClinVar, COSMIC, dbGaP, dbVAR, EGA and many other sources.
+As well as 1000 Genomes Project variation data, [Ensembl variation](http://www.ensembl.org/info/genome/variation/sources_documentation.html#homo_sapiens) contains data from dbSNP, ClinVar, COSMIC, dbGaP, dbVAR, EGA and many other sources.
