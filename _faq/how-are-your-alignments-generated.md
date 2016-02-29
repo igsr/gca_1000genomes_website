@@ -9,7 +9,7 @@ faq_related:
   - how-do-i-get-sub-section-bam-file
 ---
 
-The 1000 genomes project has used several different alignment algorithms during its duration:
+The 1000 Genomes Project has used several different alignment algorithms during its duration:
 
 |Project stage|Sequencing technology|Alignment algorithm|
 |-------------|---------------------|-------------------|
