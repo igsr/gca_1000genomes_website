@@ -124,7 +124,7 @@ Intriguingly the only signal for this combined psyciatric meta study is in fetal
 
 Bipolar disorder SNPs reveal an autoimmune signal. This is puzzling. There have been studies suggesting links between autoimmunity and schizophrenia, but a brief look at the literature suggests it's not conclusive for bipolar ([http://europepmc.org/abstract/MED/20868462](http://europepmc.org/abstract/MED/20868462 "http://europepmc.org/abstract/MED/20868462")).
 
-[![Bipolar on ERC](/sites/1000genomes.org/files/images/forge/bipolar_disorder.snps_.erc_.chart__0.png "Bipolar on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Bipolar_disorder.snp.erc.chart.pdf)
+[![Bipolar on ERC](/sites/1000genomes.org/files/images/forge/forge10/bipolar_disorder.snp_.erc_.chart_.png "Bipolar on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Bipolar_disorder.snp.erc.chart.pdf)
 
 ### <a name="Hypertension" id="Hypertension"></a>Hypertension
 
@@ -132,15 +132,15 @@ Bipolar disorder SNPs reveal an autoimmune signal. This is puzzling. There have 
 
 Enrichment signal in fetal heart, muscle, stomach/intestine and fibroblasts. Maybe makes sense with blood vessle walls being involved.
 
-[![BP on ERC](/sites/1000genomes.org/files/images/forge/blood_pressure.snps_.erc_.chart__0.png "BP on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Blood_pressure.snp.erc.chart.pdf)
+[![BP on ERC](/sites/1000genomes.org/files/images/forge/forge10/blood_pressure.snp_.erc_.chart_.png "BP on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Blood_pressure.snp.erc.chart.pdf)
 
 #### _Systolic blood pressure_
 
 in Systolic blood pressure the enrichment signal is predominently stomach/intesting inthe Roadmap data with skin and epithelium in ENCODE data.
 
-[![SBP on ENCODE](/sites/1000genomes.org/files/images/forge/systolic_blood_pressure.snps_.encode.chart__0.png "SBP on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Systolic_blood_pressure.snps.encode.chart.pdf)
+[![SBP on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/systolic_blood_pressure.snps_.encode.chart_.png "SBP on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Systolic_blood_pressure.snps.encode.chart.pdf)
 
-[![SBP on ERC](/sites/1000genomes.org/files/images/forge/systolic_blood_pressure.snps_.erc_.chart__0.png "SBP on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Systolic_blood_pressure.snp.erc.chart.pdf)
+[![SBP on ERC](/sites/1000genomes.org/files/images/forge/forge10/systolic_blood_pressure.snp_.erc_.chart_.png "SBP on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Systolic_blood_pressure.snp.erc.chart.pdf)
 
 ### <a name="Cancer" id="Cancer"></a>Cancer
 
@@ -148,25 +148,25 @@ in Systolic blood pressure the enrichment signal is predominently stomach/intest
 
 There is a breast cancer line enrichment in the ENCODE data(MCF-7), but intriguingly a kidney signal in the Roadmap data. 
 
-[![Breast cancer ENCODE](/sites/1000genomes.org/files/images/forge/breast_cancer.snps_.encode.chart__0.png "Breast cancer ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Breast_cancer.snps.encode.chart.pdf)
+[![Breast cancer ENCODE](/sites/1000genomes.org/files/images/forge/forge10/breast_cancer.snps_.encode.chart_.png "Breast cancer ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Breast_cancer.snps.encode.chart.pdf)
 
-[![Breast cancer ERC](/sites/1000genomes.org/files/images/forge/breast_cancer.snps_.erc_.chart__0.png "Breast cancer ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Breast_cancer.snp.erc.chart.pdf)
+[![Breast cancer ERC](/sites/1000genomes.org/files/images/forge/forge10/breast_cancer.snp_.erc_.chart_.png "Breast cancer ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Breast_cancer.snp.erc.chart.pdf)
 
 #### _Colorectal cancer_
 
 Fetal Stomach/Intesting enrichment in Roadmap data but also epithelium/fibroblasts including breast. In ENCODE cells there is also an epithelium signal but also a more general enrichment perhaps reflecting the prevalence of cancer lines.
 
-[![Colorectal cancer on ENCODE](/sites/1000genomes.org/files/images/forge/colorectal_cancer.snps_.encode.chart__0.png "Colorectal cancer on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Colorectal_cancer.snps.encode.chart.pdf)
+[![Colorectal cancer on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/colorectal_cancer.snps_.encode.chart_.png "Colorectal cancer on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Colorectal_cancer.snps.encode.chart.pdf)
 
-[![Colorectal cancer on ERC](/sites/1000genomes.org/files/images/forge/colorectal_cancer.snps_.erc_.chart__0.png "Colorectal cancer on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Colorectal_cancer.snp.erc.chart.pdf)
+[![Colorectal cancer on ERC](/sites/1000genomes.org/files/images/forge/forge10/colorectal_cancer.snp_.erc_.chart_.png "Colorectal cancer on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Colorectal_cancer.snp.erc.chart.pdf)
 
 #### _Prostate cancer_
 
 Notably enrichment in prostate cancer cells but also Hela (cervical carcinoma) in ENCODE data. Roadmap enrichments highlight fibroblasts and lung/stomach/intesting perhaps reflecting epithelial origins?
 
-[![Prostate cancer on ENCODE](/sites/1000genomes.org/files/images/forge/prostate_cancer.snps_.encode.chart__0.png "Prostate cancer on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Prostate_cancer.snps.encode.chart.pdf)
+[![Prostate cancer on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/prostate_cancer.snps_.encode.chart_.png "Prostate cancer on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Prostate_cancer.snps.encode.chart.pdf)
 
-[![Prostate cancer on ERC](/sites/1000genomes.org/files/images/forge/prostate_cancer.snps_.erc_.chart__0.png "Prostate cancer on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Prostate_cancer.snp.erc.chart.pdf)
+[![Prostate cancer on ERC](/sites/1000genomes.org/files/images/forge/forge10/prostate_cancer.snp_.erc_.chart_.png "Prostate cancer on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Prostate_cancer.snp.erc.chart.pdf)
 
 ### <a name="Renal" id="Renal"></a>Renal
 
@@ -174,9 +174,9 @@ Notably enrichment in prostate cancer cells but also Hela (cervical carcinoma) i
 
 Enrichment in the renal/kidney samples in the Roadmap data but also fibroblasts.
 
-[![CKD ENCODE](/sites/1000genomes.org/files/images/forge/chronic_kidney_disease.snps_.encode.chart__0.png "CLD ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Chronic_kidney_disease.snps.encode.chart.pdf)
+[![CKD ENCODE](/sites/1000genomes.org/files/images/forge/forge10/chronic_kidney_disease.snps_.encode.chart_.png "CLD ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Chronic_kidney_disease.snps.encode.chart.pdf)
 
-[![CKD ERC](/sites/1000genomes.org/files/images/forge/chronic_kidney_disease.snps_.erc_.chart__0.png "CKD ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Chronic_kidney_disease.snp.erc.chart.pdf)
+[![CKD ERC](/sites/1000genomes.org/files/images/forge/forge10/chronic_kidney_disease.snp_.erc_.chart_.png "CKD ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Chronic_kidney_disease.snp.erc.chart.pdf)
 
 ### <a name="Lung" id="Lung"></a>Lung
 
@@ -184,25 +184,25 @@ Enrichment in the renal/kidney samples in the Roadmap data but also fibroblasts.
 
 Clear Fetal Lung enrichment in Pulmonary function (spirometry). 
 
-[![Pulmonary Function on ENCODE](/sites/1000genomes.org/files/images/forge/pulmonary_function.snps_.encode.chart__0.png "Pulmonary Function on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function.snps.encode.chart.pdf)
+[![Pulmonary Function on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/pulmonary_function.snps_.encode.chart_.png "Pulmonary Function on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function.snps.encode.chart.pdf)
 
-[![Pulmonary Function on ERC](/sites/1000genomes.org/files/images/forge/pulmonary_function.snps_.erc_.chart__0.png "Pulmonary Function on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function.snp.erc.chart.pdf)
+[![Pulmonary Function on ERC](/sites/1000genomes.org/files/images/forge/forge10/pulmonary_function.snp_.erc_.chart_.png "Pulmonary Function on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function.snp.erc.chart.pdf)
 
 #### _Pulmonary Function Decline_
 
 For decline note that muscle is more important than fetal lung pointing towards mechanism.
 
-[![Pulmonary Function Decline on ENCODE](/sites/1000genomes.org/files/images/forge/pulmonary_function_decline.snps_.encode.chart__0.png "Pulmonary Function Decline on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function_decline.snps.encode.chart.pdf)
+[![Pulmonary Function Decline on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/pulmonary_function_decline.snps_.encode.chart_.png "Pulmonary Function Decline on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function_decline.snps.encode.chart.pdf)
 
-[![Pulmonary Function Decline on ERC](/sites/1000genomes.org/files/images/forge/pulmonary_function_decline.snps_.erc_.chart__0.png "Pulmonary Function Decline on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function_decline.snp.erc.chart.pdf)
+[![Pulmonary Function Decline on ERC](/sites/1000genomes.org/files/images/forge/forge10/pulmonary_function_decline.snp_.erc_.chart_.png "Pulmonary Function Decline on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function_decline.snp.erc.chart.pdf)
 
 #### _Pulmonary Function Interaction_
 
 Not sure on the phenotype here (need to look up the study) but both fetal lung and muscle show enrichment along with fibroblasts.
 
-[![Pulmonary Function Interaction on ENCODE](/sites/1000genomes.org/files/images/forge/pulmonary_function_interaction.snps_.encode.chart__0.png "Pulmonary Function Interaction on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function_interaction.snps.encode.chart.pdf)
+[![Pulmonary Function Interaction on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/pulmonary_function_interaction.snps_.encode.chart_.png "Pulmonary Function Interaction on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function_interaction.snps.encode.chart.pdf)
 
-[![Pulmonary Function Interaction on ERC](/sites/1000genomes.org/files/images/forge/pulmonary_function_interaction.snps_.erc_.chart__0.png "Pulmonary Function Interaction on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function_interaction.snp.erc.chart.pdf)
+[![Pulmonary Function Interaction on ERC](/sites/1000genomes.org/files/images/forge/forge10/pulmonary_function_interaction.snp_.erc_.chart_.png "Pulmonary Function Interaction on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Pulmonary_function_interaction.snp.erc.chart.pdf)
 
 ### <a name="Misc" id="Misc"></a>Miscellaneous
 
@@ -210,9 +210,9 @@ Not sure on the phenotype here (need to look up the study) but both fetal lung a
 
 Breathing is important when you are on dialysis, as well as fibroblast function.
 
-[![Dialysis-related mortality on ENCODE](/sites/1000genomes.org/files/images/forge/dialysis-related_mortality.snps_.encode.chart__0.png "Dialysis-related mortality on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Dialysis-related_mortality.snps.encode.chart.pdf)
+[![Dialysis-related mortality on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/dialysis-related_mortality.snps_.encode.chart_.png "Dialysis-related mortality on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Dialysis-related_mortality.snps.encode.chart.pdf)
 
-[![Dialysis-related mortality on ERC](/sites/1000genomes.org/files/images/forge/dialysis-related_mortality.snps_.erc_.chart__0.png "Dialysis-related mortality on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Dialysis-related_mortality.snp.erc.chart.pdf)
+[![Dialysis-related mortality on ERC](/sites/1000genomes.org/files/images/forge/forge10/dialysis-related_mortality.snp_.erc_.chart_.png "Dialysis-related mortality on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Dialysis-related_mortality.snp.erc.chart.pdf)
 
 ### <a name="Fertility" id="Fertility"></a>Fertility
 
@@ -220,7 +220,7 @@ Breathing is important when you are on dialysis, as well as fibroblast function.
 
 This is a fibroblast related trait, and this shows in the enrichments,
 
-[![Endometriosis](/sites/1000genomes.org/files/images/forge/endometriosis.snps_.erc_.chart__0.png "Endometriosis")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Endometriosis.snp.erc.chart.pdf)
+[![Endometriosis](/sites/1000genomes.org/files/images/forge/forge10/endometriosis.snp_.erc_.chart_.png "Endometriosis")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Endometriosis.snp.erc.chart.pdf)
 
 ### <a name="Metabolites" id="Metabolites"></a>Metabolites
 
@@ -228,17 +228,17 @@ This is a fibroblast related trait, and this shows in the enrichments,
 
 Mostly Stomach and some Kidney important here. 
 
-[![Urate levels on ENCODE](/sites/1000genomes.org/files/images/forge/urate_levels.snps_.encode.chart__0.png "Urate levels on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Urate_levels.snps.encode.chart.pdf)
+[![Urate levels on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/urate_levels.snps_.encode.chart_.png "Urate levels on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Urate_levels.snps.encode.chart.pdf)
 
-[![Urate levels on ERC](/sites/1000genomes.org/files/images/forge/urate_levels.snps_.erc_.chart__0.png "Urate levels on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Urate_levels.snp.erc.chart.pdf)
+[![Urate levels on ERC](/sites/1000genomes.org/files/images/forge/forge10/urate_levels.snp_.erc_.chart_.png "Urate levels on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Urate_levels.snp.erc.chart.pdf)
 
 #### _Fasting glucose-related traits_
 
 Fasting glucose-related traits interaction with BMI highlights energy intensive/important tissues, stomach, intestine, muscle. Interesting that pancreas in the ENCODE data is only just enriched.
 
-[![Fasting glucose-related traits on ENCODE](/sites/1000genomes.org/files/images/forge/fasting_glucose-related_traits_interaction_with_bmi.snps_.encode.chart__0.png "Fasting glucose-related traits on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Fasting_glucose-related_traits_interaction_with_BMI.snps.encode.chart.pdf)
+[![Fasting glucose-related traits on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/fasting_glucose-related_traits_interaction_with_bmi.snps_.encode.chart_.png "Fasting glucose-related traits on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Fasting_glucose-related_traits_interaction_with_BMI.snps.encode.chart.pdf)
 
-[![Fasting glucose-related traits on ERC](/sites/1000genomes.org/files/images/forge/fasting_glucose-related_traits_interaction_with_bmi.snps_.erc_.chart__0.png "Fasting glucose-related traits on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Fasting_glucose-related_traits_interaction_with_BMI.snp.erc.chart.pdf)
+[![Fasting glucose-related traits on ERC](/sites/1000genomes.org/files/images/forge/forge10/fasting_glucose-related_traits_interaction_with_bmi.snp_.erc_.chart_.png "Fasting glucose-related traits on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Fasting_glucose-related_traits_interaction_with_BMI.snp.erc.chart.pdf)
 
 ### <a name="Morphometric" id="Morphometric"></a>Morphometric
 
@@ -246,9 +246,9 @@ Fasting glucose-related traits interaction with BMI highlights energy intensive/
 
 Almost all tissues are important for height....
 
-[![Height on ENCODE](/sites/1000genomes.org/files/images/forge/height.snps_.encode.chart__0.png "Height on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Height.snps.encode.chart.pdf)
+[![Height on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/height.snps_.encode.chart_.png "Height on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Height.snps.encode.chart.pdf)
 
-[![Height on ERC](/sites/1000genomes.org/files/images/forge/height.snps_.erc_.chart__0.png "Height on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Height.snp.erc.chart.pdf)
+[![Height on ERC](/sites/1000genomes.org/files/images/forge/forge10/height.snp_.erc_.chart_.png "Height on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Height.snp.erc.chart.pdf)
 
 ### <a name="Blood" id="Blood"></a>Blood
 
@@ -256,25 +256,25 @@ Almost all tissues are important for height....
 
 The major signal is from CD34 cells, hematopoietic progenitor cells which makes sense as these ultimately give rise to platelets.
 
-[![Mean platelet volume on ENCODE](/sites/1000genomes.org/files/images/forge/mean_platelet_volume.snps_.encode.chart__0.png "Mean platelet volume on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Mean_platelet_volume.snps.encode.chart.pdf)
+[![Mean platelet volume on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/mean_platelet_volume.snps_.encode.chart_.png "Mean platelet volume on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Mean_platelet_volume.snps.encode.chart.pdf)
 
-[![Mean platelet volume on ERC](/sites/1000genomes.org/files/images/forge/mean_platelet_volume.snps_.erc_.chart__0.png "Mean platelet volume on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Mean_platelet_volume.snp.erc.chart.pdf)
+[![Mean platelet volume on ERC](/sites/1000genomes.org/files/images/forge/forge10/mean_platelet_volume.snp_.erc_.chart_.png "Mean platelet volume on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Mean_platelet_volume.snp.erc.chart.pdf)
 
 #### _Platelet counts_
 
 Again CD34 cells are enriched but there are also alternate B cell, monocytes and T cell blood enrichments and signals from spleen stomach and thymus tissue. The ENCODE data also has some signals from blood vessels, but some odd sporadic enrichments as well.
 
-[![Platelet counts on ENCODE](/sites/1000genomes.org/files/images/forge/platelet_counts.snps_.encode.chart__0.png "Platelet counts on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Platelet_counts.snps.encode.chart.pdf)
+[![Platelet counts on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/platelet_counts.snps_.encode.chart_.png "Platelet counts on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Platelet_counts.snps.encode.chart.pdf)
 
-[![Platelet counts on ERC](/sites/1000genomes.org/files/images/forge/platelet_counts.snps_.erc_.chart__0.png "Platelet counts on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Platelet_counts.snp.erc.chart.pdf)
+[![Platelet counts on ERC](/sites/1000genomes.org/files/images/forge/forge10/platelet_counts.snp_.erc_.chart_.png "Platelet counts on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Platelet_counts.snp.erc.chart.pdf)
 
 #### _Red blood cell traits_
 
 The major signal is from CD34 cells, hematopoietic progenitor cells but spleen and stomach also play a role.
 
-[![Red blood cell traits on ENCODE](/sites/1000genomes.org/files/images/forge/red_blood_cell_traits.snps_.encode.chart__0.png "Red blood cell traits on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Red_blood_cell_traits.snps.encode.chart.pdf)
+[![Red blood cell traits on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/red_blood_cell_traits.snps_.encode.chart_.png "Red blood cell traits on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Red_blood_cell_traits.snps.encode.chart.pdf)
 
-[![Red blood cell traits on ERC](/sites/1000genomes.org/files/images/forge/red_blood_cell_traits.snps_.erc_.chart__0.png "Red blood cell traits on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Red_blood_cell_traits.snp.erc.chart.pdf)
+[![Red blood cell traits on ERC](/sites/1000genomes.org/files/images/forge/forge10/red_blood_cell_traits.snp_.erc_.chart_.png "Red blood cell traits on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Red_blood_cell_traits.snp.erc.chart.pdf)
 
 ### <a name="Heart" id="Heart"></a>Heart
 
@@ -282,52 +282,52 @@ The major signal is from CD34 cells, hematopoietic progenitor cells but spleen a
 
 Roadmap data shows an enrichment in fetal heart tissue
 
-[![Atrial Fibrillation on ENCODE](/sites/1000genomes.org/files/images/forge/atrial_fibrillation.snps_.encode.chart__0.png "Atrial Fibrillation on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Atrial_fibrillation.snps.encode.chart.pdf)
+[![Atrial Fibrillation on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/atrial_fibrillation.snps_.encode.chart_.png "Atrial Fibrillation on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Atrial_fibrillation.snps.encode.chart.pdf)
 
-[![Atrial Fibrillation on ERC](/sites/1000genomes.org/files/images/forge/atrial_fibrillation.snps_.erc_.chart__0.png "Atrial Fibrillation on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Atrial_fibrillation.snp.erc.chart.pdf)
+[![Atrial Fibrillation on ERC](/sites/1000genomes.org/files/images/forge/forge10/atrial_fibrillation.snp_.erc_.chart_.png "Atrial Fibrillation on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Atrial_fibrillation.snp.erc.chart.pdf)
 
 #### _Cardiovascular disease risk factors_
 
 These are enriched in renal/kidney tissue, lung and muscle. Nothin really evident in ENCODE data.
 
-[![Cardiovascular disease risk factors on ENCODE](/sites/1000genomes.org/files/images/forge/cardiovascular_disease_risk_factors.snps_.encode.chart__0.png "Cardiovascular disease risk factors on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Cardiovascular_disease_risk_factors.snps.encode.chart.pdf)
+[![Cardiovascular disease risk factors on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/cardiovascular_disease_risk_factors.snps_.encode.chart_.png "Cardiovascular disease risk factors on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Cardiovascular_disease_risk_factors.snps.encode.chart.pdf)
 
-[![Cardiovascular disease risk factors on ERC](/sites/1000genomes.org/files/images/forge/cardiovascular_disease_risk_factors.snps_.erc_.chart__0.png "Cardiovascular disease risk factors on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Cardiovascular_disease_risk_factors.snp.erc.chart.pdf)
+[![Cardiovascular disease risk factors on ERC](/sites/1000genomes.org/files/images/forge/forge10/cardiovascular_disease_risk_factors.snp_.erc_.chart_.png "Cardiovascular disease risk factors on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Cardiovascular_disease_risk_factors.snp.erc.chart.pdf)
 
 #### **_PR interval_**
 
 ENCODE data picks up a particular enrichment in blood vessels. The Roadmap data picks out fetal heart and fibroblasts.
 
-[![PR interval on ENCODE](/sites/1000genomes.org/files/images/forge/pr_interval.snps_.encode.chart__0.png "PR interval on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/PR_interval.snps.encode.chart.pdf)
+[![PR interval on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/pr_interval.snps_.encode.chart_.png "PR interval on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/PR_interval.snps.encode.chart.pdf)
 
-[![PR interval on ENCODE](/sites/1000genomes.org/files/images/forge/pr_interval.snps_.erc_.chart__0.png "PR interval on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/PR_interval.snp.erc.chart.pdf)
+[![PR interval on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/pr_interval.snp_.erc_.chart_.png "PR interval on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/PR_interval.snp.erc.chart.pdf)
 
 #### _QT interval_
 
 The major enrichment is again in fetal heart but in addition we see signal particularly from lung and muscle tissues plus some kidney.
 
-[![QT interval on ENCODE](/sites/1000genomes.org/files/images/forge/qt_interval.snps_.encode.chart__0.png "QT interval on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/QT_interval.snps.encode.chart.pdf)
+[![QT interval on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/qt_interval.snps_.encode.chart_.png "QT interval on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/QT_interval.snps.encode.chart.pdf)
 
-[![QT interval on ERC](/sites/1000genomes.org/files/images/forge/qt_interval.snps_.erc_.chart__0.png "QT interval on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/QT_interval.snp.erc.chart.pdf)
+[![QT interval on ERC](/sites/1000genomes.org/files/images/forge/forge10/qt_interval.snp_.erc_.chart_.png "QT interval on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/QT_interval.snp.erc.chart.pdf)
 
 #### _RR interval_
 
 For RR rate, the main enrichment is not now in fetal heart but brain, kidney and muscle are also relevant consistent with control of rate being outside the heart itself. Interatingly there is also CD14 and CD19 cell signal (monocyte and B cells).
 
-[![RR interval on ENCODE](/sites/1000genomes.org/files/images/forge/rr_interval_heart_rate.snps_.encode.chart__0.png "RR interval on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/RR_interval_heart_rate.snps.encode.chart.pdf)
+[![RR interval on ENCODE](/sites/1000genomes.org/files/images/forge/forge10/rr_interval_heart_rate.snps_.encode.chart_.png "RR interval on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/RR_interval_heart_rate.snps.encode.chart.pdf)
 
-[![RR interval on ERC](/sites/1000genomes.org/files/images/forge/rr_interval_heart_rate.snps_.erc_.chart__0.png "RR interval on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/RR_interval_heart_rate.snp.erc.chart.pdf)
+[![RR interval on ERC](/sites/1000genomes.org/files/images/forge/forge10/rr_interval_heart_rate.snp_.erc_.chart_.png "RR interval on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/RR_interval_heart_rate.snp.erc.chart.pdf)
 
 #### _Ventricular conduction on Roadmap Epigenome data_
 
 For ventricular conduction the signal is from Fetal Heart and also from Fetal Muscle tissues.
 
-[![Ventricular Conduction ERC](/sites/1000genomes.org/files/images/forge/ventricular_conduction.snps_.erc_.chart__0.png "Ventricular Conduction ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Ventricular_conduction.snp.erc.chart.pdf)
+[![Ventricular Conduction ERC](/sites/1000genomes.org/files/images/forge/forge10/ventricular_conduction.snp_.erc_.chart_.png "Ventricular Conduction ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Ventricular_conduction.snp.erc.chart.pdf)
 
 ### <a name="All_GWAS" id="All_GWAS"></a>All GWAS SNP hits
 
 Looking across the whole GWAS catalog at once, there is enrichment for almost all tissues. However notably spinal cord and brain shows little enrichment.
 
-[![All GWAS SNPs Encode](/sites/1000genomes.org/files/images/forge/all.snps_.encode.chart__0.png "All GWAS SNPs Encode")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/all.snps.encode.chart.pdf)
+[![All GWAS SNPs Encode](/sites/1000genomes.org/files/images/forge/forge10/all.snps_.encode.chart__0.png "All GWAS SNPs Encode")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/all.snps.encode.chart.pdf)
 
-[![All GWAS SNPs ERC](/sites/1000genomes.org/files/images/forge/all.snps_.erc_.chart__0.png "All GWAS SNPs ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/all.snps.erc.chart.pdf)
+[![All GWAS SNPs ERC](/sites/1000genomes.org/files/images/forge/forge10/all.snps_.erc_.chart_.png "All GWAS SNPs ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/all.snps.erc.chart.pdf)
