@@ -143,7 +143,7 @@ _PDF_
 
 The [pdf output ](http://browser.1000genomes.org/forge11/chart.pdf%20)presents the Z scores in a similar way organised alphabetically by Tissue and Cell, but without stacking duplicate samples. For guidance the Tissues are divided by the brown vertical lines. Horizontal pink lines show the Z score thresholds. A thumbnail example is shown below but the original is available [here](http://browser.1000genomes.org/forge11/chart.pdf). Threshold lines are not necessarily plotted if the results are all below threshold.
 
-_[![Pulmonary_function](/sites/1000genomes.org/files/documents/pulmonary_function.png "Pulmonary_function")](http://browser.1000genomes.org/forge11/chart.pdf)TSV file_
+_[![Pulmonary_function](/sites/1000genomes.org/files/documents/pulmonary_function.png "Pulmonary_function")](/fpr_pvalues.pdf)TSV file_
 
 The results are also available as a tab separated value file ([TSV](http://browser.1000genomes.org/forge11/chart.tsv%20)) with columns as follows:
 
