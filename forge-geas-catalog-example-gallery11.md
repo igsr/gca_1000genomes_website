@@ -27,7 +27,7 @@ Return to [Forge Tool](http://browser.1000genomes.org/Homo_sapiens/UserData/Forg
 
 Return to [Forge Documentation](http://www.1000genomes.org/forge-analysis-11).
 
-###Autoimmune Diseases
+###<a name="Autoimmune Diseases" id="Autoimmune Diseases"></a>Autoimmune Diseases
 
 There is a clear enrichment pattern for overlap with hotspots in various myeloid and lymphoid (blood) tissues in the autoimmume diseases. The exact cells involved vary, in was that are compatible with the known differences in aetiologies for the specific diseases.
 
@@ -83,7 +83,7 @@ For Type 1 diabetes the autoimmune signature is not as strong although there is 
 
 [![Type 1 diabetes ERC](/sites/1000genomes.org/files/images/forge/forge11/type_1_diabetes.snps_.erc_.chart__0.png "Type 1 diabetes ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge_11/trait_pdf/Type_1_diabetes.snps.erc.chart.v11.pdf)
 
-###Hypertension
+###Hypertension<a name="Hypertension" id="Hypertension"></a>Hypertension
 
 ####_Blood pressure_
 
@@ -91,7 +91,7 @@ Enrichment signal in fetal heart and fibroblasts. Maybe makes sense with blood v
 
 [![Blood pressure ERC](/sites/1000genomes.org/files/images/forge/forge11/blood_pressure.snps_.erc_.chart__0.png "Blood pressure ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge_11/trait_pdf/Blood_pressure.snps.erc.chart.v11.pdf)
 
-###Cancer
+###Cancer<a name="Cancer" id="Cancer"></a>Cancer
 
 ####_Breast cancer_
 
