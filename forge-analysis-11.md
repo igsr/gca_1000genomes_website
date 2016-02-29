@@ -143,7 +143,9 @@ _PDF_
 
 The [pdf output ](http://browser.1000genomes.org/forge11/chart.pdf%20)presents the Z scores in a similar way organised alphabetically by Tissue and Cell, but without stacking duplicate samples. For guidance the Tissues are divided by the brown vertical lines. Horizontal pink lines show the Z score thresholds. A thumbnail example is shown below but the original is available [here](http://browser.1000genomes.org/forge11/chart.pdf). Threshold lines are not necessarily plotted if the results are all below threshold.
 
-_[![Pulmonary_function](/sites/1000genomes.org/files/documents/pulmonary_function.png "Pulmonary_function")](/fpr_pvalues.pdf)TSV file_
+[![Pulmonary_function](/sites/1000genomes.org/files/documents/pulmonary_function.png "Pulmonary_function")](/fpr_pvalues.pdf)
+
+_TSV file_
 
 The results are also available as a tab separated value file ([TSV](http://browser.1000genomes.org/forge11/chart.tsv%20)) with columns as follows:
 
@@ -186,7 +188,7 @@ To estimate false positive rates, 1000 randomly chosen SNP sets for each of a se
 
 _<a name="false_positives" id="false_positives"></a>False Positive Rate by SNP set Count_
 
-<span style="font-size: 10px;">![FP rate](/sites/1000genomes.org/files/documents/fpr_pvalues.pdf "False Positive Rate")This plot suggests that a threshold of P <= 0.01 (maroon line) before correction for multiple testing maintains the false positive rate below around 0.0075 (0.75%). The red line is P <= 0.001.</span>
+<span style="font-size: 10px;">![FP rate](fpr_pvalues.pdf "False Positive Rate")This plot suggests that a threshold of P <= 0.01 (maroon line) before correction for multiple testing maintains the false positive rate below around 0.0075 (0.75%). The red line is P <= 0.001.</span>
 
 <a name="Source" id="Source"></a>**Source Code**
 
