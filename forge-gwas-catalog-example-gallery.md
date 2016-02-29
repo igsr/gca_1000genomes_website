@@ -70,9 +70,9 @@ Inflammatory bowel disease on Roadmap Epigenome data
 
 Again the T cell and thymus inflammatory enrichment is revealed, but now there is enrichment in muscle cells which is intriguing given the effects of neurological damage on muscle function in MS.
 
-[![Multiple sclerosis on ENCODE](/sites/1000genomes.org/files/images/forge/multiple_sclerosis.snps__0.encode.chart_.png "Multiple sclerosis on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Multiple_sclerosis.snps.encode.chart.pdf)
+[![Multiple sclerosis on ENCODE](/sites/1000genomes.org/files/images/forge/multiple_sclerosis.snps_.encode.chart__0.png "Multiple sclerosis on ENCODE")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Multiple_sclerosis.snps.encode.chart.pdf)
 
-[![Multiple sclerosis on ERC](/sites/1000genomes.org/files/images/forge/multiple_sclerosis.snps_.erc_.chart__0.png "Multiple sclerosis on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Multiple_sclerosis.snp.erc.chart.pdf)
+[![Multiple sclerosis on ERC](/sites/1000genomes.org/files/images/forge/multiple_sclerosis.snps_.erc_.chart__1.png "Multiple sclerosis on ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Multiple_sclerosis.snp.erc.chart.pdf)
 
 #### _Rheumatoid Arthritis_
 
