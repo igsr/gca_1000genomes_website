@@ -9,4 +9,16 @@ faq_related:
   - how-do-i-get-sub-section-bam-file
 ---
 
-The 1000 genomes project has used several different alignment algorithms during its duration. For the pilot project we used [MAQ](http://maq.sourceforge.net/) for Illumina, Corona lite for SOLiD and [ssaha](http://www.sanger.ac.uk/resources/software/ssaha2/) for 454\. For the main project we use [BWA](http://bio-bwa.sourceforge.net/) for Illumina and [BFAST](http://sourceforge.net/apps/mediawiki/bfast/index.php?title=Main_Page) for SOLiD, 454 started with ssaha but the final set of 454 alignments used [smalt](http://www.sanger.ac.uk/resources/software/smalt/). The full process is described in the [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.alignment_data)
+The 1000 genomes project has used several different alignment algorithms during its duration:
+
+|Project stage|Sequencing technology|Alignment algorithm|
+|-------------|---------------------|-------------------|
+|Pilot|Illumina|[MAQ](http://maq.sourceforge.net/)|
+|Pilot|SOLiD|Corona lite|
+|Pilot|454|[ssaha](http://www.sanger.ac.uk/resources/software/ssaha2/)|
+|Main|Illumina|[BWA](http://bio-bwa.sourceforge.net/)|
+|Main|SOLiD|[BFAST](http://sourceforge.net/apps/mediawiki/bfast/index.php?title=Main_Page)|
+|Main|454|ssaha (first set)|
+|Main|454|[smalt](http://www.sanger.ac.uk/resources/software/smalt/) (final set)|
+
+The full process is described in the [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.alignment_data)
