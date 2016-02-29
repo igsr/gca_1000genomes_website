@@ -53,11 +53,11 @@ _FORGE Analysis Strategy_
 
 <span style="font-size: 10px;">![Forge Strategy](/sites/1000genomes.org/files/documents/Forge_1.1.png "Forge Strategy")</span>
 
-The results are presented by cell sample in either graphic (interactive [Dimple](http://dimplejs.org) chart or static pdf) or tabular (interactive [DataTables](https://datatables.net) table or tab separated file) forms. Typical results may show an enrichment of overlap (red or pink points) for the GWAS SNP set in a tissue of mechanistic relevance to the phenotype under analysis, for instance fetal lung tissue and lung cell lines for Pulmonary function SNPs.
+The results are presented by cell sample in either graphic (interactive [Dimple](http://dimplejs.org) chart or static pdf) or tabular (interactive [DataTables](https://datatables.net) table or tab separated file) forms. Typical results may show an enrichment of overlap (red or pink points) for the GWAS SNP set in a tissue of mechanistic relevance to the phenotype under analysis, for instance fetal lung tissue and lung cell lines for Pulmonary function SNPs.
 
 Alternatively there may be no enrichment and all points will be blue below the -log<sub>10</sub> P value thresholds. This could be because there is no regulatory component underlying the GWAS association, or because the relevant tissue is not present in the available functional element datasets, or for other technical reasons (e.g. too few overlaps or wrong genome build).
 
-A set of example analyses of GWAS studies from the [NCBI GWAS catalog [Accessed 28/03/2014](http://www.genome.gov/gwastudies)[]](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery11).
+A set of example analyses of GWAS studies from the [NCBI GWAS catalog [Accessed 28/03/2014](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery11).
 
 **<a name="Inputs"></a>Inputs**
 
@@ -65,9 +65,9 @@ You can supply a list of SNPs by their [dbSNP ](http://www.ncbi.nlm.nih.gov/sn
 
 Alternatively you can upload a file from disk or via a URL. The file should contain 
 
-*   a list of SNPs by RefSNP ID, one per line as above ([example rsid format file](http://browser.1000genomes.org/forge/Pulmonary_function.rsid "Pulmonary_function.rsid")),
-*   SNPs in VCF ([Variant Call Format](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41)) format ([example VCF format file](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt "Pulmonary_function.vcf")),
-*   SNPs in BED (e.g. [Personal Genome SNP format](http://genome.ucsc.edu/FAQ/FAQformat.html#format10))format, ([example BED format file](http://browser.1000genomes.org/forge/Pulmonary_function.pgsnp.bed.txt "Pulmonary_function.pgsnp.bed")). 
+*   a list of SNPs by RefSNP ID, one per line as above ([example rsid format file](http://http://browser.1000genomes.org/forge/Pulmonary_function.rsid.txt "Pulmonary_function.rsid")),
+*   SNPs in VCF ([Variant Call Format](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt)) format ([example VCF format file](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt "Pulmonary_function.vcf")),
+*   SNPs in BED (e.g. [Personal Genome SNP format](http://genome.ucsc.edu/FAQ/FAQformat.html#format10)) format, ([example BED format file](http://browser.1000genomes.org/forge/Pulmonary_function.bed.txt "Pulmonary_function.pgsnp.bed")). 
 
 In fact any BED format with 3 columns (0 based, chrN) will work e.g.
 
@@ -111,13 +111,12 @@ _LD Filter_
 
 Inclusion of multiple SNPs that are within tight linkage disequilibrium (LD) from the same association signal will result in over-estimation of the degree of enrichment for a specific regulatory signal, since there are likely to be multiple tissue specific DNase 1 sites in a region, and the background is not regionalised.  To avoid this an LD filter is set by default to remove at random all but one SNP within an LD cluster at r<sup>2</sup> >= 0.8\.  SNPs that are removed are reported in the results. The filter can be turned off, or be set at r<sup>2</sup> >= 0.1 for a very stringent filter.  All results here are generated with the LD filter set to the default. The way the filter works is influenced by the order in which SNPs in LD appear in the list you supply because the first occuring SNP is selected as the exemplar of the LD block. It would be worth experrimenting with alternate orderings and without filtering to see the effect of LD. 
 
-<div class="form-field">_Background repetitions_
+_Background repetitions_
 
 <div class="ff-right">Define the number of matching background SNP sets to analyse for the background overlap distribution. By default this is set to 100 background SNP sets, but larger numbers (e.g. up to 1000) will reduce false positive effects, at the expense of analysis speed. </div>
 
-</div>
 
-<div class="form-field">_Significance thresholds_</div>
+_Significance thresholds_
 
 <div class="form-field">These are the binomial P value thresholds used to colour the points red (by default P <= 0.01) or pink (P <=0.05). We estimate false positive rates at around less than 4% and 0.75% at the P <= 0.05 and P <= 0.01 thresholds, respectively. Increasing the thresholds will reduce false positive rates as shown in the [plot below](#false_positives). In the analysis the thresholds are corrected for multiple testing by multiplying by the number of distinct tissues analysed, and expressed as -log<sub>10</sub> P.</div>
 
