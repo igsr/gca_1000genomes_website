@@ -37,7 +37,7 @@ Unfortunately in the meantime I have taken up another position that is occupying
 **<a name="Resources" id="Resources"></a>Other Resources**
 
 *   [Source code on GitHub](https://github.com/iandunham/Forge), 
-*   [Examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery11).
+*   [Examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery).
 
 **<a name="Overview"></a>Overview**
 
@@ -57,7 +57,7 @@ The results are presented by cell sample in either graphic (interactive [Dimple
 
 Alternatively there may be no enrichment and all points will be blue below the -log<sub>10</sub> P value thresholds. This could be because there is no regulatory component underlying the GWAS association, or because the relevant tissue is not present in the available functional element datasets, or for other technical reasons (e.g. too few overlaps or wrong genome build). 
 
-A set of example analyses of GWAS studies from the  [NCBI GWAS catalog [Accessed 28/03/2014](http://www.genome.gov/gwastudies)[]](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery11).
+A set of example analyses of GWAS studies from the  [NCBI GWAS catalog [Accessed 28/03/2014](http://www.genome.gov/gwastudies)[]](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery).
 
 **<a name="Inputs"></a>Inputs**
 
@@ -161,7 +161,7 @@ The results are also available as a tab separated value file ([TSV](http://brows
 *   Number - An irrelevant number used to help plotting.
 *   Accession - The GEO accession number of the data set.
 
-<div>More example analyses in pdf format are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery11).</div>
+<div>More example analyses in pdf format are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery).</div>
 
 <a name="Methods" id="Methods"></a>**Methods**
 
