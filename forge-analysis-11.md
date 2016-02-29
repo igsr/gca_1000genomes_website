@@ -118,15 +118,11 @@ _Background repetitions_
 
 _Significance thresholds_
 
-<div class="form-field">These are the binomial P value thresholds used to colour the points red (by default P <= 0.01) or pink (P <=0.05). We estimate false positive rates at around less than 4% and 0.75% at the P <= 0.05 and P <= 0.01 thresholds, respectively. Increasing the thresholds will reduce false positive rates as shown in the [plot below](#false_positives). In the analysis the thresholds are corrected for multiple testing by multiplying by the number of distinct tissues analysed, and expressed as -log<sub>10</sub> P.</div>
-
-<div class="form-field">
+These are the binomial P value thresholds used to colour the points red (by default P <= 0.01) or pink (P <=0.05). We estimate false positive rates at around less than 4% and 0.75% at the P <= 0.05 and P <= 0.01 thresholds, respectively. Increasing the thresholds will reduce false positive rates as shown in the [plot below](#false_positives). In the analysis the thresholds are corrected for multiple testing by multiplying by the number of distinct tissues analysed, and expressed as -log<sub>10</sub> P.
 
 **<a name="Outputs" id="Outputs"></a>Outputs**
 
-</div>
-
-Several outputs are produced and provided from the results page.  
+Several outputs are produced and provided from the results page. 
 
 1. An interactive table of the overlaps by cell is given by default on the results page. 
 2. The _[PDF](http://browser.1000genomes.org/forge11/chart.pdf%20)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
