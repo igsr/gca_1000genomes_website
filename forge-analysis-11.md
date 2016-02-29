@@ -53,11 +53,11 @@ _FORGE Analysis Strategy_
 
 <span style="font-size: 10px;">![Forge Strategy](/sites/1000genomes.org/files/documents/Forge_1.1.png "Forge Strategy")</span>
 
-The results are presented by cell sample in either graphic (interactive [Dimple](http://dimplejs.org) chart or static pdf) or tabular (interactive [DataTables](https://datatables.net) table or tab separated file) forms. Typical results may show an enrichment of overlap (red or pink points) for the GWAS SNP set in a tissue of mechanistic relevance to the phenotype under analysis, for instance fetal lung tissue and lung cell lines for Pulmonary function SNPs. 
+The results are presented by cell sample in either graphic (interactive [Dimple](http://dimplejs.org) chart or static pdf) or tabular (interactive [DataTables](https://datatables.net) table or tab separated file) forms. Typical results may show an enrichment of overlap (red or pink points) for the GWAS SNP set in a tissue of mechanistic relevance to the phenotype under analysis, for instance fetal lung tissue and lung cell lines for Pulmonary function SNPs.
 
-Alternatively there may be no enrichment and all points will be blue below the -log<sub>10</sub> P value thresholds. This could be because there is no regulatory component underlying the GWAS association, or because the relevant tissue is not present in the available functional element datasets, or for other technical reasons (e.g. too few overlaps or wrong genome build). 
+Alternatively there may be no enrichment and all points will be blue below the -log<sub>10</sub> P value thresholds. This could be because there is no regulatory component underlying the GWAS association, or because the relevant tissue is not present in the available functional element datasets, or for other technical reasons (e.g. too few overlaps or wrong genome build).
 
-A set of example analyses of GWAS studies from the  [NCBI GWAS catalog [Accessed 28/03/2014](http://www.genome.gov/gwastudies)[]](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery11).
+A set of example analyses of GWAS studies from the [NCBI GWAS catalog [Accessed 28/03/2014](http://www.genome.gov/gwastudies)[]](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery11).
 
 **<a name="Inputs"></a>Inputs**
 
@@ -129,10 +129,10 @@ Inclusion of multiple SNPs that are within tight linkage disequilibrium (LD) fro
 
 Several outputs are produced and provided from the results page.  
 
-> 1.  An interactive table of the overlaps by cell is given by default on the results page. 
-> 2.  The _[PDF](http://browser.1000genomes.org/forge11/chart.pdf%20)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
-> 3.  The _[Interactive chart](http://browser.1000genomes.org/forge11/dchart.htm%20)_ link provides an interactive chart to explore the data.
-> 4.  The _[TSV](http://browser.1000genomes.org/forge11/chart.tsv)_ link provides the FORGE analysis results in tab separated format. 
+1. An interactive table of the overlaps by cell is given by default on the results page. 
+2. The _[PDF](http://browser.1000genomes.org/forge11/chart.pdf%20)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
+3. The _[Interactive chart](http://browser.1000genomes.org/forge11/dchart.htm%20)_ link provides an interactive chart to explore the data.
+4. The _[TSV](http://browser.1000genomes.org/forge11/chart.tsv)_ link provides the FORGE analysis results in tab separated format. 
 
 Each of the graphics presents the -log<sub>10</sub> P value by cell sample. Cells are grouped alphabetically by tissue and then organised alphabetically by cell name. In each of the graphics the colouring is consistent, blue (P > 0.05), pink (0.05 => P  > 0.01), and red (P <= 0.01), before multiple testing correction, by default.
 
