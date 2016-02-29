@@ -1,5 +1,5 @@
 ---
-title: "How many individuals will be sequenced?"
+title: "How many individuals were sequenced?"
 faq_tags:
   - data-access
   - statistics
@@ -9,4 +9,4 @@ faq_related:
   - how-do-i-find-out-about-new-1000-genomes-releases
 ---
                     
-The project aims to sequence 2500 individuals in total both low coverage whole genome sequencing and exome sequencing. So far more than 1000 samples have been sequenced.
+The 1000 Genomes Project aims to sequenced 2504 individuals in total both low coverage whole genome sequencing and exome sequencing. Further samples added into the IGSR will increase this number.
