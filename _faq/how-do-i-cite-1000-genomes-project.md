@@ -9,4 +9,4 @@ faq_related:
   - can-i-get-phenotype-gender-and-family-relationship-information-samples
 ---
                     
-When citing the 1000 Genomes project in general please use our most recent main paper which is currently [An integrated map of genetic variation from 1,092 human genomes, McVean et Al, Nature 491, 56–65 (01 November 2012) doi:10.1038/nature11632](http://www.nature.com/nature/journal/v491/n7422/full/nature11632.html). This paper is published under the creative commons Attribution-NonCommercial-ShareAlike 3.0 Unported licence, please feel free to share and redistribute the paper appropriately.
+When citing the 1000 Genomes Project in general please use our final phase 3 paper, [A global reference for human genetic variation, The 1000 Genomes Project Consortium, Nature 526, 68-74 (01 October 2015) doi:10.1038/nature15393](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html). This paper is published under the creative commons Attribution-NonCommercial-ShareAlike 3.0 Unported licence, please feel free to share and redistribute the paper appropriately.
