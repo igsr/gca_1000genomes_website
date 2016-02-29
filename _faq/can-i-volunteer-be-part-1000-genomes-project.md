@@ -9,6 +9,6 @@ faq_related:
   - can-i-get-phenotype-gender-and-family-relationship-information-samples
 ---
                     
-The 1000 Genomes Project is not accepting volunteers to be sequenced. More information about how samples were recruited please see [the About page](/node/3).
+The 1000 Genomes Project is not accepting volunteers to be sequenced. More information about how samples were recruited please see [the About page](http://www.1000genomes.org/about).
 
 Another large scale resequencing project that does still have rounds of recruitment is the [Personal Genomes Project](http://www.personalgenomes.org/)
