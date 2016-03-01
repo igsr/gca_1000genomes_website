@@ -185,6 +185,8 @@ The major enrichment is in fetal heart but in addition we see signal particularl
 
 [![QT interval ERC](/sites/1000genomes.org/files/images/forge/forge11/qt_interval.snps_.erc_.chart__0.png "QT interval ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge_11/trait_pdf/QT_interval.snps.erc.chart.v11.pdf)
 
+####_Ventricular conduction_
+
 For ventricular conduction the signal is from Fetal Heart and also from Fetal Muscle tissues.
 
 [![Ventricular conduction ERC](/sites/1000genomes.org/files/images/forge/forge11/ventricular_conduction.snps_.erc_.chart__0.png "Ventricular conduction ERC")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge_11/trait_pdf/Ventricular_conduction.snps.erc.chart.v11.pdf)
