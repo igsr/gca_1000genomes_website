@@ -143,7 +143,7 @@ _PDF_
 
 The [pdf output ](http://browser.1000genomes.org/forge11/chart.pdf)presents the log10 binomial P values in a similar way organised alphabetically by Tissue and Cell, but without stacking duplicate samples. For guidance the Tissues are divided by the brown vertical lines. Horizontal pink lines show the P value thresholds. A thumbnail example is shown below but the original is available [here](http://browser.1000genomes.org/forge11/chart.pdf). Threshold lines are not necessarily plotted if the results are all below threshold.
 
-[![Pulmonary_function](/sites/1000genomes.org/files/documents/chart.png "Pulmonary_function")]
+![Pulmonary_function](/sites/1000genomes.org/files/documents/chart.png "Pulmonary_function")
 
 _TSV file_
 
