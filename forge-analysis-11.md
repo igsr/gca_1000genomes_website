@@ -188,7 +188,7 @@ To estimate false positive rates, 1000 randomly chosen SNP sets for each of a se
 
 _<a name="false_positives" id="false_positives"></a>False Positive Rate by SNP set Count_
 
-![FP rate](fpr_pvalues.pdf "False Positive Rate")
+![FP rate](fpr_pvalues.png "False Positive Rate")
 This plot suggests that a threshold of P <= 0.01 (maroon line) before correction for multiple testing maintains the false positive rate below around 0.0075 (0.75%). The red line is P <= 0.001.
 
 <a name="Source" id="Source"></a>**Source Code**
