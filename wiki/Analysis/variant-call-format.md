@@ -6,10 +6,11 @@ redirect_from:
     - "/wiki/analysis/variant call format/vcf-variant-call-format-version-41/"
     - "/wiki/analysis/variant-call-format/vcf-variant-call-format-version-42/"
     - "/wiki/analysis/vcf4.0/"
+    - "/wiki/analysis/variant-call-format/bcf-binary-vcf-version-2/"
 permalink: /wiki/Analysis/variant-call-format/
 ---
 
-The VCF specification is no longer maintained by the 1000 Genomes Project. The group leading the management and expansion of the format is the [Global Alliance for Genomics and Health Data Working group file format team](http://ga4gh.org/#/fileformats-team).
+The VCF/BCF specification is no longer maintained by the 1000 Genomes Project. The group leading the management and expansion of the format is the [Global Alliance for Genomics and Health Data Working group file format team](http://ga4gh.org/#/fileformats-team).
 
 The main version of the specification can be found on [https://github.com/samtools/hts-specs](https://github.com/samtools/hts-specs).
 
