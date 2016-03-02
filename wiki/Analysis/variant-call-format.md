@@ -3,6 +3,7 @@ layout: single_section
 title: "Variant Call Format"
 redirect_from:
     - "/wiki/analysis/variant Call Format/vcf-variant-call-format-version-41/"
+    - "/wiki/analysis/variant call format/vcf-variant-call-format-version-41/"
 permalink: /wiki/Analysis/variant-call-format/
 ---
 
