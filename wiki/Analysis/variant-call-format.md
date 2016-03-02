@@ -12,6 +12,7 @@ redirect_from:
     - /wiki/analysis/variant-call-format/
     - /sites/1000genomes.org/files/documents/bcfv2.pdf
     - "/wiki/Analysis/Variant Call Format/vcf-variant-call-format-version-33/"
+    - "/announcements/wiki/Analysis/Variant Call Format/bcms/1000_genomes/Documents/ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/"
 permalink: /wiki/Analysis/variant-call-format/
 ---
 
