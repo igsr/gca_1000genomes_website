@@ -7,7 +7,7 @@ tags: Data
 
 #Using data from IGSR
 
-The IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer).
+IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer).
 
 #Available data
 
