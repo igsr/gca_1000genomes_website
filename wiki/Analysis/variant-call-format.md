@@ -7,6 +7,7 @@ redirect_from:
     - "/wiki/analysis/variant-call-format/vcf-variant-call-format-version-42/"
     - "/wiki/analysis/vcf4.0/"
     - "/wiki/analysis/variant-call-format/bcf-binary-vcf-version-2/"
+    - "/wiki/doku.php?id=1000_genomes:analysis:vcf4.0/"
 permalink: /wiki/Analysis/variant-call-format/
 ---
 
