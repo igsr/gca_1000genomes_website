@@ -10,6 +10,7 @@ redirect_from:
     - "/wiki/doku.php?id=1000_genomes:analysis:vcf4.0/"
     - /user/351/
     - /wiki/analysis/variant-call-format/
+    - /sites/1000genomes.org/files/documents/bcfv2.pdf
 permalink: /wiki/Analysis/variant-call-format/
 ---
 
