@@ -118,7 +118,7 @@ In Ulcerative Colitis, the other IBD phenotype besides Crohns, the signal is wea
 
 Intriguingly the only signal for this combined psyciatric meta study is in fetal brain samples.
 
-[![Autism_spectrum_disorder,_attention_deficit-hyperactivity_disorder,_bipolar_disorder,_major_depressive_disorder,_and_schizophrenia_combined](/sites/1000genomes.org/files/images/forge/forge10/autism_spectrum_disorder_attention_deficit-hyperactivity_disorder_bipolar_disorder_major_depressive_disorder_and_schizophrenia_combined.snp_.erc_.chart_.png "Autism_spectrum_disorder,_attention_deficit-hyperactivity_disorder,_bipolar_disorder,_major_depressive_disorder,_and_schizophrenia_combined")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Autism_spectrum_disorder,_attention_deficit-hyperactivity_disorder,_bipolar_disorder,_major_depressive_disorder,_and_schizophrenia_combined.snp.erc.chart.pdf)
+![Autism_spectrum_disorder,_attention_deficit-hyperactivity_disorder,_bipolar_disorder,_major_depressive_disorder,_and_schizophrenia_combined](/sites/1000genomes.org/files/images/forge/forge10/autism_spectrum_disorder_attention_deficit-hyperactivity_disorder_bipolar_disorder_major_depressive_disorder_and_schizophrenia_combined.snp_.erc_.chart_.png "Autism_spectrum_disorder,_attention_deficit-hyperactivity_disorder,_bipolar_disorder,_major_depressive_disorder,_and_schizophrenia_combined")](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/forge/trait_pdfs/Autism_spectrum_disorder,_attention_deficit-hyperactivity_disorder,_bipolar_disorder,_major_depressive_disorder,_and_schizophrenia_combined.snp.erc.chart.pdf)
 
 #### _Bipolar disorder_
 
