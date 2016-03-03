@@ -164,7 +164,7 @@ More example analyses in pdf format are available in the [GWAS catalog examples
 
 _Data_
 
-ENCODE consortium hotspots were obtained from [ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/](ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/ "ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/")
+ENCODE consortium hotspots were obtained from [ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/](ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/ "ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/")
 
 Roadmap Epigenome DNAse I sequencing tag alignments were obtained from http://www.genboree.org/EdaccData/Current-Release/experiment-sample/Chromatin_Accessibility/. These were processed by the [Hotspot](http://www.uwencode.org/proj/hotspot/) method to give hotspot files using the default parameters. 
 
