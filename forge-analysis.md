@@ -58,9 +58,9 @@ You can supply a list of SNPs by their [dbSNP ](http://www.ncbi.nlm.nih.gov/sn
 
 Alternatively you can upload a file from disk or via a URL. The file should contain 
 
-*   a list of SNPs by RefSNP ID, one per line as above ([example rsid format file](http://browser.1000genomes.org/forge/Pulmonary_function.rsid "Pulmonary_function.rsid")),
-*   SNPs in VCF ([Variant Call Format](http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41)) format ([example VCF format file](sites/1000genomes.org/files/documents/Pulmonary_function.vcf.txt "Pulmonary_function.vcf")),
-*   SNPs in BED (e.g. [Personal Genome SNP format](http://genome.ucsc.edu/FAQ/FAQformat.html#format10))format, ([example BED format file](http://browser.1000genomes.org/forge/Pulmonary_function.pgsnp.bed.txt "Pulmonary_function.pgsnp.bed")). 
+*   a list of SNPs by RefSNP ID, one per line as above ([example rsid format file](http://browser.1000genomes.org/forge/Pulmonary_function.rsid.txt "Pulmonary_function.rsid")),
+*   SNPs in VCF ([Variant Call Format](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt)) format ([example VCF format file](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt "Pulmonary_function.vcf")),
+*   SNPs in BED (e.g. [Personal Genome SNP format](http://genome.ucsc.edu/FAQ/FAQformat.html#format10)) format, ([example BED format file](http://browser.1000genomes.org/forge/Pulmonary_function.bed.txt "Pulmonary_function.pgsnp.bed")). 
 
 In fact any BED format with 3 columns (0 based, chrN) will work e.g.
 
@@ -110,10 +110,10 @@ These are the Z score thresholds used to colour the points red (by default >= 3.
 
 Several outputs are produced and provided from the results page.  
 
-> 1.  An interactive table of the overlaps by cell is given by default on the results page. 
-> 2.  The _[PDF](http://browser.1000genomes.org/forge/chart.pdf%20)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
-> 3.  The _[Interactive chart](http://browser.1000genomes.org/forge/dchart.htm)_ link provides an interactive chart to explore the data.
-> 4.  The _[TSV](http://browser.1000genomes.org/forge/chart.tsv)_ link provides the FORGE analysis results in tab separated format. 
+1.  An interactive table of the overlaps by cell is given by default on the results page. 
+2.  The _[PDF](http://browser.1000genomes.org/forge/chart.pdf)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
+3.  The _[Interactive chart](http://browser.1000genomes.org/forge/dchart.htm)_ link provides an interactive chart to explore the data.
+4.  4.  The _[TSV](http://browser.1000genomes.org/forge/chart.tsv)_ link provides the FORGE analysis results in tab separated format. 
 
 Each of the graphics presents the Z scores by cell sample. Cells are grouped alphabetically by tissue and then organised alphabetically by cell name. In each of the graphics the colouring is consistent, blue (Z < 2.58), pink (2.58 =< Z < 3.39), and red (Z >= 3.39). 
 
@@ -147,7 +147,7 @@ The results are also available as a tab separated value file ([TSV](http://brows
 
 _Data_
 
-ENCODE consortium hotspots were obtained from [ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/](ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/ "ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/")
+ENCODE consortium hotspots were obtained from [ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/](ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/ "ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/")
 
 Roadmap Epigenome DNAse I sequencing tag alignments were obtained from http://www.genboree.org/EdaccData/Current-Release/experiment-sample/Chromatin_Accessibility/. These were processed by the [Hotspot](http://www.uwencode.org/proj/hotspot/) method to give hotspot files using the default parameters. 
 
