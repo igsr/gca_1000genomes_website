@@ -164,7 +164,7 @@ More example analyses in pdf format are available in the [GWAS catalog examples
 
 _Data_
 
-ENCODE consortium hotspots were obtained from [ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/](ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/ "ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/")
+ENCODE consortium hotspots were obtained from [ftp://ftp.ebi.ac.uk:pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/](ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/ "ftp://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/openchrom/jan2011/combined_hotspots/")
 
 Roadmap Epigenome DNAse I sequencing tag alignments were obtained from http://www.genboree.org/EdaccData/Current-Release/experiment-sample/Chromatin_Accessibility/. These were processed by the [Hotspot](http://www.uwencode.org/proj/hotspot/) method to give hotspot files using the default parameters. 
 
@@ -172,7 +172,7 @@ Cell and Tissue assignments were obtained by custom perl scripts using data from
 
 _Overlaps_
 
-DNase I hotspot data in bed/wig format was formatted for overlap analysis using [Tabix](http://samtools.sourceforge.net/tabix.shtml). All SNPs in the [1000 genomes phase 1 integrated call data set](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets) were downloaded from ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets and overlaps with the DNase I elements by cell type for every SNP were calculated using [Tabix](http://samtools.sourceforge.net/tabix.shtml) in a distributed approach on the EBI compute farm. Overlaps were stored as a binary string for each data set (ENCODE or Roadmap) for each SNP in an indexed [sqlite](http://www.sqlite.org) database, forge.db. 
+DNase I hotspot data in bed/wig format was formatted for overlap analysis using [Tabix](http://samtools.sourceforge.net/tabix.shtml). All SNPs in the [1000 genomes phase 1 integrated call data set](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets) were downloaded from ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets and overlaps with the DNase I elements by cell type for every SNP were calculated using [Tabix](http://samtools.sourceforge.net/tabix.shtml) in a distributed approach on the EBI compute farm. Overlaps were stored as a binary string for each data set (ENCODE or Roadmap) for each SNP in an indexed [sqlite](http://www.sqlite.org) database, forge.db. 
 
 _FORGE analysis_
 
