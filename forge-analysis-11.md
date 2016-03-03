@@ -65,7 +65,7 @@ You can supply a list of SNPs by their [dbSNP ](http://www.ncbi.nlm.nih.gov/sn
 
 Alternatively you can upload a file from disk or via a URL. The file should contain 
 
-*   a list of SNPs by RefSNP ID, one per line as above ([example rsid format file](http://http://browser.1000genomes.org/forge/Pulmonary_function.rsid.txt "Pulmonary_function.rsid")),
+*   a list of SNPs by RefSNP ID, one per line as above ([example rsid format file](http://browser.1000genomes.org/forge/Pulmonary_function.rsid.txt "Pulmonary_function.rsid")),
 *   SNPs in VCF ([Variant Call Format](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt)) format ([example VCF format file](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt "Pulmonary_function.vcf")),
 *   SNPs in BED (e.g. [Personal Genome SNP format](http://genome.ucsc.edu/FAQ/FAQformat.html#format10)) format, ([example BED format file](http://browser.1000genomes.org/forge/Pulmonary_function.bed.txt "Pulmonary_function.pgsnp.bed")). 
 
