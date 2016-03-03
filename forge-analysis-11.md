@@ -125,8 +125,8 @@ These are the binomial P value thresholds used to colour the points red (by defa
 Several outputs are produced and provided from the results page. 
 
 1. An interactive table of the overlaps by cell is given by default on the results page.
-2. The _[PDF](http://browser.1000genomes.org/forge11/chart.pdf%20)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
-3. The _[Interactive chart](http://browser.1000genomes.org/forge11/dchart.htm%20)_ link provides an interactive chart to explore the data.
+2. The _[PDF](http://browser.1000genomes.org/forge11/chart.pdf)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
+3. The _[Interactive chart](http://browser.1000genomes.org/forge11/dchart.htm)_ link provides an interactive chart to explore the data.
 4. The _[TSV](http://browser.1000genomes.org/forge11/chart.tsv)_ link provides the FORGE analysis results in tab separated format.
 
 Each of the graphics presents the -log<sub>10</sub> P value by cell sample. Cells are grouped alphabetically by tissue and then organised alphabetically by cell name. In each of the graphics the colouring is consistent, blue (P > 0.05), pink (0.05 => P  > 0.01), and red (P <= 0.01), before multiple testing correction, by default.
