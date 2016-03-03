@@ -172,7 +172,7 @@ Cell and Tissue assignments were obtained by custom perl scripts using data from
 
 _Overlaps_
 
-DNase I hotspot data in bed/wig format was formatted for overlap analysis using [Tabix](http://samtools.sourceforge.net/tabix.shtml). All SNPs in the [1000 genomes phase 1 integrated call data set](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets) were downloaded from ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets and overlaps with the DNase I elements by cell type for every SNP were calculated using [Tabix](http://samtools.sourceforge.net/tabix.shtml) in a distributed approach on the EBI compute farm. Overlaps were stored as a binary string for each data set (ENCODE or Roadmap) for each SNP in an indexed [sqlite](http://www.sqlite.org) database, forge.db. 
+DNase I hotspot data in bed/wig format was formatted for overlap analysis using [Tabix](http://samtools.sourceforge.net/tabix.shtml). All SNPs in the [1000 genomes phase 1 integrated call data set](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets) were downloaded and overlaps with the DNase I elements by cell type for every SNP were calculated using [Tabix](http://samtools.sourceforge.net/tabix.shtml) in a distributed approach on the EBI compute farm. Overlaps were stored as a binary string for each data set (ENCODE or Roadmap) for each SNP in an indexed [sqlite](http://www.sqlite.org) database, forge.db. 
 
 _FORGE analysis_
 
