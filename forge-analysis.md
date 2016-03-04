@@ -27,9 +27,8 @@ The FORGE tool performs **F**unctional element **O**verlap analysis of the **
 
 **<a name="Resources"></a>Other Resources**
 
-*   [Source code on GitHub](https://github.com/iandunham/Forge), 
-*   [Examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery), 
-*   [Gallery](http://www.1000genomes.org/forge-results),
+*   [Source code on GitHub](https://github.com/iandunham/Forge),
+*   [Examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery),
 *   [GitHub gallery](http://iandunham.github.io/gallery/)
 
 **<a name="Overview"></a>Overview**
@@ -50,7 +49,7 @@ The results are presented by cell sample in either graphic (interactive [Dimple
 
 Alternatively there may be no enrichment and all points will be blue below the Z score thresholds. This could be because there is no regulatory component underlying the GWAS association, or because the relevant tissue is not present in the available functional element datasets, or for other technical reasons (e.g. too few overlaps or wrong genome build). 
 
-A set of example analyses of GWAS studies from the  [NCBI GWAS catalog [Accessed 07/08/2013]](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery) and [gallery](http://www.1000genomes.org/forge-results), and also at [http://iandunham.github.io/gallery/](http://iandunham.github.io/gallery/).
+A set of example analyses of GWAS studies from the  [NCBI GWAS catalog [Accessed 07/08/2013]](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery), and also at [http://iandunham.github.io/gallery/](http://iandunham.github.io/gallery/).
 
 **<a name="Inputs"></a>Inputs**
 
@@ -141,7 +140,7 @@ The results are also available as a tab separated value file ([TSV](http://brows
 *   Number - An irrelevant number used to help plotting.
 *   Accession - The GEO accession number of the data set.
 
-<div>More example analyses in pdf format are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery) and [gallery](http://www.1000genomes.org/forge-results) and the rCharts gallery at [http://iandunham.github.io/gallery/](http://iandunham.github.io/gallery/).</div>
+<div>More example analyses in pdf format are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery) and the rCharts gallery at [http://iandunham.github.io/gallery/](http://iandunham.github.io/gallery/).</div>
 
 <a name="Methods"></a>**Methods**
 
