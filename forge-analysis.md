@@ -12,6 +12,7 @@ The FORGE tool performs **F**unctional element **O**verlap analysis of the **
 
 [Return to FORGE tool](http://browser.1000genomes.org/Homo_sapiens/UserData/Forge10 "Forge Tool").
 
+
 **Sections**
 
 *   [Resources](#Resources)
