@@ -1,6 +1,8 @@
 ---
 layout: single_section
 title: "The 1000 Genomes Browsers"
+redirect_from:
+    - "/ensembl-browser/"
 permalink: /1000-genomes-browsers/
 tags: Browser
 ---
