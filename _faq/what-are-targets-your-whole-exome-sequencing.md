@@ -10,10 +10,10 @@ faq_related:
   - how-do-i-get-sub-section-vcf-file
 ---
                     
-The Exome sequencing the 1000genomes project has undertaken is targetting the entirety of the CCDS gene set.
+The exome sequencing the 1000 Genomes project has undertaken is targetting the entirety of the CCDS gene set.
 
-The targets used for the phase1 data release of 1092 samples can be found in  [technical/reference/exome_pull_down_targets_phases1_and_2](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets_phases1_and_2/){:target="_blank"}; the targets for phase3 analysis can be found in [technical/reference/exome_pull_down_targets/](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets/){:target="_blank"}.
+The targets used for the phase 1 data release of 1092 samples can be found in  [technical/reference/exome_pull_down_targets_phases1_and_2](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets_phases1_and_2/){:target="_blank"}; the targets for phase 3 analysis can be found in [technical/reference/exome_pull_down_targets/](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets/){:target="_blank"}.
 
-The phase1 and 2 targets are intersections of the different technologies used and the CCDS gene list. For phase3 we are using a union of two different pull down lists NimbleGen EZ_exome v1 and Agilent sure select v2
+The phase 1 and 2 targets are intersections of the different technologies used and the CCDS gene list. For phase 3 we are using a union of two different pull-down lists: NimbleGen EZ_exome v1 and Agilent sure select v2
 
-In phase3 very little exome specific calling is taking place. Now when analysis groups are calling variants they tend to use the low coverage and exome data together in an integrated manner.
+In phase 3 very little exome specific calling took place. Instead analysis groups called variants tending to use the low coverage and exome data together in an integrated manner.
