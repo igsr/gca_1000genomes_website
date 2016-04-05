@@ -12,4 +12,4 @@ faq_related:
   - where-are-your-variant-files-located
 ---
                     
-The [Data Slicer](http://www.1000genomes.org/data-slicer) is a web based [tool in our browser](http://browser.1000genomes.org/tools.html) which allows you to get subsections of our indexed vcf and bam files.
+The [Data Slicer](http://www.1000genomes.org/data-slicer) is a web based [tool in our browser](http://browser.1000genomes.org/tools.html) which allows you to get subsections of our indexed VCF and BAM files.
