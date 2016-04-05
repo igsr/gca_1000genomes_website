@@ -12,7 +12,7 @@ faq_related:
   - can-i-get-genotypes-specific-individualpopulation-your-vcf-files
 ---
                     
-LDAF is an allele frequency value in the info column of our phase1 VCF files.
+LDAF is an allele frequency value in the info column of our phase 1 VCF files.
 
 Our standard AF values are allele frequencies rounded to 2 decimal places calculated using allele count (AC) and allele number (AN) values. LDAF is the allele frequency as inferred from the haplotype estimation.
 
