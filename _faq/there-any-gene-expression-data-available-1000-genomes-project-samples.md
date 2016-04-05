@@ -1,5 +1,5 @@
 ---
-title: "Is there any gene expression data available for the 1000 genomes project samples?"
+title: "Is there any gene expression data available for the 1000 Genomes Project samples?"
 faq_tags:
   - gene-expression
   - rnaseq
@@ -10,7 +10,7 @@ faq_related:
   - can-i-get-haplotype-data-1000-genomes-individuals
 ---
 
-The most important available existing expression datasets involving 1000g individuals are probably the following:
+The most important available existing expression datasets involving 1000 Genomes individuals are probably the following:
 
 **RNAseq (mRNA & miRNA) on 465 individuals (CEU, TSI, GBR, FIN, YRI)**
 
