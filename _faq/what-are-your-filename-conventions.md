@@ -9,4 +9,4 @@ faq_related:
   - what-do-names-your-variant-files-mean-and-what-format-are-files
 ---
                     
-Our filename conventions depend on the data format being names. This issue is described in more detail in the 3 questions below.
+Our filename conventions depend on the data format being named. This issue is described in more detail in the three questions below.
