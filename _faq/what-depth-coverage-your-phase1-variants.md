@@ -12,7 +12,7 @@ faq_related:
   - can-i-get-genotypes-specific-individualpopulation-your-vcf-files
 ---
                     
-The [Phase1 integrated variant](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/) set does not report the depth of coverage for each individual at each site. We instead report genotype likelihoods and dosage. If you would like to see depth of coverage numbers you will need to calculate them directly.
+The [Phase 1 integrated variant](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/) set does not report the depth of coverage for each individual at each site. We instead report genotype likelihoods and dosage. If you would like to see depth of coverage numbers you will need to calculate them directly.
 
 The [bedtools](http://code.google.com/p/bedtools/) suite provides a method to do this. 
 
@@ -34,6 +34,6 @@ To get the coverage for all those sites you would use
 
     intersectBed -a HG01375.vcf.gz -b coverage.bg -wb > depth_numbers.vcf
 
-You can find more information about bed file formats please see the [UCSC File Formats Help](http://genome.ucsc.edu/FAQ/FAQformat.html)
+You can find more information about bed file formats please see the [Ensembl File Formats Help](http://www.ensembl.org/info/website/upload/bed.html)
 
 For more information you may wish to look at our documentation about [data slicing](http://www.1000genomes.org/faq/how-do-i-get-slice-your-vcf-files)
