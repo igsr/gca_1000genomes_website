@@ -11,7 +11,7 @@ faq_related:
   - are-my-snps-found-1000-genomes-project
 ---
                     
-Our variant files are distributed in [vcf format](http://vcftools.sourceforge.net/), a format initially designed which has seen wider community adoption.
+Our variant files are distributed in [vcf format](http://vcftools.sourceforge.net/), a format initially designed for the 1000 Genomes Project which has seen wider community adoption.
 
 The majority of our vcf files are named in the form:
 
