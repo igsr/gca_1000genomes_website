@@ -1,5 +1,5 @@
 ---
-title: "What strand are the variants in your vcf file on?"
+title: "What strand are the variants in your VCF file on?"
 faq_tags:
   - data-access
   - variants
@@ -10,4 +10,4 @@ faq_related:
   - are-my-snps-found-1000-genomes-project
 ---
                     
-All the variants in both our vcf files and on the browser are always reported on the forward strand.
+All the variants in both our VCF files and on the browser are always reported on the forward strand.
