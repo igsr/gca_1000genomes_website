@@ -1,5 +1,5 @@
 ---
-title: "There is a corrupt file on your ftp site?"
+title: "There is a corrupt file on your ftp site."
 faq_tags:
   - currenttree
   - data-access
