@@ -13,6 +13,7 @@ faq_related:
 We describe our sequence meta data in sequence index files. The index for data from the 1000 Genomes Project can be found in the [1000 Genomes data collection directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/). Additional indices are present for data in other data collections. Our old index files which describe the data used in the main project can be found in the [historical_data directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/)
 
 Sequence index files are tab delimited files and frequently contain these columns:
+
 | Column | Title                | Description                                                                                |
 | ------ | -------------------- | -------------------------------------------------------------------------------------------|
 | 1 | FASTQ_FILE | path to fastq file on ftp site or ENA ftp site |
