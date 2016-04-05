@@ -1,5 +1,5 @@
 ---
-title: "What does Genotype Dosage mean in the phase1 integrated call set?"
+title: "What does Genotype Dosage mean in the phase 1 integrated call set?"
 faq_tags:
   - data-analysis
   - dosage
@@ -12,7 +12,7 @@ redirect_from:
     - /faq/what-does-genotype-dosage-mean-phase1-integrated-call-set-0/
 ---
                     
-The Genotype Dosage value comes from [Mach/Thunder](http://genome.sph.umich.edu/wiki/UMAKE), imputation engine used for genotype refinement in the [phase1 data set](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/). 
+The Genotype Dosage value comes from [Mach/Thunder](http://genome.sph.umich.edu/wiki/UMAKE), imputation engine used for genotype refinement in the [phase 1 data set](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/). 
 
 The Dosage represents the predicted dosage of the non reference allele given the data available, it will always have a value between 0 and 2.
 
