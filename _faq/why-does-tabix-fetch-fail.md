@@ -12,7 +12,7 @@ faq_related:
                     
 There are two main reasons a tabix fetch might fail.
 
-All our vcf files using straight intergers and X/Y for their chromosome names in the Ensembl style rather than using chr1 in the UCSC style. If you request a subsection of a vcf file using a chromosome name in the style chrN as shown below it will not work.
+All our VCF files using straight intergers and X/Y for their chromosome names in the Ensembl style rather than using chr1 in the UCSC style. If you request a subsection of a VCF file using a chromosome name in the style chrN as shown below it will not work.
 
    tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804 ALL.2of4intersection.20100804.genotypes.vcf.gz chr2:39967768-39967768
 
