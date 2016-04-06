@@ -1,5 +1,5 @@
 ---
-title: "Why is the Allele frequency different from Allele Count/Allele Number?"
+title: "Why is the allele frequency different from allele count/allele number?"
 faq_tags:
   - data-analysis
   - tools
@@ -11,4 +11,4 @@ faq_related:
   - where-does-ancestral-allele-information-your-variants-come
 ---
                     
-In some early main project releases the Allele Frequency was estimated using additional information like LD, mapping quality and Haplotype information. This means in these releases the Allele Frequency was not always the same as AC/AN. In the phase1 release AF should always match AC/AN rounded to 2 decimal places.
+In some early main project releases the allele frequency (AF) was estimated using additional information like LD, mapping quality and Haplotype information. This means in these releases the AF was not always the same as allele count/allele number (AC/AN). In the phase 1 release AF should always match AC/AN rounded to 2 decimal places.
