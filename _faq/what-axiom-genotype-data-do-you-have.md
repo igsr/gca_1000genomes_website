@@ -11,4 +11,4 @@ faq_related:
   - where-most-recent-release
 ---
                     
-The Affymetrix Axiom Exome chip was used to genotype some samples for the [phase 1 analysis](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1). There are genotypes for 1248 1000 Genomes samples from the Affy 6 chip available in [phase1/analysis_results/supporting/axiom_genotypes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/supporting/axiom_genotypes) from the [Axiom Exome ChIP](http://www.affymetrix.com/estore/browse/products.jsp?productId=prod570018#1_1)
+The Affymetrix Axiom Exome chip was used to genotype some samples for the [phase 1 analysis](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1). There are genotypes for 1248 1000 Genomes samples from the Affy 6 chip available in [phase1/analysis_results/supporting/axiom_genotypes](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/supporting/axiom_genotypes/) from the [Axiom Exome ChIP](http://www.affymetrix.com/estore/browse/products.jsp?productId=prod570018#1_1)
