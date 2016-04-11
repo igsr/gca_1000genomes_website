@@ -8,7 +8,7 @@ redirect_from:
 
 ## {{page.title}}
     
-Please see [VCF_4.0_sv](/wiki/Analysis/Variant%20Call%20Format/VCF%20%28Variant%20Call%20Format%29%20version%204.0/encoding-structural-variants) for the conventions and extensions adopted by the 1000 Genomes Project for encoding structural variations in VCF 4.0 format.
+Please see [VCF_4.0_sv](/wiki/Analysis/Variant%20Call%20Format/VCF%20%28Variant%20Call%20Format%29%20version%204.0/encoding-structural-variants) for the conventions and extensions adopted by the 1000 Genomes Project for encoding structural variations in VCF 4.0 format. Also, please be aware that VCF 4.0 is no longer the current VCF specification. [Additional information on the VCF format is available](wiki/Analysis/variant-call-format.md).
 
 ### 0\. Example
 {: #example}
