@@ -17,7 +17,7 @@ Information on working with IGSR CRAM files are available on the [FTP site](ftp:
 
 ## Variant Call Format (VCF)
 
-The VCF format is a tab delimited format for storing variant calls and individual genotypes. It is able to store all variant calls from single nucleotide variants to large scale insertions and deletions. [Further details about VCF are available](/wiki/Analysis/variant-call-format.md).
+The VCF format is a tab delimited format for storing variant calls and individual genotypes. It is able to store all variant calls from single nucleotide variants to large scale insertions and deletions. [Further details about VCF are available](/wiki/Analysis/variant-call-format).
 
 ##Data file specifications
 
