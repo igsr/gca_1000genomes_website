@@ -64,6 +64,7 @@ Analyses were conducted, looking at both the short variations (up to 50 base pai
     - [An integrated map of structural variation in 2,504 human genomes](http://www.nature.com/nature/journal/v526/n7571/full/nature15394.html) _Nature 526, 75–81 (01 October 2015)_
 
 ###1000 Genomes Project samples and data
+{: #g1k_data_reuse}
 
 The 1000 Genomes Project developed guidelines on ethical considerations for investigators doing sampling, outlined in the  [Informed Consent Background Document](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf) and the [Informed Consent Form Template](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf). All collections included in the Project followed these ethical guidelines and model informed consent language. The 1000 Genomes Project Steering Committee, with input from the Project's Samples and ELSI Group, made final decisions about which populations and sample sets to include in the Project.
 
