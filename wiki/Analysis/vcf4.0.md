@@ -211,7 +211,7 @@ For completeness, VCF records are dynamically typed, so whether a VCF record is 
 {: #what_do_example_vcf_records_indicate_as_variation_from_the_reference}
 
 ##### SNP VCF record
-{: #snp_vcf_record"}
+{: #snp_vcf_record}
 
 Suppose I receive the following VCF record:
 
