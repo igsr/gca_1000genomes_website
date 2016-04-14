@@ -15,6 +15,7 @@ redirect_from:
     - "/announcements/wiki/Analysis/Variant Call Format/bcms/1000_genomes/Documents/ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/"
 permalink: /wiki/Analysis/variant-call-format/
 ---
+#Variant Call Format
 
 The VCF/BCF specification is no longer maintained by the 1000 Genomes Project. The group leading the management and expansion of the format is the [Global Alliance for Genomics and Health Data Working group file format team](http://ga4gh.org/#/fileformats-team).
 
