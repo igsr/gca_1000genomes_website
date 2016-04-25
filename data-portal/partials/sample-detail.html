@@ -1,0 +1,19 @@
+<div>
+  <h1>{{SampleCtrl.name}}</h1>
+  <p ng-if="SampleCtrl.error">{{SampleCtrl.error.status}}: {{SampleCtrl.error.statusText}}</p>
+  <div ng-show="SampleCtrl.data">
+  <dl class="dl-horizontal">
+
+  <div ng-if="SampleCtrl.data.population">
+    <dt>Population:</dt>
+    <dd>{{SampleCtrl.data.population.name}}, {{SampleCtrl.data.population.description}}</dd>
+  </div>
+
+  <div ng-if="SampleCtrl.data.biosampleId">
+    <dt>Biosample:</dt>
+    <dd><a ng-href="http://www.ebi.ac.uk/biosamples/sample/{{SampleCtrl.data.biosampleId}}" target="_blank">{{SampleCtrl.data.biosampleId}}</a></dd>
+  </div>
+
+  </dl>
+  </div>
+</div>
