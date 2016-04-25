@@ -8,8 +8,8 @@ var dependencies = [
 
 var app = angular.module('igsrPortal', dependencies);
 
-app.config(['$locationProvider', '$routeProvider',
-            function($locationProvider, $routeProvider) {
+app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
+            function($locationProvider, $routeProvider, gcaElasticsearchProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider
@@ -22,11 +22,12 @@ app.config(['$locationProvider', '$routeProvider',
         redirectTo: '/beta/sample/NA12878',
     });
 
+    gcaElasticsearchProvider.baseUrl = 'http://www.1000genomes.org/api/beta';
+
 }]);
 
 app.controller('SampleCtrl', ['$routeParams', 'gcaElasticsearch', function($routeParams, gcaElasticsearch) {
     var c = this;
-    gcaElasticsearch.config.baseUrl = 'http://www.1000genomes.org/api/beta'
     c.name = $routeParams.sample;
     c.data = null;
     c.error = null
