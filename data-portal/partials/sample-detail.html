@@ -1,17 +1,17 @@
-<div>
+<div gca-es-doc="sample" bind-error-as="apiError" es-type="sample" es-id="SampleCtrl.name">
   <h1>{{SampleCtrl.name}}</h1>
-  <p ng-if="SampleCtrl.error">{{SampleCtrl.error.status}}: {{SampleCtrl.error.statusText}}</p>
-  <div ng-show="SampleCtrl.data">
+  <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
+  <div ng-show="sample">
   <dl class="dl-horizontal">
 
-  <div ng-if="SampleCtrl.data.population">
+  <div ng-if="sample.population">
     <dt>Population:</dt>
-    <dd>{{SampleCtrl.data.population.name}}, {{SampleCtrl.data.population.description}}</dd>
+    <dd>{{sample.population.name}}, {{sample.population.description}}</dd>
   </div>
 
-  <div ng-if="SampleCtrl.data.biosampleId">
+  <div ng-if="sample.biosampleId">
     <dt>Biosample:</dt>
-    <dd><a ng-href="http://www.ebi.ac.uk/biosamples/sample/{{SampleCtrl.data.biosampleId}}" target="_blank">{{SampleCtrl.data.biosampleId}}</a></dd>
+    <dd><a ng-href="http://www.ebi.ac.uk/biosamples/sample/{{sample.biosampleId}}" target="_blank">{{sample.biosampleId}}</a></dd>
   </div>
 
   </dl>

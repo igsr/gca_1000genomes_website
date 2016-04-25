@@ -26,12 +26,8 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 
 }]);
 
-app.controller('SampleCtrl', ['$routeParams', 'gcaElasticsearch', function($routeParams, gcaElasticsearch) {
+app.controller('SampleCtrl', ['$routeParams', function($routeParams) {
     var c = this;
     c.name = $routeParams.sample;
-    c.data = null;
-    c.error = null
-    gcaElasticsearch.getDocSrc({type: 'sample', id: $routeParams.sample})
-        .then(function(resp) {c.data = resp}, function(reason) {c.error = reason});
 }]);
 
