@@ -60,7 +60,7 @@ The 1000 Genomes Samples and ELSI group determined that all consent forms, for t
 
 ##Data production
 - The samples (including from any adult children in trios) should be genotyped across the genome using a high-density genotyping array with over 500,000 markers.
-- At least 90 unrelated samples should be sequenced, with at least 4X average coverage genome-wide (minimum 3x per sample) and the exome sequenced at high depth (at least 70% of exome target bases to at least 30x).  Alternatively the whole genome may be sequenced at high depth (average at least 30x) on the Illumina platform. If not using Illumina sequencing, please consult with the DCC prior to sequencing and data deposition.
+- At least 90 unrelated samples should be sequenced. This sequencing can follow two different strategies. Low coverage whole genome sequencing (minimum 3x aligned non duplicated coverage per sample) and exome sequencing (at least 70% of exome target bases covered to 30x of higher), this strategy was used by the main 1000 Genomes Project, or high coverage whole genome sequencing (minimum 30x aligned non duplicated coverage per sample).
 - Due to possible cell line artifacts, in some cases it may be better to generate sequences directly from blood DNA. We ask that the source of the DNA be included in the metadata regardless of whether from cell line or blood.
 
 ##Data release
