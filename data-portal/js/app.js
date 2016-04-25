@@ -3,12 +3,13 @@
 var dependencies = [
     'ngRoute',
     'ngSanitize',
-    'ngResource',
+    'gcaElasticsearch'
 ];
 
 var app = angular.module('igsrPortal', dependencies);
 
-app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+app.config(['$locationProvider', '$routeProvider',
+            function($locationProvider, $routeProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider
@@ -20,21 +21,16 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
     .otherwise({
         redirectTo: '/beta/sample/NA12878',
     });
+
 }]);
 
-app.factory('API', ['$resource', function($resource) {
-    return $resource('http://www.1000genomes.org/api/beta/:type/:ID', {}, {
-        getObj: {
-            method: 'GET',
-            isArray: false,
-        }
-    });
-}]);
-
-app.controller('SampleCtrl', ['$routeParams', '$q', 'API', function($routeParams, $q, API) {
+app.controller('SampleCtrl', ['$routeParams', 'gcaElasticsearch', function($routeParams, gcaElasticsearch) {
     var c = this;
+    gcaElasticsearch.config.baseUrl = 'http://www.1000genomes.org/api/beta'
     c.name = $routeParams.sample;
-    c.data = API.getObj({type: 'sample', ID: $routeParams.sample})
-        .$promise.then(function(resp) {c.data = resp._source}, function(reason) {c.error = reason});
+    c.data = null;
+    c.error = null
+    gcaElasticsearch.getDocSrc({type: 'sample', id: $routeParams.sample})
+        .then(function(resp) {c.data = resp}, function(reason) {c.error = reason});
 }]);
 
