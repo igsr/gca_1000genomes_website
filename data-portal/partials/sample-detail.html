@@ -1,4 +1,4 @@
-<div gca-es-doc="sample" bind-error-as="apiError" es-type="sample" es-id="SampleCtrl.name">
+<div es-doc="sample" error-as="apiError" es-type="sample" es-id="SampleCtrl.name">
   <h1>{{SampleCtrl.name}}</h1>
   <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
   <div ng-show="sample">
@@ -15,5 +15,23 @@
   </div>
 
   </dl>
+
+  <div ng-repeat="dc in sample.dataCollections">
+    <h2>{{dc.dataCollection}}</h2>
+    <p><a ng-href="dc.dataReusePolicy">Data reuse policy</a></p>
+    <div ng-repeat="dt in dc.dataTypes">
+      <h3>{{dt}}</h3>
+      <div ng-repeat="ag in dc[dt]">
+        <h4>{{ag}}</h4>
+        <div es-search="fileSearcher" error-as="apiFileError" es-type="file"
+          hits-as="files" on-init="SampleCtrl.fileSearchBody(fileSearcher, dc.dataCollection, dt, ag)">
+          <ul>
+          <li ng-repeat="file in files.hits"><a ng-href="{{file._source.url}}">{{file._source.url}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
   </div>
 </div>

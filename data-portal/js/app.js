@@ -29,5 +29,19 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 app.controller('SampleCtrl', ['$routeParams', function($routeParams) {
     var c = this;
     c.name = $routeParams.sample;
+
+    c.fileSearchBody = function(es, dataCollection, dataType, analysisGroup) {
+      es.search( {
+        query: {
+          bool: {
+            must: [
+              {term: {dataCollections: dataCollection}},
+              {term: {analysisGroup: analysisGroup}},
+              {term: {dataType: dataType}},
+            ]
+          }
+        }
+      });
+    };
 }]);
 
