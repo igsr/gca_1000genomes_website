@@ -7,7 +7,7 @@
   <div class="panel-heading"><h3 class="panel-title">Sample {{SampleCtrl.name}}</h3></div>
   <div class="panel-body">
       <dl class="dl-horizontal">
-      <div ng-if="sample.sex"><dt>Sex:</dt><dd>{{sample.sex}}</dd></div>
+      <div ng-if="sample.sex"><dt>Sex:</dt><dd>{{SampleCtrl.ucFirst(sample.sex)}}</dd></div>
       <div ng-if="sample.biosampleId"><dt>Biosample ID:</dt><dd><a ng-href="http://www.ebi.ac.uk/biosamples/sample/{{sample.biosampleId}}" target="_blank">{{sample.biosampleId}}</a></dd></div>
       <dt>Search Coriell:</dt><dd><a ng-href="https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref={{SampleCtrl.name}}&Product=CC" target="_blank">{{SampleCtrl.name}}</a></dd>
       </dl>
