@@ -37,7 +37,10 @@ module.directive('esDoc', ['gcaElasticsearch', function(gcaElasticsearch) {
         if (angular.isString(bindErrorAs)) {scope[bindErrorAs] = null};
         if (angular.isString(esId)) {
             gcaElasticsearch.getDoc({type: esType, id: esId}).then(
-              function(resp) {if (angular.isString(bindSourceAs)) {scope[bindSourceAs] = resp.data._source;}},
+              function(resp) {
+                  if (angular.isString(bindSourceAs)) {scope[bindSourceAs] = resp.data._source;}
+                  scope.$eval(iAttr.onSuccess);
+              },
               function(reason) {if (angular.isString(bindErrorAs)) {scope[bindErrorAs] = reason;}}
             );
         }
@@ -52,41 +55,36 @@ module.directive('esDoc', ['gcaElasticsearch', function(gcaElasticsearch) {
   };
 }]);
 
-module.directive('esSearch', [function() {
+module.directive('esSearch', ['gcaElasticsearch', function(gcaElasticsearch) {
   return {
-    controller: ['gcaElasticsearch', '$scope', function(gcaElasticsearch, $scope) {
-      var c = this;
-      c.search = function(searchBody) {
-        if (angular.isString(c._config.bindHitsAs)) {$scope[c._config.bindHitsAs] = null};
-        if (angular.isString(c._config.bindAggsAs)) {$scope[c._config.bindAggsAs] = null};
-        if (angular.isString(c._config.bindErrorAs)) {$scope[c._config.bindErrorAs] = null};
-        if (angular.isString(c._config.type) && angular.isObject(searchBody)) {
-          gcaElasticsearch.search({type: c._config.type, body: searchBody}).then(
+    scope: {
+        searchBody: '=',
+        hitsAs: '@',
+        aggsAs: '@',
+        errorAs: '@',
+        esType: '@',
+    },
+    link: function(scope, iElement, iAttr) {
+        
+      var search = function() {
+        if (angular.isString(scope.esType) && angular.isObject(scope.searchBody)) {
+          gcaElasticsearch.search({type: scope.esType, body: scope.searchBody}).then(
             function(resp) {
-                if (angular.isString(c._config.bindHitsAs)) {$scope[c._config.bindHitsAs] = resp.data.hits;}
-                if (angular.isString(c._config.bindAggsAs)) {$scope[c._config.bindAggsAs] = resp.data.aggs;}
+              if (angular.isString(scope.hitsAs)) {scope.$parent[scope.hitsAs] = resp.data.hits;}
+              if (angular.isString(scope.aggsAs)) {scope.$parent[scope.aggsAs] = resp.data.aggs;}
             },
-            function(reason) {if (angular.isString(c._config.bindErrorAs)) {$scope[c._config.bindErrorAs] = reason;}}
+            function(reason) {if (angular.isString(scope.errorAs)) {scope.$parent[scope.errorAs] = reason;}}
           );
           
         }
-      }
-    }],
-    link: function(scope, iElement, iAttr, ctrl) {
-      ctrl._config = {};
-      ctrl._config.bindHitsAs = iAttr.hitsAs;
-      ctrl._config.bindAggsAs = iAttr.aggsAs;
-      ctrl._config.bindErrorAs = iAttr.errorAs;
-      ctrl._config.type = iAttr.esType;
-
-      var bindCtrlAs = iAttr.esSearch || iAttr.name;
-      if (angular.isString(bindCtrlAs)) {
-          scope[bindCtrlAs] = ctrl;
+        else {
+          if (angular.isString(scope.hitsAs)) {scope.$parent[scope.hitsAs] = null};
+          if (angular.isString(scope.aggsAs)) {scope.$parent[scope.aggsAs] = null};
+          if (angular.isString(scope.errorAs)) {scope.$parent[scope.errorAs] = null};
+        }
       }
 
-      if (angular.isString(iAttr.onInit)) {
-          scope.$eval(iAttr.onInit);
-      }
+      scope.$watch('searchBody', search);
 
     },
   }

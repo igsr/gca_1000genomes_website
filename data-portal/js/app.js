@@ -26,22 +26,56 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 
 }]);
 
-app.controller('SampleCtrl', ['$routeParams', function($routeParams) {
+app.controller('SampleCtrl', ['$routeParams', '$scope', function($routeParams, $scope) {
     var c = this;
     c.name = $routeParams.sample;
+    c.fileSearchBody = null;
 
-    c.fileSearchBody = function(es, dataCollection, dataType, analysisGroup) {
-      es.search( {
-        query: {
-          bool: {
-            must: [
-              {term: {dataCollections: dataCollection}},
-              {term: {analysisGroup: analysisGroup}},
-              {term: {dataType: dataType}},
-            ]
-          }
+    c.setDataCollection = function(dc) {
+        if (dc !== c.dataCollection) {
+            c.dataCollection = dc;
+            c.fileSearch();
         }
-      });
     };
+
+    c.setFileSelection = function() {
+      if (angular.isObject($scope.sample) && $scope.sample.hasOwnProperty('dataCollections')) {
+          c.dataCollection = $scope.sample.dataCollections[0];
+          c.dataType = c.dataCollection.dataTypes[0];
+          c.analysisGroup = c.dataCollection[c.dataType][0];
+          c.fileSearch();
+      }
+      else {
+          c.dataCollection = null;
+          c.dataType = null;
+          c.analysisGroup = null;
+      }
+    };
+
+    c.fileSearch = function() {
+      if (angular.isObject(c.dataCollection) && angular.isString(c.analysisGroup) && angular.isString(c.dataType)) {
+          if ( ! c.dataCollection.hasOwnProperty(c.dataType)) {
+              c.dataType = c.dataCollection.dataTypes[0];
+          }
+          if (c.dataCollection[c.dataType].indexOf(c.analysisGroup) <0) {
+              c.analysisGroup = c.dataCollection[c.dataType][0];
+          }
+          c.fileSearchBody = {
+            query: {
+              bool: {
+                must: [
+                  {term: {dataCollections: c.dataCollection.dataCollection}},
+                  {term: {analysisGroup: c.analysisGroup}},
+                  {term: {dataType: c.dataType}},
+                ]
+              }
+            }
+          };
+      }
+      else {
+          c.fileSearchBody = null;
+      }
+    };
+
 }]);
 

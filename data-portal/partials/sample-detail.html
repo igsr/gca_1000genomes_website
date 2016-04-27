@@ -1,4 +1,4 @@
-<div es-doc="sample" error-as="apiError" es-type="sample" es-id="SampleCtrl.name">
+<div es-doc="sample" error-as="apiError" es-type="sample" es-id="SampleCtrl.name" on-success="SampleCtrl.setFileSelection()">
   <h1>{{SampleCtrl.name}}</h1>
   <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
   <div ng-show="sample">
@@ -36,24 +36,43 @@
   </div>
   </div></div>
 
+  <div ng-if="sample.dataCollections" class="col-lg-12">
+  <h2>Data collections for {{SampleCtrl.name}}</h2>
+  <ul class="nav nav-tabs nav-justified">
+  <li ng-repeat="dc in sample.dataCollections" ng-class="{'active': dc === SampleCtrl.dataCollection ? true : false}"><a href="" ng-click="SampleCtrl.setDataCollection(dc)">{{dc.dataCollection}}</a></li>
+  </ul>
 
+  <div class="panel panel-default"><div class="panel-body">
 
-  <div ng-repeat="dc in sample.dataCollections" class="col-lg-12">
-    <h2>{{dc.dataCollection}}</h2>
-    <p><a ng-href="dc.dataReusePolicy">Data reuse policy</a></p>
-    <div ng-repeat="dt in dc.dataTypes">
-      <h3>{{dt}}</h3>
-      <div ng-repeat="ag in dc[dt]">
-        <h4>{{ag}}</h4>
-        <div es-search="fileSearcher" error-as="apiFileError" es-type="file"
-          hits-as="files" on-init="SampleCtrl.fileSearchBody(fileSearcher, dc.dataCollection, dt, ag)">
-          <ul>
-          <li ng-repeat="file in files.hits"><a ng-href="{{file._source.url}}">{{file._source.url}}</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
+  <div class="panel-heading">Data Types</div>
+  <div class="panel-body">
+  <div ng-repeat="dt in SampleCtrl.dataCollection.dataTypes" class="radio">
+    <label><input type="radio" ng-model="SampleCtrl.dataType" ng-change="SampleCtrl.fileSearch()" ng-value="dt">{{dt}}</label>
+  </div></div>
+  </div></div>
+
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
+  <div class="panel-heading">Analysis Groups</div>
+  <div class="panel-body">
+  <div ng-repeat="ag in SampleCtrl.dataCollection[SampleCtrl.dataType]" class="radio">
+    <label><input type="radio" ng-model="SampleCtrl.analysisGroup" ng-change="SampleCtrl.fileSearch()" ng-value="ag">{{ag}}</label>
+  </div></div>
+  </div></div>
+
+  <div class="col-md-12" es-search="" search-body="SampleCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file">
+  <table class="table table-striped table-condensed">
+  <tr><th>File</th><th>Download</th></tr>
+      <tr ng-repeat="file in files.hits">
+      <td>{{file._source.url}}</td>
+      <td><a ng-href="{{file._source.url}}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+      </tr>
+  </table>
   </div>
+
+  </div>
+  </div>
+
 
   </div>
 </div>
