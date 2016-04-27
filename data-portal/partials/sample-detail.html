@@ -42,7 +42,7 @@
   <li ng-repeat="dc in sample.dataCollections" ng-class="{'active': dc === SampleCtrl.dataCollection ? true : false}"><a href="" ng-click="SampleCtrl.setDataCollection(dc)">{{dc.dataCollection}}</a></li>
   </ul>
 
-  <div class="panel panel-default"><div class="panel-body">
+  <div class="panel panel-default"><div class="panel-body"> <div class="row">
 
   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
   <div class="panel-heading">Data types</div>
@@ -60,7 +60,15 @@
   </div></div>
   </div></div>
 
-  <div class="col-md-12" es-search="" search-body="SampleCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file">
+  </div>
+  <div class="row">
+
+  <div class="col-md-12" es-search="" search-body="SampleCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file"><div class="row">
+
+  <div class="col-md-6"><p>{{files.total}} matching {{SampleCtrl.dataType}} data files</p></div>
+  <div class="col-md-6"><p><a ng-href="{{SampleCtrl.dataCollection.dataReusePolicy}}"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{SampleCtrl.dataCollection.dataCollection}}</a></p></div>
+
+  <div class="col-md-12">
   <table class="table table-striped table-condensed">
   <tr><th>File</th><th>Download</th></tr>
       <tr ng-repeat="file in files.hits">
@@ -70,6 +78,9 @@
   </table>
   </div>
 
+  </div></div>
+
+  </div>
   </div>
   </div>
 
