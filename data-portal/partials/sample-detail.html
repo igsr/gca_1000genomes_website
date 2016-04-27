@@ -2,21 +2,43 @@
   <h1>{{SampleCtrl.name}}</h1>
   <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
   <div ng-show="sample">
-  <dl class="dl-horizontal">
 
-  <div ng-if="sample.population">
-    <dt>Population:</dt>
-    <dd>{{sample.population.name}}, {{sample.population.description}}</dd>
+  <div class="col-lg-6"><div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">Sample {{SampleCtrl.name}}</h3></div>
+  <div class="panel-body">
+      <dl class="dl-horizontal">
+      <div ng-if="sample.sex"><dt>Sex:</dt><dd>{{sample.sex}}</dd></div>
+      <div ng-if="sample.biosampleId"><dt>Biosample ID:</dt><dd><a ng-href="http://www.ebi.ac.uk/biosamples/sample/{{sample.biosampleId}}" target="_blank">{{sample.biosampleId}}</a></dd></div>
+      <dt>Search Coriell:</dt><dd><a ng-href="https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref={{SampleCtrl.name}}&Product=CC" target="_blank">{{SampleCtrl.name}}</a></dd>
+      </dl>
   </div>
+  </div></div>
 
-  <div ng-if="sample.biosampleId">
-    <dt>Biosample:</dt>
-    <dd><a ng-href="http://www.ebi.ac.uk/biosamples/sample/{{sample.biosampleId}}" target="_blank">{{sample.biosampleId}}</a></dd>
+  <div ng-if="sample.population" class="col-lg-6"><div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">{{sample.population.code}} population</h3></div>
+  <div class="panel-body">
+      <dl class="dl-horizontal">
+      <dt>Population:</dt><dd>{{sample.population.name}}</dd>
+      <dt>Code:</dt><dd>{{sample.population.code}}</dd>
+      <dt>Description:</dt><dd>{{sample.population.description}}</dd>
+      <dt>Superpopulation:</dt><dd>{{sample.superpopulation.name}}</dd>
+      <dt>Superpopulation code:</dt><dd>{{sample.superpopulation.code}}</dd>
+      </dl>
   </div>
+  </div></div>
 
-  </dl>
+  <div ng-if="sample.relatedSample" class="col-lg-6"><div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">Related samples</h3></div>
+  <div class="panel-body">
+      <dl class="dl-horizontal">
+      <div ng-repeat="relationship in sample.relatedSample"><dt>{{relationship.relationship}}:</dt><dd><a ng-href="beta/sample/{{relationship.relatedSampleName}}">{{relationship.relatedSampleName}}</a></dd></div>
+      </dl>
+  </div>
+  </div></div>
 
-  <div ng-repeat="dc in sample.dataCollections">
+
+
+  <div ng-repeat="dc in sample.dataCollections" class="col-lg-12">
     <h2>{{dc.dataCollection}}</h2>
     <p><a ng-href="dc.dataReusePolicy">Data reuse policy</a></p>
     <div ng-repeat="dt in dc.dataTypes">

@@ -63,7 +63,6 @@ module.directive('esSearch', [function() {
         if (angular.isString(c._config.type) && angular.isObject(searchBody)) {
           gcaElasticsearch.search({type: c._config.type, body: searchBody}).then(
             function(resp) {
-                console.log(resp);
                 if (angular.isString(c._config.bindHitsAs)) {$scope[c._config.bindHitsAs] = resp.data.hits;}
                 if (angular.isString(c._config.bindAggsAs)) {$scope[c._config.bindAggsAs] = resp.data.aggs;}
             },
