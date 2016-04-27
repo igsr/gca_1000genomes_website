@@ -77,5 +77,9 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', function($routeParams, $
       }
     };
 
+    c.ucFirst = function(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    };
+
 }]);
 

@@ -45,15 +45,15 @@
   <div class="panel panel-default"><div class="panel-body">
 
   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
-  <div class="panel-heading">Data Types</div>
+  <div class="panel-heading">Data types</div>
   <div class="panel-body">
   <div ng-repeat="dt in SampleCtrl.dataCollection.dataTypes" class="radio">
-    <label><input type="radio" ng-model="SampleCtrl.dataType" ng-change="SampleCtrl.fileSearch()" ng-value="dt">{{dt}}</label>
+    <label><input type="radio" ng-model="SampleCtrl.dataType" ng-change="SampleCtrl.fileSearch()" ng-value="dt">{{SampleCtrl.ucFirst(dt)}}</label>
   </div></div>
   </div></div>
 
   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
-  <div class="panel-heading">Analysis Groups</div>
+  <div class="panel-heading">{{SampleCtrl.ucFirst(SampleCtrl.dataType)}} analysis groups</div>
   <div class="panel-body">
   <div ng-repeat="ag in SampleCtrl.dataCollection[SampleCtrl.dataType]" class="radio">
     <label><input type="radio" ng-model="SampleCtrl.analysisGroup" ng-change="SampleCtrl.fileSearch()" ng-value="ag">{{ag}}</label>
