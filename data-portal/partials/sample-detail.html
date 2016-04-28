@@ -61,9 +61,9 @@
   </div></div>
 
   </div>
-  <div class="row">
 
-  <div class="col-md-12" es-search="" search-body="SampleCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file"><div class="row">
+  <div class="row">
+  <es-search search-body="SampleCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file"></es-search>
 
   <div class="col-md-6"><p><strong>{{files.total}}</strong> matching {{SampleCtrl.dataType}} data files</p></div>
   <div class="col-md-6"><p><a ng-href="{{SampleCtrl.dataCollection.dataReusePolicy}}"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{SampleCtrl.dataCollection.dataCollection}}</a></p></div>
@@ -78,7 +78,7 @@
   </table>
   </div>
 
-  </div></div>
+  </div>
 
   </div>
   </div>
