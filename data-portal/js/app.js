@@ -29,7 +29,15 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 }]);
 
 app.filter('ucFirst', function() {
-    return function(string) {return string.charAt(0).toUpperCase() + string.slice(1) };
+    return function(string) {
+        string = string || '';
+        return string.charAt(0).toUpperCase() + string.slice(1) };
+});
+app.filter('softHyphenUrl', function($sce) {
+    return function(string) {
+        string = string || '';
+        return $sce.trustAsHtml(string.replace(/\//g, '/&shy;'));
+    };
 });
 
 app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', function($routeParams, $scope, gcaElasticsearch) {
