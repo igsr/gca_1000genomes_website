@@ -48,7 +48,7 @@
   <div class="panel-heading">Data types</div>
   <div class="panel-body">
   <div ng-repeat="dt in SampleCtrl.dataCollection.dataTypes" class="radio">
-    <label><input type="radio" ng-model="SampleCtrl.dataType" ng-change="SampleCtrl.fileSearch()" ng-value="dt">{{dt | ucFirst}}</label>
+    <label><input type="radio" ng-model="SampleCtrl.dataType" ng-change="SampleCtrl.fileSearch({page1: true})" ng-value="dt">{{dt | ucFirst}}</label>
   </div></div>
   </div></div>
 
@@ -56,17 +56,24 @@
   <div class="panel-heading">{{SampleCtrl.dataType | ucFirst}} analysis groups</div>
   <div class="panel-body">
   <div ng-repeat="ag in SampleCtrl.dataCollection[SampleCtrl.dataType]" class="radio">
-    <label><input type="radio" ng-model="SampleCtrl.analysisGroup" ng-change="SampleCtrl.fileSearch()" ng-value="ag">{{ag}}</label>
+    <label><input type="radio" ng-model="SampleCtrl.analysisGroup" ng-change="SampleCtrl.fileSearch({page1: true})" ng-value="ag">{{ag}}</label>
   </div></div>
   </div></div>
 
   </div>
 
-  <div class="row">
   <es-search search-body="SampleCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file"></es-search>
-
+  <div class="row">
   <div class="col-md-6"><p><strong>{{files.total}}</strong> matching {{SampleCtrl.dataType}} data files</p></div>
   <div class="col-md-6"><p><a ng-href="{{SampleCtrl.dataCollection.dataReusePolicy}}"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{SampleCtrl.dataCollection.dataCollection}}</a></p></div>
+  </div>
+
+  <div class="row">
+  <div class="col-md-12"><uib-pager ng-if="files.total > SampleCtrl.hitsPerPage"
+            items-per-page="SampleCtrl.hitsPerPage" ng-model="SampleCtrl.filePage"
+            num-pages="Math.ceil(files.total / SampleCtrl.hitsPerPage)"
+           ng-change="SampleCtrl.fileSearch()"   total-items="files.total"></uib-pager</div>
+  </div>
 
   <div class="col-md-12">
   <table class="table table-striped table-condensed">

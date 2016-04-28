@@ -3,7 +3,8 @@
 var dependencies = [
     'ngRoute',
     'ngSanitize',
-    'gcaElasticsearch'
+    'gcaElasticsearch',
+    'ui.bootstrap'
 ];
 
 
@@ -35,10 +36,12 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', function($routeParams, $
     var c = this;
     c.name = $routeParams.sample;
     c.fileSearchBody = null;
+    c.hitsPerPage = 20;
 
     c.setDataCollection = function(dc) {
         if (dc !== c.dataCollection) {
             c.dataCollection = dc;
+            c.filePage = 1;
             c.fileSearch();
         }
     };
@@ -57,7 +60,11 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', function($routeParams, $
       }
     };
 
-    c.fileSearch = function() {
+    c.fileSearch = function(options) {
+      if (angular.isObject(options) && options.page1) {
+          c.filePage = 1;
+      };
+      
       if (angular.isObject(c.dataCollection) && angular.isString(c.analysisGroup) && angular.isString(c.dataType)) {
           if ( ! c.dataCollection.hasOwnProperty(c.dataType)) {
               c.dataType = c.dataCollection.dataTypes[0];
@@ -66,6 +73,8 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', function($routeParams, $
               c.analysisGroup = c.dataCollection[c.dataType][0];
           }
           c.fileSearchBody = {
+            from: (c.filePage -1)*c.hitsPerPage +1,
+            size: c.hitsPerPage,
             query: {
               bool: {
                 must: [
