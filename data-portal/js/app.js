@@ -6,13 +6,6 @@ var dependencies = [
     'gcaElasticsearch'
 ];
 
-var igsrUtils = {
-    ucFirst: function(string) {
-        if (angular.isString(string)) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        }
-    }
-};
 
 var app = angular.module('igsrPortal', dependencies);
 
@@ -34,12 +27,14 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 
 }]);
 
+app.filter('ucFirst', function() {
+    return function(string) {return string.charAt(0).toUpperCase() + string.slice(1) };
+});
+
 app.controller('SampleCtrl', ['$routeParams', '$scope', function($routeParams, $scope) {
     var c = this;
     c.name = $routeParams.sample;
     c.fileSearchBody = null;
-
-    $scope.igsrUtils = igsrUtils;
 
     c.setDataCollection = function(dc) {
         if (dc !== c.dataCollection) {
