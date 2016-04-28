@@ -57,34 +57,31 @@ module.directive('esDoc', ['gcaElasticsearch', function(gcaElasticsearch) {
 
 module.directive('esSearch', ['gcaElasticsearch', function(gcaElasticsearch) {
   return {
-    scope: {
-        searchBody: '=',
-        hitsAs: '@',
-        aggsAs: '@',
-        errorAs: '@',
-        esType: '@',
-    },
+    scope: false,
     link: function(scope, iElement, iAttr) {
         
-      var search = function() {
-        if (angular.isString(scope.esType) && angular.isObject(scope.searchBody)) {
-          gcaElasticsearch.search({type: scope.esType, body: scope.searchBody}).then(
+      var search = function(searchBody) {
+        if (angular.isString(iAttr.esType) && angular.isObject(searchBody)) {
+          gcaElasticsearch.search({type: iAttr.esType, body: searchBody}).then(
             function(resp) {
-              if (angular.isString(scope.hitsAs)) {scope.$parent[scope.hitsAs] = resp.data.hits;}
-              if (angular.isString(scope.aggsAs)) {scope.$parent[scope.aggsAs] = resp.data.aggs;}
+              if (angular.isString(iAttr.hitsAs)) {scope[iAttr.hitsAs] = resp.data.hits;}
+              if (angular.isString(iAttr.aggsAs)) {scope[iAttr.aggsAs] = resp.data.aggs;}
             },
-            function(reason) {if (angular.isString(scope.errorAs)) {scope.$parent[scope.errorAs] = reason;}}
+            function(reason) {if (angular.isString(iAttr.errorAs)) {scope[iAttr.errorAs] = reason;}}
           );
           
         }
         else {
-          if (angular.isString(scope.hitsAs)) {scope.$parent[scope.hitsAs] = null};
-          if (angular.isString(scope.aggsAs)) {scope.$parent[scope.aggsAs] = null};
-          if (angular.isString(scope.errorAs)) {scope.$parent[scope.errorAs] = null};
+          if (angular.isString(iAttr.hitsAs)) {scope[iAttr.hitsAs] = null};
+          if (angular.isString(iAttr.aggsAs)) {scope[iAttr.aggsAs] = null};
+          if (angular.isString(iAttr.errorAs)) {scope[iAttr.errorAs] = null};
         }
       }
 
-      scope.$watch('searchBody', search);
+      if (angular.isString(iAttr.searchBody)) {
+        var watcher = scope.$watch(iAttr.searchBody, search);
+        iElement.on('$destroy', watcher);
+      }
 
     },
   }
