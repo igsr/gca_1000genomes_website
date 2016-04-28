@@ -1,10 +1,10 @@
 <div es-doc="sample" error-as="apiError" es-type="sample" es-id="SampleCtrl.name" on-success="SampleCtrl.setFileSelection()">
-  <h1>{{SampleCtrl.name}}</h1>
+  <h1>Sample {{SampleCtrl.name}}</h1>
   <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
   <div ng-show="sample">
 
   <div class="col-lg-6"><div class="panel panel-default">
-  <div class="panel-heading"><h3 class="panel-title">Sample {{SampleCtrl.name}}</h3></div>
+  <div class="panel-heading"><h3 class="panel-title">{{SampleCtrl.name}} details</h3></div>
   <div class="panel-body">
       <dl class="dl-horizontal">
       <div ng-if="sample.sex"><dt>Sex:</dt><dd>{{sample.sex | ucFirst}}</dd></div>
@@ -39,8 +39,9 @@
   <div ng-if="sample.dataCollections" class="col-lg-12">
   <h2>Data collections for {{SampleCtrl.name}}</h2>
   <ul class="nav nav-tabs nav-justified">
-  <li ng-repeat="dc in sample.dataCollections" ng-class="{'active': dc === SampleCtrl.dataCollection ? true : false}"><a href="" ng-click="SampleCtrl.setDataCollection(dc)">{{dc.dataCollection}}</a></li>
-  </ul>
+  <li ng-repeat="dc in sample.dataCollections" ng-class="{'active': dc === SampleCtrl.dataCollection ? true : false}">
+        <a href="" ng-click="SampleCtrl.setDataCollection(dc)"><div ng-class="{'nav-tab-tall': sample.dataCollections.length >=4 }">{{dc.dataCollection}}</div></a>
+  </li></ul>
 
   <div class="panel panel-default"><div class="panel-body"> <div class="row">
 

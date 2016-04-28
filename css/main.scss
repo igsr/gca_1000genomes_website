@@ -154,3 +154,9 @@ div.section {
     }
 
 }
+
+ul.nav.nav-tabs div.nav-tab-tall {
+  @media (min-width: 768px) {
+    height: 60px;
+  }
+}
