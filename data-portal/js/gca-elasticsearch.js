@@ -47,9 +47,8 @@ module.directive('esDoc', ['gcaElasticsearch', function(gcaElasticsearch) {
       };
 
       if (angular.isString(esType)) {
-        scope.$watch(iAttr.esId, function(newId, oldId) {
-          esGet(newId);
-        });
+        var watcher = scope.$watch(iAttr.esId, esGet);
+        iElement.on('$destroy', watcher);
       }
     }
   };
