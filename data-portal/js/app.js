@@ -89,6 +89,7 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
                   {term: {dataCollections: c.dataCollection.dataCollection}},
                   {term: {analysisGroup: c.analysisGroup}},
                   {term: {dataType: c.dataType}},
+                  {term: {samples: c.name}},
                 ]
               }
             }
@@ -109,6 +110,7 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
               {term: {dataCollections: c.dataCollection.dataCollection}},
               {term: {analysisGroup: c.analysisGroup}},
               {term: {dataType: c.dataType}},
+              {term: {samples: c.name}},
             ]
           }
         }
