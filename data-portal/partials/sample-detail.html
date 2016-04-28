@@ -71,7 +71,6 @@
   <div class="row">
   <div class="col-md-12"><uib-pager ng-if="files.total > SampleCtrl.hitsPerPage"
             items-per-page="SampleCtrl.hitsPerPage" ng-model="SampleCtrl.filePage"
-            num-pages="Math.ceil(files.total / SampleCtrl.hitsPerPage)"
            ng-change="SampleCtrl.fileSearch()"   total-items="files.total"></uib-pager</div>
   </div>
 
