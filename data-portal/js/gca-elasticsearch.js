@@ -16,9 +16,29 @@ module.provider('gcaElasticsearch', function() {
       return $http.post(url, options.body);
     };
 
+    var searchExport = function(options) {
+      var format = angular.isString(options.format) ? options.format : 'tsv';
+      var filename = angular.isString(options.filename) ? options.filename : options.type;
+
+      var url = p.baseUrl.concat('/', options.type, '/_search/', filename, '.', format);
+      var form = document.createElement('form');
+      form.action= url;
+      form.method='POST';
+      form.target="_self";
+      var input = document.createElement("textarea");
+      input.setAttribute('type', 'hidden');
+      input.setAttribute('name', 'json');
+      input.value = JSON.stringify(options.body);
+      form.appendChild(input);
+      form.style.display = 'none';
+      document.body.appendChild(form);
+      form.submit();
+    };
+
     return {
       getDoc: getDoc,
       search: search,
+      searchExport: searchExport,
     };
 
   }];

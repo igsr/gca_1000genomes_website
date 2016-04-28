@@ -32,7 +32,7 @@ app.filter('ucFirst', function() {
     return function(string) {return string.charAt(0).toUpperCase() + string.slice(1) };
 });
 
-app.controller('SampleCtrl', ['$routeParams', '$scope', function($routeParams, $scope) {
+app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', function($routeParams, $scope, gcaElasticsearch) {
     var c = this;
     c.name = $routeParams.sample;
     c.fileSearchBody = null;
@@ -89,6 +89,24 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', function($routeParams, $
       else {
           c.fileSearchBody = null;
       }
+    };
+
+    c.fileSearchExport = function() {
+      var fileSearchBody = {
+        from: 1,
+        size: $scope.files.total,
+        query: {
+          bool: {
+            must: [
+              {term: {dataCollections: c.dataCollection.dataCollection}},
+              {term: {analysisGroup: c.analysisGroup}},
+              {term: {dataType: c.dataType}},
+            ]
+          }
+        }
+      };
+
+      gcaElasticsearch.searchExport({type: 'file', format: 'tsv', filename: 'igsr', body: fileSearchBody});
     };
 
 }]);
