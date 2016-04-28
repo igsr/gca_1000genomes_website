@@ -160,3 +160,13 @@ ul.nav.nav-tabs div.nav-tab-tall {
     height: 60px;
   }
 }
+
+div.table-group ul.pager {
+    margin-bottom: 0px;
+    li a {
+        border-bottom-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-width: 0px;
+        background-color: rgb(249, 249, 249);
+    }
+}
