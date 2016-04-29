@@ -16,7 +16,7 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 
     $routeProvider
     .when('/sample/:sample', {
-        templateUrl: 'partials/sample-detail.html?ver=20160428',
+        templateUrl: 'partials/sample-detail.html?ver=20160429',
         controller: 'SampleCtrl',
         controllerAs: 'SampleCtrl',
     })
