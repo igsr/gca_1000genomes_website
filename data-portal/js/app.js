@@ -137,15 +137,19 @@ app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', 
       c.sampleSearchBody = {
         from: (c.samplePage -1)*c.sampleHitsPerPage,
         size: c.sampleHitsPerPage,
-        query: {
-          filtered: {
-            filter: {
-              term:{ 'population.code': c.popCode }
-            }
-          }
-        }
+        query: { filtered: { filter: { term:{ 'population.code': c.popCode } } } }
       };
     }
     c.sampleSearch();
+
+    c.sampleExport = function() {
+      var searchBody = {
+        fields: ['name', 'sex', 'population.code', 'biosampleId'],
+        column_names: ['Name', 'Sex', 'Population', 'Biosample ID'],
+        query: { filtered: { filter: { term:{ 'population.code': c.popCode } } } }
+      };
+
+      gcaElasticsearch.searchExport({type: 'sample', format: 'tsv', filename: c.popCode, body: searchBody});
+    };
 }]);
 
