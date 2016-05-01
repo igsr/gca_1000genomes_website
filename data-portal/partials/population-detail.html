@@ -1,0 +1,49 @@
+<div es-doc="population" error-as="apiError" es-type="population" es-id="PopCtrl.popCode">
+  <h1>Population {{PopCtrl.popCode}}</h1>
+  <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
+  <div ng-show="population">
+
+  <div class="col-lg-6"><div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">{{PopCtrl.popCode}} details</h3></div>
+  <div class="panel-body">
+      <dl class="dl-horizontal">
+      <dt>Population:</dt><dd>{{population.name}}</dd>
+      <dt>Code:</dt><dd>{{population.code}}</dd>
+      <dt>Description:</dt><dd>{{population.description}}</dd>
+      <dt>Superpopulation:</dt><dd>{{population.superpopulation.name}}</dd>
+      <dt>Superpopulation code:</dt><dd>{{population.superpopulation.code}}</dd>
+      </dl>
+  </div>
+  </div></div>
+
+  <es-search search-body="PopCtrl.sampleSearchBody" hits-as="samples" es-type="sample"></es-search>
+
+  <div ng-if="samples.hits.length" class="col-lg-6"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{samples.total}} samples</h3>
+  </div>
+
+  <div class="panel-body">
+    <button type="button" class="btn btn-default center-block" ng-click="PopCtrl.sampleExport()">Download the list</button>
+  <div class="table-group">
+  <uib-pager ng-if="samples.total > PopCtrl.sampleHitsPerPage"
+            items-per-page="PopCtrl.sampleHitsPerPage" ng-model="PopCtrl.samplePage"
+           ng-change="PopCtrl.sampleSearch()" total-items="samples.total"></uib-pager>
+  <table class="table table-striped table-condensed">
+      <tr>
+          <th class="text-center">Sample</th>
+          <th class="text-center">Sex</th>
+      </tr>
+      <tr ng-repeat="sample in samples.hits">
+      <td class="text-center"><a ng-href="sample/{{sample._source.name}}">{{sample._source.name}}</a></td>
+      <td class="text-center">{{sample._source.sex | ucFirst}}</td>
+      </tr>
+  </table>
+  </div>
+
+  </div>
+
+  </div></div>
+
+  </div>
+</div>

@@ -20,6 +20,11 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         controller: 'SampleCtrl',
         controllerAs: 'SampleCtrl',
     })
+    .when('/population/:population', {
+        templateUrl: 'partials/population-detail.html?ver=20160429',
+        controller: 'PopulationCtrl',
+        controllerAs: 'PopCtrl',
+    })
     .otherwise({
         redirectTo: '/sample/NA12878',
     });
@@ -119,5 +124,28 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
       gcaElasticsearch.searchExport({type: 'file', format: 'tsv', filename: 'igsr', body: fileSearchBody});
     };
 
+}]);
+
+app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', function($routeParams, $scope, gcaElasticsearch) {
+    var c = this;
+    c.popCode = $routeParams.population;
+
+    c.sampleHitsPerPage = 10;
+    c.samplePage = 1;
+
+    c.sampleSearch = function() {
+      c.sampleSearchBody = {
+        from: (c.samplePage -1)*c.sampleHitsPerPage,
+        size: c.sampleHitsPerPage,
+        query: {
+          filtered: {
+            filter: {
+              term:{ 'population.code': c.popCode }
+            }
+          }
+        }
+      };
+    }
+    c.sampleSearch();
 }]);
 
