@@ -24,7 +24,7 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         redirectTo: '/sample/NA12878',
     });
 
-    gcaElasticsearchProvider.baseUrl = 'http://www.1000genomes.org/api/beta';
+    gcaElasticsearchProvider.baseUrl = 'http://test.1000genomes.org/api/beta';
 
 }]);
 
@@ -102,8 +102,8 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
 
     c.fileSearchExport = function() {
       var fileSearchBody = {
-        from: 0,
-        size: $scope.files.total,
+        fields: ["url", "md5", "dataCollections"],
+        column_names: ["url", "md5", "Data Collection"],
         query: {
           bool: {
             must: [

@@ -65,7 +65,10 @@
 
   <es-search search-body="SampleCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file"></es-search>
   <div class="row">
-  <div class="col-md-6"><p><strong>{{files.total}}</strong> matching {{SampleCtrl.dataType}} data files</p></div>
+  <div class="col-md-6">
+    <p class="text-center"><strong>{{files.total}}</strong> matching {{SampleCtrl.dataType}} data files</p>
+    <button type="button" class="btn btn-default center-block" ng-click="SampleCtrl.fileSearchExport()">Download the list</button>
+  </div>
   <div class="col-md-6"><p><a ng-href="{{SampleCtrl.dataCollection.dataReusePolicy}}"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{SampleCtrl.dataCollection.dataCollection}}</a></p></div>
   </div>
 
