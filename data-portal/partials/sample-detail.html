@@ -1,4 +1,4 @@
-<div es-doc="sample" error-as="apiError" es-type="sample" es-id="SampleCtrl.name" on-success="SampleCtrl.setFileSelection()">
+<div es-doc="sample" error-as="apiError" es-type="sample" es-id="SampleCtrl.name" on-success="SampleCtrl.setDataCollection(sample.dataCollections[0])">
   <h1>Sample {{SampleCtrl.name}}</h1>
   <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
   <div ng-show="sample">
@@ -48,16 +48,16 @@
   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
   <div class="panel-heading">Data types</div>
   <div class="panel-body">
-  <div ng-repeat="dt in SampleCtrl.dataCollection.dataTypes" class="radio">
-    <label><input type="radio" ng-model="SampleCtrl.dataType" ng-change="SampleCtrl.fileSearch({page1: true})" ng-value="dt">{{dt | ucFirst}}</label>
+  <div ng-repeat="(dt,dtIsFiltered) in SampleCtrl.filterDataTypes" class="checkbox" ng-class="{disabled: SampleCtrl.disableDataTyes[dt]}">
+    <label><input type="checkbox" ng-model="SampleCtrl.filterDataTypes[dt]" ng-change="SampleCtrl.selectDataType()" ng-disabled="SampleCtrl.disableDataTypes[dt]">{{dt | ucFirst}}</input></label>
   </div></div>
   </div></div>
 
   <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
-  <div class="panel-heading">{{SampleCtrl.dataType | ucFirst}} analysis groups</div>
+  <div class="panel-heading">Analysis groups</div>
   <div class="panel-body">
-  <div ng-repeat="ag in SampleCtrl.dataCollection[SampleCtrl.dataType]" class="radio">
-    <label><input type="radio" ng-model="SampleCtrl.analysisGroup" ng-change="SampleCtrl.fileSearch({page1: true})" ng-value="ag">{{ag}}</label>
+  <div ng-repeat="(ag,agIsFiltered) in SampleCtrl.filterAnalysisGroups" class="checkbox" ng-class="{disabled: SampleCtrl.disableAnalysisGroups[ag]}">
+    <label><input type="checkbox" ng-model="SampleCtrl.filterAnalysisGroups[ag]" ng-change="SampleCtrl.selectAnalysisGroup()" ng-disabled="SampleCtrl.disableAnalysisGroups[ag]">{{ag}}</input></label>
   </div></div>
   </div></div>
 

@@ -51,54 +51,114 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
     c.fileSearchBody = null;
     c.hitsPerPage = 20;
 
+    c.dataCollection = null;
+
+
     c.setDataCollection = function(dc) {
         if (dc !== c.dataCollection) {
             c.dataCollection = dc;
             c.filePage = 1;
+            c.filterDataTypes = {};
+            c.filterAnalysisGroups = {};
+            c.disableDataTypes = {};
+            c.disableAnalysisGroups = {};
+            angular.forEach(dc.dataTypes, function(dt) {
+                c.filterDataTypes[dt] = false;
+                angular.forEach(dc[dt], function(ag) {
+                    c.filterAnalysisGroups[ag] = false;
+                });
+            });
             c.fileSearch();
         }
     };
 
-    c.setFileSelection = function() {
-      if (angular.isObject($scope.sample) && $scope.sample.hasOwnProperty('dataCollections')) {
-          c.dataCollection = $scope.sample.dataCollections[0];
-          c.dataType = c.dataCollection.dataTypes[0];
-          c.analysisGroup = c.dataCollection[c.dataType][0];
-          c.fileSearch();
-      }
-      else {
-          c.dataCollection = null;
-          c.dataType = null;
-          c.analysisGroup = null;
-      }
+    c.selectDataType = function() {
+        var enableAnalysisGroups = {};
+        var numFilteredDataTypes = 0;
+        c.disableAnalysisGroups = {};
+        angular.forEach(c.filterDataTypes, function(dtIsSelected, dt) {
+            if (!dtIsSelected) {return;}
+            angular.forEach(c.dataCollection[dt], function(ag) {
+                enableAnalysisGroups[ag] = true;
+            });
+            numFilteredDataTypes += 1;
+        });
+        if (numFilteredDataTypes > 0) {
+            angular.forEach(c.filterAnalysisGroups, function(agIsSelected, ag) {
+                if (enableAnalysisGroups[ag]) {return;}
+                c.disableAnalysisGroups[ag] = true;
+            });
+        }
+        c.fileSearch();
     };
 
-    c.fileSearch = function(options) {
-      if (angular.isObject(options) && options.page1) {
-          c.filePage = 1;
-      };
+    c.selectAnalysisGroup = function() {
+        var enableDataTypes = {};
+        var numFilteredAnalysisGroups = 0;
+        c.disableDataTypes = {};
+        angular.forEach(c.filterAnalysisGroups, function (agIsSelected, ag) {
+            if (!agIsSelected) {return;}
+            angular.forEach(c.dataCollection.dataTypes, function(dt) {
+                if (c.dataCollection[dt].indexOf(ag) > -1) {
+                    enableDataTypes[dt] = true;
+                }
+            });
+            numFilteredAnalysisGroups += 1;
+        });
+        if (numFilteredAnalysisGroups > 0) {
+            console.log('here');
+            angular.forEach(c.filterDataTypes, function(dtIsSelected, dt) {
+                if (enableDataTypes[dt]) {return;}
+                c.disableDataTypes[dt] = true;
+            });
+        }
+        c.fileSearch();
+    };
+
+    c.fileSearch = function() {
+        console.log(c);
       
-      if (angular.isObject(c.dataCollection) && angular.isString(c.analysisGroup) && angular.isString(c.dataType)) {
-          if ( ! c.dataCollection.hasOwnProperty(c.dataType)) {
-              c.dataType = c.dataCollection.dataTypes[0];
-          }
-          if (c.dataCollection[c.dataType].indexOf(c.analysisGroup) <0) {
-              c.analysisGroup = c.dataCollection[c.dataType][0];
-          }
+      if (angular.isObject(c.dataCollection)) {
           c.fileSearchBody = {
             from: (c.filePage -1)*c.hitsPerPage,
             size: c.hitsPerPage,
-            query: {
+            query: { constant_score: { filter: {
               bool: {
                 must: [
                   {term: {dataCollections: c.dataCollection.dataCollection}},
-                  {term: {analysisGroup: c.analysisGroup}},
-                  {term: {dataType: c.dataType}},
+                  //{term: {analysisGroup: c.analysisGroup}},
+                  //{term: {dataType: c.dataType}},
                   {term: {samples: c.name}},
                 ]
               }
-            }
+            }}}
           };
+
+          var dtShould = [];
+          angular.forEach(c.filterDataTypes, function (isFiltered, dt) {
+              if (!isFiltered) {return;}
+              dtShould.push({term: {dataType: dt}});
+          });
+          if (dtShould.length == 1) {
+              c.fileSearchBody.query.constant_score.filter.bool.must.push(dtShould[0]);
+          }
+          else if (dtShould.length > 1) {
+              c.fileSearchBody.query.constant_score.filter.bool.must.push({bool: {should: dtShould}});
+          }
+
+          var agShould = [];
+          angular.forEach(c.filterAnalysisGroups, function (isFiltered, ag) {
+              if (!isFiltered) {return;}
+              agShould.push({term: {analysisGroup: ag}});
+          });
+          if (agShould.length == 1) {
+              c.fileSearchBody.query.constant_score.filter.bool.must.push(agShould[0]);
+          }
+          else if (agShould.length > 1) {
+              c.fileSearchBody.query.constant_score.filter.bool.must.push({bool: {should: agShould}});
+          }
+
+
       }
       else {
           c.fileSearchBody = null;
@@ -109,16 +169,7 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
       var fileSearchBody = {
         fields: ["url", "md5", "dataCollections"],
         column_names: ["url", "md5", "Data Collection"],
-        query: {
-          bool: {
-            must: [
-              {term: {dataCollections: c.dataCollection.dataCollection}},
-              {term: {analysisGroup: c.analysisGroup}},
-              {term: {dataType: c.dataType}},
-              {term: {samples: c.name}},
-            ]
-          }
-        }
+        query: c.fileSearchBody.query
       };
 
       gcaElasticsearch.searchExport({type: 'file', format: 'tsv', filename: 'igsr', body: fileSearchBody});
@@ -137,7 +188,7 @@ app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', 
       c.sampleSearchBody = {
         from: (c.samplePage -1)*c.sampleHitsPerPage,
         size: c.sampleHitsPerPage,
-        query: { filtered: { filter: { term:{ 'population.code': c.popCode } } } }
+        query: { constant_score: { filter: { term:{ 'population.code': c.popCode } } } }
       };
     }
     c.sampleSearch();
@@ -146,7 +197,7 @@ app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', 
       var searchBody = {
         fields: ['name', 'sex', 'population.code', 'biosampleId'],
         column_names: ['Name', 'Sex', 'Population', 'Biosample ID'],
-        query: { filtered: { filter: { term:{ 'population.code': c.popCode } } } }
+        query: { constant_score: { filter: { term:{ 'population.code': c.popCode } } } }
       };
 
       gcaElasticsearch.searchExport({type: 'sample', format: 'tsv', filename: c.popCode, body: searchBody});
