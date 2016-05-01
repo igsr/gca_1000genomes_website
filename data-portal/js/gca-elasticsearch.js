@@ -46,7 +46,7 @@ module.provider('gcaElasticsearch', function() {
 
 module.directive('esDoc', ['gcaElasticsearch', function(gcaElasticsearch) {
   return {
-    scope: false,
+    scope: true,
     link: function(scope, iElement, iAttr) {
       var bindSourceAs = iAttr.esDoc || iAttr.sourceAs;
       var bindErrorAs = iAttr.errorAs;
@@ -76,7 +76,7 @@ module.directive('esDoc', ['gcaElasticsearch', function(gcaElasticsearch) {
 
 module.directive('esSearch', ['gcaElasticsearch', function(gcaElasticsearch) {
   return {
-    scope: false,
+    scope: true,
     link: function(scope, iElement, iAttr) {
         
       var search = function(searchBody) {
@@ -97,8 +97,8 @@ module.directive('esSearch', ['gcaElasticsearch', function(gcaElasticsearch) {
         }
       }
 
-      if (angular.isString(iAttr.searchBody)) {
-        var watcher = scope.$watch(iAttr.searchBody, search);
+      if (angular.isString(iAttr.esSearch)) {
+        var watcher = scope.$watch(iAttr.esSearch, search);
         iElement.on('$destroy', watcher);
       }
 

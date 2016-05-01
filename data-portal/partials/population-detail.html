@@ -16,7 +16,7 @@
   </div>
   </div></div>
 
-  <es-search search-body="PopCtrl.sampleSearchBody" hits-as="samples" es-type="sample"></es-search>
+  <div es-search="PopCtrl.sampleSearchBody" hits-as="samples" es-type="sample">
 
   <div ng-if="samples.hits.length" class="col-lg-6"><div class="panel panel-default">
   <div class="panel-heading">
@@ -42,8 +42,10 @@
   </div>
 
   </div>
-
   </div></div>
+  </div>
+
+
 
   </div>
 </div>

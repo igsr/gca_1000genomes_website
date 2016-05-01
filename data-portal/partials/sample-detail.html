@@ -18,7 +18,7 @@
   <div class="panel-heading"><h3 class="panel-title">{{sample.population.code}} population</h3></div>
   <div class="panel-body">
       <dl class="dl-horizontal">
-      <dt>Population:</dt><dd>{{sample.population.name}}</dd>
+      <dt>Population:</dt><dd><a ng-href="population/{{sample.population.code}}">{{sample.population.name}}</a></dd>
       <dt>Code:</dt><dd>{{sample.population.code}}</dd>
       <dt>Description:</dt><dd>{{sample.population.description}}</dd>
       <dt>Superpopulation:</dt><dd>{{sample.superpopulation.name}}</dd>
@@ -63,7 +63,7 @@
 
   </div>
 
-  <es-search search-body="SampleCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file"></es-search>
+  <div class="row" es-search="SampleCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file">
   <div class="row">
   <div class="col-md-6">
     <p class="text-center"><strong>{{files.total}}</strong> matching {{SampleCtrl.dataType}} data files</p>
@@ -89,7 +89,6 @@
   </div>
   </div>
   </div>
-
 
   </div>
 </div>
