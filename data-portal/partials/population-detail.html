@@ -52,10 +52,11 @@
   <div dc-file-list="{{PopCtrl.popCode}}" dc-array="population.dataCollections" es-file-term="populations" file-hits="fileHits">
 
   <table class="table table-striped table-condensed">
-  <tr><th>File</th><th>Download</th></tr>
+  <tr><th></th><th>File</th><th>Sample</th></tr>
       <tr ng-repeat="file in fileHits.hits">
-      <td ng-bind-html="file._source.url | softHyphenUrl"></td>
       <td><a ng-href="{{file._source.url}}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+      <td ng-bind-html="file._source.url | softHyphenUrl"></td>
+      <td><a ng-if="file._source.samples.length == 1" ng-href="sample/{{file._source.samples[0]}}">{{file._source.samples[0]}}</a></td>
       </tr>
   </table>
   

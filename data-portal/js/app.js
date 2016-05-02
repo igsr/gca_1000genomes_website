@@ -41,7 +41,7 @@ app.filter('ucFirst', function() {
 app.filter('softHyphenUrl', function($sce) {
     return function(string) {
         string = string || '';
-        return $sce.trustAsHtml(string.replace(/\//g, '/&shy;'));
+        return $sce.trustAsHtml(string.replace(/[\/\.]/g, '$&&shy;'));
     };
 });
 
