@@ -48,39 +48,30 @@ module.directive('esDoc', function() {
   return {
     scope: {},
     bindToController: {
-        bindSourceAs: '@esDoc',
-        bindErrorAs: '@errorAs',
+        source: '=esDoc',
+        error: '=errorAs',
         esType: '@',
         esId: '=',
     },
     controllerAs: 'esDocCtrl',
-    transclude: true,
     controller: ['gcaElasticsearch', function(gcaElasticsearch) {
         var c = this;
-        c.destroy = function() {
-            c.watcher();
-            c.transcludedScope.$destroy();
-        };
         c.esGet = function(esId) {
-          if (angular.isString(c.bindSourceAs)) {c.transcludedScope[c.bindSourceAs] = null};
-          if (angular.isString(c.bindErrorAs)) {c.transcludedScope[c.bindErrorAs] = null};
+          c.source = null;
+          c.error = null;
           if (angular.isString(esId) && angular.isString(c.esType)) {
               gcaElasticsearch.getDoc({type: c.esType, id: esId}).then(
                 function(resp) {
-                    if (angular.isString(c.bindSourceAs)) {c.transcludedScope[c.bindSourceAs] = resp.data._source;}
+                    c.source = resp.data._source;
                 },
-                function(reason) {if (angular.isString(c.bindErrorAs)) {c.transcludedScope[c.bindErrorAs] = reason;}}
+                function(reason) {c.error = reason;}
               );
           }
         };
     }],
     link: function(scope, iElement, iAttr, controller, $transclude) {
-      $transclude(function(clone, transcludedScope) {
-          iElement.append(clone);
-          controller.transcludedScope = transcludedScope;
-      });
-      controller.watcher = scope.$watch('esDocCtrl.esId', controller.esGet);
-      iElement.on('$destroy', controller.destroy);
+      var watcher = scope.$watch('esDocCtrl.esId', controller.esGet);
+      iElement.on('$destroy', watcher);
     }
   };
 });
@@ -90,50 +81,39 @@ module.directive('esSearch', function() {
     scope: {},
     bindToController: {
         searchBody: '=esSearch',
-        bindErrorAs: '@errorAs',
-        bindHitsAs: '@hitsAs',
-        bindAggsAs: '@aggsAs',
+        error: '=errorAs',
+        hits: '=hitsAs',
+        aggs: '=aggsAs',
         esType: '@',
     },
     controllerAs: 'esSearchCtrl',
-    transclude: true,
     controller: ['gcaElasticsearch', function(gcaElasticsearch) {
       var c = this;
-      var setHits = function(hits) {
-          if (angular.isString(c.bindHitsAs)) {c.transcludedScope[c.bindHitsAs] = hits};
-      };
-      var setAggs = function(aggs) {
-          if (angular.isString(c.bindAggsAs)) {c.transcludedScope[c.bindAggsAs] = aggs};
-      };
-      var setError = function(error) {
-          if (angular.isString(c.bindErrorAs)) {c.transcludedScope[c.bindErrorAs] = error};
-      };
       c.search = function() {
         if (!angular.isString(c.esType) || !angular.isObject(c.searchBody)) {
-          setHits(null); setAggs(null); setError(null);
+          c.hits = null;
+          c.aggs = null;
+          c.error = null;
           return;
         }
         gcaElasticsearch.search({type: c.esType, body: c.searchBody}).then(
           function(resp) {
-            setHits(resp.data.hits); setAggs(resp.data.aggs); setError(null);
+            c.hits = resp.data.hits;
+            c.aggs = resp.data.aggs;
+            c.error = null;
           },
           function(reason) {
-            setHits(null); setAggs(null); setError(reason);
+            c.hits = null;
+            c.aggs = null;
+            c.error = reason;
           }
         );
       }
 
-      c.destroy = function() {
-        c.watcher();
-      };
     }],
     link: function(scope, iElement, iAttr, controller, $transclude) {
-      $transclude(function(clone, transcludedScope) {
-          iElement.append(clone);
-          controller.transcludedScope = transcludedScope;
-      });
-      controller.watcher = scope.$watch('esSearchCtrl.searchBody', controller.search);
-      iElement.on('$destroy', controller.destroy);
+      var watcher = scope.$watch('esSearchCtrl.searchBody', controller.search);
+      iElement.on('$destroy', watcher);
     },
   }
 });
