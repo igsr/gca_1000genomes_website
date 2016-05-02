@@ -44,35 +44,48 @@ module.provider('gcaElasticsearch', function() {
   }];
 });
 
-module.directive('esDoc', ['gcaElasticsearch', function(gcaElasticsearch) {
+module.directive('esDoc', function(gcaElasticsearch) {
   return {
-    scope: true,
-    link: function(scope, iElement, iAttr) {
-      var bindSourceAs = iAttr.esDoc || iAttr.sourceAs;
-      var bindErrorAs = iAttr.errorAs;
-      var esType = iAttr.esType;
-
-      var esGet = function(esId) {
-        if (angular.isString(bindSourceAs)) {scope[bindSourceAs] = null};
-        if (angular.isString(bindErrorAs)) {scope[bindErrorAs] = null};
-        if (angular.isString(esId)) {
-            gcaElasticsearch.getDoc({type: esType, id: esId}).then(
-              function(resp) {
-                  if (angular.isString(bindSourceAs)) {scope[bindSourceAs] = resp.data._source;}
-                  scope.$eval(iAttr.onSuccess);
-              },
-              function(reason) {if (angular.isString(bindErrorAs)) {scope[bindErrorAs] = reason;}}
-            );
-        }
-      };
-
-      if (angular.isString(esType)) {
-        var watcher = scope.$watch(iAttr.esId, esGet);
-        iElement.on('$destroy', watcher);
-      }
+    scope: {},
+    bindToController: {
+        bindSourceAs: '@esDoc',
+        bindErrorAs: '@errorAs',
+        esType: '@',
+        esId: '=',
+        onSuccess: '&onSuccess'
+    },
+    controllerAs: 'esDocCtrl',
+    transclude: true,
+    controller: ['gcaElasticsearch', function(gcaElasticsearch) {
+        var c = this;
+        c.destroy = function() {
+            c.watcher();
+            c.transcludedScope.$destroy();
+        };
+        c.esGet = function(esId) {
+          if (angular.isString(c.bindSourceAs)) {c.transcludedScope[c.bindSourceAs] = null};
+          if (angular.isString(c.bindErrorAs)) {c.transcludedScope[c.bindErrorAs] = null};
+          if (angular.isString(esId) && angular.isString(c.esType)) {
+              gcaElasticsearch.getDoc({type: c.esType, id: esId}).then(
+                function(resp) {
+                    if (angular.isString(c.bindSourceAs)) {c.transcludedScope[c.bindSourceAs] = resp.data._source;}
+                    c.onSuccess();
+                },
+                function(reason) {if (angular.isString(c.bindErrorAs)) {c.transcludedScope[c.bindErrorAs] = reason;}}
+              );
+          }
+        };
+    }],
+    link: function(scope, iElement, iAttr, controller, $transclude) {
+      $transclude(function(clone, transcludedScope) {
+          iElement.append(clone);
+          controller.transcludedScope = transcludedScope;
+      });
+      controller.watcher = scope.$watch('esDocCtrl.esId', controller.esGet);
+      iElement.on('$destroy', controller.destroy);
     }
   };
-}]);
+});
 
 module.directive('esSearch', ['gcaElasticsearch', function(gcaElasticsearch) {
   return {
