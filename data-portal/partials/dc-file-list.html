@@ -1,0 +1,53 @@
+<div>
+  <ul class="nav nav-tabs nav-justified">
+  <li ng-repeat="dc in dcObject.dataCollections" ng-class="{'active': dc === ListCtrl.dataCollection ? true : false}">
+        <a href="" ng-click="ListCtrl.setDataCollection(dc)"><div ng-class="{'nav-tab-tall': dcObject.dataCollections.length >=4 }">{{dc.dataCollection}}</div></a>
+  </li></ul>
+
+  <div class="panel panel-default"><div class="panel-body"> <div class="row">
+
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
+  <div class="panel-heading">Data types</div>
+  <div class="panel-body">
+  <div ng-repeat="(dt,dtIsFiltered) in ListCtrl.filterDataTypes" class="checkbox" ng-class="{disabled: ListCtrl.disableDataTyes[dt]}">
+    <label><input type="checkbox" ng-model="ListCtrl.filterDataTypes[dt]" ng-change="ListCtrl.selectDataType()" ng-disabled="ListCtrl.disableDataTypes[dt]">{{dt | ucFirst}}</input></label>
+  </div></div>
+  </div></div>
+
+  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
+  <div class="panel-heading">Analysis groups</div>
+  <div class="panel-body">
+  <div ng-repeat="(ag,agIsFiltered) in ListCtrl.filterAnalysisGroups" class="checkbox" ng-class="{disabled: ListCtrl.disableAnalysisGroups[ag]}">
+    <label><input type="checkbox" ng-model="ListCtrl.filterAnalysisGroups[ag]" ng-change="ListCtrl.selectAnalysisGroup()" ng-disabled="ListCtrl.disableAnalysisGroups[ag]">{{ag}}</input></label>
+  </div></div>
+  </div></div>
+
+  </div>
+
+  <div class="row" es-search="ListCtrl.fileSearchBody" hits-as="files" error-as="apiFileError" es-type="file">
+  <div class="row">
+  <div class="col-md-6">
+    <p class="text-center"><strong>{{files.total}}</strong> matching {{ListCtrl.dataType}} data files</p>
+    <button type="button" class="btn btn-default center-block" ng-click="ListCtrl.fileSearchExport()">Download the list</button>
+  </div>
+  <div class="col-md-6"><p><a ng-href="{{ListCtrl.dataCollection.dataReusePolicy}}"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{ListCtrl.dataCollection.dataCollection}}</a></p></div>
+  </div>
+
+  <div class="row"><div class="col-md-12 table-group">
+  <uib-pager ng-if="files.total > ListCtrl.hitsPerPage"
+            items-per-page="ListCtrl.hitsPerPage" ng-model="ListCtrl.filePage"
+           ng-change="ListCtrl.fileSearch()"   total-items="files.total"></uib-pager>
+
+  <table class="table table-striped table-condensed">
+  <tr><th>File</th><th>Download</th></tr>
+      <tr ng-repeat="file in files.hits">
+      <td ng-bind-html="file._source.url | softHyphenUrl"></td>
+      <td><a ng-href="{{file._source.url}}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+      </tr>
+  </table>
+  </div></div>
+
+  </div>
+  </div>
+  </div>
+</div>

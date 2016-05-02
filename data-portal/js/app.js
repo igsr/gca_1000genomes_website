@@ -48,11 +48,56 @@ app.filter('softHyphenUrl', function($sce) {
 app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', function($routeParams, $scope, gcaElasticsearch) {
     var c = this;
     c.name = $routeParams.sample;
+
+}]);
+
+app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', function($routeParams, $scope, gcaElasticsearch) {
+    var c = this;
+    c.popCode = $routeParams.population;
+
+    c.sampleHitsPerPage = 10;
+    c.samplePage = 1;
+
+    c.sampleSearch = function() {
+      c.sampleSearchBody = {
+        from: (c.samplePage -1)*c.sampleHitsPerPage,
+        size: c.sampleHitsPerPage,
+        query: { constant_score: { filter: { term:{ 'population.code': c.popCode } } } }
+      };
+    }
+    c.sampleSearch();
+
+    c.sampleExport = function() {
+      var searchBody = {
+        fields: ['name', 'sex', 'population.code', 'biosampleId'],
+        column_names: ['Name', 'Sex', 'Population', 'Biosample ID'],
+        query: { constant_score: { filter: { term:{ 'population.code': c.popCode } } } }
+      };
+
+      gcaElasticsearch.searchExport({type: 'sample', format: 'tsv', filename: c.popCode, body: searchBody});
+    };
+}]);
+
+
+app.directive('dcFileList', function() { return {
+  scope: {
+    dcObject: '=dcFileList',
+    objectSearchTerm: '@objectSearchTerm',
+    objectName: '@objectName'
+  },
+  templateUrl: 'partials/dc-file-list.html?ver=?20160501',
+  controllerAs: 'ListCtrl',
+  link: function(scope, iElement, iAttr, controller) {
+      var watcher = scope.$watch('dcObject', function(dcObject) {
+          controller.setDataCollection(dcObject.dataCollections[0]);
+      });
+      iElement.on('$destroy', watcher);
+  },
+  controller: ['$scope', 'gcaElasticsearch', function($scope, gcaElasticsearch) {
+    var c = this;
     c.fileSearchBody = null;
     c.hitsPerPage = 20;
-
     c.dataCollection = null;
-
 
     c.setDataCollection = function(dc) {
         if (dc !== c.dataCollection) {
@@ -106,7 +151,6 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
             numFilteredAnalysisGroups += 1;
         });
         if (numFilteredAnalysisGroups > 0) {
-            console.log('here');
             angular.forEach(c.filterDataTypes, function(dtIsSelected, dt) {
                 if (enableDataTypes[dt]) {return;}
                 c.disableDataTypes[dt] = true;
@@ -116,7 +160,6 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
     };
 
     c.fileSearch = function() {
-        console.log(c);
       
       if (angular.isObject(c.dataCollection)) {
           c.fileSearchBody = {
@@ -126,13 +169,13 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
               bool: {
                 must: [
                   {term: {dataCollections: c.dataCollection.dataCollection}},
-                  //{term: {analysisGroup: c.analysisGroup}},
-                  //{term: {dataType: c.dataType}},
-                  {term: {samples: c.name}},
                 ]
               }
             }}}
           };
+          var objectTerm = {}
+          objectTerm[$scope.objectSearchTerm] = $scope.objectName;
+          c.fileSearchBody.query.constant_score.filter.bool.must.push({term: objectTerm});
 
           var dtShould = [];
           angular.forEach(c.filterDataTypes, function (isFiltered, dt) {
@@ -165,6 +208,7 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
       }
     };
 
+
     c.fileSearchExport = function() {
       var fileSearchBody = {
         fields: ["url", "md5", "dataCollections"],
@@ -175,32 +219,5 @@ app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', func
       gcaElasticsearch.searchExport({type: 'file', format: 'tsv', filename: 'igsr', body: fileSearchBody});
     };
 
-}]);
-
-app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', function($routeParams, $scope, gcaElasticsearch) {
-    var c = this;
-    c.popCode = $routeParams.population;
-
-    c.sampleHitsPerPage = 10;
-    c.samplePage = 1;
-
-    c.sampleSearch = function() {
-      c.sampleSearchBody = {
-        from: (c.samplePage -1)*c.sampleHitsPerPage,
-        size: c.sampleHitsPerPage,
-        query: { constant_score: { filter: { term:{ 'population.code': c.popCode } } } }
-      };
-    }
-    c.sampleSearch();
-
-    c.sampleExport = function() {
-      var searchBody = {
-        fields: ['name', 'sex', 'population.code', 'biosampleId'],
-        column_names: ['Name', 'Sex', 'Population', 'Biosample ID'],
-        query: { constant_score: { filter: { term:{ 'population.code': c.popCode } } } }
-      };
-
-      gcaElasticsearch.searchExport({type: 'sample', format: 'tsv', filename: c.popCode, body: searchBody});
-    };
-}]);
-
+  }],
+};});

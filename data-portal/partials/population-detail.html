@@ -46,6 +46,10 @@
   </div>
 
 
+  <div ng-if="population.dataCollections" class="col-lg-12">
+  <h2>Data collections for {{PopCtrl.popCode}}</h2>
+  <div dc-file-list="population" object-search-term="populations" object-name="{{SampleCtrl.popCode}}"></div>
+  </div>
 
   </div>
 </div>
