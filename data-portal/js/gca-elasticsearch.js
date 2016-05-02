@@ -44,7 +44,7 @@ module.provider('gcaElasticsearch', function() {
   }];
 });
 
-module.directive('esDoc', function(gcaElasticsearch) {
+module.directive('esDoc', function() {
   return {
     scope: {},
     bindToController: {
@@ -52,7 +52,6 @@ module.directive('esDoc', function(gcaElasticsearch) {
         bindErrorAs: '@errorAs',
         esType: '@',
         esId: '=',
-        onSuccess: '&onSuccess'
     },
     controllerAs: 'esDocCtrl',
     transclude: true,
@@ -69,7 +68,6 @@ module.directive('esDoc', function(gcaElasticsearch) {
               gcaElasticsearch.getDoc({type: c.esType, id: esId}).then(
                 function(resp) {
                     if (angular.isString(c.bindSourceAs)) {c.transcludedScope[c.bindSourceAs] = resp.data._source;}
-                    c.onSuccess();
                 },
                 function(reason) {if (angular.isString(c.bindErrorAs)) {c.transcludedScope[c.bindErrorAs] = reason;}}
               );
@@ -87,34 +85,55 @@ module.directive('esDoc', function(gcaElasticsearch) {
   };
 });
 
-module.directive('esSearch', ['gcaElasticsearch', function(gcaElasticsearch) {
+module.directive('esSearch', function() {
   return {
-    scope: true,
-    link: function(scope, iElement, iAttr) {
-        
-      var search = function(searchBody) {
-        if (angular.isString(iAttr.esType) && angular.isObject(searchBody)) {
-          gcaElasticsearch.search({type: iAttr.esType, body: searchBody}).then(
-            function(resp) {
-              if (angular.isString(iAttr.hitsAs)) {scope[iAttr.hitsAs] = resp.data.hits;}
-              if (angular.isString(iAttr.aggsAs)) {scope[iAttr.aggsAs] = resp.data.aggs;}
-            },
-            function(reason) {if (angular.isString(iAttr.errorAs)) {scope[iAttr.errorAs] = reason;}}
-          );
-          
+    scope: {},
+    bindToController: {
+        searchBody: '=esSearch',
+        bindErrorAs: '@errorAs',
+        bindHitsAs: '@hitsAs',
+        bindAggsAs: '@aggsAs',
+        esType: '@',
+    },
+    controllerAs: 'esSearchCtrl',
+    transclude: true,
+    controller: ['gcaElasticsearch', function(gcaElasticsearch) {
+      var c = this;
+      var setHits = function(hits) {
+          if (angular.isString(c.bindHitsAs)) {c.transcludedScope[c.bindHitsAs] = hits};
+      };
+      var setAggs = function(aggs) {
+          if (angular.isString(c.bindAggsAs)) {c.transcludedScope[c.bindAggsAs] = aggs};
+      };
+      var setError = function(error) {
+          if (angular.isString(c.bindErrorAs)) {c.transcludedScope[c.bindErrorAs] = error};
+      };
+      c.search = function() {
+        if (!angular.isString(c.esType) || !angular.isObject(c.searchBody)) {
+          setHits(null); setAggs(null); setError(null);
+          return;
         }
-        else {
-          if (angular.isString(iAttr.hitsAs)) {scope[iAttr.hitsAs] = null};
-          if (angular.isString(iAttr.aggsAs)) {scope[iAttr.aggsAs] = null};
-          if (angular.isString(iAttr.errorAs)) {scope[iAttr.errorAs] = null};
-        }
+        gcaElasticsearch.search({type: c.esType, body: c.searchBody}).then(
+          function(resp) {
+            setHits(resp.data.hits); setAggs(resp.data.aggs); setError(null);
+          },
+          function(reason) {
+            setHits(null); setAggs(null); setError(reason);
+          }
+        );
       }
 
-      if (angular.isString(iAttr.esSearch)) {
-        var watcher = scope.$watch(iAttr.esSearch, search);
-        iElement.on('$destroy', watcher);
-      }
-
+      c.destroy = function() {
+        c.watcher();
+      };
+    }],
+    link: function(scope, iElement, iAttr, controller, $transclude) {
+      $transclude(function(clone, transcludedScope) {
+          iElement.append(clone);
+          controller.transcludedScope = transcludedScope;
+      });
+      controller.watcher = scope.$watch('esSearchCtrl.searchBody', controller.search);
+      iElement.on('$destroy', controller.destroy);
     },
   }
-}]);
+});
