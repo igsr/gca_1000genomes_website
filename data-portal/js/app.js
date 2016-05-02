@@ -84,10 +84,12 @@ app.directive('dcFileList', function() { return {
   bindToController: {
     dataCollectionArr: '=dcArray',
     esFileTerm: '@',
-    objectName: '@dcFileList'
+    objectName: '@dcFileList',
+    fileHits: '=',
   },
   templateUrl: 'partials/dc-file-list.html?ver=?20160501',
   controllerAs: 'ListCtrl',
+  transclude: true,
   link: function(scope, iElement, iAttr, controller) {
       var watcher = scope.$watch('ListCtrl.dataCollectionArr', function(dataCollectionArr) {
         if (angular.isArray(dataCollectionArr)) {
