@@ -1,7 +1,7 @@
 <div>
   <ul class="nav nav-tabs nav-justified">
-  <li ng-repeat="dc in dcObject.dataCollections" ng-class="{'active': dc === ListCtrl.dataCollection ? true : false}">
-        <a href="" ng-click="ListCtrl.setDataCollection(dc)"><div ng-class="{'nav-tab-tall': dcObject.dataCollections.length >=4 }">{{dc.dataCollection}}</div></a>
+  <li ng-repeat="dc in ListCtrl.dataCollectionArr" ng-class="{'active': dc === ListCtrl.dataCollection ? true : false}">
+        <a href="" ng-click="ListCtrl.setDataCollection(dc)"><div ng-class="{'nav-tab-tall': ListCtrl.dataCollectionArr.length >=4 }">{{dc.dataCollection}}</div></a>
   </li></ul>
 
   <div class="panel panel-default"><div class="panel-body"> <div class="row">

@@ -80,20 +80,23 @@ app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', 
 
 
 app.directive('dcFileList', function() { return {
-  scope: {
-    dcObject: '=dcFileList',
-    objectSearchTerm: '@objectSearchTerm',
-    objectName: '@objectName'
+  scope: {},
+  bindToController: {
+    dataCollectionArr: '=dcArray',
+    esFileTerm: '@',
+    objectName: '@dcFileList'
   },
   templateUrl: 'partials/dc-file-list.html?ver=?20160501',
   controllerAs: 'ListCtrl',
   link: function(scope, iElement, iAttr, controller) {
-      var watcher = scope.$watch('dcObject', function(dcObject) {
-          controller.setDataCollection(dcObject.dataCollections[0]);
+      var watcher = scope.$watch('ListCtrl.dataCollectionArr', function(dataCollectionArr) {
+        if (angular.isArray(dataCollectionArr)) {
+          controller.setDataCollection(dataCollectionArr[0]);
+        }
       });
       iElement.on('$destroy', watcher);
   },
-  controller: ['$scope', 'gcaElasticsearch', function($scope, gcaElasticsearch) {
+  controller: ['gcaElasticsearch', function(gcaElasticsearch) {
     var c = this;
     c.fileSearchBody = null;
     c.hitsPerPage = 20;
@@ -174,7 +177,7 @@ app.directive('dcFileList', function() { return {
             }}}
           };
           var objectTerm = {}
-          objectTerm[$scope.objectSearchTerm] = $scope.objectName;
+          objectTerm[c.esFileTerm] = c.objectName;
           c.fileSearchBody.query.constant_score.filter.bool.must.push({term: objectTerm});
 
           var dtShould = [];

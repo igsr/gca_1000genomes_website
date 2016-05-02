@@ -38,7 +38,7 @@
 
   <div ng-if="sample.dataCollections" class="col-lg-12">
   <h2>Data collections for {{SampleCtrl.name}}</h2>
-  <div dc-file-list="sample" object-search-term="samples" object-name="{{SampleCtrl.name}}"></div>
+  <div dc-file-list="{{SampleCtrl.name}}" dc-array="sample.dataCollections" es-file-term="samples"></div>
   </div>
 
   </div>
