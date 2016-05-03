@@ -1,5 +1,5 @@
 <div>
-  <div es-search="ListCtrl.fileSearchBody" hits-as="ListCtrl.fileHits" error-as="apiFileError" es-type="file"></div>
+  <div es-search="ListCtrl.fileSearchBody" hits-as="ListCtrl.fileHits" error-as="apiFileError" is-loading-as="esSearchLoading" es-type="file"></div>
 
   <ul class="nav nav-tabs nav-justified nav-tab-tall">
   <li ng-repeat="dc in ListCtrl.dataCollectionArr" ng-class="{'active': dc === ListCtrl.dataCollection ? true : false}">
@@ -42,7 +42,8 @@
             items-per-page="ListCtrl.hitsPerPage" ng-model="ListCtrl.filePage"
            ng-change="ListCtrl.fileSearch()"   total-items="ListCtrl.fileHits.total"></uib-pager>
 
-  <ng-transclude></ng-transclude>
+  <h4 class="text-center element-loading" ng-if="esSearchLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
+  <ng-transclude ng-show="!esSearchLoading"></ng-transclude>
   </div></div>
 
   </div>

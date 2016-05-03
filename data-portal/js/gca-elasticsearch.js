@@ -70,12 +70,14 @@ module.directive('esDoc', function() {
     controllerAs: 'esDocCtrl',
     controller: ['gcaElasticsearch', '$timeout', function(gcaElasticsearch, $timeout) {
         var c = this;
+        c.isLoading = false;
         c.esGet = function(esId) {
           c.source = null;
           c.error = null;
+          $timeout.cancel(c.timer);
           gcaElasticsearch.cancel(c.currentPromise);
-          c.timer = $timeout(function() {c.isLoading = true}, 500);
           if (angular.isString(esId) && angular.isString(c.esType)) {
+              c.timer = $timeout(function() {c.isLoading = true}, 1000);
               c.currentPromise = gcaElasticsearch.getDoc({type: c.esType, id: esId}).then(
                 function(resp) {
                     $timeout.cancel(c.timer);
@@ -93,6 +95,7 @@ module.directive('esDoc', function() {
 
         c.destroy = function() {
             gcaElasticsearch.cancel(c.currentPromise);
+            $timeout.cancel(c.timer);
         };
     }],
     link: function(scope, iElement, iAttr, controller, $transclude) {
@@ -116,15 +119,17 @@ module.directive('esSearch', function() {
     controllerAs: 'esSearchCtrl',
     controller: ['gcaElasticsearch', '$timeout', function(gcaElasticsearch, $timeout) {
       var c = this;
+      c.isLoading = false;
       c.search = function() {
+        $timeout.cancel(c.timer);
         gcaElasticsearch.cancel(c.currentPromise);
-        c.timer = $timeout(function() {c.isLoading = true}, 500);
         if (!angular.isString(c.esType) || !angular.isObject(c.searchBody)) {
           c.hits = null;
           c.aggs = null;
           c.error = null;
           return;
         }
+        c.timer = $timeout(function() {c.isLoading = true}, 1000);
         c.currentPromise = gcaElasticsearch.search({type: c.esType, body: c.searchBody}).then(
           function(resp) {
             $timeout.cancel(c.timer);
