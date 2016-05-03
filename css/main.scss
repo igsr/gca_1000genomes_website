@@ -155,7 +155,7 @@ div.section {
 
 }
 
-ul.nav.nav-tabs div.nav-tab-tall {
+ul.nav.nav-tabs.nav-tab-tall > li > a {
   @media (min-width: 768px) {
     height: 60px;
   }
@@ -173,4 +173,8 @@ div.table-group {
           background-color: rgb(249, 249, 249);
       }
   }
+}
+
+div.checkbox.disabled label{
+    color: graytext;
 }
