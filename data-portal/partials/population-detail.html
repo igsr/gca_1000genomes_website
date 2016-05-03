@@ -56,7 +56,10 @@
       <tr ng-repeat="file in fileHits.hits">
       <td><a ng-href="{{file._source.url}}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
       <td ng-bind-html="file._source.url | softHyphenUrl"></td>
-      <td><a ng-if="file._source.samples.length == 1" ng-href="sample/{{file._source.samples[0]}}">{{file._source.samples[0]}}</a></td>
+      <td>
+        <a ng-if="file._source.samples.length == 1" ng-href="sample/{{file._source.samples[0]}}">{{file._source.samples[0]}}</a>
+        <span ng-if="file._source.samples.length >1">multi-sample</span>
+      </td>
       </tr>
   </table>
   
