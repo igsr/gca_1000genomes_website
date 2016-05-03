@@ -121,6 +121,15 @@ header {
 
 }
 
+div.data-portal-beta {
+  float:right;
+  background-color: #262626;
+  margin-right: -15px;
+  color: #DAA406;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 footer {
   div.footer {
     background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/footer_back.jpg");
@@ -178,3 +187,4 @@ div.table-group {
 div.checkbox.disabled label{
     color: graytext;
 }
+
