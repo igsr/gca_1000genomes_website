@@ -69,8 +69,8 @@ app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', 
 
     c.sampleExport = function() {
       var searchBody = {
-        fields: ['name', 'sex', 'population.code', 'biosampleId'],
-        column_names: ['Name', 'Sex', 'Population', 'Biosample ID'],
+        fields: ['name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection'],
+        column_names: ['Name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
         query: { constant_score: { filter: { term:{ 'population.code': c.popCode } } } }
       };
 
@@ -216,8 +216,8 @@ app.directive('dcFileList', function() { return {
 
     c.fileSearchExport = function() {
       var fileSearchBody = {
-        fields: ["url", "md5", "dataCollections"],
-        column_names: ["url", "md5", "Data Collection"],
+        fields: ['url', 'md5', 'dataCollections', 'dataType', 'analysisGroup', 'samples', 'populations', 'dataReusePolicy'],
+        column_names: ['url', 'md5', 'Data collection', 'Data type', 'Analysis group', 'Sample', 'Population', 'Data reuse policy'],
         query: c.fileSearchBody.query
       };
 
