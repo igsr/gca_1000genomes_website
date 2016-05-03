@@ -8,7 +8,15 @@
 
   <div class="panel panel-default"><div class="panel-body"> <div class="row">
 
-  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><p class="text-center"><a ng-href="{{ListCtrl.dataCollection.dataReusePolicy}}"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{ListCtrl.dataCollection.dataCollection}}</a></p></div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><p class="text-center"><strong>{{ListCtrl.fileHits.total}}</strong> matching {{ListCtrl.dataType}} data files</p></div>
+  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><button type="button" class="btn btn-default center-block" ng-click="ListCtrl.fileSearchExport()">Download the list</button></div>
+
+  <div class="clearfix"></div>
+
+  <div class="col-md-4 col-lg-3"><div class="row">
+
+  <div class="col-md-12 col-sm-6 col-xs-6 table-group"><div class="panel panel-default">
   <div class="panel-heading">Data types</div>
   <div class="panel-body">
   <div ng-repeat="(dt,dtIsFiltered) in ListCtrl.filterDataTypes" class="checkbox" ng-class="{disabled: ListCtrl.disableDataTyes[dt]}">
@@ -16,7 +24,7 @@
   </div></div>
   </div></div>
 
-  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><div class="panel panel-default">
+  <div class="col-md-12 col-sm-6 col-xs-6 table-group"><div class="panel panel-default">
   <div class="panel-heading">Analysis groups</div>
   <div class="panel-body">
   <div ng-repeat="(ag,agIsFiltered) in ListCtrl.filterAnalysisGroups" class="checkbox" ng-class="{disabled: ListCtrl.disableAnalysisGroups[ag]}">
@@ -24,15 +32,10 @@
   </div></div>
   </div></div>
 
-  </div>
+  </div></div>
 
-  <div class="row">
-  <div class="col-md-6">
-    <p class="text-center"><strong>{{ListCtrl.fileHits.total}}</strong> matching {{ListCtrl.dataType}} data files</p>
-    <button type="button" class="btn btn-default center-block" ng-click="ListCtrl.fileSearchExport()">Download the list</button>
-  </div>
-  <div class="col-md-6"><p><a ng-href="{{ListCtrl.dataCollection.dataReusePolicy}}"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{ListCtrl.dataCollection.dataCollection}}</a></p></div>
-  </div>
+  <div class="col-md-8 col-lg-9">
+  
 
   <div class="row"><div class="col-md-12 table-group">
   <uib-pager ng-if="ListCtrl.fileHits.total > ListCtrl.hitsPerPage"
@@ -41,6 +44,8 @@
 
   <ng-transclude></ng-transclude>
   </div></div>
+
+  </div>
 
   </div>
   </div>
