@@ -5,15 +5,27 @@ var module = angular.module('gcaElasticsearch', []);
 module.provider('gcaElasticsearch', function() {
   var p = this;
   p.baseUrl = 'http://www.1000genomes.org/api';
-  p.$get = ['$http', function($http) {
+  p.$get = ['$http', '$q', function($http, $q) {
     var getDoc = function(options) {
       var url = p.baseUrl.concat('/', options.type, '/', options.id);
-      return $http.get(url, {cache: true});
+      var httpTimeout = $q.defer();
+      var promise = $http.get(url, {cache: true, timeout: httpTimeout.promise});
+      promise._httpTimeout = httpTimeout;
+      return promise;
     };
 
     var search = function(options) {
       var url = p.baseUrl.concat('/', options.type, '/_search');
-      return $http.post(url, options.body);
+      var httpTimeout = $q.defer();
+      var promise = $http.post(url, options.body, {timeout: httpTimeout.promise});
+      promise._httpTimeout = httpTimeout;
+      return promise;
+    };
+
+    var cancel = function(promise) {
+        if (promise && promise._httpTimeout && promise._httpTimeout.resolve) {
+            promise._httpTimeout.resolve();
+        }
     };
 
     var searchExport = function(options) {
@@ -39,6 +51,7 @@ module.provider('gcaElasticsearch', function() {
       getDoc: getDoc,
       search: search,
       searchExport: searchExport,
+      cancel: cancel,
     };
 
   }];
@@ -52,26 +65,39 @@ module.directive('esDoc', function() {
         error: '=errorAs',
         esType: '@',
         esId: '=',
+        isLoading: '=isLoadingAs'
     },
     controllerAs: 'esDocCtrl',
-    controller: ['gcaElasticsearch', function(gcaElasticsearch) {
+    controller: ['gcaElasticsearch', '$timeout', function(gcaElasticsearch, $timeout) {
         var c = this;
         c.esGet = function(esId) {
           c.source = null;
           c.error = null;
+          gcaElasticsearch.cancel(c.currentPromise);
+          c.timer = $timeout(function() {c.isLoading = true}, 500);
           if (angular.isString(esId) && angular.isString(c.esType)) {
-              gcaElasticsearch.getDoc({type: c.esType, id: esId}).then(
+              c.currentPromise = gcaElasticsearch.getDoc({type: c.esType, id: esId}).then(
                 function(resp) {
+                    $timeout.cancel(c.timer);
+                    c.isLoading = false;
                     c.source = resp.data._source;
                 },
-                function(reason) {c.error = reason;}
+                function(reason) {
+                    $timeout.cancel(c.timer);
+                    c.isLoading = false;
+                    c.error = reason;
+                }
               );
           }
+        };
+
+        c.destroy = function() {
+            gcaElasticsearch.cancel(c.currentPromise);
         };
     }],
     link: function(scope, iElement, iAttr, controller, $transclude) {
       var watcher = scope.$watch('esDocCtrl.esId', controller.esGet);
-      iElement.on('$destroy', watcher);
+      scope.$on('$destroy', function() {watcher(); controller.destroy();});
     }
   };
 });
@@ -84,36 +110,48 @@ module.directive('esSearch', function() {
         error: '=errorAs',
         hits: '=hitsAs',
         aggs: '=aggsAs',
+        isLoading: '=isLoadingAs',
         esType: '@',
     },
     controllerAs: 'esSearchCtrl',
-    controller: ['gcaElasticsearch', function(gcaElasticsearch) {
+    controller: ['gcaElasticsearch', '$timeout', function(gcaElasticsearch, $timeout) {
       var c = this;
       c.search = function() {
+        gcaElasticsearch.cancel(c.currentPromise);
+        c.timer = $timeout(function() {c.isLoading = true}, 500);
         if (!angular.isString(c.esType) || !angular.isObject(c.searchBody)) {
           c.hits = null;
           c.aggs = null;
           c.error = null;
           return;
         }
-        gcaElasticsearch.search({type: c.esType, body: c.searchBody}).then(
+        c.currentPromise = gcaElasticsearch.search({type: c.esType, body: c.searchBody}).then(
           function(resp) {
+            $timeout.cancel(c.timer);
+            c.isLoading = false;
             c.hits = resp.data.hits;
             c.aggs = resp.data.aggs;
             c.error = null;
           },
           function(reason) {
+            $timeout.cancel(c.timer);
+            c.isLoading = false;
             c.hits = null;
             c.aggs = null;
             c.error = reason;
           }
         );
-      }
+      };
+
+      c.destroy = function() {
+        gcaElasticsearch.cancel(c.currentPromise);
+        $timeout.cancel(c.timer);
+      };
 
     }],
     link: function(scope, iElement, iAttr, controller, $transclude) {
       var watcher = scope.$watch('esSearchCtrl.searchBody', controller.search);
-      iElement.on('$destroy', watcher);
+      scope.$on('$destroy', function() {watcher(); controller.destroy();});
     },
   }
 });
