@@ -15,6 +15,11 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
     $locationProvider.html5Mode(true);
 
     $routeProvider
+    .when('/sample', {
+        templateUrl: 'partials/sample-list.html?ver=20160503',
+        controller: 'SampleListCtrl',
+        controllerAs: 'ListCtrl',
+    })
     .when('/sample/:sample', {
         templateUrl: 'partials/sample-detail.html?ver=20160503',
         controller: 'SampleCtrl',
@@ -26,7 +31,7 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         controllerAs: 'PopCtrl',
     })
     .otherwise({
-        redirectTo: '/sample/NA12878',
+        redirectTo: '/sample',
     });
 
     gcaElasticsearchProvider.baseUrl = 'http://test.1000genomes.org/api/beta';
@@ -45,13 +50,13 @@ app.filter('softHyphenUrl', function($sce) {
     };
 });
 
-app.controller('SampleCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', function($routeParams, $scope, gcaElasticsearch) {
+app.controller('SampleCtrl', ['$routeParams', function($routeParams) {
     var c = this;
     c.name = $routeParams.sample;
 
 }]);
 
-app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', function($routeParams, $scope, gcaElasticsearch) {
+app.controller('PopulationCtrl', ['$routeParams', 'gcaElasticsearch', function($routeParams, gcaElasticsearch) {
     var c = this;
     c.popCode = $routeParams.population;
 
@@ -70,7 +75,7 @@ app.controller('PopulationCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', 
     c.sampleExport = function() {
       var searchBody = {
         fields: ['name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection'],
-        column_names: ['Name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
+        column_names: ['Sample name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
         query: { constant_score: { filter: { term:{ 'population.code': c.popCode } } } }
       };
 
@@ -226,3 +231,34 @@ app.directive('dcFileList', function() { return {
 
   }],
 };});
+
+app.controller('SampleListCtrl', [function() {
+    var c = this;
+    c.hitsPerPage = 100;
+    c.page = 1;
+    c.searchBody = {
+      from: (c.page -1)*c.hitsPerPage,
+      size: c.hitsPerPage,
+    };
+
+    c.dataCollectionNames = [
+        ['1000 Genomes on GRCh38', 'GRCh38'],
+        ['1000 Genomes phase 3 release', 'Phase 3'],
+        ['1000 Genomes phase 1 release', 'Phase 1'],
+        ['Illumina Platinum pedigree', 'Platinum pedigree'],
+        ['Human Genome Structural Variation Consortium', 'Structural variation']
+    ];
+
+    
+    c.hasCollection = function(sample, dcName) {
+        if (sample && sample._source && sample._source.dataCollections) {
+          for (var i in sample._source.dataCollections) {
+            if (sample._source.dataCollections[i].dataCollection === dcName) {
+              return true;
+            }
+          }
+        }
+        return false;
+    };
+
+}]);

@@ -207,3 +207,47 @@ h4.element-loading {
 table >thead > tr.border-top {
     border-top: 2px solid #ddd;
 }
+
+
+
+div.matrix-wrapper {
+    padding-right: 90px;
+}
+
+table.matrix {
+    th.matrix-dot {
+      width: 50px;
+      height: 100px;
+      white-space: nowrap;
+
+       > div {
+        -ms-transform:translate(36px, -7px) rotate(315deg);
+        -moz-transform:translate(36px, -7px) rotate(315deg);
+        -webkit-transform:translate(36px, -7px) rotate(315deg);
+        -o-transform:translate(36px, -7px) rotate(315deg);
+        transform:translate(36px, -7px) rotate(315deg);
+        width: inherit;
+
+         > div {
+          width: 130px;
+          border-bottom: 1px solid #ccc;
+           > div {
+            margin-left: -8px;
+            margin-bottom: 12px;
+           }
+         }
+      }
+    }
+
+  td.matrix-dot {
+    padding: 0px;
+  }
+
+  div.matrix-dot-item {
+    text-align: center;
+    color: #DAA406;
+    font-size: 20px;
+    padding: 2px;
+  }
+
+}
