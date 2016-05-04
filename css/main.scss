@@ -215,9 +215,14 @@ table.matrix td.matrix-dot {
 }
 div.matrix-dot-item {
     text-align: center;
-    color: #DAA406;
     font-size: 20px;
     padding: 2px;
+}
+div.matrix-dot-item.matrix-dot-item-gold {
+    color: #DAA406;
+}
+div.matrix-dot-item.matrix-dot-item-blue {
+    color: #262626;
 }
 
 

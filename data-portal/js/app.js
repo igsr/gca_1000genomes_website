@@ -268,11 +268,17 @@ app.controller('SampleListCtrl', [function() {
       c.showAGPanel = c.showAGPanel ? false : true;
       c.showPopPanel = false;
       c.showDCPanel = false;
+      if (c.showAGPanel) {
+        c.viewOption = 2;
+      }
     };
     c.toggleDCPanel = function() {
       c.showDCPanel = c.showDCPanel ? false : true;
       c.showPopPanel = false;
       c.showAGPanel = false;
+      if (c.showDCPanel) {
+        c.viewOption = 1;
+      }
     };
 
     c.dataCollectionNames = [
