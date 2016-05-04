@@ -238,6 +238,11 @@ app.controller('SampleListCtrl', [function() {
     c.page = 1;
     c.viewOption = 1;
     c.showPopPanel = false;
+    c.showAGPanel = false;
+    c.showDCPanel = false;
+    c.filteredAGs = {};
+    c.filteredDCs = {};
+    c.filteredPops = {};
 
     c.searchBody = {
       from: (c.page -1)*c.hitsPerPage,
@@ -249,7 +254,25 @@ app.controller('SampleListCtrl', [function() {
     };
 
     c.togglePopPanel = function() {
-        c.showPopPanel = c.showPopPanel ? false : true;
+      c.showPopPanel = c.showPopPanel ? false : true;
+      c.showAGPanel = false;
+      c.showDCPanel = false;
+      if (c.showPopPanel && ! c.popSearchBody) {
+        c.popSearchBody = {
+          size: 1000,
+          fields: ['code', 'name'],
+        };
+      }
+    };
+    c.toggleAGPanel = function() {
+      c.showAGPanel = c.showAGPanel ? false : true;
+      c.showPopPanel = false;
+      c.showDCPanel = false;
+    };
+    c.toggleDCPanel = function() {
+      c.showDCPanel = c.showDCPanel ? false : true;
+      c.showPopPanel = false;
+      c.showAGPanel = false;
     };
 
     c.dataCollectionNames = [
@@ -257,7 +280,7 @@ app.controller('SampleListCtrl', [function() {
         ['1000 Genomes phase 3 release', 'Phase 3'],
         ['1000 Genomes phase 1 release', 'Phase 1'],
         ['Illumina Platinum pedigree', 'Platinum pedigree'],
-        ['Human Genome Structural Variation Consortium', 'Structural variation']
+        ['The Human Genome Structural Variation Consortium', 'Structural variation']
     ];
 
     c.analysisGroupNames = [
@@ -303,9 +326,46 @@ app.controller('SampleListCtrl', [function() {
         return false;
     };
 
-    c.popSearchBody = {
-      size: 1000,
-      fields: ['code'],
+    c.search = function() {
+      c.searchBody = {
+        from: (c.page -1)*c.hitsPerPage,
+        size: c.hitsPerPage,
+      };
+
+      var filtPopTerms = [];
+      angular.forEach(c.filteredPops, function(isFiltered, popCode) {
+        if (!isFiltered) {return;}
+        var term = {};
+        term['population.code'] = popCode;
+        filtPopTerms.push({term: term});
+      });
+
+
+      var mustTerms = [];
+      angular.forEach(c.filteredDCs, function(isFiltered, dc) {
+        if (!isFiltered) {return;}
+        var term = {};
+        term['dataCollections.dataCollection'] = dc;
+        mustTerms.push({term: term});
+      });
+      angular.forEach(c.filteredAGs, function(isFiltered, ag) {
+        if (!isFiltered) {return;}
+        var term = {};
+        term['analysisGroups'] = dc;
+        mustTerms.push({term: term});
+      });
+
+      if (filtPopTerms.length > 0 && mustTerms.length == 0) {
+        c.searchBody.query = {constant_score: {filter: {bool: {should: filtPopTerms}}}};
+      }
+      else if (mustTerms.length > 0) {
+        if (filtPopTerms.length >0) {
+            mustTerms.push({bool: {should: filtPopTerms}});
+        }
+        c.searchBody.query = {constant_score: {filter: {bool: {must: mustTerms}}}};
+      }
+
+        
     };
 
 }]);
