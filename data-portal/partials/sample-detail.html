@@ -45,7 +45,7 @@
   <div dc-file-list="{{SampleCtrl.name}}" dc-array="sample.dataCollections" es-file-term="samples" file-hits="fileHits">
 
   <table class="table table-striped table-condensed">
-  <tr><th></th><th>File</th><th>Analysis group</th></tr>
+  <thead><tr class="border-top"><th></th><th>File</th><th>Analysis group</th></tr></thead>
       <tr ng-repeat="file in fileHits.hits">
       <td><a ng-href="{{file._source.url}}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
       <td ng-bind-html="file._source.url | softHyphenUrl"></td>

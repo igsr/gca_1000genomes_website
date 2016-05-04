@@ -203,3 +203,7 @@ h4.element-loading {
     border-color: rgb(221, 221, 221);
 
 }
+
+table >thead > tr.border-top {
+    border-top: 2px solid #ddd;
+}

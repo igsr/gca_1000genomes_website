@@ -34,10 +34,10 @@
            ng-change="PopCtrl.sampleSearch()" total-items="samples.total"></uib-pager>
   <h4 class="text-center element-loading" ng-if="esSamplesLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
   <table class="table table-striped table-condensed" ng-show="!esSamplesLoading">
-      <tr>
+      <thead><tr class="border-top">
           <th class="text-center">Sample</th>
           <th class="text-center">Sex</th>
-      </tr>
+      </tr></thead>
       <tr ng-repeat="sample in samples.hits">
       <td class="text-center"><a ng-href="sample/{{sample._source.name}}">{{sample._source.name}}</a></td>
       <td class="text-center">{{sample._source.sex | ucFirst}}</td>
@@ -54,7 +54,7 @@
   <div dc-file-list="{{PopCtrl.popCode}}" dc-array="population.dataCollections" es-file-term="populations" file-hits="fileHits">
 
   <table class="table table-striped table-condensed">
-  <tr><th></th><th>File</th><th>Sample</th></tr>
+  <thead><tr class="border-top"><th></th><th>File</th><th>Sample</th></tr></thead>
       <tr ng-repeat="file in fileHits.hits">
       <td><a ng-href="{{file._source.url}}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
       <td ng-bind-html="file._source.url | softHyphenUrl"></td>
