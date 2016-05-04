@@ -16,6 +16,8 @@
   </div>
   </div></div>
 
+  <div class="clearfix visible-xs visible-sm"></div>
+
   <div ng-if="sample.population" class="col-md-6"><div class="panel panel-default">
   <div class="panel-heading"><h3 class="panel-title">{{sample.population.code}} population</h3></div>
   <div class="panel-body">
@@ -27,7 +29,9 @@
       <dt>Superpopulation code:</dt><dd>{{sample.superpopulation.code}}</dd>
       </dl>
   </div>
-  </div></div>
+  </div>
+  <div class="clearfix"></div>
+  </div>
 
   <div ng-if="sample.relatedSample" class="col-md-6"><div class="panel panel-default">
   <div class="panel-heading"><h3 class="panel-title">Related samples</h3></div>
@@ -39,6 +43,8 @@
   </div></div>
 
   </div></div>
+
+  <div class="clearfix"></div>
 
   <div ng-if="sample.dataCollections" class="col-md-12">
   <h2>Data collections for {{SampleCtrl.name}}</h2>
