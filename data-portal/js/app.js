@@ -237,6 +237,8 @@ app.controller('SampleListCtrl', [function() {
     c.hitsPerPage = 50;
     c.page = 1;
     c.viewOption = 1;
+    c.showPopPanel = false;
+
     c.searchBody = {
       from: (c.page -1)*c.hitsPerPage,
       size: c.hitsPerPage,
@@ -244,6 +246,10 @@ app.controller('SampleListCtrl', [function() {
 
     c.toggleView = function() {
        c.viewOption = c.viewOption == 1 ? 2 : 1;
+    };
+
+    c.togglePopPanel = function() {
+        c.showPopPanel = c.showPopPanel ? false : true;
     };
 
     c.dataCollectionNames = [
@@ -295,6 +301,11 @@ app.controller('SampleListCtrl', [function() {
           }
         }
         return false;
+    };
+
+    c.popSearchBody = {
+      size: 1000,
+      fields: ['code'],
     };
 
 }]);

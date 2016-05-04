@@ -374,3 +374,14 @@ table.matrix th.matrix-dot.matrix-dot-narrow > div > div >div {
     -webkit-overflow-scrolling: touch;
   }
 }
+
+
+form.form-inline div.checkbox.checkbox-population {
+  width: 80px;
+  padding-left: 20px;
+  display: inline-block;
+
+  input {
+    margin-right: 5px;
+  }
+}
