@@ -210,44 +210,167 @@ table >thead > tr.border-top {
 
 
 
-div.matrix-wrapper {
-    padding-right: 90px;
-}
-
-table.matrix {
-    th.matrix-dot {
-      width: 50px;
-      height: 100px;
-      white-space: nowrap;
-
-       > div {
-        -ms-transform:translate(36px, -7px) rotate(315deg);
-        -moz-transform:translate(36px, -7px) rotate(315deg);
-        -webkit-transform:translate(36px, -7px) rotate(315deg);
-        -o-transform:translate(36px, -7px) rotate(315deg);
-        transform:translate(36px, -7px) rotate(315deg);
-        width: inherit;
-
-         > div {
-          width: 130px;
-          border-bottom: 1px solid #ccc;
-           > div {
-            margin-left: -8px;
-            margin-bottom: 12px;
-           }
-         }
-      }
-    }
-
-  td.matrix-dot {
+table.matrix td.matrix-dot {
     padding: 0px;
-  }
-
-  div.matrix-dot-item {
+}
+div.matrix-dot-item {
     text-align: center;
     color: #DAA406;
     font-size: 20px;
     padding: 2px;
-  }
+}
 
+
+@media (max-width: 991px) {
+table.matrix th.matrix-dot {
+    width: 35px;
+    height: 140px;
+    white-space: nowrap;
+}
+table.matrix th.matrix-dot > div > div {
+    width: 130px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+table.matrix th.matrix-dot > div > div >div {
+    margin-left: 5px;
+    margin-bottom: 12px;
+}
+table.matrix th.matrix-dot > div {
+  -ms-transform:translate(6px, 5px) rotate(270deg);
+  -moz-transform:translate(6px, 5px) rotate(270deg);
+  -webkit-transform:translate(6px, 5px) rotate(270deg);
+  -o-transform:translate(6px, 5px) rotate(270deg);
+  transform:translate(6px, 5px) rotate(270deg);
+  width: inherit;
+}
+
+
+
+table.matrix th.matrix-dot.matrix-dot-narrow {
+    width: 20px;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow {
+    height: 150px;
+    white-space: nowrap;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow > div {
+  -ms-transform:translate(3px, 8px) rotate(270deg);
+  -moz-transform:translate(3px, 8px) rotate(270deg);
+  -webkit-transform:translate(3px, 8px) rotate(270deg);
+  -o-transform:translate(3px, 8px) rotate(270deg);
+  transform:translate(3px, 8px) rotate(270deg);
+  width: inherit;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow > div > div >div {
+    margin-left: 5px;
+    margin-bottom: 4px;
+}
+}
+
+
+@media (min-width: 992px) {
+table.matrix th.matrix-dot {
+    width: 50px;
+    height: 110px;
+    white-space: nowrap;
+}
+table.matrix th.matrix-dot > div > div {
+    width: 130px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+table.matrix th.matrix-dot > div > div >div {
+    margin-left: -8px;
+    margin-bottom: 12px;
+}
+
+table.matrix th.matrix-dot > div {
+  -ms-transform:translate(36px, -7px) rotate(315deg);
+  -moz-transform:translate(36px, -7px) rotate(315deg);
+  -webkit-transform:translate(36px, -7px) rotate(315deg);
+  -o-transform:translate(36px, -7px) rotate(315deg);
+  transform:translate(36px, -7px) rotate(315deg);
+  width: inherit;
+}
+
+div.matrix-wrapper {
+    padding-right: 90px;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow {
+    width: 30px;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow {
+    height: 115px;
+    white-space: nowrap;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow > div {
+  -ms-transform:translate(20px, 0px) rotate(315deg);
+  -moz-transform:translate(20px, 0px) rotate(315deg);
+  -webkit-transform:translate(20px, 0px) rotate(315deg);
+  -o-transform:translate(20px, 0px) rotate(315deg);
+  transform:translate(20px, 0px) rotate(315deg);
+  width: inherit;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow > div > div >div {
+    margin-left: 0px;
+    margin-bottom: 5px;
+}
+}
+
+
+@media (min-width: 1200px) {
+
+table.matrix th.matrix-dot {
+    width: 60px;
+    height: 110px;
+    white-space: nowrap;
+}
+table.matrix th.matrix-dot > div > div {
+    width: 130px;
+    border-bottom: 1px solid #ccc;
+}
+
+table.matrix th.matrix-dot > div > div >div {
+    margin-left: -10px;
+    margin-bottom: 15px;
+}
+
+table.matrix th.matrix-dot > div {
+  -ms-transform:translate(43px, -10px) rotate(315deg);
+  -moz-transform:translate(43px, -10px) rotate(315deg);
+  -webkit-transform:translate(43px, -10px) rotate(315deg);
+  -o-transform:translate(43px, -10px) rotate(315deg);
+  transform:translate(43px, -10px) rotate(315deg);
+  width: inherit;
+}
+
+
+table.matrix th.matrix-dot.matrix-dot-narrow {
+    width: 40px;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow > div {
+  -ms-transform:translate(27px, -3px) rotate(315deg);
+  -moz-transform:translate(27px, -3px) rotate(315deg);
+  -webkit-transform:translate(27px, -3px) rotate(315deg);
+  -o-transform:translate(27px, -3px) rotate(315deg);
+  transform:translate(27px, -3px) rotate(315deg);
+  width: inherit;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow > div > div >div {
+    margin-left: -4px;
+    margin-bottom: 9px;
+}
+}
+
+@media (max-width: 991px) {
+  div.matrix-wrapper {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+  }
 }

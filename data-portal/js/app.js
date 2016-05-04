@@ -236,6 +236,7 @@ app.controller('SampleListCtrl', [function() {
     var c = this;
     c.hitsPerPage = 100;
     c.page = 1;
+    c.viewOption = 2;
     c.searchBody = {
       from: (c.page -1)*c.hitsPerPage,
       size: c.hitsPerPage,
@@ -249,12 +250,43 @@ app.controller('SampleListCtrl', [function() {
         ['Human Genome Structural Variation Consortium', 'Structural variation']
     ];
 
+    c.analysisGroupNames = [
+        ['Exome', 'Exome'],
+        ['Low coverage WGS', 'Low cov WGS'],
+        ['High coverage WGS', 'High cov WGS'],
+        ['HD genotype chip', 'HD genotype chip'],
+        ['Complete Genomics', 'Complete Genomics'],
+        ['Targetted exon', 'Targetted exon'],
+        ['Illumina platinum pedigree', 'Platinum pedigree'],
+        ['Strand specific RNA-seq', 'Strand RNA-seq'],
+        ['Strand-seq', 'Strand-seq'],
+        ['3.5kb jumping library', '3.5kb jump library'],
+        ['7kb mate pair libray', '7kb mate pair'],
+        ['Single molecule real time (SMRT)','SMRT'],
+        ['PCR-free high coverage', 'PCR-free high cov'],
+        ['HiC', 'HiC'],
+    ];
+
     
     c.hasCollection = function(sample, dcName) {
         if (sample && sample._source && sample._source.dataCollections) {
           for (var i in sample._source.dataCollections) {
             if (sample._source.dataCollections[i].dataCollection === dcName) {
               return true;
+            }
+          }
+        }
+        return false;
+    };
+
+    c.hasAnalysisGroup = function(sample, agName) {
+        if (sample && sample._source && sample._source.dataCollections) {
+          for (var i in sample._source.dataCollections) {
+            var dc = sample._source.dataCollections[i];
+            for (var j in dc.dataTypes) {
+              if (dc[dc.dataTypes[j]].indexOf(agName) > -1) {
+                return true;
+              }
             }
           }
         }
