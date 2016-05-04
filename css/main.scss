@@ -376,14 +376,8 @@ table.matrix th.matrix-dot.matrix-dot-narrow > div > div >div {
 }
 
 
-form.form-inline div.checkbox {
-    .checkbox-population {
-      width: 80px;
-    }
-    .checkbox-long {
-      width: 50%;
-    }
-
+form.form-inline div.checkbox.checkbox-population {
+    width: 80px;
     display: inline-block;
  input{
     margin-left: -20px;
@@ -395,3 +389,15 @@ form.form-inline div.checkbox {
   }
 }
 
+form.form-inline div.checkbox.checkbox-population {
+    width: 50%;
+    display: inline-block;
+ input{
+    margin-left: -20px;
+    position: absolute;
+  }
+  label{
+    padding-left: 20px;
+    display: inline-block;
+  }
+}
