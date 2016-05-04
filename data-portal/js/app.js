@@ -236,10 +236,14 @@ app.controller('SampleListCtrl', [function() {
     var c = this;
     c.hitsPerPage = 100;
     c.page = 1;
-    c.viewOption = 2;
+    c.viewOption = 1;
     c.searchBody = {
       from: (c.page -1)*c.hitsPerPage,
       size: c.hitsPerPage,
+    };
+
+    c.toggleView = function() {
+       c.viewOption = c.viewOption == 1 ? 2 : 1;
     };
 
     c.dataCollectionNames = [
