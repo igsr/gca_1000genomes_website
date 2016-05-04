@@ -234,7 +234,7 @@ app.directive('dcFileList', function() { return {
 
 app.controller('SampleListCtrl', [function() {
     var c = this;
-    c.hitsPerPage = 100;
+    c.hitsPerPage = 50;
     c.page = 1;
     c.viewOption = 1;
     c.searchBody = {

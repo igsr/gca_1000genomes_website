@@ -4,11 +4,7 @@
   <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
   <div ng-show="samples">
 
-  <button type="button" class="btn btn-default center-block" ng-click="ListCtrl.toggleView()">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    Toggle table view
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-  </button>
+  <button type="button" class="btn btn-default center-block" ng-click="ListCtrl.toggleView()">Toggle table view</button>
 
   <div class="matrix-wrapper">
   <table class="table table-striped table-condensed matrix" ng-show="!esSamplesLoading">
