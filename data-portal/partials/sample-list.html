@@ -18,6 +18,9 @@
   </form>
 
   <div class="col-md-8 col-md-offset-2">
+  </div>
+
+  <div class="col-md-8 col-md-offset-2">
 
   <div class="panel panel-default" ng-if="ListCtrl.showPopPanel">
   <div class="panel-heading">Filter by population
@@ -65,10 +68,15 @@
     <button ng-repeat="ag in ListCtrl.filteredAGsArray" class="btn btn-info" ng-click="ListCtrl.filteredAGs[ag[0]] = false; ListCtrl.search();">{{ag[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
   </form></div>
 
+  <div class="clearfix"></div>
   <div class="matrix-wrapper">
-  <uib-pager ng-if="samples.total > ListCtrl.hitsPerPage"
+  <div class="matrix-gap-filler pager-narrow-margins">
+  <h4>Showing {{(ListCtrl.page-1)*ListCtrl.hitsPerPage +1}} to {{(ListCtrl.page-1)*ListCtrl.hitsPerPage + samples.hits.length}} of {{samples.total}} samples</h4>
+  <div class="pager-left-align"><uib-pager ng-if="samples.total > ListCtrl.hitsPerPage"
             items-per-page="ListCtrl.hitsPerPage" ng-model="ListCtrl.page"
-           ng-change="ListCtrl.search()" total-items="samples.total"></uib-pager>
+           ng-change="ListCtrl.search()" total-items="samples.total" align="false"></uib-pager></div>
+  </div>
+
   <table class="table table-striped table-condensed matrix" ng-show="!esSamplesLoading">
   <thead><tr>
     <th>Sample</th>

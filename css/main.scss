@@ -406,3 +406,28 @@ form.form-inline div.checkbox.checkbox-long {
     display: inline-block;
   }
 }
+
+div.position-absolute >h4.text-uib-pager {
+  margin-top: 26px;
+}
+
+
+
+div.pager-left-align ul.pager > li > a {
+  display: block;
+  float: left;
+}
+div.matrix-wrapper div.matrix-gap-filler {
+  position:absolute;
+  width: 100%;
+}
+
+div.pager-narrow-margins {
+  h4 {
+    margin-bottom: 10px;
+  }
+  ul.pager {
+    margin-top: 5px;
+    margin-bottom: 5px
+  }
+}
