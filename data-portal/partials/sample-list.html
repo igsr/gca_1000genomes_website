@@ -79,8 +79,12 @@
     <th>Sample</th>
     <th>Sex</th>
     <th>Population</th>
-    <th ng-if="ListCtrl.viewOption == 1" ng-repeat="dcName in ListCtrl.dataCollectionNames" class="matrix-dot"><div><div><div>{{dcName[1]}}</div></div></div></th>
-    <th ng-if="ListCtrl.viewOption == 2" ng-repeat="agName in ListCtrl.analysisGroupNames" class="matrix-dot matrix-dot-narrow"><div><div><div>{{agName[1]}}</div></div></div></th>
+    <th ng-if="ListCtrl.viewOption == 1" ng-repeat="dcName in ListCtrl.dataCollectionNames" class="matrix-dot"><div>
+      <div ng-click="ListCtrl.filteredDCs[dcName[0]] = !ListCtrl.filteredDCs[dcName[0]]; ListCtrl.search({page:1});">
+      <div>{{dcName[1]}}</div></div></div></th>
+    <th ng-if="ListCtrl.viewOption == 2" ng-repeat="agName in ListCtrl.analysisGroupNames" class="matrix-dot matrix-dot-narrow"><div>
+      <div ng-click="ListCtrl.filteredAGs[agName[0]] = !ListCtrl.filteredAGs[agName[0]]; ListCtrl.search({page:1});">
+      <div>{{agName[1]}}</div></div></div></th>
   </tr></thead>
   <tr ng-repeat="sample in samples.hits">
     <td><a ng-href="sample/{{sample.fields.name[0]}}">{{sample.fields.name[0]}}</a></td>

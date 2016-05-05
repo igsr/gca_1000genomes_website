@@ -233,21 +233,23 @@ table.matrix th.matrix-dot {
     white-space: nowrap;
 }
 table.matrix th.matrix-dot > div > div {
+    cursor: pointer;
     width: 130px;
     border-bottom: 1px solid #ccc;
+    padding-top: 6px;
+    height: 40px;
 }
 
 
-table.matrix th.matrix-dot > div > div >div {
-    margin-left: 5px;
-    margin-bottom: 12px;
+table.matrix th.matrix-dot > div > div div {
+    margin-left: 8px;
 }
 table.matrix th.matrix-dot > div {
-  -ms-transform:translate(6px, 5px) rotate(270deg);
-  -moz-transform:translate(6px, 5px) rotate(270deg);
-  -webkit-transform:translate(6px, 5px) rotate(270deg);
-  -o-transform:translate(6px, 5px) rotate(270deg);
-  transform:translate(6px, 5px) rotate(270deg);
+  -ms-transform:translate(2px, 8px) rotate(270deg);
+  -moz-transform:translate(2px, 8px) rotate(270deg);
+  -webkit-transform:translate(2px, 8px) rotate(270deg);
+  -o-transform:translate(2px, 8px) rotate(270deg);
+  transform:translate(2px, 8px) rotate(270deg);
   width: inherit;
 }
 
@@ -260,17 +262,20 @@ table.matrix th.matrix-dot.matrix-dot-narrow {
     height: 150px;
     white-space: nowrap;
 }
+table.matrix th.matrix-dot.matrix-dot-narrow > div > div {
+  padding-top: 1px;
+  height: 27px;
+}
 table.matrix th.matrix-dot.matrix-dot-narrow > div {
-  -ms-transform:translate(3px, 8px) rotate(270deg);
-  -moz-transform:translate(3px, 8px) rotate(270deg);
-  -webkit-transform:translate(3px, 8px) rotate(270deg);
-  -o-transform:translate(3px, 8px) rotate(270deg);
-  transform:translate(3px, 8px) rotate(270deg);
+  -ms-transform:translate(1px, 8px) rotate(270deg);
+  -moz-transform:translate(1px, 8px) rotate(270deg);
+  -webkit-transform:translate(1px, 8px) rotate(270deg);
+  -o-transform:translate(1px, 8px) rotate(270deg);
+  transform:translate(1px, 8px) rotate(270deg);
   width: inherit;
 }
-table.matrix th.matrix-dot.matrix-dot-narrow > div > div >div {
-    margin-left: 5px;
-    margin-bottom: 4px;
+table.matrix th.matrix-dot.matrix-dot-narrow > div > div div {
+    margin-left: 7px;
 }
 }
 
@@ -282,22 +287,24 @@ table.matrix th.matrix-dot {
     white-space: nowrap;
 }
 table.matrix th.matrix-dot > div > div {
+    cursor: pointer;
     width: 130px;
     border-bottom: 1px solid #ccc;
+    padding-top: 7px;
+    height: 42px;
 }
 
 
-table.matrix th.matrix-dot > div > div >div {
+table.matrix th.matrix-dot > div > div div {
     margin-left: -8px;
-    margin-bottom: 12px;
 }
 
 table.matrix th.matrix-dot > div {
-  -ms-transform:translate(36px, -7px) rotate(315deg);
-  -moz-transform:translate(36px, -7px) rotate(315deg);
-  -webkit-transform:translate(36px, -7px) rotate(315deg);
-  -o-transform:translate(36px, -7px) rotate(315deg);
-  transform:translate(36px, -7px) rotate(315deg);
+  -ms-transform:translate(33px, -5px) rotate(315deg);
+  -moz-transform:translate(33px, -5px) rotate(315deg);
+  -webkit-transform:translate(33px, -5px) rotate(315deg);
+  -o-transform:translate(33px, -5px) rotate(315deg);
+  transform:translate(33px, -5px) rotate(315deg);
   width: inherit;
 }
 
@@ -306,6 +313,10 @@ div.matrix-wrapper {
 }
 table.matrix th.matrix-dot.matrix-dot-narrow {
     width: 30px;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow > div > div {
+  padding-top: 0px;
+  height: 26px;
 }
 table.matrix th.matrix-dot.matrix-dot-narrow {
     height: 115px;
@@ -319,9 +330,8 @@ table.matrix th.matrix-dot.matrix-dot-narrow > div {
   transform:translate(20px, 0px) rotate(315deg);
   width: inherit;
 }
-table.matrix th.matrix-dot.matrix-dot-narrow > div > div >div {
+table.matrix th.matrix-dot.matrix-dot-narrow > div > div div {
     margin-left: 0px;
-    margin-bottom: 5px;
 }
 }
 
@@ -334,27 +344,33 @@ table.matrix th.matrix-dot {
     white-space: nowrap;
 }
 table.matrix th.matrix-dot > div > div {
+    cursor: pointer;
     width: 130px;
     border-bottom: 1px solid #ccc;
+    padding-top: 5px;
+    height: 42px;
 }
 
-table.matrix th.matrix-dot > div > div >div {
+table.matrix th.matrix-dot > div > div div {
     margin-left: -10px;
-    margin-bottom: 15px;
 }
 
 table.matrix th.matrix-dot > div {
-  -ms-transform:translate(43px, -10px) rotate(315deg);
-  -moz-transform:translate(43px, -10px) rotate(315deg);
-  -webkit-transform:translate(43px, -10px) rotate(315deg);
-  -o-transform:translate(43px, -10px) rotate(315deg);
-  transform:translate(43px, -10px) rotate(315deg);
+  -ms-transform:translate(42px, -10px) rotate(315deg);
+  -moz-transform:translate(42px, -10px) rotate(315deg);
+  -webkit-transform:translate(42px, -10px) rotate(315deg);
+  -o-transform:translate(42px, -10px) rotate(315deg);
+  transform:translate(42px, -10px) rotate(315deg);
   width: inherit;
 }
 
 
 table.matrix th.matrix-dot.matrix-dot-narrow {
     width: 40px;
+}
+table.matrix th.matrix-dot.matrix-dot-narrow > div > div {
+  padding-top: 2px;
+  height: 32px;
 }
 table.matrix th.matrix-dot.matrix-dot-narrow > div {
   -ms-transform:translate(27px, -3px) rotate(315deg);
@@ -364,9 +380,8 @@ table.matrix th.matrix-dot.matrix-dot-narrow > div {
   transform:translate(27px, -3px) rotate(315deg);
   width: inherit;
 }
-table.matrix th.matrix-dot.matrix-dot-narrow > div > div >div {
+table.matrix th.matrix-dot.matrix-dot-narrow > div > div div {
     margin-left: -4px;
-    margin-bottom: 9px;
 }
 }
 
