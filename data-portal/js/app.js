@@ -240,9 +240,14 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
     c.showPopPanel = false;
     c.showAGPanel = false;
     c.showDCPanel = false;
+
     c.filteredAGs = {};
     c.filteredDCs = {};
     c.filteredPops = {};
+
+    c.filteredAGsArray = [];
+    c.filteredDCsArray = [];
+    c.filteredPopsArray = [];
 
     c.searchBody = {
       from: (c.page -1)*c.hitsPerPage,
@@ -338,27 +343,36 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
       };
 
       var filtPopTerms = [];
+      c.filteredPopsArray = [];
       angular.forEach(c.filteredPops, function(isFiltered, popCode) {
         if (!isFiltered) {return;}
         var term = {};
         term['population.code'] = popCode;
         filtPopTerms.push({term: term});
+        c.filteredPopsArray.push(popCode);
       });
+      c.filteredPopsArray = c.filteredPopsArray.sort();
 
 
       var mustTerms = [];
-      angular.forEach(c.filteredDCs, function(isFiltered, dc) {
-        if (!isFiltered) {return;}
-        var term = {};
-        term['dataCollections.dataCollection'] = dc;
-        mustTerms.push({term: term});
-      });
-      angular.forEach(c.filteredAGs, function(isFiltered, ag) {
-        if (!isFiltered) {return;}
-        var term = {};
-        term['dataCollections._analysisGroups'] = ag;
-        mustTerms.push({term: term});
-      });
+      c.filteredDCsArray = [];
+      for (var i=0; i<c.dataCollectionNames.length; i++) {
+        if (c.filteredDCs[c.dataCollectionNames[i][0]]) {
+          var term = {};
+          term['dataCollections.dataCollection'] = c.dataCollectionNames[i][0];
+          mustTerms.push({term: term});
+          c.filteredDCsArray.push(c.dataCollectionNames[i]);
+        }
+      };
+      c.filteredAGsArray = [];
+      for (var i=0; i<c.analysisGroupNames.length; i++) {
+        if (c.filteredAGs[c.analysisGroupNames[i][0]]) {
+          var term = {};
+          term['dataCollections._analysisGroups'] = c.analysisGroupNames[i][0];
+          mustTerms.push({term: term});
+          c.filteredAGsArray.push(c.analysisGroupNames[i]);
+        }
+      };
 
       if (filtPopTerms.length > 0 && mustTerms.length == 0) {
         c.searchBody.query = {constant_score: {filter: {bool: {should: filtPopTerms}}}};
