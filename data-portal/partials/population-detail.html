@@ -1,6 +1,10 @@
 <div es-doc="population" error-as="apiError" es-type="population" es-id="PopCtrl.popCode" is-loading-as="esPopLoading">
 
+  <div class="row">
   <h1>Population {{PopCtrl.popCode}}</h1>
+  <div class="col-md-6 col-sm-6"><h1>Population {{PopCtrl.popCode}}</h1></div>
+  <div class="col-md-3 col-sm-3"><ul class="nav nav-pills"><li><a href="sample"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Samples home</a></li></ul></div>
+  <div class="clearfix"></div>
   <h4 class="text-center element-loading" ng-if="esPopLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
   <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
   <div ng-show="population">
@@ -70,5 +74,6 @@
   </div>
   </div>
 
+  </div>
   </div>
 </div>

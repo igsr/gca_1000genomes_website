@@ -1,5 +1,8 @@
 <div es-doc="sample" error-as="apiError" es-type="sample" es-id="SampleCtrl.name" is-loading-as="esSampleLoading">
-  <h1>Sample {{SampleCtrl.name}}</h1>
+  <div class="row">
+  <div class="col-md-6 col-sm-6"><h1>Sample {{SampleCtrl.name}}</h1></div>
+  <div class="col-md-3 col-sm-3"><ul class="nav nav-pills"><li><a href="sample"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Samples home</a></li></ul></div>
+  <div class="clearfix"></div>
   <h4 class="text-center element-loading" ng-if="esSampleLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
   <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
   <div ng-show="sample">
@@ -63,5 +66,6 @@
   </div>
   </div>
 
+  </div>
   </div>
 </div>
