@@ -261,6 +261,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
         c.popSearchBody = {
           size: 1000,
           fields: ['code', 'name'],
+          sort: ['code']
         };
       }
     };
