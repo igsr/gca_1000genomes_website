@@ -34,7 +34,7 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         redirectTo: '/sample',
     });
 
-    gcaElasticsearchProvider.baseUrl = 'http://test.1000genomes.org/api/beta';
+    gcaElasticsearchProvider.baseUrl = '/api/beta';
 
 }]);
 
