@@ -16,17 +16,17 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 
     $routeProvider
     .when('/sample', {
-        templateUrl: 'partials/sample-list.html?ver=20160504',
+        templateUrl: 'partials/sample-list.html?ver=20160505',
         controller: 'SampleListCtrl',
         controllerAs: 'ListCtrl',
     })
     .when('/sample/:sample', {
-        templateUrl: 'partials/sample-detail.html?ver=20160504',
+        templateUrl: 'partials/sample-detail.html?ver=20160505',
         controller: 'SampleCtrl',
         controllerAs: 'SampleCtrl',
     })
     .when('/population/:population', {
-        templateUrl: 'partials/population-detail.html?ver=20160504',
+        templateUrl: 'partials/population-detail.html?ver=20160505',
         controller: 'PopulationCtrl',
         controllerAs: 'PopCtrl',
     })
@@ -92,7 +92,7 @@ app.directive('dcFileList', function() { return {
     objectName: '@dcFileList',
     fileHits: '=',
   },
-  templateUrl: 'partials/dc-file-list.html?ver=?20160504',
+  templateUrl: 'partials/dc-file-list.html?ver=?20160505',
   controllerAs: 'ListCtrl',
   transclude: true,
   link: function(scope, iElement, iAttr, controller) {
