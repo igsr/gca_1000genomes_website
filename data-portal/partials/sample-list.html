@@ -71,14 +71,14 @@
     <th ng-if="ListCtrl.viewOption == 2" ng-repeat="agName in ListCtrl.analysisGroupNames" class="matrix-dot matrix-dot-narrow"><div><div><div>{{agName[1]}}</div></div></div></th>
   </tr></thead>
   <tr ng-repeat="sample in samples.hits">
-    <td><a ng-href="sample/{{sample._source.name}}">{{sample._source.name}}</a></td>
-    <td>{{sample._source.sex | ucFirst}}</td>
-    <td><a ng-href="population/{{sample._source.population.code}}" uib-popover="{{sample._source.population.name}}" popover-trigger="mouseenter">{{sample._source.population.code}}</a></td>
+    <td><a ng-href="sample/{{sample.fields.name[0]}}">{{sample.fields.name[0]}}</a></td>
+    <td>{{sample.fields.sex[0] | ucFirst}}</td>
+    <td><a ng-href="population/{{sample.fields['population.code'][0]}}" uib-popover="{{sample.fields['population.name'][0]}}" popover-trigger="mouseenter">{{sample.fields['population.code'][0]}}</a></td>
     <td ng-if="ListCtrl.viewOption == 1" ng-repeat="dcName in ListCtrl.dataCollectionNames" class="matrix-dot">
-        <div class="matrix-dot-item matrix-dot-item-gold" ng-if="ListCtrl.hasCollection(sample, dcName[0])" uib-popover="{{sample._source.name}}: {{dcName[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
+        <div class="matrix-dot-item matrix-dot-item-gold" ng-if="ListCtrl.hasCollection(sample, dcName[0])" uib-popover="{{sample.fields.name[0]}}: {{dcName[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
     </td>
     <td ng-if="ListCtrl.viewOption == 2" ng-repeat="agName in ListCtrl.analysisGroupNames" class="matrix-dot matrix-dot-narrow">
-        <div class="matrix-dot-item matrix-dot-item-blue" ng-if="ListCtrl.hasAnalysisGroup(sample, agName[0])" uib-popover="{{sample._source.name}}: {{agName[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
+        <div class="matrix-dot-item matrix-dot-item-blue" ng-if="ListCtrl.hasAnalysisGroup(sample, agName[0])" uib-popover="{{sample.fields.name[0]}}: {{agName[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
     </td>
   </tr>
   </table>

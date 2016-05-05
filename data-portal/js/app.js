@@ -247,6 +247,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
     c.searchBody = {
       from: (c.page -1)*c.hitsPerPage,
       size: c.hitsPerPage,
+      fields: ['name', 'sex', 'population.name', 'population.code', 'dataCollections.dataCollection', 'dataCollections._analysisGroups'],
     };
 
     c.toggleView = function() {
@@ -309,25 +310,18 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
 
     
     c.hasCollection = function(sample, dcName) {
-        if (sample && sample._source && sample._source.dataCollections) {
-          for (var i in sample._source.dataCollections) {
-            if (sample._source.dataCollections[i].dataCollection === dcName) {
-              return true;
-            }
+        if (sample && sample.fields && sample.fields['dataCollections.dataCollection'] ) {
+          if (sample.fields['dataCollections.dataCollection'].indexOf(dcName) > -1) {
+            return true;
           }
         }
         return false;
     };
 
     c.hasAnalysisGroup = function(sample, agName) {
-        if (sample && sample._source && sample._source.dataCollections) {
-          for (var i in sample._source.dataCollections) {
-            var dc = sample._source.dataCollections[i];
-            for (var j in dc.dataTypes) {
-              if (dc[dc.dataTypes[j]].indexOf(agName) > -1) {
-                return true;
-              }
-            }
+        if (sample && sample.fields && sample.fields['dataCollections._analysisGroups'] ) {
+          if (sample.fields['dataCollections._analysisGroups'].indexOf(agName) > -1) {
+            return true;
           }
         }
         return false;
@@ -340,6 +334,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
       c.searchBody = {
         from: (c.page -1)*c.hitsPerPage,
         size: c.hitsPerPage,
+        fields: c.searchBody.fields
       };
 
       var filtPopTerms = [];
