@@ -5,17 +5,13 @@
   <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
   <div ng-show="samples">
 
-  <form class="form form-inline">
-  <button type="button" class="btn btn-default" ng-click="ListCtrl.togglePopPanel()">Filter by population
-    <span class="caret"></span>
-  <button type="button" class="btn btn-default" ng-click="ListCtrl.toggleAGPanel()">Filter by analysis group
-    <span class="caret"></span>
-  <button type="button" class="btn btn-default" ng-click="ListCtrl.toggleDCPanel()">Filter by data collection
-    <span class="caret"></span>
-  </button>
+  <div class="form form-inline form-margins">
+  <button type="button" class="btn btn-default" ng-click="ListCtrl.togglePopPanel()">Filter by population <span class="caret"></span></button>
+  <button type="button" class="btn btn-default" ng-click="ListCtrl.toggleAGPanel()">Filter by analysis group <span class="caret"></span></button>
+  <button type="button" class="btn btn-default" ng-click="ListCtrl.toggleDCPanel()">Filter by data collection <span class="caret"></span></button>
   <button type="button" class="btn btn-default" ng-click="ListCtrl.toggleView()">Toggle table view</button>
   <button type="button" class="btn btn-default" ng-click="ListCtrl.sampleExport()">Download the list</button>
-  </form>
+  </div>
 
   <div class="col-md-8 col-md-offset-2">
   </div>
@@ -28,11 +24,11 @@
   </div>
   <div class="panel-body">
     <h4 class="text-center element-loading" ng-if="esPopulationsLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
-    <form class="form form-inline">
+    <div class="form form-inline">
       <div class="checkbox checkbox-population" ng-repeat="population in populations.hits" uib-popover="{{population.fields.name[0]}}" popover-trigger="mouseenter">
         <label><input type="checkbox" ng-model="ListCtrl.filteredPops[population.fields.code[0]]" ng-change="ListCtrl.search({page: 1})"></input>{{population.fields.code[0]}}</label>
       </div>
-    </form>
+    </div>
   </div></div>
 
   <div class="panel panel-default" ng-if="ListCtrl.showAGPanel">
@@ -40,11 +36,11 @@
   <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="ListCtrl.toggleAGPanel()"><span aria-hidden="true">&times;</span></button>
   </div>
   <div class="panel-body">
-    <form class="form form-inline">
+    <div class="form form-inline">
       <div class="checkbox checkbox-long" ng-repeat="ag in ListCtrl.analysisGroupNames">
         <label><input type="checkbox" ng-model="ListCtrl.filteredAGs[ag[0]]" ng-change="ListCtrl.search({page: 1})"></input>{{ag[0]}}</label>
       </div>
-    </form>
+    </div>
   </div></div>
 
   <div class="panel panel-default" ng-if="ListCtrl.showDCPanel">
@@ -52,26 +48,27 @@
   <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="ListCtrl.toggleDCPanel()"><span aria-hidden="true">&times;</span></button>
   </div>
   <div class="panel-body">
-    <form class="form form-inline">
+    <div class="form form-inline">
       <div class="checkbox checkbox-long" ng-repeat="dc in ListCtrl.dataCollectionNames">
         <label><input type="checkbox" ng-model="ListCtrl.filteredDCs[dc[0]]" ng-change="ListCtrl.search({page: 1})"></input>{{dc[0]}}</label>
       </div>
-    </form>
+    </div>
   </div></div>
 
   </div>
 
-  <div class="col-md-10 col-md-offset-1" ng-if="ListCtrl.filteredPopsArray.length || ListCtrl.filteredDCsArray.length || ListCtrl.filteredAGsArray.length"><form class="form-inline">
+  <div class="col-md-10 col-md-offset-1" ng-if="ListCtrl.filteredPopsArray.length || ListCtrl.filteredDCsArray.length || ListCtrl.filteredAGsArray.length"><div class="form form-inline form-margins">
     <div class="form-group"><h3>Filters:</h3></div>
-    <button ng-repeat="popCode in ListCtrl.filteredPopsArray" class="btn btn-primary" ng-click="ListCtrl.filteredPops[popCode] = false; ListCtrl.search();">{{popCode}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-    <button ng-repeat="dc in ListCtrl.filteredDCsArray" class="btn btn-warning" ng-click="ListCtrl.filteredDCs[dc[0]] = false; ListCtrl.search();">{{dc[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-    <button ng-repeat="ag in ListCtrl.filteredAGsArray" class="btn btn-info" ng-click="ListCtrl.filteredAGs[ag[0]] = false; ListCtrl.search();">{{ag[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-  </form></div>
+    <button type="button" ng-repeat="popCode in ListCtrl.filteredPopsArray" class="btn btn-primary" ng-click="ListCtrl.filteredPops[popCode] = false; ListCtrl.search();">{{popCode}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <button type="button" ng-repeat="dc in ListCtrl.filteredDCsArray" class="btn btn-warning" ng-click="ListCtrl.filteredDCs[dc[0]] = false; ListCtrl.search();">{{dc[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <button type="button" ng-repeat="ag in ListCtrl.filteredAGsArray" class="btn btn-info" ng-click="ListCtrl.filteredAGs[ag[0]] = false; ListCtrl.search();">{{ag[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  </div></div>
 
   <div class="clearfix"></div>
   <div class="matrix-wrapper">
   <div class="matrix-gap-filler pager-narrow-margins">
-  <h4>Showing {{(ListCtrl.page-1)*ListCtrl.hitsPerPage +1}} to {{(ListCtrl.page-1)*ListCtrl.hitsPerPage + samples.hits.length}} of {{samples.total}} samples</h4>
+  <h4 ng-if="samples.total">Showing {{(ListCtrl.page-1)*ListCtrl.hitsPerPage +1}} to {{(ListCtrl.page-1)*ListCtrl.hitsPerPage + samples.hits.length}} of {{samples.total}} samples</h4>
+  <h4 ng-if="!samples.total">No samples match all filters</h4>
   <div class="pager-left-align"><uib-pager ng-if="samples.total > ListCtrl.hitsPerPage"
             items-per-page="ListCtrl.hitsPerPage" ng-model="ListCtrl.page"
            ng-change="ListCtrl.search()" total-items="samples.total" align="false"></uib-pager></div>
@@ -97,6 +94,9 @@
     </td>
   </tr>
   </table>
+  <uib-pager ng-if="samples.total > ListCtrl.hitsPerPage"
+            items-per-page="ListCtrl.hitsPerPage" ng-model="ListCtrl.page"
+           ng-change="ListCtrl.search()" total-items="samples.total" align="true"></uib-pager>
   </div>
 
   </div>
