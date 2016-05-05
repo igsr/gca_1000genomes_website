@@ -232,7 +232,7 @@ app.directive('dcFileList', function() { return {
   }],
 };});
 
-app.controller('SampleListCtrl', [function() {
+app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch) {
     var c = this;
     c.hitsPerPage = 50;
     c.page = 1;
@@ -332,7 +332,10 @@ app.controller('SampleListCtrl', [function() {
         return false;
     };
 
-    c.search = function() {
+    c.search = function(options) {
+      if (options && options.page) {
+        c.page = options.page;
+      };
       c.searchBody = {
         from: (c.page -1)*c.hitsPerPage,
         size: c.hitsPerPage,
@@ -372,6 +375,18 @@ app.controller('SampleListCtrl', [function() {
       }
 
         
+    };
+
+    c.sampleExport = function() {
+      var searchBody = {
+        fields: ['name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection'],
+        column_names: ['Sample name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
+      };
+
+      if (c.searchBody.query) {
+          searchBody.query = c.searchBody.query;
+      }
+      gcaElasticsearch.searchExport({type: 'sample', format: 'tsv', filename: 'igsr_samples', body: searchBody});
     };
 
 }]);

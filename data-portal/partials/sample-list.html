@@ -14,6 +14,7 @@
     <span class="caret"></span>
   </button>
   <button type="button" class="btn btn-default" ng-click="ListCtrl.toggleView()">Toggle table view</button>
+  <button type="button" class="btn btn-default" ng-click="ListCtrl.sampleExport()">Download the list</button>
   </form>
 
   <div class="col-md-8 col-md-offset-2">
@@ -26,7 +27,7 @@
     <h4 class="text-center element-loading" ng-if="esPopulationsLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
     <form class="form form-inline">
       <div class="checkbox checkbox-population" ng-repeat="population in populations.hits" uib-popover="{{population.fields.name[0]}}" popover-trigger="mouseenter">
-        <label><input type="checkbox" ng-model="ListCtrl.filteredPops[population.fields.code[0]]" ng-change="ListCtrl.search()"></input>{{population.fields.code[0]}}</label>
+        <label><input type="checkbox" ng-model="ListCtrl.filteredPops[population.fields.code[0]]" ng-change="ListCtrl.search({page: 1})"></input>{{population.fields.code[0]}}</label>
       </div>
     </form>
   </div></div>
@@ -38,7 +39,7 @@
   <div class="panel-body">
     <form class="form form-inline">
       <div class="checkbox checkbox-long" ng-repeat="ag in ListCtrl.analysisGroupNames">
-        <label><input type="checkbox" ng-model="ListCtrl.filteredAGs[ag[0]]" ng-change="ListCtrl.search()"></input>{{ag[0]}}</label>
+        <label><input type="checkbox" ng-model="ListCtrl.filteredAGs[ag[0]]" ng-change="ListCtrl.search({page: 1})"></input>{{ag[0]}}</label>
       </div>
     </form>
   </div></div>
@@ -50,7 +51,7 @@
   <div class="panel-body">
     <form class="form form-inline">
       <div class="checkbox checkbox-long" ng-repeat="dc in ListCtrl.dataCollectionNames">
-        <label><input type="checkbox" ng-model="ListCtrl.filteredDCs[dc[0]]" ng-change="ListCtrl.search()"></input>{{dc[0]}}</label>
+        <label><input type="checkbox" ng-model="ListCtrl.filteredDCs[dc[0]]" ng-change="ListCtrl.search({page: 1})"></input>{{dc[0]}}</label>
       </div>
     </form>
   </div></div>
@@ -58,6 +59,9 @@
   </div>
 
   <div class="matrix-wrapper">
+  <uib-pager ng-if="samples.total > ListCtrl.hitsPerPage"
+            items-per-page="ListCtrl.hitsPerPage" ng-model="ListCtrl.page"
+           ng-change="ListCtrl.search()" total-items="samples.total"></uib-pager>
   <table class="table table-striped table-condensed matrix" ng-show="!esSamplesLoading">
   <thead><tr>
     <th>Sample</th>
