@@ -1,3 +1,51 @@
+#How to add pages to the IGSR website
+
+This repo contains the static content for the IGSR website hosted at http://www.1000genomes.org/
+
+##New general pages
+
+To add a new general page to the website, create a file ending in with the extension .md in the top level directory. 
+The file name does not influence the link or page name but should reflect the contents of the page.
+At the top of any new file you need to add the following header
+
+---
+layout: NAME OF SECTION LAYOUT (normally single_section)  
+title: "TITLE FOR PAGE"  
+permalink: URL FOR PAGE  
+---
+
+The URL needs to be close in form to the page title e.g a page titled The 1000 Genomes Phase 3 publicaation might want a url /1000_genomes_phase3_publication/
+
+The contents of the page are then written in markdown format. Please see (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)[https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet] for more details
+
+##New FAQs
+
+An FAQ should be created in the _faq directory. The filename needs to end with the extension .md. The filename is used as the URL for FAQs. Like normal pages the file needs a header. For an FAQ the header looks like
+
+---  
+title: "TITLE FOR PAGE"  
+faq_tags:  
+  - descriptive tag used to group pages   (see (https://github.com/igsr/gca_1000genomes_website/tree/master/_faq_categories)[https://github.com/igsr/gca_1000genomes_website/tree/master/_faq_categories] for full list of current categories 
+faq_related:  
+  - Name (-.md) of any related FAQ e.g there-corrupt-file-your-ftp-site  
+---  
+
+Please look at (http://www.1000genomes.org/faq/can-i-find-genomic-position-list-dbsnp-rs-numbers-0/)[http://www.1000genomes.org/faq/can-i-find-genomic-position-list-dbsnp-rs-numbers-0/) and (https://github.com/igsr/gca_1000genomes_website/blob/master/_faq/can-i-find-genomic-position-list-dbsnp-rs-numbers-0.md)[https://github.com/igsr/gca_1000genomes_website/blob/master/_faq/can-i-find-genomic-position-list-dbsnp-rs-numbers-0.md] for a good exemplar FAQ
+
+##New Announcements
+
+New announcements must be posted in the annoucements/_posts directory  
+The file name should follow the convention YYYY-MM-DD-name.md. The URL will be the name without the date in it e.g the file (2016-04-26-1000genomes-chry-publication.md)[https://github.com/igsr/gca_1000genomes_website/blob/master/announcements/_posts/2016-04-26-1000genomes-chry-publication.md] has the link (http://www.1000genomes.org/announcements/1000genomes-chry-publication/)[http://www.1000genomes.org/announcements/1000genomes-chry-publication/]
+
+The announcement file also needs a header
+
+---  
+title: "ANNOUNCEMENT TITLE"  
+pinned: [true||false] - this indicates if the page is pinned to the front page. Only one page is pinned, if you want to pin a new announcement you need to unpin the older announcement.   
+---  
+
+Currently these are not automatically tweeted. This is functionality we plan to add but it doesn't exist yet. If you make a new announcement please tweet it from the 1000genomes account
+
 ## Directory strucutre of this repo
 
 ### non-underscored directories
