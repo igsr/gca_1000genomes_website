@@ -1,10 +1,22 @@
 <div es-doc="sample" error-as="apiError" es-type="sample" es-id="SampleCtrl.name" is-loading-as="esSampleLoading">
   <div class="row">
-  <div class="col-md-6 col-sm-6"><h1>Sample {{SampleCtrl.name}}</h1></div>
-  <div class="col-md-3 col-sm-3"><ul class="nav nav-pills"><li><a href="sample"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Samples home</a></li></ul></div>
+  <div class="col-lg-6 col-md-5 col-sm-6"><h1>Sample {{SampleCtrl.name}}</h1></div>
+  <div class="col-md-4 col-sm-3"><ul class="nav nav-pills">
+    <li><a href="sample"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Samples home</a></li>
+    <li><a href="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
+    </ul></div>
   <div class="clearfix"></div>
   <h4 class="text-center element-loading" ng-if="esSampleLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
-  <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
+
+  <div ng-if="apiError">
+     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1"><div class="alert alert-warning alert-dismissible text-center" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h3>{{apiError.status}}: {{apiError.statusText}}</h3>
+    </div></div>
+    <div class="clearfix"></div>
+    <div class="col-md-6 col-md-offset-3 search-page" search-component="sample"></div>
+  </div>
+
   <div ng-show="sample">
 
   <div class="col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1"><div class="row">

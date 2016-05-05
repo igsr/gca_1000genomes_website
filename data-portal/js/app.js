@@ -20,6 +20,9 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         controller: 'SampleListCtrl',
         controllerAs: 'ListCtrl',
     })
+    .when('/search', {
+        templateUrl: 'partials/search-page.html?ver=20160505',
+    })
     .when('/sample/:sample', {
         templateUrl: 'partials/sample-detail.html?ver=20160505',
         controller: 'SampleCtrl',
@@ -400,3 +403,23 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
     };
 
 }]);
+
+app.directive('searchComponent', ['$location', function($location) { return {
+  scope: {},
+  templateUrl: 'partials/search-component.html?ver=?20160505',
+  controllerAs: 'SearchCtrl',
+  link: function(scope, iElement, iAttr, controller) {
+    scope.searchType = iAttr.searchComponent || 'sample';
+
+    scope.examples = {
+        sample: 'NA12878',
+        population: 'GBR'
+    };
+
+    scope.search = function() {
+      if (scope.inputText) {
+          $location.path(scope.searchType.concat('/', scope.inputText));
+      }
+    };
+  }
+};}]);
