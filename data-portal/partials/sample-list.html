@@ -58,12 +58,12 @@
 
   </div>
 
-  <div class="col-md-10 col-md-offset-1" ng-if="ListCtrl.filteredPopsArray.length || ListCtrl.filteredDCsArray.length || ListCtrl.filteredAGsArray.length">
-    <h3>Filters</h3>
+  <div class="col-md-10 col-md-offset-1" ng-if="ListCtrl.filteredPopsArray.length || ListCtrl.filteredDCsArray.length || ListCtrl.filteredAGsArray.length"><form class="form-inline">
+    <div class="form-group"><h3>Filters:</h3></div>
     <button ng-repeat="popCode in ListCtrl.filteredPopsArray" class="btn btn-primary" ng-click="ListCtrl.filteredPops[popCode] = false; ListCtrl.search();">{{popCode}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
     <button ng-repeat="dc in ListCtrl.filteredDCsArray" class="btn btn-warning" ng-click="ListCtrl.filteredDCs[dc[0]] = false; ListCtrl.search();">{{dc[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
     <button ng-repeat="ag in ListCtrl.filteredAGsArray" class="btn btn-info" ng-click="ListCtrl.filteredAGs[ag[0]] = false; ListCtrl.search();">{{ag[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-  </div>
+  </form></div>
 
   <div class="matrix-wrapper">
   <uib-pager ng-if="samples.total > ListCtrl.hitsPerPage"
