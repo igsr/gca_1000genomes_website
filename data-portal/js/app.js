@@ -357,7 +357,7 @@ app.controller('SampleListCtrl', [function() {
       angular.forEach(c.filteredAGs, function(isFiltered, ag) {
         if (!isFiltered) {return;}
         var term = {};
-        term['analysisGroups'] = dc;
+        term['dataCollections._analysisGroups'] = ag;
         mustTerms.push({term: term});
       });
 
