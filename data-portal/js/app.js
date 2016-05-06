@@ -16,20 +16,20 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 
     $routeProvider
     .when('/sample', {
-        templateUrl: 'partials/sample-list.html?ver=20160505b',
+        templateUrl: 'partials/sample-list.html?ver=20160506',
         controller: 'SampleListCtrl',
         controllerAs: 'ListCtrl',
     })
     .when('/search', {
-        templateUrl: 'partials/search-page.html?ver=20160505b',
+        templateUrl: 'partials/search-page.html?ver=20160506',
     })
     .when('/sample/:sample', {
-        templateUrl: 'partials/sample-detail.html?ver=20160505b',
+        templateUrl: 'partials/sample-detail.html?ver=20160506',
         controller: 'SampleCtrl',
         controllerAs: 'SampleCtrl',
     })
     .when('/population/:population', {
-        templateUrl: 'partials/population-detail.html?ver=20160505b',
+        templateUrl: 'partials/population-detail.html?ver=20160506',
         controller: 'PopulationCtrl',
         controllerAs: 'PopCtrl',
     })
@@ -95,7 +95,7 @@ app.directive('dcFileList', function() { return {
     objectName: '@dcFileList',
     fileHits: '=',
   },
-  templateUrl: 'partials/dc-file-list.html?ver=?20160505b',
+  templateUrl: 'partials/dc-file-list.html?ver=?20160506',
   controllerAs: 'ListCtrl',
   transclude: true,
   link: function(scope, iElement, iAttr, controller) {
@@ -406,7 +406,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
 
 app.directive('searchComponent', ['$location', function($location) { return {
   scope: {},
-  templateUrl: 'partials/search-component.html?ver=?20160505b',
+  templateUrl: 'partials/search-component.html?ver=?20160506',
   controllerAs: 'SearchCtrl',
   link: function(scope, iElement, iAttr, controller) {
     scope.searchType = iAttr.searchComponent || 'sample';
