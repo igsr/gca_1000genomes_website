@@ -305,7 +305,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
         ['High coverage WGS', 'High cov WGS'],
         ['HD genotype chip', 'HD genotype chip'],
         ['Complete Genomics', 'Complete Genomics'],
-        ['Targetted exon', 'Targetted exon'],
+        ['Targeted exon', 'Targeted exon'],
         ['Illumina platinum pedigree', 'Platinum pedigree'],
         ['Strand specific RNA-seq', 'Strand RNA-seq'],
         ['Strand-seq', 'Strand-seq'],
