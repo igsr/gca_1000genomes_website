@@ -391,6 +391,7 @@ table.matrix th.matrix-dot.matrix-dot-narrow > div > div div {
     width: 100%;
     overflow-y: hidden;
     overflow-x: scroll;
+    position: relative;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch;
   }
