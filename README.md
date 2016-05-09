@@ -11,7 +11,8 @@ At the top of any new file you need to add the following header
 ---
 layout: NAME OF SECTION LAYOUT (normally single_section)  
 title: "TITLE FOR PAGE"  
-permalink : URL FOR PAGE  
+permalink: URL FOR PAGE 
+ 
 ---
 
 The URL needs to be close in form to the page title e.g a page titled The 1000 Genomes Phase 3 publicaation might want a url /1000_genomes_phase3_publication/
@@ -27,7 +28,8 @@ title: "TITLE FOR PAGE"
 faq_tags:  
   - descriptive tag used to group pages   (see [https://github.com/igsr/gca_1000genomes_website/tree/master/_faq_categories](https://github.com/igsr/gca_1000genomes_website/tree/master/_faq_categories) for full list of current categories 
 faq_related:  
-  - Name (-.md) of any related FAQ e.g there-corrupt-file-your-ftp-site  
+-Name (-.md) of any related FAQ e.g there_corrupt_file-your-ftp-site   
+
 ---  
 
 Please look at [http://www.1000genomes.org/faq/can-i-find-genomic-position-list-dbsnp-rs-numbers-0/](http://www.1000genomes.org/faq/can-i-find-genomic-position-list-dbsnp-rs-numbers-0/) and [https://github.com/igsr/gca_1000genomes_website/blob/master/_faq/can-i-find-genomic-position-list-dbsnp-rs-numbers-0.md](https://github.com/igsr/gca_1000genomes_website/blob/master/_faq/can-i-find-genomic-position-list-dbsnp-rs-numbers-0.md) for a good exemplar FAQ
@@ -41,10 +43,12 @@ The announcement file also needs a header
 
 ---  
 title: "ANNOUNCEMENT TITLE"  
-pinned: [true||false] - this indicates if the page is pinned to the front page. Only one page is pinned, if you want to pin a new announcement you need to unpin the older announcement.   
+pinned: [true|false] - this indicates if the page is pinned to the front page. If you want to pin a new announcement you must unpin an old one
+
+  
 ---  
 
-Currently these are not automatically tweeted. This is functionality we plan to add but it doesn't exist yet. If you make a new announcement please tweet it from the 1000genomes account
+Currently these announcements are not automatically tweeted. This is functionality we plan to add but it doesn't exist yet. If you make a new announcement please tweet it from the 1000genomes account
 
 ## Directory strucutre of this repo
 
