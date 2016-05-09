@@ -1,6 +1,6 @@
 ---
 title: "Modern DNA reveals ancient male population explosions linked to migration and technology"
-pinned: true
+pinned: false
 ---
 
 An analysis of the chrY data from the 1000 Genomes Project phase 3 release has revealed punctuated bursts in human male demography. This study identified more than 65,000 variant positions from 1244 men, from 26 different populations. It was published in [Nature Genetics](http://www.nature.com/ng/index.html) this week.
