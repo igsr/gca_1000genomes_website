@@ -9,10 +9,12 @@ tags: Data
 
 IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer).
 
-#[Data portal ***beta***](/data-portal)
+#[Data portal ***beta***](/data-portal)  
+We are developing a [new data portal](/data-portal) to make it easier to find and browse data in IGSR. You can use the development version to [explore the data set](/data-portal). Let us know what you think at info@1000genomes.org.
+ 
 [![data portal image](/sites/1000genomes.org/files/images/portal.png)](/data-portal)
 
-We are developing a [new data portal](/data-portal) to make it easier to find and browse data in IGSR. You can use the development version to [explore the data set](/data-portal). Let us know what you think at info@1000genomes.org.
+
 
 #Available data
 
