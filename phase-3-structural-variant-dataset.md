@@ -20,3 +20,11 @@ The 1000 Genomes Structural Variation dataset is built and validated on several 
 | PCR-free Illumina WGS sequencing | [SRP047053](http://www.ebi.ac.uk/ena/data/view/SRP047053) | [release/20130502/../high_.._alignments/20141118_high_coverage.alignment.index](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/high_coverage_alignments/20141118_high_coverage.alignment.index) |
 | Moleculo WGS NA12878 | | [phase3/integrated_sv_map/supporting/NA12878/moleculo](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/supporting/NA12878/moleculo/) |
 | PacBio sequencing NA12878 | [SRX638310](http://www.ncbi.nlm.nih.gov/sra/SRX638310/) | [phase3/integrated_sv_map/supporting/NA12878/pacbio](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/supporting/NA12878/pacbio/) |
+| PacBio sequencing CHM1 | [SRX533609](http://www.ncbi.nlm.nih.gov/sra/SRX533609) | [phase3/integrated_sv_map/supporting/CHM1](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/supporting/CHM1/pacbio/) |
+| Agilent 1M aCGH microarray | [GSE70188](http://www.ncbi.nlm.nih.gov/bioproject/?term=GSE70188) | [phase3/integrated_sv_map/supporting/acgh/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/supporting/acgh/) |
+| Illumina Omni2.5 microarray | | [release/20130502/supporting/hd_genotype_chip/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/hd_genotype_chip/) |
+| Affymetrix SNP Array 6.0 | | [release/20130502/supporting/hd_genotype_chip/coriell_affy6_intensities/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/hd_genotype_chip/coriell_affy6_intensities/) |
+| Targeted PacBio sequencing | [ERS661321](http://www.ebi.ac.uk/ena/data/view/ERS661321), [ERS661355](http://www.ebi.ac.uk/ena/data/view/ERS661355), [ERS661356](http://www.ebi.ac.uk/ena/data/view/ERS661356), [ERS661358](http://www.ebi.ac.uk/ena/data/view/ERS661358)+ | |
+| Targeted MinION sequencing | [ERS661358](http://www.ebi.ac.uk/ena/data/view/ERS661358), [ERS661406](http://www.ebi.ac.uk/ena/data/view/ERS661406)+ | |
+
+
