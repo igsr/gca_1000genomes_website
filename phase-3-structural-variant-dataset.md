@@ -27,4 +27,7 @@ The 1000 Genomes Structural Variation dataset is built and validated on several 
 | Targeted PacBio sequencing | [ERS661321](http://www.ebi.ac.uk/ena/data/view/ERS661321), [ERS661355](http://www.ebi.ac.uk/ena/data/view/ERS661355), [ERS661356](http://www.ebi.ac.uk/ena/data/view/ERS661356), [ERS661358](http://www.ebi.ac.uk/ena/data/view/ERS661358)+ | |
 | Targeted MinION sequencing | [ERS661358](http://www.ebi.ac.uk/ena/data/view/ERS661358), [ERS661406](http://www.ebi.ac.uk/ena/data/view/ERS661406)+ | |
 
+* Rows with '*' represent many differents archive runs, experiments and accessions. A full set or archive accessions can be found in the index files the FTP links point to.
+* Rows with '+' were all submitted together under the same study [ERP009552](http://www.ebi.ac.uk/ena/data/view/ERP009552).
 
+The Phase 3 Structural variants can also be found mapped to GRCh38 coordinates in the FTP directory [ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/supporting/GRCh38_positions/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/supporting/GRCh38_positions/).
