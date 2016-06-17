@@ -268,7 +268,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
       c.showDCPanel = false;
       if (c.showPopPanel && ! c.popSearchBody) {
         c.popSearchBody = {
-          size: 1000,
+          size: -1,
           fields: ['code', 'name'],
           sort: ['code']
         };
