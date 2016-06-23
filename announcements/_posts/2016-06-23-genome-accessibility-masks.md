@@ -1,9 +1,9 @@
 ---
-title: "GRCh38 genome accessibility files for 1000 Genomes data"
+title: "GRCh38 genome accessibility masks for 1000 Genomes data"
 pinned: false
 ---
 
-As part of the 1000 Genomes Project, which parts of the genome were accessible to study with the sequencing methods being used was assessed. This was done by looking at the amount of sequence data that aligned to any given location in the reference genome used by the project (GRCh37). Files were created which could be used to mask regions of the genome, if it was considered that they were not accessible to the technologies used.
+As part of the 1000 Genomes Project, which parts of the genome were accessible to the sequencing methods being used was assessed. This was done by looking at the amount of sequence data that aligned to any given location in the reference genome used by the project (GRCh37). Files were created which could be used to mask regions of the genome, if it was considered that they were not accessible to the technologies used.
 
 The [sequence data from the 1000 Genomes Project has since then been aligned to the newer reference genome, GRCh38](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/README.1000genomes.GRCh38DH.alignment). Based on these alignments, new [accessibility masks on GRCh38](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/working/20160622_genome_mask_GRCh38) have been created and are now available. 
 
