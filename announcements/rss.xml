@@ -7,6 +7,8 @@ layout: null
     <link>http://local-prod-portals.1000genomes.org/announcements</link>
     <description></description>
     <language>en</language>
+    <atom:link href="{{site.url}}/announcements/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://pubsubhubbub.appspot.com" rel="hub"/>
 
 {% for announcement in site.categories.announcements %}
           <item>
