@@ -1,7 +1,7 @@
 ---
 layout: null
 ---
-<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="http://local-prod-portals.1000genomes.org/announcements" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xml:base="http://local-prod-portals.1000genomes.org/announcements" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>1000 Genomes Announcements</title>
     <link>http://local-prod-portals.1000genomes.org/announcements</link>
