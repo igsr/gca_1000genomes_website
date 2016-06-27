@@ -12,4 +12,4 @@ The alignment was carried out using a new alt-aware version of [BWA-mem](https:/
 
 Please note, these files are now being distributed in CRAM format, rather than BAM format. You can find more details about CRAM in [this README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_using_1000genomes_cram.md). Full details of our alignment pipeline can be found in the [alignment pipeline README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/README.1000genomes.GRCh38DH.alignment). 
 
-If you have any questions please email [info@1000genomes.org](mailto:info@1000genomes.org)
+If you have any questions please email [info@1000genomes.org](mailto:info@1000genomes.org).
