@@ -12,7 +12,7 @@ faq_related:
   - 1000-genomes-data-available-genome-browsers
 ---
 
-No, not all the variants in the [browsers produced by the 1000 Genomes Project](http://browser.1000genomes.org) were discovered by the 1000 Genomes Project.  
+No, not all the variants in the [browsers produced by the 1000 Genomes Project]({{site.browser_url}}) were discovered by the 1000 Genomes Project.  
 
 The data from the 1000 Genomes Project is available in a number of browsers, including browsers produced by the 1000 Genomes Project, which reflect the major data releases associated with the pilot, phase 1 and phase 3 publications from the 1000 Genomes Project. More information on this is available on the [browsers page](/1000-genomes-browsers).
 

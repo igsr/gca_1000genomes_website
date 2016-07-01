@@ -11,7 +11,7 @@ faq_related:
                     
 As many of our files are very large >5GB they can become corrupt during download.
 
-Before emailing us to let us know about a problem file the first thing you need to check is the md5 checksum of your file to see if it matches our records in the [current.tree](http://www.1000genomes.org/data#DataAccess) file.
+Before emailing us to let us know about a problem file the first thing you need to check is the md5 checksum of your file to see if it matches our records in the [current.tree](/data#DataAccess) file.
 
 If the size and or the md5 checksum don't match then you need to attempt to download the file again.
 

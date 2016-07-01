@@ -12,7 +12,7 @@ faq_related:
                     
 HLA diversity is not something which has been studied by the 1000 Genomes Project directly. 
 
-Pierre-Antoine Gourraud, Jorge Oksenberg and colleages at UCSF carried out a HLA typing assay on [DNA sourced from Coriell](http://www.1000genomes.org/cell-lines-and-dna-coriell) for 1000 Genomes samples.
+Pierre-Antoine Gourraud, Jorge Oksenberg and colleages at UCSF carried out a HLA typing assay on [DNA sourced from Coriell](/cell-lines-and-dna-coriell) for 1000 Genomes samples.
 
 Their work assessing HLA Diversity is publised in [PLOS ONE](http://www.plosone.org/)
 

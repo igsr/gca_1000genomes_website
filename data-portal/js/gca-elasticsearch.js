@@ -4,7 +4,7 @@ var module = angular.module('gcaElasticsearch', []);
 
 module.provider('gcaElasticsearch', function() {
   var p = this;
-  p.baseUrl = 'http://www.1000genomes.org/api';
+  p.baseUrl = '/api';
   p.$get = ['$http', '$q', function($http, $q) {
     var getDoc = function(options) {
       var url = p.baseUrl.concat('/', options.type, '/', options.id);

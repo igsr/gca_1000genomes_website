@@ -6,14 +6,14 @@ permalink: /vcf-ped-converter/
 
 ## VCF to PED Converter
 
-The [VCF to PED converter](http://browser.1000genomes.org/Homo_sapiens/UserData/Haploview) allows users to parse a vcf file ([specification](http://vcftools.sourceforge.net/specs.html)) to create a linkage pedigree file (ped) and a marker information file, which together may be loaded into ld visualization tools like [Haploview](http://www.broadinstitute.org/scientific-community/science/programs/medical-and-population-genetics/haploview/haploview). There is both an online version of this tool and a perl script
+The [VCF to PED converter]({{site.browser_url}}/Homo_sapiens/UserData/Haploview) allows users to parse a vcf file ([specification](http://vcftools.sourceforge.net/specs.html)) to create a linkage pedigree file (ped) and a marker information file, which together may be loaded into ld visualization tools like [Haploview](http://www.broadinstitute.org/scientific-community/science/programs/medical-and-population-genetics/haploview/haploview). There is both an online version of this tool and a perl script
 
 [Online Version](#online-version)  
 [API Script](#api-script)
 
 ### Online version
 
-You can access the online version of the [converter tool](http://browser.1000genomes.org/tools.html) from either the tools link in the menu bar at the top of every page or from the manage your data link which is on the left hand menu of many pages in the browser.
+You can access the online version of the [converter tool]({{site.browser_url}}/tools.html) from either the tools link in the menu bar at the top of every page or from the manage your data link which is on the left hand menu of many pages in the browser.
 
 The input interface of the online version looks like
 

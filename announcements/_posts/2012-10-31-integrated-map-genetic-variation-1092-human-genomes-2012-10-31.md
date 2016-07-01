@@ -6,4 +6,4 @@ The Phase 1 publication, [An Integrated map of genetic variation from 1092 human
 
 All the data files associated with this paper can be found in our [phase1 analysis results directory](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/).
 
-Please note if you are looking for our Phase 3 paper, you might be here from twitter in error, our Phase 3 announcement is [a global reference for human variation](http://www.1000genomes.org/announcements/global-reference-human-genetic-variation-2015-09-30)
+Please note if you are looking for our Phase 3 paper, you might be here from twitter in error, our Phase 3 announcement is [a global reference for human variation](/announcements/global-reference-human-genetic-variation-2015-09-30)

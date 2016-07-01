@@ -13,7 +13,7 @@ In relation to the “Data Services” section of the “Terms of Use for EMBL-E
 
 Where specific restrictions or claimed rights have been made known to IGSR, that information will be provided by IGSR with the data, however, IGSR can not guarantee the information being accurate for any purpose. It remains the responsibility of users to ensure that their exploitation of the data does not infringe any of the rights of third parties, including the data owners.
 
-Data from the 1000 Genomes Project is now available without embargo, following the final publication from the project. Use of the data should be cited in the usual way, with current details available at  [http://www.1000genomes.org/faq/how-do-i-cite-1000-genomes-project](http://www.1000genomes.org/faq/how-do-i-cite-1000-genomes-project).
+Data from the 1000 Genomes Project is now available without embargo, following the final publication from the project. Use of the data should be cited in the usual way, with current details available at  [{{site.url}}/faq/how-do-i-cite-1000-genomes-project](/faq/how-do-i-cite-1000-genomes-project).
 
 Data from the Human Genome Structural Variation Consortium (HGSVC) continues the philosophy of the 1000 Genomes Project, making data available prior to publication in line with Fort Lauderdale principles, allowing others to use the data but allowing the data producers to make the first presentations and to publish the first paper with global analyses of the data. Users should see the [data reuse statement](https://github.com/igsr/1000Genomes_data_indexes/blob/master/data_collections/hgsv_sv_discovery/README_hgsvc_datareuse_statement.md) accompanying the data.
 

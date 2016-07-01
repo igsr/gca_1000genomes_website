@@ -6,7 +6,7 @@ Additional sequence data from the 1000 Genomes full project are now available. T
 
 [20111114.sequence.index](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/20111114.sequence.index)
 
-Data access links: [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data) / [NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data) / [Instructions for data download and Aspera](http://www.1000genomes.org/data#DataAccess)
+Data access links: [EBI](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data) / [NCBI](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/data) / [Instructions for data download and Aspera](/data#DataAccess)
 
 [Sequence index and Statistics files](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/sequence_indices/)
 

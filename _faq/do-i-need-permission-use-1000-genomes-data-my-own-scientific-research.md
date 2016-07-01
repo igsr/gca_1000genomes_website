@@ -9,4 +9,4 @@ faq_related:
   - can-i-get-phenotype-gender-and-family-relationship-information-samples
 ---
                     
-The 1000 Genomes data is made available according to the [Fort Lauderdale Agreement](http://www.genome.gov/Pages/Research/WellcomeReport0303.pdf).  The IGSR data use statement can be found on our [data disclaimer](http://www.1000genomes.org/IGSR_disclaimer) page.
+The 1000 Genomes data is made available according to the [Fort Lauderdale Agreement](http://www.genome.gov/Pages/Research/WellcomeReport0303.pdf).  The IGSR data use statement can be found on our [data disclaimer](/IGSR_disclaimer) page.

@@ -6,4 +6,4 @@ The 1000 Genomes FTP site is now available as an endpoint in the [Globus Online 
 
 The endpoint name is ebi#1000genomes 
 
-Our [FAQ](http://www.1000genomes.org/faq/can-i-access-1000-genomes-data-globus-online) has more details about how to access the data via Globus.
+Our [FAQ](/faq/can-i-access-1000-genomes-data-globus-online) has more details about how to access the data via Globus.

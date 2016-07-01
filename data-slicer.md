@@ -8,7 +8,7 @@ permalink: /data-slicer/
 
 The Data Slicer provides an interface which allows users to get subsections of either VCF ([VCFtools](http://vcftools.sourceforge.net/specs.html)) or BAM ([SAMtools](http://samtools.sourceforge.net/)) files based on genomic coordinates.
 
-In the browser, you can access the [Data Slicer](http://browser.1000genomes.org/Homo_sapiens/UserData/SelectSlice) from either the tools link in the menu bar at the top of every page or from the manage your data link which is on the left hand menu of many pages.
+In the browser, you can access the [Data Slicer]({{site.browser_url}}/Homo_sapiens/UserData/SelectSlice) from either the tools link in the menu bar at the top of every page or from the manage your data link which is on the left hand menu of many pages.
 
 The input interface is shown below.
 
@@ -34,6 +34,6 @@ After clicking next the system produces your final file.
 
 This presents a link to your file slice which should contain both the location you requested and the name of the original in its name. If you right click on this link and select save target you will be able to download this file. You also get a summary of the first few lines of the file in the window so you can check it has produced something close to expectation.
 
-There is also [documentation for our Variation Pattern finder](http://www.1000genomes.org/variation-pattern-finder) which looks at shared patterns of variation between individuals from VCF files.
+There is also [documentation for our Variation Pattern finder](/variation-pattern-finder) which looks at shared patterns of variation between individuals from VCF files.
 
 If you have any questions about this system please email [info@1000genomes.org](mailto:info@1000genomes.org)

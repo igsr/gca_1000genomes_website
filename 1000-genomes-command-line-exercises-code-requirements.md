@@ -6,7 +6,7 @@ permalink: /1000-genomes-command-line-exercises-code-requirements/
 
 # 1000 Genomes Command Line Exercises code requirements
 
-These are the tools required to do the command line exercises as described [here](http://www.1000genomes.org/using-1000-genomes-data).
+These are the tools required to do the command line exercises as described [here](/using-1000-genomes-data).
 
 Please install all of these pieces of software before doing the exercises as many of the steps depend on multiple pieces of the exercises.
 

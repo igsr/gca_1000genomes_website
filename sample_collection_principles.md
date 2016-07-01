@@ -42,8 +42,8 @@ The 1000 Genomes Samples and ELSI group determined that all consent forms, for t
 - No individual results from the study of the samples would be returned, al- though general information about the project and about interesting new findings emerging from genetic research is provided periodically to the researchers who collected the samples, and who are encouraged to share them with community members. 
 - Individuals or communities would not have an opportunity to pre-approve future uses of the samples. For samples stored at the Coriell Institute, all proposed uses would be assessed to ensure that the samples will be used only in ways that are consistent with the terms of the informed consent. Similar assessments are expected when samples are stored and distributed by other cell line repositories; 
 - Cell lines would be made, making it possible to generate a potentially unlimited amount of DNA that may last indefinitely; 
-- The consent process for collecting the 1000 Genomes samples is described at [http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf)
-- A copy of the consent template that was used by the 1000 Genomes Project can be seen at [http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf](http://www.1000genomes.org/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf)
+- The consent process for collecting the 1000 Genomes samples is described at [{{site.url}}/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf](/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf)
+- A copy of the consent template that was used by the 1000 Genomes Project can be seen at [{{site.url}}/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf](/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf)
 
 ##Sampling process
 - The samples should be collected from adults.

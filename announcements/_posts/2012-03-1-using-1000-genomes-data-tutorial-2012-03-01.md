@@ -2,7 +2,7 @@
 title: "Using 1000 Genomes Data, A tutorial"
 ---
                     
-We have created a [tutorial](http://www.1000genomes.org/using-1000-genomes-data) to give users a basic background into the 1000genomes project.
+We have created a [tutorial](/using-1000-genomes-data) to give users a basic background into the 1000genomes project.
 
 This includes a series of slides covering the background and history of the project, the structure and format of the raw data, our browser and our tools.
 

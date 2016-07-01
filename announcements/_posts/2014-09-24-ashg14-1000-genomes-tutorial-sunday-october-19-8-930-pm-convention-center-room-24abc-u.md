@@ -8,7 +8,7 @@ The 1000 Genomes Project has released the variants, genotypes, and integrated ha
 
 The tutorial will be on Sunday 19th between 8 and 9:30pm in the Convention Centre, Room 24ABC in the Upper Level.
 
-The program is listed on our [tutorial web page.](http://www.1000genomes.org/ashg-2014-1000-genomes-tutorial-sunday-october-19-8-930-pm-convention-center-room-24abc-upper-level)
+The program is listed on our [tutorial web page.](/ashg-2014-1000-genomes-tutorial-sunday-october-19-8-930-pm-convention-center-room-24abc-upper-level)
 
 No registration is needed.
 

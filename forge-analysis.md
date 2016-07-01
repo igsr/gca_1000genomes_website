@@ -10,7 +10,7 @@ include_in_sitemap: true
 
 The FORGE tool performs **F**unctional element **O**verlap analysis of the **R**esults of **G**enome Wide Association Study (GWAS)**E**xperiments, to identify tissue specific signals within the set of GWAS SNPs.
 
-[Return to FORGE tool](http://browser.1000genomes.org/Homo_sapiens/UserData/Forge10 "Forge Tool").
+[Return to FORGE tool]({{site.browser_url}}/Homo_sapiens/UserData/Forge10 "Forge Tool").
 
 
 **Sections**
@@ -29,7 +29,7 @@ The FORGE tool performs **F**unctional element **O**verlap analysis of the **
 **<a name="Resources"></a>Other Resources**
 
 *   [Source code on GitHub](https://github.com/iandunham/Forge),
-*   [Examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery),
+*   [Examples](/forge-gwas-catalog-example-gallery),
 *   [GitHub gallery](http://iandunham.github.io/gallery/)
 
 **<a name="Overview"></a>Overview**
@@ -50,7 +50,7 @@ The results are presented by cell sample in either graphic (interactive [Dimple
 
 Alternatively there may be no enrichment and all points will be blue below the Z score thresholds. This could be because there is no regulatory component underlying the GWAS association, or because the relevant tissue is not present in the available functional element datasets, or for other technical reasons (e.g. too few overlaps or wrong genome build). 
 
-A set of example analyses of GWAS studies from the  [NCBI GWAS catalog [Accessed 07/08/2013]](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery), and also at [http://iandunham.github.io/gallery/](http://iandunham.github.io/gallery/).
+A set of example analyses of GWAS studies from the  [NCBI GWAS catalog [Accessed 07/08/2013]](http://www.genome.gov/gwastudies) are available in the [GWAS catalog examples](/forge-gwas-catalog-example-gallery), and also at [http://iandunham.github.io/gallery/](http://iandunham.github.io/gallery/).
 
 **<a name="Inputs"></a>Inputs**
 
@@ -58,9 +58,9 @@ You can supply a list of SNPs by their [dbSNP ](http://www.ncbi.nlm.nih.gov/sn
 
 Alternatively you can upload a file from disk or via a URL. The file should contain 
 
-*   a list of SNPs by RefSNP ID, one per line as above ([example rsid format file](http://browser.1000genomes.org/forge/Pulmonary_function.rsid.txt "Pulmonary_function.rsid")),
-*   SNPs in VCF ([Variant Call Format](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt)) format ([example VCF format file](http://browser.1000genomes.org/forge/Pulmonary_function.vcf.txt "Pulmonary_function.vcf")),
-*   SNPs in BED (e.g. [Personal Genome SNP format](http://genome.ucsc.edu/FAQ/FAQformat.html#format10)) format, ([example BED format file](http://browser.1000genomes.org/forge/Pulmonary_function.bed.txt "Pulmonary_function.pgsnp.bed")). 
+*   a list of SNPs by RefSNP ID, one per line as above ([example rsid format file]({{site.browser_url}}/forge/Pulmonary_function.rsid.txt "Pulmonary_function.rsid")),
+*   SNPs in VCF ([Variant Call Format]({{site.browser_url}}/forge/Pulmonary_function.vcf.txt)) format ([example VCF format file]({{site.browser_url}}/forge/Pulmonary_function.vcf.txt "Pulmonary_function.vcf")),
+*   SNPs in BED (e.g. [Personal Genome SNP format](http://genome.ucsc.edu/FAQ/FAQformat.html#format10)) format, ([example BED format file]({{site.browser_url}}/forge/Pulmonary_function.bed.txt "Pulmonary_function.pgsnp.bed")). 
 
 In fact any BED format with 3 columns (0 based, chrN) will work e.g.
 
@@ -111,9 +111,9 @@ These are the Z score thresholds used to colour the points red (by default >= 3.
 Several outputs are produced and provided from the results page.  
 
 1.  An interactive table of the overlaps by cell is given by default on the results page. 
-2.  The _[PDF](http://browser.1000genomes.org/forge/chart.pdf)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
-3.  The _[Interactive chart](http://browser.1000genomes.org/forge/dchart.htm)_ link provides an interactive chart to explore the data.
-4.  4.  The _[TSV](http://browser.1000genomes.org/forge/chart.tsv)_ link provides the FORGE analysis results in tab separated format. 
+2.  The _[PDF]({{site.browser_url}}/forge/chart.pdf)_ link provides a base R graphics pdf chart of the FORGE analysis useful for printing, presentations and publications.
+3.  The _[Interactive chart]({{site.browser_url}}/forge/dchart.htm)_ link provides an interactive chart to explore the data.
+4.  4.  The _[TSV]({{site.browser_url}}/forge/chart.tsv)_ link provides the FORGE analysis results in tab separated format. 
 
 Each of the graphics presents the Z scores by cell sample. Cells are grouped alphabetically by tissue and then organised alphabetically by cell name. In each of the graphics the colouring is consistent, blue (Z < 2.58), pink (2.58 =< Z < 3.39), and red (Z >= 3.39). 
 
@@ -123,15 +123,15 @@ See the following graphics/links for examples of the output for the default Pulm
 
 _Interactive Chart_
 
-The [interactive chart](http://browser.1000genomes.org/forge/dchart.htm) presents the Z scores by tissue.  Each point is a Z score for a cell type with the different cells organised alphabetically within the tissues. Where the same cell type is assayed (either the same cell line, or the same sample type from different individuals) the results are stacked at the same x axis position which provides useful validation of results where there are replicate or equivalent cell samples. Mouseover the individual points will show a tooltip giving the information from the results table. The fields called _Class_ and _Number_ are for plotting purposes only and should be ignored. 
+The [interactive chart]({{site.browser_url}}/forge/dchart.htm) presents the Z scores by tissue.  Each point is a Z score for a cell type with the different cells organised alphabetically within the tissues. Where the same cell type is assayed (either the same cell line, or the same sample type from different individuals) the results are stacked at the same x axis position which provides useful validation of results where there are replicate or equivalent cell samples. Mouseover the individual points will show a tooltip giving the information from the results table. The fields called _Class_ and _Number_ are for plotting purposes only and should be ignored. 
 
 _PDF_
 
-The [pdf output](http://browser.1000genomes.org/forge/chart.pdf) presents the Z scores in a similar way organised alphabetically by Tissue and Cell, but without stacking duplicate samples. For guidance the Tissues are divided by the brown vertical lines. Horizontal pink lines show the Z score thresholds. A thumbnail example is shown below but the original is available [here](http://browser.1000genomes.org/forge/chart.pdf). Threshold lines are not necessarily plotted if the results are all below threshold.
+The [pdf output]({{site.browser_url}}/forge/chart.pdf) presents the Z scores in a similar way organised alphabetically by Tissue and Cell, but without stacking duplicate samples. For guidance the Tissues are divided by the brown vertical lines. Horizontal pink lines show the Z score thresholds. A thumbnail example is shown below but the original is available [here]({{site.browser_url}}/forge/chart.pdf). Threshold lines are not necessarily plotted if the results are all below threshold.
 
-_[![Pulmonary Function thumb](/sites/1000genomes.org/files/documents/chart.png "Pulmonary Function thumb")](http://browser.1000genomes.org/forge/chart.pdf)TSV file_
+_[![Pulmonary Function thumb](/sites/1000genomes.org/files/documents/chart.png "Pulmonary Function thumb")]({{site.browser_url}}/forge/chart.pdf)TSV file_
 
-The results are also available as a tab separated value file ([TSV](http://browser.1000genomes.org/forge/chart.tsv)) with columns as follows:
+The results are also available as a tab separated value file ([TSV]({{site.browser_url}}/forge/chart.tsv)) with columns as follows:
 
 *   Zscore - The Zscore of the test data enrichment count versus the background
 *   Cell - The cell for which the enrichment is calculated
@@ -141,7 +141,7 @@ The results are also available as a tab separated value file ([TSV](http://brows
 *   Number - An irrelevant number used to help plotting.
 *   Accession - The GEO accession number of the data set.
 
-<div>More example analyses in pdf format are available in the [GWAS catalog examples](http://www.1000genomes.org/forge-gwas-catalog-example-gallery) and the rCharts gallery at [http://iandunham.github.io/gallery/](http://iandunham.github.io/gallery/).</div>
+<div>More example analyses in pdf format are available in the [GWAS catalog examples](/forge-gwas-catalog-example-gallery) and the rCharts gallery at [http://iandunham.github.io/gallery/](http://iandunham.github.io/gallery/).</div>
 
 <a name="Methods"></a>**Methods**
 
@@ -183,7 +183,7 @@ The source code for FORGE is available on Github at [https://github.com/iandun
 
 **<a name="Citation"></a>Citation**
 
-If you find the tool useful, please cite the website at  [http://browser.1000genomes.org/Homo_sapiens/UserData/Forge](http://browser.1000genomes.org/Homo_sapiens/UserData/Forge). For use in publications cite the website and Dunham, I., Kulesha, E., Morganella, S. & Birney, E. FORGE : A tool to discover cell specific enrichments of GWAS associated SNPs in regulatory regions. (Manuscript submitted).
+If you find the tool useful, please cite the website at  [{{site.browser_url}}/Homo_sapiens/UserData/Forge]({{site.browser_url}}/Homo_sapiens/UserData/Forge). For use in publications cite the website and Dunham, I., Kulesha, E., Morganella, S. & Birney, E. FORGE : A tool to discover cell specific enrichments of GWAS associated SNPs in regulatory regions. (Manuscript submitted).
 
 <a name="Contact"></a>**Contact **
 

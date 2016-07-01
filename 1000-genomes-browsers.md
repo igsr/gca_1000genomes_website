@@ -17,15 +17,15 @@ During the 1000 Genomes project, GRCh37 was used as the reference genome. Ensemb
 
 ##1000 Genomes Browsers
 
-While the 1000 Genomes Project was active, it maintained a project specific version of the [Ensembl Browser](http://www.ensembl.org), based on GRCh37, to visualise its variants. This browser can be found at [http://browser.1000genomes.org](http://browser.1000genomes.org).
+While the 1000 Genomes Project was active, it maintained a project specific version of the [Ensembl Browser](http://www.ensembl.org), based on GRCh37, to visualise its variants. This browser can be found at [{{site.browser_url}}]({{site.browser_url}}).
 
 ###Phase 3
 
-The [main browser](http://browser.1000genomes.org) currently displays the SNPs and indels from the [Phase 3 Release](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/). This runs Ensembl version 80.
+The [main browser]({{site.browser_url}}) currently displays the SNPs and indels from the [Phase 3 Release](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/). This runs Ensembl version 80.
 
 ###Phase 1
 
-The phase 1 browser is still available at [http://phase1browser.1000genomes.org/index.html](http://phase1browser.1000genomes.org/index.html). This runs Ensembl version 73.
+The phase 1 browser is still available at [{{site.phase1_browser_url}}/index.html]({{site.phase1_browser_url}}/index.html). This runs Ensembl version 73.
 
 ###Pilot
 

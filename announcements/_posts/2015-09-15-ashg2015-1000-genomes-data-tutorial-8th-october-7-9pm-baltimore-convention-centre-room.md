@@ -6,7 +6,7 @@ The 1000 Genomes Project is holding a tutorial giving and overview of the 1000 G
 
 This tutorial will be held in the Baltimore Convention Centre, Room 327, Level 3.
 
-For more details about the program please see the [tutorial page](http://www.1000genomes.org/ashg-2015-1000-genomes-tutorial-thursday-october-8th-7-9pm-baltimore-convention-center-room-327-leve)
+For more details about the program please see the [tutorial page](/ashg-2015-1000-genomes-tutorial-thursday-october-8th-7-9pm-baltimore-convention-center-room-327-leve)
 
 No registration is needed.
 

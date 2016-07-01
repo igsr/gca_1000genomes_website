@@ -24,9 +24,9 @@ Jump to disease section:
 *   [Heart](#Heart)
 *   [All](#All_GWAS)
 
-Return to [Forge Tool](http://browser.1000genomes.org/Homo_sapiens/UserData/Forge "Forge Tool").
+Return to [Forge Tool]({{site.browser_url}}/Homo_sapiens/UserData/Forge "Forge Tool").
 
-Return to [Forge Help](http://www.1000genomes.org/Forge-analysis "Forge Documentation").
+Return to [Forge Help](/forge-analysis "Forge Documentation").
 
 ### **<a name="Autoimmune" id="Autoimmune"></a>Autoimmune Dis****eases**
 

@@ -6,7 +6,7 @@ permalink: /allele-frequency-calculator-documentation/
 
 # The Allele Frequency Calculator
 
-The allele frequency calculator is hosted on our browser site using the link [http://browser.1000genomes.org/Homo_sapiens/UserData/Allele](http://browser.1000genomes.org/Homo_sapiens/UserData/Allele)  
+The allele frequency calculator is hosted on our browser site using the link [{{site.browser_url}}/Homo_sapiens/UserData/Allele]({{site.browser_url}}/Homo_sapiens/UserData/Allele)  
 
 VCF files of variant sites and genotypes, released by the 1000 Genomes Project, are usually annotated with allele frequencies (AF) at the global and continental super population levels.  Many users also want the AF of certain variants for the specific populations of interest.  The AF Calculator provides an interface to generate AF for variants in a given genomic interval for a given population. If no specific population is specified, the tool will calculate and output AF for every population in the input files.
 

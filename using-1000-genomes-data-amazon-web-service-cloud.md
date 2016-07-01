@@ -6,7 +6,7 @@ permalink: /using-1000-genomes-data-amazon-web-service-cloud/
 
 # Using 1000 Genomes Data in the Amazon Web Service Cloud
 
-Here are some basic instructions on how to use the 1000 genomes data that is available in the Amazon Web Service Cloud (AWS) and how to run our [tutorial](http://www.1000genomes.org/using-1000-genomes-data).
+Here are some basic instructions on how to use the 1000 genomes data that is available in the Amazon Web Service Cloud (AWS) and how to run our [tutorial](/using-1000-genomes-data).
 
 Amazon provides lots of useful documentation about [setting up accounts](http://aws.amazon.com/ec2/), [launching instances](http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/LaunchInstance.html?r=3051) and [starting sessions](http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/ConnectToInstanceLinux.html). General documentation for getting started can also be found in their [Getting Started Guide](http://docs.amazonwebservices.com/AWSEC2/latest/GettingStartedGuide/)
 
@@ -53,7 +53,7 @@ You can now begin the command line based tutorial described in:
     /home/onekgenomes/tutorialG1K_commandline_based_tutorial_exercises_20120217.pdf
     /home/onekgenomes/tutorialG1K_commandline_based_tutorial_exercises_20120217.doc
 
-You can also get these documents from [http://www.1000genomes.org/using-1000-genomes-data](http://www.1000genomes.org/using-1000-genomes-data)
+You can also get these documents from [{{site.url}}/using-1000-genomes-data](/using-1000-genomes-data)
 
 ### Other Tools
 

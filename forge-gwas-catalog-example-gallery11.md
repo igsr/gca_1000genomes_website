@@ -23,9 +23,9 @@ Jump to disease section:
 * [Blood](#Blood)
 * [Heart](#Heart)
 
-Return to [Forge Tool](http://browser.1000genomes.org/Homo_sapiens/UserData/Forge).
+Return to [Forge Tool]({{site.browser_url}}/Homo_sapiens/UserData/Forge).
 
-Return to [Forge Documentation](http://www.1000genomes.org/forge-analysis-11).
+Return to [Forge Documentation](/forge-analysis-11).
 
 ###<a name="Autoimmune Diseases" id="Autoimmune Diseases"></a>Autoimmune Diseases
 

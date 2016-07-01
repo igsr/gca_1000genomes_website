@@ -10,4 +10,4 @@ faq_related:
                     
 You can search the website.
 
-Every page on [http://www.1000genomes.org](http://www.1000genomes.org) has a search box in the top right hand corner. This allows you to find information anywhere on the IGSR website.
+Every page on [{{site.url}}](/) has a search box in the top right hand corner. This allows you to find information anywhere on the IGSR website.

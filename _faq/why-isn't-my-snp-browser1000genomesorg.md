@@ -13,4 +13,4 @@ faq_related:
                     
 [Ensembl](http://www.ensembl.org){:target="_blank"} and [UCSC Genome Browser](http://genome.ucsc.edu/){:target="_blank"} both import their variant data from [dbSNP](http://www.ncbi.nlm.nih.gov/projects/SNP/){:target="_blank"}. When new 1000 Genomes variants have been released it can take some time for them to be accessioned by dbSNP and make their way to the browsers.
 
-When this happens we try to ensure there is a version of [our own browser](http://browser.1000genomes.org/index.html) which displays the data in the meantime. Both Ensembl and UCSC support attaching VCF files to them for visualisation
+When this happens we try to ensure there is a version of [our own browser]({{site.browser_url}}/index.html) which displays the data in the meantime. Both Ensembl and UCSC support attaching VCF files to them for visualisation

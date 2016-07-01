@@ -13,7 +13,7 @@ faq_related:
                     
 There are two ways to get subsections of our BAM files.
 
-The first is to use the [Data Slicer tool](http://browser.1000genomes.org/tools.html) from our [browser](http://browser.1000genomes.org/) which is [documented here](http://www.1000genomes.org/data-slicer). This tool gives you a web interface requesting the URL of any BAM file and the genomic location you wish to get a sub-slice for. This tool also works for VCF files.
+The first is to use the [Data Slicer tool]({{site.browser_url}}/tools.html) from our [browser]({{site.browser_url}}/) which is [documented here](/data-slicer). This tool gives you a web interface requesting the URL of any BAM file and the genomic location you wish to get a sub-slice for. This tool also works for VCF files.
 
 The second it to use [samtools](http://samtools.sourceforge.net/) on the command line, e.g
 

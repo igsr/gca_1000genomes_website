@@ -16,4 +16,4 @@ Each set of files named like ERR001268_1.filt.fastq.gz, ERR001268_2.filt.fastq.g
 
 When a individual has many files with different run accessions (e.g ERR001268), this means it was sequenced multiple times. This can either be for the same experiment, some centres used multiplexing to have better control over their coverage levels for the low coverage sequencing, or because it was sequenced using different protocols or on different platforms.
 
-For a full description of the sequencing conducted for the project please look at our [sequence.index file](http://www.1000genomes.org/faq/what-sequence-index-file)
+For a full description of the sequencing conducted for the project please look at our [sequence.index file](/faq/what-sequence-index-file)

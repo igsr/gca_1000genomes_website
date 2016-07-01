@@ -19,8 +19,8 @@ An example info column which contains this information looks like
     1 15211 rs78601809 T G 100 PASS AC=3050;AF=0.609026;AN=5008;NS=2504;DP=32245;EAS_AF=0.504;AMR_AF=0.6772;AFR_AF=0.5371;EUR_AF=0.7316;SAS_AF=0.6401;AA=t|||;VT=SNP
 
 If you want population specific allele frequencies you have three options:
-* For a single variant you can look at the [population genetics page for a variant in our browser](http://browser.1000genomes.org/Homo_sapiens/Variation/Population?r=1:14711-15711;source=dbSNP;v=rs78601809;vdb=variation;vf=22041749). This gives you piecharts and a table for a single site.
-* For a genomic region you can use our [allele frequency calculator](http://www.1000genomes.org/allele-frequency-calculator-documentation) tool which gives a set of allele frequencies for selected populations
+* For a single variant you can look at the [population genetics page for a variant in our browser]({{site.browser_url}}/Homo_sapiens/Variation/Population?r=1:14711-15711;source=dbSNP;v=rs78601809;vdb=variation;vf=22041749). This gives you piecharts and a table for a single site.
+* For a genomic region you can use our [allele frequency calculator](/allele-frequency-calculator-documentation) tool which gives a set of allele frequencies for selected populations
 * If you would like sub population allele frequences for a whole file, you are best to use the vcftools command line tool.
 
 This is done using a combination of two [vcftools ](http://vcftools.sourceforge.net/) commands called [vcf-subset](http://vcftools.sourceforge.net/perl_module.html#vcf-subset) and [fill-an-ac](http://vcftools.sourceforge.net/perl_module.html#fill-an-ac)

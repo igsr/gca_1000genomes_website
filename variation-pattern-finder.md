@@ -6,7 +6,7 @@ permalink: /variation-pattern-finder/
 
 # Variation Pattern Finder
 
-This is documentation about our [Variation Pattern Finder](http://browser.1000genomes.org/Homo_sapiens/UserData/VariationsMapVCF) tool
+This is documentation about our [Variation Pattern Finder]({{site.browser_url}}/Homo_sapiens/UserData/VariationsMapVCF) tool
 
 [About](#bout)  
 [Input Data Formats](input-data-formats)  
@@ -38,7 +38,7 @@ An example can be found on the 1000 genomes ftp site [20100804.ALL.panel](ftp://
 
 ### Finder Interface
 
-The [interface for the Finder](http://browser.1000genomes.org/Homo_sapiens/UserData/VariationsMapVCF) can be navigated to either from the [tools](http://browser.1000genomes.org/tools.html) link which should be in the top right hand corner of each page below the logo or on any view page via the "Manage your data" link in the left hand menu.
+The [interface for the Finder]({{site.browser_url}}/Homo_sapiens/UserData/VariationsMapVCF) can be navigated to either from the [tools]({{site.browser_url}}/tools.html) link which should be in the top right hand corner of each page below the logo or on any view page via the "Manage your data" link in the left hand menu.
 
 When you read the pattern finders interface you will be presented with a form in which to enter your data. The form itself has 3 input boxes
 
@@ -72,8 +72,8 @@ The Variation Pattern Finder will work with any publicly visible remove (over ht
 
 ### Additional Info
 
-In addition to use the Finder to mine the VCF file, you may look into a VCF file directly. Rather than download the entire VCF file for the whole genome, you may slice out the piece of VCF file that contains data in a user-specified chromosomal region using another tool called Data Slicer. Data Slicer can also slice BAM files. Please see more instruction [here](http://www.1000genomes.org/wiki/DCC/data-slicer-documentation).
+In addition to use the Finder to mine the VCF file, you may look into a VCF file directly. Rather than download the entire VCF file for the whole genome, you may slice out the piece of VCF file that contains data in a user-specified chromosomal region using another tool called Data Slicer. Data Slicer can also slice BAM files. Please see more instruction [here](/wiki/DCC/data-slicer-documentation).
 
 ### API Script
 
-You can also find a perl script version of this tool [on the ftp site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/variation_pattern_finder/version_1.0/) and documentation [here](http://www.1000genomes.org/variation-pattern-finder-api-documentation)
+You can also find a perl script version of this tool [on the ftp site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/variation_pattern_finder/version_1.0/) and documentation [here](/variation-pattern-finder-api-documentation)

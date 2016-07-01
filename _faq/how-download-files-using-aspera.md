@@ -16,7 +16,7 @@ Aspera provides a fast method of downloading data. To use the Aspera service you
 
 ###Browser
 
-Our aspera browser interace no longer works. If you wish to download files using a web interface we recommend using the [Globus interface we present](http://www.1000genomes.org/faq/can-i-access-1000-genomes-data-globus-online/). If you are previously relied on the aspera web interface and wish to discuss the matter please email us at [info@1000genomes.org](mailto:info@1000genomes.org) to discuss your options. 
+Our aspera browser interace no longer works. If you wish to download files using a web interface we recommend using the [Globus interface we present](/faq/can-i-access-1000-genomes-data-globus-online/). If you are previously relied on the aspera web interface and wish to discuss the matter please email us at [info@1000genomes.org](mailto:info@1000genomes.org) to discuss your options. 
 
 ###Command line
 

@@ -9,7 +9,7 @@ redirect_from:
 
 # Public Mysql Instance
 
-Like the main [Ensembl project](http://www.ensembl.org/info/data/mysql.html), we now have a public MySQL instance containing copies of the databases which sit behind both [http://browser.1000genomes.org](http://browser.1000genomes.org) and [http://pilotbrowser.1000genomes.org](http://pilotbrowser.1000genomes.org)
+Like the main [Ensembl project](http://www.ensembl.org/info/data/mysql.html), we now have a public MySQL instance containing copies of the databases which sit behind both [{{site.browser_url}}]({{site.browser_url}}) and [{{site.pilot_browser_url}}]({{site.pilot_browser_url}})
 
 
 | Server | User | Password | Port |

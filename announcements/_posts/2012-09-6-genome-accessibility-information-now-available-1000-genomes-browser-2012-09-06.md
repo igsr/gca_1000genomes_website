@@ -2,7 +2,7 @@
 title: "Genome Accessibility information now available on the 1000 Genomes Browser"
 ---
                     
-Two Accessibility Tracks have now been added to the [1000 Genomes Browser ](http://browser.1000genomes.org/index.html)
+Two Accessibility Tracks have now been added to the [1000 Genomes Browser ]({{site.browser_url}}/index.html)
 
 This information was built using sequence data from the [phase1 dataset](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/)
 

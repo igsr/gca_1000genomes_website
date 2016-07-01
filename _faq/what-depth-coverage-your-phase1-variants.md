@@ -36,4 +36,4 @@ To get the coverage for all those sites you would use
 
 You can find more information about bed file formats please see the [Ensembl File Formats Help](http://www.ensembl.org/info/website/upload/bed.html)
 
-For more information you may wish to look at our documentation about [data slicing](http://www.1000genomes.org/faq/how-do-i-get-slice-your-vcf-files)
+For more information you may wish to look at our documentation about [data slicing](/faq/how-do-i-get-slice-your-vcf-files)

@@ -17,4 +17,4 @@ For the phase 3 analysis the consortium has decided to only use Illumina platfor
 * Contamination.
 * They do not meet our coverage criteria.
 
-Since the [alignment release based on 20120522](http://www.1000genomes.org/announcements/new-alignment-release-2012-12-11), we have only released alignments based on the analysis.sequence.index
+Since the [alignment release based on 20120522](/announcements/new-alignment-release-2012-12-11), we have only released alignments based on the analysis.sequence.index

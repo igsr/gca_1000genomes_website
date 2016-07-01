@@ -11,4 +11,4 @@ faq_related:
   - can-i-get-genotypes-specific-individualpopulation-your-vcf-files
 ---
                     
-These codes represent our populations, each three letter code represents a different population, CEU means Northern Europeans from Utah and TSI means Tuscans from Italy. There is a summary of all these codes both in a [readme](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.populations) on the ftp site and in the alternative question [Which populations are part of your study?](http://www.1000genomes.org/faq/which-populations-are-part-your-study)
+These codes represent our populations, each three letter code represents a different population, CEU means Northern Europeans from Utah and TSI means Tuscans from Italy. There is a summary of all these codes both in a [readme](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.populations) on the ftp site and in the alternative question [Which populations are part of your study?](/faq/which-populations-are-part-your-study)

@@ -25,10 +25,10 @@ Answers are available for these exercises
 *   Browser based answers [[doc](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120229_tutorial_docs/G1K_web_based_tutorial_answers_20120217.doc)\|[pdf](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120229_tutorial_docs/G1K_web_based_tutorial_answers_20120217.pdf)]
 *   Command line answers [[doc](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120229_tutorial_docs/G1K_commandline_based_tutorial_answers_20120217.doc)\|[pdf](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120229_tutorial_docs/G1K_commandline_based_tutorial_answers_20120217.pdf)\|[txt](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120229_tutorial_docs/G1K_commandline_based_tutorial_answers_20120217.txt)]
 
-You can run this tutorial on the Amazon Web Service Cloud with our prebuilt AMI. For more information please look at [Using 1000 genomes data in AWS](http://www.1000genomes.org/using-1000-genomes-data-amazon-web-service-cloud)
+You can run this tutorial on the Amazon Web Service Cloud with our prebuilt AMI. For more information please look at [Using 1000 genomes data in AWS](/using-1000-genomes-data-amazon-web-service-cloud)
 
-There are more details slides about our recent paper, population genetics, functional analysis and structural variants from our [ASHG 2012 tutorial page](http://www.1000genomes.org/ashg-2012-1000-genomes-tutorial-wednesday-7th-november-7-930pm)
+There are more details slides about our recent paper, population genetics, functional analysis and structural variants from our [ASHG 2012 tutorial page](/ashg-2012-1000-genomes-tutorial-wednesday-7th-november-7-930pm)
 
-Please note for in order to be able to do the command line exercises you need to have several pieces of software and source code installed. These are described [here](http://www.1000genomes.org/1000-genomes-command-line-exercises-code-requirements)
+Please note for in order to be able to do the command line exercises you need to have several pieces of software and source code installed. These are described [here](/1000-genomes-command-line-exercises-code-requirements)
 
 A version of this tutorial has been given twice on the Genome Campus. The precise slides used in those talks can be found on our ftp site. [[Tutorial 24th January](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120120_1000genomes_tutorial/)\|[Tutorial 16th February](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20120214_1000genomes_tutorial/)].
