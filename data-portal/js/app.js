@@ -16,25 +16,25 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 
     $routeProvider
     .when('/sample', {
-        templateUrl: 'partials/sample-list.html?ver=20160506',
+        templateUrl: 'partials/sample-list.html?ver=20160810',
         controller: 'SampleListCtrl',
         controllerAs: 'ListCtrl',
     })
     .when('/population', {
-        templateUrl: 'partials/population-list.html?ver=20160506',
+        templateUrl: 'partials/population-list.html?ver=20160810',
         controller: 'PopulationListCtrl',
         controllerAs: 'ListCtrl',
     })
     .when('/search', {
-        templateUrl: 'partials/search-page.html?ver=20160506',
+        templateUrl: 'partials/search-page.html?ver=20160810',
     })
     .when('/sample/:sample', {
-        templateUrl: 'partials/sample-detail.html?ver=20160506',
+        templateUrl: 'partials/sample-detail.html?ver=20160810',
         controller: 'SampleCtrl',
         controllerAs: 'SampleCtrl',
     })
     .when('/population/:population', {
-        templateUrl: 'partials/population-detail.html?ver=20160506',
+        templateUrl: 'partials/population-detail.html?ver=20160810',
         controller: 'PopulationCtrl',
         controllerAs: 'PopCtrl',
     })
@@ -100,7 +100,7 @@ app.directive('dcFileList', function() { return {
     objectName: '@dcFileList',
     fileHits: '=',
   },
-  templateUrl: 'partials/dc-file-list.html?ver=?20160506',
+  templateUrl: 'partials/dc-file-list.html?ver=?20160810',
   controllerAs: 'ListCtrl',
   transclude: true,
   link: function(scope, iElement, iAttr, controller) {
@@ -540,7 +540,7 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
 
 app.directive('searchComponent', ['$location', function($location) { return {
   scope: {},
-  templateUrl: 'partials/search-component.html?ver=?20160506',
+  templateUrl: 'partials/search-component.html?ver=?20160810',
   controllerAs: 'SearchCtrl',
   link: function(scope, iElement, iAttr, controller) {
     scope.searchType = iAttr.searchComponent || 'sample';
