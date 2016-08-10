@@ -133,6 +133,14 @@ div.data-portal-beta {
       color: #FFF;
   }
 }
+div.data-portal-beta-header {
+  @media (min-width: 992px) {
+    max-width: 778px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 978px;
+  }
+}
 
 footer {
   div.footer {
