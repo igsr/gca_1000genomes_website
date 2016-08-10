@@ -20,6 +20,11 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         controller: 'SampleListCtrl',
         controllerAs: 'ListCtrl',
     })
+    .when('/population', {
+        templateUrl: 'partials/population-list.html?ver=20160506',
+        controller: 'PopulationListCtrl',
+        controllerAs: 'ListCtrl',
+    })
     .when('/search', {
         templateUrl: 'partials/search-page.html?ver=20160506',
     })
@@ -400,6 +405,135 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
           searchBody.query = c.searchBody.query;
       }
       gcaElasticsearch.searchExport({type: 'sample', format: 'tsv', filename: 'igsr_samples', body: searchBody});
+    };
+
+}]);
+
+app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsearch) {
+    var c = this;
+    c.viewOption = 1;
+    c.showAGPanel = false;
+    c.showDCPanel = false;
+
+    c.filteredAGs = {};
+    c.filteredDCs = {};
+
+    c.filteredAGsArray = [];
+    c.filteredDCsArray = [];
+
+    c.searchBody = {
+      size: -1,
+      fields: ['code', 'name', 'description', 'dataCollections.dataCollection', 'dataCollections._analysisGroups'],
+    };
+
+    c.toggleView = function() {
+       c.viewOption = c.viewOption == 1 ? 2 : 1;
+    };
+
+    c.toggleAGPanel = function() {
+      c.showAGPanel = c.showAGPanel ? false : true;
+      c.showPopPanel = false;
+      c.showDCPanel = false;
+      if (c.showAGPanel) {
+        c.viewOption = 2;
+      }
+    };
+    c.toggleDCPanel = function() {
+      c.showDCPanel = c.showDCPanel ? false : true;
+      c.showPopPanel = false;
+      c.showAGPanel = false;
+      if (c.showDCPanel) {
+        c.viewOption = 1;
+      }
+    };
+
+    c.dataCollectionNames = [
+        ['1000 Genomes on GRCh38', 'GRCh38'],
+        ['1000 Genomes phase 3 release', 'Phase 3'],
+        ['1000 Genomes phase 1 release', 'Phase 1'],
+        ['Illumina Platinum pedigree', 'Platinum pedigree'],
+        ['The Human Genome Structural Variation Consortium', 'Structural variation']
+    ];
+
+    c.analysisGroupNames = [
+        ['Exome', 'Exome'],
+        ['Low coverage WGS', 'Low cov WGS'],
+        ['High coverage WGS', 'High cov WGS'],
+        ['HD genotype chip', 'HD genotype chip'],
+        ['Complete Genomics', 'Complete Genomics'],
+        ['Targeted exon', 'Targeted exon'],
+        ['Illumina platinum pedigree', 'Platinum pedigree'],
+        ['Strand specific RNA-seq', 'Strand RNA-seq'],
+        ['Strand-seq', 'Strand-seq'],
+        ['3.5kb jumping library', '3.5kb jump library'],
+        ['7kb mate pair libray', '7kb mate pair'],
+        ['Single molecule real time (SMRT)','SMRT'],
+        ['PCR-free high coverage', 'PCR-free high cov'],
+        ['HiC', 'HiC'],
+    ];
+
+    
+    c.hasCollection = function(population, dcName) {
+        if (population && population.fields && population.fields['dataCollections.dataCollection'] ) {
+          if (population.fields['dataCollections.dataCollection'].indexOf(dcName) > -1) {
+            return true;
+          }
+        }
+        return false;
+    };
+
+    c.hasAnalysisGroup = function(population, agName) {
+        if (population && population.fields && population.fields['dataCollections._analysisGroups'] ) {
+          if (population.fields['dataCollections._analysisGroups'].indexOf(agName) > -1) {
+            return true;
+          }
+        }
+        return false;
+    };
+
+    c.search = function(options) {
+      c.searchBody = {
+        size: -1,
+        fields: c.searchBody.fields
+      };
+
+      var mustTerms = [];
+      c.filteredDCsArray = [];
+      for (var i=0; i<c.dataCollectionNames.length; i++) {
+        if (c.filteredDCs[c.dataCollectionNames[i][0]]) {
+          var term = {};
+          term['dataCollections.dataCollection'] = c.dataCollectionNames[i][0];
+          mustTerms.push({term: term});
+          c.filteredDCsArray.push(c.dataCollectionNames[i]);
+        }
+      };
+      c.filteredAGsArray = [];
+      for (var i=0; i<c.analysisGroupNames.length; i++) {
+        if (c.filteredAGs[c.analysisGroupNames[i][0]]) {
+          var term = {};
+          term['dataCollections._analysisGroups'] = c.analysisGroupNames[i][0];
+          mustTerms.push({term: term});
+          c.filteredAGsArray.push(c.analysisGroupNames[i]);
+        }
+      };
+
+      if (mustTerms.length > 0) {
+        c.searchBody.query = {constant_score: {filter: {bool: {must: mustTerms}}}};
+      }
+
+        
+    };
+
+    c.populationExport = function() {
+      var searchBody = {
+        fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection'],
+        column_names: ['Population code', 'Population name', 'Population description', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
+      };
+
+      if (c.searchBody.query) {
+          searchBody.query = c.searchBody.query;
+      }
+      gcaElasticsearch.searchExport({type: 'population', format: 'tsv', filename: 'igsr_populations', body: searchBody});
     };
 
 }]);
