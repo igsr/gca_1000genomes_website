@@ -66,6 +66,7 @@
     <th>Population</th>
     <th>Description</th>
     <th ng-if="ListCtrl.viewOption == 1">Superpopulation</th>
+    <th ng-if="ListCtrl.viewOption == 1">Samples</th>
     <th ng-if="ListCtrl.viewOption == 1" ng-repeat="dcName in ListCtrl.dataCollectionNames" class="matrix-dot"><div>
       <div ng-click="ListCtrl.filteredDCs[dcName[0]] = !ListCtrl.filteredDCs[dcName[0]]; ListCtrl.search({page:1});">
       <div>{{dcName[1]}}</div></div></div></th>
@@ -77,6 +78,7 @@
     <td><a ng-href="population/{{population.fields.code[0]}}">{{population.fields.code[0]}}</a></td>
     <td><a ng-href="population/{{population.fields.code[0]}}">{{population.fields.description[0]}}</a></td>
     <td ng-if="ListCtrl.viewOption == 1"><span ng-if="population.fields['superpopulation.code'][0]" uib-popover="{{population.fields['superpopulation.name'][0]}}" popover-trigger="mouseenter">{{population.fields['superpopulation.code'][0]}}</span></td>
+    <td ng-if="ListCtrl.viewOption == 1">{{population.fields['samples.count'][0]}}</td>
     <td ng-if="ListCtrl.viewOption == 1" ng-repeat="dcName in ListCtrl.dataCollectionNames" class="matrix-dot">
         <div class="matrix-dot-item matrix-dot-item-gold" ng-if="ListCtrl.hasCollection(population, dcName[0])" uib-popover="{{dcName[0]}}" popover-title="{{population.fields.name[0]}} / {{population.fields.code[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
     </td>

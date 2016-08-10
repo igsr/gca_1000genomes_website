@@ -423,7 +423,7 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
 
     c.searchBody = {
       size: -1,
-      fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection', 'dataCollections._analysisGroups'],
+      fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'samples.count', 'dataCollections.dataCollection', 'dataCollections._analysisGroups'],
     };
 
     c.toggleView = function() {
@@ -526,8 +526,8 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
 
     c.populationExport = function() {
       var searchBody = {
-        fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection'],
-        column_names: ['Population code', 'Population name', 'Population description', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
+        fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'samples.count', 'dataCollections.dataCollection'],
+        column_names: ['Population code', 'Population name', 'Population description', 'Superpopulation code', 'Superpopulation name', 'Number of samples', 'Data collections'],
       };
 
       if (c.searchBody.query) {
