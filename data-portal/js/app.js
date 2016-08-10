@@ -423,7 +423,7 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
 
     c.searchBody = {
       size: -1,
-      fields: ['code', 'name', 'description', 'dataCollections.dataCollection', 'dataCollections._analysisGroups'],
+      fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection', 'dataCollections._analysisGroups'],
     };
 
     c.toggleView = function() {
