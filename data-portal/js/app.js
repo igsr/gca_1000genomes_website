@@ -49,6 +49,10 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         fields: ['code', 'name'],
         sort: ['code']
       }},
+      dc: { type: 'data_collection', body: {
+        size: -1,
+        fields: ['title', 'shortTitle'],
+      }},
     };
 
 }]);
@@ -297,13 +301,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
       }
     };
 
-    c.dataCollectionNames = [
-        ['1000 Genomes on GRCh38', 'GRCh38'],
-        ['1000 Genomes phase 3 release', 'Phase 3'],
-        ['1000 Genomes phase 1 release', 'Phase 1'],
-        ['Illumina Platinum pedigree', 'Platinum pedigree'],
-        ['The Human Genome Structural Variation Consortium', 'Structural variation']
-    ];
+    c.dataCollections = gcaElasticsearch.cachedSearch('dc');
 
     c.analysisGroupNames = [
         ['Exome', 'Exome'],
@@ -365,12 +363,13 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
 
       var mustTerms = [];
       c.filteredDCsArray = [];
-      for (var i=0; i<c.dataCollectionNames.length; i++) {
-        if (c.filteredDCs[c.dataCollectionNames[i][0]]) {
+      for (var i=0; i<c.dataCollections.hits.hits.length; i++) {
+        var dc = c.dataCollections.hits.hits[i];
+        if (c.filteredDCs[dc.fields.title[0]]) {
           var term = {};
-          term['dataCollections.dataCollection'] = c.dataCollectionNames[i][0];
+          term['dataCollections.dataCollection'] = dc.fields.title[0];
           mustTerms.push({term: term});
-          c.filteredDCsArray.push(c.dataCollectionNames[i]);
+          c.filteredDCsArray.push(dc);
         }
       };
       c.filteredAGsArray = [];
