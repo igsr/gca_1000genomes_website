@@ -1,3 +1,6 @@
+---
+layout: angularjs_partial
+---
 
 The Human Genome Structural Variation Consortium (HGSV) aims to define a high-quality map of structural variation and develop new methods to take advantage of the burgeoning array of genomics assays now available to define genomic structure, including long reads, chromatin confirmation assay, strand sequencing and synthetic read and read cloud technologies.
 
