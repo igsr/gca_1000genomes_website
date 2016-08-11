@@ -43,6 +43,13 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
     });
 
     gcaElasticsearchProvider.baseUrl = '/api/beta';
+    gcaElasticsearchProvider.cachedSearches = {
+      pops: { type: 'population', body: {
+        size: -1,
+        fields: ['code', 'name'],
+        sort: ['code']
+      }},
+    };
 
 }]);
 
@@ -271,13 +278,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
       c.showPopPanel = c.showPopPanel ? false : true;
       c.showAGPanel = false;
       c.showDCPanel = false;
-      if (c.showPopPanel && ! c.popSearchBody) {
-        c.popSearchBody = {
-          size: -1,
-          fields: ['code', 'name'],
-          sort: ['code']
-        };
-      }
+      c.populations = gcaElasticsearch.cachedSearch('pops');
     };
     c.toggleAGPanel = function() {
       c.showAGPanel = c.showAGPanel ? false : true;

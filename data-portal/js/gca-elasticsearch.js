@@ -5,7 +5,8 @@ var module = angular.module('gcaElasticsearch', []);
 module.provider('gcaElasticsearch', function() {
   var p = this;
   p.baseUrl = '/api';
-  p.$get = ['$http', '$q', function($http, $q) {
+  p.cachedSearches = {};
+  p.$get = ['$http', '$q', '$timeout', function($http, $q, $timeout) {
     var getDoc = function(options) {
       var url = p.baseUrl.concat('/', options.type, '/', options.id);
       var httpTimeout = $q.defer();
@@ -47,11 +48,41 @@ module.provider('gcaElasticsearch', function() {
       form.submit();
     };
 
+    var cachedSearchResps = {};
+    var cachedSearch = function(searchName) {
+      if (cachedSearchResps.hasOwnProperty(searchName)) {
+        return cachedSearchResps[searchName].result;
+      }
+      if (! p.cachedSearches.hasOwnProperty(searchName)) {
+        return;
+      }
+      var r = {result: {isLoading: false}};
+      cachedSearchResps[searchName] = r
+      r.timer = $timeout(function() {r.result.isLoading = true}, 1000);
+      search(p.cachedSearches[searchName]).then(
+        function(resp) {
+          $timeout.cancel(r.timer);
+          r.result.isLoading = false;
+          r.result.hits = resp.data.hits;
+          r.result.aggs = resp.data.aggs;
+          r.result.error = null;
+        },
+        function(reason) {
+          r.result.isLoading = false;
+          r.result.hits = null;
+          r.result.aggs = null;
+          r.result.error = reason;
+        }
+      );
+      return r.result;
+    };
+
     return {
       getDoc: getDoc,
       search: search,
       searchExport: searchExport,
       cancel: cancel,
+      cachedSearch: cachedSearch,
     };
 
   }];
