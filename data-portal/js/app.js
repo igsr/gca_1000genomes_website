@@ -51,6 +51,7 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
       }},
       dc: { type: 'data_collection', body: {
         size: -1,
+        sort: ['displayOrder'],
         fields: ['title', 'shortTitle'],
       }},
     };
