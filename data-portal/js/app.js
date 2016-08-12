@@ -38,6 +38,11 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         controller: 'PopulationCtrl',
         controllerAs: 'PopCtrl',
     })
+    .when('/data-collection/:dc', {
+        templateUrl: 'partials/data-collection.html?ver=20160810',
+        controller: 'DataCollectionCtrl',
+        controllerAs: 'DcCtrl',
+    })
     .otherwise({
         redirectTo: '/sample',
     });
@@ -49,10 +54,9 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         fields: ['code', 'name'],
         sort: ['code']
       }},
-      dc: { type: 'data_collection', body: {
+      dc: { type: 'data-collection', body: {
         size: -1,
         sort: ['displayOrder'],
-        fields: ['title', 'shortTitle'],
       }},
     };
 
@@ -364,15 +368,17 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
 
       var mustTerms = [];
       c.filteredDCsArray = [];
-      for (var i=0; i<c.dataCollections.hits.hits.length; i++) {
-        var dc = c.dataCollections.hits.hits[i];
-        if (c.filteredDCs[dc.fields.title[0]]) {
-          var term = {};
-          term['dataCollections.dataCollection'] = dc.fields.title[0];
-          mustTerms.push({term: term});
-          c.filteredDCsArray.push(dc);
-        }
-      };
+      if (angular.isArray(c.dataCollections.hits.hits)) {
+        for (var i=0; i<c.dataCollections.hits.hits.length; i++) {
+          var dc = c.dataCollections.hits.hits[i]._source;
+          if (c.filteredDCs[dc.title]) {
+            var term = {};
+            term['dataCollections.dataCollection'] = dc.title;
+            mustTerms.push({term: term});
+            c.filteredDCsArray.push(dc);
+          }
+        };
+      }
       c.filteredAGsArray = [];
       for (var i=0; i<c.analysisGroupNames.length; i++) {
         if (c.filteredAGs[c.analysisGroupNames[i][0]]) {
@@ -447,14 +453,7 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
         c.viewOption = 1;
       }
     };
-
-    c.dataCollectionNames = [
-        ['1000 Genomes on GRCh38', 'GRCh38'],
-        ['1000 Genomes phase 3 release', 'Phase 3'],
-        ['1000 Genomes phase 1 release', 'Phase 1'],
-        ['Illumina Platinum pedigree', 'Platinum pedigree'],
-        ['The Human Genome Structural Variation Consortium', 'Structural variation']
-    ];
+    c.dataCollections = gcaElasticsearch.cachedSearch('dc');
 
     c.analysisGroupNames = [
         ['Exome', 'Exome'],
@@ -500,14 +499,17 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
 
       var mustTerms = [];
       c.filteredDCsArray = [];
-      for (var i=0; i<c.dataCollectionNames.length; i++) {
-        if (c.filteredDCs[c.dataCollectionNames[i][0]]) {
-          var term = {};
-          term['dataCollections.dataCollection'] = c.dataCollectionNames[i][0];
-          mustTerms.push({term: term});
-          c.filteredDCsArray.push(c.dataCollectionNames[i]);
-        }
-      };
+      if (angular.isArray(c.dataCollections.hits.hits)) {
+        for (var i=0; i<c.dataCollections.hits.hits.length; i++) {
+          var dc = c.dataCollections.hits.hits[i]._source;
+          if (c.filteredDCs[dc.title]) {
+            var term = {};
+            term['dataCollections.dataCollection'] = dc.title;
+            mustTerms.push({term: term});
+            c.filteredDCsArray.push(dc);
+          }
+        };
+      }
       c.filteredAGsArray = [];
       for (var i=0; i<c.analysisGroupNames.length; i++) {
         if (c.filteredAGs[c.analysisGroupNames[i][0]]) {
@@ -535,6 +537,91 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
           searchBody.query = c.searchBody.query;
       }
       gcaElasticsearch.searchExport({type: 'population', format: 'tsv', filename: 'igsr_populations', body: searchBody});
+    };
+
+}]);
+
+app.controller('DataCollectionCtrl', ['$routeParams', '$scope', 'gcaElasticsearch', '$http', function($routeParams, $scope, gcaElasticsearch, $http) {
+    var c = this;
+    
+    var processDCs = function(esDCs) {
+      if (esDCs.error) {
+        c.apiError = esDCs.error;
+        return;
+      }
+      var dcId;
+      angular.forEach(esDCs.hits.hits, function(dc) {
+        if (dc._id === $routeParams.dc) {
+          c.dc = dc._source;
+          dcId = dc._id;
+        }
+      });
+      if (!c.dc) {
+        c.apiError = {status: 404, statusText: 'Not found'};
+        return;
+      }
+      $http.get('data-collections/'+dcId+'.html').then(function(resp) {
+        if (resp.data.startsWith('<div')) {
+          c.description = resp.data;
+        }
+      });
+      c.sampleSearch();
+      c.popSearch();
+    };
+
+    var esDCs = gcaElasticsearch.cachedSearch('dc');
+    if (esDCs.finished) {
+      processDCs(esDCs);
+    }
+    else {
+      c.watcher = $scope.$watchCollection(function() {return esDCs;}, function(esDCs) {
+        if (esDCs.isLoading) {
+          c.isLoading = true;
+          return;
+        }
+        if (esDCs.finished) {
+          c.isLoading = false;
+          c.watcher();
+          processDCs(esDCs);
+        }
+      });
+      $scope.$on('$destroy', c.watcher);
+    }
+
+    c.sampleHitsPerPage = 10;
+    c.samplePage = 1;
+    c.sampleSearch = function() {
+      c.sampleSearchBody = {
+        from: (c.samplePage -1)*c.sampleHitsPerPage,
+        size: c.sampleHitsPerPage,
+        query: { constant_score: { filter: { term:{ 'dataCollections.dataCollection': c.dc.title } } } }
+      };
+    }
+    c.sampleExport = function() {
+      var searchBody = {
+        fields: ['name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection'],
+        column_names: ['Sample name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
+        query: { constant_score: { filter: { term:{ 'dataCollections.dataCollection': c.dc.title } } } }
+      };
+      gcaElasticsearch.searchExport({type: 'sample', format: 'tsv', filename: $routeParams.dc+'_samples', body: searchBody});
+    };
+
+    c.popHitsPerPage = 10;
+    c.popPage = 1;
+    c.popSearch = function() {
+      c.popSearchBody = {
+        from: (c.popPage -1)*c.popHitsPerPage,
+        size: c.popHitsPerPage,
+        query: { constant_score: { filter: { term:{ 'dataCollections.dataCollection': c.dc.title } } } }
+      };
+    }
+    c.popExport = function() {
+      var searchBody = {
+        fields: ['name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection'],
+        column_names: ['Sample name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
+        query: { constant_score: { filter: { term:{ 'dataCollections.dataCollection': c.dc.title } } } }
+      };
+      gcaElasticsearch.searchExport({type: 'population', format: 'tsv', filename: $routeParams.dc+'_populations', body: searchBody});
     };
 
 }]);
