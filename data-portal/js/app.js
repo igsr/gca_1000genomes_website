@@ -38,6 +38,11 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
         controller: 'PopulationCtrl',
         controllerAs: 'PopCtrl',
     })
+    .when('/data-collection', {
+        templateUrl: 'partials/data-collection-list.html?ver=20160810',
+        controller: 'DataCollectionListCtrl',
+        controllerAs: 'DcCtrl',
+    })
     .when('/data-collection/:dc', {
         templateUrl: 'partials/data-collection.html?ver=20160810',
         controller: 'DataCollectionCtrl',
@@ -623,6 +628,25 @@ app.controller('DataCollectionCtrl', ['$routeParams', '$scope', 'gcaElasticsearc
       };
       gcaElasticsearch.searchExport({type: 'population', format: 'tsv', filename: $routeParams.dc+'_populations', body: searchBody});
     };
+
+}]);
+
+app.controller('DataCollectionListCtrl', ['gcaElasticsearch', '$http', function(gcaElasticsearch, $http) {
+    var c = this;
+
+    c.esDCs = gcaElasticsearch.cachedSearch('dc');
+    var descriptions = {};
+    c.descriptionOf = function(dc) {
+      if (descriptions[dc._id]) {
+        return descriptions[dc._id].description;
+      }
+      descriptions[dc._id] = {description: ''};
+      $http.get('data-collections/'+dc._id+'.html').then(function(resp) {
+        if (resp.data.startsWith('<div')) {
+          descriptions[dc._id].description = resp.data;
+        }
+      });
+    }
 
 }]);
 

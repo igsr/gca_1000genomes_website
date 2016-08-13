@@ -78,6 +78,23 @@
   </div></div>
   </div></div>
 
+  <div class="clearfix"></div>
+  <div dc-file-list="{{DcCtrl.dc.title}}" dc-array="[DcCtrl.dc]" es-file-term="dataCollections" file-hits="fileHits">
+
+  <table class="table table-striped table-condensed">
+  <thead><tr class="border-top"><th></th><th>File</th><th>Sample</th></tr></thead>
+      <tr ng-repeat="file in fileHits.hits">
+      <td><a ng-href="{{file._source.url}}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+      <td ng-bind-html="file._source.url | softHyphenUrl"></td>
+      <td>
+        <a ng-if="file._source.samples.length == 1" ng-href="sample/{{file._source.samples[0]}}">{{file._source.samples[0]}}</a>
+        <span ng-if="file._source.samples.length >1">multi-sample</span>
+      </td>
+      </tr>
+  </table>
+
+  </div>
+
   </div>
   </div>
 </div>
