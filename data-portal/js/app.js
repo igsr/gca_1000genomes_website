@@ -16,25 +16,25 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 
     $routeProvider
     .when('/sample', {
-        templateUrl: 'partials/sample-list.html?ver=20160810',
+        templateUrl: 'partials/sample-list.html?ver=20160813',
         controller: 'SampleListCtrl',
         controllerAs: 'ListCtrl',
     })
     .when('/population', {
-        templateUrl: 'partials/population-list.html?ver=20160810',
+        templateUrl: 'partials/population-list.html?ver=20160813',
         controller: 'PopulationListCtrl',
         controllerAs: 'ListCtrl',
     })
     .when('/search', {
-        templateUrl: 'partials/search-page.html?ver=20160810',
+        templateUrl: 'partials/search-page.html?ver=20160813',
     })
     .when('/sample/:sample', {
-        templateUrl: 'partials/sample-detail.html?ver=20160810',
+        templateUrl: 'partials/sample-detail.html?ver=20160813',
         controller: 'SampleCtrl',
         controllerAs: 'SampleCtrl',
     })
     .when('/population/:population', {
-        templateUrl: 'partials/population-detail.html?ver=20160810',
+        templateUrl: 'partials/population-detail.html?ver=20160813',
         controller: 'PopulationCtrl',
         controllerAs: 'PopCtrl',
     })
@@ -103,7 +103,7 @@ app.controller('PopulationCtrl', ['$routeParams', 'gcaElasticsearch', function($
 
     c.sampleExport = function() {
       var searchBody = {
-        fields: ['name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection'],
+        fields: ['name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.title'],
         column_names: ['Sample name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
         query: { constant_score: { filter: { term:{ 'population.code': c.popCode } } } }
       };
@@ -121,7 +121,7 @@ app.directive('dcFileList', function() { return {
     objectName: '@dcFileList',
     fileHits: '=',
   },
-  templateUrl: 'partials/dc-file-list.html?ver=?20160810',
+  templateUrl: 'partials/dc-file-list.html?ver=?20160813',
   controllerAs: 'ListCtrl',
   transclude: true,
   link: function(scope, iElement, iAttr, controller) {
@@ -207,7 +207,7 @@ app.directive('dcFileList', function() { return {
             query: { constant_score: { filter: {
               bool: {
                 must: [
-                  {term: {dataCollections: c.dataCollection.dataCollection}},
+                  {term: {dataCollections: c.dataCollection.title}},
                 ]
               }
             }}}
@@ -281,7 +281,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
     c.searchBody = {
       from: (c.page -1)*c.hitsPerPage,
       size: c.hitsPerPage,
-      fields: ['name', 'sex', 'population.name', 'population.code', 'dataCollections.dataCollection', 'dataCollections._analysisGroups'],
+      fields: ['name', 'sex', 'population.name', 'population.code', 'dataCollections.title', 'dataCollections._analysisGroups'],
     };
 
     c.toggleView = function() {
@@ -332,8 +332,8 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
 
     
     c.hasCollection = function(sample, dcName) {
-        if (sample && sample.fields && sample.fields['dataCollections.dataCollection'] ) {
-          if (sample.fields['dataCollections.dataCollection'].indexOf(dcName) > -1) {
+        if (sample && sample.fields && sample.fields['dataCollections.title'] ) {
+          if (sample.fields['dataCollections.title'].indexOf(dcName) > -1) {
             return true;
           }
         }
@@ -378,7 +378,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
           var dc = c.dataCollections.hits.hits[i]._source;
           if (c.filteredDCs[dc.title]) {
             var term = {};
-            term['dataCollections.dataCollection'] = dc.title;
+            term['dataCollections.title'] = dc.title;
             mustTerms.push({term: term});
             c.filteredDCsArray.push(dc);
           }
@@ -409,7 +409,7 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
 
     c.sampleExport = function() {
       var searchBody = {
-        fields: ['name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.dataCollection'],
+        fields: ['name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.title'],
         column_names: ['Sample name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections'],
       };
 
@@ -435,7 +435,7 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
 
     c.searchBody = {
       size: -1,
-      fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'samples.count', 'dataCollections.dataCollection', 'dataCollections._analysisGroups'],
+      fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'samples.count', 'dataCollections.title', 'dataCollections._analysisGroups'],
     };
 
     c.toggleView = function() {
@@ -479,8 +479,8 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
 
     
     c.hasCollection = function(population, dcName) {
-        if (population && population.fields && population.fields['dataCollections.dataCollection'] ) {
-          if (population.fields['dataCollections.dataCollection'].indexOf(dcName) > -1) {
+        if (population && population.fields && population.fields['dataCollections.title'] ) {
+          if (population.fields['dataCollections.title'].indexOf(dcName) > -1) {
             return true;
           }
         }
@@ -509,7 +509,7 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
           var dc = c.dataCollections.hits.hits[i]._source;
           if (c.filteredDCs[dc.title]) {
             var term = {};
-            term['dataCollections.dataCollection'] = dc.title;
+            term['dataCollections.title'] = dc.title;
             mustTerms.push({term: term});
             c.filteredDCsArray.push(dc);
           }
@@ -534,7 +534,7 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
 
     c.populationExport = function() {
       var searchBody = {
-        fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'samples.count', 'dataCollections.dataCollection'],
+        fields: ['code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'samples.count', 'dataCollections.title'],
         column_names: ['Population code', 'Population name', 'Population description', 'Superpopulation code', 'Superpopulation name', 'Number of samples', 'Data collections'],
       };
 
@@ -652,7 +652,7 @@ app.controller('DataCollectionListCtrl', ['gcaElasticsearch', '$http', function(
 
 app.directive('searchComponent', ['$location', function($location) { return {
   scope: {},
-  templateUrl: 'partials/search-component.html?ver=?20160810',
+  templateUrl: 'partials/search-component.html?ver=?20160813',
   controllerAs: 'SearchCtrl',
   link: function(scope, iElement, iAttr, controller) {
     scope.searchType = iAttr.searchComponent || 'sample';
