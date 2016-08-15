@@ -8,12 +8,13 @@
     </ul></div>
 </div>
   <div class="clearfix"></div>
-  <h4 class="text-center element-loading" ng-if="ListCtrl.dataCollections.isLoading || esSamplesLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
-  <div ng-if="apiError || ListCtrl.dataCollections.error">
+  <h4 class="text-center element-loading" ng-if="ListCtrl.dataCollections.isLoading || ListCtrl.analysisGroups.isLoading || esPopulationsLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
+  <div ng-if="apiError || ListCtrl.dataCollections.error || ListCtrlanalysisGroups.error">
      <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1"><div class="alert alert-warning alert-dismissible text-center" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
            <h3 ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</h3>
            <h3 ng-if="ListCtrl.dataCollections.error">{{ListCtrl.dataCollections.error.status}}: {{ListCtrl.dataCollections.error.statusText}}</h3>
+           <h3 ng-if="ListCtrl.analysisGroups.error">{{ListCtrl.analysisGroups.error.status}}: {{ListCtrl.analysisGroups.error.statusText}}</h3>
     </div></div>
   </div>
 
@@ -50,9 +51,16 @@
   <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="ListCtrl.toggleAGPanel()"><span aria-hidden="true">&times;</span></button>
   </div>
   <div class="panel-body">
+    <h4 class="text-center element-loading" ng-if="ListCtrl.analysisGroups.isLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
+    <div ng-if="ListCtrl.analysisGroups.error">
+       <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1"><div class="alert alert-warning alert-dismissible text-center" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h3>{{ListCtrl.analysisGroups.error.status}}: {{ListCtrl.analysisGroups.error.statusText}}</h3>
+      </div></div>
+    </div>
     <div class="form form-inline">
-      <div class="checkbox checkbox-long" ng-repeat="ag in ListCtrl.analysisGroupNames">
-        <label><input type="checkbox" ng-model="ListCtrl.filteredAGs[ag[0]]" ng-change="ListCtrl.search({page: 1})"></input>{{ag[0]}}</label>
+      <div class="checkbox checkbox-long" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits">
+        <label><input type="checkbox" ng-model="ListCtrl.filteredAGs[ag._source.title]" ng-change="ListCtrl.search({page: 1})"></input>{{ag._source.title}}</label>
       </div>
     </div>
   </div></div>
@@ -82,7 +90,7 @@
     <div class="form-group"><h3>Filters:</h3></div>
     <button type="button" ng-repeat="popCode in ListCtrl.filteredPopsArray" class="btn btn-primary" ng-click="ListCtrl.filteredPops[popCode] = false; ListCtrl.search();">{{popCode}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
     <button type="button" ng-repeat="dc in ListCtrl.filteredDCsArray" class="btn btn-warning" ng-click="ListCtrl.filteredDCs[dc.title] = false; ListCtrl.search();">{{dc.shortTitle}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-    <button type="button" ng-repeat="ag in ListCtrl.filteredAGsArray" class="btn btn-info" ng-click="ListCtrl.filteredAGs[ag[0]] = false; ListCtrl.search();">{{ag[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <button type="button" ng-repeat="ag in ListCtrl.filteredAGsArray" class="btn btn-info" ng-click="ListCtrl.filteredAGs[ag.title] = false; ListCtrl.search();">{{ag.shortTitle}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
   </div></div>
 
   <div class="clearfix"></div>
@@ -103,9 +111,9 @@
     <th ng-if="ListCtrl.viewOption == 1" ng-repeat="dc in ListCtrl.dataCollections.hits.hits" class="matrix-dot"><div>
       <div ng-click="ListCtrl.filteredDCs[dc._source.title] = !ListCtrl.filteredDCs[dc._source.title]; ListCtrl.search({page:1});">
       <div>{{dc._source.shortTitle}}</div></div></div></th>
-    <th ng-if="ListCtrl.viewOption == 2" ng-repeat="agName in ListCtrl.analysisGroupNames" class="matrix-dot matrix-dot-narrow"><div>
-      <div ng-click="ListCtrl.filteredAGs[agName[0]] = !ListCtrl.filteredAGs[agName[0]]; ListCtrl.search({page:1});">
-      <div>{{agName[1]}}</div></div></div></th>
+    <th ng-if="ListCtrl.viewOption == 2" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits" class="matrix-dot matrix-dot-narrow"><div>
+      <div ng-click="ListCtrl.filteredAGs[ag._source.title] = !ListCtrl.filteredAGs[ag._source.title]; ListCtrl.search({page:1});">
+      <div>{{ag._source.shortTitle}}</div></div></div></th>
   </tr></thead>
   <tr ng-repeat="sample in samples.hits">
     <td><a ng-href="sample/{{sample.fields.name[0]}}">{{sample.fields.name[0]}}</a></td>
@@ -114,8 +122,8 @@
     <td ng-if="ListCtrl.viewOption == 1" ng-repeat="dc in ListCtrl.dataCollections.hits.hits" class="matrix-dot">
         <div class="matrix-dot-item matrix-dot-item-gold" ng-if="ListCtrl.hasCollection(sample, dc._source.title)" uib-popover="{{dc._source.title}}" popover-title="{{sample.fields.name[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
     </td>
-    <td ng-if="ListCtrl.viewOption == 2" ng-repeat="agName in ListCtrl.analysisGroupNames" class="matrix-dot matrix-dot-narrow">
-        <div class="matrix-dot-item matrix-dot-item-blue" ng-if="ListCtrl.hasAnalysisGroup(sample, agName[0])" uib-popover="{{agName[0]}}" popover-title="{{sample.fields.name[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
+    <td ng-if="ListCtrl.viewOption == 2" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits" class="matrix-dot matrix-dot-narrow">
+        <div class="matrix-dot-item matrix-dot-item-blue" ng-if="ListCtrl.hasAnalysisGroup(sample, ag._source.title)" uib-popover="{{ag._source.title}}" popover-title="{{sample.fields.name[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
     </td>
   </tr>
   </table>
