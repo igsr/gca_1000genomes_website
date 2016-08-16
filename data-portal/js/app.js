@@ -120,7 +120,7 @@ app.controller('PopulationCtrl', ['$routeParams', 'gcaElasticsearch', function($
 app.directive('dcFileList', function() { return {
   scope: {},
   bindToController: {
-    dataCollectionArr: '=dcArray',
+    dataCollections: '=dcTabs',
     esFileTerm: '@',
     objectName: '@dcFileList',
     fileHits: '=',
@@ -129,9 +129,12 @@ app.directive('dcFileList', function() { return {
   controllerAs: 'ListCtrl',
   transclude: true,
   link: function(scope, iElement, iAttr, controller) {
-      var watcher = scope.$watchCollection('ListCtrl.dataCollectionArr', function(dataCollectionArr) {
-        if (angular.isArray(dataCollectionArr) && angular.isObject(dataCollectionArr[0])) {
-          controller.setDataCollection(dataCollectionArr[0]);
+      var watcher = scope.$watch('ListCtrl.dataCollections', function(dataCollections) {
+        if (angular.isArray(dataCollections)) {
+          controller.setDataCollection(dataCollections[0]);
+        }
+        else if (angular.isObject(dataCollections)) {
+          controller.setDataCollection(dataCollections);
         }
       });
       iElement.on('$destroy', watcher);
@@ -609,11 +612,10 @@ app.controller('DataCollectionCtrl', ['$routeParams', '$scope', 'gcaElasticsearc
 
 }]);
 
-app.controller('DataCollectionListCtrl', ['gcaElasticsearch', '$http', function(gcaElasticsearch, $http) {
+app.controller('DataCollectionListCtrl', ['gcaElasticsearch', '$http', '$location', function(gcaElasticsearch, $http, $location) {
     var c = this;
 
     c.esDCs = gcaElasticsearch.cachedSearch('dc');
-    console.log(c);
     var descriptions = {};
     c.descriptionOf = function(dc) {
       if (descriptions[dc._id]) {
@@ -625,6 +627,10 @@ app.controller('DataCollectionListCtrl', ['gcaElasticsearch', '$http', function(
           descriptions[dc._id].description = resp.data;
         }
       });
+    }
+
+    c.goTo = function(dc) {
+      $location.path('data-collection/'+dc._id);
     }
 
 }]);

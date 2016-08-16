@@ -233,6 +233,12 @@ div.matrix-dot-item.matrix-dot-item-gold {
 div.matrix-dot-item.matrix-dot-item-blue {
     color: #79C7E7;
 }
+table.table-portal td.clickable:hover {
+  cursor: pointer;
+}
+table.table-portal td.vmiddle {
+  vertical-align: middle;
+}
 
 
 @media (max-width: 991px) {

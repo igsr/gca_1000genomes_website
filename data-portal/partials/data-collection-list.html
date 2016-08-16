@@ -17,17 +17,21 @@
   </div>
   <div class="clearfix"></div>
 
-  <div ng-repeat="dc in DcCtrl.esDCs.hits.hits" class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-  <div class="panel panel-default">
-  <div class="panel-heading">{{dc._source.title}}</div>
-  <div class="panel-body">
-    <ul>
-    <li>{{dc._source.samples.count}} samples</li>
-    <li>{{dc._source.populations.count}} populations</li>
-    </ul>
-    <div ng-bind-html=DcCtrl.descriptionOf(dc)></div>
-    <a class="btn btn-default center-block" role="button" ng-href="data-collection/{{dc._id}}">See more</a>
-  </div></div>
+  <table class="table table-striped table-hover table-portal">
+  <thead><tr>
+    <th></th>
+    <th>Samples</th>
+    <th>Populations</th>
+    <th>Publication</th>
+    <th>Website</th>
+  </tr></thead>
+  <tbody><tr ng-repeat="dc in DcCtrl.esDCs.hits.hits">
+    <td ng-click="DcCtrl.goTo(dc)" class="clickable"><h4>{{dc._source.title}}</h4></td>
+    <td ng-click="DcCtrl.goTo(dc)" class="clickable vmiddle">{{dc._source.samples.count}}</td>
+    <td ng-click="DcCtrl.goTo(dc)" class="clickable vmiddle">{{dc._source.populations.count}}</td>
+    <td class="vmiddle"><a ng-if="dc._source.publication" ng-href="{{dc._source.publication}}" target="_blank"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a></td>
+    <td class="vmiddle"><a ng-if="dc._source.website" ng-href="{{dc._source.website}}" target="_blank"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a></td>
+  </tr></tbody>
+  </table>
    
-  </div>
 </div>
