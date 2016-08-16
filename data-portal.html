@@ -1,5 +1,5 @@
 ---
-layout: single_section_wide
+layout: page
 title: Data portal
 permalink: /data-portal/
 tags: Portal
@@ -17,4 +17,14 @@ head_meta:
 exclude_from_search: true
 ---
 
-<div ng-app="igsrPortal"><div ng-view></div></div>
+<div ng-app="igsrPortal">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 data-portal-nav"><ul class="nav nav-tabs pull-right">
+  <li><a href="sample"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Samples</a></li>
+  <li><a href="population"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Populations</a></li>
+  <li><a href="data-collection"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Data collections</a></li>
+  <li><a href="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
+</ul></div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 section">
+<div class="data-portal-beta" ><h3><em>Data portal <span class="beta">beta</span></em></h3></div>
+<div ng-view> </div>
+</div></div>

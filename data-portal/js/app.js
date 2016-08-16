@@ -130,8 +130,10 @@ app.directive('dcFileList', function() { return {
   transclude: true,
   link: function(scope, iElement, iAttr, controller) {
       var watcher = scope.$watch('ListCtrl.dataCollections', function(dataCollections) {
+        controller.showTabs = false;
         if (angular.isArray(dataCollections)) {
           controller.setDataCollection(dataCollections[0]);
+          controller.showTabs = true;
         }
         else if (angular.isObject(dataCollections)) {
           controller.setDataCollection(dataCollections);
@@ -144,6 +146,7 @@ app.directive('dcFileList', function() { return {
     c.fileSearchBody = null;
     c.hitsPerPage = 20;
     c.dataCollection = null;
+    c.showTabs = false;
 
     c.setDataCollection = function(dc) {
         if (dc !== c.dataCollection) {
