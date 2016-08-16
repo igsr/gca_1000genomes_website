@@ -16,35 +16,35 @@ app.config(['$locationProvider', '$routeProvider', 'gcaElasticsearchProvider',
 
     $routeProvider
     .when('/sample', {
-        templateUrl: 'partials/sample-list.html?ver=20160813',
+        templateUrl: 'partials/sample-list.html?ver=20160816',
         controller: 'SampleListCtrl',
         controllerAs: 'ListCtrl',
     })
     .when('/population', {
-        templateUrl: 'partials/population-list.html?ver=20160813',
+        templateUrl: 'partials/population-list.html?ver=20160816',
         controller: 'PopulationListCtrl',
         controllerAs: 'ListCtrl',
     })
     .when('/search', {
-        templateUrl: 'partials/search-page.html?ver=20160813',
+        templateUrl: 'partials/search-page.html?ver=20160816',
     })
     .when('/sample/:sample', {
-        templateUrl: 'partials/sample-detail.html?ver=20160813',
+        templateUrl: 'partials/sample-detail.html?ver=20160816',
         controller: 'SampleCtrl',
         controllerAs: 'SampleCtrl',
     })
     .when('/population/:population', {
-        templateUrl: 'partials/population-detail.html?ver=20160813',
+        templateUrl: 'partials/population-detail.html?ver=20160816',
         controller: 'PopulationCtrl',
         controllerAs: 'PopCtrl',
     })
     .when('/data-collection', {
-        templateUrl: 'partials/data-collection-list.html?ver=20160810',
+        templateUrl: 'partials/data-collection-list.html?ver=20160816',
         controller: 'DataCollectionListCtrl',
         controllerAs: 'DcCtrl',
     })
     .when('/data-collection/:dc', {
-        templateUrl: 'partials/data-collection.html?ver=20160810',
+        templateUrl: 'partials/data-collection.html?ver=20160816',
         controller: 'DataCollectionCtrl',
         controllerAs: 'DcCtrl',
     })
@@ -125,7 +125,7 @@ app.directive('dcFileList', function() { return {
     objectName: '@dcFileList',
     fileHits: '=',
   },
-  templateUrl: 'partials/dc-file-list.html?ver=?20160813',
+  templateUrl: 'partials/dc-file-list.html?ver=?20160816',
   controllerAs: 'ListCtrl',
   transclude: true,
   link: function(scope, iElement, iAttr, controller) {
@@ -640,7 +640,7 @@ app.controller('DataCollectionListCtrl', ['gcaElasticsearch', '$http', '$locatio
 
 app.directive('searchComponent', ['$location', function($location) { return {
   scope: {},
-  templateUrl: 'partials/search-component.html?ver=?20160813',
+  templateUrl: 'partials/search-component.html?ver=?20160816',
   controllerAs: 'SearchCtrl',
   link: function(scope, iElement, iAttr, controller) {
     scope.searchType = iAttr.searchComponent || 'sample';
