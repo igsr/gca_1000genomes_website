@@ -1,3 +1,6 @@
+---
+layout: angularjs_partial
+---
 
 Information about the Platinum pedigree data is available from [Illumina](http://www.illumina.com/platinumgenomes/).
 

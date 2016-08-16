@@ -1,14 +1,14 @@
 <div es-search="ListCtrl.searchBody" hits-as="populations" es-type="population" is-loading-as="esPopulationsLoading">
-<div class="row data-portal-beta-header">
-  <div class="col-lg-6 col-md-5"><h1>Populations</h1></div>
-  <div class="col-lg-6 col-md-7"><ul class="nav nav-pills">
-    <li><a href="sample"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Samples home</a></li>
-    <li><a href="population"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Populations home</a></li>
-    <li><a href="search"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</a></li>
-    </ul></div>
-</div>
-  <div class="clearfix"></div>
-  <p ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</p>
+  <h1>Populations</h1>
+  <h4 class="text-center element-loading" ng-if="ListCtrl.dataCollections.isLoading || ListCtrl.analysisGroups.isLoading || esPopulationsLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
+  <div ng-if="apiError || ListCtrl.dataCollections.error || ListCtrlanalysisGroups.error">
+     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1"><div class="alert alert-warning alert-dismissible text-center" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h3 ng-if="apiError">{{apiError.status}}: {{apiError.statusText}}</h3>
+           <h3 ng-if="ListCtrl.dataCollections.error">{{ListCtrl.dataCollections.error.status}}: {{ListCtrl.dataCollections.error.statusText}}</h3>
+           <h3 ng-if="ListCtrl.analysisGroups.error">{{ListCtrl.analysisGroups.error.status}}: {{ListCtrl.analysisGroups.error.statusText}}</h3>
+    </div></div>
+  </div>
   <div ng-show="populations">
 
   <div class="form form-inline form-margins">
@@ -28,9 +28,16 @@
   <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="ListCtrl.toggleAGPanel()"><span aria-hidden="true">&times;</span></button>
   </div>
   <div class="panel-body">
+    <h4 class="text-center element-loading" ng-if="ListCtrl.analysisGroups.isLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
+    <div ng-if="ListCtrl.analysisGroups.error">
+       <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1"><div class="alert alert-warning alert-dismissible text-center" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h3>{{ListCtrl.analysisGroups.error.status}}: {{ListCtrl.analysisGroups.error.statusText}}</h3>
+      </div></div>
+    </div>
     <div class="form form-inline">
-      <div class="checkbox checkbox-long" ng-repeat="ag in ListCtrl.analysisGroupNames">
-        <label><input type="checkbox" ng-model="ListCtrl.filteredAGs[ag[0]]" ng-change="ListCtrl.search({page: 1})"></input>{{ag[0]}}</label>
+      <div class="checkbox checkbox-long" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits">
+        <label><input type="checkbox" ng-model="ListCtrl.filteredAGs[ag._source.title]" ng-change="ListCtrl.search({page: 1})"></input>{{ag._source.title}}</label>
       </div>
     </div>
   </div></div>
@@ -40,9 +47,16 @@
   <button type="button" class="close" data-dismiss="alert" aria-label="Close" ng-click="ListCtrl.toggleDCPanel()"><span aria-hidden="true">&times;</span></button>
   </div>
   <div class="panel-body">
+    <h4 class="text-center element-loading" ng-if="ListCtrl.dataCollections.isLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
+    <div ng-if="ListCtrl.dataCollections.error">
+       <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1"><div class="alert alert-warning alert-dismissible text-center" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h3>{{ListCtrl.dataCollections.error.status}}: {{ListCtrl.dataCollections.error.statusText}}</h3>
+      </div></div>
+    </div>
     <div class="form form-inline">
-      <div class="checkbox checkbox-long" ng-repeat="dc in ListCtrl.dataCollectionNames">
-        <label><input type="checkbox" ng-model="ListCtrl.filteredDCs[dc[0]]" ng-change="ListCtrl.search({page: 1})"></input>{{dc[0]}}</label>
+      <div class="checkbox checkbox-long" ng-repeat="dc in ListCtrl.dataCollections.hits.hits">
+        <label><input type="checkbox" ng-model="ListCtrl.filteredDCs[dc._source.title]" ng-change="ListCtrl.search({page: 1})"></input>{{dc._source.title}}</label>
       </div>
     </div>
   </div></div>
@@ -51,8 +65,8 @@
 
   <div class="col-md-10 col-md-offset-1" ng-if="ListCtrl.filteredDCsArray.length || ListCtrl.filteredAGsArray.length"><div class="form form-inline form-margins">
     <div class="form-group"><h3>Filters:</h3></div>
-    <button type="button" ng-repeat="dc in ListCtrl.filteredDCsArray" class="btn btn-warning" ng-click="ListCtrl.filteredDCs[dc[0]] = false; ListCtrl.search();">{{dc[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-    <button type="button" ng-repeat="ag in ListCtrl.filteredAGsArray" class="btn btn-info" ng-click="ListCtrl.filteredAGs[ag[0]] = false; ListCtrl.search();">{{ag[1]}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <button type="button" ng-repeat="dc in ListCtrl.filteredDCsArray" class="btn btn-warning" ng-click="ListCtrl.filteredDCs[dc.title] = false; ListCtrl.search();">{{dc.shortTitle}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <button type="button" ng-repeat="ag in ListCtrl.filteredAGsArray" class="btn btn-info" ng-click="ListCtrl.filteredAGs[ag.title] = false; ListCtrl.search();">{{ag.shortTitle}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
   </div></div>
 
   <div class="clearfix"></div>
@@ -67,23 +81,23 @@
     <th>Description</th>
     <th ng-if="ListCtrl.viewOption == 1">Superpopulation</th>
     <th ng-if="ListCtrl.viewOption == 1">Samples</th>
-    <th ng-if="ListCtrl.viewOption == 1" ng-repeat="dcName in ListCtrl.dataCollectionNames" class="matrix-dot"><div>
-      <div ng-click="ListCtrl.filteredDCs[dcName[0]] = !ListCtrl.filteredDCs[dcName[0]]; ListCtrl.search({page:1});">
-      <div>{{dcName[1]}}</div></div></div></th>
-    <th ng-if="ListCtrl.viewOption == 2" ng-repeat="agName in ListCtrl.analysisGroupNames" class="matrix-dot matrix-dot-narrow"><div>
-      <div ng-click="ListCtrl.filteredAGs[agName[0]] = !ListCtrl.filteredAGs[agName[0]]; ListCtrl.search({page:1});">
-      <div>{{agName[1]}}</div></div></div></th>
+    <th ng-if="ListCtrl.viewOption == 1" ng-repeat="dc in ListCtrl.dataCollections.hits.hits" class="matrix-dot"><div>
+      <div ng-click="ListCtrl.filteredDCs[dc._source.title] = !ListCtrl.filteredDCs[dc._source.title]; ListCtrl.search({page:1});">
+      <div>{{dc._source.shortTitle}}</div></div></div></th>
+    <th ng-if="ListCtrl.viewOption == 2" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits" class="matrix-dot matrix-dot-narrow"><div>
+      <div ng-click="ListCtrl.filteredAGs[ag._source.title] = !ListCtrl.filteredAGs[ag._source.title]; ListCtrl.search({page:1});">
+      <div>{{ag._source.shortTitle}}</div></div></div></th>
   </tr></thead>
   <tr ng-repeat="population in populations.hits">
     <td><a ng-href="population/{{population.fields.code[0]}}">{{population.fields.code[0]}}</a></td>
     <td><a ng-href="population/{{population.fields.code[0]}}">{{population.fields.description[0]}}</a></td>
     <td ng-if="ListCtrl.viewOption == 1"><span ng-if="population.fields['superpopulation.code'][0]" uib-popover="{{population.fields['superpopulation.name'][0]}}" popover-trigger="mouseenter">{{population.fields['superpopulation.code'][0]}}</span></td>
     <td ng-if="ListCtrl.viewOption == 1">{{population.fields['samples.count'][0]}}</td>
-    <td ng-if="ListCtrl.viewOption == 1" ng-repeat="dcName in ListCtrl.dataCollectionNames" class="matrix-dot">
-        <div class="matrix-dot-item matrix-dot-item-gold" ng-if="ListCtrl.hasCollection(population, dcName[0])" uib-popover="{{dcName[0]}}" popover-title="{{population.fields.name[0]}} / {{population.fields.code[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
+    <td ng-if="ListCtrl.viewOption == 1" ng-repeat="dc in ListCtrl.dataCollections.hits.hits" class="matrix-dot">
+        <div class="matrix-dot-item matrix-dot-item-gold" ng-if="ListCtrl.hasCollection(population, dc._source.title)" uib-popover="{{dc._source.title}}" popover-title="{{population.fields.name[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
     </td>
-    <td ng-if="ListCtrl.viewOption == 2" ng-repeat="agName in ListCtrl.analysisGroupNames" class="matrix-dot matrix-dot-narrow">
-        <div class="matrix-dot-item matrix-dot-item-blue" ng-if="ListCtrl.hasAnalysisGroup(population, agName[0])" uib-popover="{{agName[0]}}" popover-title="{{population.fields.name[0]}} / {{population.fields.code[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
+    <td ng-if="ListCtrl.viewOption == 2" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits" class="matrix-dot matrix-dot-narrow">
+        <div class="matrix-dot-item matrix-dot-item-blue" ng-if="ListCtrl.hasAnalysisGroup(population, ag._source.title)" uib-popover="{{ag._source.title}}" popover-title="{{population.fields.name[0]}} / {{population.fields.code[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
     </td>
   </tr>
   </table>

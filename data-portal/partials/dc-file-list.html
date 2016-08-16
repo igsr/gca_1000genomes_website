@@ -1,8 +1,8 @@
 <div>
   <div es-search="ListCtrl.fileSearchBody" hits-as="ListCtrl.fileHits" error-as="apiFileError" is-loading-as="esSearchLoading" es-type="file"></div>
 
-  <ul class="nav nav-tabs nav-justified nav-tab-tall">
-  <li ng-repeat="dc in ListCtrl.dataCollectionArr" ng-class="{'active': dc === ListCtrl.dataCollection ? true : false}">
+  <ul ng-if="ListCtrl.showTabs" class="nav nav-tabs nav-justified nav-tab-tall">
+  <li ng-repeat="dc in ListCtrl.dataCollections" ng-class="{'active': dc === ListCtrl.dataCollection ? true : false}">
         <a href="" ng-click="ListCtrl.setDataCollection(dc)">{{dc.title}}</a>
   </li></ul>
 

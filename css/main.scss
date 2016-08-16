@@ -133,14 +133,6 @@ div.data-portal-beta {
       color: #FFF;
   }
 }
-div.data-portal-beta-header {
-  @media (min-width: 992px) {
-    max-width: 778px;
-  }
-  @media (min-width: 1200px) {
-    max-width: 978px;
-  }
-}
 
 footer {
   div.footer {
@@ -174,6 +166,13 @@ div.section {
         max-width: 100%;
     }
 
+}
+div.data-portal-nav {
+  margin-bottom: -20px;
+  padding: 0px;
+  li > a {
+    background-color: white;
+  }
 }
 
 ul.nav.nav-tabs.nav-tab-tall > li > a {
@@ -232,6 +231,12 @@ div.matrix-dot-item.matrix-dot-item-gold {
 }
 div.matrix-dot-item.matrix-dot-item-blue {
     color: #79C7E7;
+}
+table.table-portal td.clickable:hover {
+  cursor: pointer;
+}
+table.table-portal td.vmiddle {
+  vertical-align: middle;
 }
 
 

@@ -1,0 +1,96 @@
+<div>
+  <h1>{{DcCtrl.dc.title}}</h1>
+  <div class="row">
+  <h4 class="text-center element-loading" ng-if="DcCtrl.isLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
+
+  <div ng-if="DcCtrl.apiError">
+     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1"><div class="alert alert-warning alert-dismissible text-center" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h3>{{DcCtrl.apiError.status}}: {{DcCtrl.apiError.statusText}}</h3>
+    </div></div>
+    <div class="clearfix"></div>
+    <div class="col-md-6 col-md-offset-3 search-page" search-component="sample"></div>
+  </div>
+
+  <div ng-show="DcCtrl.dc">
+
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12"
+      ng-if="DcCtrl.description">
+      <div class="panel panel-default">
+      <div class="panel-body" ng-bind-html="DcCtrl.description"></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+  <div es-search="DcCtrl.sampleSearchBody" hits-as="samples" es-type="sample" is-loading-as="esSamplesLoading"></div>
+  <div ng-if="DcCtrl.dc.samples.count" class="col-md-6 col-md-offset-0 col-lg-5 col-lg-offset-1 col-sm-10 col-sm-offset-1"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{DcCtrl.dc.samples.count}} samples</h3>
+  </div>
+  <div class="panel-body">
+    <button type="button" class="btn btn-default center-block" ng-click="DcCtrl.sampleExport()">Download the list</button>
+  <div class="table-group">
+  <uib-pager ng-if="samples.total > DcCtrl.sampleHitsPerPage"
+            items-per-page="DcCtrl.sampleHitsPerPage" ng-model="DcCtrl.samplePage"
+           ng-change="DcCtrl.sampleSearch()" total-items="samples.total"></uib-pager>
+  <h4 class="text-center element-loading" ng-if="esSamplesLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
+  <table class="table table-striped table-condensed" ng-show="!esSamplesLoading">
+      <thead><tr class="border-top">
+          <th class="text-center">Sample</th>
+          <th class="text-center">Population</th>
+      </tr></thead>
+      <tr ng-repeat="sample in samples.hits">
+      <td class="text-center"><a ng-href="sample/{{sample._source.name}}">{{sample._source.name}}</a></td>
+      <td class="text-center">{{sample._source.population.code}}</td>
+      </tr>
+  </table>
+  </div></div>
+  </div></div>
+
+  <div es-search="DcCtrl.popSearchBody" hits-as="pops" es-type="population" is-loading-as="esPopsLoading"></div>
+  <div ng-if="DcCtrl.dc.populations.count" class="col-md-6 col-md-offset-0 col-lg-5 col-sm-10 col-sm-offset-1"><div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{DcCtrl.dc.populations.count}} populations</h3>
+  </div>
+  <div class="panel-body">
+    <button type="button" class="btn btn-default center-block" ng-click="DcCtrl.populationExport()">Download the list</button>
+  <div class="table-group">
+  <uib-pager ng-if="pops.total > DcCtrl.popHitsPerPage"
+            items-per-page="DcCtrl.popHitsPerPage" ng-model="DcCtrl.popPage"
+           ng-change="DcCtrl.popSearch()" total-items="pops.total"></uib-pager>
+  <h4 class="text-center element-loading" ng-if="esPopsLoading"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> Loading...</h4>
+  <table class="table table-striped table-condensed" ng-show="!esPopsLoading">
+      <thead><tr class="border-top">
+          <th class="text-center">Population</th>
+          <th class="text-center">Description</th>
+      </tr></thead>
+      <tr ng-repeat="population in pops.hits">
+      <td class="text-center"><a ng-href="population/{{population._source.code}}">{{population._source.code}}</a></td>
+      <td class="text-center">{{population._source.description}}</td>
+      </tr>
+  </table>
+  </div></div>
+  </div></div>
+
+  <div class="clearfix"></div>
+  <div class="col-md-12">
+  <h2>Available data</h2>
+  <div dc-file-list="{{DcCtrl.dc.title}}" dc-tabs="DcCtrl.dc" es-file-term="dataCollections" file-hits="fileHits">
+
+  <table class="table table-striped table-condensed">
+  <thead><tr class="border-top"><th></th><th>File</th><th>Sample</th></tr></thead>
+      <tr ng-repeat="file in fileHits.hits">
+      <td><a ng-href="{{file._source.url}}"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+      <td ng-bind-html="file._source.url | softHyphenUrl"></td>
+      <td>
+        <a ng-if="file._source.samples.length == 1" ng-href="sample/{{file._source.samples[0]}}">{{file._source.samples[0]}}</a>
+        <span ng-if="file._source.samples.length >1">multi-sample</span>
+      </td>
+      </tr>
+  </table>
+
+  </div></div>
+
+  </div>
+  </div>
+</div>
