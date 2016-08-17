@@ -1,10 +1,9 @@
-##Human Genome Structural Variation Consortium 
-##Data Reuse policy
+##Data Reuse policy - Human Genome Structural Variation Consortium
 
-This README refers all the data associated with Human Genome Structural Variation Consortium to create a high 
+This policy refers all the data associated with Human Genome Structural Variation Consortium (HGSVC) to create a high 
 quality catalog of structural variation using various sequencing approaches.
 
-All data in this directory is part of that project
+All data in the [HGSV data collection](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/hgsv_sv_discovery/) is part of that project.
 
 Continuing the philosophy of the 1000 Genomes Project, the data producers for this Project 
 will release the Project data quickly, prior to publication, in the expectation that they 
