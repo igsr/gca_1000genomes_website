@@ -1,4 +1,5 @@
-##Human Genome Structural Variation Consortium Data Reuse policy
+##Human Genome Structural Variation Consortium 
+##Data Reuse policy
 
 This README refers all the data associated with Human Genome Structural Variation Consortium to create a high 
 quality catalog of structural variation using various sequencing approaches.
