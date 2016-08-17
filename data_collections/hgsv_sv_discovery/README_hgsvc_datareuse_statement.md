@@ -1,3 +1,9 @@
+---
+layout: single_section
+title: "Data Reuse policy - Human Genome Structural Variation Consortium"
+permalink: /data_collections/hgsv_sv_discovery/README_hgsvc_datareuse_statement/
+tags: Human Genome Structural Variation Consortium
+---
 ##Data Reuse policy - Human Genome Structural Variation Consortium
 
 This policy refers to all the data associated with Human Genome Structural Variation Consortium (HGSVC) to create a high 
