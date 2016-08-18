@@ -13,7 +13,7 @@ All data in the HGSVC data collection on the [FTP site](http://ftp.1000genomes.e
 
 Continuing the philosophy of the 1000 Genomes Project, the data producers for this Project 
 will release the Project data quickly, prior to publication, in the expectation that they 
-will be valuable for many researchers. In keeping with Fort Lauderdale principles, data 
+will be valuable for many researchers. In keeping with [Fort Lauderdale principles](https://www.genome.gov/pages/research/wellcomereport0303.pdf), data 
 users may use the data for many studies, but are expected to allow the data producers 
 to make the first presentations and to publish the first paper with global analyses of the data.
 
