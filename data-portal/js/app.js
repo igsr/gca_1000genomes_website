@@ -76,12 +76,12 @@ app.filter('ucFirst', function() {
         string = string || '';
         return string.charAt(0).toUpperCase() + string.slice(1) };
 });
-app.filter('softHyphenUrl', function($sce) {
+app.filter('softHyphenUrl', ['$sce', function($sce) {
     return function(string) {
         string = string || '';
         return $sce.trustAsHtml(string.replace(/[\/\.]/g, '$&&shy;'));
     };
-});
+}]);
 
 app.controller('SampleCtrl', ['$routeParams', function($routeParams) {
     var c = this;
@@ -415,6 +415,10 @@ app.controller('SampleListCtrl', ['gcaElasticsearch', function(gcaElasticsearch)
       gcaElasticsearch.searchExport({type: 'sample', format: 'tsv', filename: 'igsr_samples', body: searchBody});
     };
 
+    c.agFilter = function(ag) {
+      return ag._source.displayOrder ? true : false;
+    }
+
 }]);
 
 app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsearch) {
@@ -526,6 +530,10 @@ app.controller('PopulationListCtrl', ['gcaElasticsearch', function(gcaElasticsea
       }
       gcaElasticsearch.searchExport({type: 'population', format: 'tsv', filename: 'igsr_populations', body: searchBody});
     };
+
+    c.agFilter = function(ag) {
+      return ag._source.displayOrder ? true : false;
+    }
 
 }]);
 

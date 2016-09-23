@@ -51,7 +51,7 @@
       </div></div>
     </div>
     <div class="form form-inline">
-      <div class="checkbox checkbox-long" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits">
+      <div class="checkbox checkbox-long" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits | filter:ListCtrl.agFilter">
         <label><input type="checkbox" ng-model="ListCtrl.filteredAGs[ag._source.title]" ng-change="ListCtrl.search({page: 1})"></input>{{ag._source.title}}</label>
       </div>
     </div>
@@ -103,7 +103,7 @@
     <th ng-if="ListCtrl.viewOption == 1" ng-repeat="dc in ListCtrl.dataCollections.hits.hits" class="matrix-dot"><div>
       <div ng-click="ListCtrl.filteredDCs[dc._source.title] = !ListCtrl.filteredDCs[dc._source.title]; ListCtrl.search({page:1});">
       <div>{{dc._source.shortTitle}}</div></div></div></th>
-    <th ng-if="ListCtrl.viewOption == 2" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits" class="matrix-dot matrix-dot-narrow"><div>
+    <th ng-if="ListCtrl.viewOption == 2" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits | filter:ListCtrl.agFilter" class="matrix-dot matrix-dot-narrow"><div>
       <div ng-click="ListCtrl.filteredAGs[ag._source.title] = !ListCtrl.filteredAGs[ag._source.title]; ListCtrl.search({page:1});">
       <div>{{ag._source.shortTitle}}</div></div></div></th>
   </tr></thead>
@@ -114,7 +114,7 @@
     <td ng-if="ListCtrl.viewOption == 1" ng-repeat="dc in ListCtrl.dataCollections.hits.hits" class="matrix-dot">
         <div class="matrix-dot-item matrix-dot-item-gold" ng-if="ListCtrl.hasCollection(sample, dc._source.title)" uib-popover="{{dc._source.title}}" popover-title="{{sample.fields.name[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
     </td>
-    <td ng-if="ListCtrl.viewOption == 2" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits" class="matrix-dot matrix-dot-narrow">
+    <td ng-if="ListCtrl.viewOption == 2" ng-repeat="ag in ListCtrl.analysisGroups.hits.hits | filter:ListCtrl.agFilter" class="matrix-dot matrix-dot-narrow">
         <div class="matrix-dot-item matrix-dot-item-blue" ng-if="ListCtrl.hasAnalysisGroup(sample, ag._source.title)" uib-popover="{{ag._source.title}}" popover-title="{{sample.fields.name[0]}}" popover-trigger="mouseenter">&#x25cf;</div>
     </td>
   </tr>
