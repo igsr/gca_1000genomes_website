@@ -13,7 +13,7 @@
 <h2>Latest Announcements</h2>
 
 {% assign pinned_announcements = site.categories.announcements | where: "pinned", true %}
-<h5>{{pinned_announcements.last.date | date: '%A %B %d, %Y' }}</h5>
+<h5>{{pinned_announcements.first.date | date: '%A %B %d, %Y' }}</h5>
 <p><a href="{{pinned_announcements.first.url}}"><h2>{{pinned_announcements.first.title}}</h2></a></p>
   
 {{pinned_announcements.first.content | markdownify}}
