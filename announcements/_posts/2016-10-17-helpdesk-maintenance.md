@@ -1,3 +1,8 @@
+---
+title: "IGSR helpdesk maintenance"
+pinned: true
+---
+
 Due to essential maintenance, the 1000 Genomes helpdesk email will be shut down for approximately 48 hours, 
 beginning at 9 am (BST) on 24th October. Any emails sent during this time will be held in a queue, and we will 
 
