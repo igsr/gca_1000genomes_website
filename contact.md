@@ -10,7 +10,7 @@ Due to essential maintenance, the 1000 Genomes helpdesk email will be shut down 
 
 ## Contact Information
 
-Please direct any questions about the IGSR or the 1000 Genomes Project to [info@1000genomes.org](mailto:info@1000genomes.org).
+Please direct any questions about the IGSR or the 1000 Genomes Project to info@1000genomes.org.
 
 IGSR can be found on Twitter at [@1000genomes](http://www.twitter.com/1000genomes).
 
