@@ -34,3 +34,4 @@ You aspera command would need to look like
 ###Further details
 
 For further information, please contact info@1000genomes.org.
+Full documentation about how to use aspera to download files from the ENA please see their document [Downloading sequence files](https://www.ebi.ac.uk/ena/browse/read-download#downloading_files_aspera)
