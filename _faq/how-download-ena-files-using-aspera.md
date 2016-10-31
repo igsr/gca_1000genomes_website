@@ -23,7 +23,7 @@ This means you need to change the FTP url to something suitable for the ascp com
 
     e.g ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR008/ERR008901/ERR008901_1.fastq.gz
     
-    becomes
+becomes
     
     fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/ERR008/ERR008901/ERR008901_1.fastq.gz
     
