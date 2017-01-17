@@ -4,10 +4,12 @@ import { HttpModule } from '@angular/http';
 
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './components/home.component';
+import { NavComponent } from './components/nav.component';
 
 @NgModule({
   imports: [ SharedModule, CommonModule, HttpModule ],
-  declarations: [ HomeComponent ]
+  declarations: [ HomeComponent, NavComponent ],
+  exports: [ NavComponent ],
 })
 export class CoreModule { 
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
