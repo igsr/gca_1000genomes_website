@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { ApiDataCollectionService} from '../core/services/api-data-collection.service';
+import { DataCollectionList } from '../shared/api-types/data-collection-list';
 
 let sampleTableStyles: string = `
 
@@ -53,6 +56,17 @@ th.matrix-dot > div >div {
     templateUrl: './sample-table.component.html',
     styles: [ sampleTableStyles ],
 })
-export class SampleTableComponent {
+export class SampleTableComponent implements OnInit {
+  constructor(
+    private apiDataCollectionService: ApiDataCollectionService,
+  ){};
+  
+  // public properties:
+  public dataCollectionList: DataCollectionList;
+
+  ngOnInit() {
+    this.apiDataCollectionService.getAll()
+      .subscribe((l: DataCollectionList) => this.dataCollectionList = l);
+  }
 
 }

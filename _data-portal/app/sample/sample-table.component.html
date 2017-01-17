@@ -4,11 +4,7 @@
   <th>Sample</th>
   <th>Sex</th>
   <th>Population</th>
-  <th class="matrix-dot"><div><div>GRCh38</div></div></th>
-  <th class="matrix-dot"><div><div>Phase 3</div></div></th>
-  <th class="matrix-dot"><div><div>Phase 1</div></div></th>
-  <th class="matrix-dot"><div><div>Platinum pedigree</div></div></th>
-  <th class="matrix-dot"><div><div>Structural variation</div></div></th>
+  <th *ngFor="let dc of dataCollectionList?.hits" class="matrix-dot"><div><div>{{dc._source.shortTitle}}</div></div></th>
 </tr></thead>
 </table>
 </div>

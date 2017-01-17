@@ -5,10 +5,11 @@ import { HttpModule } from '@angular/http';
 import { SharedModule } from '../shared/shared.module';
 import { NavComponent } from './components/nav.component';
 import { ApiSampleService } from './services/api-sample.service';
+import { ApiDataCollectionService } from './services/api-data-collection.service';
 
 @NgModule({
   imports: [ SharedModule, CommonModule, HttpModule ],
-  providers: [ ApiSampleService ],
+  providers: [ ApiSampleService, ApiDataCollectionService ],
   declarations: [ NavComponent ],
   exports: [ NavComponent ],
 })
