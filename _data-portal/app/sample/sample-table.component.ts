@@ -10,17 +10,6 @@ div.table-container {
   padding-top: 70px;
 }
 
-@media (max-width: 991px) {
-  div.table-container {
-    width: 100%;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    position: relative;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-  }
-}
-
 th.matrix-dot {
   width: 60px;
   white-space: nowrap;
@@ -48,6 +37,34 @@ th.matrix-dot > div >div {
   height: 42px;
   line-height: 42px;
 }
+
+@media (max-width: 991px) {
+  div.table-container {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    position: relative;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 0px;
+  }
+  th.matrix-dot > div {
+    -ms-transform: translate(100%, 0) rotate(270deg);
+    -moz-transform: translate(100%, 0) rotate(270deg);
+    -webkit-transform: translate(100%, 0) rotate(270deg);
+    -o-transform: translate(100%, 0) rotate(270deg);
+    transform: translate(100%, 0) rotate(270deg);
+  }
+  th.matrix-dot {
+    width: 55px;
+  }
+  th.matrix-dot > div >div {
+    height: 55px;
+    line-height: 55px;
+    text-indent: 5px;
+  }
+}
+
 
 `;
 
