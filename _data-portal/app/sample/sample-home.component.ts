@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-    templateUrl: './home.component.html',
+    templateUrl: './sample-home.component.html',
 })
-export class HomeComponent implements OnInit {
+export class SampleHomeComponent implements OnInit {
   public constructor(private titleService: Title ) { }
 
   ngOnInit() {
-    this.titleService.setTitle('IGSR data portal');
+    this.titleService.setTitle('IGSR | samples');
   }
 };
