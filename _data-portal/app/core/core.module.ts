@@ -6,10 +6,12 @@ import { SharedModule } from '../shared/shared.module';
 import { NavComponent } from './components/nav.component';
 import { ApiSampleService } from './services/api-sample.service';
 import { ApiDataCollectionService } from './services/api-data-collection.service';
+import { ApiErrorService } from './services/api-error.service';
+import { ApiTimeoutService } from './services/api-timeout.service';
 
 @NgModule({
   imports: [ SharedModule, CommonModule, HttpModule ],
-  providers: [ ApiSampleService, ApiDataCollectionService ],
+  providers: [ ApiSampleService, ApiDataCollectionService, ApiErrorService, ApiTimeoutService ],
   declarations: [ NavComponent ],
   exports: [ NavComponent ],
 })
