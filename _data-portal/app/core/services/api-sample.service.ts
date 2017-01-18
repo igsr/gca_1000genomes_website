@@ -18,10 +18,10 @@ export class ApiSampleService {
 
   // public methods
 
-  getAll(): Observable<ApiHits>{
+  getAll(hitsPerPage: number, from: number): Observable<ApiHits>{
     let query = {
-      from: 0,
-      size: 50,
+      from: from,
+      size: hitsPerPage,
       fields: [
         'name', 'sex', 'population.name', 'population.code', 'dataCollections.title', 'dataCollections._analysisGroups',
       ],

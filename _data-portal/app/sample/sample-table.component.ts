@@ -7,11 +7,6 @@ import { ApiHits } from '../shared/api-types/api-hits';
 
 let sampleTableStyles: string = `
 
-div.table-container {
-  padding-right: 90px;
-  padding-top: 70px;
-}
-
 td.matrix-dot {
   color: #DAA406;
   text-align: center;
@@ -48,15 +43,6 @@ th.matrix-dot > div >div {
 }
 
 @media (max-width: 991px) {
-  div.table-container {
-    width: 100%;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    position: relative;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-    padding-right: 0px;
-  }
   th.matrix-dot > div {
     -ms-transform: translate(100%, 0) rotate(270deg);
     -moz-transform: translate(100%, 0) rotate(270deg);
@@ -98,9 +84,11 @@ export class SampleTableComponent implements OnInit {
   }
 
   public hasDataCollection(fields: {[key: string]: string[]}, dc: DataCollection): boolean {
-    for (let dcTitle of fields['dataCollections.title']) {
-      if (dcTitle === dc.title) {
-        return true;
+    if (fields['dataCollections.title']) {
+      for (let dcTitle of fields['dataCollections.title']) {
+        if (dcTitle === dc.title) {
+          return true;
+        }
       }
     }
     return false;

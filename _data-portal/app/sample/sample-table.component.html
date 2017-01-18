@@ -1,4 +1,3 @@
-<div class="table-container">
 <table class="table table-striped table-condensed">
 <thead><tr>
   <th>Sample</th>
@@ -13,4 +12,3 @@
   <td *ngFor="let dc of dataCollectionList?.hits" class="matrix-dot"><div *ngIf="hasDataCollection(hit.fields, dc._source)">&#x25cf;</div></td>
 <tr></tbody>
 </table>
-</div>
