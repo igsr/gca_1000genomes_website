@@ -6,5 +6,11 @@
   <th>Population</th>
   <th *ngFor="let dc of dataCollectionList?.hits" class="matrix-dot"><div><div>{{dc._source.shortTitle}}</div></div></th>
 </tr></thead>
+<tbody><tr *ngFor="let hit of apiHits?.hits">
+  <td><a *ngIf="hit.fields?.name" [routerLink]="['sample', hit.fields.name[0]]">{{hit.fields.name[0]}}</a></td>
+  <td>{{ hit.fields?.sex ? hit.fields.sex[0] : '' }}</td>
+  <td><a *ngIf="hit.fields['population.code']" [routerLink]="['population', hit.fields['population.code'][0]]">{{hit.fields['population.code'][0] }}</a></td>
+  <td *ngFor="let dc of dataCollectionList?.hits" class="matrix-dot"><div *ngIf="hasDataCollection(hit.fields, dc._source)">&#x25cf;</div></td>
+<tr></tbody>
 </table>
 </div>

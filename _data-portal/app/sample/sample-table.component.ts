@@ -1,13 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { ApiDataCollectionService} from '../core/services/api-data-collection.service';
 import { DataCollectionList } from '../shared/api-types/data-collection-list';
+import { DataCollection } from '../shared/api-types/data-collection';
+import { ApiHits } from '../shared/api-types/api-hits';
 
 let sampleTableStyles: string = `
 
 div.table-container {
   padding-right: 90px;
   padding-top: 70px;
+}
+
+td.matrix-dot {
+  color: #DAA406;
+  text-align: center;
+  font-size: 20px;
+  cursor: default;
 }
 
 th.matrix-dot {
@@ -74,6 +83,8 @@ th.matrix-dot > div >div {
     styles: [ sampleTableStyles ],
 })
 export class SampleTableComponent implements OnInit {
+  @Input() apiHits: ApiHits;
+
   constructor(
     private apiDataCollectionService: ApiDataCollectionService,
   ){};
@@ -84,6 +95,15 @@ export class SampleTableComponent implements OnInit {
   ngOnInit() {
     this.apiDataCollectionService.getAll()
       .subscribe((l: DataCollectionList) => this.dataCollectionList = l);
+  }
+
+  public hasDataCollection(fields: {[key: string]: string[]}, dc: DataCollection): boolean {
+    for (let dcTitle of fields['dataCollections.title']) {
+      if (dcTitle === dc.title) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }
