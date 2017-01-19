@@ -55,6 +55,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public displayStart: number = -1;
   public displayStop: number = -1;
   public offset: number = 0;
+  public viewOption: number = 1;
   
   private apiHitsSource: Subject<Observable<ApiHits>>;
   private apiHitsSubscription: Subscription = null;
@@ -100,5 +101,9 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
       this.offset -= this.hitsPerPage;
       this.apiHitsSource.next( this.apiSampleService.getAll(this.hitsPerPage, this.offset));
     }
+  }
+
+  toggleView() {
+    this.viewOption = this.viewOption == 1 ? 2 : 1;
   }
 };

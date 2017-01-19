@@ -1,11 +1,15 @@
 <h1>Samples</h1>
+<div class="clearfix">
+<button class="btn btn-default pull-left" (click)="toggleView()">Toggle table view</button>
+</div>
 <div class="table-container">
 <div class="table-buttons">
   <h4 *ngIf="totalHits > -1">Showing {{displayStart}} to {{displayStop}} of {{totalHits}} samples</h4>
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>
 </div>
-<sample-data-collection-table [apiHits]="apiHits"></sample-data-collection-table>
+<sample-data-collection-table *ngIf="viewOption == 1" [apiHits]="apiHits"></sample-data-collection-table>
+<sample-analysis-group-table *ngIf="viewOption == 2" [apiHits]="apiHits"></sample-analysis-group-table>
 </div>
 <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
 <button class="btn btn-default page-button pull-right" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>
