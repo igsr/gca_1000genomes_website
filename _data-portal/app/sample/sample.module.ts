@@ -2,13 +2,13 @@ import { NgModule }      from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
 import { SampleHomeComponent }  from './sample-home.component';
-import { SampleDatasetTableComponent }  from './sample-dataset-table.component';
+import { SampleDataCollectionTableComponent }  from './sample-data-collection-table.component';
 
 @NgModule({
   imports: [ SharedModule ],
   declarations: [ 
     SampleHomeComponent,
-    SampleDatasetTableComponent,
+    SampleDataCollectionTableComponent,
   ],
 })
 export class SampleModule { };

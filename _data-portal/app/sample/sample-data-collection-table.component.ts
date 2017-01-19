@@ -64,11 +64,11 @@ th.matrix-dot > div >div {
 `;
 
 @Component({
-    selector: 'sample-dataset-table',
-    templateUrl: './sample-dataset-table.component.html',
+    selector: 'sample-data-collection-table',
+    templateUrl: './sample-data-collection-table.component.html',
     styles: [ sampleTableStyles ],
 })
-export class SampleDatasetTableComponent implements OnInit {
+export class SampleDataCollectionTableComponent implements OnInit {
   @Input() apiHits: ApiHits;
 
   constructor(
