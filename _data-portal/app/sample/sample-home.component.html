@@ -5,7 +5,7 @@
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>
 </div>
-<sample-table [apiHits]="apiHits"></sample-table>
+<sample-dataset-table [apiHits]="apiHits"></sample-dataset-table>
 </div>
 <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
 <button class="btn btn-default page-button pull-right" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>
