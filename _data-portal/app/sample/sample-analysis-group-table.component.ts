@@ -1,25 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ApiDataCollectionService} from '../core/services/api-data-collection.service';
-import { DataCollectionList } from '../shared/api-types/data-collection-list';
-import { DataCollection } from '../shared/api-types/data-collection';
+import { ApiAnalysisGroupService} from '../core/services/api-analysis-group.service';
+import { AnalysisGroupList } from '../shared/api-types/analysis-group-list';
+import { AnalysisGroup } from '../shared/api-types/analysis-group';
 import { ApiHits } from '../shared/api-types/api-hits';
 
 let sampleTableStyles: string = `
 
 table {
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 td.matrix-dot {
-  color: #DAA406;
+  color: #79C7E7;
   text-align: center;
   font-size: 20px;
   cursor: default;
 }
 
 th.matrix-dot {
-  width: 60px;
+  width: 50px;
   white-space: nowrap;
   padding: 0;
 }
@@ -41,14 +41,24 @@ th.matrix-dot > div {
 
 th.matrix-dot > div >div {
   border-bottom: 1px solid #ccc;
-  width: 130px;
-  height: 42px;
-  line-height: 42px;
+  width: 150px;
+  height: 35px;
+  line-height: 35px;
+}
+
+@media (max-width: 1199px) {
+  th.matrix-dot {
+    width: 40px;
+  }
+  th.matrix-dot > div >div {
+    height: 28px;
+    line-height: 28px;
+  }
 }
 
 @media (max-width: 991px) {
   table {
-    margin-top: 80px;
+    margin-top: 120px;
   }
   th.matrix-dot > div {
     -ms-transform: translate(100%, 0) rotate(270deg);
@@ -58,11 +68,11 @@ th.matrix-dot > div >div {
     transform: translate(100%, 0) rotate(270deg);
   }
   th.matrix-dot {
-    width: 55px;
+    width: 30px;
   }
   th.matrix-dot > div >div {
-    height: 55px;
-    line-height: 55px;
+    height: 30px;
+    line-height: 30px;
     text-indent: 5px;
   }
 }
@@ -71,29 +81,29 @@ th.matrix-dot > div >div {
 `;
 
 @Component({
-    selector: 'sample-data-collection-table',
-    templateUrl: './sample-data-collection-table.component.html',
+    selector: 'sample-analysis-group-table',
+    templateUrl: './sample-analysis-group-table.component.html',
     styles: [ sampleTableStyles ],
 })
-export class SampleDataCollectionTableComponent implements OnInit {
+export class SampleAnalysisGroupTableComponent implements OnInit {
   @Input() apiHits: ApiHits;
 
   constructor(
-    private apiDataCollectionService: ApiDataCollectionService,
+    private apiAnalysisGroupService: ApiAnalysisGroupService,
   ){};
   
   // public properties:
-  public dataCollectionList: DataCollectionList;
+  public analysisGroupList: AnalysisGroupList;
 
   ngOnInit() {
-    this.apiDataCollectionService.getAll()
-      .subscribe((l: DataCollectionList) => this.dataCollectionList = l);
+    this.apiAnalysisGroupService.getAll()
+      .subscribe((l: AnalysisGroupList) => this.analysisGroupList = l);
   }
 
-  public hasDataCollection(fields: {[key: string]: string[]}, dc: DataCollection): boolean {
-    if (fields['dataCollections.title']) {
-      for (let dcTitle of fields['dataCollections.title']) {
-        if (dcTitle === dc.title) {
+  public hasAnalysisGroup(fields: {[key: string]: string[]}, ag: AnalysisGroup): boolean {
+    if (fields['dataCollections._analysisGroups']) {
+      for (let agTitle of fields['dataCollections._analysisGroups']) {
+        if (agTitle === ag.title) {
           return true;
         }
       }

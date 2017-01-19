@@ -12,14 +12,13 @@ let sampleHomeStyles: string = `
 
 div.table-container {
   padding-right: 90px;
-  padding-top: 70px;
   position: relative;
+  overflow-y: auto;
 }
 
 @media (max-width: 991px) {
   div.table-container {
     width: 100%;
-    overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     -webkit-overflow-scrolling: touch;
