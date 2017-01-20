@@ -1,18 +1,21 @@
 <h1>Samples</h1>
 <div class="form form-inline">
-<button class="btn btn-default" (click)="popFilterVisible = !popFilterVisible">Filter by population <span class="caret"></span></button>
+<button class="btn btn-default" (click)="popFilterVisible = !popFilterVisible; agFilterVisible = false;">Filter by population <span class="caret"></span></button>
+<button class="btn btn-default" (click)="agFilterVisible = !agFilterVisible; popFilterVisible = false;">Filter by analysis group <span class="caret"></span></button>
 <button class="btn btn-default" (click)="toggleView()">Toggle table view</button>
 </div>
 
 <div class="col-md-8 col-md-offset-2">
   <population-filter [(visible)]="popFilterVisible" [filters]="popFilters" (filtersChange)="onPopFiltersChange($event)"></population-filter>
+  <analysis-group-filter [(visible)]="agFilterVisible" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></analysis-group-filter>
 </div>
 
 <div class="clearfix"></div>
 
-<div class="col-md-10 col-md-offset-1" *ngIf="popFiltersArr.length">
+<div class="col-md-10 col-md-offset-1" *ngIf="popFiltersArr.length || agFiltersArr.length">
   <h3 class="current-filters">Filters:</h3>
   <button *ngFor="let key of popFiltersArr" class="btn btn-primary" (click)="popFilters[key] = false; onPopFiltersChange(popFilters)">{{key}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  <button *ngFor="let key of agFiltersArr" class="btn btn-info" (click)="agFilters[key] = false; onAgFiltersChange(agFilters)">{{key}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
 </div>
 
 <div class="clearfix"></div>

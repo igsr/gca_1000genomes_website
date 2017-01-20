@@ -64,6 +64,10 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public popFilterVisible: boolean = false;
   public popFilters: {[code: string]: boolean} = {};
   public popFiltersArr: string[] = [];
+
+  public agFilterVisible: boolean = false;
+  public agFilters: {[code: string]: boolean} = {};
+  public agFiltersArr: string[] = [];
   
   private apiHitsSource: Subject<Observable<ApiHits>>;
   private apiHitsSubscription: Subscription = null;
@@ -126,20 +130,27 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     this.search();
   }
 
-  search() {
-    let query: any = null;
-    if (this.popFiltersArr.length > 0) {
-      query = 
-        {
-          constant_score: {
-            filter: {
-              bool: {
-                must: [{terms: {'population.code': this.popFiltersArr}}]
-                }
-            }
-          }
-        };
+  onAgFiltersChange(agFilters: {[code: string]: boolean}) {
+    this.offset = 0;
+    this.agFiltersArr = [];
+    for (let key in agFilters) {
+      if (agFilters[key]) {
+        this.agFiltersArr.push(key);
+      }
     }
+    this.search();
+  }
+
+  search() {
+    let mustArray: any[] = [];
+    if (this.popFiltersArr.length > 0) {
+      mustArray.push({terms: {'population.code': this.popFiltersArr}});
+    }
+    if (this.agFiltersArr.length > 0) {
+      mustArray.push({terms: {'dataCollections._analysisGroups': this.agFiltersArr}});
+    }
+    let query = mustArray.length == 0 ? null
+       : { constant_score: { filter: { bool: { must: mustArray } } } };
     this.apiHitsSource.next( this.apiSampleService.getAll(this.hitsPerPage, this.offset, query));
   }
 };

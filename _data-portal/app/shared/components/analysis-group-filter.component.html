@@ -1,0 +1,17 @@
+<div class="panel panel-default" *ngIf="visible">
+  <div class="panel-heading">
+    Filter by analysis group
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closePanel()">
+       <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="panel-body">
+    <div class="form">
+      <div class="checkbox" *ngFor="let ag of agList?.hits">
+        <label *ngIf="ag._source.displayOrder && ag._source?.title">
+             <input type="checkbox" [ngModel]="filters[ag._source.title]" (ngModelChange)="changeFilter(ag._source.title, $event)">
+             {{ag._source.title}}
+        </label>
+      </div>
+    </div>
+</div></div>
