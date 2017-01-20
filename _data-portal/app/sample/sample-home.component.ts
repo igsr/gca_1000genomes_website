@@ -181,11 +181,11 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     if (this.popFiltersArr.length > 0) {
       mustArray.push({terms: {'population.code': this.popFiltersArr}});
     }
-    if (this.agFiltersArr.length > 0) {
-      mustArray.push({terms: {'dataCollections._analysisGroups': this.agFiltersArr}});
+    for (let ag of this.agFiltersArr) {
+      mustArray.push({term: {'dataCollections._analysisGroups': ag}});
     }
-    if (this.dcFiltersArr.length > 0) {
-      mustArray.push({terms: {'dataCollections.title': this.dcFiltersArr}});
+    for (let dc of this.dcFiltersArr) {
+      mustArray.push({term: {'dataCollections.title': dc}});
     }
     return mustArray.length == 0 ? null
        : { constant_score: { filter: { bool: { must: mustArray } } } };
