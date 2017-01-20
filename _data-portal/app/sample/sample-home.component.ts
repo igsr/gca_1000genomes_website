@@ -6,6 +6,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { ApiSampleService } from '../core/services/api-sample.service';
+import { ApiAnalysisGroupService } from '../core/services/api-analysis-group.service';
+import { ApiDataCollectionService } from '../core/services/api-data-collection.service';
 import { ApiHits } from '../shared/api-types/api-hits';
 
 let sampleHomeStyles: string = `
@@ -52,7 +54,12 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public constructor(
     private titleService: Title,
     private apiSampleService: ApiSampleService,
-  ) { }
+    apiAnalysisGroupService: ApiAnalysisGroupService,
+    apiDataCollectionService: ApiDataCollectionService,
+  ) { 
+    this.agTitleMap = apiAnalysisGroupService.titleMap;
+    this.dcTitleMap = apiDataCollectionService.titleMap;
+  }
 
   public apiHits: ApiHits;
   public totalHits: number = -1;
@@ -68,10 +75,12 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public agFilterVisible: boolean = false;
   public agFilters: {[code: string]: boolean} = {};
   public agFiltersArr: string[] = [];
+  readonly agTitleMap: {[key: string]: string};
 
   public dcFilterVisible: boolean = false;
   public dcFilters: {[code: string]: boolean} = {};
   public dcFiltersArr: string[] = [];
+  readonly dcTitleMap: {[key: string]: string};
   
   private apiHitsSource: Subject<Observable<ApiHits>>;
   private apiHitsSubscription: Subscription = null;

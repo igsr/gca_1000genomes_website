@@ -17,8 +17,8 @@
 <div class="col-md-10 col-md-offset-1" *ngIf="popFiltersArr.length || agFiltersArr.length || dcFiltersArr.length">
   <h3 class="current-filters">Filters:</h3>
   <button *ngFor="let key of popFiltersArr" class="btn btn-primary" (click)="popFilters[key] = false; onPopFiltersChange(popFilters)">{{key}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-  <button *ngFor="let key of dcFiltersArr" class="btn btn-warning" (click)="dcFilters[key] = false; onDcFiltersChange(dcFilters)">{{key}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-  <button *ngFor="let key of agFiltersArr" class="btn btn-info" (click)="agFilters[key] = false; onAgFiltersChange(agFilters)">{{key}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  <button *ngFor="let key of dcFiltersArr" class="btn btn-warning" (click)="dcFilters[key] = false; onDcFiltersChange(dcFilters)">{{key | i18nSelect: dcTitleMap}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  <button *ngFor="let key of agFiltersArr" class="btn btn-info" (click)="agFilters[key] = false; onAgFiltersChange(agFilters)">{{key | i18nSelect: agTitleMap}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
 </div>
 
 <div class="clearfix"></div>

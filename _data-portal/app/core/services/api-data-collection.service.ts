@@ -20,6 +20,9 @@ export class ApiDataCollectionService {
   // private properties:
   private dcListSource: ReplaySubject<DataCollectionList>;
 
+  // public properties:
+  readonly titleMap: {[key: string]: string} = {};
+
   // public methods
 
   getAll(): Observable<DataCollectionList>{
@@ -42,6 +45,11 @@ export class ApiDataCollectionService {
         this.http.post(`http://www.internationalgenome.org/api/beta/data-collection/_search`, query)
       ).map((r:Response): DataCollectionList => {
           let h: {hits: DataCollectionList} = r.json() as {hits: DataCollectionList};
+          for (let dc of h.hits.hits) {
+            if (dc._source.shortTitle && dc._source.title) {
+              this.titleMap[dc._source.title] = dc._source.shortTitle;
+            }
+          }
           return h.hits;
       })
     ).subscribe((l: DataCollectionList) => this.dcListSource.next(l));

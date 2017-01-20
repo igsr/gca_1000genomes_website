@@ -20,6 +20,9 @@ export class ApiAnalysisGroupService {
   // private properties:
   private agListSource: ReplaySubject<AnalysisGroupList>;
 
+  // public properties:
+  readonly titleMap: {[key: string]: string} = {};
+
   // public methods
 
   getAll(): Observable<AnalysisGroupList>{
@@ -42,6 +45,11 @@ export class ApiAnalysisGroupService {
         this.http.post(`http://www.internationalgenome.org/api/beta/analysis-group/_search`, query)
       ).map((r:Response): AnalysisGroupList => {
           let h: {hits: AnalysisGroupList} = r.json() as {hits: AnalysisGroupList};
+          for (let ag of h.hits.hits) {
+            if (ag._source.shortTitle && ag._source.title) {
+              this.titleMap[ag._source.title] = ag._source.shortTitle;
+            }
+          }
           return h.hits;
       })
     ).subscribe((l: AnalysisGroupList) => this.agListSource.next(l));
