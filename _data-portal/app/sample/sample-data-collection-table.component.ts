@@ -19,7 +19,7 @@ td.matrix-dot {
 }
 
 th.matrix-dot {
-  width: 60px;
+  width: 70px;
   white-space: nowrap;
   padding: 0;
 }
@@ -42,8 +42,18 @@ th.matrix-dot > div {
 th.matrix-dot > div >div {
   border-bottom: 1px solid #ccc;
   width: 130px;
-  height: 42px;
-  line-height: 42px;
+  height: 49px;
+  line-height: 49px;
+}
+
+@media (max-width: 1199px) {
+  th.matrix-dot {
+    width: 60px;
+  }
+  th.matrix-dot > div >div {
+    height: 42px;
+    line-height: 42px;
+  }
 }
 
 @media (max-width: 991px) {
