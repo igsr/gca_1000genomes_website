@@ -7,6 +7,14 @@
 <div class="col-md-8 col-md-offset-2">
   <population-filter [(visible)]="popFilterVisible" [filters]="popFilters" (filtersChange)="onPopFiltersChange($event)"></population-filter>
 </div>
+
+<div class="clearfix"></div>
+
+<div class="col-md-10 col-md-offset-1" *ngIf="popFiltersArr.length">
+  <h3 class="current-filters">Filters:</h3>
+  <button *ngFor="let key of popFiltersArr" class="btn btn-primary" (click)="popFilters[key] = false; onPopFiltersChange(popFilters)">{{key}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+</div>
+
 <div class="clearfix"></div>
 
 <div class="table-container">

@@ -16,6 +16,10 @@ div.table-container {
   overflow-y: auto;
 }
 
+h3.current-filters {
+  display: inline-block;
+}
+
 @media (max-width: 991px) {
   div.table-container {
     width: 100%;
@@ -57,8 +61,9 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public offset: number = 0;
   public viewOption: number = 1;
 
-  public popFilterVisible: boolean = true;
+  public popFilterVisible: boolean = false;
   public popFilters: {[code: string]: boolean} = {};
+  public popFiltersArr: string[] = [];
   
   private apiHitsSource: Subject<Observable<ApiHits>>;
   private apiHitsSubscription: Subscription = null;
@@ -112,5 +117,11 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
 
   onPopFiltersChange(popFilters: {[code: string]: boolean}) {
     console.log(popFilters);
+    this.popFiltersArr = [];
+    for (let key in popFilters) {
+      if (popFilters[key]) {
+        this.popFiltersArr.push(key);
+      }
+    }
   }
 };
