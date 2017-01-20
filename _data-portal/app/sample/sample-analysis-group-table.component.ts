@@ -15,7 +15,7 @@ table {
   margin-top: 80px;
 }
 
-td.matrix-dot {
+div.matrix-dot {
   color: #79C7E7;
   text-align: center;
   font-size: 20px;

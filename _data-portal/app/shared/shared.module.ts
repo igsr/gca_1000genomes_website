@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { PopoverModule } from 'ngx-popover';
 
 import { ApiErrorComponent } from './components/api-error.component';
 import { ApiSlowResponseComponent } from './components/api-slow-response.component';
@@ -10,8 +11,8 @@ import { AnalysisGroupFilterComponent } from './components/analysis-group-filter
 import { DataCollectionFilterComponent } from './components/data-collection-filter.component';
 
 @NgModule({
-  imports: [ CommonModule, RouterModule, FormsModule ],
+  imports: [ CommonModule, RouterModule, FormsModule, PopoverModule ],
   declarations: [ ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent ],
-  exports: [ CommonModule, RouterModule, ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent ],
+  exports: [ CommonModule, RouterModule, PopoverModule, ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent ],
 })
 export class SharedModule { }

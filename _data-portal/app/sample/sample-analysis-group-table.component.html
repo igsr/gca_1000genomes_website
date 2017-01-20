@@ -10,9 +10,12 @@
 <tbody><tr *ngFor="let hit of apiHits?.hits">
   <td><a *ngIf="hit.fields?.name" [routerLink]="['sample', hit.fields.name[0]]">{{hit.fields.name[0]}}</a></td>
   <td class="capitalize">{{ hit.fields?.sex ? hit.fields.sex[0] : '' }}</td>
-  <td><a *ngIf="hit.fields['population.code']" [routerLink]="['population', hit.fields['population.code'][0]]">{{hit.fields['population.code'][0] }}</a></td>
+  <td><a *ngIf="hit.fields['population.code']" [routerLink]="['population', hit.fields['population.code'][0]]"
+     [popover]="hit.fields['population.name'] ? hit.fields['population.name'][0]: ''" popoverPlacement="auto top" [popoverOnHover]="true">{{hit.fields['population.code'][0] }}</a></td>
   <ng-container *ngFor="let ag of analysisGroupList?.hits">
-    <td *ngIf="ag._source.displayOrder" class="matrix-dot"><div *ngIf="hasAnalysisGroup(hit.fields, ag._source)">&#x25cf;</div></td>
+    <td *ngIf="ag._source.displayOrder">
+      <div class="matrix-dot" *ngIf="hasAnalysisGroup(hit.fields, ag._source)" [popover]="ag._source.title" [popoverTitle]="hit.fields?.name ? hit.fields.name[0] : ''" popoverPlacement="auto top" [popoverOnHover]="true">&#x25cf;</div>
+    </td>
   </ng-container>
 <tr></tbody>
 </table>

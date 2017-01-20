@@ -8,7 +8,7 @@
   <div class="panel-body">
     <div class="form">
       <div class="checkbox" *ngFor="let pop of popHits?.hits">
-        <label *ngIf="pop.fields?.code">
+        <label *ngIf="pop.fields?.code" [popover]="pop.fields?.name ? pop.fields.name[0] : ''" [popoverOnHover]="true" popoverPlacement="auto top">
              <input type="checkbox" [ngModel]="filters[pop.fields.code[0]]" (ngModelChange)="changeFilter(pop.fields.code[0], $event)">
              {{pop.fields.code[0]}}
         </label>
