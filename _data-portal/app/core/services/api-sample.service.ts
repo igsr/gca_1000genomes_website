@@ -18,7 +18,7 @@ export class ApiSampleService {
 
   // public methods
 
-  getAll(hitsPerPage: number, from: number, query: any): Observable<ApiHits>{
+  search(hitsPerPage: number, from: number, query: any): Observable<ApiHits>{
     let body = {
       from: from,
       size: hitsPerPage,
@@ -37,5 +37,32 @@ export class ApiSampleService {
         return h.hits;
       })
     );
+  }
+
+  searchExport(query: any, filename: string){
+    let body = {
+      fields: [
+        'name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.title',
+      ],
+      column_names: [
+        'Sample name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections',
+      ],
+    };
+    if (query) {
+      body['query'] = query;
+    }
+    let form = document.createElement('form');
+
+    form.action= `http://www.internationalgenome.org/api/beta/sample/_search/${filename}.tsv`;
+    form.method='POST';
+    form.target="_self";
+    let input = document.createElement("textarea");
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', 'json');
+    input.value = JSON.stringify(body);
+    form.appendChild(input);
+    form.style.display = 'none';
+    document.body.appendChild(form);
+    form.submit();
   }
 }

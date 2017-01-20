@@ -170,6 +170,13 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   }
 
   search() {
+    this.apiHitsSource.next( this.apiSampleService.search(this.hitsPerPage, this.offset, this.buildQuery()));
+  }
+  searchExport() {
+    this.apiSampleService.searchExport(this.buildQuery(), 'igsr_samples');
+  }
+
+  private buildQuery() {
     let mustArray: any[] = [];
     if (this.popFiltersArr.length > 0) {
       mustArray.push({terms: {'population.code': this.popFiltersArr}});
@@ -180,8 +187,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     if (this.dcFiltersArr.length > 0) {
       mustArray.push({terms: {'dataCollections.title': this.dcFiltersArr}});
     }
-    let query = mustArray.length == 0 ? null
+    return mustArray.length == 0 ? null
        : { constant_score: { filter: { bool: { must: mustArray } } } };
-    this.apiHitsSource.next( this.apiSampleService.getAll(this.hitsPerPage, this.offset, query));
   }
 };
