@@ -135,6 +135,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
 
   onPopFiltersChange(popFilters: {[code: string]: boolean}) {
     this.offset = 0;
+    this.totalHits = -1;
     this.popFiltersArr = [];
     for (let key in popFilters) {
       if (popFilters[key]) {
@@ -146,6 +147,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
 
   onAgFiltersChange(agFilters: {[code: string]: boolean}) {
     this.offset = 0;
+    this.totalHits = -1;
     this.agFiltersArr = [];
     for (let key in agFilters) {
       if (agFilters[key]) {
@@ -157,6 +159,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
 
   onDcFiltersChange(dcFilters: {[code: string]: boolean}) {
     this.offset = 0;
+    this.totalHits = -1;
     this.dcFiltersArr = [];
     for (let key in dcFilters) {
       if (dcFilters[key]) {

@@ -25,7 +25,8 @@
 
 <div class="table-container">
 <div class="table-buttons">
-  <h4 *ngIf="totalHits > -1">Showing {{displayStart}} to {{displayStop}} of {{totalHits}} samples</h4>
+  <h4 *ngIf="totalHits > 0">Showing {{displayStart}} to {{displayStop}} of {{totalHits}} samples</h4>
+  <h4 *ngIf="totalHits == 0">No samples match all filters</h4>
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>
 </div>
