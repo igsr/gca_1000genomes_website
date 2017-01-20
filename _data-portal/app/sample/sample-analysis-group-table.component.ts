@@ -7,6 +7,10 @@ import { ApiHits } from '../shared/api-types/api-hits';
 
 let sampleTableStyles: string = `
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 table {
   margin-top: 80px;
 }
