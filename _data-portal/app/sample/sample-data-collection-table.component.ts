@@ -41,7 +41,7 @@ th.matrix-dot > div {
 
 th.matrix-dot > div >div {
   border-bottom: 1px solid #ccc;
-  width: 130px;
+  width: 125px;
   height: 49px;
   line-height: 49px;
 }
