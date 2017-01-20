@@ -3,7 +3,7 @@
   <th>Sample</th>
   <th>Sex</th>
   <th>Population</th>
-  <th *ngFor="let dc of dataCollectionList?.hits" class="matrix-dot"><div><div>{{dc._source.shortTitle}}</div></div></th>
+  <th *ngFor="let dc of dataCollectionList?.hits" class="matrix-dot"><div><div (click)="changeFilter(dc._source.title)">{{dc._source.shortTitle}}</div></div></th>
 </tr></thead>
 <tbody><tr *ngFor="let hit of apiHits?.hits">
   <td><a *ngIf="hit.fields?.name" [routerLink]="['sample', hit.fields.name[0]]">{{hit.fields.name[0]}}</a></td>

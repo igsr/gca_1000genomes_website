@@ -4,7 +4,7 @@
   <th>Sex</th>
   <th>Population</th>
   <ng-container *ngFor="let ag of analysisGroupList?.hits">
-    <th *ngIf="ag._source.displayOrder" class="matrix-dot"><div><div>{{ag._source.shortTitle}}</div></div></th>
+    <th *ngIf="ag._source.displayOrder" class="matrix-dot"><div><div (click)="changeFilter(ag._source.title)">{{ag._source.shortTitle}}</div></div></th>
   </ng-container>
 </tr></thead>
 <tbody><tr *ngFor="let hit of apiHits?.hits">

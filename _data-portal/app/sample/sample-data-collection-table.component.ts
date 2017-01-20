@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 
 import { ApiDataCollectionService} from '../core/services/api-data-collection.service';
 import { DataCollectionList } from '../shared/api-types/data-collection-list';
@@ -48,6 +48,7 @@ th.matrix-dot > div >div {
   width: 125px;
   height: 49px;
   line-height: 49px;
+  cursor: pointer;
 }
 
 @media (max-width: 1199px) {
@@ -91,6 +92,8 @@ th.matrix-dot > div >div {
 })
 export class SampleDataCollectionTableComponent implements OnInit {
   @Input() apiHits: ApiHits;
+  @Input() filters: {[code: string]: boolean};
+  @Output() filtersChange = new EventEmitter<{[code: string]: boolean}>();
 
   constructor(
     private apiDataCollectionService: ApiDataCollectionService,
@@ -113,6 +116,11 @@ export class SampleDataCollectionTableComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  changeFilter(code: string) {
+    this.filters[code] = !this.filters[code];
+    this.filtersChange.emit(this.filters);
   }
 
 }
