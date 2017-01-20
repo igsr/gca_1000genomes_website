@@ -68,6 +68,10 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public agFilterVisible: boolean = false;
   public agFilters: {[code: string]: boolean} = {};
   public agFiltersArr: string[] = [];
+
+  public dcFilterVisible: boolean = false;
+  public dcFilters: {[code: string]: boolean} = {};
+  public dcFiltersArr: string[] = [];
   
   private apiHitsSource: Subject<Observable<ApiHits>>;
   private apiHitsSubscription: Subscription = null;
@@ -80,9 +84,10 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
       .switchMap((o: Observable<ApiHits>): Observable<ApiHits> => o)
       .subscribe((h: ApiHits) => {
           this.apiHits = h;
+          console.log(h);
           if (h) {
             this.totalHits = h.total;
-            this.displayStart = h.hits ? this.offset + 1 : 0;
+            this.displayStart = h.hits && h.hits.length > 0 ? this.offset + 1 : 0;
             this.displayStop = h.hits ? this.offset + h.hits.length : 0;
           }
         })
@@ -141,6 +146,17 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     this.search();
   }
 
+  onDcFiltersChange(dcFilters: {[code: string]: boolean}) {
+    this.offset = 0;
+    this.dcFiltersArr = [];
+    for (let key in dcFilters) {
+      if (dcFilters[key]) {
+        this.dcFiltersArr.push(key);
+      }
+    }
+    this.search();
+  }
+
   search() {
     let mustArray: any[] = [];
     if (this.popFiltersArr.length > 0) {
@@ -148,6 +164,9 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     }
     if (this.agFiltersArr.length > 0) {
       mustArray.push({terms: {'dataCollections._analysisGroups': this.agFiltersArr}});
+    }
+    if (this.dcFiltersArr.length > 0) {
+      mustArray.push({terms: {'dataCollections.title': this.dcFiltersArr}});
     }
     let query = mustArray.length == 0 ? null
        : { constant_score: { filter: { bool: { must: mustArray } } } };
