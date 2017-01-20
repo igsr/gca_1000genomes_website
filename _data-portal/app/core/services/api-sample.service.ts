@@ -18,17 +18,20 @@ export class ApiSampleService {
 
   // public methods
 
-  getAll(hitsPerPage: number, from: number): Observable<ApiHits>{
-    let query = {
+  getAll(hitsPerPage: number, from: number, query: any): Observable<ApiHits>{
+    let body = {
       from: from,
       size: hitsPerPage,
       fields: [
         'name', 'sex', 'population.name', 'population.code', 'dataCollections.title', 'dataCollections._analysisGroups',
       ],
     };
+    if (query) {
+      body['query'] = query;
+    }
     return this.apiTimeoutService.handleTimeout<ApiHits>(
       this.apiErrorService.handleError(
-        this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, query)
+        this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
       ).map((r:Response): ApiHits => {
         let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
         return h.hits;

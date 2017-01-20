@@ -82,7 +82,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
             this.displayStop = h.hits ? this.offset + h.hits.length : 0;
           }
         })
-    this.apiHitsSource.next( this.apiSampleService.getAll(this.hitsPerPage, this.offset));
+    this.search();
   }
   ngOnDestroy() {
     if (this.apiHitsSubscription) {
@@ -100,14 +100,14 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   tableNext() {
     if (this.hasMore()) {
       this.offset += this.hitsPerPage;
-      this.apiHitsSource.next( this.apiSampleService.getAll(this.hitsPerPage, this.offset));
+      this.search();
     }
   }
 
   tablePrevious() {
     if (this.offset > 1) {
       this.offset -= this.hitsPerPage;
-      this.apiHitsSource.next( this.apiSampleService.getAll(this.hitsPerPage, this.offset));
+      this.search();
     }
   }
 
@@ -116,12 +116,30 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   }
 
   onPopFiltersChange(popFilters: {[code: string]: boolean}) {
-    console.log(popFilters);
+    this.offset = 0;
     this.popFiltersArr = [];
     for (let key in popFilters) {
       if (popFilters[key]) {
         this.popFiltersArr.push(key);
       }
     }
+    this.search();
+  }
+
+  search() {
+    let query: any = null;
+    if (this.popFiltersArr.length > 0) {
+      query = 
+        {
+          constant_score: {
+            filter: {
+              bool: {
+                must: [{terms: {'population.code': this.popFiltersArr}}]
+                }
+            }
+          }
+        };
+    }
+    this.apiHitsSource.next( this.apiSampleService.getAll(this.hitsPerPage, this.offset, query));
   }
 };
