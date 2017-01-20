@@ -56,6 +56,9 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public displayStop: number = -1;
   public offset: number = 0;
   public viewOption: number = 1;
+
+  public popFilterVisible: boolean = true;
+  public popFilters: {[code: string]: boolean} = {};
   
   private apiHitsSource: Subject<Observable<ApiHits>>;
   private apiHitsSubscription: Subscription = null;
@@ -105,5 +108,9 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
 
   toggleView() {
     this.viewOption = this.viewOption == 1 ? 2 : 1;
+  }
+
+  onPopFiltersChange(popFilters: {[code: string]: boolean}) {
+    console.log(popFilters);
   }
 };

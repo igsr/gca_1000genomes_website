@@ -1,7 +1,14 @@
 <h1>Samples</h1>
-<div class="clearfix">
-<button class="btn btn-default pull-left" (click)="toggleView()">Toggle table view</button>
+<div class="form form-inline">
+<button class="btn btn-default" (click)="popFilterVisible = !popFilterVisible">Filter by population <span class="caret"></span></button>
+<button class="btn btn-default" (click)="toggleView()">Toggle table view</button>
 </div>
+
+<div class="col-md-8 col-md-offset-2">
+  <population-filter [(visible)]="popFilterVisible" [filters]="popFilters" (filtersChange)="onPopFiltersChange($event)"></population-filter>
+</div>
+<div class="clearfix"></div>
+
 <div class="table-container">
 <div class="table-buttons">
   <h4 *ngIf="totalHits > -1">Showing {{displayStart}} to {{displayStop}} of {{totalHits}} samples</h4>
