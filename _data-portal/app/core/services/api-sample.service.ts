@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { ApiHits } from '../../shared/api-types/api-hits';
+import { Sample } from '../../shared/api-types/sample';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
 
@@ -35,6 +36,17 @@ export class ApiSampleService {
       ).map((r:Response): ApiHits => {
         let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
         return h.hits;
+      })
+    );
+  }
+
+  get(name: string): Observable<Sample>{
+   return this.apiTimeoutService.handleTimeout<Sample>(
+      this.apiErrorService.handleError(
+        this.http.get(`http://www.internationalgenome.org/api/beta/sample/${name}`)
+      ).map((r: Response) => {
+        let s = r.json() as {_source: Sample};
+        return s._source;
       })
     );
   }

@@ -1,0 +1,53 @@
+<h1>Sample {{sampleName}}</h1>
+<ng-container *ngIf="sample">
+<div class="col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1"><div class="row">
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title">{{sampleName}} details</h3></div>
+      <div class="panel-body">
+        <dl class="dl-horizontal">
+          <ng-container *ngIf="sample.sex">
+            <dt>Sex:</dt>
+            <dd class="capitalize">{{sample.sex}}</dd>
+          </ng-container>
+          <ng-container *ngIf="sample.biosampleId">
+            <dt>Biosample ID:</dt>
+            <dd><a [href]="'http://www.ebi.ac.uk/biosamples/sample/' + sample.biosampleId" target="_blank">{{sample.biosampleId}}</a></dd>
+          </ng-container>
+            <dt>Search Coriell:</dt>
+            <dd><a [href]="'https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=' + sample.name + '&Product=CC'" target="_blank">{{sample.name}} <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix visible-xs visible-sm"></div>
+
+  <ng-container *ngIf="sample.population?.code">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title">{{sample.population.code}} population</h3></div>
+      <div class="panel-body">
+        <dl class="dl-horizontal">
+          <dt>Population:</dt>
+          <dd><a [routerLink]="['/population', sample.population.code]">{{sample.population.name}}</a></dd>
+          <dt>Code:</dt>
+          <dd>{{sample.population.code}}</dd>
+          <dt>Description:</dt>
+          <dd>{{sample.population.description}}</dd>
+          <ng-container *ngIf="sample.superpopulation?.code">
+            <dt>Superpopulation:</dt>
+            <dd>{{sample.superpopulation.name}}</dd>
+            <dt>Superpopulation code:</dt>
+            <dd>{{sample.superpopulation.code}}</dd>
+          </ng-container>
+        </dl>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+
+</div></div>
+</ng-container>
+
