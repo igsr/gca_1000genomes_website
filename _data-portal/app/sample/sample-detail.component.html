@@ -22,9 +22,7 @@
     </div>
   </div>
 
-  <div class="clearfix visible-xs visible-sm"></div>
-
-  <ng-container *ngIf="sample.population?.code">
+  <div class="clearfix" *ngIf="sample.population?.code">
   <div class="col-md-6">
     <div class="panel panel-default">
       <div class="panel-heading"><h3 class="panel-title">{{sample.population.code}} population</h3></div>
@@ -46,7 +44,24 @@
       </div>
     </div>
   </div>
+  </div>
+
+  <ng-container *ngIf="sample.relatedSample && sample.relatedSample.length">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title">RelatedSamples</h3></div>
+      <div class="panel-body">
+        <dl class="dl-horizontal">
+          <ng-container *ngFor="let related of sample.relatedSample">
+            <dt>{{related.relationship}}</dt>
+            <dd><a [routerLink]="['/sample', related.relatedSampleName]">{{related.relatedSampleName}}</a></dd>
+          </ng-container>
+        </dl>
+      </div>
+    </div>
+  </div>
   </ng-container>
+
 
 </div></div>
 </ng-container>

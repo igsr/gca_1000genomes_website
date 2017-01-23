@@ -12,5 +12,9 @@ export class Sample {
       name: string,
       code: string,
     },
+    relatedSample: {
+      relationship: string,
+      relatedSampleName: string,
+    }[],
   ){};
 }
