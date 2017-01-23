@@ -22,8 +22,8 @@
     </div>
   </div>
 
-  <div class="clearfix" *ngIf="sample.population?.code">
-  <div class="col-md-6">
+  <ng-container *ngIf="sample.population?.code">
+  <div class="col-md-6 clearfix">
     <div class="panel panel-default">
       <div class="panel-heading"><h3 class="panel-title">{{sample.population.code}} population</h3></div>
       <div class="panel-body">
@@ -44,7 +44,7 @@
       </div>
     </div>
   </div>
-  </div>
+  </ng-container>
 
   <ng-container *ngIf="sample.relatedSample && sample.relatedSample.length">
   <div class="col-md-6">
@@ -62,7 +62,10 @@
   </div>
   </ng-container>
 
-
 </div></div>
+
+<div class="col-md-12">
+  <sample-data-collections [sample]="sample"></sample-data-collections>
+</div>
 </ng-container>
 

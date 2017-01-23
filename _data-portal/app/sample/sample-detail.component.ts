@@ -13,6 +13,7 @@ let sampleDetailStyles: string = `
 .capitalize {
   text-transform: capitalize;
 }
+
 `;
 
 @Component({

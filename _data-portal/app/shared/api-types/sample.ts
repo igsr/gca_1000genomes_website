@@ -12,9 +12,10 @@ export class Sample {
       name: string,
       code: string,
     },
-    relatedSample: {
+    readonly relatedSample: {
       relationship: string,
       relatedSampleName: string,
     }[],
+    readonly dataCollections: Object[],
   ){};
 }

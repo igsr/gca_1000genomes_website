@@ -1,0 +1,22 @@
+<ng-container *ngIf="sample.dataCollections">
+<h2>Data collections for {{sample.name}}</h2>
+<ul class="nav nav-tabs nav-justified">
+  <li *ngFor="let dc of sample.dataCollections" [ngClass]="{active: currentDC === dc}">
+    <a role="button">{{dc.title}}</a>
+  </li>
+</ul>
+
+<div class="panel panel-default">
+<div class="panel-body">
+<div class="row">
+
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+<a *ngIf="currentDC?.dataReusePolicy" [href]="currentDC?.dataReusePolicy"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{currentDC.title}}</a>
+  
+</div>
+
+</div>
+</div>
+</div>
+
+</ng-container>
