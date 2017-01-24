@@ -13,6 +13,6 @@ import { DataCollectionFilterComponent } from './components/data-collection-filt
 @NgModule({
   imports: [ CommonModule, RouterModule, FormsModule, PopoverModule ],
   declarations: [ ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent ],
-  exports: [ CommonModule, RouterModule, PopoverModule, ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent ],
+  exports: [ CommonModule, RouterModule, FormsModule, PopoverModule, ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent ],
 })
 export class SharedModule { }
