@@ -29,7 +29,7 @@
         <div class="panel-heading">Data types</div>
         <div class="panel-body">
           <div class="checkbox" *ngFor="let dt of filterDataTypes" [ngClass]="{disabled: dt.isDisabled}">
-            <label><input type="checkbox" [ngModel]="dt.isFiltered" (ngModelChange)="toggleFilterDataType(dt, $event)" [disabled]="dt.isDisabled">{{dt.title}}</label>
+            <label class="capitalize"><input type="checkbox" [ngModel]="dt.isFiltered" (ngModelChange)="toggleFilterDataType(dt, $event)" [disabled]="dt.isDisabled">{{dt.title}}</label>
           </div>
         </div>
       </div>
@@ -45,6 +45,21 @@
       </div>
     </div>
   </div></div>
+
+  <div class="col-md-8 col-lg-9">
+    <table class="table table-striped table-condensed">
+    <thead><tr>
+      <th></th>
+      <th>File</th>
+      <th>Analysis group</th>
+    </tr></thead>
+    <tbody><tr *ngFor="let hit of fileList?.hits">
+      <td><a [href]="hit._source.url"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
+      <td [innerHTML]="softHyphens(hit._source.url)"></td>
+      <td> {{ hit._source.analysisGroup }}</td>
+    <tr></tbody>
+    </table>
+  </div>
 
 </div>
 </div>

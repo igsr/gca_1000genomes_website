@@ -29,6 +29,10 @@ a[role="button"] {
   cursor: pointer;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 `;
 
 class selectableFilter {
@@ -150,6 +154,10 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
       }
     }
     this.searchFiles();
+  }
+
+  public softHyphens(url: string): string {
+    return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;
   }
 
   private searchFiles() {
