@@ -25,6 +25,15 @@ let sampleDataCollectionStyles: string = `
   }
 }
 
+table {
+  border-top: 2px solid #ddd;
+}
+
+button.page-button {
+  border-bottom-width: 0;
+  border-radius: 15px 15px 0 0;
+}
+
 a[role="button"] {
   cursor: pointer;
 }
