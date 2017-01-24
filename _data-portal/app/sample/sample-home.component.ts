@@ -93,7 +93,6 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
       .switchMap((o: Observable<ApiHits>): Observable<ApiHits> => o)
       .subscribe((h: ApiHits) => {
           this.apiHits = h;
-          console.log(h);
           if (h) {
             this.totalHits = h.total;
             this.displayStart = h.hits && h.hits.length > 0 ? this.offset + 1 : 0;

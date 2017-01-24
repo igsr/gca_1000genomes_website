@@ -15,10 +15,13 @@
   </p>
 
   <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center">
-  <strong>{{fileList?.total}}</strong> matching data files
+  <ng-container *ngIf="fileList?.total > 0">
+    <strong>{{fileList?.total}}</strong> matching data files
+  </ng-container>
   </p>
 
   <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center">
+    <button class="btn btn-default" (click)="searchFilesExport()">Download the list</button>
   </p>
 
   <div class="clearfix"></div>

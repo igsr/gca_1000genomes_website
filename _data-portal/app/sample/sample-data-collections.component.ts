@@ -55,9 +55,13 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
 
   public currentDC: Object = null;
   public fileList: FileList = null;
-  public offset: number = 0;
   public filterDataTypes: selectableFilter[];
   public filterAnalysisGroups: selectableFilter[];
+
+  public offset: number = 0;
+  public totalHits: number = -1;
+  public displayStart: number = -1;
+  public displayStop: number = -1;
 
   // private properties
   private fileListSource: Subject<Observable<FileList>> = null;
@@ -73,7 +77,14 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
       this.fileListSource = new Subject<Observable<FileList>>();
       this.fileListSubscription = this.fileListSource
           .switchMap((o: Observable<FileList>) : Observable<FileList> => o)
-          .subscribe((fl: FileList) => this.fileList = fl);
+          .subscribe((fl: FileList) => {
+            this.fileList = fl
+            if (fl) {
+              this.totalHits = fl.total;
+              this.displayStart = fl.hits && fl.hits.length > 0 ? this.offset + 1 : 0;
+              this.displayStop = fl.hits ? this.offset + fl.hits.length : 0;
+            }
+          });
     }
 
     this.setDC(this.sample.dataCollections ? this.sample.dataCollections[0] : null);
@@ -82,6 +93,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
   public setDC(dc: Object) {
     this.currentDC = dc;
     this.offset = 0;
+    this.totalHits = -1;
     this.filterDataTypes = [];
     this.filterAnalysisGroups = [];
     this.filterDataTypesObj = {};
@@ -108,6 +120,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
     }
     dt.isFiltered = isFiltered;
     this.offset = 0;
+    this.totalHits = -1;
     for (let ag of this.filterAnalysisGroups) {
       ag.isDisabled = true;
     }
@@ -134,6 +147,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
     }
     ag.isFiltered = isFiltered;
     this.offset = 0;
+    this.totalHits = -1;
     for (let dt of this.filterDataTypes) {
       dt.isDisabled = true;
     }
@@ -156,8 +170,36 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
     this.searchFiles();
   }
 
+  hasMore(): boolean {
+    if (this.totalHits > this.offset + this.hitsPerPage) {
+      return true;
+    }
+    return false;
+  }
+
+  tableNext() {
+    if (this.hasMore()) {
+      this.offset += this.hitsPerPage;
+      this.searchFiles();
+    }
+  }
+
+  tablePrevious() {
+    if (this.offset > 1) {
+      this.offset -= this.hitsPerPage;
+      this.searchFiles();
+    }
+  }
+
   public softHyphens(url: string): string {
     return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;
+  }
+
+  public searchFilesExport() {
+    if (!this.currentDC) {
+      return;
+    }
+    this.apiFileService.searchSampleExport(this.sample.name, this.currentDC['title'], this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr_${this.sample.name}.tsv`);
   }
 
   private searchFiles() {
@@ -166,19 +208,28 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
       return;
     }
 
+    this.fileListSource.next(this.apiFileService.searchSample(this.sample.name, this.currentDC['title'], this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
+  }
+
+
+  private buildSearchDataTypes(): string[] {
     var dataTypes: string[] = [];
     for (let dt of this.filterDataTypes) {
       if (dt.isFiltered) {
         dataTypes.push(dt.title);
       }
     }
+    return dataTypes;
+  }
+
+  private buildSearchAnalysisGroups(): string[] {
     var analysisGroups: string[] = [];
     for (let ag of this.filterAnalysisGroups) {
       if (ag.isFiltered) {
         analysisGroups.push(ag.title);
       }
     }
-    this.fileListSource.next(this.apiFileService.searchSample(this.sample.name, this.currentDC['title'], dataTypes, analysisGroups, this.offset, this.hitsPerPage));
+    return analysisGroups;
   }
 
   ngOnDestroy() {

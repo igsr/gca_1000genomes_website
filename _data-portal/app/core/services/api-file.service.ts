@@ -18,27 +18,10 @@ export class ApiFileService {
   ) {}
 
   searchSample(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], from: number, hitsPerPage: number): Observable<FileList> {
-    let filtTerms: any[] = [];
-    filtTerms.push({term:{dataCollections: dataCollection}});
-    filtTerms.push({term:{samples: sampleName}});
-    if (dataTypes.length > 0) {
-      filtTerms.push({terms: {dataType: dataTypes}});
-    }
-    if (analysisGroups.length > 0) {
-      filtTerms.push({terms: {analysisGroup: analysisGroups}});
-    }
     let body = {
       from: from,
       size: hitsPerPage,
-      query: {
-        constant_score: {
-          filter: {
-            bool: {
-              must: filtTerms,
-            }
-          }
-        }
-      }
+      query: this.buildSearchSampleQuery(sampleName, dataCollection, dataTypes, analysisGroups),
     };
     return this.apiTimeoutService.handleTimeout<FileList>(
       this.apiErrorService.handleError(
@@ -48,5 +31,51 @@ export class ApiFileService {
         return h.hits;
       })
     );
+  }
+
+  searchSampleExport(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], filename: string) {
+    let body = {
+      fields: [
+        'url', 'md5', 'dataCollections', 'dataType', 'analysisGroup', 'samples', 'populations', 'dataReusePolicy',
+      ],
+      column_names: [
+        'url', 'md5', 'Data collection', 'Data type', 'Analysis group', 'Sample', 'Population', 'Data reuse policy',
+      ],
+      query: this.buildSearchSampleQuery(sampleName, dataCollection, dataTypes, analysisGroups),
+    };
+    let form = document.createElement('form');
+
+    form.action= `http://www.internationalgenome.org/api/beta/file/_search/${filename}.tsv`;
+    form.method='POST';
+    form.target="_self";
+    let input = document.createElement("textarea");
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', 'json');
+    input.value = JSON.stringify(body);
+    form.appendChild(input);
+    form.style.display = 'none';
+    document.body.appendChild(form);
+    form.submit();
+  }
+
+  private buildSearchSampleQuery(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[]): any {
+    let filtTerms: any[] = [];
+    filtTerms.push({term:{dataCollections: dataCollection}});
+    filtTerms.push({term:{samples: sampleName}});
+    if (dataTypes.length > 0) {
+      filtTerms.push({terms: {dataType: dataTypes}});
+    }
+    if (analysisGroups.length > 0) {
+      filtTerms.push({terms: {analysisGroup: analysisGroups}});
+    }
+    return {
+      constant_score: {
+        filter: {
+          bool: {
+            must: filtTerms,
+          }
+        }
+      }
+    };
   }
 }
