@@ -17,11 +17,11 @@ export class ApiFileService {
     private apiTimeoutService: ApiTimeoutService,
   ) {}
 
-  searchSample(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], from: number, hitsPerPage: number): Observable<FileList> {
+  searchDataCollection(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], from: number, hitsPerPage: number): Observable<FileList> {
     let body = {
       from: from,
       size: hitsPerPage,
-      query: this.buildSearchSampleQuery(sampleName, dataCollection, dataTypes, analysisGroups),
+      query: this.buildSearchDataCollectionQuery(sampleName, dataCollection, dataTypes, analysisGroups),
     };
     return this.apiTimeoutService.handleTimeout<FileList>(
       this.apiErrorService.handleError(
@@ -33,7 +33,7 @@ export class ApiFileService {
     );
   }
 
-  searchSampleExport(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], filename: string) {
+  searchDataCollectionExport(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], filename: string) {
     let body = {
       fields: [
         'url', 'md5', 'dataCollections', 'dataType', 'analysisGroup', 'samples', 'populations', 'dataReusePolicy',
@@ -41,7 +41,7 @@ export class ApiFileService {
       column_names: [
         'url', 'md5', 'Data collection', 'Data type', 'Analysis group', 'Sample', 'Population', 'Data reuse policy',
       ],
-      query: this.buildSearchSampleQuery(sampleName, dataCollection, dataTypes, analysisGroups),
+      query: this.buildSearchDataCollectionQuery(sampleName, dataCollection, dataTypes, analysisGroups),
     };
     let form = document.createElement('form');
 
@@ -58,10 +58,12 @@ export class ApiFileService {
     form.submit();
   }
 
-  private buildSearchSampleQuery(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[]): any {
+  private buildSearchDataCollectionQuery(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[]): any {
     let filtTerms: any[] = [];
     filtTerms.push({term:{dataCollections: dataCollection}});
-    filtTerms.push({term:{samples: sampleName}});
+    if (sampleName) {
+      filtTerms.push({term:{samples: sampleName}});
+    }
     if (dataTypes.length > 0) {
       filtTerms.push({terms: {dataType: dataTypes}});
     }

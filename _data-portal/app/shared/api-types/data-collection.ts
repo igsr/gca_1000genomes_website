@@ -7,5 +7,6 @@ export class DataCollection {
     readonly displayOrder: number,
     readonly samples: {count: number},
     readonly populations: {count: number},
+    readonly dataTypes: string[],
   ) { }
 }
