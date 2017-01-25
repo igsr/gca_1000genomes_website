@@ -3,6 +3,8 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/of';
 
 import { DataCollectionList } from '../../shared/api-types/data-collection-list';
 import { DataCollection } from '../../shared/api-types/data-collection';
@@ -44,6 +46,15 @@ export class ApiDataCollectionService {
       }
       return null;
     });
+  }
+
+  getText(id: string): Observable<string> {
+      return this.http.get(`http://www.internationalgenome.org/data-portal/data-collections/${id}.html`)
+        .catch((err, caught): Observable<Response> => Observable.of<Response>(null))
+        .map((r:Response): string => {
+          let text: string = r ? r.text() : ''
+          return text.startsWith(`<!DOCTYPE`) ? '' : text;
+        });
   }
 
   // private methods

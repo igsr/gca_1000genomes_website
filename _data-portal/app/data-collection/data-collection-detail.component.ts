@@ -25,11 +25,14 @@ export class DataCollectionDetailComponent implements OnInit, OnDestroy {
   ) {}
 
   public dc: DataCollection;
+  public description: string;
 
   // private properties
   private routeSubscription: Subscription = null;
   private dataCollectionSource: Subject<Observable<DataCollection>> = null;
   private dataCollectionSubscription: Subscription = null;
+  private descriptionSource: Subject<Observable<string>> = null;
+  private descriptionSubscription: Subscription = null;
 
   ngOnInit() {
     this.dataCollectionSource = new Subject<Observable<DataCollection>>();
@@ -41,10 +44,16 @@ export class DataCollectionDetailComponent implements OnInit, OnDestroy {
             this.titleService.setTitle( `${dc.shortTitle} | IGSR data collection`);
           }
         });
+    this.descriptionSource = new Subject<Observable<string>>();
+    this.descriptionSubscription = this.descriptionSource
+        .switchMap((o: Observable<string>) : Observable<string> => o)
+        .subscribe((description: string) => this.description = description);
+
     this.routeSubscription = this.activatedRoute.params.subscribe((params: {dataCollectionID: string}) => {
       this.titleService.setTitle( `${params.dataCollectionID} | IGSR data collection`);
       if (params.dataCollectionID) {
         this.dataCollectionSource.next(this.apiDataCollectionService.get(params.dataCollectionID));
+        this.descriptionSource.next(this.apiDataCollectionService.getText(params.dataCollectionID));
       }
     });
   }
@@ -52,6 +61,9 @@ export class DataCollectionDetailComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.dataCollectionSubscription) {
       this.dataCollectionSubscription.unsubscribe();
+    }
+    if (this.descriptionSubscription) {
+      this.descriptionSubscription.unsubscribe();
     }
     if (this.routeSubscription) {
       this.routeSubscription.unsubscribe();
