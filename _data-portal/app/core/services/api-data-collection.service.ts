@@ -5,6 +5,7 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
 
 import { DataCollectionList } from '../../shared/api-types/data-collection-list';
+import { DataCollection } from '../../shared/api-types/data-collection';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
 
@@ -30,6 +31,19 @@ export class ApiDataCollectionService {
       this.setDcListSource();
     }
     return this.dcListSource.asObservable();
+  }
+
+  get(id: string): Observable<DataCollection> {
+    return this.getAll().map((l: DataCollectionList): DataCollection => {
+      if (l && l.hits) {
+        for (let dc of l.hits) {
+          if (dc._id && dc._id === id) {
+            return dc._source;
+          }
+        }
+      }
+      return null;
+    });
   }
 
   // private methods
