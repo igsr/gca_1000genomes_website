@@ -77,4 +77,28 @@ export class ApiSampleService {
     document.body.appendChild(form);
     form.submit();
   }
+
+  searchDataCollectionSamples(dc: string, offset: number, hitsPerPage: number): Observable<ApiHits> {
+    let query = {
+      constant_score: {
+        filter: {
+          term: { 'dataCollections.title': dc }
+        }
+      }
+    }
+    return this.search(hitsPerPage, offset, query);
+  }
+
+  searchDataCollectionSamplesExport(dc: string) {
+    let filename: string = dc.toLowerCase();
+    filename.replace(/\s/g, '-');
+    let query = {
+      constant_score: {
+        filter: {
+          term: { 'dataCollections.title': dc }
+        }
+      }
+    }
+    return this.searchExport(query, `igsr-${filename}.tsv`);
+  }
 }
