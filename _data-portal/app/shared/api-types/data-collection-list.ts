@@ -4,6 +4,7 @@ export class DataCollectionList {
   constructor(
     readonly hits: {
       _source: DataCollection,
+      _id: string,
     }[]
   ) { }
 }

@@ -1,0 +1,19 @@
+<h1>Data collections</h1>
+<table class="table table-striped table-hover">
+  <thead><tr>
+    <th></th>
+    <th>Samples</th>
+    <th>Populations</th>
+    <th>Publication</th>
+    <th>Website</th>
+  </tr></thead>
+  <tbody>
+    <tr *ngFor="let dc of dataCollectionList?.hits">
+      <td><a [routerLink]="['/data-collection', dc._id ]">{{dc._source.title}}</a></td>
+      <td>{{dc._source.samples?.count}}</td>
+      <td>{{dc._source.populations?.count}}</td>
+      <td><a *ngIf="dc._source.publication" [href]="dc._source.publication"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a></td>
+      <td><a *ngIf="dc._source.website" [href]="dc._source.website"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a></td>
+    </tr>
+  </tbody>
+</table>
