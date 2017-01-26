@@ -5,6 +5,7 @@ import { SampleHomeComponent } from './sample/sample-home.component';
 import { SampleDetailComponent } from './sample/sample-detail.component';
 import { DataCollectionHomeComponent } from './data-collection/data-collection-home.component';
 import { DataCollectionDetailComponent } from './data-collection/data-collection-detail.component';
+import { SearchResultsComponent } from './search/search-results.component';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'sample'},
@@ -13,7 +14,7 @@ const appRoutes: Routes = [
   { path: 'population', component: SampleHomeComponent},
   { path: 'data-collection', component: DataCollectionHomeComponent},
   { path: 'data-collection/:dataCollectionID', component: DataCollectionDetailComponent},
-  { path: 'search', component: SampleHomeComponent},
+  { path: 'search', component: SearchResultsComponent},
   { path: '**', redirectTo: 'sample'},
 ];
 
