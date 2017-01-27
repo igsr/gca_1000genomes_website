@@ -11,7 +11,7 @@ tags: Browser
 
 ##1000 Genomes data in Ensembl
 
-Following completion of the 1000 Genomes Project, we recommend using Ensembl to view the data, in preference to the early access browsers created during the 1000 Genomes Project. Ensembl provides a genome browser where the data can be viewed alongside a wide range of additional data sources, as well as giving access to [tools](http://grch37.ensembl.org/info/docs/tools/index.html) that can be used to work with the 1000 Genomes data and other data sets.
+Ensembl provides a genome browser where the 1000 Genomes Project data can be viewed alongside a wide range of additional data sources, as well as giving access to [tools](http://grch37.ensembl.org/info/docs/tools/index.html) that can be used to work with the 1000 Genomes data and other data sets. We recommend using Ensembl to view the data, in preference to the early access browsers created during the 1000 Genomes Project.
 
 In Ensembl, the data can be viewed either on the GRCh37 reference assembly (used by the final phase of the 1000 Genomes Project) or on the current reference genome, GRCh38.
 
@@ -20,7 +20,7 @@ In Ensembl, the data can be viewed either on the GRCh37 reference assembly (used
 
 ##1000 Genomes Project early access browsers
 
-During the lifetime of the 1000 Genomes Project, data was shared as soon as possible via early access browsers for each of the data production phases of the project. This enabled the data to be viewed on the genome prior to variant calls being processed and archived in the variation databases, such as dbSNP. Currently, the early access browsers remain available.
+During the 1000 Genomes Project, data was shared as soon as possible via early access browsers for each of the data production phases of the project. Currently, the early access browsers remain available.
 
 - [1000 Genomes Project phase 3 browser](http://phase3browser.1000genomes.org/index.html) - SNPs and indels from the [phase 3 release](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/). This browser runs Ensembl version 80.
 - [1000 Genomes Project phase 1 browser](http://phase1browser.1000genomes.org/index.html) - data from phase 1. This browser runs Ensembl version 73.
