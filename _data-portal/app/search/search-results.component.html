@@ -2,6 +2,13 @@
 
 <div class="row">
 
+  <form class="col-md-6 col-md-offset-3 clearfix">
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+      <input type="text" class="form-control" placeholder="Search IGSR" [ngModel]="query" (ngModelChange)="setUrl($event)" name="query">
+    </div>
+  </form>
+
   <div class="col-lg-4 col-md-4 col-sm-6">
     <search-samples [query]="query"></search-samples>
   </div>
