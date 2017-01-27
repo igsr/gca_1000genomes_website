@@ -1,6 +1,6 @@
 <h1>Sample {{sampleName}}</h1>
 <ng-container *ngIf="sample">
-<div class="col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1"><div class="row">
+<div class="row"><div class="col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1"><div class="row">
 
   <div class="col-md-6">
     <div class="panel panel-default">
@@ -62,10 +62,8 @@
   </div>
   </ng-container>
 
-</div></div>
+</div></div></div>
 
-<div class="col-md-12">
-  <sample-data-collections [sample]="sample"></sample-data-collections>
-</div>
+<sample-data-collections [sample]="sample"></sample-data-collections>
 </ng-container>
 

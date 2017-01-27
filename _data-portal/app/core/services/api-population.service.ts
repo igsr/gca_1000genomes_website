@@ -42,7 +42,8 @@ export class ApiPopulationService {
     }
     return this.apiTimeoutService.handleTimeout<ApiHits>(
       this.apiErrorService.handleError(
-        this.http.post(`http://www.internationalgenome.org/api/beta/population/_search`, body)
+        //this.http.post(`http://www.internationalgenome.org/api/beta/population/_search`, body)
+        this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/population/_search`, body)
       ).map((r:Response): ApiHits => {
         let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
         return h.hits;
@@ -118,5 +119,21 @@ export class ApiPopulationService {
           return h.hits;
       })
     ).subscribe((h: ApiHits) => this.popListSource.next(h));
+  }
+  textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+    let query = {
+      multi_match: {
+        query: text,
+        fields: [
+          'name.std',
+          'code.std',
+          'description.std',
+          'dataCollections.title.std',
+          'superpopulation.code.std',
+          'superpopulation.name.std',
+        ],
+      }
+    }
+    return this.search(hitsPerPage, 0, query);
   }
 }

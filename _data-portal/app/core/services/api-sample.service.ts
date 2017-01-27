@@ -32,7 +32,8 @@ export class ApiSampleService {
     }
     return this.apiTimeoutService.handleTimeout<ApiHits>(
       this.apiErrorService.handleError(
-        this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
+        //this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
+        this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/sample/_search`, body)
       ).map((r:Response): ApiHits => {
         let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
         return h.hits;
@@ -100,5 +101,24 @@ export class ApiSampleService {
       }
     }
     return this.searchExport(query, `igsr-${filename}.tsv`);
+  }
+
+  textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+    let query = {
+      multi_match: {
+        query: text,
+        fields: [
+          'bioSampleID.std',
+          'dataCollections.title.std',
+          'name.std',
+          'population.code.std',
+          'population.description.std',
+          'population.name.std',
+          'superpopulation.code.std',
+          'superpopulation.name.std',
+        ],
+      }
+    }
+    return this.search(hitsPerPage, 0, query);
   }
 }

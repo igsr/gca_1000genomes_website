@@ -8,6 +8,7 @@ import 'rxjs/add/observable/of';
 
 import { DataCollectionList } from '../../shared/api-types/data-collection-list';
 import { DataCollection } from '../../shared/api-types/data-collection';
+import { ApiHits } from '../../shared/api-types/api-hits';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
 
@@ -55,6 +56,34 @@ export class ApiDataCollectionService {
           let text: string = r ? r.text() : ''
           return text.startsWith(`<!DOCTYPE`) ? '' : text;
         });
+  }
+
+  textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+    let body = {
+      size: hitsPerPage,
+      fields: [
+        'title'
+      ],
+      query: {
+        multi_match: {
+          query: text,
+          type: "most_fields",
+          fields: [
+            'title.std',
+            'shortTitle.std'
+          ],
+        }
+      }
+    }
+    return this.apiTimeoutService.handleTimeout<ApiHits>(
+      this.apiErrorService.handleError(
+        //this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
+        this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/data-collection/_search`, body)
+      ).map((r:Response): ApiHits => {
+        let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
+        return h.hits;
+      })
+    );
   }
 
   // private methods

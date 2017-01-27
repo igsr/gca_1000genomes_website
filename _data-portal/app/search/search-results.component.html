@@ -1,1 +1,19 @@
 <h2>Search results: {{query}}</h2>
+
+<div class="row">
+
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <search-samples [query]="query"></search-samples>
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <search-populations [query]="query"></search-populations>
+  </div>
+
+  <div class="clearfix visible-sm-block visible-xs-block"></div>
+
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <search-data-collections [query]="query"></search-data-collections>
+  </div>
+
+</div>
