@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
 
 import { ApiHits } from '../../shared/api-types/api-hits';
 import { ApiTimeoutService } from './api-timeout.service';
@@ -121,6 +122,9 @@ export class ApiPopulationService {
     ).subscribe((h: ApiHits) => this.popListSource.next(h));
   }
   textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+    if (!text) {
+      return Observable.of<ApiHits>(null);
+    }
     let query = {
       multi_match: {
         query: text,

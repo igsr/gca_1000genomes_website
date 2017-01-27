@@ -10,6 +10,11 @@ import { ApiHits } from '../shared/api-types/api-hits';
 let searchPopulationsStyles: string = `
   ul.list-group {
     margin: 0;
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+  .list-group-item {
+    padding: 5px 15px;
   }
 `;
 
@@ -30,7 +35,7 @@ export class SearchPopulationsComponent implements OnChanges, OnDestroy {
   // private properties
   private popHitsSource: Subject<Observable<ApiHits>> = null;
   private popHitsSubscription: Subscription = null;
-  private hitsPerPage: number = 10;
+  private hitsPerPage: number = 100;
 
   ngOnChanges(changes: SimpleChanges) {
 

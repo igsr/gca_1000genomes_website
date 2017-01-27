@@ -1,8 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title text-center">
-      {{ dcHits?.total }} matching {{dcHits?.total | i18nPlural: {'=1': 'data collection', 'other': 'data collections'} }}
-    </h3>
+    <h4 class="panel-title text-center">
+      {{ dcHits?.total }} matching data collection{{dcHits?.total == 1 ? '' : 's' }}
+    </h4>
   </div>
   <ul class="list-group">
     <a *ngFor="let hit of dcHits?.hits" class="list-group-item text-center" [routerLink]="['/data-collection', hit._id]">{{hit.fields['title']}}</a>

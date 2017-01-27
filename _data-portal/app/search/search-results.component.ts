@@ -35,7 +35,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.titleService.setTitle( 'IGSR search');
     this.routeSubscription = this.activatedRoute.queryParams
-      .debounceTime(200)
+      .debounceTime(300)
       .subscribe((params: {q: string}) => this.query = params.q);
   }
 

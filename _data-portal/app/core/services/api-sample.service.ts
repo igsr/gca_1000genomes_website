@@ -2,6 +2,7 @@ import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
 
 import { ApiHits } from '../../shared/api-types/api-hits';
 import { Sample } from '../../shared/api-types/sample';
@@ -104,6 +105,9 @@ export class ApiSampleService {
   }
 
   textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+    if (!text) {
+      return Observable.of<ApiHits>(null);
+    }
     let query = {
       multi_match: {
         query: text,

@@ -59,6 +59,9 @@ export class ApiDataCollectionService {
   }
 
   textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+    if (!text) {
+      return Observable.of<ApiHits>(null);
+    }
     let body = {
       size: hitsPerPage,
       fields: [
