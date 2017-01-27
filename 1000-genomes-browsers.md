@@ -11,7 +11,7 @@ tags: Browser
 
 ##1000 Genomes data in Ensembl
 
-Ensembl provides a genome browser where the 1000 Genomes Project data can be viewed alongside a wide range of additional data sources, as well as giving access to [tools](http://grch37.ensembl.org/info/docs/tools/index.html) that can be used to work with the 1000 Genomes data and other data sets. We recommend using Ensembl to view the data, in preference to the early access browsers created during the 1000 Genomes Project.
+Ensembl provides a genome browser where the 1000 Genomes Project data can be viewed alongside a wide range of additional data sources, as well as giving access to [tools](http://grch37.ensembl.org/info/docs/tools/index.html) that can be used to work with the 1000 Genomes data and other data sets. We recommend using Ensembl in preference to the early access browsers created during the 1000 Genomes Project.
 
 In Ensembl, the data can be viewed either on the GRCh37 reference assembly (used by the final phase of the 1000 Genomes Project) or on the current reference genome, GRCh38.
 
