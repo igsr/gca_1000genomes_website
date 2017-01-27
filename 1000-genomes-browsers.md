@@ -9,33 +9,28 @@ tags: Browser
 
 #Genome Browsers
 
-##Ensembl
+##1000 Genomes data in Ensembl
 
-Data from the 1000 Genomes Project can be viewed in Ensembl. The current release of Ensembl, which uses GRCh38, can be found on [http://www.ensembl.org](http://www.ensembl.org/Homo_sapiens/Info/Index).
+Following completion of the 1000 Genomes Project, we recommend using Ensembl to view the data, in preference to the early access browsers created during the 1000 Genomes Project. Ensembl provides a genome browser where the data can be viewed alongside a wide range of additional data sources, as well as giving access to [tools](http://grch37.ensembl.org/info/docs/tools/index.html) that can be used to work with the 1000 Genomes data and other data sets.
 
-During the 1000 Genomes project, GRCh37 was used as the reference genome. Ensembl maintains a GRCh37 version of their browser on [http://grch37.ensembl.org](http://grch37.ensembl.org/Homo_sapiens/Info/Index).
+In Ensembl, the data can be viewed either on the GRCh37 reference assembly (used by the final, phase 3 of the 1000 Genomes Project) or on the current reference genome, GRCh38.
 
-##1000 Genomes Browsers
+- **[Ensembl GRCh37](http://grch37.ensembl.org/Homo_sapiens/Info/Index) - view the 1000 Genomes Project data on the reference genome used by the project**
+- **[Ensembl GRCh38](http://www.ensembl.org/Homo_sapiens/Info/Index) - view the 1000 Genomes Project data on the current human reference genome**
 
-While the 1000 Genomes Project was active, it maintained a project specific version of the [Ensembl Browser](http://www.ensembl.org), based on GRCh37, to visualise its variants. This browser can be found at [{{site.browser_url}}]({{site.browser_url}}).
+##1000 Genomes Project early access browsers
 
-###Phase 3
+During the lifetime of the 1000 Genomes Project, data was shared as soon as possible via early access browsers for each of the data production phases of the project. This enabled the data to be viewed on the genome prior to variant calls being processed and archived in the variation databases, such as dbSNP. Currently, the early access browsers remain available.
 
-The [main browser]({{site.browser_url}}) currently displays the SNPs and indels from the [Phase 3 Release](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/). This runs Ensembl version 80.
-
-###Phase 1
-
-The phase 1 browser is still available at [{{site.phase1_browser_url}}/index.html]({{site.phase1_browser_url}}/index.html). This runs Ensembl version 73.
-
-###Pilot
-
-There is also a version of the browser which holds the pilot data from ["A map of human genome variation from population-scale sequencing", Nature 467, 1061-1073](http://www.nature.com/nature/journal/v467/n7319/full/nature09534.html) at [http://pilotbrowser.1000genomes.org](http://pilotbrowser.1000genomes.org/index.html). This uses Ensembl version 60 and is based on NCBI36 coordinates.
+- [1000 Genomes Project phase 3 browser](http://phase3browser.1000genomes.org/index.html) - SNPs and indels from the [phase 3 release](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/). This browser runs Ensembl version 80.
+- [1000 Genomes Project phase 1 browser](http://phase1browser.1000genomes.org/index.html) - data from phase 1. This browser runs Ensembl version 73.
+- [1000 Genomes Project pilot browser](http://pilotbrowser.1000genomes.org/index.html) - data from the pilot phase. This browser uses Ensembl version 60 and is based on reference genome NCBI36.
 
 ###Tutorials and guides
 
-You can find instructions for how to use our browser [in .doc format](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/1000genomes_browser_main_project_20110521/The_1000_Genomes_Browser_Tutorial.ensembl_65.doc). There is also a [tutorial](/sites/1000genomes.org/files/documents/1000_genomes_browser_pilot_20110506.doc) for the pilot browser and a [Quickstart Guide](/sites/1000genomes.org/files/documents/1000genomes_browser_quickstart.pdf).
+You can find instructions for how to use the 1000 Genomes Project browsers [in .doc format](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/1000genomes_browser_main_project_20110521/The_1000_Genomes_Browser_Tutorial.ensembl_65.doc). There is also a [tutorial](/sites/1000genomes.org/files/documents/1000_genomes_browser_pilot_20110506.doc) for the pilot browser and a [Quickstart Guide](/sites/1000genomes.org/files/documents/1000genomes_browser_quickstart.pdf).
 
-You can also access the databases which sit behind our browser, for more details about this please look at [the Public MySQL Instance](/node/517) page.
+You can also access the databases which sit behind the browser, for more details about this please look at [the Public MySQL Instance](/node/517) page.
 
 There are also more tips for Ensembl both on the [main Ensembl site](http://www.ensembl.org/info/website/tutorials/index.html) and their [blog](http://www.ensembl.info/).
 
