@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title text-center">
+      {{ fileHits?.total }} matching file{{fileHits?.total == 1 ? '' : 's' }}
+    </h4>
+  </div>
+  <ul class="list-group">
+    <ng-container *ngFor="let hit of fileHits?.hits">
+      <a *ngIf="hit.fields && hit.fields['url']" class="list-group-item" [href]="hit.fields['url'][0]" [innerHtml]="hit.fields['url'][0]"></a>
+    </ng-container>
+  </ul>
+</div>

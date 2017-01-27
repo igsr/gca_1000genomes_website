@@ -5,6 +5,7 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
 
 import { FileList } from '../../shared/api-types/file-list';
+import { ApiHits } from '../../shared/api-types/api-hits';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
 
@@ -56,6 +57,41 @@ export class ApiFileService {
     form.style.display = 'none';
     document.body.appendChild(form);
     form.submit();
+  }
+
+  textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+    if (!text) {
+      return Observable.of<ApiHits>(null);
+    }
+    let body = {
+      size: hitsPerPage,
+      fields: [
+        'url'
+      ],
+      query: {
+        multi_match: {
+          query: text,
+          type: "most_fields",
+          fields: [
+            'analysisGroup.std',
+            'dataCollections.std',
+            'dataType.std',
+            'samples.std',
+            'populations.std',
+            'url.keywords',
+          ],
+        }
+      }
+    }
+    return this.apiTimeoutService.handleTimeout<ApiHits>(
+      this.apiErrorService.handleError(
+        //this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
+        this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/file/_search`, body)
+      ).map((r:Response): ApiHits => {
+        let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
+        return h.hits;
+      })
+    );
   }
 
   private buildSearchDataCollectionQuery(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[]): any {
