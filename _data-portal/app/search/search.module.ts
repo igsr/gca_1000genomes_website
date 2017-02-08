@@ -6,6 +6,7 @@ import { SearchSamplesComponent }  from './search-samples.component';
 import { SearchPopulationsComponent }  from './search-populations.component';
 import { SearchDataCollectionsComponent }  from './search-data-collections.component';
 import { SearchFilesComponent }  from './search-files.component';
+import { SearchSitemapComponent }  from './search-sitemap.component';
 
 @NgModule({
   imports: [ SharedModule ],
@@ -13,6 +14,7 @@ import { SearchFilesComponent }  from './search-files.component';
     SearchResultsComponent,
     SearchSamplesComponent,
     SearchFilesComponent,
+    SearchSitemapComponent,
     SearchPopulationsComponent,
     SearchDataCollectionsComponent,
   ],

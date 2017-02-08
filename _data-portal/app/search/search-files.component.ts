@@ -11,8 +11,7 @@ let searchFilesStyles: string = `
   ul.list-group {
     margin: 0;
     max-height: 200px;
-    overflow-y: scroll;
-    overflow-x: scroll;
+    overflow: auto;
   }
   .list-group-item {
     padding: 5px 15px;
