@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/dist/providers/ga/angulartics2-ga';
 
 let appComponentStyles: string = `
 div.data-portal-section {
@@ -24,4 +25,6 @@ span.beta {
     templateUrl: './app.component.html',
     styles: [ appComponentStyles ],
 })
-export class AppComponent{};
+export class AppComponent{
+  constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {};
+};

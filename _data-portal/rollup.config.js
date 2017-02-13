@@ -11,7 +11,7 @@ export default {
   plugins: [
       nodeResolve({jsnext: true, module: true}),
       commonjs({
-        include: ['node_modules/rxjs/**', 'node_modules/ngx-popover/**'],
+        include: ['node_modules/rxjs/**', 'node_modules/ngx-popover/**', 'node_modules/angulartics2/**/*'],
       }),
       //uglify()
   ]

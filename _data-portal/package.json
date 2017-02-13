@@ -30,7 +30,8 @@
     "typings": "^2.0.0",
     "zone.js": "^0.7.2",
     "typescript": "2.0.2",
-    "ngx-popover": "0.0.16"
+    "ngx-popover": "0.0.16",
+    "angulartics2": "1.6.3"
   },
   "repository": {}
 }

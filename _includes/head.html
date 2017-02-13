@@ -19,6 +19,6 @@
 {% for head_meta in page.head_meta %}
 {{ head_meta }}{% endfor %}
 
-{% include google_analytics.html %}
+{% if page.use_portal_analytics %}{% include google_analytics_for_portal.html %}{% else %}{% include google_analytics.html %}{% endif %}
 
 </head>
