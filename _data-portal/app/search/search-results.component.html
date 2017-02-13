@@ -1,4 +1,5 @@
-<h2>Search results: {{query}}</h2>
+<h2 *ngIf="query">Search results: {{query}}</h2>
+<h2 *ngIf="!query">Search the IGSR website&#8230;</h2>
 
 <div class="row">
 

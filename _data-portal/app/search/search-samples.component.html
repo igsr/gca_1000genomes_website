@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" *ngIf="query">
   <div class="panel-heading">
     <h4 class="panel-title text-center">
       {{ sampleHits?.total }} matching sample{{sampleHits?.total == 1 ? '' : 's' }}

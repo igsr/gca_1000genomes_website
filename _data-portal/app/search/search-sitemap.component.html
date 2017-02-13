@@ -1,4 +1,4 @@
-<h2>Matching pages from this website:</h2>
+<h2 *ngIf="query">Matching pages from this website:</h2>
 <ng-container *ngFor="let hit of sitemapList?.hits">
   <h3><a [href]="hit._source.url">{{hit._source.title}}</a></h3>
   <p [innerHtml]="joinHighlights(hit.highlight)"></p>
