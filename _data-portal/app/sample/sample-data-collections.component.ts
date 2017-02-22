@@ -12,16 +12,23 @@ import { ApiFileService } from '../core/services/api-file.service';
 let sampleDataCollectionStyles: string = `
 
 
-@media (min-width: 786px) {
-  ul.nav-tabs{
-    display: flex;
+@media (min-width: 600px) {
+  .flex-nav {
+    display: table;
+    width: 100%;
   }
-  ul.nav-tabs li {
-    display: flex;
-    flex: 1;
+  .flex-nav ul.nav::before, .flex-nav ul.nav::after {
+    display: none;
   }
-  ul.nav-tabs li  a {
-    flex: 1;
+  .flex-nav ul.nav {
+    display: table-row;
+  }
+  .flex-nav ul.nav > li {
+    height: 100%;
+    display: table-cell;
+    width: 1px;
+    vertical-align: middle;
+    text-align: center;
   }
 }
 
