@@ -1,5 +1,5 @@
 ---
-layout: angularjs_portal
+layout: angularjs_partial
 ---
 #Gambian Genome Variation Project
 
