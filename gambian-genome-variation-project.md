@@ -18,9 +18,13 @@ c-kwiatkowski). Please see the [WTSI data sharing policy](http://www.sanger.ac.u
 The sequence data is 4x coverage of individuals from four Gambian populations.
 
 The data is from the following European Nucleotide Archive (ENA) study IDs:
+
 * ERP001420 - Fula
+
 * ERP001781 - Jola
+
 * ERP002150 - Woloff
+
 * ERP002385 - Mandinka
 
 If you have any questions please email [info@1000genomes.org](mailto:info@1000genomes.org).
