@@ -1,5 +1,6 @@
 _site/
 
+_data-portal/app/npm-debug.log
 _data-portal/**/*.js
 _data-portal/**/*.js.map
 _data-portal/aot/
