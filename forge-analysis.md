@@ -10,7 +10,7 @@ include_in_sitemap: true
 
 The FORGE tool performs **F**unctional element **O**verlap analysis of the **R**esults of **G**enome Wide Association Study (GWAS)**E**xperiments, to identify tissue specific signals within the set of GWAS SNPs.
 
-[Return to FORGE tool]({{site.browser_url}}/Homo_sapiens/UserData/Forge10 "Forge Tool").
+[Return to FORGE tool](http://phase3browser.1000genomes.org/tools.html).
 
 
 **Sections**

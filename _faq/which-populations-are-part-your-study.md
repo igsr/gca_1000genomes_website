@@ -20,7 +20,7 @@ There are 26 different populations which are part of our study from many differe
 | CHS | Southern Han Chinese | EAS | 1 | 1 | 1 |
 | CDX | Chinese Dai in Xishuangbanna, China | EAS | 1 | 1 | 1 |
 | KHV | Kinh in Ho Chi Minh City, Vietnam | EAS | 1 | 1 | 1 |
-| CEU | Utah Residents (CEPH) with Northern and Western Ancestry | EUR | 1 | 1 | 1 |
+| CEU | Utah Residents (CEPH) with Northern and Western European Ancestry | EUR | 1 | 1 | 1 |
 | TSI | Toscani in Italia | EUR | 1 | 1 | 1 |
 | FIN | Finnish in Finland | EUR | 1 | 1 | 1 |
 | GBR | British in England and Scotland | EUR | 1 | 1 | 1 |
