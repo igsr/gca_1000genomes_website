@@ -1,6 +1,6 @@
 ---
 title: "1000 Genomes GRCh38 alignments published"
-pinned: false
+pinned: true
 ---
 
 The alignments of the 1000 Genomes data to GRCh38 the we [announced previously](http://www.internationalgenome.org/announcements/grch38-alignments-exome-and-high-coverage-1000-genomes-data-2015-12-16/) are now described in [GigaScience](https://academic.oup.com/gigascience/article-lookup/doi/10.1093/gigascience/gix038).
