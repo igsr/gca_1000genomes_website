@@ -14,4 +14,4 @@ There are also GRCh37 alignments available for both the high coverage individual
 
 Please be aware much of the sequence data these alignments are based on is very short read data (36bp) and was generated a long time ago (~2008) so may not reflect current sequencing data.
 
-A more modern data set for the CEU trio is available from Illumina on their [Platinum Genomes page](http://www.illumina.com/platinumgenomes/).
+A more modern data set for the CEU trio is available from Illumina on their [Platinum Genomes page](https://www.illumina.com/platinumgenomes.html).
