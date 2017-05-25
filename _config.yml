@@ -53,7 +53,7 @@ defaults:
 
 # Build settings
 markdown: kramdown
-exclude: ['README.md', 'Gemfile', 'Gemfile.lock']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'package.json']
 include: ['_mojo_redirects']
 default_sitemap_lastmod: 2015-12-11T00:00:00+00:00
 default_title_element: 1000 Genomes | A Deep Catalog of Human Genetic Variation
