@@ -3,7 +3,7 @@
   "version": "0.0.1-dev",
   "description": "IGSR website",
   "scripts": {
-    "postinstall": "npm run jekyll",
+    "postinstall": "npm run jekyll && cd _data-portal && npm install",
     "jekyll": "bundle exec jekyll build"
   },
   "license": "Apache-2.0",
