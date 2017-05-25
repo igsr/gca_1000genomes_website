@@ -3,7 +3,6 @@ layout: single_section
 title: "Forge Analysis 1.1"
 permalink: /forge-analysis-11/
 tags: Forge
-include_in_sitemap: true
 ---
 
 **FORGE Analysis Tool **

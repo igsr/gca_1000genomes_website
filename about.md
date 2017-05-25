@@ -5,7 +5,6 @@ permalink: /about/
 tags: About
 redirect_from:
     - /node/3/
-include_in_sitemap: true
 ---
 
 # About IGSR and the 1000 Genomes Project
