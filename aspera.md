@@ -3,7 +3,6 @@ layout: single_section
 title: "Aspera"
 permalink: /aspera/
 tags: aspera
-include_in_sitemap: true
 ---
 #Aspera
 
