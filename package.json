@@ -1,0 +1,12 @@
+{
+  "name": "igsr-website",
+  "version": "0.0.1-dev",
+  "description": "IGSR website",
+  "scripts": {
+    "postinstall": "npm run jekyll",
+    "jekyll": "bundle exec jekyll build"
+  },
+  "license": "Apache-2.0",
+  "repository": {}
+}
+
