@@ -2,7 +2,7 @@ import { NgModule }      from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { PopoverModule } from 'ngx-popover';
+import { PopoverModule } from 'ng4-popover';
 
 import { ApiErrorComponent } from './components/api-error.component';
 import { ApiSlowResponseComponent } from './components/api-slow-response.component';
