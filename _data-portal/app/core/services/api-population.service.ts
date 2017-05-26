@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
 import { ApiHits } from '../../shared/api-types/api-hits';
+import { Population } from '../../shared/api-types/population';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
 
@@ -48,6 +49,17 @@ export class ApiPopulationService {
       ).map((r:Response): ApiHits => {
         let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
         return h.hits;
+      })
+    );
+  }
+
+  get(code: string): Observable<Population>{
+   return this.apiTimeoutService.handleTimeout<Population>(
+      this.apiErrorService.handleError(
+        this.http.get(`http://www.internationalgenome.org/api/beta/population/${code}`)
+      ).map((r: Response) => {
+        let s = r.json() as {_source: Population};
+        return s._source;
       })
     );
   }
