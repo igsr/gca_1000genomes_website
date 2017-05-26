@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule }  from './core/core.module';
 import { SharedModule }  from './shared/shared.module';
 import { SampleModule } from './sample/sample.module';
+import { PopulationModule } from './population/population.module';
 import { DataCollectionModule } from './data-collection/data-collection.module';
 import { SearchModule } from './search/search.module';
 
@@ -20,6 +21,7 @@ import { SearchModule } from './search/search.module';
     AppRoutingModule,
     SharedModule,
     SampleModule,
+    PopulationModule,
     DataCollectionModule,
     SearchModule
   ],

@@ -1,0 +1,36 @@
+<h1>Population {{popCode}}</h1>
+<ng-container *ngIf="pop">
+<div class="row"><div class="col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-sm-10 col-sm-offset-1"><div class="row">
+
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title">{{popCode}} details</h3></div>
+      <div class="panel-body">
+        <dl class="dl-horizontal">
+          <ng-container *ngIf="pop.name">
+            <dt>Population:</dt>
+            <dd>{{pop.name}}</dd>
+          </ng-container>
+          <dt>Code:</dt>
+          <dd>{{popCode}}</dd>
+          <ng-container *ngIf="pop.description">
+            <dt>Description:</dt>
+            <dd>{{pop.description}}</dd>
+          </ng-container>
+          <ng-container *ngIf="pop.superpopulation?.name">
+            <dt>Superpopulation:</dt>
+            <dd>{{pop.superpopulation.name}}</dd>
+          </ng-container>
+          <ng-container *ngIf="pop.superpopulation?.code">
+            <dt>Superpopulation code:</dt>
+            <dd>{{pop.superpopulation.code}}</dd>
+          </ng-container>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+</div></div></div>
+
+</ng-container>
+

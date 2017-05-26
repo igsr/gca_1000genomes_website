@@ -104,6 +104,17 @@ export class ApiSampleService {
     return this.searchExport(query, `igsr-${filename}.tsv`);
   }
 
+  searchPopulationSamples(popCode: string, offset: number, hitsPerPage: number): Observable<ApiHits> {
+    let query = {
+      constant_score: {
+        filter: {
+          term: { 'population.code': popCode }
+        }
+      }
+    }
+    return this.search(hitsPerPage, offset, query);
+  }
+
   textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
     if (!text) {
       return Observable.of<ApiHits>(null);
