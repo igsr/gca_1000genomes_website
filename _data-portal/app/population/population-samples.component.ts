@@ -17,12 +17,21 @@ button.page-button {
   border-radius: 15px 15px 0 0;
 }
 
+button.download-button {
+  display: block;
+  margin: 0 auto 15px;
+}
+
 a[role="button"] {
   cursor: pointer;
 }
 
 .capitalize {
   text-transform: capitalize;
+}
+
+table > thead > tr {
+  border-top: 2px solid #ddd;
 }
 
 `;
@@ -101,7 +110,7 @@ export class PopulationSamplesComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    this.sampleHitsSource.next(this.apiSampleService.searchPopulationSamples(this.population.name, this.offset, this.hitsPerPage));
+    this.sampleHitsSource.next(this.apiSampleService.searchPopulationSamples(this.population.code, this.offset, this.hitsPerPage));
   }
 
 

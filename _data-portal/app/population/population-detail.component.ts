@@ -23,7 +23,6 @@ export class PopulationDetailComponent implements OnInit, OnDestroy {
 
   public popCode: string;
   public pop: Population;
-  //public samples: ApiHits;
 
   // private properties
   private routeSubscription: Subscription = null;
