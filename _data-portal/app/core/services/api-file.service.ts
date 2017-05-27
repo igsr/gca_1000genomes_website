@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
 
-import { FileList } from '../../shared/api-types/file-list';
-import { ApiHits } from '../../shared/api-types/api-hits';
+import { File } from '../../shared/api-types/file';
+import { SearchHits } from '../../shared/api-types/search-hits';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
 
@@ -18,17 +18,17 @@ export class ApiFileService {
     private apiTimeoutService: ApiTimeoutService,
   ) {}
 
-  searchDataCollection(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], from: number, hitsPerPage: number): Observable<FileList> {
+  searchDataCollection(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], from: number, hitsPerPage: number): Observable<SearchHits<File>> {
     let body = {
       from: from,
       size: hitsPerPage,
       query: this.buildSearchDataCollectionQuery(sampleName, dataCollection, dataTypes, analysisGroups),
     };
-    return this.apiTimeoutService.handleTimeout<FileList>(
+    return this.apiTimeoutService.handleTimeout<SearchHits<File>>(
       this.apiErrorService.handleError(
         this.http.post(`http://www.internationalgenome.org/api/beta/file/_search`, body)
-      ).map((r:Response): FileList => {
-        let h: {hits: FileList} = r.json() as {hits: FileList};
+      ).map((r:Response): SearchHits<File> => {
+        let h: {hits: SearchHits<File>} = r.json() as {hits: SearchHits<File>};
         return h.hits;
       })
     );
@@ -59,9 +59,9 @@ export class ApiFileService {
     form.submit();
   }
 
-  textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+  textSearch(text: string, hitsPerPage: number): Observable<SearchHits<File>> {
     if (!text) {
-      return Observable.of<ApiHits>(null);
+      return Observable.of<SearchHits<File>>(null);
     }
     let body = {
       size: hitsPerPage,
@@ -83,12 +83,12 @@ export class ApiFileService {
         }
       }
     }
-    return this.apiTimeoutService.handleTimeout<ApiHits>(
+    return this.apiTimeoutService.handleTimeout<SearchHits<File>>(
       this.apiErrorService.handleError(
-        //this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
-        this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/file/_search`, body)
-      ).map((r:Response): ApiHits => {
-        let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
+        this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
+        //this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/file/_search`, body)
+      ).map((r:Response): SearchHits<File> => {
+        let h: {hits: SearchHits<File>} = r.json() as {hits: SearchHits<File>};
         return h.hits;
       })
     );

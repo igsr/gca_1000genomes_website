@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { ApiDataCollectionService } from '../core/services/api-data-collection.service';
-import { ApiHits } from '../shared/api-types/api-hits';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { DataCollection } from '../shared/api-types/data-collection';
 
 let searchDataCollectionsStyles: string = `
   ul.list-group {
@@ -30,20 +31,20 @@ export class SearchDataCollectionsComponent implements OnChanges, OnDestroy {
     private apiDataCollectionService: ApiDataCollectionService,
   ) {};
 
-  public dcHits: ApiHits = null;
+  public dcHits: SearchHits<DataCollection> = null;
 
   // private properties
-  private dcHitsSource: Subject<Observable<ApiHits>> = null;
+  private dcHitsSource: Subject<Observable<SearchHits<DataCollection>>> = null;
   private dcHitsSubscription: Subscription = null;
   private hitsPerPage: number = 100;
 
   ngOnChanges(changes: SimpleChanges) {
 
     if (!this.dcHitsSource) {
-      this.dcHitsSource = new Subject<Observable<ApiHits>>();
+      this.dcHitsSource = new Subject<Observable<SearchHits<DataCollection>>>();
       this.dcHitsSubscription = this.dcHitsSource
-          .switchMap((o: Observable<ApiHits>) : Observable<ApiHits> => o)
-          .subscribe((h: ApiHits) => {
+          .switchMap((o: Observable<SearchHits<DataCollection>>) : Observable<SearchHits<DataCollection>> => o)
+          .subscribe((h: SearchHits<DataCollection>) => {
             this.dcHits = h
           });
     }

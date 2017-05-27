@@ -8,7 +8,8 @@ import 'rxjs/add/operator/switchMap';
 import { ApiSampleService } from '../core/services/api-sample.service';
 import { ApiAnalysisGroupService } from '../core/services/api-analysis-group.service';
 import { ApiDataCollectionService } from '../core/services/api-data-collection.service';
-import { ApiHits } from '../shared/api-types/api-hits';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { Sample } from '../shared/api-types/sample';
 
 let sampleHomeStyles: string = `
 
@@ -61,7 +62,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     this.dcTitleMap = apiDataCollectionService.titleMap;
   }
 
-  public apiHits: ApiHits;
+  public sampleHits: SearchHits<Sample>;
   public totalHits: number = -1;
   public displayStart: number = -1;
   public displayStop: number = -1;
@@ -82,17 +83,17 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public dcFiltersArr: string[] = [];
   readonly dcTitleMap: {[key: string]: string};
   
-  private apiHitsSource: Subject<Observable<ApiHits>>;
-  private apiHitsSubscription: Subscription = null;
+  private sampleHitsSource: Subject<Observable<SearchHits<Sample>>>;
+  private sampleHitsSubscription: Subscription = null;
   private hitsPerPage: number = 50;
 
   ngOnInit() {
     this.titleService.setTitle('IGSR | samples');
-    this.apiHitsSource = new Subject<Observable<ApiHits>>();
-    this.apiHitsSubscription = this.apiHitsSource
-      .switchMap((o: Observable<ApiHits>): Observable<ApiHits> => o)
-      .subscribe((h: ApiHits) => {
-          this.apiHits = h;
+    this.sampleHitsSource = new Subject<Observable<SearchHits<Sample>>>();
+    this.sampleHitsSubscription = this.sampleHitsSource
+      .switchMap((o: Observable<SearchHits<Sample>>): Observable<SearchHits<Sample>> => o)
+      .subscribe((h: SearchHits<Sample>) => {
+          this.sampleHits = h;
           if (h) {
             this.totalHits = h.total;
             this.displayStart = h.hits && h.hits.length > 0 ? this.offset + 1 : 0;
@@ -102,8 +103,8 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     this.search();
   }
   ngOnDestroy() {
-    if (this.apiHitsSubscription) {
-      this.apiHitsSubscription.unsubscribe();
+    if (this.sampleHitsSubscription) {
+      this.sampleHitsSubscription.unsubscribe();
     }
   }
 
@@ -169,7 +170,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   }
 
   search() {
-    this.apiHitsSource.next( this.apiSampleService.search(this.hitsPerPage, this.offset, this.buildQuery()));
+    this.sampleHitsSource.next( this.apiSampleService.search(this.hitsPerPage, this.offset, this.buildQuery()));
   }
   searchExport() {
     this.apiSampleService.searchExport(this.buildQuery(), 'igsr_samples');

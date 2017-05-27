@@ -7,14 +7,14 @@
     <th *ngIf="ag._source.displayOrder" class="matrix-dot"><div><div (click)="changeFilter(ag._source.title)">{{ag._source.shortTitle}}</div></div></th>
   </ng-container>
 </tr></thead>
-<tbody><tr *ngFor="let hit of apiHits?.hits">
-  <td><a *ngIf="hit.fields?.name" [routerLink]="[hit.fields.name[0]]">{{hit.fields.name[0]}}</a></td>
-  <td class="capitalize">{{ hit.fields?.sex ? hit.fields.sex[0] : '' }}</td>
-  <td><a *ngIf="hit.fields['population.code']" [routerLink]="['/population', hit.fields['population.code'][0]]"
-     [popover]="hit.fields['population.name'] ? hit.fields['population.name'][0]: ''" popoverPlacement="auto top" [popoverOnHover]="true">{{hit.fields['population.code'][0] }}</a></td>
+<tbody><tr *ngFor="let hit of sampleHits?.hits">
+  <td><a *ngIf="hit._source.name" [routerLink]="[hit._source.name]">{{hit._source.name}}</a></td>
+  <td class="capitalize">{{ hit._source.sex }}</td>
+  <td><a *ngIf="hit._source.population?.code" [routerLink]="['/population', hit._source.population.code]"
+     [popover]="hit._source.population.name" popoverPlacement="auto top" [popoverOnHover]="true">{{ hit._source.population.name }}</a></td>
   <ng-container *ngFor="let ag of analysisGroupList?.hits">
     <td *ngIf="ag._source.displayOrder">
-      <div class="matrix-dot" *ngIf="hasAnalysisGroup(hit.fields, ag._source)" [popover]="ag._source.title" [popoverTitle]="hit.fields?.name ? hit.fields.name[0] : ''" popoverPlacement="auto top" [popoverOnHover]="true">&#x25cf;</div>
+      <div class="matrix-dot" *ngIf="hasAnalysisGroup(hit, ag._source)" [popover]="ag._source.title" [popoverTitle]="hit._source.name" popoverPlacement="auto top" [popoverOnHover]="true">&#x25cf;</div>
     </td>
   </ng-container>
 <tr></tbody>

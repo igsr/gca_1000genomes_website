@@ -6,7 +6,8 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/of';
 
 import { Sample } from '../shared/api-types/sample';
-import { FileList } from '../shared/api-types/file-list';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { File } from '../shared/api-types/file';
 import { ApiFileService } from '../core/services/api-file.service';
 
 let sampleDataCollectionStyles: string = `
@@ -70,7 +71,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
   ) {};
 
   public currentDC: Object = null;
-  public fileList: FileList = null;
+  public fileList: SearchHits<File> = null;
   public filterDataTypes: selectableFilter[];
   public filterAnalysisGroups: selectableFilter[];
 
@@ -80,7 +81,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
   public displayStop: number = -1;
 
   // private properties
-  private fileListSource: Subject<Observable<FileList>> = null;
+  private fileListSource: Subject<Observable<SearchHits<File>>> = null;
   private fileListSubscription: Subscription = null;
   private hitsPerPage: number = 20;
 
@@ -90,10 +91,10 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges) {
 
     if (!this.fileListSource) {
-      this.fileListSource = new Subject<Observable<FileList>>();
+      this.fileListSource = new Subject<Observable<SearchHits<File>>>();
       this.fileListSubscription = this.fileListSource
-          .switchMap((o: Observable<FileList>) : Observable<FileList> => o)
-          .subscribe((fl: FileList) => {
+          .switchMap((o: Observable<SearchHits<File>>) : Observable<SearchHits<File>> => o)
+          .subscribe((fl: SearchHits<File>) => {
             this.fileList = fl
             if (fl) {
               this.totalHits = fl.total;
@@ -220,7 +221,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
 
   private searchFiles() {
     if (!this.currentDC) {
-      this.fileListSource.next(Observable.of<FileList>(null));
+      this.fileListSource.next(Observable.of<SearchHits<File>>(null));
       return;
     }
 

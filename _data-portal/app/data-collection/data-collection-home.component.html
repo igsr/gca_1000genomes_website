@@ -8,7 +8,7 @@
     <th>Website</th>
   </tr></thead>
   <tbody>
-    <tr *ngFor="let dc of dataCollectionList?.hits">
+    <tr *ngFor="let dc of dcHits?.hits">
       <td><a [routerLink]="['/data-collection', dc._id ]">{{dc._source.title}}</a></td>
       <td>{{dc._source.samples?.count}}</td>
       <td>{{dc._source.populations?.count}}</td>

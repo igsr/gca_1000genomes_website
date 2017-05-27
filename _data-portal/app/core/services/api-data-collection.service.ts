@@ -6,9 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 
-import { DataCollectionList } from '../../shared/api-types/data-collection-list';
 import { DataCollection } from '../../shared/api-types/data-collection';
-import { ApiHits } from '../../shared/api-types/api-hits';
+import { SearchHits } from '../../shared/api-types/search-hits';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
 
@@ -22,14 +21,14 @@ export class ApiDataCollectionService {
   ) {}
 
   // private properties:
-  private dcListSource: ReplaySubject<DataCollectionList>;
+  private dcListSource: ReplaySubject<SearchHits<DataCollection>>;
 
   // public properties:
   readonly titleMap: {[key: string]: string} = {};
 
   // public methods
 
-  getAll(): Observable<DataCollectionList>{
+  getAll(): Observable<SearchHits<DataCollection>>{
     if (!this.dcListSource) {
       this.setDcListSource();
     }
@@ -37,7 +36,7 @@ export class ApiDataCollectionService {
   }
 
   get(id: string): Observable<DataCollection> {
-    return this.getAll().map((l: DataCollectionList): DataCollection => {
+    return this.getAll().map((l: SearchHits<DataCollection>): DataCollection => {
       if (l && l.hits) {
         for (let dc of l.hits) {
           if (dc._id && dc._id === id) {
@@ -58,9 +57,9 @@ export class ApiDataCollectionService {
         });
   }
 
-  textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+  textSearch(text: string, hitsPerPage: number): Observable<SearchHits<DataCollection>> {
     if (!text) {
-      return Observable.of<ApiHits>(null);
+      return Observable.of<SearchHits<DataCollection>>(null);
     }
     let body = {
       size: hitsPerPage,
@@ -78,12 +77,12 @@ export class ApiDataCollectionService {
         }
       }
     }
-    return this.apiTimeoutService.handleTimeout<ApiHits>(
+    return this.apiTimeoutService.handleTimeout<SearchHits<DataCollection>>(
       this.apiErrorService.handleError(
-        //this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
-        this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/data-collection/_search`, body)
-      ).map((r:Response): ApiHits => {
-        let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
+        this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
+        //this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/data-collection/_search`, body)
+      ).map((r:Response): SearchHits<DataCollection> => {
+        let h: {hits: SearchHits<DataCollection>} = r.json() as {hits: SearchHits<DataCollection>};
         return h.hits;
       })
     );
@@ -96,12 +95,12 @@ export class ApiDataCollectionService {
       size: -1,
       sort: ['displayOrder'],
     };
-    this.dcListSource = new ReplaySubject<DataCollectionList>(1);
-    this.apiTimeoutService.handleTimeout<DataCollectionList>(
+    this.dcListSource = new ReplaySubject<SearchHits<DataCollection>>(1);
+    this.apiTimeoutService.handleTimeout<SearchHits<DataCollection>>(
       this.apiErrorService.handleError(
         this.http.post(`http://www.internationalgenome.org/api/beta/data-collection/_search`, query)
-      ).map((r:Response): DataCollectionList => {
-          let h: {hits: DataCollectionList} = r.json() as {hits: DataCollectionList};
+      ).map((r:Response): SearchHits<DataCollection> => {
+          let h: {hits: SearchHits<DataCollection>} = r.json() as {hits: SearchHits<DataCollection>};
           for (let dc of h.hits.hits) {
             if (dc._source.shortTitle && dc._source.title) {
               this.titleMap[dc._source.title] = dc._source.shortTitle;
@@ -109,6 +108,6 @@ export class ApiDataCollectionService {
           }
           return h.hits;
       })
-    ).subscribe((l: DataCollectionList) => this.dcListSource.next(l));
+    ).subscribe((l: SearchHits<DataCollection>) => this.dcListSource.next(l));
   }
 }

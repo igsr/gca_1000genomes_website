@@ -6,7 +6,8 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/of';
 
 import { Population } from '../shared/api-types/population';
-import { ApiHits } from '../shared/api-types/api-hits';
+import { Sample } from '../shared/api-types/sample';
+import { SearchHits } from '../shared/api-types/search-hits';
 import { ApiSampleService } from '../core/services/api-sample.service';
 
 let populationSamplesStyles: string = `
@@ -38,23 +39,23 @@ export class PopulationSamplesComponent implements OnChanges, OnDestroy {
     private apiSampleService: ApiSampleService,
   ) {};
 
-  public sampleHits: ApiHits = null;
+  public sampleHits: SearchHits<Sample> = null;
 
   public offset: number = 0;
   public totalHits: number = -1;
 
   // private properties
-  private sampleHitsSource: Subject<Observable<ApiHits>> = null;
+  private sampleHitsSource: Subject<Observable<SearchHits<Sample>>> = null;
   private sampleHitsSubscription: Subscription = null;
   private hitsPerPage: number = 10;
 
   ngOnChanges(changes: SimpleChanges) {
 
     if (!this.sampleHitsSource) {
-      this.sampleHitsSource = new Subject<Observable<ApiHits>>();
+      this.sampleHitsSource = new Subject<Observable<SearchHits<Sample>>>();
       this.sampleHitsSubscription = this.sampleHitsSource
-          .switchMap((o: Observable<ApiHits>) : Observable<ApiHits> => o)
-          .subscribe((h: ApiHits) => {
+          .switchMap((o: Observable<SearchHits<Sample>>) : Observable<SearchHits<Sample>> => o)
+          .subscribe((h: SearchHits<Sample>) => {
             this.sampleHits = h
             if (h) {
               this.totalHits = h.total;
@@ -96,7 +97,7 @@ export class PopulationSamplesComponent implements OnChanges, OnDestroy {
 
   private searchSamples() {
     if (!this.population) {
-      this.sampleHitsSource.next(Observable.of<ApiHits>(null));
+      this.sampleHitsSource.next(Observable.of<SearchHits<Sample>>(null));
       return;
     }
 

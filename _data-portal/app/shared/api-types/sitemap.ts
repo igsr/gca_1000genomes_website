@@ -1,8 +1,6 @@
-export class SitemapList {
+export class Sitemap {
   constructor(
-    readonly hits: {
-      _source: {title: string, url: string},
-      highlight: {content: string[]},
-    }[]
+    readonly title: string,
+    readonly url: string,
   ) { }
 }

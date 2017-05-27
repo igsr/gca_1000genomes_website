@@ -14,8 +14,8 @@
       <th>Sex</th>
     </tr></thead>
     <tbody><tr *ngFor="let sample of sampleHits?.hits">
-      <td> {{ hit.fields.name }}</td>
-      <td class="capitalize"> {{ hit.fields.sex }}</td>
+      <td> {{ hit._source.name }}</td>
+      <td class="capitalize"> {{ hit._source.sex }}</td>
     <tr></tbody>
     </table>
 

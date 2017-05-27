@@ -4,7 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
 
-import { AnalysisGroupList } from '../../shared/api-types/analysis-group-list';
+import { AnalysisGroup } from '../../shared/api-types/analysis-group';
+import { SearchHits } from '../../shared/api-types/search-hits';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
 
@@ -18,33 +19,33 @@ export class ApiAnalysisGroupService {
   ) {}
 
   // private properties:
-  private agListSource: ReplaySubject<AnalysisGroupList>;
+  private agListSource: ReplaySubject<SearchHits<AnalysisGroup>>;
 
   // public properties:
   readonly titleMap: {[key: string]: string} = {};
 
   // public methods
 
-  getAll(): Observable<AnalysisGroupList>{
+  getAll(): Observable<SearchHits<AnalysisGroup>>{
     if (!this.agListSource) {
-      this.setDcListSource();
+      this.setAgListSource();
     }
     return this.agListSource.asObservable();
   }
 
   // private methods
 
-  private setDcListSource() {
+  private setAgListSource() {
     let query = {
       size: -1,
       sort: ['displayOrder'],
     };
-    this.agListSource = new ReplaySubject<AnalysisGroupList>(1);
-    this.apiTimeoutService.handleTimeout<AnalysisGroupList>(
+    this.agListSource = new ReplaySubject<SearchHits<AnalysisGroup>>(1);
+    this.apiTimeoutService.handleTimeout<SearchHits<AnalysisGroup>>(
       this.apiErrorService.handleError(
         this.http.post(`http://www.internationalgenome.org/api/beta/analysis-group/_search`, query)
-      ).map((r:Response): AnalysisGroupList => {
-          let h: {hits: AnalysisGroupList} = r.json() as {hits: AnalysisGroupList};
+      ).map((r:Response): SearchHits<AnalysisGroup> => {
+          let h: {hits: SearchHits<AnalysisGroup>} = r.json() as {hits: SearchHits<AnalysisGroup>};
           for (let ag of h.hits.hits) {
             if (ag._source.shortTitle && ag._source.title) {
               this.titleMap[ag._source.title] = ag._source.shortTitle;
@@ -52,6 +53,6 @@ export class ApiAnalysisGroupService {
           }
           return h.hits;
       })
-    ).subscribe((l: AnalysisGroupList) => this.agListSource.next(l));
+    ).subscribe((l: SearchHits<AnalysisGroup>) => this.agListSource.next(l));
   }
 }

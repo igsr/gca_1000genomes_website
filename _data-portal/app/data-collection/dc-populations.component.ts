@@ -4,7 +4,8 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
-import { ApiHits } from '../shared/api-types/api-hits';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { Population } from '../shared/api-types/population';
 import { ApiPopulationService } from '../core/services/api-population.service';
 
 let dcPopulationsStyles: string = `
@@ -32,23 +33,23 @@ export class DcPopulationsComponent implements OnChanges, OnDestroy {
     private apiPopulationService: ApiPopulationService,
   ) {};
 
-  public apiHits: ApiHits = null;
+  public apiHits: SearchHits<Population> = null;
 
   public offset: number = 0;
   public totalHits: number = -1;
 
   // private properties
-  private populationListSource: Subject<Observable<ApiHits>> = null;
+  private populationListSource: Subject<Observable<SearchHits<Population>>> = null;
   private populationListSubscription: Subscription = null;
   private hitsPerPage: number = 10;
 
   ngOnChanges(changes: SimpleChanges) {
 
     if (!this.populationListSource) {
-      this.populationListSource = new Subject<Observable<ApiHits>>();
+      this.populationListSource = new Subject<Observable<SearchHits<Population>>>();
       this.populationListSubscription = this.populationListSource
-          .switchMap((o: Observable<ApiHits>) : Observable<ApiHits> => o)
-          .subscribe((h: ApiHits) => {
+          .switchMap((o: Observable<SearchHits<Population>>) : Observable<SearchHits<Population>> => o)
+          .subscribe((h: SearchHits<Population>) => {
             this.apiHits = h;
             if (h) {
               this.totalHits = h.total;

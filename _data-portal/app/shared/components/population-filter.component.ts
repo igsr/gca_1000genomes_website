@@ -2,7 +2,8 @@ import { Component, EventEmitter, OnInit, OnDestroy, Input, Output } from '@angu
 import { Subscription } from 'rxjs/Subscription';
 
 import { ApiPopulationService} from '../../core/services/api-population.service';
-import { ApiHits } from '../api-types/api-hits';
+import { SearchHits } from '../api-types/search-hits';
+import { Population } from '../api-types/population';
 
 let popFilterStyles: string = `
   div.panel {
@@ -33,14 +34,14 @@ export class PopulationFilterComponent implements OnInit, OnDestroy {
   ){};
   
   // public properties:
-  public popHits: ApiHits;
+  public popHits: SearchHits<Population>;
 
   // private properties:
   private popHitsSubscription: Subscription = null;
 
   ngOnInit() {
     this.popHitsSubscription = this.apiPopulationService.getAll()
-      .subscribe((h: ApiHits) => this.popHits = h);
+      .subscribe((h: SearchHits<Population>) => this.popHits = h);
   }
 
   ngOnDestroy() {

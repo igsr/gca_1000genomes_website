@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { ApiDataCollectionService } from '../core/services/api-data-collection.service';
-import { DataCollectionList } from '../shared/api-types/data-collection-list';
+import { DataCollection } from '../shared/api-types/data-collection';
+import { SearchHits } from '../shared/api-types/search-hits';
 
 let dataCollectionHomeStyles: string = `
 .table td {
@@ -26,11 +27,11 @@ export class DataCollectionHomeComponent implements OnInit {
     private apiDataCollectionService: ApiDataCollectionService,
   ) { }
 
-  public dataCollectionList: DataCollectionList;
+  public dcHits: SearchHits<DataCollection>;
 
   ngOnInit() {
     this.titleService.setTitle('IGSR | data collections');
     this.apiDataCollectionService.getAll()
-      .subscribe((l: DataCollectionList) => this.dataCollectionList = l);
+      .subscribe((l: SearchHits<DataCollection>) => this.dcHits = l);
   }
 };

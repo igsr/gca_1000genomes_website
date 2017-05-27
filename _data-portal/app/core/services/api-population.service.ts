@@ -5,7 +5,7 @@ import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
-import { ApiHits } from '../../shared/api-types/api-hits';
+import { SearchHits } from '../../shared/api-types/search-hits';
 import { Population } from '../../shared/api-types/population';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
@@ -20,34 +20,33 @@ export class ApiPopulationService {
   ) {}
 
   // private properties:
-  private popListSource: ReplaySubject<ApiHits>;
+  private popListSource: ReplaySubject<SearchHits<Population>>;
 
   // public methods
 
-  getAll(): Observable<ApiHits>{
+  getAll(): Observable<SearchHits<Population>>{
     if (!this.popListSource) {
       this.setPopListSource();
     }
     return this.popListSource.asObservable();
   }
 
-  search(hitsPerPage: number, from: number, query: any): Observable<ApiHits>{
+  search(hitsPerPage: number, from: number, query: any): Observable<SearchHits<Population>>{
     let body = {
       from: from,
       size: hitsPerPage,
-      fields: [
-        'code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'samples.count', 'dataCollections.title', 'dataCollections._analysisGroups',
-      ],
+      _source: true,
+      fields: [ 'dataCollections._analysisGroups' ],
     };
     if (query) {
       body['query'] = query;
     }
-    return this.apiTimeoutService.handleTimeout<ApiHits>(
+    return this.apiTimeoutService.handleTimeout<SearchHits<Population>>(
       this.apiErrorService.handleError(
-        //this.http.post(`http://www.internationalgenome.org/api/beta/population/_search`, body)
-        this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/population/_search`, body)
-      ).map((r:Response): ApiHits => {
-        let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
+        this.http.post(`http://www.internationalgenome.org/api/beta/population/_search`, body)
+        //this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/population/_search`, body)
+      ).map((r:Response): SearchHits<Population> => {
+        let h: {hits: SearchHits<Population>} = r.json() as {hits: SearchHits<Population>};
         return h.hits;
       })
     );
@@ -91,7 +90,7 @@ export class ApiPopulationService {
     form.submit();
   }
 
-  searchDataCollectionPopulations(dc: string, offset: number, hitsPerPage: number): Observable<ApiHits> {
+  searchDataCollectionPopulations(dc: string, offset: number, hitsPerPage: number): Observable<SearchHits<Population>> {
     let query = {
       constant_score: {
         filter: {
@@ -121,21 +120,22 @@ export class ApiPopulationService {
     let query = {
       size: -1,
       sort: ['code'],
-      fields: ['code', 'name'],
+      _source: ['code', 'name'],
     };
-    this.popListSource = new ReplaySubject<ApiHits>(1);
-    this.apiTimeoutService.handleTimeout<ApiHits>(
+    this.popListSource = new ReplaySubject<SearchHits<Population>>(1);
+    this.apiTimeoutService.handleTimeout<SearchHits<Population>>(
       this.apiErrorService.handleError(
         this.http.post(`http://www.internationalgenome.org/api/beta/population/_search`, query)
-      ).map((r:Response): ApiHits => {
-          let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
+      ).map((r:Response): SearchHits<Population> => {
+          let h: {hits: SearchHits<Population>} = r.json() as {hits: SearchHits<Population>};
           return h.hits;
       })
-    ).subscribe((h: ApiHits) => this.popListSource.next(h));
+    ).subscribe((h: SearchHits<Population>) => this.popListSource.next(h));
   }
-  textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+
+  textSearch(text: string, hitsPerPage: number): Observable<SearchHits<Population>> {
     if (!text) {
-      return Observable.of<ApiHits>(null);
+      return Observable.of<SearchHits<Population>>(null);
     }
     let query = {
       multi_match: {

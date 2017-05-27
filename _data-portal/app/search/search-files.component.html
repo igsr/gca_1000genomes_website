@@ -6,7 +6,7 @@
   </div>
   <ul class="list-group">
     <ng-container *ngFor="let hit of fileHits?.hits">
-      <a *ngIf="hit.fields && hit.fields['url']" class="list-group-item" [href]="hit.fields['url'][0]" [innerHtml]="hit.fields['url'][0]"></a>
+      <a *ngIf="hit._source.url" class="list-group-item" [href]="hit._source.url" [innerHtml]="hit._source.url"></a>
     </ng-container>
   </ul>
 </div>

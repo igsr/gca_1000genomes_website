@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 
 import { ApiDataCollectionService} from '../core/services/api-data-collection.service';
-import { DataCollectionList } from '../shared/api-types/data-collection-list';
 import { DataCollection } from '../shared/api-types/data-collection';
-import { ApiHits } from '../shared/api-types/api-hits';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { Sample } from '../shared/api-types/sample';
 
 let sampleTableStyles: string = `
 
@@ -91,7 +91,7 @@ th.matrix-dot > div >div {
     styles: [ sampleTableStyles ],
 })
 export class SampleDataCollectionTableComponent implements OnInit {
-  @Input() apiHits: ApiHits;
+  @Input() sampleHits: SearchHits<Sample>;
   @Input() filters: {[code: string]: boolean};
   @Output() filtersChange = new EventEmitter<{[code: string]: boolean}>();
 
@@ -100,19 +100,20 @@ export class SampleDataCollectionTableComponent implements OnInit {
   ){};
   
   // public properties:
-  public dataCollectionList: DataCollectionList;
+  public dataCollectionList: SearchHits<DataCollection>;
 
   ngOnInit() {
     this.apiDataCollectionService.getAll()
-      .subscribe((l: DataCollectionList) => this.dataCollectionList = l);
+      .subscribe((l: SearchHits<DataCollection>) => this.dataCollectionList = l);
   }
 
-  public hasDataCollection(fields: {[key: string]: string[]}, dc: DataCollection): boolean {
-    if (fields['dataCollections.title']) {
-      for (let dcTitle of fields['dataCollections.title']) {
-        if (dcTitle === dc.title) {
-          return true;
-        }
+  public hasDataCollection(sample: Sample, dc: DataCollection): boolean {
+    if (! sample.dataCollections) {
+      return false;
+    }
+    for (let sampleDc of sample.dataCollections) {
+      if (sampleDc.title === dc.title) {
+        return true;
       }
     }
     return false;

@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { ApiSitemapService } from '../core/services/api-sitemap.service';
-import { SitemapList } from '../shared/api-types/sitemap';
+import { Sitemap } from '../shared/api-types/sitemap';
+import { SearchHits } from '../shared/api-types/search-hits';
 
 @Component({
     templateUrl: './search-sitemap.component.html',
@@ -18,19 +19,19 @@ export class SearchSitemapComponent implements OnChanges, OnDestroy {
     private apiSitemapService: ApiSitemapService,
   ) {};
 
-  public sitemapList: SitemapList = null;
+  public sitemapList: SearchHits<Sitemap> = null;
 
   // private properties
-  private sitemapListSource: Subject<Observable<SitemapList>> = null;
+  private sitemapListSource: Subject<Observable<SearchHits<Sitemap>>> = null;
   private sitemapListSubscription: Subscription = null;
 
   ngOnChanges(changes: SimpleChanges) {
 
     if (!this.sitemapListSource) {
-      this.sitemapListSource = new Subject<Observable<SitemapList>>();
+      this.sitemapListSource = new Subject<Observable<SearchHits<Sitemap>>>();
       this.sitemapListSubscription = this.sitemapListSource
-          .switchMap((o: Observable<SitemapList>) : Observable<SitemapList> => o)
-          .subscribe((h: SitemapList) => this.sitemapList = h );
+          .switchMap((o: Observable<SearchHits<Sitemap>>) : Observable<SearchHits<Sitemap>> => o)
+          .subscribe((h: SearchHits<Sitemap>) => this.sitemapList = h );
     }
 
     this.sitemapListSource.next(this.apiSitemapService.textSearch(this.query));

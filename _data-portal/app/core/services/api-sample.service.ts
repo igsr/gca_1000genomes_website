@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
-import { ApiHits } from '../../shared/api-types/api-hits';
+import { SearchHits } from '../../shared/api-types/search-hits';
 import { Sample } from '../../shared/api-types/sample';
 import { ApiTimeoutService } from './api-timeout.service';
 import { ApiErrorService } from './api-error.service';
@@ -20,23 +20,22 @@ export class ApiSampleService {
 
   // public methods
 
-  search(hitsPerPage: number, from: number, query: any): Observable<ApiHits>{
+  search(hitsPerPage: number, from: number, query: any): Observable<SearchHits<Sample>>{
     let body = {
       from: from,
       size: hitsPerPage,
-      fields: [
-        'name', 'sex', 'population.name', 'population.code', 'dataCollections.title', 'dataCollections._analysisGroups',
-      ],
+      _source: true,
+      fields: [ 'dataCollections._analysisGroups' ],
     };
     if (query) {
       body['query'] = query;
     }
-    return this.apiTimeoutService.handleTimeout<ApiHits>(
+    return this.apiTimeoutService.handleTimeout<SearchHits<Sample>>(
       this.apiErrorService.handleError(
-        //this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
-        this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/sample/_search`, body)
-      ).map((r:Response): ApiHits => {
-        let h: {hits: ApiHits} = r.json() as {hits: ApiHits};
+        this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
+        //this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/sample/_search`, body)
+      ).map((r:Response): SearchHits<Sample> => {
+        let h: {hits: SearchHits<Sample>} = r.json() as {hits: SearchHits<Sample>};
         return h.hits;
       })
     );
@@ -80,7 +79,7 @@ export class ApiSampleService {
     form.submit();
   }
 
-  searchDataCollectionSamples(dc: string, offset: number, hitsPerPage: number): Observable<ApiHits> {
+  searchDataCollectionSamples(dc: string, offset: number, hitsPerPage: number): Observable<SearchHits<Sample>> {
     let query = {
       constant_score: {
         filter: {
@@ -104,7 +103,7 @@ export class ApiSampleService {
     return this.searchExport(query, `igsr-${filename}.tsv`);
   }
 
-  searchPopulationSamples(popCode: string, offset: number, hitsPerPage: number): Observable<ApiHits> {
+  searchPopulationSamples(popCode: string, offset: number, hitsPerPage: number): Observable<SearchHits<Sample>> {
     let query = {
       constant_score: {
         filter: {
@@ -115,9 +114,21 @@ export class ApiSampleService {
     return this.search(hitsPerPage, offset, query);
   }
 
-  textSearch(text: string, hitsPerPage: number): Observable<ApiHits> {
+  searchPopulationSamplesExport(popCode: string) {
+    let filename: string = popCode.toLowerCase();
+    let query = {
+      constant_score: {
+        filter: {
+          term: { 'population.code': popCode }
+        }
+      }
+    }
+    return this.searchExport(query, `igsr-${filename}.tsv`);
+  }
+
+  textSearch(text: string, hitsPerPage: number): Observable<SearchHits<Sample>> {
     if (!text) {
-      return Observable.of<ApiHits>(null);
+      return Observable.of<SearchHits<Sample>>(null);
     }
     let query = {
       multi_match: {

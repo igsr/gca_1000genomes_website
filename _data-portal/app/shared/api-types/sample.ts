@@ -16,6 +16,8 @@ export class Sample {
       relationship: string,
       relatedSampleName: string,
     }[],
-    readonly dataCollections: Object[],
+    readonly dataCollections: {
+      title: string,
+    }[],
   ){};
 }

@@ -32,8 +32,8 @@
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>
 </div>
-<sample-data-collection-table *ngIf="viewOption == 1" [apiHits]="apiHits" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></sample-data-collection-table>
-<sample-analysis-group-table *ngIf="viewOption == 2" [apiHits]="apiHits" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></sample-analysis-group-table>
+<sample-data-collection-table *ngIf="viewOption == 1" [sampleHits]="sampleHits" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></sample-data-collection-table>
+<sample-analysis-group-table *ngIf="viewOption == 2" [sampleHits]="sampleHits" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></sample-analysis-group-table>
 </div>
 <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
 <button class="btn btn-default page-button pull-right" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>

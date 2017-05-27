@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { ApiFileService } from '../core/services/api-file.service';
-import { ApiHits } from '../shared/api-types/api-hits';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { File } from '../shared/api-types/file';
 
 let searchFilesStyles: string = `
   ul.list-group {
@@ -31,20 +32,20 @@ export class SearchFilesComponent implements OnChanges, OnDestroy {
     private apiFileService: ApiFileService,
   ) {};
 
-  public fileHits: ApiHits = null;
+  public fileHits: SearchHits<File> = null;
 
   // private properties
-  private fileHitsSource: Subject<Observable<ApiHits>> = null;
+  private fileHitsSource: Subject<Observable<SearchHits<File>>> = null;
   private fileHitsSubscription: Subscription = null;
   private hitsPerPage: number = 100;
 
   ngOnChanges(changes: SimpleChanges) {
 
     if (!this.fileHitsSource) {
-      this.fileHitsSource = new Subject<Observable<ApiHits>>();
+      this.fileHitsSource = new Subject<Observable<SearchHits<File>>>();
       this.fileHitsSubscription = this.fileHitsSource
-          .switchMap((o: Observable<ApiHits>) : Observable<ApiHits> => o)
-          .subscribe((h: ApiHits) => {
+          .switchMap((o: Observable<SearchHits<File>>) : Observable<SearchHits<File>> => o)
+          .subscribe((h: SearchHits<File>) => {
             this.fileHits = h
           });
     }

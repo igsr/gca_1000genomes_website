@@ -4,7 +4,8 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
-import { ApiHits } from '../shared/api-types/api-hits';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { Sample } from '../shared/api-types/sample';
 import { ApiSampleService } from '../core/services/api-sample.service';
 
 let dcSamplesStyles: string = `
@@ -32,23 +33,23 @@ export class DcSamplesComponent implements OnChanges, OnDestroy {
     private apiSampleService: ApiSampleService,
   ) {};
 
-  public apiHits: ApiHits = null;
+  public apiHits: SearchHits<Sample> = null;
 
   public offset: number = 0;
   public totalHits: number = -1;
 
   // private properties
-  private sampleListSource: Subject<Observable<ApiHits>> = null;
+  private sampleListSource: Subject<Observable<SearchHits<Sample>>> = null;
   private sampleListSubscription: Subscription = null;
   private hitsPerPage: number = 10;
 
   ngOnChanges(changes: SimpleChanges) {
 
     if (!this.sampleListSource) {
-      this.sampleListSource = new Subject<Observable<ApiHits>>();
+      this.sampleListSource = new Subject<Observable<SearchHits<Sample>>>();
       this.sampleListSubscription = this.sampleListSource
-          .switchMap((o: Observable<ApiHits>) : Observable<ApiHits> => o)
-          .subscribe((h: ApiHits) => {
+          .switchMap((o: Observable<SearchHits<Sample>>) : Observable<SearchHits<Sample>> => o)
+          .subscribe((h: SearchHits<Sample>) => {
             this.apiHits = h;
             if (h) {
               this.totalHits = h.total;

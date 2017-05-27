@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 
 import { ApiAnalysisGroupService} from '../core/services/api-analysis-group.service';
-import { AnalysisGroupList } from '../shared/api-types/analysis-group-list';
 import { AnalysisGroup } from '../shared/api-types/analysis-group';
-import { ApiHits } from '../shared/api-types/api-hits';
+import { SearchHit,SearchHits } from '../shared/api-types/search-hits';
+import { Sample } from '../shared/api-types/sample';
 
 let sampleTableStyles: string = `
 
@@ -91,7 +91,7 @@ th.matrix-dot > div >div {
     styles: [ sampleTableStyles ],
 })
 export class SampleAnalysisGroupTableComponent implements OnInit {
-  @Input() apiHits: ApiHits;
+  @Input() sampleHits: SearchHits<Sample>;
   @Input() filters: {[code: string]: boolean};
   @Output() filtersChange = new EventEmitter<{[code: string]: boolean}>();
 
@@ -100,16 +100,16 @@ export class SampleAnalysisGroupTableComponent implements OnInit {
   ){};
   
   // public properties:
-  public analysisGroupList: AnalysisGroupList;
+  public analysisGroupList: SearchHits<AnalysisGroup>;
 
   ngOnInit() {
     this.apiAnalysisGroupService.getAll()
-      .subscribe((l: AnalysisGroupList) => this.analysisGroupList = l);
+      .subscribe((l: SearchHits<AnalysisGroup>) => this.analysisGroupList = l);
   }
 
-  public hasAnalysisGroup(fields: {[key: string]: string[]}, ag: AnalysisGroup): boolean {
-    if (fields['dataCollections._analysisGroups']) {
-      for (let agTitle of fields['dataCollections._analysisGroups']) {
+  public hasAnalysisGroup(sampleHit: SearchHit<Sample>, ag: AnalysisGroup): boolean {
+    if (sampleHit.fields && sampleHit.fields.hasOwnProperty('dataCollections._analysisGroups')) {
+      for (let agTitle of sampleHit.fields['dataCollections._analysisGroups']) {
         if (agTitle === ag.title) {
           return true;
         }

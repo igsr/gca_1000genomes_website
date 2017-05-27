@@ -2,7 +2,8 @@ import { Component, EventEmitter, OnInit, OnDestroy, Input, Output } from '@angu
 import { Subscription } from 'rxjs/Subscription';
 
 import { ApiDataCollectionService} from '../../core/services/api-data-collection.service';
-import { DataCollectionList } from '../api-types/data-collection-list';
+import { SearchHits } from '../api-types/search-hits';
+import { DataCollection } from '../api-types/data-collection';
 
 let dcFilterStyles: string = `
   div.panel {
@@ -33,14 +34,14 @@ export class DataCollectionFilterComponent implements OnInit, OnDestroy {
   ){};
   
   // public properties:
-  public dcList: DataCollectionList;
+  public dcList: SearchHits<DataCollection>;
 
   // private properties:
   private dcListSubscription: Subscription = null;
 
   ngOnInit() {
     this.dcListSubscription = this.apiDataCollectionService.getAll()
-      .subscribe((h: DataCollectionList) => this.dcList = h);
+      .subscribe((h: SearchHits<DataCollection>) => this.dcList = h);
   }
 
   ngOnDestroy() {

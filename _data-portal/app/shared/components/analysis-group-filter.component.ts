@@ -2,7 +2,8 @@ import { Component, EventEmitter, OnInit, OnDestroy, Input, Output } from '@angu
 import { Subscription } from 'rxjs/Subscription';
 
 import { ApiAnalysisGroupService} from '../../core/services/api-analysis-group.service';
-import { AnalysisGroupList } from '../api-types/analysis-group-list';
+import { SearchHits } from  '../api-types/search-hits';
+import { AnalysisGroup } from  '../api-types/analysis-group';
 
 let agFilterStyles: string = `
   div.panel {
@@ -33,14 +34,14 @@ export class AnalysisGroupFilterComponent implements OnInit, OnDestroy {
   ){};
   
   // public properties:
-  public agList: AnalysisGroupList;
+  public agList: SearchHits<AnalysisGroup>;
 
   // private properties:
   private agListSubscription: Subscription = null;
 
   ngOnInit() {
     this.agListSubscription = this.apiAnalysisGroupService.getAll()
-      .subscribe((h: AnalysisGroupList) => this.agList = h);
+      .subscribe((h: SearchHits<AnalysisGroup>) => this.agList = h);
   }
 
   ngOnDestroy() {

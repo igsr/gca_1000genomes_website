@@ -5,6 +5,6 @@
     </h4>
   </div>
   <ul class="list-group">
-    <a *ngFor="let hit of popHits?.hits" class="list-group-item text-center" [routerLink]="['/population', hit._id]">{{hit.fields['name']}}</a>
+    <a *ngFor="let hit of popHits?.hits" class="list-group-item text-center" [routerLink]="['/population', hit._id]">{{hit._source.name}}</a>
   </ul>
 </div>

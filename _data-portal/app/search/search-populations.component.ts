@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { ApiPopulationService } from '../core/services/api-population.service';
-import { ApiHits } from '../shared/api-types/api-hits';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { Population } from '../shared/api-types/population';
 
 let searchPopulationsStyles: string = `
   ul.list-group {
@@ -30,20 +31,20 @@ export class SearchPopulationsComponent implements OnChanges, OnDestroy {
     private apiPopulationService: ApiPopulationService,
   ) {};
 
-  public popHits: ApiHits = null;
+  public popHits: SearchHits<Population> = null;
 
   // private properties
-  private popHitsSource: Subject<Observable<ApiHits>> = null;
+  private popHitsSource: Subject<Observable<SearchHits<Population>>> = null;
   private popHitsSubscription: Subscription = null;
   private hitsPerPage: number = 100;
 
   ngOnChanges(changes: SimpleChanges) {
 
     if (!this.popHitsSource) {
-      this.popHitsSource = new Subject<Observable<ApiHits>>();
+      this.popHitsSource = new Subject<Observable<SearchHits<Population>>>();
       this.popHitsSubscription = this.popHitsSource
-          .switchMap((o: Observable<ApiHits>) : Observable<ApiHits> => o)
-          .subscribe((h: ApiHits) => {
+          .switchMap((o: Observable<SearchHits<Population>>) : Observable<SearchHits<Population>> => o)
+          .subscribe((h: SearchHits<Population>) => {
             this.popHits = h
           });
     }
