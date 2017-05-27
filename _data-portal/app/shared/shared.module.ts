@@ -9,10 +9,11 @@ import { ApiSlowResponseComponent } from './components/api-slow-response.compone
 import { PopulationFilterComponent } from './components/population-filter.component';
 import { AnalysisGroupFilterComponent } from './components/analysis-group-filter.component';
 import { DataCollectionFilterComponent } from './components/data-collection-filter.component';
+import { SelectTabsComponent } from './components/select-tabs.component';
 
 @NgModule({
   imports: [ CommonModule, RouterModule, FormsModule, PopoverModule ],
-  declarations: [ ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent ],
-  exports: [ CommonModule, RouterModule, FormsModule, PopoverModule, ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent ],
+  declarations: [ ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent, SelectTabsComponent ],
+  exports: [ CommonModule, RouterModule, FormsModule, PopoverModule, ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent, SelectTabsComponent ],
 })
 export class SharedModule { }

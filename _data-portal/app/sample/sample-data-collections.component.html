@@ -1,12 +1,6 @@
 <ng-container *ngIf="sample.dataCollections">
 <h2>Data collections for {{sample.name}}</h2>
-<div class="flex-nav">
-  <ul class="nav">
-    <li *ngFor="let dc of sample.dataCollections" [ngClass]="{active: currentDC === dc}">
-      <a role="button" (click)="setDC(dc)">{{dc.title}}</a>
-    </li>
-  </ul>
-</div>
+<select-tabs [opts]="dcTitles" (selection)="setDc($event)"></select-tabs>
 
 <div class="panel panel-default">
 <div class="panel-body">

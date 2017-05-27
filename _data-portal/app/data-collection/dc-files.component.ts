@@ -193,7 +193,7 @@ export class DcFilesComponent implements OnChanges, OnDestroy {
     }
     let filename: string = this.dc.title.toLowerCase();
     filename.replace(/\s/g, '-');
-    this.apiFileService.searchDataCollectionExport(null, this.dc.title, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr-${filename}.tsv`);
+    this.apiFileService.searchDataCollectionExport(this.dc.title, null, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr-${filename}.tsv`);
   }
 
   private searchFiles() {
@@ -202,7 +202,7 @@ export class DcFilesComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    this.fileListSource.next(this.apiFileService.searchDataCollection(null, this.dc.title, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
+    this.fileListSource.next(this.apiFileService.searchDataCollection(this.dc.title, null, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
   }
 
 

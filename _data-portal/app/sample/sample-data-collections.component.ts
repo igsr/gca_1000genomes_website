@@ -12,27 +12,6 @@ import { ApiFileService } from '../core/services/api-file.service';
 
 let sampleDataCollectionStyles: string = `
 
-
-@media (min-width: 600px) {
-  .flex-nav {
-    display: table;
-    width: 100%;
-  }
-  .flex-nav ul.nav::before, .flex-nav ul.nav::after {
-    display: none;
-  }
-  .flex-nav ul.nav {
-    display: table-row;
-  }
-  .flex-nav ul.nav > li {
-    height: 100%;
-    display: table-cell;
-    width: 1px;
-    vertical-align: middle;
-    text-align: center;
-  }
-}
-
 table {
   border-top: 2px solid #ddd;
 }
@@ -71,6 +50,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
   ) {};
 
   public currentDC: Object = null;
+  public dcTitles: string[] = [];
   public fileList: SearchHits<File> = null;
   public filterDataTypes: selectableFilter[];
   public filterAnalysisGroups: selectableFilter[];
@@ -104,11 +84,18 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
           });
     }
 
-    this.setDC(this.sample.dataCollections ? this.sample.dataCollections[0] : null);
+    this.dcTitles = [];
+    if (this.sample && this.sample.dataCollections) {
+      for (let dc of this.sample.dataCollections) {
+        this.dcTitles.push(dc.title);
+      }
+    }
+
+    this.setDc(0);
   }
 
-  public setDC(dc: Object) {
-    this.currentDC = dc;
+  public setDc(i: number) {
+    this.currentDC = this.sample && this.sample.dataCollections ? this.sample.dataCollections[0] : null;
     this.offset = 0;
     this.totalHits = -1;
     this.filterDataTypes = [];
@@ -116,11 +103,11 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
     this.filterDataTypesObj = {};
     this.filterAnalysisGroupsObj = {};
 
-    if (dc) {
-      for (let dt of dc['dataTypes']) {
+    if (this.currentDC) {
+      for (let dt of this.currentDC['dataTypes']) {
         this.filterDataTypesObj[dt] = {title: dt, isFiltered: false, isDisabled: false};
         this.filterDataTypes.push(this.filterDataTypesObj[dt]);
-        for (let ag of dc[dt]) {
+        for (let ag of this.currentDC[dt]) {
           this.filterAnalysisGroupsObj[ag] = {title: ag, isFiltered: false, isDisabled: false};
         }
       }
@@ -216,7 +203,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
     if (!this.currentDC) {
       return;
     }
-    this.apiFileService.searchDataCollectionExport(this.sample.name, this.currentDC['title'], this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr_${this.sample.name}.tsv`);
+    this.apiFileService.searchDataCollectionExport(this.currentDC['title'], this.sample.name, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr_${this.sample.name}.tsv`);
   }
 
   private searchFiles() {
@@ -225,7 +212,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    this.fileListSource.next(this.apiFileService.searchDataCollection(this.sample.name, this.currentDC['title'], this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
+    this.fileListSource.next(this.apiFileService.searchDataCollection(this.currentDC['title'], this.sample.name, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
   }
 
 

@@ -18,11 +18,11 @@ export class ApiFileService {
     private apiTimeoutService: ApiTimeoutService,
   ) {}
 
-  searchDataCollection(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], from: number, hitsPerPage: number): Observable<SearchHits<File>> {
+  searchDataCollection(dataCollection: string, sampleName: string, populationCode: string, dataTypes: string[], analysisGroups: string[], from: number, hitsPerPage: number): Observable<SearchHits<File>> {
     let body = {
       from: from,
       size: hitsPerPage,
-      query: this.buildSearchDataCollectionQuery(sampleName, dataCollection, dataTypes, analysisGroups),
+      query: this.buildSearchDataCollectionQuery(dataCollection, sampleName, populationCode, dataTypes, analysisGroups),
     };
     return this.apiTimeoutService.handleTimeout<SearchHits<File>>(
       this.apiErrorService.handleError(
@@ -34,7 +34,7 @@ export class ApiFileService {
     );
   }
 
-  searchDataCollectionExport(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[], filename: string) {
+  searchDataCollectionExport(dataCollection: string, sampleName: string, populationCode: string, dataTypes: string[], analysisGroups: string[], filename: string) {
     let body = {
       fields: [
         'url', 'md5', 'dataCollections', 'dataType', 'analysisGroup', 'samples', 'populations', 'dataReusePolicy',
@@ -42,7 +42,7 @@ export class ApiFileService {
       column_names: [
         'url', 'md5', 'Data collection', 'Data type', 'Analysis group', 'Sample', 'Population', 'Data reuse policy',
       ],
-      query: this.buildSearchDataCollectionQuery(sampleName, dataCollection, dataTypes, analysisGroups),
+      query: this.buildSearchDataCollectionQuery(dataCollection, sampleName, populationCode, dataTypes, analysisGroups),
     };
     let form = document.createElement('form');
 
@@ -94,11 +94,14 @@ export class ApiFileService {
     );
   }
 
-  private buildSearchDataCollectionQuery(sampleName: string, dataCollection: string, dataTypes: string[], analysisGroups: string[]): any {
+  private buildSearchDataCollectionQuery(dataCollection: string, sampleName: string, populationCode: string, dataTypes: string[], analysisGroups: string[]): any {
     let filtTerms: any[] = [];
     filtTerms.push({term:{dataCollections: dataCollection}});
     if (sampleName) {
       filtTerms.push({term:{samples: sampleName}});
+    }
+    if (populationCode) {
+      filtTerms.push({term:{populations: sampleName}});
     }
     if (dataTypes.length > 0) {
       filtTerms.push({terms: {dataType: dataTypes}});
