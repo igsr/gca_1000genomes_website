@@ -1,3 +1,5 @@
+import { DataCollection } from './data-collection';
+
 export class Sample {
   constructor(
     readonly name: string,
@@ -16,8 +18,6 @@ export class Sample {
       relationship: string,
       relatedSampleName: string,
     }[],
-    readonly dataCollections: {
-      title: string,
-    }[],
+    readonly dataCollections: DataCollection[],
   ){};
 }

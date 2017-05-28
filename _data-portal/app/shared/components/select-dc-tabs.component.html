@@ -1,0 +1,8 @@
+<div class="flex-nav">
+  <ul class="nav">
+    <li *ngFor="let dc of dataCollections" [ngClass]="{active: dc == selected}">
+      <a role="button" (click)="setSelected(dc)">{{dc.title}}</a>
+    </li>
+  </ul>
+</div>
+

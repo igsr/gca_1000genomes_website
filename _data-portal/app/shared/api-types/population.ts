@@ -1,3 +1,5 @@
+import { DataCollection } from './data-collection';
+
 export class Population {
   constructor(
     readonly name: string,
@@ -7,6 +9,6 @@ export class Population {
       name: string,
       code: string,
     },
-    readonly dataCollections: Object[],
+    readonly dataCollections: DataCollection[],
   ){};
 }

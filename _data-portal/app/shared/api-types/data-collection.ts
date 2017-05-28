@@ -4,6 +4,7 @@ export class DataCollection {
     readonly shortTitle: string,
     readonly publication: string,
     readonly website: string,
+    readonly dataReusePolicy: string,
     readonly displayOrder: number,
     readonly samples: {count: number},
     readonly populations: {count: number},

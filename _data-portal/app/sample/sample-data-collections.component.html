@@ -1,6 +1,6 @@
 <ng-container *ngIf="sample.dataCollections">
 <h2>Data collections for {{sample.name}}</h2>
-<select-tabs [opts]="dcTitles" (selection)="setDc($event)"></select-tabs>
+<select-dc-tabs [dataCollections]="sample.dataCollections" (selection)="setDc($event)"></select-dc-tabs>
 
 <div class="panel panel-default">
 <div class="panel-body">

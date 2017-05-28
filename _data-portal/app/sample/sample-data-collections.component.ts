@@ -6,6 +6,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/of';
 
 import { Sample } from '../shared/api-types/sample';
+import { DataCollection } from '../shared/api-types/data-collection';
 import { SearchHits } from '../shared/api-types/search-hits';
 import { File } from '../shared/api-types/file';
 import { ApiFileService } from '../core/services/api-file.service';
@@ -49,8 +50,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
     private apiFileService: ApiFileService,
   ) {};
 
-  public currentDC: Object = null;
-  public dcTitles: string[] = [];
+  public currentDC: DataCollection = null;
   public fileList: SearchHits<File> = null;
   public filterDataTypes: selectableFilter[];
   public filterAnalysisGroups: selectableFilter[];
@@ -84,18 +84,10 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
           });
     }
 
-    this.dcTitles = [];
-    if (this.sample && this.sample.dataCollections) {
-      for (let dc of this.sample.dataCollections) {
-        this.dcTitles.push(dc.title);
-      }
-    }
-
-    this.setDc(0);
   }
 
-  public setDc(i: number) {
-    this.currentDC = this.sample && this.sample.dataCollections ? this.sample.dataCollections[0] : null;
+  public setDc(dc: DataCollection) {
+    this.currentDC = dc;
     this.offset = 0;
     this.totalHits = -1;
     this.filterDataTypes = [];
@@ -103,11 +95,13 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
     this.filterDataTypesObj = {};
     this.filterAnalysisGroupsObj = {};
 
+
     if (this.currentDC) {
-      for (let dt of this.currentDC['dataTypes']) {
+      let dcObj = this.currentDC as Object;
+      for (let dt of this.currentDC.dataTypes) {
         this.filterDataTypesObj[dt] = {title: dt, isFiltered: false, isDisabled: false};
         this.filterDataTypes.push(this.filterDataTypesObj[dt]);
-        for (let ag of this.currentDC[dt]) {
+        for (let ag of dcObj[dt]) {
           this.filterAnalysisGroupsObj[ag] = {title: ag, isFiltered: false, isDisabled: false};
         }
       }
@@ -129,9 +123,10 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
       ag.isDisabled = true;
     }
     var numFilteredDataTypes = 0;
+    let dcObj = this.currentDC as Object;
     for (let dt of this.filterDataTypes) {
       if (dt.isFiltered) {
-        for (let ag of this.currentDC[dt.title]) {
+        for (let ag of dcObj[dt.title]) {
           this.filterAnalysisGroupsObj[ag].isDisabled = false;
         }
         numFilteredDataTypes += 1;
@@ -156,10 +151,11 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
       dt.isDisabled = true;
     }
     var numFilteredAnalysisGroups = 0;
+    let dcObj = this.currentDC as Object;
     for (let ag of this.filterAnalysisGroups) {
       if (ag.isFiltered) {
-        for (let dtTitle of this.currentDC['dataTypes']) {
-          if (this.currentDC[dtTitle].indexOf(ag.title) > -1) {
+        for (let dtTitle of this.currentDC.dataTypes) {
+          if (dcObj[dtTitle].indexOf(ag.title) > -1) {
             this.filterDataTypesObj[dtTitle].isDisabled = false
           }
         }
@@ -203,7 +199,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
     if (!this.currentDC) {
       return;
     }
-    this.apiFileService.searchDataCollectionExport(this.currentDC['title'], this.sample.name, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr_${this.sample.name}.tsv`);
+    this.apiFileService.searchDataCollectionExport(this.currentDC.title, this.sample.name, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr_${this.sample.name}.tsv`);
   }
 
   private searchFiles() {
@@ -212,7 +208,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    this.fileListSource.next(this.apiFileService.searchDataCollection(this.currentDC['title'], this.sample.name, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
+    this.fileListSource.next(this.apiFileService.searchDataCollection(this.currentDC.title, this.sample.name, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
   }
 
 

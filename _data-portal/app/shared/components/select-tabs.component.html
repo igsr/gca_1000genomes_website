@@ -1,8 +1,0 @@
-<div class="flex-nav">
-  <ul class="nav">
-    <li *ngFor="let opt of opts; let i=index" [ngClass]="{active: i == selected}">
-      <a role="button" (click)="setSelected(i)">{{opt}}</a>
-    </li>
-  </ul>
-</div>
-
