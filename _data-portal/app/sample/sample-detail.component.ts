@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from'@angular/router';
 import { Subscription } from 'rxjs/Subscription';
@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
 import { ApiSampleService } from '../core/services/api-sample.service';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { File } from '../shared/api-types/file';
 import { Sample } from '../shared/api-types/sample';
 import { DataCollection } from '../shared/api-types/data-collection';
 
@@ -26,12 +28,12 @@ export class SampleDetailComponent implements OnInit, OnDestroy {
     private titleService: Title,
     private activatedRoute: ActivatedRoute,
     private apiSampleService: ApiSampleService,
-    private changeDetectorRef: ChangeDetectorRef,
   ) {}
 
   public sampleName: string;
   public sample: Sample;
   public currentDC: DataCollection;
+  public files: SearchHits<File>;
 
   // private properties
   private routeSubscription: Subscription = null;
@@ -52,9 +54,8 @@ export class SampleDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  public setDc(dc: DataCollection) {
-    this.currentDC = dc;
-    this.changeDetectorRef.detectChanges();
+  public softHyphens(url: string): string {
+    return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;
   }
 
   ngOnDestroy() {

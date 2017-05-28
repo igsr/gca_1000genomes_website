@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, Input, OnDestroy } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, Input, Output, OnDestroy, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +12,7 @@ import { ApiFileService } from '../../core/services/api-file.service';
 
 let dataCollectionFilesStyles: string = `
 
-table {
+/deep/ table {
   border-top: 2px solid #ddd;
 }
 
@@ -45,6 +45,7 @@ class selectableFilter {
 export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
   @Input() sampleName: string;
   @Input() dataCollection: DataCollection;
+  @Output() filesChange = new EventEmitter<SearchHits<File>>();
 
   public constructor(
     private apiFileService: ApiFileService,
@@ -74,12 +75,10 @@ export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
       this.fileListSubscription = this.fileListSource
           .switchMap((o: Observable<SearchHits<File>>) : Observable<SearchHits<File>> => o)
           .subscribe((fl: SearchHits<File>) => {
-            this.fileList = fl
-            if (fl) {
-              this.totalHits = fl.total;
-              this.displayStart = fl.hits && fl.hits.length > 0 ? this.offset + 1 : 0;
-              this.displayStop = fl.hits ? this.offset + fl.hits.length : 0;
-            }
+            this.filesChange.emit(fl);
+            this.totalHits = fl  ? fl.total : -1;
+            this.displayStart = fl && fl.hits && fl.hits.length > 0 ? this.offset + 1 : 0;
+            this.displayStop = fl && fl.hits ? this.offset + fl.hits.length : 0;
           });
     }
 
@@ -186,10 +185,6 @@ export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
     }
   }
 
-  public softHyphens(url: string): string {
-    return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;
-  }
-
   public searchFilesExport() {
     if (!this.dataCollection) {
       return;
@@ -205,7 +200,6 @@ export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
 
     this.fileListSource.next(this.apiFileService.searchDataCollection(this.dataCollection.title, this.sampleName, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
   }
-
 
   private buildSearchDataTypes(): string[] {
     var dataTypes: string[] = [];

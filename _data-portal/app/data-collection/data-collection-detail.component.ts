@@ -8,6 +8,8 @@ import 'rxjs/add/operator/switchMap';
 
 import { ApiDataCollectionService } from '../core/services/api-data-collection.service';
 import { DataCollection } from '../shared/api-types/data-collection';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { File } from '../shared/api-types/file';
 
 let dataCollectionStyles: string = `
 
@@ -26,6 +28,7 @@ export class DataCollectionDetailComponent implements OnInit, OnDestroy {
 
   public dc: DataCollection;
   public description: string;
+  public files: SearchHits<File>;
 
   // private properties
   private routeSubscription: Subscription = null;
@@ -56,6 +59,10 @@ export class DataCollectionDetailComponent implements OnInit, OnDestroy {
         this.descriptionSource.next(this.apiDataCollectionService.getText(params.dataCollectionID));
       }
     });
+  }
+
+  public softHyphens(url: string): string {
+    return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;
   }
 
   ngOnDestroy() {
