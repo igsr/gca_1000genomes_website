@@ -101,7 +101,7 @@ export class ApiFileService {
       filtTerms.push({term:{samples: sampleName}});
     }
     if (populationCode) {
-      filtTerms.push({term:{populations: sampleName}});
+      filtTerms.push({term:{populations: populationCode}});
     }
     if (dataTypes.length > 0) {
       filtTerms.push({terms: {dataType: dataTypes}});

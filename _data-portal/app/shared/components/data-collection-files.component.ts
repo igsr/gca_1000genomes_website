@@ -29,6 +29,9 @@ a[role="button"] {
   text-transform: capitalize;
 }
 
+div.checkbox.disabled label {
+  color: grayText;
+}
 `;
 
 class selectableFilter {
@@ -44,6 +47,7 @@ class selectableFilter {
 })
 export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
   @Input() sampleName: string;
+  @Input() populationCode: string;
   @Input() dataCollection: DataCollection;
   @Output() filesChange = new EventEmitter<SearchHits<File>>();
 
@@ -189,7 +193,20 @@ export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
     if (!this.dataCollection) {
       return;
     }
-    this.apiFileService.searchDataCollectionExport(this.dataCollection.title, this.sampleName, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr_${this.sampleName}.tsv`);
+    this.apiFileService.searchDataCollectionExport(this.dataCollection.title, this.sampleName, this.populationCode, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.makeFilename());
+  }
+
+  private makeFilename(): string {
+    let filename: string = "igsr";
+    if (this.sampleName) {
+      filename = `${filename}_${this.sampleName}`;
+    }
+    if (this.populationCode) {
+      filename = `${filename}_${this.populationCode}`;
+    }
+    filename = `${filename}_${this.dataCollection.shortTitle}.tsv`
+    filename.replace(/\s/g, '-');
+    return filename;
   }
 
   private searchFiles() {
@@ -198,7 +215,7 @@ export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    this.fileListSource.next(this.apiFileService.searchDataCollection(this.dataCollection.title, this.sampleName, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
+    this.fileListSource.next(this.apiFileService.searchDataCollection(this.dataCollection.title, this.sampleName, this.populationCode, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
   }
 
   private buildSearchDataTypes(): string[] {

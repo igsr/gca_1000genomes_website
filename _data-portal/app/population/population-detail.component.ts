@@ -9,6 +9,9 @@ import 'rxjs/add/operator/switchMap';
 import { ApiPopulationService } from '../core/services/api-population.service';
 import { ApiSampleService } from '../core/services/api-sample.service';
 import { Population } from '../shared/api-types/population';
+import { SearchHits } from '../shared/api-types/search-hits';
+import { File } from '../shared/api-types/file';
+import { DataCollection } from '../shared/api-types/data-collection';
 
 @Component({
     templateUrl: './population-detail.component.html',
@@ -23,6 +26,8 @@ export class PopulationDetailComponent implements OnInit, OnDestroy {
 
   public popCode: string;
   public pop: Population;
+  public currentDC: DataCollection;
+  public files: SearchHits<File>;
 
   // private properties
   private routeSubscription: Subscription = null;
@@ -41,6 +46,10 @@ export class PopulationDetailComponent implements OnInit, OnDestroy {
         this.popSource.next(this.apiPopulationService.get(this.popCode));
       }
     });
+  }
+
+  public softHyphens(url: string): string {
+    return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;
   }
 
   ngOnDestroy() {
