@@ -1,13 +1,10 @@
-<ng-container *ngIf="sample.dataCollections">
-<h2>Data collections for {{sample.name}}</h2>
-<select-dc-tabs [dataCollections]="sample.dataCollections" (selection)="setDc($event)"></select-dc-tabs>
 
 <div class="panel panel-default">
 <div class="panel-body">
 <div class="row">
 
   <p class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
-  <a *ngIf="currentDC?.dataReusePolicy" [href]="currentDC?.dataReusePolicy"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{currentDC.title}}</a>
+  <a *ngIf="dataCollection?.dataReusePolicy" [href]="dataCollection?.dataReusePolicy"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Data reuse policy for {{dataCollection.title}}</a>
   </p>
 
   <p class="col-lg-4 col-md-4 col-sm-4 col-xs-6 text-center">
@@ -68,4 +65,3 @@
 </div>
 </div>
 
-</ng-container>

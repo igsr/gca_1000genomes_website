@@ -64,6 +64,10 @@
 
 </div></div></div>
 
-<sample-data-collections [sample]="sample"></sample-data-collections>
+  <ng-container *ngIf="sample.dataCollections">
+  <h2>Data collections for {{sample.name}}</h2>
+  <select-dc-tabs [dataCollections]="sample.dataCollections" (selection)="setDc($event)"></select-dc-tabs>
+  <data-collection-files [sampleName]="sampleName" [dataCollection]="currentDC"></data-collection-files>
+  </ng-container>
 </ng-container>
 

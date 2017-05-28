@@ -5,13 +5,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/of';
 
-import { Sample } from '../shared/api-types/sample';
-import { DataCollection } from '../shared/api-types/data-collection';
-import { SearchHits } from '../shared/api-types/search-hits';
-import { File } from '../shared/api-types/file';
-import { ApiFileService } from '../core/services/api-file.service';
+import { DataCollection } from '../api-types/data-collection';
+import { SearchHits } from '../api-types/search-hits';
+import { File } from '../api-types/file';
+import { ApiFileService } from '../../core/services/api-file.service';
 
-let sampleDataCollectionStyles: string = `
+let dataCollectionFilesStyles: string = `
 
 table {
   border-top: 2px solid #ddd;
@@ -39,18 +38,18 @@ class selectableFilter {
 };
 
 @Component({
-    templateUrl: './sample-data-collections.component.html',
-    selector: 'sample-data-collections',
-    styles: [ sampleDataCollectionStyles ],
+    templateUrl: './data-collection-files.component.html',
+    selector: 'data-collection-files',
+    styles: [ dataCollectionFilesStyles ],
 })
-export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
-  @Input() sample: Sample;
+export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
+  @Input() sampleName: string;
+  @Input() dataCollection: DataCollection;
 
   public constructor(
     private apiFileService: ApiFileService,
   ) {};
 
-  public currentDC: DataCollection = null;
   public fileList: SearchHits<File> = null;
   public filterDataTypes: selectableFilter[];
   public filterAnalysisGroups: selectableFilter[];
@@ -84,10 +83,6 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
           });
     }
 
-  }
-
-  public setDc(dc: DataCollection) {
-    this.currentDC = dc;
     this.offset = 0;
     this.totalHits = -1;
     this.filterDataTypes = [];
@@ -96,9 +91,9 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
     this.filterAnalysisGroupsObj = {};
 
 
-    if (this.currentDC) {
-      let dcObj = this.currentDC as Object;
-      for (let dt of this.currentDC.dataTypes) {
+    if (this.dataCollection) {
+      let dcObj = this.dataCollection as Object;
+      for (let dt of this.dataCollection.dataTypes) {
         this.filterDataTypesObj[dt] = {title: dt, isFiltered: false, isDisabled: false};
         this.filterDataTypes.push(this.filterDataTypesObj[dt]);
         for (let ag of dcObj[dt]) {
@@ -123,7 +118,7 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
       ag.isDisabled = true;
     }
     var numFilteredDataTypes = 0;
-    let dcObj = this.currentDC as Object;
+    let dcObj = this.dataCollection as Object;
     for (let dt of this.filterDataTypes) {
       if (dt.isFiltered) {
         for (let ag of dcObj[dt.title]) {
@@ -151,10 +146,10 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
       dt.isDisabled = true;
     }
     var numFilteredAnalysisGroups = 0;
-    let dcObj = this.currentDC as Object;
+    let dcObj = this.dataCollection as Object;
     for (let ag of this.filterAnalysisGroups) {
       if (ag.isFiltered) {
-        for (let dtTitle of this.currentDC.dataTypes) {
+        for (let dtTitle of this.dataCollection.dataTypes) {
           if (dcObj[dtTitle].indexOf(ag.title) > -1) {
             this.filterDataTypesObj[dtTitle].isDisabled = false
           }
@@ -196,19 +191,19 @@ export class SampleDataCollectionsComponent implements OnChanges, OnDestroy {
   }
 
   public searchFilesExport() {
-    if (!this.currentDC) {
+    if (!this.dataCollection) {
       return;
     }
-    this.apiFileService.searchDataCollectionExport(this.currentDC.title, this.sample.name, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr_${this.sample.name}.tsv`);
+    this.apiFileService.searchDataCollectionExport(this.dataCollection.title, this.sampleName, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), `igsr_${this.sampleName}.tsv`);
   }
 
   private searchFiles() {
-    if (!this.currentDC) {
+    if (!this.dataCollection) {
       this.fileListSource.next(Observable.of<SearchHits<File>>(null));
       return;
     }
 
-    this.fileListSource.next(this.apiFileService.searchDataCollection(this.currentDC.title, this.sample.name, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
+    this.fileListSource.next(this.apiFileService.searchDataCollection(this.dataCollection.title, this.sampleName, null, this.buildSearchDataTypes(), this.buildSearchAnalysisGroups(), this.offset, this.hitsPerPage));
   }
 
 

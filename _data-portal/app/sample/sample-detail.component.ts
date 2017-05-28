@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from'@angular/router';
 import { Subscription } from 'rxjs/Subscription';
@@ -8,6 +8,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { ApiSampleService } from '../core/services/api-sample.service';
 import { Sample } from '../shared/api-types/sample';
+import { DataCollection } from '../shared/api-types/data-collection';
 
 let sampleDetailStyles: string = `
 .capitalize {
@@ -25,10 +26,12 @@ export class SampleDetailComponent implements OnInit, OnDestroy {
     private titleService: Title,
     private activatedRoute: ActivatedRoute,
     private apiSampleService: ApiSampleService,
+    private changeDetectorRef: ChangeDetectorRef,
   ) {}
 
   public sampleName: string;
   public sample: Sample;
+  public currentDC: DataCollection;
 
   // private properties
   private routeSubscription: Subscription = null;
@@ -47,6 +50,11 @@ export class SampleDetailComponent implements OnInit, OnDestroy {
         this.sampleSource.next(this.apiSampleService.get(this.sampleName));
       }
     });
+  }
+
+  public setDc(dc: DataCollection) {
+    this.currentDC = dc;
+    this.changeDetectorRef.detectChanges();
   }
 
   ngOnDestroy() {
