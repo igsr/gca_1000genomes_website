@@ -34,7 +34,7 @@ export class ApiSitemapService {
     };
     return this.apiTimeoutService.handleTimeout<SearchHits<Sitemap>>(
       this.apiErrorService.handleError(
-        this.http.post(`http://www.internationalgenome.org/api/sitemap/_search`, body)
+        this.http.post(`/api/sitemap/_search`, body)
       ).map((r:Response): SearchHits<Sitemap> => {
         let h: {hits: SearchHits<Sitemap>} = r.json() as {hits: SearchHits<Sitemap>};
         return h.hits;

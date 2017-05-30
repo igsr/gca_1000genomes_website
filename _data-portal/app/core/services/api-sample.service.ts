@@ -32,8 +32,7 @@ export class ApiSampleService {
     }
     return this.apiTimeoutService.handleTimeout<SearchHits<Sample>>(
       this.apiErrorService.handleError(
-        this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
-        //this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/sample/_search`, body)
+        this.http.post(`/api/beta/sample/_search`, body)
       ).map((r:Response): SearchHits<Sample> => {
         let h: {hits: SearchHits<Sample>} = r.json() as {hits: SearchHits<Sample>};
         return h.hits;
@@ -44,7 +43,7 @@ export class ApiSampleService {
   get(name: string): Observable<Sample>{
    return this.apiTimeoutService.handleTimeout<Sample>(
       this.apiErrorService.handleError(
-        this.http.get(`http://www.internationalgenome.org/api/beta/sample/${name}`)
+        this.http.get(`/api/beta/sample/${name}`)
       ).map((r: Response) => {
         let s = r.json() as {_source: Sample};
         return s._source;
@@ -66,7 +65,7 @@ export class ApiSampleService {
     }
     let form = document.createElement('form');
 
-    form.action= `http://www.internationalgenome.org/api/beta/sample/_search/${filename}.tsv`;
+    form.action= `/api/beta/sample/_search/${filename}.tsv`;
     form.method='POST';
     form.target="_self";
     let input = document.createElement("textarea");

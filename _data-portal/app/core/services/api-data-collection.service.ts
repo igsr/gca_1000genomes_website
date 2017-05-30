@@ -49,7 +49,7 @@ export class ApiDataCollectionService {
   }
 
   getText(id: string): Observable<string> {
-      return this.http.get(`http://www.internationalgenome.org/data-portal/data-collections/${id}.html`)
+      return this.http.get(`/data-portal/data-collections/${id}.html`)
         .catch((err, caught): Observable<Response> => Observable.of<Response>(null))
         .map((r:Response): string => {
           let text: string = r ? r.text() : ''
@@ -79,8 +79,7 @@ export class ApiDataCollectionService {
     }
     return this.apiTimeoutService.handleTimeout<SearchHits<DataCollection>>(
       this.apiErrorService.handleError(
-        this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
-        //this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/data-collection/_search`, body)
+        this.http.post(`/api/beta/data-collection/_search`, body)
       ).map((r:Response): SearchHits<DataCollection> => {
         let h: {hits: SearchHits<DataCollection>} = r.json() as {hits: SearchHits<DataCollection>};
         return h.hits;
@@ -98,7 +97,7 @@ export class ApiDataCollectionService {
     this.dcListSource = new ReplaySubject<SearchHits<DataCollection>>(1);
     this.apiTimeoutService.handleTimeout<SearchHits<DataCollection>>(
       this.apiErrorService.handleError(
-        this.http.post(`http://www.internationalgenome.org/api/beta/data-collection/_search`, query)
+        this.http.post(`/api/beta/data-collection/_search`, query)
       ).map((r:Response): SearchHits<DataCollection> => {
           let h: {hits: SearchHits<DataCollection>} = r.json() as {hits: SearchHits<DataCollection>};
           for (let dc of h.hits.hits) {

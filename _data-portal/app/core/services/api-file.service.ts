@@ -26,7 +26,7 @@ export class ApiFileService {
     };
     return this.apiTimeoutService.handleTimeout<SearchHits<File>>(
       this.apiErrorService.handleError(
-        this.http.post(`http://www.internationalgenome.org/api/beta/file/_search`, body)
+        this.http.post(`/api/beta/file/_search`, body)
       ).map((r:Response): SearchHits<File> => {
         let h: {hits: SearchHits<File>} = r.json() as {hits: SearchHits<File>};
         return h.hits;
@@ -46,7 +46,7 @@ export class ApiFileService {
     };
     let form = document.createElement('form');
 
-    form.action= `http://www.internationalgenome.org/api/beta/file/_search/${filename}.tsv`;
+    form.action= `/api/beta/file/_search/${filename}.tsv`;
     form.method='POST';
     form.target="_self";
     let input = document.createElement("textarea");
@@ -65,9 +65,7 @@ export class ApiFileService {
     }
     let body = {
       size: hitsPerPage,
-      fields: [
-        'url'
-      ],
+      _source: [ 'url' ],
       query: {
         multi_match: {
           query: text,
@@ -85,8 +83,7 @@ export class ApiFileService {
     }
     return this.apiTimeoutService.handleTimeout<SearchHits<File>>(
       this.apiErrorService.handleError(
-        this.http.post(`http://www.internationalgenome.org/api/beta/sample/_search`, body)
-        //this.http.post(`http://ves-hx-e3:9200/igsr_beta_build3/file/_search`, body)
+        this.http.post(`/api/beta/file/_search`, body)
       ).map((r:Response): SearchHits<File> => {
         let h: {hits: SearchHits<File>} = r.json() as {hits: SearchHits<File>};
         return h.hits;

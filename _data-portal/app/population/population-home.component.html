@@ -1,0 +1,29 @@
+<h1>Populations</h1>
+<div class="form form-inline">
+<button class="btn btn-default" (click)="agFilterVisible = !agFilterVisible; dcFilterVisible = false;">Filter by analysis group <span class="caret"></span></button>
+<button class="btn btn-default" (click)="dcFilterVisible = !dcFilterVisible; agFilterVisible = false;">Filter by data collection <span class="caret"></span></button>
+<button class="btn btn-default" (click)="toggleView()">Toggle table view</button>
+<button class="btn btn-default" (click)="searchExport()">Download the list</button>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <analysis-group-filter [(visible)]="agFilterVisible" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></analysis-group-filter>
+    <data-collection-filter [(visible)]="dcFilterVisible" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></data-collection-filter>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1" *ngIf="agFiltersArr.length || dcFiltersArr.length">
+    <h3 class="current-filters">Filters:</h3>
+    <button *ngFor="let key of dcFiltersArr" class="btn btn-warning" (click)="dcFilters[key] = false; onDcFiltersChange(dcFilters)">{{key | i18nSelect: dcTitleMap}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    <button *ngFor="let key of agFiltersArr" class="btn btn-info" (click)="agFilters[key] = false; onAgFiltersChange(agFilters)">{{key | i18nSelect: agTitleMap}} <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  </div>
+</div>
+
+<div class="table-container">
+<h4 *ngIf="populationHits?.total == 0">No populations match all filters</h4>
+<population-data-collection-table *ngIf="viewOption == 1" [populationHits]="populationHits" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></population-data-collection-table>
+<population-analysis-group-table *ngIf="viewOption == 2" [populationHits]="populationHits" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></population-analysis-group-table>
+</div>
