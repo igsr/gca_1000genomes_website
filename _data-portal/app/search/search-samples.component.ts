@@ -14,8 +14,9 @@ let searchSamplesStyles: string = `
     max-height: 200px;
     overflow-y: auto;
   }
-  .list-group-item {
+  a.list-group-item {
     padding: 5px 15px;
+    color: #337ab7;
   }
 `;
 

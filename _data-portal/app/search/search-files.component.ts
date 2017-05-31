@@ -14,9 +14,10 @@ let searchFilesStyles: string = `
     max-height: 200px;
     overflow: auto;
   }
-  .list-group-item {
+  a.list-group-item {
     padding: 5px 15px;
     white-space: nowrap;
+    color: #337ab7;
   }
 `;
 
