@@ -12,7 +12,7 @@ import { ApiFileService } from '../../core/services/api-file.service';
 
 let dataCollectionFilesStyles: string = `
 
-/deep/ table {
+div.table-container {
   border-top: 2px solid #ddd;
 }
 

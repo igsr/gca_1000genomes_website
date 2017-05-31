@@ -43,11 +43,13 @@
   </div></div>
 
   <div class="col-md-8 col-lg-9">
-    <ng-container *ngIf="offset > 0 || hasMore()">
+    <div *ngIf="offset > 0 || hasMore()" class="clearfix">
       <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
       <button class="btn btn-default page-button pull-right" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>
-    </ng-container>
-    <ng-content></ng-content>
+    </div>
+    <div class="table-container">
+      <ng-content></ng-content>
+    </div>
   </div>
 
 </div>
