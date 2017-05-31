@@ -63,9 +63,7 @@ export class ApiDataCollectionService {
     }
     let body = {
       size: hitsPerPage,
-      fields: [
-        'title'
-      ],
+      _source: [ 'title' ],
       query: {
         multi_match: {
           query: text,
