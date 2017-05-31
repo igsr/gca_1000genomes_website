@@ -12,7 +12,7 @@
   <tbody>
     <tr *ngFor="let hit of apiHits?.hits">
       <td class="text-center"><a [routerLink]="['/population', hit._source.code]">{{hit._source.code}}</a></td>
-      <td class="text-center">{{hit._source.code}}</td>
+      <td class="text-center">{{hit._source.description}}</td>
     </tr>
   </tbody>
 </table>
