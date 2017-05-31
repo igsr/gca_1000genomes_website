@@ -6,7 +6,7 @@ import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 
-import { ApiSampleService } from '../core/services/api-sample.service';
+import { ApiSampleService } from '../core/services/api-sample.servicexxx';
 import { SearchHits } from '../shared/api-types/search-hits';
 import { File } from '../shared/api-types/file';
 import { Sample } from '../shared/api-types/sample';
