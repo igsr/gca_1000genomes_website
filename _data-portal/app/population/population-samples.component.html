@@ -1,4 +1,4 @@
-<div class="panel panel-default" *ngIf="population">
+<div class="panel panel-default" *ngIf="totalHits > -1">
   <div class="panel-heading"><h3 class="panel-title">{{totalHits}} samples</h3></div>
   <div class="panel-body">
     <button class="btn btn-default download-button" (click)="searchSamplesExport()">Download the list</button>
