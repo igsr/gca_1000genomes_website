@@ -38,5 +38,3 @@ Links to a selection of the software used by the projects are given below. Pleas
 
  * [IMPUTE2](http://genome.sph.umich.edu/wiki/IMPUTE2:_1000_Genomes_Imputation_Cookbook)
 
-
-<p class="test1"></p>
