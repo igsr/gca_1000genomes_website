@@ -3,6 +3,8 @@ layout: single_section
 title: "VCF (Variant Call Format) version 4.0"
 permalink: /wiki/Analysis/Variant Call Format/vcf-variant-call-format-version-40/
 ---
+***Please note that this page describes version 4.0 of the VCF specification. The VCF specification is now maintained by GA4GH. Details of the current version can be found with the [HTS specifications](http://samtools.github.io/hts-specs/).***
+
 
 Please see [VCF_4.0_sv](/wiki/Analysis/Variant%20Call%20Format/VCF%20%28Variant%20Call%20Format%29%20version%204.0/encoding-structural-variants "analysis:vcf_4.0_sv") for the conventions and extensions adopted by the 1000 Genomes Project for encoding structural variations in VCF 4.0 format.
 
