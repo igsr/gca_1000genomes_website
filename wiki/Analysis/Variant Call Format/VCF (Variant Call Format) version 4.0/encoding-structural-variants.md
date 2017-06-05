@@ -5,6 +5,8 @@ permalink: /wiki/Analysis/Variant Call Format/VCF (Variant Call Format) version 
 ---
 
 ## {{page.title}}
+
+***Please note that this page describes version 4.0 of the VCF specification. The VCF specification is now maintained by HTSlib. Details of the current version can be found with the [HTS specifications](http://samtools.github.io/hts-specs/).***
     
 ### 1\. Introduction
 {: #introduction}
