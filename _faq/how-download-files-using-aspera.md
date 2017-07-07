@@ -22,11 +22,11 @@ Our aspera browser interace no longer works. If you wish to download files using
 
 For the command line tool ascp, for versions 3.3.3 and newer, you need to use a command line like:
 
-         ascp -i bin/aspera/etc/asperaweb_id_dsa.openssh -Tr -Q -l 100M -L- fasp-g1k@fasp.1000genomes.ebi.ac.uk:vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz ./
+         ascp -i bin/aspera/etc/asperaweb_id_dsa.openssh -Tr -Q -l 100M -P33001 -L- fasp-g1k@fasp.1000genomes.ebi.ac.uk:vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz ./
 
 For versions 3.3.2 and older, you need to use a command line like:
 
-         ascp -i bin/aspera/etc/asperaweb_id_dsa.putty -Tr -Q -l 100M -L- fasp-g1k@fasp.1000genomes.ebi.ac.uk:vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz ./
+         ascp -i bin/aspera/etc/asperaweb_id_dsa.putty -Tr -Q -l 100M -P33001 -L- fasp-g1k@fasp.1000genomes.ebi.ac.uk:vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz ./
 
 Note, the only change between these commands is that for newer versions of ascp asperaweb_id_dsa.openssh replaces asperaweb_id_dsa.putty. This change is noted by Aspera [here](https://support.asperasoft.com/entries/38675468-Command-line-ascp-transfer-asking-for-a-passphrase-after-Connect-plugin-upgrade). You can check the version of ascp you have using:
 
@@ -38,6 +38,7 @@ For the above commands to work with your network's firewall you need to open por
 
 - 193.62.192.6
 - 193.62.193.6
+- 193.62.193.135
 
 If the firewall has UDP flood protection, it must be turned off for port 33001.
 
