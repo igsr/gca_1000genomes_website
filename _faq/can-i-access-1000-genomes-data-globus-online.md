@@ -12,7 +12,7 @@ faq_related:
                     
 The 1000 Genomes FTP site is available as an end point in the [Globus Online system](https://www.globus.org/).  In order to access the data you need to sign up for an account with Globus via their [signup page](https://www.globus.org/SignUp). You must also install the [Globus Connect Personal software](https://support.globus.org/entries/24044351) and setup a personal endpoint to download the data too.
 
-The 1000 Genomes end point is one of several EMBL-EBI hosted end points and is called ebi#public and the data is found in the 1000G sub directory.
+The 1000 Genomes end point is one of several EMBL-EBI hosted end points and is called ebi#1000genomes
 
 ![screen_shot](/sites/1000genomes.org/files/documents/screen_shot_2015-11-27_at_27-11-20151_.34.10_0.png)
 
