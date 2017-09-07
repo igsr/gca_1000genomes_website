@@ -21,4 +21,4 @@ The 1000 Genomes Project has used several different alignment algorithms during 
 |Main|454|ssaha (first set)|
 |Main|454|[smalt](http://www.sanger.ac.uk/resources/software/smalt/) (final set)|
 
-The full process is described in the [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data)
+The full process is described in the [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md)
