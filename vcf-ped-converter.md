@@ -13,9 +13,9 @@ The [VCF to PED converter](http://grch37.ensembl.org/Homo_sapiens/Tools/VcftoPed
 
 ### Online version
 
-You can access the online version of the [converter tool](http://grch37.ensembl.org/Homo_sapiens/Tools/Summary) from the tools link in the menu bar at the top of every page.
+You can access the online version of the [converter tool](http://grch37.ensembl.org/Homo_sapiens/Tools/Summary) from the tools link in the menu bar at the top of every page in the [Ensembl GRCh37 browser](http://grch37.ensembl.org/).
 
-The input interface of the online version looks like
+The input interface of the online version looks like:
 
 ![vcf to ped converter input interface](/sites/1000genomes.org/files/resize/images/vcf_to_ped_input.png "vcf to ped converter input")
 
