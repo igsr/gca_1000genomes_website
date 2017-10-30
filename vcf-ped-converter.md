@@ -25,7 +25,7 @@ Populations can be selected from the drop down list. To select multiple populati
 
 After clicking "Run" the system produces your final files:
 
-![vcf to ped converter output files interface](/sites/1000genomes.org/files/resize/images/vcf_to_ped_converter_output.png "vcf to ped converter output")
+![vcf to ped converter output files interface](/sites/1000genomes.org/files/resize/images/vcf_to_ped_output.png "vcf to ped converter output")
 
 The marker information file and linkage pedigree file can be downloaded by clicking the links. In the linkage pedigree file the columns for father's ID, mother's ID, sex and affection status are all set to zero, signifying 'unknown'.
 
