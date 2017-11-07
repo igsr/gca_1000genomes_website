@@ -14,7 +14,7 @@ The input interface of the online version looks like:
 
 ![AF input field](allele_frequency_input.png "AF input")
 
-The tool allows you to pick which phase of the 1000 Genomes Project you want to get data from. If you have a publicly visible VCF file, corresponding tabix index (.tbi) and  corresponding sample-population mapping file in the same folder, you could get data from these by selecting "Provide file URLs".
+The tool allows you to pick which phase of the 1000 Genomes Project you want to get data from. If you have a publicly visible VCF file, a corresponding tabix index (.tbi) and a corresponding sample-population mapping file in the same folder, you could get data from these by selecting "Provide file URLs".
 
 The calculator must be given a genomic interval to define which sites are to have their frequencies calculated.  For the web-based tool we recommend an interval shorter than 5 Mb to ensure the tool returns in a reasonable time frame.
 
