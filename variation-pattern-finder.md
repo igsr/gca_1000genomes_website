@@ -30,23 +30,13 @@ The input interface of the online version looks like:
 
 The tool allows you to pick which phase of the 1000 Genomes Project you want to get data from. If you have a publicly visible VCF file, corresponding tabix index (.tbi) and a corresponding sample-population mapping file in the same folder, you could get data from these by selecting "Provide file URLs".
 
-The pattern finder must be given a genomic interval to search within. For the web-based tool we recommend an interval shorter than 5 Mb to ensure the tool returns in a reasonable time frame.
-
-## Finder Interface
-
-The [interface for the Finder]({{site.browser_url}}/Homo_sapiens/UserData/VariationsMapVCF) can be navigated to either from the [tools]({{site.browser_url}}/tools.html) link which should be in the top right hand corner of each page below the logo or on any view page via the "Manage your data" link in the left hand menu.
-
-When you read the pattern finders interface you will be presented with a form in which to enter your data. The form itself has 3 input boxes
-
-*   VCF File URL: This should be the http or ftp url for the location of the vcf file. The vcf file needs to have a tabix index in the same location. By default, the finder uses the most up-to-date 1000 genomes project data release as variation VCF input.
-*   Sample Population Mapping URL: This again should be a http or ftp url to the location of the sample mapping file. This file should be in the text format as described above. By default, the finder uses the sample-population mapping associated with the latest data release as input.
-*   Region: This should be the genomic location you wish to view. This works best with regions of less than 500bp as the number of variation patterns is more manageable.
+The pattern finder must be given a genomic interval to search within. This works best with regions of less than 500bp as the number of variation patterns is more manageable.
 
 ## Output Format
 
-The Finder offers a collapsed view and an expanded view. The collapsed view does not distinguish sites of homozygous reference with those with no data, therefore the number of distinctive combinations of variations is minimized; it offers a simplified and clear variation landscape in the region. The expanded view treats homozygous reference sites and no genotype data sites differently; allows one to see the data with more accuracy. The two views have the same layout as explained below.
+The Finder offers a collapsed view and an expanded view. The collapsed view does not distinguish sites of homozygous reference with those with no data, therefore the number of distinctive combinations of variations is minimised; it offers a simplified and clear variation landscape in the region. The expanded view treats homozygous reference sites and no genotype data sites differently; allows one to see the data with more accuracy. The two views have the same layout as explained below.
 
-The picture shows a snapshot of a result page. The right shows the functional variations found in the region with individual genotypes; the variations are sorted by chromosomal coordinate and the functional consequences of them are annotated in the headers. The right panel shows individual samples carrying each combination of variations, organized by population. The panels can be scrolled to view more data. The results can be exported in either csv or Excel format. Sections annotated by <span style="color: #ff0000;">red</span> numbers are described in greater details below.
+The picture shows a snapshot of a result page. The right shows the functional variations found in the region with individual genotypes; the variations are sorted by chromosomal coordinate and the functional consequences of them are annotated in the headers. The right panel shows individual samples carrying each combination of variations, organised by population. The panels can be scrolled to view more data. The results can be exported in either csv or Excel format. Sections annotated by <span style="color: #ff0000;">red</span> numbers are described in greater details below.
 
 ![screen shot of variation pattern finder output](/sites/1000genomes.org/files/resize/documents/vpf_shot-730x351.jpg "variation pattern finder output")
 
