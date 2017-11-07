@@ -20,7 +20,7 @@ You can select filtering by either individuals or populations. Select one to get
 
 ![data slicer filters](/sites/1000genomes.org/files/resize/documents/data_slicer_filter.png "data slicer filter")
 
-If you select BAM files, yu must provide a publicly visible URL for your BAM file which must be accompanied by BAM index (.bai) of the same name. Please note that this service will only work for other BAM files over http.
+If you select BAM files, you must provide a publicly visible URL for your BAM file which must be accompanied by BAM index (.bai) of the same name. Please note that this service will only work for other BAM files over http.
 
 ![data slicer bam](/sites/1000genomes.org/files/resize/documents/data_slicer_bam.png "data slicer bam")
 
