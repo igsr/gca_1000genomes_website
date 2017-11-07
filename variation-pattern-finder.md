@@ -16,27 +16,23 @@ This is documentation about our [Variation Pattern Finder]({{site.browser_url}}/
 [Additional Info](#additional-info)  
 [API Script](#api-script)
 
-### About
+## About
 
-The variation data discovered by the 1000 genomes project are organized in VCF files. The Variation Pattern Finder allows one to look for patterns of shared variation between individuals in the same vcf file. To be more specific, in any user-specified chromosomal regions, different samples would have different combination of variations. The finder looks for distinct variation combinations within the region, as well as individuals associated with each variation combination pattern. The finder only focuses on variations that change protein coding sequences such as non-synonymous coding SNPs, splice site changes.
+The variation data discovered by the 1000 genomes project are organised in VCF files. The Variation Pattern Finder allows one to look for patterns of shared variation between individuals in the same vcf file. To be more specific, in any user-specified chromosomal regions, different samples would have different combination of variations. The finder looks for distinct variation combinations within the region, as well as individuals associated with each variation combination pattern. The finder only focuses on variations that change protein coding sequences such as non-synonymous coding SNPs, splice site changes.
 
-### Input Data Formats
+## Input
 
-The finder requires two input files to function.
+You can access the online version of the [variation pattern finder tool](http://grch37.ensembl.org/Homo_sapiens/Tools/VariationPattern?db=core) from the tools link in the menu bar at the top of every page in the [Ensembl GRCh37 browser](http://grch37.ensembl.org/).
 
-The first is a remotely accessible tabix indexed vcf file. The vcf format is a tab format for presenting variation sites and genotypes data and is described at [http://vcftools.sourceforge.net/specs.html](http://vcftools.sourceforge.net/specs.html). This tool takes both vcf4.0 and vcf4.1 format files.
+The input interface of the online version looks like:
 
-The second file, which must also be remotely accessible, described which samples belongs to which populations. Each 1000 genomes release should have such a file associated with it. This file allows to organize output samples by population.
+![VPF input field](variation_pattern_finder_input.png "VPF input")
 
-The format is:
+The tool allows you to pick which phase of the 1000 Genomes Project you want to get data from. If you have a publicly visible VCF file, corresponding tabix index (.tbi) and a corresponding sample-population mapping file in the same folder, you could get data from these by selecting "Provide file URLs".
 
-sample_name population_name
+The pattern finder must be given a genomic interval to search within. For the web-based tool we recommend an interval shorter than 5 Mb to ensure the tool returns in a reasonable time frame.
 
-These lines should be tab separated.
-
-An example can be found on the 1000 genomes ftp site [20100804.ALL.panel](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/20100804.ALL.panel)
-
-### Finder Interface
+## Finder Interface
 
 The [interface for the Finder]({{site.browser_url}}/Homo_sapiens/UserData/VariationsMapVCF) can be navigated to either from the [tools]({{site.browser_url}}/tools.html) link which should be in the top right hand corner of each page below the logo or on any view page via the "Manage your data" link in the left hand menu.
 
@@ -46,7 +42,7 @@ When you read the pattern finders interface you will be presented with a form in
 *   Sample Population Mapping URL: This again should be a http or ftp url to the location of the sample mapping file. This file should be in the text format as described above. By default, the finder uses the sample-population mapping associated with the latest data release as input.
 *   Region: This should be the genomic location you wish to view. This works best with regions of less than 500bp as the number of variation patterns is more manageable.
 
-### Output Format
+## Output Format
 
 The Finder offers a collapsed view and an expanded view. The collapsed view does not distinguish sites of homozygous reference with those with no data, therefore the number of distinctive combinations of variations is minimized; it offers a simplified and clear variation landscape in the region. The expanded view treats homozygous reference sites and no genotype data sites differently; allows one to see the data with more accuracy. The two views have the same layout as explained below.
 
@@ -66,14 +62,14 @@ The picture shows a snapshot of a result page. The right shows the functional va
 6.  Export: results can be saved as Excel or CSV files.
 
 
-### Using the Variation Pattern Finder with other data
+## Using the Variation Pattern Finder with other data
 
 The Variation Pattern Finder will work with any publicly visible remove (over http or ftp) vcf file which also has a tabix index. For more information about creating tabix indexes please look at [Tabix: fast retrieval of sequence features from generic TAB-delimited files](http://bioinformatics.oxfordjournals.org/content/27/5/718.short?rss=1) for more information about creating these indexes.
 
-### Additional Info
+## Additional Info
 
 In addition to use the Finder to mine the VCF file, you may look into a VCF file directly. Rather than download the entire VCF file for the whole genome, you may slice out the piece of VCF file that contains data in a user-specified chromosomal region using another tool called Data Slicer. Data Slicer can also slice BAM files. Please see more instruction [here](/wiki/DCC/data-slicer-documentation).
 
-### API Script
+## API Script
 
 You can also find a perl script version of this tool [on the ftp site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/variation_pattern_finder/version_1.0/) and documentation [here](/variation-pattern-finder-api-documentation)
