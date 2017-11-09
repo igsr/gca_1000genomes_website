@@ -28,7 +28,7 @@ After clicking "Run" the system produces your final file.
 
 ![data slicer output](/sites/1000genomes.org/files/resize/documents/data_slicer_output.png "data slicer output")
 
-This presents a link to your file slice which should contain both the location you requested and the name of the original in its name. If you right click on this link and select save target you will be able to download this file. You also get a summary of the first few lines of the file in the window so you can check it has produced something close to expectation.
+This presents a link to download your file slice which should contain both the location you requested and the name of the original in its name. You also get a summary of the first few lines of the file in the window so you can check it has produced something close to expectation.
 
 There is also [documentation for our Variation Pattern finder](/variation-pattern-finder) which looks at shared patterns of variation between individuals from VCF files.
 
