@@ -6,15 +6,7 @@ permalink: /variation-pattern-finder/
 
 # Variation Pattern Finder
 
-This is documentation about our [Variation Pattern Finder]({{site.browser_url}}/Homo_sapiens/UserData/VariationsMapVCF) tool
-
-[About](#bout)  
-[Input Data Formats](input-data-formats)  
-[Finder Interface](#finder-interface)  
-[Output Formats](#output-format)  
-[Using the tool with other data](#own-data)  
-[Additional Info](#additional-info)  
-[API Script](#api-script)
+This is documentation about our [Variation Pattern Finder](http://grch37.ensembl.org/Homo_sapiens/Tools/VariationPattern?db=core) tool
 
 ## About
 
