@@ -15,7 +15,7 @@ There are 26 different populations which are part of our study from many differe
 
 | Population Code | Population Description | Super Population Code | Sequence Data Available | Alignment Data Available | Variant Data Available |
 |:-:|:-:|:-:|:-:|:-:|:-:|
-| CHB | Han Chinese in Bejing, China | EAS | 1 | 1 | 1 | 
+| CHB | Han Chinese in Beijing, China | EAS | 1 | 1 | 1 | 
 | JPT | Japanese in Tokyo, Japan | EAS | 1 | 1 | 1 |
 | CHS | Southern Han Chinese | EAS | 1 | 1 | 1 |
 | CDX | Chinese Dai in Xishuangbanna, China | EAS | 1 | 1 | 1 |
