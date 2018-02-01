@@ -53,7 +53,7 @@ During the 1000 Genomes Project, different mapping algorithms were used for data
 
 
  - MAQ: [http://maq.sourceforge.net/](http://maq.sourceforge.net/)  
- - Corona Lite: [http://solidsoftwaretools.com/gf/project/corona/](http://solidsoftwaretools.com/gf/project/corona/)  
+ - Corona Lite: (no longer available as of 2018)  
  - MOSAIK: [http://code.google.com/p/mosaik-aligner/](http://code.google.com/p/mosaik-aligner/)
  - BWA: [http://bio-bwa.sourceforge.net/](http://bio-bwa.sourceforge.net/)
  - bfast: [http://sourceforge.net/projects/bfast/](http://sourceforge.net/projects/bfast/)
