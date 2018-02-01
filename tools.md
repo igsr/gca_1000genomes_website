@@ -20,7 +20,7 @@ Links to a selection of the software used by the projects are given below. Pleas
 *   MAQ: [[Pubmed](http://www.ncbi.nlm.nih.gov/pubmed/18714091)] [[Homepage/Source Code](http://maq.sourceforge.net/)]
 *   MOSAIK [[Homepage/Source code](http://bioinformatics.bc.edu/marthlab/Mosaik)]
 *   SSAHA2 [[Pubmed](http://www.ncbi.nlm.nih.gov/pubmed/11591649)] [[Homepage/Source code](http://www.sanger.ac.uk/resources/software/ssaha/)]
-*   Corona lite [[Homepage/Source code](http://solidsoftwaretools.com/gf/project/corona/)]
+*   Corona lite (no longer available as of 2018)
 *   cross_match [[Homepage/Source code](http://www.phrap.org/phredphrapconsed.html)]
 *   BWA: [[Pubmed](http://www.ncbi.nlm.nih.gov/pubmed/20080505)] [[Homepage/Source Code](http://bio-bwa.sourceforge.net/)]
 *   BFAST: [[Pubmed](http://www.ncbi.nlm.nih.gov/pubmed/19907642)] [[Homepage/Source Code](http://sourceforge.net/apps/mediawiki/bfast/index.php?title=Main_Page)]
