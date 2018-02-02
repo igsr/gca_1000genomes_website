@@ -13,7 +13,7 @@
           </ng-container>
           <ng-container *ngIf="sample.biosampleId">
             <dt>Biosample ID:</dt>
-            <dd><a [href]="'http://www.ebi.ac.uk/biosamples/sample/' + sample.biosampleId" target="_blank">{{sample.biosampleId}}</a></dd>
+            <dd><a [href]="'http://www.ebi.ac.uk/biosamples/samples/' + sample.biosampleId" target="_blank">{{sample.biosampleId}}</a></dd>
           </ng-container>
             <dt>Search Coriell:</dt>
             <dd><a [href]="'https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=' + sample.name + '&Product=CC'" target="_blank">{{sample.name}} <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></dd>
