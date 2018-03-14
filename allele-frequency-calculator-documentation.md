@@ -4,29 +4,23 @@ title: "The Allele Frequency Calculator"
 permalink: /allele-frequency-calculator-documentation/
 ---
 
-# The Allele Frequency Calculator
+# The Allele Frequency Calculator 
 
-The allele frequency calculator is hosted on our browser site using the link [{{site.browser_url}}/Homo_sapiens/UserData/Allele]({{site.browser_url}}/Homo_sapiens/UserData/Allele)  
+VCF files of variant sites and genotypes, released by the 1000 Genomes Project, are usually annotated with allele frequencies (AF) at the global and continental super population levels. If you also want the AF of certain variants for the specific populations of interest, AF Calculator provides an interface to generate AF for variants in a given genomic interval for a given population. If no specific population is specified, the tool will calculate and output AF for every population in the input files.
 
-VCF files of variant sites and genotypes, released by the 1000 Genomes Project, are usually annotated with allele frequencies (AF) at the global and continental super population levels.  Many users also want the AF of certain variants for the specific populations of interest.  The AF Calculator provides an interface to generate AF for variants in a given genomic interval for a given population. If no specific population is specified, the tool will calculate and output AF for every population in the input files.
+You can access the online version of the [allele frequency tool](http://grch37.ensembl.org/Homo_sapiens/Tools/AlleleFrequency?db=core) from the tools link in the menu bar at the top of every page in the [Ensembl GRCh37 browser](http://grch37.ensembl.org/).
 
-#### Input Files:
+The input interface of the online version looks like:
 
-The AF Calculator takes a VCF file containing individual genotypes and a sample to population mapping file as input files.  Both these files are released by the 1000 Genomes Project as part of their standard released on the project FTP site.  The tool will also work with external files independent from the project, provided they are publicly visible. Local files can be used as input to the API Perl script of the Calculator.
+![AF input field](allele_frequency_input.png "AF input")
 
-The VCF file format specifications can be found at [the hts-specs website](http://samtools.github.io/hts-specs/).
+The tool allows you to pick which phase of the 1000 Genomes Project you want to get data from. If you have a publicly visible VCF file, a corresponding tabix index (.tbi) and a corresponding sample-population mapping file in the same folder, you could get data from these by selecting "Provide file URLs".
 
-The VCF files must be indexed by tabix. All vcf files found on the 1000 Genomes FTP site are indexed using this method. The tabix software is available from [the SAMtools sourceforge project](http://sourceforge.net/projects/samtools/files/tabix/).
+The calculator must be given a genomic interval to define which sites are to have their frequencies calculated.  For the web-based tool we recommend an interval shorter than 5 Mb to ensure the tool returns in a reasonable time frame.
 
-The sample to population mapping file is a tab-delimitated file; the first column is sample id; the second column is population. Additional columns will be ignored. An example can be found at the project ftp site in the phase1 integrated variant calls directory:
+You can select filtering by populations. To select multiple populations or individuals please hold the ctrl key (on windows/linux) or the cmd key (macs).
 
-[ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/integrated_call_samples.20101123.ALL.panel](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/integrated_call_samples.20101123.ALL.panel)
-
-The calculator must be given a genomic interval to define which sites are to have their frequencies calculated.  For the web-based tool we recommend an interval shorter than 5 Mbases to ensure the tool returns in a reasonable time frame.
-
-After you click the “Next” button, you may choose a population from a dropdown menu. If you choose “ALL” as population, the AF will be calculated for every population in the VCF file.
-
-#### Output:
+## Output:
 
 The output of the calculator can be previewed on the web page and an output file can be downloaded.
 

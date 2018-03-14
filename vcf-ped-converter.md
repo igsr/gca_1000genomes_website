@@ -6,36 +6,28 @@ permalink: /vcf-ped-converter/
 
 ## VCF to PED Converter
 
-The [VCF to PED converter]({{site.browser_url}}/Homo_sapiens/UserData/Haploview) allows users to parse a vcf file ([specification](http://vcftools.sourceforge.net/specs.html)) to create a linkage pedigree file (ped) and a marker information file, which together may be loaded into ld visualization tools like [Haploview](http://www.broadinstitute.org/scientific-community/science/programs/medical-and-population-genetics/haploview/haploview). There is both an online version of this tool and a perl script
+The [VCF to PED converter](http://grch37.ensembl.org/Homo_sapiens/Tools/VcftoPed) allows you to parse a vcf file ([specification](http://vcftools.sourceforge.net/specs.html)) to create a linkage pedigree file (ped) and a marker information file, which together may be loaded into ld visualization tools like [Haploview](http://www.broadinstitute.org/scientific-community/science/programs/medical-and-population-genetics/haploview/haploview). There is both an online version of this tool and a perl script
 
 [Online Version](#online-version)  
 [API Script](#api-script)
 
 ### Online version
 
-You can access the online version of the [converter tool]({{site.browser_url}}/tools.html) from either the tools link in the menu bar at the top of every page or from the manage your data link which is on the left hand menu of many pages in the browser.
+You can access the online version of the [converter tool](http://grch37.ensembl.org/Homo_sapiens/Tools/Summary) from the tools link in the menu bar at the top of every page in the [Ensembl GRCh37 browser](http://grch37.ensembl.org/).
 
-The input interface of the online version looks like
+The input interface of the online version looks like:
 
-![vcf to ped converter input interface](/sites/1000genomes.org/files/resize/images/vcf_to_ped_converter_snapshot-730x233.png "vcf to ped converter input")
+![vcf to ped converter input interface](/sites/1000genomes.org/files/resize/images/vcf_to_ped_input.png "vcf to ped converter input")
 
-You must provide a publicly visible url for your vcf file which must be accompanied by a tabix index (tbi) of the same name. All 1000 genomes vcf files on the ftp site have these indexes with them.
-
-You must also provide a publicly visible url for the corresponding sample-population mapping file, e.g. [interim_phase1.20101123.ALL.panel](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20101123/interim_phase1_release/interim_phase1.20101123.ALL.panel). This file lists all individuals (first column) and their population (second column), separated by whitespace.
-
-Clicking on Next takes you to the next interface to filter by population
-
-![vcf to ped converter filter by population interface](/sites/1000genomes.org/files/resize/images/vcf_to_ped_converter_snapshot_2-730x180.png "vcf to ped converter filter")
+The tool allows you to pick which phase of the 1000 Genomes Project you want to get data from. If you have a publicly visible VCF file and corresponding sample-population mapping file, you could get data from these by selecting "Provide file URLs".
 
 Populations can be selected from the drop down list. To select multiple populations please hold the ctrl key (on windows/linux) or the cmd key (macs).
 
-After clicking next the system produces your final files
+After clicking "Run" the system produces your final files:
 
-![vcf to ped converter output files interface](/sites/1000genomes.org/files/resize/images/vcf_to_ped_converter_3-730x42.png "vcf to ped converter output")
+![vcf to ped converter output files interface](/sites/1000genomes.org/files/resize/images/vcf_to_ped_output.png "vcf to ped converter output")
 
-The marker information file and linkage pedigree file can be downloaded by right clicking the links and selecting save target.
-
-In the linkage pedigree file the columns for father's ID, mother's ID, sex and affection status are all set to zero, signifying 'unknown'.
+The marker information file and linkage pedigree file can be downloaded by clicking the links. In the linkage pedigree file the columns for father's ID, mother's ID, sex and affection status are all set to zero, signifying 'unknown'.
 
 ### API script
 
