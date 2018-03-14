@@ -1,6 +1,6 @@
 ---
 title: "Aspera update"
-pinned: true
+pinned: false
 ---
 
 Our Aspera service is being updated. As part of this work, the service is being moved to new hardware and the configuration is being updated. 
