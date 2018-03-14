@@ -14,10 +14,6 @@ faq_related:
 
 Aspera provides a fast method of downloading data. To use the Aspera service you need to download the [Aspera connect](http://asperasoft.com/software/transfer-clients/connect-web-browser-plug-in/) software. This provides a bulk download client called ascp.
 
-###Browser
-
-Our aspera browser interace no longer works. If you wish to download files using a web interface we recommend using the [Globus interface we present](/faq/can-i-access-1000-genomes-data-globus-online/). If you are previously relied on the aspera web interface and wish to discuss the matter please email us at [info@1000genomes.org](mailto:info@1000genomes.org) to discuss your options. 
-
 ###Command line
 
 For the command line tool ascp, for versions 3.3.3 and newer, you need to use a command line like:
@@ -34,6 +30,21 @@ Note, the only change between these commands is that for newer versions of ascp 
 
 The argument to -i may also be different depending on the location of the default key file. The command should not ask you for a password. All the IGSR data is accessible without a password but you do need to give ascp the ssh key to complete the command.
 
+###Files on the ENA FTP
+
+Some of the data we provide URLs for is hosted on the ENA FTP site. [ENA provide information on using Aspera with their FTP site](https://www.ebi.ac.uk/ena/browse/read-download).
+
+As an example of downloading a file from ENA, you could use a command line like:
+
+    ascp -i bin/aspera/etc/asperaweb_id_dsa.openssh -Tr -Q -l 100M -P33001 -L- 
+    era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/ERR008/ERR008901/ERR008901_1.fastq.gz ./
+
+###Key files
+
+If you are unsure of the location of asperaweb_id_dsa.openssh or asperaweb_id_dsa.putty, Aspera provide some [documentation](https://support.asperasoft.com/hc/en-us/articles/216125898-Downloading-data-from-NCBI-via-the-command-line) on where these will be found on different systems.
+
+###Ports
+
 For the above commands to work with your network's firewall you need to open ports 22/tcp (outgoing) and 33001/udp (both incoming and outgoing) to the following EBI IPs:
 
 - 193.62.192.6
@@ -41,6 +52,10 @@ For the above commands to work with your network's firewall you need to open por
 - 193.62.193.135
 
 If the firewall has UDP flood protection, it must be turned off for port 33001.
+
+###Browser
+
+Our aspera browser interace no longer works. If you wish to download files using a web interface we recommend using the [Globus interface we present](/faq/can-i-access-1000-genomes-data-globus-online/). If you are previously relied on the aspera web interface and wish to discuss the matter please email us at [info@1000genomes.org](mailto:info@1000genomes.org) to discuss your options. 
 
 ###Further details
 
