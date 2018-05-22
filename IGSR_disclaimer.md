@@ -8,6 +8,7 @@ tags: IGSR disclaimer
 #International Genome Sample Resource (IGSR) Disclaimer, Privacy and Cookies
 
 ##Disclaimer
+
 IGSR is part of [EMBL](http://www.embl.org) - [European Bioinformatics Institute (EBI)](http://www.ebi.ac.uk) and the [“Terms of Use for EMBL-EBI Services”]( https://www.ebi.ac.uk/about/terms-of-use) apply to online services, data and software provided by IGSR. The following information specific to IGSR should be read in addition to the Terms of Use for EMBL-EBI Services. 
 
 In relation to the “Data Services” section of the “Terms of Use for EMBL-EBI Services”, users should be aware that data made available by IGSR comes from many different owners and that consequently restrictions on different pieces of data within IGSR and rights claimed on pieces of data vary. These variations can occur both between and within subsets of data in IGSR. In addition, restrictions and claimed rights may vary over time.
@@ -21,6 +22,7 @@ Data from the Human Genome Structural Variation Consortium (HGSVC) continues the
 For any enquiries, including the terms of use of data and citation, please contact info@1000genomes.org.
 
 ##Privacy and Cookies
+
 As noted above, IGSR is part of [EMBL](http://www.embl.org) - [European Bioinformatics Institute (EBI)](http://www.ebi.ac.uk) and EMBL-EBI's [policies]( https://www.ebi.ac.uk/about/terms-of-use) apply.
 
 We collect information related to our legitimate interests in providing services to you, to help improve our resources and for the purposes of day to day running of the IGSR resources and underlying infrastructure. Information collected may remain stored beyond the life of the service. We retain personal information for as short a time as possible but may retain this to comply with internal and external audits.
