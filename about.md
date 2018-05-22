@@ -94,4 +94,3 @@ The 1000 Genomes samples have proved a popular resource for molecular phenotypin
 The IGSR recognises that the current 1000 Genomes Project samples do not reflect all populations. An important aim for IGSR is to expand the populations represented in the collection and ensure the available public data represents the maximum possible population diversity. This will ensure the 1000 Genomes dataset remains a valuable open resource for the community over the next five years. The IGSR will work with the groups who were unable to contribute samples to the 1000 Genomes Project before it finished sample collection and investigate collaborations with other groups to ensure the population diversity gaps are filled. You can find more details about this on our [sample collection principles page](/sample_collection_principles).
 
 Questions about any of the above can be sent to [info@1000genomes.org](mailto:info@1000genomes.org).
-
