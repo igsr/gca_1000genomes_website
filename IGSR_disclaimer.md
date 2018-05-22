@@ -23,7 +23,7 @@ For any enquiries, including the terms of use of data and citation, please conta
 
 ##Privacy and Cookies
 
-As noted above, IGSR is part of [EMBL](http://www.embl.org) - [European Bioinformatics Institute (EBI)](http://www.ebi.ac.uk) and EMBL-EBI's [policies]( https://www.ebi.ac.uk/about/terms-of-use) apply.
+As noted above, IGSR is part of [EMBL](http://www.embl.org) - [European Bioinformatics Institute (EBI)](http://www.ebi.ac.uk) and EMBL-EBI's [policies](http://www.ebi.ac.uk/Information/privacy) apply.
 
 We collect information related to our legitimate interests in providing services to you, to help improve our resources and for the purposes of day to day running of the IGSR resources and underlying infrastructure. Information collected may remain stored beyond the life of the service. 
 
