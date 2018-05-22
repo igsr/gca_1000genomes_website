@@ -29,7 +29,7 @@ We collect information related to our legitimate interests in providing services
 
 When browsing our website we collect information about your IP address, date/time of visit, page visited, browser type, data transferred and success of the request. This collection and processing is done by EMBL-EBI. We also use Google Analytics.
 
-IGSR uses Google Analytics as a third party tracking service, but we don’t use it to track you individually or collect personal data. Instead it collects information about website performance and how users navigate through and use our sites helping us design better interfaces.
+IGSR uses Google Analytics as a third party tracking service, but we don’t use it to track you individually or collect personal data. Instead it collects information about website performance and how users navigate through and use our site helping us design better interfaces.
 
 Google Analytics gathers certain simple, non-personally identifying information over time, such as your anonymised IP address, browser type, internet service provider, referring and exit pages, time stamp and similar information. We do not link this information to any of your personal data.
 
