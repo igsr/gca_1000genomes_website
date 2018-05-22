@@ -25,7 +25,7 @@ For any enquiries, including the terms of use of data and citation, please conta
 
 As noted above, IGSR is part of [EMBL](http://www.embl.org) - [European Bioinformatics Institute (EBI)](http://www.ebi.ac.uk) and EMBL-EBI's [policies]( https://www.ebi.ac.uk/about/terms-of-use) apply.
 
-We collect information related to our legitimate interests in providing services to you, to help improve our resources and for the purposes of day to day running of the IGSR resources and underlying infrastructure. Information collected may remain stored beyond the life of the service. We retain personal information for as short a time as possible but may retain this to comply with internal and external audits.
+We collect information related to our legitimate interests in providing services to you, to help improve our resources and for the purposes of day to day running of the IGSR resources and underlying infrastructure. Information collected may remain stored beyond the life of the service. 
 
 When browsing our website we collect information about your IP address, date/time of visit, page visited, browser type, data transferred and success of the request. This collection and processing is done by EMBL-EBI. We also use Google Analytics.
 
