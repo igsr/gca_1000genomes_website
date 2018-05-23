@@ -41,5 +41,6 @@ Further details are available in the [Privacy Notice](https://www.ebi.ac.uk/data
 
 There is also a [Privacy Notice for our FTP site](https://www.ebi.ac.uk/data-protection/privacy-notice/igsr-ftp) and a [Privacy Notice for our helpdesk at info@1000genomes.org](https://www.ebi.ac.uk/data-protection/privacy-notice/igsr-helpdesk-rt), which are specific to those services.
 
+Privacy Notices are effective from 25th May 2018.
 
-This document was added on 11th January 2016 and updated on 24th May 2018.
+This document was added on 11th January 2016 and updated on 23rd May 2018.
