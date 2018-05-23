@@ -25,7 +25,7 @@ Pre-publication RNA-sequencing data from the Geuvadis project is available throu
 
 **Expression arrays on about 800 HapMap 3 individuals with a lot of overlap with 1000g data <sup>[1,2]</sup>**
 
-[http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-198](http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-264)  
+[http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-198](http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-198)  
 [http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-264](http://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-264)
 
 **RNAseq for 69 YRI individuals <sup>[3]</sup>**
