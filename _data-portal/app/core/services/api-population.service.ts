@@ -31,6 +31,7 @@ export class ApiPopulationService {
     return this.popListSource.asObservable();
   }
 
+
   search(hitsPerPage: number, from: number, query: any): Observable<SearchHits<Population>>{
     let body = {
       from: from,
@@ -43,7 +44,7 @@ export class ApiPopulationService {
     }
     return this.apiTimeoutService.handleTimeout<SearchHits<Population>>(
       this.apiErrorService.handleError(
-        this.http.post(`/api/beta/population/_search`, body)
+        this.http.post(`/api/v2/population/_search`, body)
       ).map((r:Response): SearchHits<Population> => {
         let h: {hits: SearchHits<Population>} = r.json() as {hits: SearchHits<Population>};
         return h.hits;
@@ -54,7 +55,7 @@ export class ApiPopulationService {
   get(code: string): Observable<Population>{
    return this.apiTimeoutService.handleTimeout<Population>(
       this.apiErrorService.handleError(
-        this.http.get(`/api/beta/population/${code}`)
+        this.http.get(`/api/v2/population/${code}`)
       ).map((r: Response) => {
         let s = r.json() as {_source: Population};
         return s._source;
@@ -65,10 +66,10 @@ export class ApiPopulationService {
   searchExport(query: any, filename: string){
     let body = {
       fields: [
-        'code', 'name', 'description', 'superpopulation.code', 'superpopulation.name', 'samples.count', 'dataCollections.title',
+        'code', 'name', 'description', 'latitude', 'longitude', 'superpopulation.code', 'superpopulation.name', 'superpopulation.display_colour', 'superpopulation.display_order', 'samples.count', 'dataCollections.title',
       ],
       column_names: [
-        'Population code', 'Population name', 'Population description', 'Superpopulation code', 'Superpopulation name', 'Number of samples', 'Data collections',
+        'Population code', 'Population name', 'Population description', 'Population latitude', 'Population longitude', 'Superpopulation code', 'Superpopulation name', 'Superpopulation display colour', 'Superpopulation display order', 'Number of samples', 'Data collections',
       ],
     };
     if (query) {
@@ -76,7 +77,7 @@ export class ApiPopulationService {
     }
     let form = document.createElement('form');
 
-    form.action= `/api/beta/population/_search/${filename}.tsv`;
+    form.action= `/api/v2/population/_search/${filename}.tsv`;
     form.method='POST';
     form.target="_self";
     let input = document.createElement("textarea");
@@ -124,7 +125,7 @@ export class ApiPopulationService {
     this.popListSource = new ReplaySubject<SearchHits<Population>>(1);
     this.apiTimeoutService.handleTimeout<SearchHits<Population>>(
       this.apiErrorService.handleError(
-        this.http.post(`/api/beta/population/_search`, query)
+        this.http.post(`/api/v2/population/_search`, query)
       ).map((r:Response): SearchHits<Population> => {
           let h: {hits: SearchHits<Population>} = r.json() as {hits: SearchHits<Population>};
           return h.hits;

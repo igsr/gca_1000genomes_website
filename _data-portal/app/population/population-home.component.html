@@ -1,9 +1,16 @@
 <h1>Populations</h1>
+
 <div class="form form-inline">
-<button class="btn btn-default" (click)="agFilterVisible = !agFilterVisible; dcFilterVisible = false;">Filter by analysis group <span class="caret"></span></button>
+<button class="btn btn-default" (click)="mapView()"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Map view</button>
+<button class="btn btn-default" (click)="dataCollectionView()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Data collection view</button>
+<button class="btn btn-default" (click)="technologyView()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Technology view</button>
+</div>
+<br>
+<div class="form form-inline">
+<button class="btn btn-default" (click)="agFilterVisible = !agFilterVisible; dcFilterVisible = false;">Filter by technology <span class="caret"></span></button>
 <button class="btn btn-default" (click)="dcFilterVisible = !dcFilterVisible; agFilterVisible = false;">Filter by data collection <span class="caret"></span></button>
-<button class="btn btn-default" (click)="toggleView()">Toggle table view</button>
-<button class="btn btn-default" (click)="searchExport()">Download the list</button>
+<button class="btn btn-default" (click)="searchExport()"><span class="glyphicon glyphicon-download" aria-hidden="true"></span> Download the list</button>
+<button class="btn btn-default" *ngIf="viewOption == 0" (click)="mapKeyVisible = !mapKeyVisible;"><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#ffd845"></span><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#778500"></span><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#018ead"></span> Map colour key</button>
 </div>
 
 <div class="row">
@@ -12,7 +19,6 @@
     <data-collection-filter [(visible)]="dcFilterVisible" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></data-collection-filter>
   </div>
 </div>
-
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1" *ngIf="agFiltersArr.length || dcFiltersArr.length">
@@ -23,7 +29,11 @@
 </div>
 
 <div class="table-container">
+<br>
 <h4 *ngIf="populationHits?.total == 0">No populations match all filters</h4>
+<population-map-key *ngIf="viewOption == 0" [(visible)]="mapKeyVisible"></population-map-key>
+<population-map *ngIf="viewOption == 0" [populationHits]="populationHits"></population-map>
 <population-data-collection-table *ngIf="viewOption == 1" [populationHits]="populationHits" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></population-data-collection-table>
 <population-analysis-group-table *ngIf="viewOption == 2" [populationHits]="populationHits" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></population-analysis-group-table>
 </div>
+

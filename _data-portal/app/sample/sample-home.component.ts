@@ -129,8 +129,12 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  toggleView() {
-    this.viewOption = this.viewOption == 1 ? 2 : 1;
+  dataCollectionView() {
+    this.viewOption = 1;
+  }
+
+  technologyView() {
+    this.viewOption = 2;
   }
 
   onPopFiltersChange(popFilters: {[code: string]: boolean}) {

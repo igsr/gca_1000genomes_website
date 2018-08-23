@@ -1,10 +1,14 @@
 <h1>Samples</h1>
 <div class="form form-inline">
+<button class="btn btn-default" (click)="dataCollectionView()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Data collection view</button>
+<button class="btn btn-default" (click)="technologyView()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Technology view</button>
+</div>
+<br>
+<div class="form form-inline">
 <button class="btn btn-default" (click)="popFilterVisible = !popFilterVisible; agFilterVisible = false; dcFilterVisible = false;">Filter by population <span class="caret"></span></button>
 <button class="btn btn-default" (click)="agFilterVisible = !agFilterVisible; popFilterVisible = false; dcFilterVisible = false;">Filter by analysis group <span class="caret"></span></button>
 <button class="btn btn-default" (click)="dcFilterVisible = !dcFilterVisible; popFilterVisible = false; agFilterVisible = false;">Filter by data collection <span class="caret"></span></button>
-<button class="btn btn-default" (click)="toggleView()">Toggle table view</button>
-<button class="btn btn-default" (click)="searchExport()">Download the list</button>
+<button class="btn btn-default" (click)="searchExport()"><span class="glyphicon glyphicon-download" aria-hidden="true"></span> Download the list</button>
 </div>
 
 <div class="row">

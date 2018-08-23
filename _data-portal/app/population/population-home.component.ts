@@ -63,7 +63,7 @@ export class PopulationHomeComponent implements OnInit, OnDestroy {
   }
 
   public populationHits: SearchHits<Population>;
-  public viewOption: number = 1;
+  public viewOption: number = 0;
 
   public agFilterVisible: boolean = false;
   public agFilters: {[code: string]: boolean} = {};
@@ -74,6 +74,8 @@ export class PopulationHomeComponent implements OnInit, OnDestroy {
   public dcFilters: {[code: string]: boolean} = {};
   public dcFiltersArr: string[] = [];
   readonly dcTitleMap: {[key: string]: string};
+
+	public mapKeyVisible: boolean = false;
   
   private populationHitsSource: Subject<Observable<SearchHits<Population>>>;
   private populationHitsSubscription: Subscription = null;
@@ -93,9 +95,17 @@ export class PopulationHomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  toggleView() {
-    this.viewOption = this.viewOption == 1 ? 2 : 1;
-  }
+	mapView() {
+		this.viewOption = 0;
+	}
+
+	dataCollectionView() {
+		this.viewOption = 1;
+	}
+
+	technologyView() {
+		this.viewOption = 2;
+	}
 
   onAgFiltersChange(agFilters: {[code: string]: boolean}) {
     this.agFiltersArr = [];
