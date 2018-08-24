@@ -23,9 +23,8 @@ let popMapKeyStyles: string = `
 })
 export class PopulationMapKeyComponent implements OnInit, OnDestroy {
   @Input() visible: boolean;
-  //@Input() filters: {[code: string]: boolean};
   @Output() visibleChange = new EventEmitter<boolean>();
-  //@Output() filtersChange = new EventEmitter<{[code: string]: boolean}>();
+
 
 
   constructor(
