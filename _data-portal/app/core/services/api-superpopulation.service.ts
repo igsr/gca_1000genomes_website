@@ -43,7 +43,7 @@ export class ApiSuperPopulationService {
     this.spListSource = new ReplaySubject<SearchHits<SuperPopulation>>(1);
     this.apiTimeoutService.handleTimeout<SearchHits<SuperPopulation>>(
       this.apiErrorService.handleError(
-        this.http.post(`/api/v2/superpopulation/_search`, query)
+        this.http.post(`/api/beta/superpopulation/_search`, query)
       ).map((r:Response): SearchHits<SuperPopulation> => {
           let h: {hits: SearchHits<SuperPopulation>} = r.json() as {hits: SearchHits<SuperPopulation>};
           for (let sp of h.hits.hits) {

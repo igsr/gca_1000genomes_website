@@ -44,7 +44,7 @@ export class ApiPopulationService {
     }
     return this.apiTimeoutService.handleTimeout<SearchHits<Population>>(
       this.apiErrorService.handleError(
-        this.http.post(`/api/v2/population/_search`, body)
+        this.http.post(`/api/beta/population/_search`, body)
       ).map((r:Response): SearchHits<Population> => {
         let h: {hits: SearchHits<Population>} = r.json() as {hits: SearchHits<Population>};
         return h.hits;
@@ -55,7 +55,7 @@ export class ApiPopulationService {
   get(code: string): Observable<Population>{
    return this.apiTimeoutService.handleTimeout<Population>(
       this.apiErrorService.handleError(
-        this.http.get(`/api/v2/population/${code}`)
+        this.http.get(`/api/beta/population/${code}`)
       ).map((r: Response) => {
         let s = r.json() as {_source: Population};
         return s._source;
@@ -77,7 +77,7 @@ export class ApiPopulationService {
     }
     let form = document.createElement('form');
 
-    form.action= `/api/v2/population/_search/${filename}.tsv`;
+    form.action= `/api/beta/population/_search/${filename}.tsv`;
     form.method='POST';
     form.target="_self";
     let input = document.createElement("textarea");
@@ -125,7 +125,7 @@ export class ApiPopulationService {
     this.popListSource = new ReplaySubject<SearchHits<Population>>(1);
     this.apiTimeoutService.handleTimeout<SearchHits<Population>>(
       this.apiErrorService.handleError(
-        this.http.post(`/api/v2/population/_search`, query)
+        this.http.post(`/api/beta/population/_search`, query)
       ).map((r:Response): SearchHits<Population> => {
           let h: {hits: SearchHits<Population>} = r.json() as {hits: SearchHits<Population>};
           return h.hits;

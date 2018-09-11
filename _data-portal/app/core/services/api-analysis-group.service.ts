@@ -43,7 +43,7 @@ export class ApiAnalysisGroupService {
     this.agListSource = new ReplaySubject<SearchHits<AnalysisGroup>>(1);
     this.apiTimeoutService.handleTimeout<SearchHits<AnalysisGroup>>(
       this.apiErrorService.handleError(
-        this.http.post(`/api/v2/analysis-group/_search`, query)
+        this.http.post(`/api/beta/analysis-group/_search`, query)
       ).map((r:Response): SearchHits<AnalysisGroup> => {
           let h: {hits: SearchHits<AnalysisGroup>} = r.json() as {hits: SearchHits<AnalysisGroup>};
           for (let ag of h.hits.hits) {

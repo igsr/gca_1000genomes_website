@@ -77,7 +77,7 @@ export class ApiDataCollectionService {
     }
     return this.apiTimeoutService.handleTimeout<SearchHits<DataCollection>>(
       this.apiErrorService.handleError(
-        this.http.post(`/api/v2/data-collection/_search`, body)
+        this.http.post(`/api/beta/data-collection/_search`, body)
       ).map((r:Response): SearchHits<DataCollection> => {
         let h: {hits: SearchHits<DataCollection>} = r.json() as {hits: SearchHits<DataCollection>};
         return h.hits;
@@ -95,7 +95,7 @@ export class ApiDataCollectionService {
     this.dcListSource = new ReplaySubject<SearchHits<DataCollection>>(1);
     this.apiTimeoutService.handleTimeout<SearchHits<DataCollection>>(
       this.apiErrorService.handleError(
-        this.http.post(`/api/v2/data-collection/_search`, query)
+        this.http.post(`/api/beta/data-collection/_search`, query)
       ).map((r:Response): SearchHits<DataCollection> => {
           let h: {hits: SearchHits<DataCollection>} = r.json() as {hits: SearchHits<DataCollection>};
           for (let dc of h.hits.hits) {
