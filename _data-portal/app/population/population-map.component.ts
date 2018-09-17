@@ -87,6 +87,5 @@ export class PopulationMapComponent implements OnInit, OnChanges{
     }
     this.map.addLayer(this.markers);
 	}
-
 };
 
