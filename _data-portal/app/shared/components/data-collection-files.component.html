@@ -32,7 +32,7 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 table-group">
       <div class="panel panel-default">
-        <div class="panel-heading">Analysis groups</div>
+        <div class="panel-heading">Technologies</div>
         <div class="panel-body">
           <div class="checkbox" *ngFor="let ag of filterAnalysisGroups" [ngClass]="{disabled: ag.isDisabled}">
             <label><input type="checkbox" [ngModel]="ag.isFiltered" (ngModelChange)="toggleFilterAnalysisGroup(ag, $event)" [disabled]="ag.isDisabled">{{ag.title}}</label>
