@@ -62,6 +62,7 @@ export class PopulationMapComponent implements OnInit, OnChanges{
 		this.markers = new L.markerClusterGroup({
         maxClusterRadius: this.radius
     });
+		this.plotPopulationHits();
 	}
 
 	ngOnChanges(changes: {[propKey: string]: SimpleChange}){
@@ -78,14 +79,16 @@ export class PopulationMapComponent implements OnInit, OnChanges{
 
 	plotPopulationHits(){
 
-    for(let hit of this.populationHits.hits){
-			let displayColour = hit._source.superpopulation.display_colour;
-			let icon = L.MakiMarkers.icon({icon: "circle-stroked", color: displayColour, size: "s"});
-      let lat = Number(hit._source.latitude);
-      let lon = Number(hit._source.longitude);
-      this.markers.addLayer(new L.marker([lat, lon], {icon: icon}).bindPopup("<a href=\"/data-portal/population/"+hit._source.code+"\">"+hit._source.description+"</a><br>"+hit._source.superpopulation.name));
-    }
-    this.map.addLayer(this.markers);
+		if(this.populationHits != null){
+    	for(let hit of this.populationHits.hits){
+				let displayColour = hit._source.superpopulation.display_colour;
+				let icon = L.MakiMarkers.icon({icon: "circle-stroked", color: displayColour, size: "s"});
+      	let lat = Number(hit._source.latitude);
+      	let lon = Number(hit._source.longitude);
+      	this.markers.addLayer(new L.marker([lat, lon], {icon: icon}).bindPopup("<a href=\"/data-portal/population/"+hit._source.code+"\">"+hit._source.description+"</a><br>"+hit._source.superpopulation.name));
+    	}
+    	this.map.addLayer(this.markers);
+		}
 	}
 };
 
