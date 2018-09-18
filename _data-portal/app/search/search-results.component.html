@@ -1,5 +1,5 @@
 <h2 *ngIf="query">Search results: {{query}}</h2>
-<h2 *ngIf="!query">Search the IGSR website&#8230;</h2>
+<h2 *ngIf="!query">Search IGSR for data sets and information&#8230;</h2>
 
 <div class="row">
 
@@ -25,7 +25,14 @@
   </div>
 </div>
 
+<div>
+<h3 *ngIf="!query">Want to search variation data by <b>gene</b>, <b>chromosomal location</b>, <b>rsID</b> or <b>associations</b>? <a href="http://www.ensembl.org/Homo_sapiens/Search/New?db=core">Search at Ensembl</a>.</h3>
+</div>
+
 <search-files [query]="query"></search-files>
 
 <search-sitemap [query]="query"></search-sitemap>
 
+<div>
+<h3 *ngIf="query">Not what you are looking for? <a href="http://www.ensembl.org/Human/Search/Results?q={{query}};facet_feature_type=;site=ensembl;facet_species=Human">Try your search at Ensembl</a>. Variation data can be accessed by gene, chromosomal location, rsID or association, with 1000 Genomes and other data sets available.</h3>
+</div>
