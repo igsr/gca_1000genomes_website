@@ -1,6 +1,6 @@
 ---
 title: "Variant calls from 1000 Genomes Project data calling against GRCh38"
-pinned: true
+pinned: false
 ---
 
 An integrated and phased biallelic SNV call set, generated from alignments of the 1000 Genomes phase three low coverage and exome sequence data, is available on our FTP site. These calls were called directly against GRCh38. This data set combines call sets generated using GATK, FreeBayes and BCFtools, with subsequent imputation and phasing carried out using Beagle and SHAPEIT2. A recent [poster describing the methods used in generating this data is available](https://f1000research.com/posters/7-1445) and a data note is in preparation. We are also in the process of submitting the data to EVA/dbSNP.
