@@ -10,4 +10,3 @@ The files include: per chromosome files with genotypes for all samples, a genome
 Data files are available at: [http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20181203_biallelic_SNV/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20181203_biallelic_SNV/)
 
 We will work toward releasing a pre-print of the data note as soon as possible but, in the meantime, please contact info@1000genomes.org with any questions.
-
