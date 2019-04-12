@@ -11,25 +11,45 @@
             <dt>Sex:</dt>
             <dd class="capitalize">{{sample.sex}}</dd>
           </ng-container>
+					<ng-container *ngIf="sample.populations">
+						<dt>Populations:</dt>
+    				<ng-container *ngFor="let pop of sample.populations">
+      				<dd><a [routerLink]="['/population', pop.elasticId]">{{pop.description}}</a>, {{pop.superpopulationName}}</dd>
+    				</ng-container>
+					</ng-container>
           <ng-container *ngIf="sample.biosampleId">
             <dt>Biosample ID:</dt>
             <dd><a [href]="'http://www.ebi.ac.uk/biosamples/samples/' + sample.biosampleId" target="_blank">{{sample.biosampleId}}</a></dd>
           </ng-container>
-            <dt>Search Coriell:</dt>
-            <dd><a [href]="'https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=' + sample.name + '&Product=CC'" target="_blank">{{sample.name}} <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></dd>
+					<ng-container *ngIf="sample.synonyms">
+						<dt>Synonyms:</dt>
+						<ng-container *ngFor="let synonym of sample.synonyms">
+							<dd>{{synonym}}</dd>
+						</ng-container>
+					</ng-container>
+					<ng-container *ngFor="let source of sample.source">
+						<dt>Cell line source:</dt>
+						<ng-container *ngIf="source.name == 'Coriell'">
+            	<dd><a [href]="'https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=' + sample.name + '&Product=CC'" target="_blank">{{sample.name}} at {{source.name}} <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a></dd>
+						</ng-container>
+						<ng-container *ngIf="source.name == 'CEPH'">
+							<dd><a [href]="'http://www.cephb.fr/en/index.php'" target="_blank">{{sample.name}} at {{source.name}}</a></dd>
+						</ng-container>
+					</ng-container>
         </dl>
       </div>
     </div>
   </div>
 
-  <ng-container *ngIf="sample.population?.code">
+<!--
+	<ng-container *ngIf="sample.population?.code">
   <div class="col-md-6 clearfix">
     <div class="panel panel-default">
       <div class="panel-heading"><h3 class="panel-title">{{sample.population.code}} population</h3></div>
       <div class="panel-body">
         <dl class="dl-horizontal">
           <dt>Population:</dt>
-          <dd><a [routerLink]="['/population', sample.population.code]">{{sample.population.name}}</a></dd>
+          <dd><a [routerLink]="['/population', sample.populations.elasticID]">{{sample.population.description}}</a></dd>
           <dt>Code:</dt>
           <dd>{{sample.population.code}}</dd>
           <dt>Description:</dt>
@@ -45,6 +65,7 @@
     </div>
   </div>
   </ng-container>
+-->
 
   <ng-container *ngIf="sample.relatedSample && sample.relatedSample.length">
   <div class="col-md-6">

@@ -1,14 +1,16 @@
 <table class="table table-striped table-condensed">
 <thead><tr>
   <th>Population</th>
-  <th>Description</th>
+	<th>Samples</th>
+  <!--<th>Description</th>-->
   <ng-container *ngFor="let ag of analysisGroupList?.hits">
     <th *ngIf="ag._source.displayOrder" class="matrix-dot"><div><div (click)="changeFilter(ag._source.title)">{{ag._source.shortTitle}}</div></div></th>
   </ng-container>
 </tr></thead>
 <tbody><tr *ngFor="let hit of populationHits?.hits">
-  <td><a *ngIf="hit._source.code" [routerLink]="[hit._source.code]">{{hit._source.code}}</a></td>
-  <td>{{ hit._source.description }}</td>
+  <td><a *ngIf="hit._source.description" [routerLink]="[hit._source.elasticId]">{{hit._source.description}}</a></td>
+  <!--<td>{{ hit._source.description }}</td>-->
+	<td>{{hit._source.samples?.count}}</td>
   <ng-container *ngFor="let ag of analysisGroupList?.hits">
     <td *ngIf="ag._source.displayOrder">
       <div class="matrix-dot" *ngIf="hasAnalysisGroup(hit, ag._source)" [popover]="ag._source.title" [popoverTitle]="hit._source.name" popoverPlacement="auto top" [popoverOnHover]="true">&#x25cf;</div>

@@ -8,6 +8,7 @@ import 'rxjs/add/operator/switchMap';
 import { ApiSampleService } from '../core/services/api-sample.service';
 import { ApiAnalysisGroupService } from '../core/services/api-analysis-group.service';
 import { ApiDataCollectionService } from '../core/services/api-data-collection.service';
+import { ApiPopulationService } from '../core/services/api-population.service';
 import { SearchHits } from '../shared/api-types/search-hits';
 import { Sample } from '../shared/api-types/sample';
 
@@ -57,9 +58,11 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     private apiSampleService: ApiSampleService,
     apiAnalysisGroupService: ApiAnalysisGroupService,
     apiDataCollectionService: ApiDataCollectionService,
+		apiPopulationService: ApiPopulationService,
   ) { 
     this.agTitleMap = apiAnalysisGroupService.titleMap;
     this.dcTitleMap = apiDataCollectionService.titleMap;
+		this.popElasticIdDescriptionMap = apiPopulationService.elasticIdDescriptionMap;
   }
 
   public sampleHits: SearchHits<Sample>;
@@ -72,6 +75,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public popFilterVisible: boolean = false;
   public popFilters: {[code: string]: boolean} = {};
   public popFiltersArr: string[] = [];
+	readonly popElasticIdDescriptionMap: {[key: string]: string};
 
   public agFilterVisible: boolean = false;
   public agFilters: {[code: string]: boolean} = {};
@@ -183,7 +187,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   private buildQuery() {
     let mustArray: any[] = [];
     if (this.popFiltersArr.length > 0) {
-      mustArray.push({terms: {'population.code': this.popFiltersArr}});
+      mustArray.push({terms: {'populations.elasticId': this.popFiltersArr}});
     }
     for (let ag of this.agFiltersArr) {
       mustArray.push({term: {'dataCollections._analysisGroups': ag}});

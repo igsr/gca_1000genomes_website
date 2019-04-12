@@ -2,14 +2,18 @@
 <thead><tr>
   <th>Sample</th>
   <th>Sex</th>
-  <th>Population</th>
+  <th>Populations</th>
   <th *ngFor="let dc of dataCollectionList?.hits" class="matrix-dot"><div><div (click)="changeFilter(dc._source.title)">{{dc._source.shortTitle}}</div></div></th>
 </tr></thead>
 <tbody><tr *ngFor="let hit of sampleHits?.hits">
   <td><a *ngIf="hit._source.name" [routerLink]="[hit._source.name]">{{hit._source.name}}</a></td>
   <td class="capitalize">{{ hit._source.sex }}</td>
-  <td><a *ngIf="hit._source.population?.code" [routerLink]="['/population', hit._source.population.code]"
-     [popover]="hit._source.population.name" popoverPlacement="auto top" [popoverOnHover]="true">{{hit._source.population.code }}</a></td>
+  <td>
+		<ng-container *ngFor="let pop of hit._source.populations">
+			<a *ngIf="pop.elasticId" [routerLink]="['/population', pop.elasticId]"
+     [popover]="pop.name" popoverPlacement="auto top" [popoverOnHover]="true">{{pop.description }}</a><br/>
+		</ng-container>
+	</td>
   <td *ngFor="let dc of dataCollectionList?.hits">
     <div class="matrix-dot" *ngIf="hasDataCollection(hit._source, dc._source)" [popover]="dc._source.title" [popoverTitle]="hit._source.name" popoverPlacement="auto top" [popoverOnHover]="true">&#x25cf;</div>
   </td>

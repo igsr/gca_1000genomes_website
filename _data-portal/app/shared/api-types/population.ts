@@ -4,7 +4,9 @@ export class Population {
   constructor(
     readonly name: string,
     readonly code: string,
+		readonly elasticId: string,
     readonly description: string,
+		readonly display_order: number,
     readonly latitude: string,
     readonly longitude: string,
     readonly superpopulation: {

@@ -101,7 +101,7 @@ export class PopulationSamplesComponent implements OnChanges, OnDestroy {
     if (!this.population) {
       return;
     }
-    this.apiSampleService.searchPopulationSamplesExport(this.population.code);
+    this.apiSampleService.searchPopulationSamplesExport(this.population.elasticId);
   }
 
   private searchSamples() {
@@ -110,7 +110,7 @@ export class PopulationSamplesComponent implements OnChanges, OnDestroy {
       return;
     }
 
-    this.sampleHitsSource.next(this.apiSampleService.searchPopulationSamples(this.population.code, this.offset, this.hitsPerPage));
+    this.sampleHitsSource.next(this.apiSampleService.searchPopulationSamples(this.population.elasticId, this.offset, this.hitsPerPage));
   }
 
 

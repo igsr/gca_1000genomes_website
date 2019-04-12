@@ -85,7 +85,7 @@ export class PopulationMapComponent implements OnInit, OnChanges{
 				let icon = L.MakiMarkers.icon({icon: "circle-stroked", color: displayColour, size: "s"});
       	let lat = Number(hit._source.latitude);
       	let lon = Number(hit._source.longitude);
-      	this.markers.addLayer(new L.marker([lat, lon], {icon: icon}).bindPopup("<a href=\"/data-portal/population/"+hit._source.code+"\">"+hit._source.description+"</a><br>"+hit._source.superpopulation.name));
+      	this.markers.addLayer(new L.marker([lat, lon], {icon: icon}).bindPopup("<a href=\"/data-portal/population/"+hit._source.elasticId+"\">"+hit._source.description+"</a><br>"+hit._source.superpopulation.name));
     	}
     	this.map.addLayer(this.markers);
 		}

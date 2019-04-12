@@ -54,10 +54,10 @@ export class ApiSampleService {
   searchExport(query: any, filename: string){
     let body = {
       fields: [
-        'name', 'sex', 'biosampleId', 'population.code', 'population.name', 'superpopulation.code', 'superpopulation.name', 'dataCollections.title',
+        'name', 'sex', 'biosampleId', 'populations.code', 'populations.name', 'populations.superpopulationCode', 'populations.superpopulationName', 'populations.elasticId', 'dataCollections.title',
       ],
       column_names: [
-        'Sample name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Data collections',
+        'Sample name', 'Sex', 'Biosample ID', 'Population code', 'Population name', 'Superpopulation code', 'Superpopulation name', 'Population elastic ID', 'Data collections',
       ],
     };
     if (query) {
@@ -106,7 +106,7 @@ export class ApiSampleService {
     let query = {
       constant_score: {
         filter: {
-          term: { 'population.code': popCode }
+          term: { 'populations.elasticId': popCode }
         }
       }
     }
@@ -118,7 +118,7 @@ export class ApiSampleService {
     let query = {
       constant_score: {
         filter: {
-          term: { 'population.code': popCode }
+          term: { 'populations.elasticId': popCode }
         }
       }
     }
@@ -136,11 +136,12 @@ export class ApiSampleService {
           'bioSampleID.std',
           'dataCollections.title.std',
           'name.std',
-          'population.code.std',
-          'population.description.std',
-          'population.name.std',
-          'superpopulation.code.std',
-          'superpopulation.name.std',
+          'populations.code.std',
+          'populations.description.std',
+          'populations.name.std',
+          'populations.superpopulationCode.std',
+          'populations.superpopulationName.std',
+					'populations.elasticId.std',
         ],
       }
     }

@@ -11,7 +11,7 @@ let popFilterStyles: string = `
     margin-bottom: 10px;
   }
   div.checkbox {
-    width: 80px;
+    width: 50%;
     display: inline-block;
     margin: 2px 0;
   }

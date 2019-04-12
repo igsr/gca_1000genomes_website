@@ -22,6 +22,9 @@ export class ApiPopulationService {
   // private properties:
   private popListSource: ReplaySubject<SearchHits<Population>>;
 
+	//public properties
+	readonly elasticIdDescriptionMap: {[key: string]: string} = {};
+
   // public methods
 
   getAll(): Observable<SearchHits<Population>>{
@@ -66,10 +69,10 @@ export class ApiPopulationService {
   searchExport(query: any, filename: string){
     let body = {
       fields: [
-        'code', 'name', 'description', 'latitude', 'longitude', 'superpopulation.code', 'superpopulation.name', 'superpopulation.display_colour', 'superpopulation.display_order', 'samples.count', 'dataCollections.title',
+        'code', 'elasticId', 'name', 'description', 'latitude', 'longitude', 'superpopulation.code', 'superpopulation.name', 'superpopulation.display_colour', 'superpopulation.display_order', 'samples.count', 'dataCollections.title',
       ],
       column_names: [
-        'Population code', 'Population name', 'Population description', 'Population latitude', 'Population longitude', 'Superpopulation code', 'Superpopulation name', 'Superpopulation display colour', 'Superpopulation display order', 'Number of samples', 'Data collections',
+        'Population code', 'Population elastic ID', 'Population name', 'Population description', 'Population latitude', 'Population longitude', 'Superpopulation code', 'Superpopulation name', 'Superpopulation display colour', 'Superpopulation display order', 'Number of samples', 'Data collections',
       ],
     };
     if (query) {
@@ -119,8 +122,8 @@ export class ApiPopulationService {
   private setPopListSource() {
     let query = {
       size: -1,
-      sort: ['code'],
-      _source: ['code', 'name'],
+      sort: ['display_order'],
+      _source: ['elasticId', 'description', 'display_order', 'superpopulation.name'],
     };
     this.popListSource = new ReplaySubject<SearchHits<Population>>(1);
     this.apiTimeoutService.handleTimeout<SearchHits<Population>>(
@@ -128,6 +131,11 @@ export class ApiPopulationService {
         this.http.post(`/api/beta/population/_search`, query)
       ).map((r:Response): SearchHits<Population> => {
           let h: {hits: SearchHits<Population>} = r.json() as {hits: SearchHits<Population>};
+					for (let pop of h.hits.hits) {
+						if(pop._source.elasticId && pop._source.description) {
+							this .elasticIdDescriptionMap[pop._source.elasticId] = pop._source.description;
+						}
+					}
           return h.hits;
       })
     ).subscribe((h: SearchHits<Population>) => this.popListSource.next(h));
@@ -143,6 +151,7 @@ export class ApiPopulationService {
         fields: [
           'name.std',
           'code.std',
+					'elasticId.std',
           'description.std',
           'dataCollections.title.std',
           'superpopulation.code.std',

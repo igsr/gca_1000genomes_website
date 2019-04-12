@@ -5,11 +5,12 @@ export class Sample {
     readonly name: string,
     readonly sex: string,
     readonly biosampleId: string,
-    readonly population: {
+    readonly populations: {
       name: string,
       description: string,
       code: string,
-    },
+			elasticId: string,
+    }[],
     readonly superpopulation: {
       name: string,
       code: string,

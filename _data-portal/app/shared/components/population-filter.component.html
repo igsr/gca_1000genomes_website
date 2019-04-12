@@ -8,9 +8,10 @@
   <div class="panel-body">
     <div class="form">
       <div class="checkbox" *ngFor="let pop of popHits?.hits">
-        <label *ngIf="pop._source.code" [popover]="pop._source.name" [popoverOnHover]="true" popoverPlacement="auto top">
-             <input type="checkbox" [ngModel]="filters[pop._source.code]" (ngModelChange)="changeFilter(pop._source.code, $event)">
-             {{pop._source.code}}
+        <label *ngIf="pop._source.elasticId" [popover]="pop._source.superpopulation.name" [popoverOnHover]="true" popoverPlacement="auto top">
+        <!--<label *ngIf="pop._source.elasticId">-->
+             <input type="checkbox" [ngModel]="filters[pop._source.elasticId]" (ngModelChange)="changeFilter(pop._source.elasticId, $event)">
+             {{pop._source.description}}
         </label>
       </div>
     </div>
