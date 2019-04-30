@@ -6,13 +6,13 @@
 
 <table class="table table-striped table-condensed table-hover">
   <thead><tr>
-    <th class="text-center">Population</th>
-    <th class="text-center">Description</th>
+    <th class="text-center">Populations</th>
+    <!--<th class="text-center">Description</th>-->
   </tr></thead>
   <tbody>
     <tr *ngFor="let hit of apiHits?.hits">
-      <td class="text-center"><a [routerLink]="['/population', hit._source.code]">{{hit._source.code}}</a></td>
-      <td class="text-center">{{hit._source.description}}</td>
+      <td class="text-center"><a [routerLink]="['/population', hit._source.elasticId]">{{hit._source.description}}</a></td>
+      <!--<td class="text-center">{{hit._source.code}}</td>-->
     </tr>
   </tbody>
 </table>

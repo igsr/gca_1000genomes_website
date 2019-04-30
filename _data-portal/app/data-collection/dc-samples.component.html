@@ -7,12 +7,12 @@
 <table class="table table-striped table-condensed table-hover">
   <thead><tr>
     <th class="text-center">Sample</th>
-    <th class="text-center">Population</th>
+<!--    <th class="text-center">Population</th>-->
   </tr></thead>
   <tbody>
     <tr *ngFor="let hit of apiHits?.hits">
       <td class="text-center"><a [routerLink]="['/sample', hit._source.name]">{{hit._source.name}}</a></td>
-      <td class="text-center">{{hit._source.population?.code}}</td>
+     <!-- <td class="text-center">{{hit._source.population?.code}}</td>-->
     </tr>
   </tbody>
 </table>
