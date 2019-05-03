@@ -15,7 +15,7 @@
       <!--<td><a *ngIf="dc._source.publication" [href]="dc._source.publication"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a></td>-->
 			<td>
 				<ng-container *ngFor="let pub of dc._source.publications">
-					<a *ngIf="pub.url" [href]="pub.url"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a>
+					<a *ngIf="pub.url" [href]="pub.url">{{pub.name}} <span class="glyphicon glyphicon-file" aria-hidden="true"></span></a>
 				</ng-container>
       <td><a *ngIf="dc._source.website" [href]="dc._source.website"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a></td>
     </tr>
