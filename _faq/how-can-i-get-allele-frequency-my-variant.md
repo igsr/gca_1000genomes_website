@@ -33,6 +33,6 @@ An example command set using files from our [phase 1 release](http://ftp.1000gen
         bgzip -c > CEU.chr13.phase1.vcf.gz
         </pre>
 
-Once you have this file you can calculate your frequency by dividing AN (allele number) by AC (allele count)
+Once you have this file you can calculate your frequency by dividing AC (allele count) by AN (allele number). 
 
 Please note that some early VCF files from the main project used LD information and other variables to help estimate the allele frequency. This means in these files the AF does not always equal AC/AN. In the phase 1 and phase 3 releases, AC/AN should always match the allele frequency quoted.
