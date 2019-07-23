@@ -44,8 +44,14 @@ export class PopulationMapComponent implements OnInit, OnChanges{
 		this.map = new L.map('map').setView([0, 0], 2);
 		this.map.options.minZoom = 2;
 		this.map.options.maxZoom = 6;
-		this.layer = new L.StamenTileLayer("toner-lite").addTo(this.map);
-
+		//this.layer = new L.StamenTileLayer("toner-lite").addTo(this.map);
+		this.layer = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}", {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data by &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+   subdomains: 'abcd',
+   minZoom: 0,
+   maxZoom: 20,
+   ext: 'png'
+}).addTo(this.map);
 
 		//prevent moving beyond world into grey space
 		let corner1 = new L.latLng(-90, -180);
