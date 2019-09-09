@@ -10,7 +10,7 @@ c-kwiatkowski). Please see the [WTSI data sharing policy](http://www.sanger.ac.u
 "The purpose of the project is to support the discovery and understanding of genetic variants that influence human disease. Specifically defined goals are (a) the discovery of single nucleotide variants at frequencies of 1% or higher in diverse populations (b) even more comprehensive discovery (variants down to frequencies of 0.1 - 0.5%) in functional gene regions and (c) discovery of structural variants, such as copy number variants, other insertions and deletions, and inversions, including sequence-level understanding of breakpoints."
 
 ###Data description
-The sequence data is 4x coverage of individuals from four Gambian populations.
+The sequence data is 9x coverage of individuals from four Gambian populations.
 
 The data is from the following European Nucleotide Archive (ENA) study IDs:
 
