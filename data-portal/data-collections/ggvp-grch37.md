@@ -23,3 +23,9 @@ Fula | GWF | 100 | 32 |   | 4 |[PRJEB3013](https://www.ebi.ac.uk/ena/data/view/P
 Jola | GWJ | 100 | 32 | 1 | 2 |[PRJEB3252](https://www.ebi.ac.uk/ena/data/view/PRJEB3252) | [ERP001781](https://www.ebi.ac.uk/ena/data/view/ERP001781)
 Mandinka | GWD | 100 | 33 |   | 1 |[PRJEB1682](https://www.ebi.ac.uk/ena/data/view/PRJEB1682) | [ERP002385](https://www.ebi.ac.uk/ena/data/view/ERP002385)
 Woloff | GWW | 100 | 33 | 1 | 2 |[PRJEB1323](https://www.ebi.ac.uk/ena/data/view/PRJEB1323) | [ERP002150](https://www.ebi.ac.uk/ena/data/view/ERP002150)
+
+<table>
+ <tr>
+  <th>Population</th> <th>Code</th> <th>Sequenced individuals</th> <th>Trios</th> <th>Duos</th> <th>Unrelateds</th> <th>ENA project accession</th> <th>ENA study accession</th>
+ </tr>
+ </table>
