@@ -1,3 +1,7 @@
+---
+layout: angularjs_partial
+---
+
 The Gambian Genome Variation Project is a collaboration of the MRC Unit in The Gambia
 (<http://www.mrc.gm>), the Wellcome Sanger Institute (<https://www.sanger.ac.uk>), the MRC Centre for
 Genomics and Global Health (<https://www.cggh.org/collaborations/mrc-unit-the-gambia>) at Oxford
