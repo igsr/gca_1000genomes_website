@@ -12,20 +12,4 @@ disease. Specifically defined goals were:
   * even more comprehensive discovery (variants down to frequencies of 0.1 - 0.5%) in functional gene regions, and
   * discovery of structural variants, such as copy number variants, other insertions and deletions, and inversions, including sequence-level understanding of breakpoints.
 
-## Included samples
-
-Samples were ascertained in family trios (father/mother/child). The following table reflects sample
-counts following a process of resolution of family relationships described below:
-
-Population | Code | Sequenced individuals | Trios | Duos | Unrelateds | ENA project accession | ENA study accession
-:--------: | :--: | --------------------: | ----: | ---: | ---------: | :-------------------: | :-----------------:
-Fula | GWF | 100 | 32 |   | 4 |[PRJEB3013](https://www.ebi.ac.uk/ena/data/view/PRJEB3013) | [ERP001420](https://www.ebi.ac.uk/ena/data/view/ERP001420)
-Jola | GWJ | 100 | 32 | 1 | 2 |[PRJEB3252](https://www.ebi.ac.uk/ena/data/view/PRJEB3252) | [ERP001781](https://www.ebi.ac.uk/ena/data/view/ERP001781)
-Mandinka | GWD | 100 | 33 |   | 1 |[PRJEB1682](https://www.ebi.ac.uk/ena/data/view/PRJEB1682) | [ERP002385](https://www.ebi.ac.uk/ena/data/view/ERP002385)
-Woloff | GWW | 100 | 33 | 1 | 2 |[PRJEB1323](https://www.ebi.ac.uk/ena/data/view/PRJEB1323) | [ERP002150](https://www.ebi.ac.uk/ena/data/view/ERP002150)
-
-<table>
- <tr>
-  <th>Population</th> <th>Code</th> <th>Sequenced individuals</th> <th>Trios</th> <th>Duos</th> <th>Unrelateds</th> <th>ENA project accession</th> <th>ENA study accession</th>
- </tr>
- </table>
+[Further details](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/gambian_genome_variation_project_GRCh37/README_ALL_GGVP-ENA_releasenote_20190710.html) are available along with additional metadata on our [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/gambian_genome_variation_project_GRCh37/). This data also forms part of the data set described in this [bioRxiv publication](https://www.biorxiv.org/content/10.1101/535898v2).
