@@ -17,9 +17,9 @@ disease. Specifically defined goals were:
 Samples were ascertained in family trios (father/mother/child). The following table reflects sample
 counts following a process of resolution of family relationships described below:
 
-Population | Acronym | No. sequenced individuals | No. trios | No. duos | No. unrelateds | ENA project accession                                      | ENA study accession
----------- | ------- | ----------------------- | ------- | ------ | ------------ | ----------------------- | ------------------
-      Fula | GWF  |    100 |                     32 |        |      4 |            [PRJEB3013](https://www.ebi.ac.uk/ena/data/view/PRJEB3013) | [ERP001420](https://www.ebi.ac.uk/ena/data/view/ERP001420)
-      Jola | GWJ  |    100 |                     32 |      1 |      2 |            [PRJEB3252](https://www.ebi.ac.uk/ena/data/view/PRJEB3252) | [ERP001781](https://www.ebi.ac.uk/ena/data/view/ERP001781)
-  Mandinka | GWD  |    100 |                     33 |        |      1 |            [PRJEB1682](https://www.ebi.ac.uk/ena/data/view/PRJEB1682) | [ERP002385](https://www.ebi.ac.uk/ena/data/view/ERP002385)
-    Woloff | GWW  |    100 |                     33 |      1 |      2 |            [PRJEB1323](https://www.ebi.ac.uk/ena/data/view/PRJEB1323) | [ERP002150](https://www.ebi.ac.uk/ena/data/view/ERP002150)
+Population | Code | Sequenced individuals | Trios | Duos | Unrelateds | ENA project accession | ENA study accession
+:--------: | :--: | --------------------: | ----: | ---: | ---------: | :-------------------: | :-----------------:
+Fula | GWF | 100 | 32 |   | 4 |[PRJEB3013](https://www.ebi.ac.uk/ena/data/view/PRJEB3013) | [ERP001420](https://www.ebi.ac.uk/ena/data/view/ERP001420)
+Jola | GWJ | 100 | 32 | 1 | 2 |[PRJEB3252](https://www.ebi.ac.uk/ena/data/view/PRJEB3252) | [ERP001781](https://www.ebi.ac.uk/ena/data/view/ERP001781)
+Mandinka | GWD | 100 | 33 |   | 1 |[PRJEB1682](https://www.ebi.ac.uk/ena/data/view/PRJEB1682) | [ERP002385](https://www.ebi.ac.uk/ena/data/view/ERP002385)
+Woloff | GWW | 100 | 33 | 1 | 2 |[PRJEB1323](https://www.ebi.ac.uk/ena/data/view/PRJEB1323) | [ERP002150](https://www.ebi.ac.uk/ena/data/view/ERP002150)
