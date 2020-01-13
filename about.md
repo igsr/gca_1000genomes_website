@@ -9,7 +9,7 @@ redirect_from:
 
 # About IGSR and the 1000 Genomes Project
 
-The [1000 Genomes Project](#1000G_PROJECT) ran between 2008 and 2015, creating the largest public catalogue of human variation and genotype data. As the project ended, the Data Coordination Centre at [EMBL-EBI](http://www.ebi.ac.uk/) has received continued funding from [the Wellcome Trust](http://www.wellcome.ac.uk/) to maintain and expand the resource. The International Genome Sample Resource (IGSR) was set up to do this and has the following aims:
+The [1000 Genomes Project](#1000G_PROJECT) ran between 2008 and 2015, creating the largest public catalogue of human variation and genotype data. As the project ended, the Data Coordination Centre at [EMBL-EBI](http://www.ebi.ac.uk/) has received continued funding from [the Wellcome Trust](http://www.wellcome.ac.uk/) to maintain and expand the resource. The International Genome Sample Resource (IGSR) was set up to do this with the following aims:
 
 1. [Ensure the future access to and usability of the 1000 Genomes reference data](#aim1)
 2. [Incorporate additional published genomic data on the 1000 Genomes samples](#aim2)
