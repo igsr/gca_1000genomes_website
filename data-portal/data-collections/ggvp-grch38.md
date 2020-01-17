@@ -20,4 +20,6 @@ The data is from the following European Nucleotide Archive (ENA) study IDs:
 
 * ERP002385 - Mandinka
 
+This data was originally analysed on GRCh37. That work is described in the [Malaria Genomic Epidemiology Network, 2019](https://doi.org/10.1038/s41467-019-13480-z) publication.
+
 If you have any questions please email [info@1000genomes.org](mailto:info@1000genomes.org).
