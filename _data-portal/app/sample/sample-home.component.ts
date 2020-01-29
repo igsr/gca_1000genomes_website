@@ -89,7 +89,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   
   private sampleHitsSource: Subject<Observable<SearchHits<Sample>>>;
   private sampleHitsSubscription: Subscription = null;
-  private hitsPerPage: number = 50;
+  private hitsPerPage: number = 10;
 
   ngOnInit() {
     this.titleService.setTitle('IGSR | samples');
