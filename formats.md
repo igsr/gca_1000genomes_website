@@ -5,7 +5,7 @@ permalink: /formats/
 ---
 # Data file formats
 
-## Alignment files: BAM and CRAM
+## Alignment files: BAM and CRAM formats
 
 BAM files are binary representations of the Sequence Alignment/Map format. These files and the associated SAMtools package are described in this [Bioinformatics publication](http://bioinformatics.oxfordjournals.org/cgi/content/abstract/25/16/2078).
 
