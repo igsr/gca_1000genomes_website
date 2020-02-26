@@ -1,6 +1,6 @@
 ---
 title: "Variant calls from 1000 Genomes Project data on the GRCh38 reference assembly - updates"
-pinned: true
+pinned: false
 ---
 
 We have produced an extended integrated and [phased biallelic SNV and INDEL](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20190312_biallelic_SNV_and_INDEL/) call set. This uses the same input data sets as our [biallelic SNV](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/release/20181203_biallelic_SNV/) call set but now includes INDELs in the creation of the phased call set.
