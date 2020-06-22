@@ -5,6 +5,10 @@ permalink: /forge-analysis/
 tags: Forge
 ---
 
+**FORGE2**
+
+Please note that, since the conclusion of the 1000 Genomes Project, FORGE has been updated to [FORGE2](https://forge2.altiusinstitute.org), which is hosted at the Altius Institute. 
+
 **FORGE Analysis Tool **
 
 The FORGE tool performs **F**unctional element **O**verlap analysis of the **R**esults of **G**enome Wide Association Study (GWAS)**E**xperiments, to identify tissue specific signals within the set of GWAS SNPs.

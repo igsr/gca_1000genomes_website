@@ -1,9 +1,15 @@
 ---
 layout: single_section
 title: "Forge Analysis 1.1"
+redirect_from:
+    - "/forge-results/"
 permalink: /forge-analysis-11/
 tags: Forge
 ---
+
+**FORGE2**
+
+Please note that, since the conclusion of the 1000 Genomes Project, FORGE has been updated to [FORGE2](https://forge2.altiusinstitute.org), which is hosted at the Altius Institute. 
 
 **FORGE Analysis Tool **
 
