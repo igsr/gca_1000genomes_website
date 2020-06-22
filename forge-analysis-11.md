@@ -1,6 +1,8 @@
 ---
 layout: single_section
 title: "Forge Analysis 1.1"
+redirect_from:
+    - "/forge-results/"
 permalink: /forge-analysis-11/
 tags: Forge
 ---
