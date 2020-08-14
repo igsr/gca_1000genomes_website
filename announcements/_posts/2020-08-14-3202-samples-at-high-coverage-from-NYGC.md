@@ -1,5 +1,5 @@
 ---
-title: "3202 samples at high-coverage from NYGC"
+title: "3,202 samples at high-coverage from NYGC"
 pinned: true
 ---
 
