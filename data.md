@@ -16,7 +16,7 @@ We have developed a [data portal](/data-portal) to make it easier to find and br
 
 
 
-#Available data (test)
+#Available data
 
 ##1000 Genomes Project
 
