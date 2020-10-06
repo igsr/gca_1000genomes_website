@@ -5,7 +5,7 @@ permalink: /data/
 tags: Data
 ---
 
-#Using data from IGSR (test1)
+#Using data from IGSR (test2)
 
 IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer).
 
