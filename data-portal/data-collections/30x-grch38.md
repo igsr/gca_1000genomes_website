@@ -9,4 +9,9 @@ The [New York Genome Center (NYGC)](https://www.nygenome.org), funded by [NHGRI]
 * AWS - s3://1000genomes/1000G_2504_high_coverage/ and s3://1000genomes/1000G_2504_high_coverage/additional_698_related/
 * NCBI FTP - ftp://ftp-trace.ncbi.nlm.nih.gov/1000genomes/ftp/1000G_2504_high_coverage/ and ftp://ftp-trace.ncbi.nlm.nih.gov/1000genomes/ftp/1000G_2504_high_coverage/additional_698_related/
 
-An [initial GATK HaplotypeCaller call set from NYGC](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20190425_NYGC_GATK/) for the 2504 panel is available on our FTP site. Analysis of this data is ongoing and further call sets are being shared via the FTP site.
+NYGC have performed variant calling on the data and the resulting call sets are available on our [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/). These include:
+
+* [Genotype VCFs](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/) - these include the genotypes for all samples in the "recalibrated_variants.vcf.gz" files (also listed below)
+* [Phased VCFs](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/) - the phased calls for the 3202 samples
+
+The [initial GATK call set for the 2504 unrelated samples](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20190425_NYGC_GATK/) remains available.
