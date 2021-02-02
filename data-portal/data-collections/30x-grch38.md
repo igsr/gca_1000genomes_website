@@ -13,5 +13,6 @@ NYGC have performed variant calling on the data and the resulting call sets are 
 
 * [Genotype VCFs](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/) - these include the genotypes for all samples in the "recalibrated_variants.vcf.gz" files (also listed below)
 * [Phased VCFs](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/) - the phased calls for the 3202 samples
+* [Structural Variation VCFs](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20210124.SV_Illumina_Integration/) - Structural Variation calls for the 3202 samples
 
 The [initial GATK call set for the 2504 unrelated samples](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20190425_NYGC_GATK/) remains available.
