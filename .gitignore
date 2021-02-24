@@ -6,4 +6,6 @@ _data-portal/**/*.js.map
 _data-portal/aot/
 _data-portal/node_modules/
 _data-portal/typings/
+_data-portal/package-lock.json
 
+package-lock.json
