@@ -17,4 +17,4 @@ NYGC have performed variant calling on the data and the resulting call sets are 
 
 The [initial GATK call set for the 2504 unrelated samples](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20190425_NYGC_GATK/) remains available.
 
-A [prerpint](https://www.biorxiv.org/content/10.1101/2021.02.06.430068v1) is available describing this work, which can be used for citation purposes.
+A [preprint](https://www.biorxiv.org/content/10.1101/2021.02.06.430068v1) is available describing this work, which can be used for citation purposes.
