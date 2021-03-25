@@ -4,6 +4,7 @@ let navStyles: string = `
 
 ul.data-portal-nav {
   margin-bottom: -20px;
+  margin-left: 20px;
 }
 li > a {
   background-color: white;

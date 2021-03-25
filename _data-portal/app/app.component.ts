@@ -4,6 +4,9 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/dist/providers/ga/angu
 let appComponentStyles: string = `
 div.data-portal-section {
   position: relative;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 h3.data-portal-beta {
   position: absolute;
