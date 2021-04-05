@@ -8,9 +8,9 @@ faq_tags:
   - ncbi36
   - reference
 faq_related:
-  - how-are-your-alignments-generated
-  - what-format-are-your-alignments-and-what-do-names-mean
-  - where-are-your-alignment-files-located
+  - what-methods-were-used-for-generating-alignments
+  - about-alignment-files-bam-and-cram
+  - how-do-i-find-specific-alignment-files
 ---
                     
 The reference assembly the 1000 Genomes Project has mapped sequence data to has changed over the course of the project.
