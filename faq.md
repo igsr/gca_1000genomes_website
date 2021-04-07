@@ -145,7 +145,7 @@ Date: 02 April 2021
 <li><a href="{{faq.url}}">{{faq.title}}</a></li>{% endif %}{% endfor %}{% endfor %}
 </ul>
 
-### My data vs 1000G	
+### My data vs 1000 Genomes Project
 <ul style="PADDING-LEFT: 30px"> 	<!--Add indent to bullet list-->
 {% for faq in sorted_faq %}
 {% for title_in_category in page.faq_category_5 %}
