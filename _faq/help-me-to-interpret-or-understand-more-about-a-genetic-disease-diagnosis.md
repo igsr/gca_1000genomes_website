@@ -8,4 +8,4 @@ faq_related:
  -
 ---
 
-New text here
+If you have any concerns about a genetic disease diagnosis for yourself or in your family, we recommend that you consult with a genetic counsellor. We cannot advise you on any clinical matters.
