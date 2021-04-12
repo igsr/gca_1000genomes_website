@@ -8,4 +8,4 @@ faq_related:
  -
 ---
 
-New text here
+No. All individuals whose genomes were sampled by any of the projects in IGSR were living at the time of sample collection.
