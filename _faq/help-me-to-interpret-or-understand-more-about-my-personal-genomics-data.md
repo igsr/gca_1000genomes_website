@@ -8,4 +8,4 @@ faq_related:
  -
 ---
 
-New text here
+We do not provide any tools or services to help with analysing your personal genomes.
