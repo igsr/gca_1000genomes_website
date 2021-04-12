@@ -8,4 +8,4 @@ faq_related:
  -
 ---
 
-New text here
+The data presented in IGSR is available free of charge, however there may be restrictions on publication of analyses using these data. Please check the Data re-use policy for your dataset to determine if/when you are able to publish using the data.
