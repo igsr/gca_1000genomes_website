@@ -8,4 +8,4 @@ faq_related:
  -
 ---
 
-New text here
+All vacancies in IGSR are advertised via the [EMBL-EBI job portal](https://www.ebi.ac.uk/about/jobs).
