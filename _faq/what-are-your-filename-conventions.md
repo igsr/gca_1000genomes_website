@@ -20,13 +20,13 @@ redirect_from:
                     
 Our filename conventions depend on the data format being named. This is described in more detail below.
 
-**What do the names of your fastq files mean?**
+## FASTQ
 
 Our sequence files are distributed in gzipped [fastq format](http://en.wikipedia.org/wiki/Fastq)
 
 Our files are named with the SRA run accession **E?SRR000000.filt.fastq.gz**. All the reads in the file also hold this name. The files with _1 and _2 in their names are associated with paired end sequencing runs. If there is also a file with no number it is name this represents the fragments where the other end failed qc. The .filt in the name represents the data in the file has been filtered after retrieval from the archive. This filtering process is described in a [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.sequence_data){:target="_blank"}.
 
-**What do the names of your variant files mean and what format are the files?**
+## VCF
 
 Our variant files are distributed in [vcf format](http://vcftools.sourceforge.net/), a format initially designed for the 1000 Genomes Project which has seen wider community adoption.
 
