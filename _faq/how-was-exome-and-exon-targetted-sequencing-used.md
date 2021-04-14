@@ -20,7 +20,7 @@ redirect_from:
 
 The 1000 Genomes Project has run two different pull-down experiments. These are labelled as "exon targetted" and "exome".
 
-An exon targetted run is part of the pilot study which targetted 1000 genes in nearly 700 individuals. The targets for this pilot can be found in the [pilot_data/technical/reference](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/technical/reference/){:target="_blank"} directory.
+An exon targetted run is part of the pilot study which targetted 1000 genes in nearly 700 individuals. The targets for this pilot can be found in the [pilot_data/technical/reference](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/technical/reference/) directory.
 
 An exome run is part of the whole exome sequencing project which targetted the entirety of the CCDS gene set. The targets used for the phase 1 data release of 1092 samples can be found in  [technical/reference/exome_pull_down_targets_phases1_and_2](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets_phases1_and_2/); the targets for phase3 analysis can be found in [technical/reference/exome_pull_down_targets/](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets/).
 
