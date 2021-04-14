@@ -15,8 +15,6 @@ redirect_from:
     - /faq/what-difference-between-sequenceindex-and-analysissequenceindex/
 ---
 
-**What is a sequence index file?**
-
 We describe our sequence meta data in sequence index files. The index for data from the 1000 Genomes Project can be found in the [1000 Genomes data collection directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/). Additional indices are present for data in other data collections. Our old index files which describe the data used in the main project can be found in the [historical_data directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/)
 
 Sequence index files are tab delimited files and frequently contain these columns:
@@ -50,7 +48,7 @@ Sequence index files are tab delimited files and frequently contain these column
 | 25 | BASE_COUNT | basepair count for the file |
 | 26 | ANALYSIS_GROUP | the analysis group of the sequence, this reflects sequencing strategy. For 1000 Genomes Project data, this includes low coverage, high coverage, exon targeted and exome to reflect the two non low coverage pilot sequencing strategies and the two main project sequencing strategies used by the 1000 Genomes Project. |
 
-**What is the difference between the sequence.index and the analysis.sequence.index?**
+## analysis.sequence.index files
 
 The sequence.index file contains a list of all the sequence data produced by the project, pointers to the file locations on the ftp site and also all the meta data associated with each sequencing run. 
 
