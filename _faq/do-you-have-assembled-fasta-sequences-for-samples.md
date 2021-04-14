@@ -14,15 +14,11 @@ redirect_from:
     - /faq/are-there-any-assemblies-available-1000-genomes-samples/    
 ---
                     
-**Are there any assemblies available for the 1000 Genomes samples?**
-
 The 1000 genomes project did not create any assemblies from the genome sequence data it generated.  
 
 The Gerstein Lab at Yale University created a diploid version of the NA12878 sequence, which is available from the [Gerstein website](http://sv.gersteinlab.org/) under [NA12878_diploid](http://sv.gersteinlab.org/NA12878_diploid/). When used, groups should cite [AlleleSeq: analysis of allele-specific expression and binding in a network framework, Rozowsky *et al.*, Molecular Systems Biology 7:522](http://www.nature.com/msb/journal/v7/n1/full/msb201154.html).
 
-**Are there any FASTA files containing 1000 Genomes variants or haplotypes?**
-
-We do not provide FASTA files annotated for 1000 Genomes variants. You can create such a file with a [VCFtools](http://vcftools.github.io/) Perl script called [vcf-consensus](http://vcftools.github.io/perl_module.html#vcf-consensus).
+You can create a FASTA file incorporating the variants from an individual with a [VCFtools](http://vcftools.github.io/) Perl script called [vcf-consensus](http://vcftools.github.io/perl_module.html#vcf-consensus).
 
 An example set of command lines would be:
 
