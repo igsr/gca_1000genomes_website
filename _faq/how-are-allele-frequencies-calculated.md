@@ -20,17 +20,14 @@ redirect_from:
     - /faq/what-does-genotype-dosage-mean-phase1-integrated-call-set-0/
 ---
 
-**What does the LDAF value mean in your phase1 VCF files?**
 
-LDAF is an allele frequency value in the info column of our phase 1 VCF files.
+Our standard AF values are allele frequencies rounded to two decimal places calculated using allele count (AC) and allele number (AN) values.
 
-Our standard AF values are allele frequencies rounded to 2 decimal places calculated using allele count (AC) and allele number (AN) values. LDAF is the allele frequency as inferred from the haplotype estimation.
+LDAF is an allele frequency value in the info column of our phase 1 VCF files. LDAF is the allele frequency as inferred from the haplotype estimation. You will note that LDAF does sometimes differ from the AF calculated on the basis of allele count and allele number. This generally means there are many uncertain genotypes for this site. This is particularly true close to the ends of the chromosomes.
 
-You will note that LDAF does sometimes differ from the AF calculated on the basis of allele count and allele number. This generally means there are many uncertain genotypes for this site. This is particularly true close to the ends of the chromosomes.
+## Genotype Dosage
 
-**What does Genotype Dosage mean in the phase 1 integrated call set?**
-
-The Genotype Dosage value comes from [Mach/Thunder](http://genome.sph.umich.edu/wiki/UMAKE), imputation engine used for genotype refinement in the [phase 1 data set](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/). 
+The phase 1 data set also contains Genotype Dosage values. This comes from [Mach/Thunder](http://genome.sph.umich.edu/wiki/UMAKE), imputation engine used for genotype refinement in the [phase 1 data set](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/). 
 
 The Dosage represents the predicted dosage of the non reference allele given the data available, it will always have a value between 0 and 2.
 
