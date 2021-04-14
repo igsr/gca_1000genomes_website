@@ -18,29 +18,15 @@ redirect_from:
     - /faq/what-difference-between-analysis-groups-exome-and-exon-targetted-sequence-index/
 ---
 
-**What is the difference between the analysis groups exome and exon targetted in the sequence index?**
-
 The 1000 Genomes Project has run two different pull-down experiments. These are labelled as "exon targetted" and "exome".
 
 An exon targetted run is part of the pilot study which targetted 1000 genes in nearly 700 individuals. The targets for this pilot can be found in the [pilot_data/technical/reference](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/technical/reference/){:target="_blank"} directory.
 
 An exome run is part of the whole exome sequencing project which targetted the entirety of the CCDS gene set. The targets used for the phase 1 data release of 1092 samples can be found in  [technical/reference/exome_pull_down_targets_phases1_and_2](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets_phases1_and_2/){:target="_blank"}; the targets for phase3 analysis can be found in [technical/reference/exome_pull_down_targets/](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets/){:target="_blank"}
 
-**What are the targets for your exon targetted pilot study?**
+The phase 1 and 2 targets are intersections of the different technologies used and the CCDS gene list. For phase 3 we used using a union of two different pull-down lists: NimbleGen EZ_exome v1 and Agilent sure select v2. In phase 3 very little exome specific calling took place. Instead analysis groups called variants tending to use the low coverage and exome data together in an integrated manner.
 
-The exon targetted run is part of the pilot study which targetted 1000 genes in nearly 700 individuals using a custom array. The targets for this pilot can be found in the [pilot_data/technical/reference](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/technical/reference/){:target="_blank"} directory.
-
-**What are the targets for your whole exome sequencing?**
-
-The exome sequencing the 1000 Genomes project has undertaken is targetting the entirety of the CCDS gene set.
-
-The targets used for the phase 1 data release of 1092 samples can be found in  [technical/reference/exome_pull_down_targets_phases1_and_2](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets_phases1_and_2/){:target="_blank"}; the targets for phase 3 analysis can be found in [technical/reference/exome_pull_down_targets/](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/exome_pull_down_targets/){:target="_blank"}.
-
-The phase 1 and 2 targets are intersections of the different technologies used and the CCDS gene list. For phase 3 we are using a union of two different pull-down lists: NimbleGen EZ_exome v1 and Agilent sure select v2
-
-In phase 3 very little exome specific calling took place. Instead analysis groups called variants tending to use the low coverage and exome data together in an integrated manner.
-
-**What capture technology did the Exome sequencing use?**
+## Capture technology
 
 Different centres have used different pull-down technologies for the Exome sequencing done for the 1000 Genomes project.
 
