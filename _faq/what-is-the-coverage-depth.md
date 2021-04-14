@@ -18,7 +18,7 @@ The [Phase 1 integrated variant](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase
 
 The [bedtools](http://code.google.com/p/bedtools/) suite provides a method to do this. 
 
-**genomeCoverageBed** is a tool which can provide a bed file which specifies coverage for every base in the genome and **i****ntersectBed** which will provide an intersection between two vcf/bed/bam files
+**genomeCoverageBed** is a tool which can provide a bed file which specifies coverage for every base in the genome and **intersectBed** which will provide an intersection between two vcf/bed/bam files
 
 These commands also require [samtools](http://samtools.sourceforge.net/), [tabix](http://sourceforge.net/projects/samtools/files/tabix/)  and [vcftools](http://vcftools.sourceforge.net/) to be installed
 
