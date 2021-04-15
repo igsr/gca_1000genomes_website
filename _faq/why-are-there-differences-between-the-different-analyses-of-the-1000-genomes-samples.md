@@ -17,11 +17,11 @@ The phase 1 variants list released in 2012 and the phase 3 variants list release
 
 The difference between the two lists can be explained by a number of different reasons.
 
-1\. Some phase 1 samples were not used in phase 3 for various reasons. If a sample was not part of phase 3, variants private to this sample are not be part of the phase 3 set.  
+1. Some phase 1 samples were not used in phase 3 for various reasons. If a sample was not part of phase 3, variants private to this sample are not be part of the phase 3 set.  
 
-2\.  Our input sequence data is different. In phase 1 we had a mixture of both read lengths 36bp to >100bp and a mixture of sequencing platforms, Illumina, ABI SOLiD and 454. In phase 3 we only used data from the Illumina sequencing platform and we only used read lengths of 70bp+. We believe that these calls are higher quality, and that variants excluded this way were probably not real.
+2.  Our input sequence data is different. In phase 1 we had a mixture of both read lengths 36bp to >100bp and a mixture of sequencing platforms, Illumina, ABI SOLiD and 454. In phase 3 we only used data from the Illumina sequencing platform and we only used read lengths of 70bp+. We believe that these calls are higher quality, and that variants excluded this way were probably not real.
 
-3\.  The first two reasons listed explain 548k missing SNPs, leaving 1.37M SNPs still to be explained.
+3.  The first two reasons listed explain 548k missing SNPs, leaving 1.37M SNPs still to be explained.
 
 The phase 1 and phase 3 variant calling pipelines are different. Phase 3 had an expanded set of variant callers, used haplotype aware variant callers and variant callers that used de novo assembly. It considered low coverage and exome sequence together rather than independently. Our genotype calling was also different using ShapeIt2 and MVNcall, allowing integration of multi allelic variants and complex events that weren't possible in phase 1.  
 
@@ -29,7 +29,7 @@ The phase 1 and phase 3 variant calling pipelines are different. Phase 3 had an 
 
 481k of these SNPs were initially called in phase 3. 340k of them failed our initial SVM filter so were not included in our final merged variant set. 57k overlapped with larger variant events so were not accurately called. 84k sites did not make it into our final set of genotypes due to losses in our pipeline. Some of these sites will be false positives but we have no strong evidence as to which of these sites are wrong and which were lost for other reasons.
 
-4\.  The reference genomes used for our alignments are different. Phase 1 alignments were aligned to the standard GRCh37 primary reference including unplaced contigs. In phase 3 we added EBV and a decoy set to the reference to reduce mismapping. This will have reduced our false positive variant calling as it will have reduced mismapping leading to false SNP calls. We cannot quantify this effect.
+4.  The reference genomes used for our alignments are different. Phase 1 alignments were aligned to the standard GRCh37 primary reference including unplaced contigs. In phase 3 we added EBV and a decoy set to the reference to reduce mismapping. This will have reduced our false positive variant calling as it will have reduced mismapping leading to false SNP calls. We cannot quantify this effect.
 
 We have made no attempt to eludcidate why our SV and indel numbers changed. Since the release of phase 1 data, the algorithms to detect and validate indels and SVs have improved dramatically. By and large, we assume the indels and SVs in phase 1 that are missing from phase 3 are false positive in phase 1.  
 
