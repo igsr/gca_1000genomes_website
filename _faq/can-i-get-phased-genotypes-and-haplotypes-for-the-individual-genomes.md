@@ -28,3 +28,6 @@ The Data Slicer has both filter by individual and population options. The indivi
 To use tabix you must also use a VCFtools Perl script called [vcf-subset](https://vcftools.github.io/perl_module.html#vcf-subset). The command line would look like:
 
     tabix -h ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz 17:1471000-1472000 | perl vcf-subset -c HG00098 | bgzip -c /tmp/HG00098.20100804.genotypes.vcf.gz
+
+
+Please also note that some studies, such as the [second phase of the Human Genome Structural Variation Consortium (HGSVC)](/data-portal/data-collection/hgsvc2), are now producing haplotype resolved asssemblies.
