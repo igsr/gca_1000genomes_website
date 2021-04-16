@@ -11,5 +11,8 @@ redirect_from:
     - /faq/what-structural-variant-data-available-project/
 ---
 
-The project has two releases of structural variation. [The pilot paper data directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/paper_data_sets/a_map_of_human_variation/){:target="_blank"} contains vcf files for deletions, mobile element insertions, tandem duplications and novel sequence both for the low coverage and trio pilot studies. Our [phase1 release integrated release](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/) contains deletions together with the SNPs and short indels.
+The [1000 Genomes Project](/data-portal/data-collection/phase-3) considered structural variation (longer than 50bp in length) based on short read Illumina data in the publication by Sudmant et al. in 2015.
 
+Structural variants are also considred in analysis of [high-coverage short read data in work done by NYGC](/data-portal/data-collection/30x-grch38).
+
+However, short read data has limitations for assessing structural variation. The Human Genome Structural Variation Consortium (HGSVC) [applied a variety of technologies](/data-portal/data-collection/structural-variation) to explore their abilty to detect structural variation. This work has [subsequently been expanded](/data-portal/data-collection/hgsvc2) and other projects are using a variety of technologies to produce haplotype resolved genome assemblies.
