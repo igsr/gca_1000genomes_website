@@ -13,12 +13,13 @@ faq_related:
   - how-do-i-get-a-genomic-region-sub-section-of-your-files
   - how-do-i-find-out-information-about-a-single-variant
   - do-you-have-assembled-fasta-sequences-for-samples
+  - are-the-variant-calls-in-igsr-phased/
 redirect_from:
     - /faq/can-i-get-genotypes-specific-individualpopulation-your-vcf-files/
     - /faq/can-i-get-haplotype-data-1000-genomes-individuals/
 ---
 
-The phase 3 integrated data set of the 1000 Genomes project contains fully phased haplotypes for 2,504 individuals. Full details can be found in the [1000 Genomes project phase 3 publication](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html).
+Phased variant call sets are described in ["Are the variant calls in IGSR phased?"](/faq/are-the-variant-calls-in-igsr-phased/).
 
 You can obtain individual phased genotypes through either the [Ensembl Data Slicer](http://www.ensembl.org/Homo_sapiens/Tools/DataSlicer) or using a combination of [tabix](http://www.htslib.org/doc/tabix.html) and [VCFtools](https://vcftools.github.io/) allows you to sub sample VCF files for a particular individual or list of individuals.
 
