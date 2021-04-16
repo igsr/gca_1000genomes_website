@@ -12,6 +12,6 @@ The X and Y chromosomes frequently require different analytical approaches as, u
 
 The pseudoautosomal regions (PARs) are regions of X and Y that share homology. As such, these regions can be amenable to analysis in a similar manner to the autosomes and may be included in analyses where the remainder of these chromsomes are exlcuded.
 
-Anslysis of the [high-coverage sequencing of the 1000 Genomes Project samples by NYGC](/data-portal/data-collection/30x-grch38) has analysed both the X and Y chromosomes in full on GRCh38. Both chromsomes were also analysed by the original [1000 Genomes Project phase three](/data-portal/data-collection/phase-3), which analysed data on GRCh37. Full details are in the associated [publications, listed alongside the data collections](/data-portal/data-collection).
+Analysis of the [high-coverage sequencing of the 1000 Genomes Project samples by NYGC](/data-portal/data-collection/30x-grch38) has analysed both the X and Y chromosomes in full on GRCh38. Both chromsomes were also analysed by the original [1000 Genomes Project phase three](/data-portal/data-collection/phase-3), which analysed data on GRCh37. Full details are in the associated [publications, listed alongside the data collections](/data-portal/data-collection).
 
 Other collections, such as the reanalysis of the original 1000 Genomes Project data realigned to GRCh38, only consider the PAR regions. Again, to understand the work that was done we recommend consulting the publications listed with the data collections.
