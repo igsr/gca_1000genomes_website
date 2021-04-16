@@ -12,8 +12,8 @@ redirect_from:
     - /faq/where-most-recent-release/
 ---
 
-Our main releases are contained in the [release directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/) on our ftp site.
+Reviewing the [list of data collections and their publications](/data-portal/data-collection) in our data portal is a good starting point.
 
-These directories are dated for the [sequence index freeze](http://dev.1000genomes.org/faq/what-sequence-index-file) the analysis products are based on.
+We also share data via our FTP site and data may be available on our FTP site sometime beofre being added to the website. Data collection directories are available on the [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/).
 
-Our most current recent release is the phase 3 release in [20130502](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502). This represents an integrated set of SNPs, indels, MNPs, long insertions and deletions, copy number variations, and other types of structural variations discovered and genotyped in 2504 unrelated individuals.
+In addition, to track changes on our FTP site we provide change logs and a current.tree file, which list all files present on our [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/) and any changes made to them.
