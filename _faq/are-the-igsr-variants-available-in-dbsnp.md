@@ -17,4 +17,4 @@ When studies are published, their variant call sets are submitted to the archive
 
 The 1000 Genomes Project SNPs and short indels were all submitted to [dbSNP](http://www.ncbi.nlm.nih.gov/snp/) and longer structural variants to the [DGVa](http://www.ebi.ac.uk/dgva/).
 
-The accessions for data sets in the archives can be found in the accompanying publications ([listed alongside the the data collections](/data-portal/data-collection)).
+The accessions for data sets in the archives can be found in the accompanying publications ([listed alongside the data collections](/data-portal/data-collection)).
