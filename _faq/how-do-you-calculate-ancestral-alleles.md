@@ -11,10 +11,4 @@ redirect_from:
     - /faq/where-does-ancestral-allele-information-your-variants-come/
 ---
 
-The ancestral alleles associated with the phase 1 release where generated using two different processes.
-
-The SNP ancestral alleles were derived from [Ensembl Compara](http://www.ensembl.org/info/docs/compara/index.html) [release 59](http://aug2010.archive.ensembl.org/index.html). The alignments used to generate them can be found in the [phase1/supporting directory](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/supporting/ancestral_alignments/).
-
-The indel ancestral alleles were generated using an separate process
-
-The deletions should not have any ancestral alleles
+Information relating to ancestral alleles is available for phase three of the 1000 Genomes Project. The work on annotating ancestral alleles is described in Section 8.3 of the supplementary material of the [publication](http://www.nature.com/nature/journal/v526/n7571/full/nature15393.html) accompanying that work.
