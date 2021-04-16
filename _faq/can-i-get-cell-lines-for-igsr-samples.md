@@ -12,6 +12,10 @@ redirect_from:
     - /faq/can-i-get-cell-lines-1000-genomes-samples/
 ---
 
-The 1000 Genomes Project sample cell lines are available for others to use. You can source them from the [Coriell Cell Repository](http://ccr.coriell.org/) from the [NHGRI collection.](http://ccr.coriell.org/Sections/Collections/NHGRI/Default.aspx?SsId=11)
+In almost all cases, cell lines are available. For most samples, cell lines are held at the [Coriell Cell Repository](https://www.coriell.org). Samples from HGDP are available at [CEPH](http://www.cephb.fr).
 
-A full listing of all the [1000 Genomes populations available from Coriell](/cell-lines-and-dna-coriell) is available.
+Coriell hold detailed information on the 1000 Genomes Project populations and sample collection process.
+
+Individual sample pages in the data portal include links to the repository where the cell line is available.
+
+The main exception to the above is around 400 samples in the Gambian Genome Variation Project (GGVP), for which cell lines are not available.
