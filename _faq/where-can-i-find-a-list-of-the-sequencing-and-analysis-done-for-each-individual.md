@@ -12,8 +12,8 @@ redirect_from:
     - /faq/what-panel-file/
 ---
 
-All our variant call releases since [20100804](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/) have come with a panel file. This file lists all the individuals who are part of the release and the population they come from.
+Our data portal has a page for each sample. At the bottom of the page, the various data collections that the sample is present in are listed in tabs. Each tab then lists the available files for that sample, including seqeunce data, genotype arrays, alignments and VCFs.
 
-This is a tab delimited file which must have sample and population in its first two columns; some files may then have subsequent columns which describe additional information like which super population a sample comes from or what sequencing platforms have been used to generate sequence data for that sample.
+An example is the page for [NA12878](/data-portal/sample/NA12878). Sample IDs can be entered in the search box to locate a given sample.
 
-The panel files have names like [integrated_call_samples.20101123.ALL.panel](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/integrated_call_samples.20101123.ALL.panel) or [integrated_call_samples_v2.20130502.ALL.panel](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/integrated_call_samples_v2.20130502.ALL.panel).
+To understand the data available for larger groups of samples, the [samples](/data-portal/sample) and [population](/data-portal/population) tabs of the portal can be used to explore available data.
