@@ -14,7 +14,9 @@ redirect_from:
     - /faq/are-there-any-assemblies-available-1000-genomes-samples/    
 ---
                     
-The 1000 genomes project did not create any assemblies from the genome sequence data it generated.  
+Recent projects, such as the second phase of the Human Genome Structural Variation Consortium (HGSVC) have produced assemblies. These are [linked to from the page for that data collection](/data-portal/data-collection/hgsvc2). These are haplotype resolved assemblies. More details can be found in the accompanying publication.
+
+The 1000 Genomes Project did not create any assemblies from the genome sequence data it generated.  
 
 The Gerstein Lab at Yale University created a diploid version of the NA12878 sequence, which is available from the [Gerstein website](http://sv.gersteinlab.org/) under [NA12878_diploid](http://sv.gersteinlab.org/NA12878_diploid/). When used, groups should cite [AlleleSeq: analysis of allele-specific expression and binding in a network framework, Rozowsky *et al.*, Molecular Systems Biology 7:522](http://www.nature.com/msb/journal/v7/n1/full/msb201154.html).
 
