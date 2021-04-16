@@ -1,5 +1,5 @@
 ---
-title: "How were the populations and ethnicities defined?"
+title: "How were the populations defined?"
 faq_tags:
  -
  -
