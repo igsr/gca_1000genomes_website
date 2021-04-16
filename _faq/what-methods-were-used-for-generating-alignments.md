@@ -11,16 +11,6 @@ redirect_from:
     - /faq/how-are-your-alignments-generated/
 ---
 
-The 1000 Genomes Project has used several different alignment algorithms during its duration:
+Details of alignment methodology differ between data sets and the types of sequence data being aligned. 
 
-|Project stage|Sequencing technology|Alignment algorithm|
-|-------------|---------------------|-------------------|
-|Pilot|Illumina|[MAQ](http://maq.sourceforge.net/)|
-|Pilot|SOLiD|Corona lite|
-|Pilot|454|[ssaha](http://www.sanger.ac.uk/resources/software/ssaha2/)|
-|Main|Illumina|[BWA](http://bio-bwa.sourceforge.net/)|
-|Main|SOLiD|[BFAST](http://sourceforge.net/apps/mediawiki/bfast/index.php?title=Main_Page)|
-|Main|454|ssaha (first set)|
-|Main|454|[smalt](http://www.sanger.ac.uk/resources/software/smalt/) (final set)|
-
-The full process is described in the [README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/historical_data/former_toplevel/README.alignment_data.md)
+Full details of methodology can be found in the [publications accompanying the data collections](https://www.internationalgenome.org/data-portal/data-collection) and, for unpublished alignments, in the README files placed with the data collections on our FTP site.
