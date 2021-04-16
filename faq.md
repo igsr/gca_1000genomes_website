@@ -7,7 +7,7 @@ exclude_from_search: true
 redirect_from:
     - /node/503/
 faq_category_1:
-    - "How were the populations and ethnicities defined?"
+    - "How were the populations defined?"
     - "Where were the sampling locations?"
     - "Do you have any ancient or prehistoric genomes?"
     - "Have you calculated linkage disequilibrium from these variants?"
