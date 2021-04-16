@@ -13,4 +13,4 @@ The analysis tools used for samples in a given data collection can vary dependin
 
 Generally, however, for any given analysis the data types will be the same or very similar and will have been analysed in a consistent manner.
 
-For data collections where the analysis has been published, the publication will give details of what methods were used. Checking this may involve looking at the supplementary material. We list publcations on our [data collections page](/data-portal/data-collection). In addition, for alignments which may not have been published, you will find README files on our FTP site, in the directories for each data collection, that describe how the alignments (or other analyses) were done.
+For data collections where the analysis has been published, the publication will give details of what methods were used. Checking this may involve looking at the supplementary material. We list publcations on our [data collections page](/data-portal/data-collection). In addition, for analyses which may not have been published, you will find README files on our FTP site, in the directories for each data collection, that provide further information.
