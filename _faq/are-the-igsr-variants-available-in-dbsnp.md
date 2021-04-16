@@ -13,8 +13,8 @@ redirect_from:
     - /faq/are-1000-genomes-variants-dbsnp/
 ---
 
+When studies are published, their variant call sets are submitted to the archives (dbSNP,DGVa, EVA, etc.).
+
 The 1000 Genomes Project SNPs and short indels were all submitted to [dbSNP](http://www.ncbi.nlm.nih.gov/snp/) and longer structural variants to the [DGVa](http://www.ebi.ac.uk/dgva/).
 
-Where possible, release VCF files contain the appropriate IDs in the ID column, such as dbSNP rs IDs.
-
-The archives contain variants discovered by the final phase of the 1000 Genomes Project (phase 3) and also by the preliminary pilot and phase 1 stages of the project. As methods were developed during the project, phase 3 represents the final data set.
+The accessions for data sets in the archives can be found in the accompanying publications ([listed alongside the the data collections](/data-portal/data-collection)).
