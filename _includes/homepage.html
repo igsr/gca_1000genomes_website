@@ -18,6 +18,9 @@
 <p><a href="{{pinned_announcements.first.url}}"><h2>{{pinned_announcements.first.title}}</h2></a></p>
   
 {{pinned_announcements.first.content | markdownify}}
+
+<p><a href="/announcements"></a>All announcments</p>
+
 {% endcapture %}
 {% include section.html content=pinned_announcements %}
       
