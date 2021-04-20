@@ -17,7 +17,7 @@ The [1000 Genomes Project](/1000-genomes-summary) ran between 2008 and 2015, cre
 
 ##IGSR
 
-IGSR was set up to ensure the future usability and accessibility of data from the 1000 Genomes Project and to extend the data set to include new data on the 1000 Genomes samples and new populations where sampling has been carried out in line with IGSR sampling principles.
+IGSR was set up to ensure the future usability and accessibility of data from the 1000 Genomes Project and to extend the data set to include new data on the [1000 Genomes samples](/1000-genomes-summary#g1k_data_reuse) and new populations where sampling has been carried out in line with IGSR sampling principles.
 
 ###<a name="aim1"></a>1. Ensuring the future usability of the 1000 Genomes reference data
 
