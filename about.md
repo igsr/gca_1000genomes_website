@@ -8,7 +8,7 @@ redirect_from:
 ---
 ##The International Genome Sample Resource (IGSR) and the 1000 Genomes Project
 
-IGSR was set up to ensure the future usability and accessibility of data from the [1000 Genomes Project](/1000-genomes-summary) and to extend the data set produced by the 1000 Genomes Porject to include new data generated from the [1000 Genomes Project samples](/1000-genomes-summary#g1k_data_reuse) and new populations where sampling has been carried out in line with [IGSR sampling principles](/sample_collection_principles).
+IGSR was set up to ensure the future usability and accessibility of data from the [1000 Genomes Project](/1000-genomes-summary) and to extend the data set produced by the 1000 Genomes Project to include new data generated from the [1000 Genomes Project samples](/1000-genomes-summary#g1k_data_reuse) and new populations where sampling has been carried out in line with [IGSR sampling principles](/sample_collection_principles).
 
 The [1000 Genomes Project](/1000-genomes-summary) ran between 2008 and 2015, creating the largest public catalogue of human variation and genotype data. As the project ended, the Data Coordination Centre at [EMBL-EBI](http://www.ebi.ac.uk/) received funding from [the Wellcome Trust](http://www.wellcome.ac.uk/) to maintain and expand the resource. The International Genome Sample Resource (IGSR) was set up to do this with the following aims:
 
