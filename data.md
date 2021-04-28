@@ -12,41 +12,31 @@ redirect_from:
 
 IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer).
 
-<div class="row" style="display:flex;">
-  <div class="column" style="flex:50%;background-image: url('/sites/1000genomes.org/files/images/img_portal_pale.png');background-repeat: no-repeat;background-position: center center;display:table;overflow:hidden;height:200px;">
-    <div style="display: table-cell; vertical-align: middle;height:100%;word-breal-break-all;">
-      <!--<img src="/sites/1000genomes.org/files/images/img_portal.png" alt="Portal" style="width:100%">-->
-      <h2 style="text-align:center;"><a href="/data-portal/sample" style="background-color: #ffffff">Explore the data sets in IGSR through our data portal</a></h2>
-    </div>
-  </div>
-  <div class="column" style="flex:50%;background-image: url('/sites/1000genomes.org/files/images/img_ensembl_pale.png');background-repeat: no-repeat;background-position: center center;display:table;overflow:hidden;height:200px;">
-    <div style="display: table-cell; vertical-align: middle;height:100%;">
-      <h2 style="text-align:center;"><a href="https://www.ensembl.org/index.html" style="background-color: #ffffff">View variants in genomic context in EnsEMBL</a></h2>
-    </div>
-  </div>
-</div>
+#Explore the data sets in IGSR through our [data portal](/data-portal)  
 
+IGSR shares data files from many studies via our FTP site. To make it easier to find the files you want, we present key data sets in our [data portal](/data-portal).
 
+Files can be browsed by:
 
-#[Data portal](/data-portal)  
-We have developed a [data portal](/data-portal) to make it easier to find and browse data in IGSR. Let us know what you think at info@1000genomes.org.
+* sample (i.e. NA12878)
+* population (i.e. Yoruba in Ibadan, Nigeria)
+* technology (i.e. PacBio HiFi)
+* data type (i.e. alignment)
+* collection (i.e. 1000 Genomes Project phase three)
+
+Our portal provides an [overview of the available collections and their assocaited publications](https://www.internationalgenome.org/data-portal/data-collection).
  
-[![data portal image](/sites/1000genomes.org/files/images/portal.png)](/data-portal)
+#View variants in genomic context in [EnsEMBL](https://www.ensembl.org/index.html)
 
+IGSR works alongside the [EnsEMBL genome browser](https://www.ensembl.org/index.html). EnsEMBL presents some of the key call sets in IGSR, placing the variation data in genomic context and adding up-to-date annotation of the variant data in their displays for [individual variations](https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=1:230709548-230710548;v=rs699;vdb=variation;vf=94).
 
+In EnsEMBL you can:
 
-#Available data
-
-##1000 Genomes Project
-
-{: .table .table-striped}
-| 1000 Genomes Release | Variants |	Individuals	| Populations |	VCF	| Alignments |	Supporting Data |
-|:--------------------:|:--------:|:-----------:|:-----------:|:---:|:----------:|:---------------:|
-|Phase 3 | 84.4 million | 2504 | 26 | [VCF](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) | [Alignments](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3) | [Supporting Data](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/supporting/) |
-|Phase 1 | 37.9 million | 1092 | 14 | [VCF](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/integrated_call_sets/) | [Alignments](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/) | [Supporting Data](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/analysis_results/) |
-| Pilot | 14.8 million | 179 | 4 | [VCF](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/paper_data_sets/a_map_of_human_variation/low_coverage) | [Alignments](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/data) | [Supporting Data](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/paper_data_sets/a_map_of_human_variation/) |
-
-
+* Browse the 1000 Genomes Project phase three call set on [GRCh37](https://www.ensembl.org/info/website/tutorials/grch37.html)
+* Browse data from the 1000 Genomes Project samples and other data sets on [GRCh38](https://www.ensembl.org/Homo_sapiens/Info/Index)
+* View data for a [specific variation](https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) and search by rsID
+* View [population frequency](https://www.ensembl.org/Homo_sapiens/Variation/Population?db=core;r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) data
+* Use a selection of [tools](https://www.ensembl.org/Homo_sapiens/Variation/Population?db=core;r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) to retrieve subsets of data, convert VCF to PED and calculate linkage disequilibrium
 
 ## Lists of samples from the 1000 Genomes Project
 
