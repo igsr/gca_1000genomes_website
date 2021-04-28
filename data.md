@@ -48,17 +48,7 @@ A summary of sequencing done for each of the three pilot projects is available [
 
 The list of samples collected by the project and what sequence data or other assay data that has been generated for them is available in this [spreadsheet](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx).
 
-## Variant Calls
 
-Our variant calls are always released in [VCF format](https://samtools.github.io/hts-specs/). The released calls from the final phase of the 1000 Genomes Project can be found in the release directory for 2nd May 2013 on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502).
-
-## Alignments
-
-Alignments are available in [BAM or CRAM](https://samtools.github.io/hts-specs/) format. Within IGSR, data are grouped in data collections, such as the [1000 Genomes Project](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000_genomes_project/) or the [Illumina Platinum Genomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/illumina_platinum_pedigree/). A list of the alignment files currently available for a given data collection can be found in the alignment index  for that collection on the [EBI FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). Information on the contents of the index file can be found in the file header.
-
-## Raw sequence files
-
-Sequence data is available from the ENA. A list of files currently available can be found in the sequence.index file for each data collection on the [EBI FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/). These files contain the FTP url for each sequence fastq file, as well as other metadata information about the sequencing run and file. More information on the contents of the index file can be found in the file header.
 
 ## Sample Availability
 
