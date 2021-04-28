@@ -10,7 +10,7 @@ redirect_from:
 
 # Using data from IGSR
 
-IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer).
+IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer). Please also consult the associated data reuse statements and cite associated publications appropriately. To cite IGSR, please use our [NAR paper](https://academic.oup.com/nar/article/45/D1/D854/2770649).
 
 #Explore the data sets in IGSR through our [data portal](/data-portal)  
 
@@ -37,6 +37,10 @@ In EnsEMBL you can:
 * View data for a [specific variation](https://www.ensembl.org/Homo_sapiens/Variation/Explore?r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) and search by rsID
 * View [population frequency](https://www.ensembl.org/Homo_sapiens/Variation/Population?db=core;r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) data
 * Use a selection of [tools](https://www.ensembl.org/Homo_sapiens/Variation/Population?db=core;r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) to retrieve subsets of data, convert VCF to PED and calculate linkage disequilibrium
+
+#The IGSR [FTP](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/) site
+
+The full set of files hosted by IGSR are available on our [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/). This includes data shared pre-publication and intermediate and working data for projects where we contribute to the project's data management. A set of README files provides additional information.
 
 ## Lists of samples from the 1000 Genomes Project
 
