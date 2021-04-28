@@ -7,13 +7,9 @@ redirect_from:
  - /contact/
 ---
 
-#Help using IGSR
-
-There are a number of resources that may be useful to you in understanding and working with IGSR and the data it contains.
-
 #[FAQs](/faq)
 
-We have a set of [Frequently Asked Questions](/faq) which may have the information you are looking for.
+We have an extensive set of [Frequently Asked Questions](/faq) which may have the information you are looking for. Please take a look to see if they answer your question.
 
 #[Downloading data](/data#download)
 
