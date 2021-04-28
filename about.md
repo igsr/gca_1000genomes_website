@@ -32,9 +32,9 @@ Along with [high-coverage genomic sequence data from NYGC](https://www.internati
 
 ###<a name="aim3"></a>3. Expand the data collection to include new populations
 
-IGSR's [sample collection principles page](/sample_collection_principles) were developed early in the project to enable sharing of further samples with a similar consent to the samples in the 1000 Genomes Project, recognising that the sample collections used in the 1000 Genomes Project do not capture all populations.
+IGSR's [sample collection principles](/sample_collection_principles) were developed early in the project to enable sharing of further samples with a similar consent to the samples in the 1000 Genomes Project, recognising that the sample collections used in the 1000 Genomes Project do not capture all populations.
 
-During the lifetime of IGSR, various populations have been added, mainly coming from the Human Genome Diversity Project (HGDP), the Simons Genome Diversity Project (SGDP) and the Gambian Genome Variation Project (GGVP).
+During the lifetime of IGSR, various populations have been added, mainly coming from the [Human Genome Diversity Project (HGDP)](/data-portal/data-collection/hgdp), the [Simons Genome Diversity Project (SGDP)](/data-portal/data-collection/sgdp) and the [Gambian Genome Variation Project (GGVP)](/data-portal/data-collection/ggvp-grch38).
 
 
 Please email questions about any of the above to [info@1000genomes.org](mailto:info@1000genomes.org).
