@@ -51,14 +51,16 @@ The data can be downloaded via FTP, Aspera and Globus GridFTP. More information 
 
 The FTP structure was changed in September 2015. The new structure is described in the [FTP site structure README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_ftp_site_structure.md). 
 
-During the main 1000 Genomes project, the NCBI acted as a mirror of the EBI hosted 1000 Genomes FTP site and also uploaded alignments and variant calls to an Amazon S3 bucket. This mirroring process stopped in September 2015. The NCBI FTP site and the Amazon S3 bucket still host 1000 Genomes data but no longer mirror new data. Both these locations reflect the structure of the FTP site in August 2015 and hold all the pilot, phase 1 and phase 3 data. NCBI and Amazon do not hold new alignments based on GRCh38, the current reference genome.
+####Other data sources
+
+During the main 1000 Genomes Project, the NCBI acted as a mirror of the EBI hosted 1000 Genomes Project FTP site and also uploaded alignments and variant calls to an Amazon S3 bucket. This mirroring process stopped in September 2015. The NCBI FTP site and the Amazon S3 bucket still host 1000 Genomes Project data but no longer mirror new data. Both these locations reflect the structure of the FTP site in August 2015 and hold all the pilot, phase 1 and phase 3 data. NCBI and Amazon do not hold new alignments based on GRCh38, the current reference genome.
 
 NCBI FTP Site : [ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp](ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp)  
 Amazon S3 : [s3://1000genomes](denied:s3://1000genomes)
 
 Information on Amazon Web Services can be found on 1000 Genomes [public data set page](http://aws.amazon.com/datasets/4383) or directly on [http://s3.amazonaws.com/1000genomes](http://s3.amazonaws.com/1000genomes).
 
-
+For a small number of newer data sets, data has been added to AWS and AnVIL. Where this is the case, this is mentioned in the text and linked to from the page for the given data collection in our portal.
 
 
 
