@@ -41,8 +41,6 @@ During the lifetime of IGSR, various populations have been added, mainly coming 
 * Further information on the [1000 Genomes Project](/1000-genomes-summary)
 * [IGSR's Nucleic Acids Research publication](https://academic.oup.com/nar/article/48/D1/D941/5580898)
 * Our data portal, listing the [publications associated with the data collections](/data-portal/data-collection)
-* More information on samples and populations
-* Information on how data is organised in our data portal
 * [Information on using data provided by IGSR](/IGSR_disclaimer)
 
 Please email questions about any of the above to [info@1000genomes.org](mailto:info@1000genomes.org).
