@@ -12,4 +12,4 @@ Some key files include:
 * Files listing the [samples](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) used in the work (.ped and panel)
 * [VCF files](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) containing the variants detected and additional genotype VCF files listing genotypes for each individual at each variant location (provided per chromosome due to file size)
 
-Considerable additional information can be found in the supplementary material of the publications mentioned above.
+Considerable additional information can be found in the supplementary material of the publications mentioned above. Further [background and information on data reuse](/1000-genomes-summary) are also available.
