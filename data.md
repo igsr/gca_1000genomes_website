@@ -54,13 +54,7 @@ The list of samples collected by the project and what sequence data or other ass
 
 All the samples studied by the 1000 Genomes Project are available as DNA and cell lines to scientific investigators for research projects. Samples are currently available from the non-profit [Coriell Institute for Medical Research](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM). Details of the population collections available from Coriell can be found on the [cell lines and DNA page](/cell-lines-and-dna-coriell)
 
-# How to Access Data
-
-## Browse data
-
-Data from the 1000 Genomes Project can be viewed in genomic context in genome browsers. Further details about browsing the data in this way can be found [here](/1000-genomes-browsers).
-
-##<a name="download"></a>Download data
+#Download data
 
 The data contained in IGSR can be downloaded from the FTP site hosted at the EBI [ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/).
 
