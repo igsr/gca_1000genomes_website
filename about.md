@@ -6,7 +6,7 @@ tags: About
 redirect_from:
     - /node/3/
 ---
-##The International Genome Sample Resource (IGSR) and the 1000 Genomes Project
+#The International Genome Sample Resource (IGSR) and the 1000 Genomes Project
 
 IGSR was set up to ensure the future usability and accessibility of data from the [1000 Genomes Project](/1000-genomes-summary) and to extend the data set produced by the 1000 Genomes Project to include new data generated from the [1000 Genomes Project samples](/1000-genomes-summary#g1k_data_reuse) and new populations where sampling has been carried out in line with [IGSR sampling principles](/sample_collection_principles).
 
@@ -36,7 +36,7 @@ IGSR's [sample collection principles](/sample_collection_principles) enable shar
 
 During the lifetime of IGSR, various populations have been added, mainly coming from the [Human Genome Diversity Project (HGDP)](/data-portal/data-collection/hgdp), the [Simons Genome Diversity Project (SGDP)](/data-portal/data-collection/sgdp) and the [Gambian Genome Variation Project (GGVP)](/data-portal/data-collection/ggvp-grch38).
 
-##Learning more
+#Learning more
 
 * Further information on the [1000 Genomes Project](/1000-genomes-summary)
 * [IGSR's Nucleic Acids Research publication](https://academic.oup.com/nar/article/48/D1/D941/5580898)
