@@ -36,5 +36,12 @@ IGSR's [sample collection principles](/sample_collection_principles) were develo
 
 During the lifetime of IGSR, various populations have been added, mainly coming from the [Human Genome Diversity Project (HGDP)](/data-portal/data-collection/hgdp), the [Simons Genome Diversity Project (SGDP)](/data-portal/data-collection/sgdp) and the [Gambian Genome Variation Project (GGVP)](/data-portal/data-collection/ggvp-grch38).
 
+##Learning more
+
+* Further information on the [1000 Genomes Project]((/1000-genomes-summary))
+* [IGSR's Nucleic Acids Research publication](https://academic.oup.com/nar/article/48/D1/D941/5580898)
+* Our data portal, listing the [publications associated with the data collections](/data-portal/data-collection)
+* More information on samples and populations
+* Information on how data is organised in our data portal
 
 Please email questions about any of the above to [info@1000genomes.org](mailto:info@1000genomes.org).
