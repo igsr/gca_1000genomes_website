@@ -10,6 +10,8 @@ redirect_from:
 
 # Using data from IGSR
 
+IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer).
+
 <div class="row" style="display:flex;">
   <div class="column" style="flex:50%;background-image: url('/sites/1000genomes.org/files/images/img_portal_pale.png');background-repeat: no-repeat;background-position: center center;display:table;overflow:hidden;height:200px;">
     <div style="display: table-cell; vertical-align: middle;height:100%;word-breal-break-all;">
@@ -24,7 +26,7 @@ redirect_from:
   </div>
 </div>
 
-IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer).
+
 
 #[Data portal](/data-portal)  
 We have developed a [data portal](/data-portal) to make it easier to find and browse data in IGSR. Let us know what you think at info@1000genomes.org.
