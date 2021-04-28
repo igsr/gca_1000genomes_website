@@ -3,6 +3,9 @@ layout: single_section
 title: "Data"
 permalink: /data/
 tags: Data
+redirect_from:
+ - /1000-genomes-browsers/
+ - /analysis/
 ---
 
 # Using data from IGSR
