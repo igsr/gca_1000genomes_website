@@ -9,7 +9,7 @@ tags: 1000 Genomes Project summary
 
 ###Overview of the 1000 Genomes Project
 
-The goal of the 1000 Genomes Project was to find most genetic variants with frequencies of at least 1% in the populations studied.
+The goal of the 1000 Genomes Project was to find common genetic variants with frequencies of at least 1% in the populations studied.
 
 The 1000 Genomes Project took advantage of developments in sequencing technology, which sharply reduced the cost of sequencing. It was the first project to sequence the genomes of a large number of people, to provide a comprehensive resource on human genetic variation. Data from the 1000 Genomes Project was quickly made available to the worldwide scientific community through freely accessible public databases.
 
