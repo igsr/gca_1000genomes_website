@@ -16,7 +16,7 @@ tags: Data
   </div>
   <div class="column" style="flex:50%;background-image: url('/sites/1000genomes.org/files/images/img_ensembl_pale.png');background-repeat: no-repeat;background-position: center center;display:table;overflow:hidden;height:200px;">
     <div style="display: table-cell; vertical-align: middle;height:100%;">
-      <h2 style="text-align:center;"><a href="https://www.ensembl.org/index.html">View variants in genomic context in EnsEMBL</a></h2>
+      <h2 style="text-align:center;"><a href="https://www.ensembl.org/index.html" style="color: #8ebf42">View variants in genomic context in EnsEMBL</a></h2>
     </div>
   </div>
 </div>
