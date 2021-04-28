@@ -38,7 +38,7 @@ During the lifetime of IGSR, various populations have been added, mainly coming 
 
 ##Learning more
 
-* Further information on the [1000 Genomes Project]((/1000-genomes-summary))
+* Further information on the [1000 Genomes Project](/1000-genomes-summary)
 * [IGSR's Nucleic Acids Research publication](https://academic.oup.com/nar/article/48/D1/D941/5580898)
 * Our data portal, listing the [publications associated with the data collections](/data-portal/data-collection)
 * More information on samples and populations
