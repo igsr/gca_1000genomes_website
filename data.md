@@ -11,7 +11,7 @@ tags: Data
   <div class="column" style="flex:50%;background-image: url('/sites/1000genomes.org/files/images/img_portal_pale.png');background-repeat: no-repeat;background-position: center center;display:table;overflow:hidden;height:200px;">
     <div style="display: table-cell; vertical-align: middle;height:100%;word-breal-break-all;">
       <!--<img src="/sites/1000genomes.org/files/images/img_portal.png" alt="Portal" style="width:100%">-->
-      <h2 style="text-align:center;"><a href="/data-portal/sample">Explore the data sets in IGSR through our data portal</a></h2>
+      <h2 style="text-align:center;"><a href="/data-portal/sample" style="background-color: #ffffff">Explore the data sets in IGSR through our data portal</a></h2>
     </div>
   </div>
   <div class="column" style="flex:50%;background-image: url('/sites/1000genomes.org/files/images/img_ensembl_pale.png');background-repeat: no-repeat;background-position: center center;display:table;overflow:hidden;height:200px;">
