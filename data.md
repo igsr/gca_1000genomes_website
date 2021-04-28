@@ -38,25 +38,9 @@ In EnsEMBL you can:
 * View [population frequency](https://www.ensembl.org/Homo_sapiens/Variation/Population?db=core;r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) data
 * Use a selection of [tools](https://www.ensembl.org/Homo_sapiens/Variation/Population?db=core;r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) to retrieve subsets of data, convert VCF to PED and calculate linkage disequilibrium
 
-#The IGSR [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/)
+#Download data from the IGSR [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/)
 
 The full set of files hosted by IGSR are available on our [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/). This includes data shared pre-publication and intermediate and working data for projects where we contribute to the project's data management. A set of README files provides additional information.
-
-## Lists of samples from the 1000 Genomes Project
-
-A summary of sequencing done for each of the three pilot projects is available [here](/sites/1000genomes.org/files/docs/PilotsSummary.pdf). 
-
-The list of samples collected by the project and what sequence data or other assay data that has been generated for them is available in this [spreadsheet](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/working/20130606_sample_info/20130606_sample_info.xlsx).
-
-
-
-## Sample Availability
-
-All the samples studied by the 1000 Genomes Project are available as DNA and cell lines to scientific investigators for research projects. Samples are currently available from the non-profit [Coriell Institute for Medical Research](http://ccr.coriell.org/sections/Collections/NHGRI/hapmap.aspx?PgId=266&coll=GM). Details of the population collections available from Coriell can be found on the [cell lines and DNA page](/cell-lines-and-dna-coriell)
-
-#Download data
-
-The data contained in IGSR can be downloaded from the FTP site hosted at the EBI [ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/).
 
 The data can be downloaded via FTP, Aspera and Globus GridFTP. More information about using Aspera or Globus can be found in our FAQ.
 
