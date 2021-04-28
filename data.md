@@ -49,7 +49,7 @@ The data can be downloaded via FTP, Aspera and Globus GridFTP. More information 
 
 ####FTP Hierarchy
 
-The FTP structure was changed in September 2015. The new structure is described in the [FTP site structure README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_ftp_site_structure.md). 
+The FTP structure was changed in September 2015. The revised structure is described in the [FTP site structure README](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_ftp_site_structure.md). 
 
 ####Other data sources
 
