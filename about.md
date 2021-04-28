@@ -43,5 +43,6 @@ During the lifetime of IGSR, various populations have been added, mainly coming 
 * Our data portal, listing the [publications associated with the data collections](/data-portal/data-collection)
 * More information on samples and populations
 * Information on how data is organised in our data portal
+* [Information on using data provided by IGSR](/IGSR_disclaimer)
 
 Please email questions about any of the above to [info@1000genomes.org](mailto:info@1000genomes.org).
