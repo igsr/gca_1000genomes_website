@@ -24,7 +24,7 @@ Files can be browsed by:
 * data type (i.e. alignment)
 * collection (i.e. 1000 Genomes Project phase three)
 
-Our portal provides an [overview of the available collections and their assocaited publications](https://www.internationalgenome.org/data-portal/data-collection).
+Our portal provides an [overview of the available collections and their associated publications](https://www.internationalgenome.org/data-portal/data-collection).
  
 #View variants in genomic context in [EnsEMBL](https://www.ensembl.org/index.html)
 
