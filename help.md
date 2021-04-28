@@ -23,6 +23,10 @@ Information on options for downloading data from our resources can be found on t
 
 Genomics data is typically provided in one of a set of standard formats. We have information on the most [common formats](/formats) that our data is provided in.
 
+#Understanding the data collections
+
+Most of our data collections have accompanying publications that provide detailed information on the data and associated analysis. These are [listed in our portal](/data-portal/data-collection).
+
 #Updates to IGSR
 
 We [announce](/announcements) significant changes on this website. You can also find a [change log](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/), listing file updates to our FTP site.
