@@ -8,7 +8,7 @@ This work is described in [The 1000 Genomes Project Consortium (2015)](http://ww
 
 Some key files include:
 
-* The [GRCh37 reference genome](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_ reference_assembly_sequence/) used in this analysis
+* The [GRCh37 reference genome](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/) used in this analysis
 * Files listing the [samples](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) used in the work (.ped and panel)
 * [VCF files](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) containing the variants detected and additional genotype VCF files listing genetypes for each individual at each variant location (provided per chromosome due to file size)
 
