@@ -60,7 +60,7 @@ Amazon S3 : [s3://1000genomes](denied:s3://1000genomes)
 
 Information on Amazon Web Services can be found on 1000 Genomes [public data set page](http://aws.amazon.com/datasets/4383) or directly on [http://s3.amazonaws.com/1000genomes](http://s3.amazonaws.com/1000genomes).
 
-For a small number of newer data sets, data has been added to AWS and AnVIL. Where this is the case, this is mentioned in the text and linked to from the page for the given data collection in our portal.
+For a small number of newer data sets, data has been added to AWS and AnVIL. Where this is the case, this is mentioned in our portal.
 
 
 
