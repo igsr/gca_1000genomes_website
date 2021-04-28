@@ -38,7 +38,7 @@ In EnsEMBL you can:
 * View [population frequency](https://www.ensembl.org/Homo_sapiens/Variation/Population?db=core;r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) data
 * Use a selection of [tools](https://www.ensembl.org/Homo_sapiens/Variation/Population?db=core;r=1:230709548-230710548;v=rs699;vdb=variation;vf=94) to retrieve subsets of data, convert VCF to PED and calculate linkage disequilibrium
 
-#The IGSR [FTP](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/) site
+#The IGSR [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/)
 
 The full set of files hosted by IGSR are available on our [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/). This includes data shared pre-publication and intermediate and working data for projects where we contribute to the project's data management. A set of README files provides additional information.
 
