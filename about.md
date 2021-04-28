@@ -24,7 +24,7 @@ In 2014, the [Genome Reference Consortium](http://www.ncbi.nlm.nih.gov/projects/
 
 As part of its work to maintain the 1000 Genomes Project data, [IGSR realigned the original project's sequence data to GRCh38](https://academic.oup.com/gigascience/article/6/7/gix038/3836916) and used these alignments to [call biallelic SNVs and INDELs](https://wellcomeopenresearch.org/articles/4-50).
 
-[Subseqeuent work by the New York Genome Center](https://www.internationalgenome.org/data-portal/data-collection/30x-grch38), funded by NHGRI, generated new high-coverage data for the 1000 Genomes samples and has also analysed the data on GRCh38.
+[Subseqeuent work by the New York Genome Center (NYGC)](https://www.internationalgenome.org/data-portal/data-collection/30x-grch38), funded by NHGRI, generated new high-coverage data for the 1000 Genomes samples and has also analysed the data on GRCh38.
 
 ###<a name="aim2"></a>2. Incorporate published genomic data on the 1000 Genomes samples
 
