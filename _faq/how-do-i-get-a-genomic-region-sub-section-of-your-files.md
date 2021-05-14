@@ -24,7 +24,7 @@ redirect_from:
 
 You can get a subsection of the VCF or BAM files using the [Ensembl Data Slicer tool](http://www.ensembl.org/Homo_sapiens/Tools/DataSlicer). This tool gives you a web interface requesting the URL of any VCF file and the genomic location you wish to get a sub-slice for. This tool also works for BAM files. This tool also allows you to filter the file for particular individuals or populations if you also provide a panel file.
 
-You can also subset VCFs using [tabix](http://www.htslib.org/doc/tabix.html) on the command line. e.g 
+You can also subset VCFs using [tabix](http://www.htslib.org/doc/tabix.html) on the command line, e.g.
 
     tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz 2:39967768-39967768
 
@@ -34,7 +34,7 @@ Please note that all our VCF files using straight intergers and X/Y for their ch
 
     tabix -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz chr2:39967768-39967768
     
-You can subset alignment files with [samtools](http://www.htslib.org/) on the command line, e.g
+You can subset alignment files with [samtools](http://www.htslib.org/) on the command line, e.g.
 
     samtools view -h ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase1/data/HG00154/alignment/HG00154.mapped.ILLUMINA.bwa.GBR.low_coverage.20101123.bam 17:7512445-7513455
 
