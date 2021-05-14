@@ -12,7 +12,7 @@ redirect_from:
     - /faq/what-hla-diversity-1000-genomes-samples/
 ---
 
-HLA diversity is not something which was studied by the 1000 Genomes Project directly, However, groups have looked at the HLA diversity of the samples in the 1000 Genomes Project.
+HLA diversity is not something which was studied by the 1000 Genomes Project directly. However, groups have looked at the HLA diversity of the samples in the 1000 Genomes Project.
 
 ## 2018 data
 
