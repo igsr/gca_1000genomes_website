@@ -13,7 +13,6 @@ faq_related:
   - how-do-i-get-a-genomic-region-sub-section-of-your-files
   - are-my-snps-found-1000-genomes-project
 redirect_from:
-    - /faq/what-are-your-filename-conventions/
     - /faq/what-do-names-your-fastq-files-mean/
     - /faq/what-do-names-your-variant-files-mean-and-what-format-are-files/
 ---
