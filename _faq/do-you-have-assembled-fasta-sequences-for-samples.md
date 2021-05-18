@@ -18,7 +18,7 @@ Recent projects, such as the second phase of the Human Genome Structural Variati
 
 The 1000 Genomes Project did not create any assemblies from the genome sequence data it generated.  
 
-The Gerstein Lab at Yale University created a diploid version of the NA12878 sequence, which is available from the [Gerstein website](http://sv.gersteinlab.org/) under [NA12878_diploid](http://sv.gersteinlab.org/NA12878_diploid/). When used, groups should cite [AlleleSeq: analysis of allele-specific expression and binding in a network framework, Rozowsky *et al.*, Molecular Systems Biology 7:522](http://www.nature.com/msb/journal/v7/n1/full/msb201154.html).
+The Gerstein Lab at Yale University created a diploid version of the NA12878 sequence, which is available from the [Gerstein website](http://sv.gersteinlab.org/) under [NA12878_diploid](http://sv.gersteinlab.org/NA12878_diploid/). When used, groups should cite [AlleleSeq: analysis of allele-specific expression and binding in a network framework, Rozowsky *et al.*, Molecular Systems Biology 7:522](https://www.embopress.org/doi/full/10.1038/msb.2011.54).
 
 You can create a FASTA file incorporating the variants from an individual with a [VCFtools](http://vcftools.github.io/) Perl script called [vcf-consensus](http://vcftools.github.io/perl_module.html#vcf-consensus).
 
