@@ -9,7 +9,6 @@ faq_related:
   - about-alignment-files-bam-and-cram
   - how-do-i-find-specific-alignment-files
 redirect_from:
-    - /faq/why-are-there-chr-11-and-chr-20-alignment-files-and-not-for-other-chromosomes/
 ---
 
 The chr 11 and chr 20 alignment files are put in place to give the 1000 Genomes analysis group a small section of the genome to run test analyses on before committing to a particular strategy to run across the whole genome.
