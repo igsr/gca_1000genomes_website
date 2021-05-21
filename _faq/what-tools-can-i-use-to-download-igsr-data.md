@@ -41,7 +41,7 @@ For versions 3.3.2 and older, you need to use a command line like:
 
          ascp -i bin/aspera/etc/asperaweb_id_dsa.putty -Tr -Q -l 100M -P33001 -L- fasp-g1k@fasp.1000genomes.ebi.ac.uk:vol1/ftp/release/20100804/ALL.2of4intersection.20100804.genotypes.vcf.gz ./
 
-Note, the only change between these commands is that for newer versions of ascp asperaweb_id_dsa.openssh replaces asperaweb_id_dsa.putty. This change is noted by Aspera [here](https://support.asperasoft.com/entries/38675468-Command-line-ascp-transfer-asking-for-a-passphrase-after-Connect-plugin-upgrade). You can check the version of ascp you have using:
+Note, the only change between these commands is that for newer versions of ascp asperaweb_id_dsa.openssh replaces asperaweb_id_dsa.putty. You can check the version of ascp you have using:
 
        ascp --version
 
@@ -58,7 +58,7 @@ As an example of downloading a file from ENA, you could use a command line like:
 
 ### Key files
 
-If you are unsure of the location of asperaweb_id_dsa.openssh or asperaweb_id_dsa.putty, Aspera provide some [documentation](https://support.asperasoft.com/hc/en-us/articles/216125898-Downloading-data-from-NCBI-via-the-command-line) on where these will be found on different systems.
+If you are unsure of the location of asperaweb_id_dsa.openssh or asperaweb_id_dsa.putty, Aspera provide some [documentation](https://www.ibm.com/support/pages/downloading-data-ncbi-command-line) on where these will be found on different systems.
 
 ### Ports
 
@@ -77,7 +77,7 @@ Our aspera browser interace no longer works. If you wish to download files using
 
 ## How to download 1000 Genomes data with Globus Online?
 
-The 1000 Genomes FTP site is available as an end point in the [Globus Online system](https://www.globus.org/).  In order to access the data you need to sign up for an account with Globus via their [signup page](https://www.globus.org/SignUp). You must also install the [Globus Connect Personal software](https://support.globus.org/entries/24044351) and setup a personal endpoint to download the data too.
+The 1000 Genomes FTP site is available as an end point in the [Globus Online system](https://www.globus.org/).  In order to access the data you need to sign up for an account with Globus via their [signup page](https://app.globus.org/). You must also install the [Globus Connect Personal software](https://www.globus.org/globus-connect-personal) and setup a personal endpoint to download the data too.
 
 The 1000 Genomes data is hosted at the EMBL-EBI end point called "Shared EMBL-EBI public endpoint". Data from our FTP site can then be found under the 1000g directory within the EMBL-EBI public end point.
 
@@ -85,7 +85,7 @@ The 1000 Genomes data is hosted at the EMBL-EBI end point called "Shared EMBL-EB
 
 When you have setup your personal end point you should be able to start a transfer using their web interface.
 
-The Globus website has support for [setting up accounts](https://support.globus.org/entries/23583857-Sign-Up-and-Transfer-Files-with-Globus-Online), and [installing the globus personal connect software](https://support.globus.org/forums/22130516-Globus-Connect-Personal).
+The Globus website has support for [setting up accounts](https://docs.globus.org/how-to/get-started/), and [installing the globus personal connect software](https://docs.globus.org/how-to/).
 
 ## Can I get 1000 Genomes data on the Amazon Cloud?
 
