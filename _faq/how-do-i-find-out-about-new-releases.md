@@ -14,6 +14,5 @@ redirect_from:
 
 We announce all new data releases on the [front page](/) of our website.
 
-You can also follow these announcements on [rss](/announcements/rss.xml) and [twitter](http://twitter.com/#!/1000genomes) We have a public email list all announcements are posted to [1000announce@1000genomes.org](/1000-genomes-annoucement-mailing-list)
-
+You can also follow these announcements on [rss](/announcements/rss.xml) and [twitter](http://twitter.com/#!/1000genomes).
 If you want to ask us a question please email [info@1000genomes.org](mailto:info@1000genomes.org)
