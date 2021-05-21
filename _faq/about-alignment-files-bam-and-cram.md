@@ -37,7 +37,7 @@ The bam file names look like:
 
 The bai index and bas statistics files are also named in the same way.
 
-The name includes the individual sample ID, where the sequence is mapped to, if the file has only contains mapping to a particular chromosome that is what the name contains otherwise, mapped means the whole genome mapping and unmapped means the reads which failed to map to the reference (pairs where one mate mapped and the other didn't stay in the mapped file), the sequencing platform, the ethnicity of the sample using our [three letter population code](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.populations), the sequencing strategy. The date matches the date of the sequence used to build the bams and can also be found in the [sequence.index filename](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data).
+The name includes the individual sample ID, where the sequence is mapped to, if the file has only contains mapping to a particular chromosome that is what the name contains otherwise, mapped means the whole genome mapping and unmapped means the reads which failed to map to the reference (pairs where one mate mapped and the other didn't stay in the mapped file), the sequencing platform, the ethnicity of the sample using our [three letter population code](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README_populations.md), the sequencing strategy. The date matches the date of the sequence used to build the bams and can also be found in the [sequence.index filename](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/README.sequence_data).
 
 ## Unmapped bams
 
