@@ -13,7 +13,7 @@ redirect_from:
     - /faq/can-i-convert-vcf-files-plinkped-format/
 ---
 
-We provide a [VCF to PED tool]({{site.browser_url}}/Homo_sapiens/UserData/Haploview) to convert from VCF to [PLINK](http://pngu.mgh.harvard.edu/~purcell/plink/index.shtml) PED format. This tool has documentation for both the [web interface](/vcf-ped-converter#Online) and the [Perl script](/vcf-ped-converter#API%20Script).
+We provide a VCF to PED tool to convert from VCF to [PLINK](http://pngu.mgh.harvard.edu/~purcell/plink/index.shtml) PED format. This tool has documentation for both the [web interface](/vcf-ped-converter#Online) and the [Perl script](/vcf-ped-converter#API%20Script).
 
 An example Perl command to run the script would be:
 
