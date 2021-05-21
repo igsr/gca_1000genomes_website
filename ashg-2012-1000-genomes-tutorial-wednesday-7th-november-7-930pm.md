@@ -8,7 +8,7 @@ permalink: /ashg-2012-1000-genomes-tutorial-wednesday-7th-november-7-930pm/
 
 The tutorial was held at the [San Francisco Marriot Marquis](http://www.marriott.co.uk/hotels/travel/sfodt-san-francisco-marriott-marquis/) from 7pm to 9:00pm on Wednesday 7th November
 
-The 1000 Genomes Project has released the sequence data and an integrated set of variants, genotypes, and haplotypes for the 1092 samples in the phase 1 set, and the sequence data for the phase 2 set. This tutorial describes the data sets, how to access them, and how to use them.
+The 1000 Genomes Project released the sequence data and an integrated set of variants, genotypes, and haplotypes for the 1092 samples in the phase 1 set, and the sequence data for the phase 2 set. This tutorial describes the data sets, how to access them, and how to use them.
 
 The topics that were covered are:
 
