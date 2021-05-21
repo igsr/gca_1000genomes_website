@@ -4,7 +4,7 @@ title: "The 1000 Genomes Project held a tutorial at ASHG 2012"
 permalink: /ashg-2012-1000-genomes-tutorial-wednesday-7th-november-7-930pm/
 ---
 
-# The 1000 Genomes Project is held a tutorial at ASHG 2012
+# The 1000 Genomes Project held a tutorial at ASHG 2012
 
 The tutorial was held at the [San Francisco Marriot Marquis](http://www.marriott.co.uk/hotels/travel/sfodt-san-francisco-marriott-marquis/) from 7pm to 9:00pm on Wednesday 7th November
 
