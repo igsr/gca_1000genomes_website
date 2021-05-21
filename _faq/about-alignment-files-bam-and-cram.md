@@ -25,7 +25,7 @@ The CRAM file format was designed by the [EBI](http://www.ebi.ac.uk/ena/about/cr
 
 The CRAM files the 1000 Genomes project distributes are lossy cram files which reduce the base quality scores using the Illumina 8-bin compression scheme as described in the lossy compression section on the [cram usage page](http://www.ebi.ac.uk/ena/about/cram_usage)
 
-There is a [cram developers mailing list](http://listserver.ebi.ac.uk/mailman/listinfo/cram-dev) where the format is discussed and help can be found.
+There is a [github page](https://github.com/samtools/hts-specs) where the format of CRAM file is discussed and help can be found.
 
 CRAM files can be read using many Picard tools and work is being done to ensure samtools can also read the file format natively.
 
