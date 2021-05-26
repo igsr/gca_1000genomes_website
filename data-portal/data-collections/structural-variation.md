@@ -10,8 +10,4 @@ The International Genome Sample Resource (IGSR) is working with the HGSVC to ass
 
 The HGSVC is following on work performed previously by the 1000 Genomes Project Structural Variation Analysis Group.
 
-<<<<<<< HEAD
-The HGSVC is following on work performed previously by the 1000 Genomes Project Structural Variation Analysis Group and continues to apply cutting edge sequence and mapping technologies to resolve the pattern of normal structural variation in diverse human populations (eg. [HGSVC2](https://www.internationalgenome.org/data-portal/data-collection/hgsvc2)).
-=======
 The HGSVC is following on work performed previously by the 1000 Genomes Project Structural Variation Analysis Group and continues to apply cutting edge sequence and mapping technologies to resolve the pattern of normal structural variation in diverse human populations (eg. [HGSVC2](https://www.internationalgenome.org/data-portal/data-collection/hgsvc2) ).
->>>>>>> test.internationalgenome.org
