@@ -1,9 +1,18 @@
+<!--
+Experimenting with layout and tidying banner
+Original Author: susanfairley (content branch)
+Changes to test branch: ranjits@ebi.ac.uk
+Date: 19 April 2021
+Changes: replace <div class="container"> with <div class="container-fluid">
+--> 
+
 <header class="header clearfix" role="banner">
 
 <div class="top-banners">
 <div class="title-banner"><div class="title-banner-img"></div></div>
 
-<div class="container">
+<!--<div class="container">-->
+<div class="container-fluid">
 <div class="row">
 
   <div class="col-md-12 col-sm-12 col-xs-12 top-banner-content">
@@ -14,7 +23,8 @@
 </div>
 
 <div class="nav-banner">
-<div class="container">
+<!--<div class="container">-->
+<div class="container-fluid">
 <div class="row">
 
   <nav class="navbar">
@@ -33,11 +43,12 @@
         <li {% if page.tags contains "Home" %}class="active"{% endif %}><a href="/home" title="Home">Home</a></li>
         <li {% if page.tags contains "About" %}class="active"{% endif %}><a href="/about" title="About">About</a></li>
         <li {% if page.tags contains "Data" %}class="active"{% endif %}><a href="/data" title="Data">Data</a></li>
-        <li {% if page.tags contains "Portal" %}class="active"{% endif %}><a href="/data-portal" title="Portal">Portal</a></li>
+        <li {% if page.tags contains "Help" %}class="active"{% endif %}><a href="/help" title="Help">Help</a></li>
+        <!--<li {% if page.tags contains "Portal" %}class="active"{% endif %}><a href="/data-portal" title="Portal">Portal</a></li>
         <li {% if page.tags contains "Analysis" %}class="active"{% endif %}><a href="/analysis" title="Analysis">Analysis</a></li>
         <li {% if page.tags contains "Contact" %}class="active"{% endif %}><a href="/contact" title="Contact">Contact</a></li>
         <li {% if page.tags contains "Browser" %}class="active"{% endif %}><a href="/1000-genomes-browsers" title="The 1000 Genomes Browser">Browser</a></li>
-        <li {% if page.tags contains "FAQ" %}class="active"{% endif %}><a href="/faq" title="FAQ">FAQ</a></li>
+        <li {% if page.tags contains "FAQ" %}class="active"{% endif %}><a href="/faq" title="FAQ">FAQ</a></li>-->
     </ul>
     
 
@@ -80,7 +91,7 @@ Date: 25 February 2021
     <hr style="height:1px; visibility:hidden;" /> <!-- add a white space below the button -->
 <!-- </div>
 </div>
-</div> -->
+</div>-->
 <!--
 END of IGSR-499
 -->

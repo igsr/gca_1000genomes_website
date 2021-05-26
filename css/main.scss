@@ -1,6 +1,12 @@
 ---
 ---
-
+/*
+Experimenting with layout and tidying banner
+Original Author: susanfairley (content branch)
+Changes to test branch: ranjits@ebi.ac.uk
+Date: 19 April 2021
+Changes: title-banner, title-banner-img, nav-banner, site-title, footer, ul.navbar-nav, section
+*/ 
 body {
     background-color: #EAE9E5;
 }
@@ -11,9 +17,10 @@ header {
         width: 100%;
         height: 158px;
         div.title-banner {
-            background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/body_back.png");
+            /*background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/body_back.png");
             background-repeat: repeat-x;
-            background-color: transparent;
+            background-color: transparent;*/
+            background-color: #18252E;
             width: 100%;
             height: 158px;
             position: absolute;
@@ -21,7 +28,8 @@ header {
 
             div.title-banner-img {
                 background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/header_back.jpg");
-                background-color: transparent;
+                /*background-color: transparent;*/
+                background-color: #18252E;
                 background-repeat: no-repeat;
                 background-position: right top;
                 position: absolute;
@@ -34,7 +42,8 @@ header {
     }
     div.nav-banner {
         width: 100%;
-        background-color: #262626;
+        /*background-color: #262626;*/
+        background-color: #18252E;
         margin-bottom: 20px;
     }
 
@@ -57,7 +66,8 @@ header {
       }
 
       h1#site-title {
-        color: #DAA406;
+        /*color: #DAA406;*/
+        color: #FFF;
         margin: 5px;
         a {
             color: inherit;
@@ -72,21 +82,25 @@ header {
         min-height: 40px;
 
         .navbar-toggle {
-            border-color: #79C7E7;
+            /*border-color: #79C7E7;*/
+            border-color: #EAE9E5;
             margin-top: 4px;
             margin-bottom: 4px;
             padding-top: 8px;
             padding-bottom: 8px;
             .icon-bar {
-                background-color: #79C7E7;
+                /*background-color: #79C7E7;*/
+                background-color: #EAE9E5;
             }
         }
 
         ul.navbar-nav {
             li >a {
-                color: #79C7E7;
+                /*color: #79C7E7;*/
+                color: #EAE9E5;
                 padding-top: 10px;
                 padding-bottom: 10px;
+                /*text-decoration: underline;*/
             }
 
             li.active a {
@@ -123,8 +137,10 @@ header {
 
 footer {
   div.footer {
-    background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/footer_back.jpg");
+    /*background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/footer_back.jpg");
+    background-size: auto 100%;*/
     background-size: auto 100%;
+    background-color: #18252E;  
     color: #696760;
     font-size: 9.6px;
     padding-top: 4px;
@@ -140,13 +156,15 @@ footer {
 }
 
 div.section {
+    /*
     background-color: white;
     border-width: 5px 1px 1px 1px;
     border-color: #C3C3C0;
     border-top-color: #F67C16;
     border-style: solid;
     background-image: url("/sites/1000genomes.org/themes/custom/one_thousand_genomes/images/block_top_arrow.png");
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
+    background-color: #FFF;
     margin: 20px 0px 20px 0px;
 
     img {

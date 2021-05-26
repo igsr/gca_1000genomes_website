@@ -19,6 +19,8 @@ Data from the 1000 Genomes Project is now available without embargo, following t
 
 Data from the Human Genome Structural Variation Consortium (HGSVC) continues the philosophy of the 1000 Genomes Project, making data available prior to publication in line with Fort Lauderdale principles, allowing others to use the data but allowing the data producers to make the first presentations and to publish the first paper with global analyses of the data. Users should see the [data reuse statement](https://github.com/igsr/1000Genomes_data_indexes/blob/master/data_collections/hgsv_sv_discovery/README_hgsvc_datareuse_statement.md) accompanying the data.
 
+For all data collections in IGSR, please check the accompanying data reuse statements and cite any available publications appropriately.
+
 For any enquiries, including the terms of use of data and citation, please contact info@1000genomes.org.
 
 ##Privacy and Cookies
