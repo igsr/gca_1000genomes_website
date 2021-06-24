@@ -42,7 +42,8 @@
       </tr></thead>
       <tbody><tr *ngFor="let hit of files?.hits">
         <td><a [href]="hit._source.url"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a></td>
-        <td [innerHTML]="softHyphens(hit._source.url)"></td>
+        <!--<td [innerHTML]="softHyphens(hit._source.url)"></td>-->
+        <td [innerHTML]=hit._source.url"></td>
         <td>
           <a *ngIf="hit._source.samples?.length == 1" [routerLink]="['/sample', hit._source.samples[0]]"> {{ hit._source.samples[0] }}</a>
           <ng-container *ngIf="hit._source.samples?.length > 1">multi-sample</ng-container>
