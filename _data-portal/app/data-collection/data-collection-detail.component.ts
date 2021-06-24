@@ -1,3 +1,11 @@
+/*
+IGSR-327 Bug fix to remove soft hyphens in URLs when copying to browser
+Author: ranjits@ebi.ac.uk
+Date: 25 June 2021
+Changes:  
+  Replace: return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;
+  with:    return url ? url.replace(/[\/\.]/g, '$&<wbr>') : url;
+*/ 
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from'@angular/router';
@@ -62,7 +70,8 @@ export class DataCollectionDetailComponent implements OnInit, OnDestroy {
   }
 
   public softHyphens(url: string): string {
-    return url ? url.replace(/[\/\.]/g, '$&&shy;') : url; 
+     /** return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;  **/
+    return url ? url.replace(/[\/\.]/g, '$&<wbr>') : url;
   }
 
   ngOnDestroy() {
