@@ -62,7 +62,8 @@ export class DataCollectionDetailComponent implements OnInit, OnDestroy {
   }
 
   public softHyphens(url: string): string {
-    return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;
+    /** return url ? url.replace(/[\/\.]/g, '$&&shy;') : url; */
+      return url ? url.replace(/[\/\.]/g, '$&&#173;') : url;
   }
 
   ngOnDestroy() {
