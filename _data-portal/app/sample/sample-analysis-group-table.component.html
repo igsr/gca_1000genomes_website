@@ -1,3 +1,36 @@
+<!--
+IGSR-136 Scrollbar at the top of Technology view of Samples data portal
+Author: ranjits@ebi.ac.uk
+Date: 26 June 2021
+Changes: 
+	Set the style of container div element
+	Set the effects to the division named content
+	To place the scroll-bar on the top of the div element, rotate the division content (by default in bottom) by 180.
+-->
+<!-- START of IGSR-136 -->
+<style>
+.Container {
+  width: 110%;
+  margin-top:75px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-bottom: 60px;	
+}
+
+.Content {
+  width:300px;
+}
+
+.Flipped, .Flipped .Content {
+  transform: rotateX(180deg);
+  -ms-transform:rotateX(180deg); /* IE 9 */
+  -webkit-transform:rotateX(180deg); /* Safari and Chrome */
+}
+</style>
+<div class="Container Flipped">
+<div class="Content">
+<!-- END of IGSR-136 -->
+	
 <table class="table table-striped table-condensed">
 <thead><tr>
   <th>Sample</th>
@@ -23,3 +56,7 @@
   </ng-container>
 <tr></tbody>
 </table>
+<!-- START of IGSR-136 -->
+</div>
+</div>	
+<!-- END of IGSR-136 -->
