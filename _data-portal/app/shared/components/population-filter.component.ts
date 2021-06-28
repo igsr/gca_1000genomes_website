@@ -50,10 +50,10 @@ export class PopulationFilterComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // IGSR - 328 - START
-    var previousFilters = sessionStorage.getItem('FILTER_LIST');
-    var filterList = JSON.parse(previousFilters);
-    if (filterList) {
-      this.filters = filterList;
+    var previousFiltersPf = sessionStorage.getItem('FILTER_LIST_PF');
+    var filterListPf = JSON.parse(previousFiltersPf);
+    if (filterListPf) {
+      this.filters = filterListPf;
       this.filtersChange.emit(this.filters);
     }   
     // IGSR - 328 - END
@@ -71,7 +71,7 @@ export class PopulationFilterComponent implements OnInit, OnDestroy {
     this.filters[code] = isFiltered;
     this.filtersChange.emit(this.filters);
     // IGSR - 328 - START
-    sessionStorage.setItem('FILTER_LIST', JSON.stringify(this.filters));
+    sessionStorage.setItem('FILTER_LIST_PF', JSON.stringify(this.filters));
     // IGSR - 328 - END    
   }
 
