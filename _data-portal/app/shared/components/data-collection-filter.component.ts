@@ -50,7 +50,7 @@ export class DataCollectionFilterComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // IGSR - 328 - START
-    var previousFilters = sessionStorage.getItem('FILTER_LIST');
+    var previousFilters = sessionStorage.getItem('FILTER_LIST_DC');
     var filterList = JSON.parse(previousFilters);
     if (filterList) {
       this.filters = filterList;
@@ -71,7 +71,7 @@ export class DataCollectionFilterComponent implements OnInit, OnDestroy {
     this.filters[code] = isFiltered;
     this.filtersChange.emit(this.filters);
     // IGSR - 328 - START
-    sessionStorage.setItem('FILTER_LIST', JSON.stringify(this.filters));
+    sessionStorage.setItem('FILTER_LIST_DC', JSON.stringify(this.filters));
     // IGSR - 328 - END    
   }
 
