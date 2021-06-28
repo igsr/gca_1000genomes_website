@@ -50,10 +50,10 @@ export class AnalysisGroupFilterComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // IGSR - 328 - START
-    var previousFilters = sessionStorage.getItem('FILTER_LIST');
-    var filterList = JSON.parse(previousFilters);
-    if (filterList) {
-      this.filters = filterList;
+    var previousFiltersAg = sessionStorage.getItem('FILTER_LIST_AG');
+    var filterListAg = JSON.parse(previousFiltersAg);
+    if (filterListAg) {
+      this.filters = filterListAg;
       this.filtersChange.emit(this.filters);
     }
     // IGSR - 328 - END
@@ -71,7 +71,7 @@ export class AnalysisGroupFilterComponent implements OnInit, OnDestroy {
     this.filters[code] = isFiltered;
     this.filtersChange.emit(this.filters);
     // IGSR - 328 - START
-    sessionStorage.setItem('FILTER_LIST', JSON.stringify(this.filters));
+    sessionStorage.setItem('FILTER_LIST_AG', JSON.stringify(this.filters));
     // IGSR - 328 - END
   }
 
