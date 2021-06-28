@@ -50,10 +50,10 @@ export class DataCollectionFilterComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // IGSR - 328 - START
-    var previousFilters = sessionStorage.getItem('FILTER_LIST_DC');
-    var filterList = JSON.parse(previousFilters);
-    if (filterList) {
-      this.filters = filterList;
+    var previousFiltersDc = sessionStorage.getItem('FILTER_LIST_DC');
+    var filterListDc = JSON.parse(previousFiltersDc);
+    if (filterListDc) {
+      this.filters = filterListDc;
       this.filtersChange.emit(this.filters);
     }    
     // IGSR - 328 - END
