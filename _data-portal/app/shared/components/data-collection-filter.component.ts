@@ -1,12 +1,3 @@
-/*
-IGSR-328 Retain portal filters when using back button
-Author: ranjits@ebi.ac.uk
-Date: 28 June 2021
-Changes: 
-	Save the filter in sessionStorage (changeFilter function) whenever user select/unselect a filter in this page
-	In ngOnInit(), get the saved sessionStorage. If value(s) exist, assign this value(s) to this.filter	
-*/
-
 import { Component, EventEmitter, OnInit, OnDestroy, Input, Output } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -49,14 +40,6 @@ export class DataCollectionFilterComponent implements OnInit, OnDestroy {
   private dcListSubscription: Subscription = null;
 
   ngOnInit() {
-    // IGSR - 328 - START
-    var previousFiltersDc = sessionStorage.getItem('FILTER_LIST_DC');
-    var filterListDc = JSON.parse(previousFiltersDc);
-    if (filterListDc) {
-      this.filters = filterListDc;
-      this.filtersChange.emit(this.filters);
-    }    
-    // IGSR - 328 - END
     this.dcListSubscription = this.apiDataCollectionService.getAll()
       .subscribe((h: SearchHits<DataCollection>) => this.dcList = h);
   }
@@ -70,9 +53,6 @@ export class DataCollectionFilterComponent implements OnInit, OnDestroy {
   changeFilter(code: string, isFiltered: boolean) {
     this.filters[code] = isFiltered;
     this.filtersChange.emit(this.filters);
-    // IGSR - 328 - START
-    sessionStorage.setItem('FILTER_LIST_DC', JSON.stringify(this.filters));
-    // IGSR - 328 - END    
   }
 
   closePanel() {
