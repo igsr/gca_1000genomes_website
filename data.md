@@ -8,7 +8,7 @@ redirect_from:
  - /analysis/
 ---
 
-# Test Using data from IGSR
+# Using data from IGSR
 
 IGSR provides open data to support the community's research efforts. You can see our terms of use in our [data disclaimer](/IGSR_disclaimer). Please also consult the associated data reuse statements and cite associated publications appropriately. To cite IGSR, please use our [NAR paper](https://academic.oup.com/nar/article/45/D1/D854/2770649).
 
