@@ -1,5 +1,5 @@
 ---
-title: "This test"
+title: "A variation call set obtained from the analysis of Gambian Genome Variation Project samples on GRCh38"
 pinned: true
 ---
 Test image inclusion:
