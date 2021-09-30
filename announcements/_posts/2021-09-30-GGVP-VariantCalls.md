@@ -2,6 +2,7 @@
 title: "A variation call set obtained from the analysis of Gambian Genome Variation Project samples on GRCh38"
 pinned: true
 ---
+New
 We have recently published a [Data Note](https://wellcomeopenresearch.org/articles/6-239) describing our analysis of 505 samples from four Gambian populations in the Gambian Genome Variation Project (GGVP) on GRCh38.
 
 For the analysis we have used a multi-caller site discovery approach along with imputation and phasing to produce a phased biallelic single nucleotide variant (SNV) and insertion/deletion (INDEL) call set. Variation had not previously been explored on the GRCh38 human genome assembly for 387 of the samples. Compared to our previous work with the 1000 Genomes Project data on GRCh38 described [here](https://wellcomeopenresearch.org/articles/4-50/v2), we identified over nine million novel SNVs and over 870 thousand novel INDELs.
