@@ -30,7 +30,7 @@ An example set of command lines would be:
     #Index the new VCF file so it can be used by vcf-consensus
     tabix -p vcf HG00098.vcf.gz
     
-    #Run vcf-consensus
-    cat ref.fa | vcf-consensus HG00098.vcf.gz > HG00098.fa
+    #Run vcf-consensus and use --sample to apply sample-specific variants
+    cat ref.fa | vcf-consensus HG00098.vcf.gz --sample HG00098 > HG00098.fa
 
 You can get more support for VCFtools on their [help mailing list](http://sourceforge.net/p/vcftools/mailman/).
