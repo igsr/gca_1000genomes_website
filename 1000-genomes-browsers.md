@@ -23,5 +23,4 @@ During the 1000 Genomes Project, data was shared as soon as possible via early a
 ###Tutorials and guides
 There are tips for Ensembl both on the [main Ensembl site](http://www.ensembl.org/info/website/tutorials/index.html) and their [blog](http://www.ensembl.info/).
 
-The [NCBI](http://www.ncbi.nlm.nih.gov) also provide a [1000 genomes browser](http://www.ncbi.nlm.nih.gov/variation/tools/1000genomes/) hosted on their site.
 
