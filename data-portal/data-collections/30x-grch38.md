@@ -12,7 +12,7 @@ The [New York Genome Center (NYGC)](https://www.nygenome.org), funded by [NHGRI]
 NYGC have performed variant calling on the data and the resulting call sets are available on our [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/). These include:
 
 * [Genotype VCFs](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/) - these include the genotypes for all samples in the "recalibrated_variants.vcf.gz" files (also listed below)
-* [Phased VCFs](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_phased/) - the phased calls for the 3202 samples
+* [Phased VCFs](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20220422_3202_phased_SNV_INDEL_SV/) - the phased SNV/INDEL/SV calls for the 3202 samples
 * [Structural Variation VCFs](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20210124.SV_Illumina_Integration/) - Structural Variation calls for the 3202 samples
 * [Pedigree info file](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/1kGP.3202_samples.pedigree_info.txt) - Sample metadata file listing pedigree and sex information for the 3,202 1kGP samples
 
