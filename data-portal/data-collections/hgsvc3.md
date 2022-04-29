@@ -6,4 +6,5 @@ The Human Genome Structural Variation Consortium (HGSVC), funded by NHGRI, have 
 
 This phase of the HGSVC is in progress and expands to additional human genomes using more complete phased assemblies including longer and more accurate long-read sequence data. Raw pre-QC and unvalidated data can be found on the [HGSVC3 IGSR FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC3).
 
-This work is described in the publication by [Ebert et al., 2021](https://science.sciencemag.org/content/early/2021/02/24/science.abf7117) and [Mark J P Chaisson et al., 2019] (https://pubmed.ncbi.nlm.nih.gov/30992455/).
+This work is described in the publication by [Ebert et al., 2021](https://science.sciencemag.org/content/early/2021/02/24/science.abf7117) and 
+[Mark J P Chaisson et al., 2019](https://pubmed.ncbi.nlm.nih.gov/30992455/).
