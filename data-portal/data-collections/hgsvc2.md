@@ -17,4 +17,4 @@ Some key data sets include:
 * **Assemblies** - The generated [assemblies](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC2/release/v1.0/assemblies/), which were then used in subsequent analysis, are also available.
 * **Reference data** - The [version of GRCh38 used in this work](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC2/technical/reference/20200513_hg38_NoALT/), [files detailing low confidence regions of the genome excluded from analysis](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC2/technical/filter/20210127_LowConfidenceFilter/) and [technical supporting](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC2/technical/tech-support-files/) files (such as configuration files) are included.
 
-This work is described in the publication by [Ebert et al., 2021](https://science.sciencemag.org/content/early/2021/02/24/science.abf7117) .
+This work is described in the publication by [Ebert et al., 2021](https://science.sciencemag.org/content/early/2021/02/24/science.abf7117) and [Mark J P Chaisson et al., 2019](https://pubmed.ncbi.nlm.nih.gov/30992455/).
