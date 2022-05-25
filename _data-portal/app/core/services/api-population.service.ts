@@ -69,10 +69,10 @@ export class ApiPopulationService {
   searchExport(query: any, filename: string){
     let body = {
       fields: [
-        'code', 'elasticId', 'name', 'description', 'latitude', 'longitude', 'superpopulation.code', 'superpopulation.name', 'superpopulation.display_colour', 'superpopulation.display_order', 'samples.count', 'dataCollections.title',
+        'code', 'elasticId', 'name', 'description', 'latitude', 'longitude', 'superpopulation.code', 'superpopulation.name', 'superpopulation.display_colour', 'superpopulation.display_order', 'dataCollections.title',
       ],
       column_names: [
-        'Population code', 'Population elastic ID', 'Population name', 'Population description', 'Population latitude', 'Population longitude', 'Superpopulation code', 'Superpopulation name', 'Superpopulation display colour', 'Superpopulation display order', 'Number of samples', 'Data collections',
+        'Population code', 'Population elastic ID', 'Population name', 'Population description', 'Population latitude', 'Population longitude', 'Superpopulation code', 'Superpopulation name', 'Superpopulation display colour', 'Superpopulation display order', 'Data collections',
       ],
     };
     if (query) {
