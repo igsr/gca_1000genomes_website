@@ -19,4 +19,4 @@ Details of the different phases of the HGSVC are available in the data portal:
 
 Please use the [data reuse policy for each phase](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp//data_collections/hgsv_sv_discovery/README_hgsvc_datareuse_statement.md).
 
-If you have any questions about this project please email [contact@hgsvc.org](malito:contact@hgsvc.org).
+If you have any questions about this project please email [contact@hgsvc.org](mailto:contact@hgsvc.org).
