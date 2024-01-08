@@ -79,7 +79,8 @@ Our aspera browser interace no longer works. If you wish to download files using
 
 The 1000 Genomes FTP site is available as an end point in the [Globus Online system](https://www.globus.org/).  In order to access the data you need to sign up for an account with Globus via their [signup page](https://app.globus.org/). You must also install the [Globus Connect Personal software](https://www.globus.org/globus-connect-personal) and setup a personal endpoint to download the data too.
 
-The 1000 Genomes data is hosted at the EMBL-EBI end point called "EMBL-EBI Public Data". Data from our FTP site can then be found under the 1000g directory within the EMBL-EBI Public Data endpoint. The endpoint can be found [here](https://app.globus.org/file-manager?origin_id=47772002-3e5b-4fd3-b97c-18cee38d6df2&origin_path=%2F1000g%2Fftp%2F) 
+The 1000 Genomes data is hosted as EMBL-EBI collection called "EMBL-EBI Public Data". Data from our FTP site can then be found under the 1000g directory within the EMBL-EBI Public Data collection. The collection can be found [here](https://app.globus.org/file-manager?origin_id=47772002-3e5b-4fd3-b97c-18cee38d6df2&origin_path=%2F1000g%2Fftp%2F) 
+
 
 ![screen_shot](/sites/1000genomes.org/files/documents/globus_screenshot_20240108.png)
 
