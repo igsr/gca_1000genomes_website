@@ -95,9 +95,9 @@ export class PopulationHomeComponent implements OnInit, OnDestroy {
     }
   }
 
-	mapView() {
-		this.viewOption = 0;
-	}
+	//mapView() {
+	//	this.viewOption = 0;
+//	}
 
 	dataCollectionView() {
 		this.viewOption = 1;
