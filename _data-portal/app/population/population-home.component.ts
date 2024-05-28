@@ -58,8 +58,9 @@ export class PopulationHomeComponent implements OnInit, OnDestroy {
     apiAnalysisGroupService: ApiAnalysisGroupService,
     apiDataCollectionService: ApiDataCollectionService,
   ) { 
-    this.agTitleMap = apiAnalysisGroupService.titleMap;
-    this.dcTitleMap = apiDataCollectionService.titleMap;
+    //Remove this assignment
+    //this.agTitleMap = apiAnalysisGroupService.titleMap;
+    //this.dcTitleMap = apiDataCollectionService.titleMap;
   }
 
   public populationHits: SearchHits<Population>;
