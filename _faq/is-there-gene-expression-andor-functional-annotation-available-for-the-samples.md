@@ -30,7 +30,7 @@ The most important available existing expression datasets involving 1000 Genomes
 
 * RNAseq (mRNA & miRNA) on 465 individuals (CEU, TSI, GBR, FIN, YRI)
 
-Pre-publication RNA-sequencing data from the Geuvadis project is available through [http://www.geuvadis.org](http://www.geuvadis.org/web/geuvadis/home)
+Pre-publication RNA-sequencing data from the Geuvadis project is available 
 
 [http://www.ebi.ac.uk/arrayexpress/experiments/E-GEUV-1/samples.html](http://www.ebi.ac.uk/arrayexpress/experiments/E-GEUV-1/samples.html)  
 [http://www.ebi.ac.uk/arrayexpress/experiments/E-GEUV-2/samples.html](http://www.ebi.ac.uk/arrayexpress/experiments/E-GEUV-2/samples.html)
