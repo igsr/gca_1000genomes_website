@@ -2,7 +2,9 @@
 layout: angularjs_partial
 ---
 
+<center>
 <img src="/sites/1000genomes.org/files/images/HGSVC_logo_v5.png" width="500" height="300">
+</center>
 
 The Human Genome Structural Variation Consortium ([HGSVC](https://www.hgsvc.org/)), funded by NHGRI, have built on their earlier work published in [2019](https://pubmed.ncbi.nlm.nih.gov/30992455/) and [2021](https://science.sciencemag.org/content/early/2021/02/24/science.abf7117) exploring multiple technologies for genome sequence assembly and structural variation discovery.
 
@@ -21,4 +23,4 @@ Results include:
 * [Genome graphs](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections//HGSVC3/release/Graph_Genomes) generated using Minigraph-Cactus 
 
 
-Files can be browsed by sample, population and data type below. The IGSR FTP and Globus sites host released data and key resources and working data. These data can be reached through the public Globus endpoint `EMBL-EBI Public Data` in [/1000g/ftp/data_collections/HGSVC3/](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC3/) (see [release](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC3/release/) and [working](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC3/working/) directories for respective data).
+Files can be browsed by sample, population and data type below. The IGSR FTP and Globus sites host [released data, key resources](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC3/release/) and [working](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC3/working/) data. This data can be reached through the public Globus endpoint `EMBL-EBI Public Data` in `/1000g/ftp/data_collections/HGSVC3/` (see `release` and `working` directories for respective data).
