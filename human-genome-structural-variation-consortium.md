@@ -13,6 +13,7 @@ The International Genome Sample Resource (IGSR) is working with the HGSV to assi
 The HGSV is following on work performed previously by the 1000 Genomes Project Structural Variation Analysis Group. It is also hosted with the data on [the FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/hgsv_sv_discovery/README_hgsvc_datareuse_statement.md).
 
 Details of the different phases of the HGSVC are available in the data portal:
+
 * [HGSVC](https://www.internationalgenome.org/data-portal/data-collection/structural-variation)
 * [HGSVC2](https://www.internationalgenome.org/data-portal/data-collection/hgsvc2) 
 * [HGSVC3](https://www.internationalgenome.org/data-portal/data-collection/hgsvc3)

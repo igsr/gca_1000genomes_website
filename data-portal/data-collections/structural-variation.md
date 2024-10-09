@@ -1,6 +1,9 @@
 ---
 layout: angularjs_partial
 ---
+<center>
+<img src="/sites/1000genomes.org/files/images/HGSVC_logo_v5.png" width="500" height="300">
+</center>
 
 The Human Genome Structural Variation Consortium (HGSVC) aims to define a high-quality map of structural variation and develop new methods to take advantage of the burgeoning array of genomics assays now available to define genomic structure, including long reads, chromatin confirmation assay, strand sequencing and synthetic read and read cloud technologies.
 

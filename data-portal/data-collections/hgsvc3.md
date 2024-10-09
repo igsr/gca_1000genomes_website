@@ -16,7 +16,7 @@ Results include:
 
 * [Variants](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections//HGSVC3/release/Variant_Calls/) called using PAV against both GRCh38 and T2T-CHM13
 * [Genotypes](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections//HGSVC3/release/Genotyping_1kGP/) extracted using Pangenie and Locityper, with respect to T2T-CHM13
-* [Mobile Element Insertions](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections//HGSVC3/release/Mobile_Elements/1.0/README.20240918.MEI.txt) called against both the GRCh38 and T2T-CHM13
+* [Mobile Element Insertions](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC3/release/Mobile_Elements/) called against both the GRCh38 and T2T-CHM13
 * [Segmental duplication](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC3/release/Segmental_Duplications) detected using Sedef
 * [Assembly information](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/HGSVC3/release/Assembly_Info/) including QC metics
 * [Centromere locations](https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections//HGSVC3/release/Centromeres/) in the assemblies
