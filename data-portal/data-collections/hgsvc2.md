@@ -2,6 +2,9 @@
 layout: angularjs_partial
 ---
 
+<center>
+<img src="/sites/1000genomes.org/files/images/HGSVC_logo_v5.png" width="500" height="300">
+</center>
 
 The Human Genome Structural Variation Consortium (HGSVC), funded by NHGRI, have built on their [earlier work](https://www.internationalgenome.org/data-portal/data-collection/structural-variation) exploring multiple technologies for structural variation discovery.
 
