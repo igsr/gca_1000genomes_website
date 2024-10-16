@@ -31,8 +31,8 @@
 <div class="table-container">
 <br>
 <h4 *ngIf="populationHits?.total == 0">No populations match all filters</h4>
-<population-map-key *ngIf="viewOption == 0" [(visible)]="mapKeyVisible"></population-map-key>
-<population-map *ngIf="viewOption == 0" [populationHits]="populationHits"></population-map>
+<!--<population-map-key *ngIf="viewOption == 0" [(visible)]="mapKeyVisible"></population-map-key>
+<population-map *ngIf="viewOption == 0" [populationHits]="populationHits"></population-map>-->
 <population-data-collection-table *ngIf="viewOption == 1" [populationHits]="populationHits" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></population-data-collection-table>
 <population-analysis-group-table *ngIf="viewOption == 2" [populationHits]="populationHits" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></population-analysis-group-table>
 </div>
