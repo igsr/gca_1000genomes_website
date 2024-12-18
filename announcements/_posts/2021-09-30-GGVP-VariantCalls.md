@@ -1,6 +1,6 @@
 ---
 title: "A variation call set obtained from the analysis of Gambian Genome Variation Project samples on GRCh38"
-pinned: true
+pinned: false
 ---
 We have recently published a [Data Note](https://wellcomeopenresearch.org/articles/6-239) describing our analysis of 505 samples from four Gambian populations in the Gambian Genome Variation Project (GGVP) on GRCh38.
 
