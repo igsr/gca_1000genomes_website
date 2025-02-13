@@ -42,17 +42,16 @@ In Ensembl you can:
 
 We recommend downloading IGSR data via Globus ([instructions](https://www.internationalgenome.org/faq/can-i-access-1000-genomes-data-globus-online)). Data can also be downloaded via FTP ([FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/)) or Aspera ([instructions](https://www.internationalgenome.org/faq/how-download-files-using-aspera)). FTP access is subject to rate limiting, so it is essential to download local copies for your work rather than try to access via range queries remotely.
 
-Data is organised by collection and includes data shared pre-publication,  intermediate and working data as well as analysis files described in publications. A set of README files provides additional information.
+Data is organised by collection and includes data shared pre-publication, intermediate and working data as well as analysis files described in publications. A set of README files provides additional information.
 
 
 #### 1000 Genomes Project - other data locations
 
 Data from the original 1000 Genomes Project (pilot, phase 1 and phase 3 data) are also available at the following sites.
 
-* DDBJ: [https://ftp.ddbj.nig.ac.jp/mirror_database/1000genomes/](https://ftp.ddbj.nig.ac.jp/mirror_database/1000genomes/)
-* NCBI: [https://ftp-trace.ncbi.nih.gov/1000genomes/ftp/](https://ftp-trace.ncbi.nih.gov/1000genomes/ftp/)
-* AWS: [https://registry.opendata.aws/1000-genomes/](https://registry.opendata.aws/1000-genomes/)
-* Amazon Web Services : [https://registry.opendata.aws/1000-genomes/](https://registry.opendata.aws/1000-genomes/)
+* [DDBJ](https://ddbj.nig.ac.jp/public/mirror_database/1000genomes/)
+* [NCBI](https://ftp-trace.ncbi.nih.gov/1000genomes/ftp/)
+* [AWS](https://registry.opendata.aws/1000-genomes/)
 
 
 
