@@ -83,7 +83,6 @@ export class PopulationHomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.titleService.setTitle('IGSR | populations');
-    this.dataCollectionView();
     this.populationHitsSource = new Subject<Observable<SearchHits<Population>>>();
     this.populationHitsSubscription = this.populationHitsSource
       .switchMap((o: Observable<SearchHits<Population>>): Observable<SearchHits<Population>> => o)
