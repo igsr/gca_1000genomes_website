@@ -39,15 +39,14 @@ export class PopulationMapComponent implements OnInit, OnChanges{
 	ngOnInit(){
 
 		//map setup
-		this.token = 'pk.eyJ1IjoiaWdzciIsImEiOiJjandtMmZxb2MxOTdhNDVuNmxtN3IycTZvIn0.j1vNmN7B9ansOhnun1-nlQ';
-		L.MakiMarkers.accessToken = this.token;
+		//this.token = 'pk.eyJ1IjoiaWdzciIsImEiOiJjandtMmZxb2MxOTdhNDVuNmxtN3IycTZvIn0.j1vNmN7B9ansOhnun1-nlQ';
+		//L.MakiMarkers.accessToken = this.token;
 		this.map = new L.map('map').setView([0, 0], 2);
 		this.map.options.minZoom = 2;
 		this.map.options.maxZoom = 6;
 		//this.layer = new L.StamenTileLayer("toner-lite").addTo(this.map);
-		this.layer = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.{ext}", {
-    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data by &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-   subdomains: 'abcd',
+		this.layer = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a>, &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a>, &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
    minZoom: 0,
    maxZoom: 20,
    ext: 'png'
