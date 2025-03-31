@@ -114,7 +114,7 @@ export class ApiPopulationService {
         }
       }
     }
-    return this.searchExport(query, `igsr-${filename}-populations.tsv`);
+    return this.searchExport(query, `igsr-${filename}-populations`);
   }
 
   // private methods
