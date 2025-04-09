@@ -1,5 +1,5 @@
 ---
-title: "New HGVSC data release"
+title: "New HGSVC data release"
 pinned: true
 ---
 
