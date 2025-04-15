@@ -99,7 +99,7 @@ export class ApiSampleService {
         }
       }
     }
-    return this.searchExport(query, `igsr-${filename}.tsv`);
+    return this.searchExport(query, `igsr-${filename}-samples`);
   }
 
   searchPopulationSamples(popCode: string, offset: number, hitsPerPage: number): Observable<SearchHits<Sample>> {
