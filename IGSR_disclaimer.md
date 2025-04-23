@@ -39,9 +39,9 @@ Google provides further information about its own privacy practices and [offers 
 
 IGSR uses cookies to ensure you are aware of our cookie and personal data policies. By using our website, you agree that we can place these types of cookies on your computer or device. If you disable your browser or device’s ability to accept cookies your ability to use our services will suffer. You can view more details about the cookies in use on EMBL-EBI's sites from [https://www.ebi.ac.uk/about/cookie-control](https://www.ebi.ac.uk/about/cookie-control).
 
-Further details are available in the [Privacy Notice PDF](/privacy-pdf/igsr-website.pdf) for this service
+Further details are available in the [Privacy Notice PDF](/privacy_pdf/igsr-website.pdf) for this service
 
-There is also a Privacy Notice for our FTP site available here [View the Privacy Notice PDF](/privacy-pdf/igsr-dcc-rt.pdf) and a [Privacy Notice](/privacy-pdf/igsr-helpdesk-rt.pdf) for our helpdesk at info@1000genomes.org which are specific to those services.
+There is also a Privacy Notice for our FTP site available here [View the Privacy Notice PDF](/privacy_pdf/igsr-ftp.pdf) and a [Privacy Notice](/privacy_pdf/igsr-helpdesk-rt.pdf) for our helpdesk at info@1000genomes.org which are specific to those services.
 
 Privacy Notices are effective from 25th May 2018.
 
