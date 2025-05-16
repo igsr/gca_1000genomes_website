@@ -40,7 +40,7 @@ export class PopulationMapComponent implements OnInit, OnChanges{
 
 		//map setup
 		this.token = 'pk.eyJ1IjoiaWdzciIsImEiOiJjandtMmZxb2MxOTdhNDVuNmxtN3IycTZvIn0.j1vNmN7B9ansOhnun1-nlQ';
-		//L.MakiMarkers.accessToken = this.token;
+		L.MakiMarkers.accessToken = this.token;
 		this.map = new L.map('map').setView([0, 0], 2);
 		this.map.options.minZoom = 2;
 		this.map.options.maxZoom = 6;
