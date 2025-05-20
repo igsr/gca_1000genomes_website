@@ -1,8 +1,5 @@
 ---
 layout: angularjs_partial
-permalink: /data-collection/mage_rnaseq/
-label: "MAGE RNA-seq"
-route: "mage_rnaseq"
 ---
 
 The MAGE RNA-seq study provides the first large-scale transcriptome catalogue for the 1000 Genomes Project cell-lines. Total RNA from 731 immortalised lymphoblastoid cell lines (LCLs), representing all 26 canonical 1000G populations—was sequenced on the Illumina NovaSeq 6000 platform (150 bp paired-end, poly-A selected, strand-specific).
