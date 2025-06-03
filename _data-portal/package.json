@@ -2,11 +2,6 @@
   "name": "igsr-portal",
   "version": "0.0.1-dev",
   "description": "IGSR Data Portal",
-  "scripts": {
-    "postinstall": "typings install && ngc && rollup -c",
-    "ngc": "ngc",
-    "rollup": "rollup -c"
-  },
   "keywords": [],
   "author": "",
   "license": "Apache-2.0",
@@ -31,8 +26,11 @@
     "rollup-plugin-uglify": "^1.0.1",
     "rxjs": "5.0.1",
     "typescript": "2.3.0",
-    "typings": "^2.0.0",
     "zone.js": "^0.8.4"
   },
-  "repository": {}
+  "repository": {},
+  "devDependencies": {
+    "@types/core-js": "^2.5.8",
+    "core-js": "^3.42.0"
+  }
 }
