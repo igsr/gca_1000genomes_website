@@ -17,10 +17,11 @@ The Human Genome Structural Variation Consortium (HGSVC) exists to characterise 
 The HGSVC utilises the latest sequencing technologies to create high-quality maps of human structural variation, developing new tools for SV discovery and analysis.
 
 The consortium involves many groups internationally (see publications) and is co-chaired by:
-* Charles Lee, The Jackson Laboratory for Genomic Medicine
-* Evan E Eichler, University of Washington
-* Jan O Korbel, European Molecular Biology Laboratory
-* Tobias Marschall, Heinrich Heine University
+
+- Charles Lee, The Jackson Laboratory for Genomic Medicine
+- Evan E Eichler, University of Washington
+- Jan O Korbel, European Molecular Biology Laboratory
+- Tobias Marschall, Heinrich Heine University
 
 
 Data produced by HGSV can be browsed through the data portal. Details of the different phases of the HGSVC, with data reuse statements, are available here:
