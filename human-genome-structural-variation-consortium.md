@@ -3,21 +3,26 @@ layout: single_section
 title: "Human Genome Structural Variation Consortium"
 permalink: /human-genome-structural-variation-consortium/
 tags: Human Genome Structural Variation Consortium
+
+![Diagram](image-1.png)
 ---
 #The Human Genome Structural Variation Consortium
 
-The Human Genome Structural Variation Consortium (HGSVC) creates a high-quality maps of human structural variation and develops new methods, taking advantage of the burgeoning array of genomics assays now available to define genomic structure.
+The Human Genome Structural Variation Consortium (HGSVC) exists to characterise and improve understanding of the full spectrum of human genomic variation.
 
-The International Genome Sample Resource (IGSR) is working with the HGSVC to assist with data coordination, analysis and distribution. The data collected by the HGSV group so far can be found on our [FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/hgsv_sv_discovery/) and can be browsed through our [data portal](/data-portal/data-collection/structural-variation).
+The HGSVC utilises the latest sequencing technologies to create high-quality maps of human structural variation, developing new tools for SV discovery and analysis.
 
-The HGSVC is following on work performed previously by the 1000 Genomes Project Structural Variation Analysis Group. It is also hosted with the data on [the FTP site](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/hgsv_sv_discovery/README_hgsvc_datareuse_statement.md).
+The consortium involves many groups internationally (see publications) and is co-chaired by:
+* Charles Lee, The Jackson Laboratory for Genomic Medicine
+* Evan E Eichler, University of Washington
+* Jan O Korbel, European Molecular Biology Laboratory
+* Tobias Marschall, Heinrich Heine University
 
-Details of the different phases of the HGSVC are available in the data portal:
+
+Data produced by HGSV can be browsed through the data portal. Details of the different phases of the HGSVC, with data reuse statements, are available here:
 
 * [HGSVC](https://www.internationalgenome.org/data-portal/data-collection/structural-variation)
 * [HGSVC2](https://www.internationalgenome.org/data-portal/data-collection/hgsvc2) 
 * [HGSVC3](https://www.internationalgenome.org/data-portal/data-collection/hgsvc3)
-
-Please use the [data reuse policy for each phase](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp//data_collections/hgsv_sv_discovery/README_hgsvc_datareuse_statement.md).
 
 If you have any questions about this project please email [contact@hgsvc.org](mailto:contact@hgsvc.org).
