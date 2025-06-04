@@ -24,7 +24,7 @@ The consortium involves many groups internationally (see publications) and is co
 - Tobias Marschall, Heinrich Heine University
 
 
-Data produced by HGSV can be browsed through the data portal. Details of the different phases of the HGSVC, with data reuse statements, are available here:
+Data produced by HGSVC can be browsed through the data portal. Details of the different phases of the HGSVC, with data reuse statements, are available here:
 
 * [HGSVC](https://www.internationalgenome.org/data-portal/data-collection/structural-variation)
 * [HGSVC2](https://www.internationalgenome.org/data-portal/data-collection/hgsvc2) 
