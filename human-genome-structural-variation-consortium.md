@@ -4,9 +4,13 @@ title: "Human Genome Structural Variation Consortium"
 permalink: /human-genome-structural-variation-consortium/
 tags: Human Genome Structural Variation Consortium
 
-![Diagram](image-1.png)
 ---
+
 #The Human Genome Structural Variation Consortium
+
+<right>
+<img src="/sites/1000genomes.org/files/images/HGSVC_logo_v5.png" width="500" height="300">
+</right>
 
 The Human Genome Structural Variation Consortium (HGSVC) exists to characterise and improve understanding of the full spectrum of human genomic variation.
 
