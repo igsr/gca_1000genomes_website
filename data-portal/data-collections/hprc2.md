@@ -1,3 +1,7 @@
+---
+layout: angularjs_partial
+---
+
 Human Pangenome Reference Consortium (HPRC) Release 2 includes sequencing data and high-quality phased genomes from over 200 individuals, a nearly fivefold increase over Release 1. 
 
 Highlights of HPRC Release 2 Sequencing Data:
