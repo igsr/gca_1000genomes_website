@@ -6,7 +6,7 @@ This study advances SV characterization by integrating linear and graph based ca
 
 1,019 samples from twentysix 1000 Genomes Project populations were sequenced to intermediate coverage using Oxford Nanopore Technologies (ONT). Linear and graph-based approaches for SV analysis were integrated via pangenome graph-augmentation, to uncover 167,291 sequence-resolved SVs, 164,571 of which were successfully phased.
 
-This work is described in [Long-read sequencing and structural variant characterization in 1,019 samples from the 1000 Genomes Project by Schloissnig, Pani  et al](https://doi.org/10.1101/2024.04.18.590093)
+This work is described in [Long-read sequencing and structural variant characterization in 1,019 samples from the 1000 Genomes Project by Schloissnig, Pani  et al](https://doi.org/10.1038/s41586-025-09290-7)
 
 Data available includes:
 
