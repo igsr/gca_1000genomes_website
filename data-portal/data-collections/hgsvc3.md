@@ -10,7 +10,7 @@ The Human Genome Structural Variation Consortium ([HGSVC](https://www.hgsvc.org/
 
 HGSVC have constructed and analysed complete haplotype sequences, including fully resolved centromeres and segmental duplications, from 65 individuals of diverse ancestries. This forms the first population-scale set of human genome assemblies resolved to near T2T completeness. 
 
-This work is described in [Logsdon, Ebert, Audano, Loftus et al.](https://www.biorxiv.org/content/10.1101/2024.09.24.614721v1)
+This work is described in [Logsdon, Ebert, Audano, Loftus et al.](https://doi.org/10.1038/s41586-025-09140-6)
 
 Results include:
 
