@@ -53,4 +53,15 @@ window.cookieconsent.initialise({
 
 {% if page.use_portal_analytics %}{% include google_analytics_for_portal.html %}{% else %}{% include google_analytics.html %}{% endif %}
 
+  <script>
+  (function () {
+    // Only set a base if the page doesn't already define one (e.g. data-portal does).
+    if (document.querySelector('base')) return;
+    var b = document.createElement('base');
+    b.href = window.location.origin + '/';
+    var h = document.head || document.getElementsByTagName('head')[0];
+    h.insertBefore(b, h.firstChild);
+  })();
+  </script>
+
 </head>
