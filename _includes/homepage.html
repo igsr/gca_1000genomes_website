@@ -1,4 +1,3 @@
-
 {% capture map_overview %}
 <h1 style="text-align:center">The International Genome Sample Resource</h1>
 
@@ -7,7 +6,7 @@
 
 <div class="flex-container" style="display:flex;flex-flow: row wrap;justify-content: center;">
   <div style="display:flex;align-items:center;justify-content: center;flex: 1 1 250px;background-image: url('/sites/1000genomes.org/files/images/img_portal_pale.png');background-repeat: no-repeat;background-position: center center;background-size:cover;height:200px;"> 
-      <h2 style="text-align:center;"><a href="/data-portal/sample" style="background-color: #ffffff">Explore the data sets in IGSR through our data portal</a></h2>
+      <h2 style="text-align:center;"><a href="{{ '/data-portal/sample' | relative_url }}" style="background-color: #ffffff">Explore the data sets in IGSR through our data portal</a></h2>
   </div>
     <div style="display:flex;align-items:center;justify-content: center;flex: 1 1 250px;background-image: url('/sites/1000genomes.org/files/images/img_hgsvc_pale.png');background-repeat: no-repeat;background-position: center center;background-size:cover;height:200px;">
         <h2 style="text-align:center;"><a href="https://www.internationalgenome.org/human-genome-structural-variation-consortium/" style="background-color: #ffffff">Access HGSVC data</a></h2>
@@ -30,12 +29,8 @@
   
 {{pinned_announcements.first.content | markdownify}}
 
-<h4><a href="/announcements">All announcements</a></h4>
+<h4><a href="{{ '/announcements' | relative_url }}">All announcements</a></h4>
 <p></p>
 
 {% endcapture %}
 {% include section.html content=pinned_announcements %}
-      
-
-
-

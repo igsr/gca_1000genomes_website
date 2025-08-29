@@ -1,0 +1,42 @@
+# /docker/nginx.conf.template
+
+server {
+  listen       ${PORT};
+  listen       [::]:${PORT};
+  server_name  _;
+  root  /usr/share/nginx/html;
+  index index.html;
+
+  # Redirect /data-portal -> /data-portal/
+  location = /data-portal { return 301 /data-portal/$is_args$args; }
+
+  # Angular portal (SPA)
+  location /data-portal/ { try_files $uri $uri/ /data-portal/index.html; }
+
+  # Jekyll site (SPA-ish fallback)
+  location / { try_files $uri $uri/ /index.html; }
+
+  # ---- REAL API PROXY -------------------------------------------------------
+  # IMPORTANT: the trailing slash on proxy_pass *strips* the /api/ prefix.
+  # /api/samples -> ${API_BASE}/samples
+  location /api/ {
+    proxy_pass         ${API_BASE}/;   # note the trailing slash!
+    proxy_http_version 1.1;
+
+    proxy_set_header   Host              $host;
+    proxy_set_header   X-Real-IP         $remote_addr;
+    proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+  }
+  # ---------------------------------------------------------------------------
+
+  # Static caching
+  location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico)$ {
+    expires 1y;
+    add_header Cache-Control "public, immutable";
+  }
+  location ~* \.html?$ {
+    expires -1;
+    add_header Cache-Control "no-cache";
+  }
+}
