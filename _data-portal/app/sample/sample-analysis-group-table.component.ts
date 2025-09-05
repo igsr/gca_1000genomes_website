@@ -12,7 +12,7 @@ let sampleTableStyles: string = `
 }
 
 table {
-  margin-top: 80px;
+  margin-top: 160px;
 }
 
 div.matrix-dot {
@@ -23,7 +23,7 @@ div.matrix-dot {
 }
 
 th.matrix-dot {
-  width: 50px;
+  width: 70px;
   white-space: nowrap;
   padding: 0;
 }
@@ -43,21 +43,23 @@ th.matrix-dot > div {
   width: inherit;
 }
 
-th.matrix-dot > div >div {
+th.matrix-dot > div > div {
   border-bottom: 1px solid #ccc;
-  width: 125px;
-  height: 35px;
-  line-height: 35px;
+  width: 200px;      /* allow longer text */
+  height: 48px;
+  line-height: 48px;
   cursor: pointer;
+  overflow: visible; /* don't clip long labels */
 }
 
 @media (max-width: 1199px) {
   th.matrix-dot {
-    width: 40px;
+    width: 55px;
   }
-  th.matrix-dot > div >div {
-    height: 28px;
-    line-height: 28px;
+  th.matrix-dot > div > div {
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
   }
 }
 
@@ -75,13 +77,13 @@ th.matrix-dot > div >div {
   th.matrix-dot {
     width: 30px;
   }
-  th.matrix-dot > div >div {
-    height: 30px;
-    line-height: 30px;
+  th.matrix-dot > div > div {
+    width: 140px;
+    height: 34px;
+    line-height: 34px;
     text-indent: 5px;
   }
 }
-
 
 `;
 
