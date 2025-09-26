@@ -18,7 +18,7 @@
 #   - Local polyfills (core-js, reflect-metadata, zone.js) are shipped to avoid
 #     brittle CDN dependencies and are injected into /data-portal/index.html.
 #   - API_BASE is an nginx proxy target. For Docker Desktop on macOS/Linux,
-#     you’ll typically run with: --add-host=host.docker.internal:host-gateway
+#     typically run with: --add-host=host.docker.internal:host-gateway
 # 
 # To build and run for local testing/dev: 
 # cd gca_1000genomes_website
@@ -36,20 +36,20 @@ ENV JEKYLL_ENV=production
 
 # Debian archive pins for old Jessie base
 RUN set -eux; \
-    sed -i 's/deb.debian.org/archive.debian.org/g; s|security.debian.org|archive.debian.org|g' /etc/apt/sources.list; \
-    sed -i '/jessie-updates/d' /etc/apt/sources.list; \
-    printf 'Acquire::Check-Valid-Until "false";\nAcquire::AllowInsecureRepositories "true";\n' > /etc/apt/apt.conf.d/99archive; \
-    apt-get -o Acquire::Check-Valid-Until=false -o Acquire::AllowInsecureRepositories=true update; \
-    apt-get -y --allow-unauthenticated --no-install-recommends install \
-    build-essential git ca-certificates libxml2-dev libxslt1-dev zlib1g-dev nodejs; \
-    ln -sf /usr/bin/nodejs /usr/bin/node || true; \
-    rm -rf /var/lib/apt/lists/*
+  sed -i 's/deb.debian.org/archive.debian.org/g; s|security.debian.org|archive.debian.org|g' /etc/apt/sources.list; \
+  sed -i '/jessie-updates/d' /etc/apt/sources.list; \
+  printf 'Acquire::Check-Valid-Until "false";\nAcquire::AllowInsecureRepositories "true";\n' > /etc/apt/apt.conf.d/99archive; \
+  apt-get -o Acquire::Check-Valid-Until=false -o Acquire::AllowInsecureRepositories=true update; \
+  apt-get -y --allow-unauthenticated --no-install-recommends install \
+  build-essential git ca-certificates libxml2-dev libxslt1-dev zlib1g-dev nodejs; \
+  ln -sf /usr/bin/nodejs /usr/bin/node || true; \
+  rm -rf /var/lib/apt/lists/*
 
 WORKDIR /site
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler -v 1.16.0 \
-    && bundle _1.16.0_ config set without 'development test' \
-    && bundle _1.16.0_ install
+  && bundle _1.16.0_ config set without 'development test' \
+  && bundle _1.16.0_ install
 
 COPY . .
 RUN bundle exec jekyll build --destination /out/_site
@@ -68,15 +68,15 @@ RUN npm install --unsafe-perm --legacy-peer-deps
 
 # Toolchain + legacy runtime deps pinned to Angular 4 era
 RUN npm i --no-save \
-    webpack@3.12.0 \
-    typescript@2.4.2 \
-    ts-loader@2.3.7 \
-    angular2-template-loader@0.6.2 \
-    raw-loader@0.5.1 \
-    rxjs@5.4.3 \
-    zone.js@0.8.29 \
-    reflect-metadata@0.1.10 \
-    core-js@2.4.1
+  webpack@3.12.0 \
+  typescript@2.4.2 \
+  ts-loader@2.3.7 \
+  angular2-template-loader@0.6.2 \
+  raw-loader@0.5.1 \
+  rxjs@5.4.3 \
+  zone.js@0.8.29 \
+  reflect-metadata@0.1.10 \
+  core-js@2.4.1
 
 # Force Angular production mode and remove AoT bootstrap if present
 RUN <<'BASH'
@@ -151,18 +151,18 @@ BASH
 
 # Ship local polyfills (avoid CDN flakiness)
 RUN set -eux; \
-    mkdir -p /portal/vendor; \
-    if [ -f node_modules/core-js/client/shim.min.js ]; then \
-    cp node_modules/core-js/client/shim.min.js /portal/vendor/core-js.min.js; \
-    elif [ -f node_modules/core-js-bundle/minified.js ]; then \
-    cp node_modules/core-js-bundle/minified.js /portal/vendor/core-js.min.js; \
-    fi; \
-    if [ -f node_modules/reflect-metadata/Reflect.min.js ]; then \
-    cp node_modules/reflect-metadata/Reflect.min.js /portal/vendor/reflect-metadata.js; \
-    else \
-    cp node_modules/reflect-metadata/Reflect.js /portal/vendor/reflect-metadata.js; \
-    fi; \
-    cp node_modules/zone.js/dist/zone.js /portal/vendor/zone.js
+  mkdir -p /portal/vendor; \
+  if [ -f node_modules/core-js/client/shim.min.js ]; then \
+  cp node_modules/core-js/client/shim.min.js /portal/vendor/core-js.min.js; \
+  elif [ -f node_modules/core-js-bundle/minified.js ]; then \
+  cp node_modules/core-js-bundle/minified.js /portal/vendor/core-js.min.js; \
+  fi; \
+  if [ -f node_modules/reflect-metadata/Reflect.min.js ]; then \
+  cp node_modules/reflect-metadata/Reflect.min.js /portal/vendor/reflect-metadata.js; \
+  else \
+  cp node_modules/reflect-metadata/Reflect.js /portal/vendor/reflect-metadata.js; \
+  fi; \
+  cp node_modules/zone.js/dist/zone.js /portal/vendor/zone.js
 
 ##
 ## Stage 3 — nginx runtime
@@ -182,6 +182,9 @@ COPY --from=jekyll /out/_site/ /usr/share/nginx/html/
 RUN mkdir -p /usr/share/nginx/html/data-portal/static /usr/share/nginx/html/data-portal/vendor
 COPY --from=portal /portal/static/build.js  /usr/share/nginx/html/data-portal/static/build.js
 COPY --from=portal /portal/vendor/          /usr/share/nginx/html/data-portal/vendor/
+RUN rm -f /etc/nginx/conf.d/manual_redirects.server.conf
+RUN mkdir -p /etc/nginx/snippets
+COPY docker/manual_redirects.server.conf /etc/nginx/snippets/manual_redirects.inc
 
 # Inject local polyfills into data-portal index.html (no-op if file absent)
 RUN <<'SH'
@@ -208,7 +211,6 @@ awk 'FNR==NR{buf=buf $0 ORS; next} /static\/build\.js/ && !done { printf "%s", b
 rm -f "$snippet"
 SH
 
-# Optional: strip source map hints from vendored polyfills (tiny files, fewer warnings)
 RUN sed -i '/sourceMappingURL/d' /usr/share/nginx/html/data-portal/vendor/*.js || true
 
 EXPOSE 80

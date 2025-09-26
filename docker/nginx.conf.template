@@ -8,6 +8,9 @@ server {
   root  /usr/share/nginx/html;
   index index.html;
 
+  # Manual redirects must be evaluated first
+  include /etc/nginx/snippets/manual_redirects.inc;
+
   # Redirect /data-portal -> /data-portal/
   location = /data-portal { return 301 /data-portal/$is_args$args; }
 
