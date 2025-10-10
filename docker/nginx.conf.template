@@ -20,19 +20,19 @@ server {
   # Jekyll site (SPA-ish fallback)
   location / { try_files $uri $uri/ /index.html; }
 
-  # ---- REAL API PROXY -------------------------------------------------------
-  # IMPORTANT: the trailing slash on proxy_pass *strips* the /api/ prefix.
-  # /api/samples -> ${API_BASE}/samples
-  location /api/ {
-    proxy_pass         ${API_BASE}/;   # note the trailing slash!
+  location ^~ /api/ {
+    proxy_pass         ${API_BASE}/;   # trailing slash keeps /api/foo -> ${API_BASE}/foo
     proxy_http_version 1.1;
-
-    proxy_set_header   Host              $host;
-    proxy_set_header   X-Real-IP         $remote_addr;
-    proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+    proxy_set_header   Host $proxy_host;
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header   X-Forwarded-Proto $scheme;
   }
-  # ---------------------------------------------------------------------------
+
+  # Kill legacy, non-API paths only
+  location ^~ /beta/           { return 410; }          # blocks /beta/... (but NOT /api/beta/…)
+  location ^~ /elasticsearch/  { return 410; }
+  location ~* ^/(beta|elasticsearch)/[^/]+/_search$ { return 410; }
 
   # Static caching
   location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico)$ {
