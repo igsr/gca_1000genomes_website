@@ -21,7 +21,7 @@ server {
   location / { try_files $uri $uri/ /index.html; }
 
   location ^~ /api/ {
-    proxy_pass         ${API_BASE}/;   # trailing slash keeps /api/foo -> ${API_BASE}/foo
+    proxy_pass         ${API_BASE}/;
     proxy_http_version 1.1;
     proxy_set_header   Host $proxy_host;
     proxy_set_header   X-Real-IP $remote_addr;
