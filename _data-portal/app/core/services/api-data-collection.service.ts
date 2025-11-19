@@ -58,20 +58,33 @@ export class ApiDataCollectionService {
   }
 
   textSearch(text: string, hitsPerPage: number): Observable<SearchHits<DataCollection>> {
-    if (!text) {
+    let trimmedText: string = (text || '').trim();
+    if (!trimmedText) {
       return Observable.of<SearchHits<DataCollection>>(null);
     }
+    let shouldClauses: any[] = [
+      {
+        multi_match: {
+          query: trimmedText,
+          type: "most_fields",
+          fields: [
+            'title.std',
+            'shortTitle.std',
+            'sequence.std',
+            'alignment.std',
+            'variants.std'
+          ],
+        }
+      }
+    ];
+    shouldClauses = shouldClauses.concat(this.buildAnalysisGroupClauses(trimmedText));
     let body = {
       size: hitsPerPage,
       _source: [ 'title' ],
       query: {
-        multi_match: {
-          query: text,
-          type: "most_fields",
-          fields: [
-            'title.std',
-            'shortTitle.std'
-          ],
+        bool: {
+          should: shouldClauses,
+          minimum_should_match: 1,
         }
       }
     }
@@ -106,5 +119,30 @@ export class ApiDataCollectionService {
           return h.hits;
       })
     ).subscribe((l: SearchHits<DataCollection>) => this.dcListSource.next(l));
+  }
+
+  private buildAnalysisGroupClauses(text: string): any[] {
+    let wildcardValue = this.buildWildcardValue(text);
+    if (!wildcardValue) {
+      return [];
+    }
+    let fields = [
+      'sequence.keyword',
+      'alignment.keyword',
+      'variants.keyword',
+    ];
+    return fields.map((field: string) => ({
+      wildcard: {
+        [field]: {
+          value: wildcardValue,
+          case_insensitive: true,
+        }
+      }
+    }));
+  }
+
+  private buildWildcardValue(text: string): string {
+    let cleaned = text.replace(/[*?]/g, '').trim();
+    return cleaned ? `*${cleaned}*` : '';
   }
 }
