@@ -1,40 +1,26 @@
 # syntax=docker/dockerfile:1.6
 #
-# IGSR Front-End Dockerfile
+# IGSR front-end Dockerfile
 # --------------------------------
-# Purpose: Build and serve the IGSR website composed of:
-#   - Jekyll site (Ruby 2.2 / Debian Jessie)  → /usr/share/nginx/html
-#   - Angular 4 portal bundled by Webpack 3   → /usr/share/nginx/html/data-portal
-#   - nginx (stable-alpine) runtime with a templated config (envsubst)
+# This builds the IGSR website and then serves it with nginx:
+#   - Jekyll site (Ruby 2.2 / Debian Jessie) -> /usr/share/nginx/html
+#   - Angular 4 portal built with Webpack 3 -> /usr/share/nginx/html/data-portal
+#   - nginx (stable-alpine) as the final runtime image
 #
-# Key versions:
+# Main tool versions (kept stable so the build stays repeatable):
 #   Ruby 2.2  | Bundler 1.16.0 | Jekyll (from Gemfile)
 #   Node 16   | Webpack 3.12.0 | TypeScript 2.4.2 | RxJS 5.4.3 | Zone.js 0.8.29
 #   nginx:stable-alpine
-#
-# Notes:
-#   - Jekyll is always built with JEKYLL_ENV=production (no build-time modes).
-#   - Angular bundle is always built in production mode (webpack -p).
-#   - Local polyfills (core-js, reflect-metadata, zone.js) are shipped to avoid
-#     brittle CDN dependencies and are injected into /data-portal/index.html.
-#   - API_BASE is an nginx proxy target. For Docker Desktop on macOS/Linux,
-#     typically run with: --add-host=host.docker.internal:host-gateway
-# 
-# To build and run for local testing/dev: 
-# cd gca_1000genomes_website
-# docker build -no-cache --platform=linux/amd64 -t igsr-fe .
-# docker run --rm -p 8080:80 -e API_BASE="http://host.docker.internal:8000" --add-host=host.docker.internal:host-gateway igsr-fe
-# Then browse to http://localhost:8080
 
 ##
-## Stage 1 — Jekyll site build (Ruby 2.2 / Debian Jessie)
+## Stage 1 — Build the Jekyll site (Ruby 2.2 / Debian Jessie)
 ##
 FROM ruby:2.2 AS jekyll
 
-# Build Jekyll in production mode
+# Build the site with production settings
 ENV JEKYLL_ENV=production
 
-# Debian archive pins for old Jessie base
+# Jessie is end-of-life, so use the Debian archive to fetch packages
 RUN set -eux; \
   sed -i 's/deb.debian.org/archive.debian.org/g; s|security.debian.org|archive.debian.org|g' /etc/apt/sources.list; \
   sed -i '/jessie-updates/d' /etc/apt/sources.list; \
@@ -60,13 +46,13 @@ RUN bundle exec jekyll build --destination /out/_site
 FROM node:16-buster AS portal
 WORKDIR /portal
 
-# Angular app sources
+# Copy the Angular app code into the image
 COPY _data-portal/ /portal/
 
-# Install app deps with legacy peer behavior (old Angular)
+# Install npm dependencies, allowing the older peer dependency rules this app needs
 RUN npm install --unsafe-perm --legacy-peer-deps
 
-# Toolchain + legacy runtime deps pinned to Angular 4 era
+# Install the build tools and runtime libraries at the older versions this app expects
 RUN npm i --no-save \
   webpack@3.12.0 \
   typescript@2.4.2 \
@@ -78,7 +64,7 @@ RUN npm i --no-save \
   reflect-metadata@0.1.10 \
   core-js@2.4.1
 
-# Force Angular production mode and remove AoT bootstrap if present
+# Ensure production mode is enabled and use the runtime bootstrap if needed
 RUN <<'BASH'
 set -eux
 mf=app/main.ts
@@ -100,32 +86,7 @@ TS
 fi
 BASH
 
-# TS config used by ts-loader (transpile-only to avoid incompatible type defs)
-RUN <<'BASH'
-set -eux
-cat > tsconfig.webpack.json <<'JSON'
-{
-  "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "lib": ["es2015", "dom"],
-    "baseUrl": ".",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "types": [],
-    "outDir": "build/ts",
-    "rootDir": ".",
-    "sourceMap": false
-  },
-  "include": ["app/**/*.ts", "app/*.ts"],
-  "exclude": ["**/*.spec.ts", "node_modules"]
-}
-JSON
-BASH
-
-# Webpack 3 configuration (raw-loader for templates/styles)
+# Create a webpack config to build the portal
 RUN <<'BASH'
 set -eux
 cat > webpack.config.js <<'EOF'
@@ -143,13 +104,13 @@ module.exports = {
   }
 };
 EOF
-# -p = production optimizations (Uglify, etc.)
 node node_modules/webpack/bin/webpack.js -p --config webpack.config.js
-# Sanity check: ensure bundle exists
+
+# Fail the build if the output file is missing
 test -s static/build.js
 BASH
 
-# Ship local polyfills (avoid CDN flakiness)
+# Copy browser support scripts locally so we do not rely on external URLs
 RUN set -eux; \
   mkdir -p /portal/vendor; \
   if [ -f node_modules/core-js/client/shim.min.js ]; then \
@@ -165,19 +126,19 @@ RUN set -eux; \
   cp node_modules/zone.js/dist/zone.js /portal/vendor/zone.js
 
 ##
-## Stage 3 — nginx runtime
+## Stage 3 — Final runtime image (nginx)
 ##
 FROM nginx:stable-alpine AS runtime
 
-# API_BASE is consumed by nginx template at container start via envsubst
-# PORT controls nginx listen ports in the template
+# These values are filled into the nginx config when the container starts
+# API_BASE is the upstream API URL; PORT controls the nginx listen port
 ENV API_BASE=http://host.docker.internal:8000
 ENV PORT=80
 
-# Templated nginx (entrypoint will envsubst this into /etc/nginx/conf.d/default.conf)
+# Copy the nginx config template; it is filled in at container start
 COPY docker/nginx.conf.template /etc/nginx/templates/default.conf.template
 
-# Jekyll site + portal bundle & vendor polyfills
+# Bring in the built site files from earlier stages
 COPY --from=jekyll /out/_site/ /usr/share/nginx/html/
 RUN mkdir -p /usr/share/nginx/html/data-portal/static /usr/share/nginx/html/data-portal/vendor
 COPY --from=portal /portal/static/build.js  /usr/share/nginx/html/data-portal/static/build.js
@@ -186,20 +147,20 @@ RUN rm -f /etc/nginx/conf.d/manual_redirects.server.conf
 RUN mkdir -p /etc/nginx/snippets
 COPY docker/manual_redirects.server.conf /etc/nginx/snippets/manual_redirects.inc
 
-# Inject local polyfills into data-portal index.html (no-op if file absent)
+# Add local browser support scripts to data-portal index.html
 RUN <<'SH'
 set -eux
 f=/usr/share/nginx/html/data-portal/index.html
 [ -f "$f" ] || exit 0
 
-# Remove CDN polyfills if present
+# Remove any external script tags for these files
 sed -i \
   -e '/ajax\/libs\/core-js\/[^"]*\/shim\.min\.js/d' \
   -e '/ajax\/libs\/zone\.js\/[^"]*\/zone\(\.min\)\?\.js/d' \
   -e '/ajax\/libs\/reflect-metadata\/[^"]*\/Reflect\(\.min\)\?\.js/d' \
   "$f" || true
 
-# Inject our local vendor scripts before static/build.js
+# Insert the local script tags before build.js
 snippet=/tmp/vendors.snippet
 cat > "$snippet" <<'EOF'
   <script src="/data-portal/vendor/core-js.min.js"></script>
