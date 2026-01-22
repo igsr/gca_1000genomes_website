@@ -48,6 +48,8 @@ WORKDIR /portal
 
 # Copy the Angular app code into the image
 COPY _data-portal/ /portal/
+# Copy helper scripts used during the build
+COPY docker/scripts/ /portal/docker/scripts/
 
 # Install npm dependencies, allowing the older peer dependency rules this app needs
 RUN npm install --unsafe-perm --legacy-peer-deps
@@ -64,32 +66,13 @@ RUN npm i --no-save \
   reflect-metadata@0.1.10 \
   core-js@2.4.1
 
-# Ensure production mode is enabled and use the runtime bootstrap if needed
+# Ensure production mode is enabled and use the runtime bootstrap
 RUN bash docker/scripts/fix-main-ts.sh
 
-# Create a webpack config to build the portal
-RUN <<'BASH'
-set -eux
-cat > webpack.config.js <<'EOF'
-const path = require('path');
-module.exports = {
-  entry: './app/main.ts',
-  output: { path: path.resolve(__dirname, 'static'), filename: 'build.js' },
-  resolve: { extensions: ['.ts', '.js'] },
-  module: {
-    rules: [
-      { test: /\.ts$/,  use: [{ loader: 'ts-loader', options: { configFile: 'tsconfig.webpack.json', transpileOnly: true } }, 'angular2-template-loader'] },
-      { test: /\.html$/, loader: 'raw-loader' },
-      { test: /\.css$/,  loader: 'raw-loader' }
-    ]
-  }
-};
-EOF
-node node_modules/webpack/bin/webpack.js -p --config webpack.config.js
-
-# Fail the build if the output file is missing
-test -s static/build.js
-BASH
+# Build the portal bundle using the webpack config stored in the repo
+RUN set -eux; \
+  node node_modules/webpack/bin/webpack.js -p --config webpack.config.js; \
+  test -s static/build.js
 
 # Copy browser support scripts locally so we do not rely on external URLs
 RUN set -eux; \
@@ -118,6 +101,7 @@ ENV PORT=80
 
 # Copy the nginx config template; it is filled in at container start
 COPY docker/nginx.conf.template /etc/nginx/templates/default.conf.template
+COPY docker/scripts/inject-polyfill-snippet.sh /usr/local/bin/inject-polyfill-snippet.sh
 
 # Bring in the built site files from earlier stages
 COPY --from=jekyll /out/_site/ /usr/share/nginx/html/
@@ -142,15 +126,7 @@ sed -i \
   "$f" || true
 
 # Insert the local script tags before build.js
-snippet=/tmp/vendors.snippet
-cat > "$snippet" <<'EOF'
-  <script src="/data-portal/vendor/core-js.min.js"></script>
-  <script src="/data-portal/vendor/reflect-metadata.js"></script>
-  <script src="/data-portal/vendor/zone.js"></script>
-EOF
-awk 'FNR==NR{buf=buf $0 ORS; next} /static\/build\.js/ && !done { printf "%s", buf; print; done=1; next } { print } END{ if(!done) printf "%s", buf }' \
-  "$snippet" "$f" > "$f.tmp" && mv "$f.tmp" "$f"
-rm -f "$snippet"
+sh /usr/local/bin/inject-polyfill-snippet.sh "$f"
 SH
 
 RUN sed -i '/sourceMappingURL/d' /usr/share/nginx/html/data-portal/vendor/*.js || true
