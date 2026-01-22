@@ -65,26 +65,7 @@ RUN npm i --no-save \
   core-js@2.4.1
 
 # Ensure production mode is enabled and use the runtime bootstrap if needed
-RUN <<'BASH'
-set -eux
-mf=app/main.ts
-if [ -f "$mf" ] && ! grep -q "enableProdMode" "$mf"; then
-  tmp="$mf.tmp"
-  printf "import { enableProdMode } from '@angular/core';\n" > "$tmp"
-  printf "enableProdMode();\n" >> "$tmp"
-  cat "$mf" >> "$tmp"
-  mv "$tmp" "$mf"
-fi
-if [ -f "$mf" ] && grep -q "app.module.ngfactory" "$mf"; then
-  cat > "$mf" <<'TS'
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app.module';
-enableProdMode();
-platformBrowserDynamic().bootstrapModule(AppModule);
-TS
-fi
-BASH
+RUN bash docker/scripts/fix-main-ts.sh
 
 # Create a webpack config to build the portal
 RUN <<'BASH'
