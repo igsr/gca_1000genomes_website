@@ -142,23 +142,60 @@ export class ApiPopulationService {
   }
 
   textSearch(text: string, hitsPerPage: number): Observable<SearchHits<Population>> {
-    if (!text) {
+    let trimmedText: string = (text || '').trim();
+    if (!trimmedText) {
       return Observable.of<SearchHits<Population>>(null);
     }
-    let query = {
-      multi_match: {
-        query: text,
-        fields: [
-          'name.std',
-          'code.std',
-					'elasticId.std',
-          'description.std',
-          'dataCollections.title.std',
-          'superpopulation.code.std',
-          'superpopulation.name.std',
-        ],
+    let shouldClauses: any[] = [
+      {
+        multi_match: {
+          query: trimmedText,
+          fields: [
+            'name.std',
+            'code.std',
+						'elasticId.std',
+            'description.std',
+            'dataCollections.title.std',
+            'dataCollections.sequence.std',
+            'dataCollections.alignment.std',
+            'dataCollections.variants.std',
+            'superpopulation.code.std',
+            'superpopulation.name.std',
+          ],
+        }
       }
-    }
+    ];
+    shouldClauses = shouldClauses.concat(this.buildAnalysisGroupClauses(trimmedText));
+    let query = {
+      bool: {
+        should: shouldClauses,
+        minimum_should_match: 1,
+      }
+    };
     return this.search(hitsPerPage, 0, query);
+  }
+
+  private buildAnalysisGroupClauses(text: string): any[] {
+    let wildcardValue = this.buildWildcardValue(text);
+    if (!wildcardValue) {
+      return [];
+    }
+    let fields = [
+      'dataCollections._analysisGroups',
+      'dataCollectionsAnalysisGroups',
+    ];
+    return fields.map((field: string) => ({
+      wildcard: {
+        [field]: {
+          value: wildcardValue,
+          case_insensitive: true,
+        }
+      }
+    }));
+  }
+
+  private buildWildcardValue(text: string): string {
+    let cleaned = text.replace(/[*?]/g, '').trim();
+    return cleaned ? `*${cleaned}*` : '';
   }
 }
