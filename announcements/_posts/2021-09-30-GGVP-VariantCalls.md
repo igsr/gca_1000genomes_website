@@ -8,6 +8,6 @@ For the analysis we have used a multi-caller site discovery approach along with 
 
 The files generated in this analysis can be accessed from our FTP. Including the alignment files used in the variant identification [http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/gambian_genome_variation_project/data/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/gambian_genome_variation_project/data/) and the call set itself [http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/gambian_genome_variation_project/release/20200217_biallelic_SNV/](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/gambian_genome_variation_project/release/20200217_biallelic_SNV/)
 
-More information on the samples analysed in this work can be found in the [IGSR portal](https://www.internationalgenome.org/data-portal/data-collection/ggvp-grch38).
+More information on the samples analysed in this work can be found in the [IGSR portal](https://www.internationalgenome.org/data-portal/data-collection/gambian_genome_variation_project).
 
 Frequency distributions and genotypes are available in [Ensembl](http://www.ensembl.org/Homo_sapiens/Variation/Population?r=1:822311-822311;v=rs74045212;vdb=variation;vf=1082154_).
