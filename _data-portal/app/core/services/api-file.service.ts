@@ -91,6 +91,74 @@ export class ApiFileService {
     );
   }
 
+  downloadFileList(query: string): void {
+    if (!query) {
+      console.log('No query provided');
+      return;
+    }
+
+    this.textSearchAll(query).subscribe((fileHits: SearchHits<File>) => {
+      if (!fileHits || !fileHits.hits || fileHits.hits.length === 0) {
+        console.log(`No files to download for query "${query}"`);
+        return;
+      }
+
+      console.log(`Downloading list of ${fileHits.hits.length} files matching query "${query}"`);
+
+      // Extract URLs from hits
+      const urls = fileHits.hits
+        .map(hit => hit._source.url)
+        .filter(url => url);
+
+      // Create CSV content with header
+      const csvContent = ['Files', ...urls].join('\n');
+
+      // Create blob and trigger download
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+
+      link.setAttribute('href', url);
+      link.setAttribute('download', `files-${query}-${new Date().toISOString().split('T')[0].replace(/-/g, '')}.csv`);
+      link.style.visibility = 'hidden';
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  }
+
+  textSearchAll(text: string): Observable<SearchHits<File>> {
+    if (!text) {
+      return Observable.of<SearchHits<File>>(null);
+    }
+    let body = {
+      _source: [ 'url' ],
+      query: {
+        multi_match: {
+          query: text,
+          type: "most_fields",
+          fields: [
+            'analysisGroup.std',
+            'dataCollections.std',
+            'dataType.std',
+            'samples.std',
+            'populations.std',
+            'url.keywords',
+          ],
+        }
+      }
+    }
+    return this.apiTimeoutService.handleTimeout<SearchHits<File>>(
+      this.apiErrorService.handleError(
+        this.http.post(`/api/beta/file/_search`, body)
+      ).map((r:Response): SearchHits<File> => {
+        let h: {hits: SearchHits<File>} = r.json() as {hits: SearchHits<File>};
+        return h.hits;
+      })
+    );
+  }
+
   private buildSearchDataCollectionQuery(dataCollection: string, sampleName: string, populationCode: string, dataTypes: string[], analysisGroups: string[]): any {
     let filtTerms: any[] = [];
     filtTerms.push({term:{dataCollections: dataCollection}});
