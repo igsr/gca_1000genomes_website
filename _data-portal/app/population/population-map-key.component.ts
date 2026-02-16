@@ -39,7 +39,18 @@ export class PopulationMapKeyComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.popHitsSubscription = this.apiSuperPopulationService.getAll()
-      .subscribe((h: SearchHits<SuperPopulation>) => this.superpopHits = h);
+      .subscribe((h: SearchHits<SuperPopulation>) => {
+        
+        // sort alphabetically by name for the key
+        h.hits = h.hits.sort((a, b) => {
+          let na = (a._source.name || '').toLowerCase();
+          let nb = (b._source.name || '').toLowerCase();
+          return na < nb ? -1 : na > nb ? 1 : 0;
+        });
+
+        
+        this.superpopHits = h;
+      });
   }
 
   ngOnDestroy() {
