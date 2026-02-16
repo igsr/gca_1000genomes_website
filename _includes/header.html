@@ -16,7 +16,7 @@ Changes: replace <div class="container"> with <div class="container-fluid">
 <div class="row">
 
   <div class="col-md-12 col-sm-12 col-xs-12 top-banner-content">
-  <div class="top-banner-row"><div class="top-banner-inline"><h1 id="site-title"><a href="/" title="Home" rel="home">IGSR: The International Genome Sample Resource</a></h1></div></div>
+  <div class="top-banner-row"><div class="top-banner-inline"><h1 id="site-title"><a href="{{ '/' | relative_url }}" title="Home" rel="home">IGSR: The International Genome Sample Resource</a></h1></div></div>
   <div class="top-banner-row"><div class="top-banner-inline"><h2 id="site-slogan">Supporting open human variation data</h2></div></div>
   </div>
 </div></div>
@@ -40,10 +40,10 @@ Changes: replace <div class="container"> with <div class="container-fluid">
   
   <div class="collapse navbar-collapse" id="navbar-collapse">
     <ul class="nav navbar-nav">
-        <li {% if page.tags contains "Home" %}class="active"{% endif %}><a href="/home" title="Home">Home</a></li>
-        <li {% if page.tags contains "About" %}class="active"{% endif %}><a href="/about" title="About">About</a></li>
-        <li {% if page.tags contains "Data" %}class="active"{% endif %}><a href="/data" title="Data">Data</a></li>
-        <li {% if page.tags contains "Help" %}class="active"{% endif %}><a href="/help" title="Help">Help</a></li>
+        <li {% if page.tags contains "Home" %}class="active"{% endif %}><a href="{{ '/home' | relative_url }}" title="Home">Home</a></li>
+        <li {% if page.tags contains "About" %}class="active"{% endif %}><a href="{{ '/about' | relative_url }}" title="About">About</a></li>
+        <li {% if page.tags contains "Data" %}class="active"{% endif %}><a href="{{ '/data' | relative_url }}" title="Data">Data</a></li>
+        <li {% if page.tags contains "Help" %}class="active"{% endif %}><a href="{{ '/help' | relative_url }}" title="Help">Help</a></li>
         <!--<li {% if page.tags contains "Portal" %}class="active"{% endif %}><a href="/data-portal" title="Portal">Portal</a></li>
         <li {% if page.tags contains "Analysis" %}class="active"{% endif %}><a href="/analysis" title="Analysis">Analysis</a></li>
         <li {% if page.tags contains "Contact" %}class="active"{% endif %}><a href="/contact" title="Contact">Contact</a></li>
@@ -52,7 +52,7 @@ Changes: replace <div class="container"> with <div class="container-fluid">
     </ul>
     
 
-    <form class="navbar-form navbar-right" role="search" action="/data-portal/search" method="get">
+    <form class="navbar-form navbar-right" role="search" action="{{ '/data-portal/search' | relative_url }}" method="get">
     <div class="input-group center">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search IGSR" name="q" id="search_id">

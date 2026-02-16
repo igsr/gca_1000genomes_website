@@ -9,7 +9,7 @@ tags: Human Genome Structural Variation Consortium
 This policy refers to all the data associated with the Human Genome Structural Variation Consortium (HGSVC) to create a high 
 quality catalog of structural variation using various sequencing approaches.
 
-All data in the HGSVC data collection on the [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/hgsv_sv_discovery/) and [data portal](http://www.1000genomes.org/data-portal/data-collection/structural-variation) are part of the project.
+All data in the HGSVC data collection on the [FTP site](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/hgsv_sv_discovery/) and [data portal](http://www.1000genomes.org/data-portal/data-collection/hgsv_sv_discovery) are part of the project.
 
 Continuing the philosophy of the 1000 Genomes Project, the data producers for this Project 
 will release the Project data quickly, prior to publication, in the expectation that they 

@@ -20,4 +20,4 @@ You can tell when a VCF file contains a phased genotype as the delimiter used in
 
 The VCF files produced by the final phase of the 1000 Genomes Project (phase 3) are phased. They can be found in the [final release directory](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) from the project and in [the directory supporting the final publications](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/integrated_sv_map/).
 
-Some other studies have also produced phased versions of their calls. These include the analysis of high-coverage data across 3,202 samples on GRCh38 completed by NYGC. Multiple sets of VCFs are available, including [phased VCFs](/data-portal/data-collection/30x-grch38), linked to from the page for that collection.
+Some other studies have also produced phased versions of their calls. These include the analysis of high-coverage data across 3,202 samples on GRCh38 completed by NYGC. Multiple sets of VCFs are available, including [phased VCFs](/data-portal/data-collection/1000genomes_30x), linked to from the page for that collection.

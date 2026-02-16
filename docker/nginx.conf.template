@@ -1,0 +1,46 @@
+# /docker/nginx.conf.template
+
+server {
+  listen       ${PORT};
+  listen       [::]:${PORT};
+  server_name  _;
+  absolute_redirect off;
+  root  /usr/share/nginx/html;
+  index index.html;
+
+  # Manual redirects must be evaluated first
+  include /etc/nginx/snippets/manual_redirects.inc;
+
+  # Redirect /data-portal -> /data-portal/
+  location = /data-portal { return 301 /data-portal/$is_args$args; }
+
+  # Angular portal (SPA)
+  location /data-portal/ { try_files $uri $uri/ /data-portal/index.html; }
+
+  # Jekyll site (SPA-ish fallback)
+  location / { try_files $uri $uri/ /index.html; }
+
+  location ^~ /api/ {
+    proxy_pass         ${API_BASE}/;
+    proxy_http_version 1.1;
+    proxy_set_header   Host $proxy_host;
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+  }
+
+  # Kill legacy, non-API paths only
+  location ^~ /beta/           { return 410; }          # blocks /beta/... (but NOT /api/beta/…)
+  location ^~ /elasticsearch/  { return 410; }
+  location ~* ^/(beta|elasticsearch)/[^/]+/_search$ { return 410; }
+
+  # Static caching
+  location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico)$ {
+    expires 1y;
+    add_header Cache-Control "public, immutable";
+  }
+  location ~* \.html?$ {
+    expires -1;
+    add_header Cache-Control "no-cache";
+  }
+}
