@@ -91,6 +91,46 @@ export class ApiFileService {
     );
   }
 
+  downloadFileList(query: string): void {
+    if (!query) {
+      console.log('No query provided');
+      return;
+    }
+
+    // Use server-side export endpoint for full result set (no size limit)
+    const body = {
+      _source: [ 'url' ],
+      query: {
+        multi_match: {
+          query: query,
+          type: "most_fields",
+          fields: [
+            'analysisGroup.std',
+            'dataCollections.std',
+            'dataType.std',
+            'samples.std',
+            'populations.std',
+            'url.keywords',
+          ],
+        }
+      }
+    };
+
+    const filename = `files-${query}-${new Date().toISOString().split('T')[0].replace(/-/g, '')}`;
+    const form = document.createElement('form');
+    form.action = `/api/beta/file/_search/${encodeURIComponent(filename)}.tsv`;
+    form.method = 'POST';
+    form.target = '_self';
+    const input = document.createElement('textarea');
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', 'json');
+    input.value = JSON.stringify(body);
+    form.appendChild(input);
+    form.style.display = 'none';
+    document.body.appendChild(form);
+    form.submit();
+  }
+
   private buildSearchDataCollectionQuery(dataCollection: string, sampleName: string, populationCode: string, dataTypes: string[], analysisGroups: string[]): any {
     let filtTerms: any[] = [];
     filtTerms.push({term:{dataCollections: dataCollection}});
