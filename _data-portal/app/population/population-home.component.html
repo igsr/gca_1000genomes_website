@@ -22,46 +22,61 @@
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1" *ngIf="filterTokens.length">
-    <h3 class="current-filters">
-      <button class="btn btn-link btn-xs"
-        [popover]="'Build a custom filtration expression: 1. Add chips from the drop-downs in the desired order, 2. Click chips to select them, Group/Ungroup to add or remove parentheses around contiguous chips, Not to negate the selected chip, toggle AND/OR operators between chips by clicking them.'"
-        [popoverOnHover]="true" popoverPlacement="auto top">
-        <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-      </button>
-      Filters:
-    </h3>
-    <span class="group-controls">
-      <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canGroupSelection()}" (click)="groupSelection()"
-        [popover]="'Select contiguous chips, then click here to group them'" [popoverOnHover]="true" popoverPlacement="auto top">Group</button>
-      <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canUngroupSelection()}" (click)="ungroupSelection()"
-        [popover]="'Select chips inside a group, then click here to ungroup them'" [popoverOnHover]="true" popoverPlacement="auto top">Ungroup</button>
-      <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canNegateSelection()}" (click)="toggleNegationForSelection()"
-        [popover]="'Select chip(s), then click here to negate them'" [popoverOnHover]="true" popoverPlacement="auto top">NOT</button>
-    </span>
-    <ng-container *ngFor="let token of filterTokens; let i = index">
-      <ng-container *ngFor="let _ of parenRange(groupStartCount(token))">
-        <span class="group-paren">(</span>
-      </ng-container>
-      <button class="btn"
-        [ngClass]="{'btn-warning': token.type === 'dc', 'btn-info': token.type === 'ag'}"
-        [class.filter-selected]="isTokenSelected(token)"
-        (click)="toggleTokenSelected(token)"
-        [popover]="'Click chip body to select, click x to deselect'" [popoverOnHover]="true" popoverPlacement="auto top">
-        <span class="label label-default chip-negation" *ngIf="token.negated">!</span>
-        <ng-container [ngSwitch]="token.type">
-          <ng-container *ngSwitchCase="'dc'">{{token.key | i18nSelect: dcTitleMap}}</ng-container>
-          <ng-container *ngSwitchCase="'ag'">{{token.key | i18nSelect: agTitleMap}}</ng-container>
+    <div class="panel panel-default filter-builder-panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">Build filtration query</h3>
+      </div>
+      <div class="panel-body">
+        <div class="filter-builder-help">
+          <p class="filter-builder-help-intro">You can apply custom filtering to the data table like so:</p>
+          <ol class="filter-builder-steps">
+            <li>Add chips from the drop-downs in the desired order,</li>
+            <li>Click chips to select them, 'Group'/'Ungroup' to add or remove parentheses around contiguous chips, 'NOT' to negate the selected chip, toggle AND/OR operators between chips by clicking them.</li>
+          </ol>
+        </div>
+        <div class="tools-row">
+          <h3 class="current-filters section-indicator">Tools</h3>
+          <span class="group-controls">
+            <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canGroupSelection()}" (click)="groupSelection()"
+              [popover]="'Select contiguous chips, then click here to group them'" [popoverOnHover]="true" popoverPlacement="auto top">Group</button>
+            <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canUngroupSelection()}" (click)="ungroupSelection()"
+              [popover]="'Select chips inside a group, then click here to ungroup them'" [popoverOnHover]="true" popoverPlacement="auto top">Ungroup</button>
+            <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canNegateSelection()}" (click)="toggleNegationForSelection()"
+              [popover]="'Select chip(s), then click here to negate them'" [popoverOnHover]="true" popoverPlacement="auto top">NOT</button>
+          </span>
+        </div>
+        <h3 class="current-filters section-indicator">Filters</h3>
+        <ng-container *ngFor="let token of filterTokens; let i = index">
+          <ng-container *ngFor="let _ of parenRange(groupStartCount(token))">
+            <span class="group-paren">(</span>
+          </ng-container>
+          <button class="btn"
+            [ngClass]="{'btn-warning': token.type === 'dc', 'btn-info': token.type === 'ag'}"
+            [class.filter-negated]="token.negated"
+            [class.filter-selected]="isTokenSelected(token)"
+            (click)="toggleTokenSelected(token)"
+            [popover]="'Click chip body to select, click again to deselect, click x to remove'" [popoverOnHover]="true" popoverPlacement="auto top">
+            <span class="chip-negation-flag" *ngIf="token.negated">NOT</span>
+            <ng-container [ngSwitch]="token.type">
+              <ng-container *ngSwitchCase="'dc'">{{token.key | i18nSelect: dcTitleMap}}</ng-container>
+              <ng-container *ngSwitchCase="'ag'">{{token.key | i18nSelect: agTitleMap}}</ng-container>
+            </ng-container>
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" (click)="removeTokenFromFilters(token); $event.stopPropagation()"></span>
+          </button>
+          <ng-container *ngFor="let _ of parenRange(groupEndCount(token))">
+            <span class="group-paren">)</span>
+          </ng-container>
+          <button *ngIf="i < filterOperators.length" class="btn btn-default operator-chip" (click)="toggleChainOperator(i)"
+            [popover]="'Click to toggle operator between AND/OR'" [popoverOnHover]="true" popoverPlacement="auto top">
+            {{filterOperators[i]}}
+          </button>
         </ng-container>
-        <span class="glyphicon glyphicon-remove" aria-hidden="true" (click)="removeTokenFromFilters(token); $event.stopPropagation()"></span>
-      </button>
-      <ng-container *ngFor="let _ of parenRange(groupEndCount(token))">
-        <span class="group-paren">)</span>
-      </ng-container>
-      <button *ngIf="i < filterOperators.length" class="btn btn-default operator-chip" (click)="toggleChainOperator(i)"
-        [popover]="'Click to toggle operator between AND/OR'" [popoverOnHover]="true" popoverPlacement="auto top">
-        {{filterOperators[i]}}
-      </button>
-    </ng-container>
+        <div class="query-description-block" *ngIf="readableFilterSummary">
+          <h3 class="current-filters section-indicator query-description-label">Summary</h3>
+          <p class="readable-filter-summary" [innerHTML]="readableFilterSummary"></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
