@@ -84,10 +84,6 @@ h3.current-filters.section-indicator {
   margin: 0 0 18px;
 }
 
-.filter-builder-help-intro {
-  margin: 0;
-}
-
 .filter-builder-steps {
   margin: 6px 0 0 24px;
   padding-left: 18px;
@@ -123,15 +119,13 @@ p.readable-filter-summary strong {
   font-weight: 700;
 }
 
+.filter-builder-help p {
+  margin: 0;
+}
+
 .query-description-block {
   margin-top: 10px;
   margin-bottom: 12px;
-}
-
-h3.query-description-label {
-  display: inline-block;
-  margin: 0;
-  vertical-align: middle;
 }
 
 @media (max-width: 991px) {
