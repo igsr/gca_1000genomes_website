@@ -171,9 +171,11 @@ The `docker/` directory contains container runtime configuration and helper asse
 3. `docker/scripts/fix-main-ts.sh` - required by the Dockerfile, adjusts legacy Angular bootstrap code for production build behavior.
 4. `docker/scripts/inject-polyfill-snippet.sh` - required by the Dockerfile, injects local polyfill script tags into the data portal HTML.
 
-## Run a local development instance of the website
+---
 
-### Prerequisites
+# Run a local development instance of the website
+
+## Prerequisites
 
 - macOS with colima installed
 - docker CLI installed (with buildx support)
@@ -183,7 +185,7 @@ The `docker/` directory contains container runtime configuration and helper asse
 - open ports: 9200 (ES), 8000 (API), 8080 (FE)
 - enough disk/RAM for two Colima VMs (defaults: 12GB ARM64, 8GB AMD64)
 
-### Launch command
+## Launch command
 
 ```bash
 gca_1000genomes_website/scripts/local_igsr_site_instance_up.sh \
