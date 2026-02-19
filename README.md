@@ -148,7 +148,7 @@ This static file is served by nginx and points crawlers to `sitemap.xml`.
 
 ### search_index.json
 
-This Jekyll-generated JSON contains page content metadata. In the new architecture, website search is served via the `igsr-be` API backed by Elastic Cloud, rather than being loaded into an EBI-hosted Elasticsearch service from this file.
+This Jekyll-generated JSON contains page content metadata. In the new architecture, website search is served via the `igsr-be` API backed by ElasticCloud v8, rather than being loaded into an EBI-hosted Elasticsearch service from this file.
 
 ## Container build and runtime files
 
@@ -186,11 +186,11 @@ The `docker/` directory contains container runtime configuration and helper asse
 ### Launch command
 
 ```bash
-cd gca_1000genomes_website
-./scripts/local_igsr_site_instance_up.sh \
-    --fe-repo "/path/to/gca_1000genomes_website" \
-    --be-repo "/path/to/igsr-be" \
-    --es-py-repo "/path/to/es-py" \
-    --es-config "/path/to/config.ini" \
-    --api-config "/path/to/.env"
+gca_1000genomes_website/scripts/local_igsr_site_instance_up.sh \
+    --fe-repo "/Users/fairbrot/Documents/igsr/gca_1000genomes_website" \
+    --be-repo "/Users/fairbrot/Documents/igsr/igsr-be" \
+    --es-py-repo "/Users/fairbrot/Documents/igsr/es/es-py" \
+    --es-config "/Users/fairbrot/Documents/igsr/es/config.ini" \
+    --api-config "/Users/fairbrot/Documents/igsr/igsr-be/.env" \
+    --no-cache
 ```
