@@ -11,20 +11,13 @@ import { ApiDataCollectionService } from '../core/services/api-data-collection.s
 import { ApiPopulationService } from '../core/services/api-population.service';
 import { SearchHits } from '../shared/api-types/search-hits';
 import { Sample } from '../shared/api-types/sample';
+import { buildReadableFilterSummary as buildReadableFilterSummaryFromRpn } from '../shared/filter-summary';
 
 interface FilterToken {
   id: string;
   type: 'pop' | 'dc' | 'ag';
   key: string;
   negated: boolean;
-}
-
-interface FilterExpressionNode {
-  type: 'term' | 'op';
-  token?: FilterToken;
-  op?: 'AND' | 'OR';
-  left?: FilterExpressionNode;
-  right?: FilterExpressionNode;
 }
 
 let sampleHomeStyles: string = `
@@ -348,322 +341,15 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     if (this.filterTokens.length === 0) {
       return '';
     }
-    let expression = this.buildExpressionTree(this.buildRpnTokens());
-    if (!expression) {
-      return '';
-    }
-    let includeExcludeSummary = this.tryBuildIncludeExcludeSummary(expression);
-    if (includeExcludeSummary) {
-      return `Showing samples ${includeExcludeSummary}.`;
-    }
-    let positiveAndSummary = this.tryBuildPositiveAndSummary(expression);
-    if (positiveAndSummary) {
-      return `Showing samples ${positiveAndSummary}.`;
-    }
-    let positiveOrSummary = this.tryBuildPositiveOrSummary(expression);
-    if (positiveOrSummary) {
-      return `Showing samples ${positiveOrSummary}.`;
-    }
-    let exclusionOnlySummary = this.tryBuildExclusionOnlySummary(expression);
-    if (exclusionOnlySummary) {
-      return `Showing samples ${exclusionOnlySummary}.`;
-    }
-    let oneOfEachSummary = this.tryBuildOneOfEachSummary(expression);
-    if (oneOfEachSummary) {
-      return `Showing samples ${oneOfEachSummary}.`;
-    }
-    let eitherOrBothSummary = this.tryBuildEitherOrBothSummary(expression);
-    if (eitherOrBothSummary) {
-      return `Showing samples ${eitherOrBothSummary}.`;
-    }
-    let withWhereSummary = this.tryBuildWithWhereSummary(expression);
-    if (withWhereSummary) {
-      return `Showing samples ${withWhereSummary}.`;
-    }
-    return `Showing samples where ${this.describeExpression(expression, true)}.`;
+    return buildReadableFilterSummaryFromRpn(this.buildRpnTokens(), {
+      entityLabel: 'samples',
+      getFilterTypeLabel: (type: string) => this.getFilterTypeLabel(type),
+      getFilterTypePluralLabel: (type: string) => this.getFilterTypePluralLabel(type),
+      getTokenDisplayLabel: (token: FilterToken) => this.getTokenDisplayLabel(token),
+    });
   }
 
-  private tryBuildPositiveAndSummary(expression: FilterExpressionNode): string {
-    let terms = this.getPositiveTermsForOperatorExpression(expression, 'AND');
-    if (!terms) {
-      return '';
-    }
-    return `from ${this.describeTypedValues(terms, 'and')}`;
-  }
-
-  private tryBuildPositiveOrSummary(expression: FilterExpressionNode): string {
-    let terms = this.getPositiveTermsForOperatorExpression(expression, 'OR');
-    if (!terms) {
-      return '';
-    }
-    return `matching any of ${this.describeTypedValues(terms, 'or')}`;
-  }
-
-  private tryBuildExclusionOnlySummary(expression: FilterExpressionNode): string {
-    let negatedTerms = this.getNegativeTermsForAndExpression(expression);
-    if (!negatedTerms) {
-      return '';
-    }
-    return `excluding ${this.describeTypedValues(negatedTerms, 'and')}`;
-  }
-
-  private tryBuildOneOfEachSummary(expression: FilterExpressionNode): string {
-    if (!expression || expression.type !== 'op' || expression.op !== 'AND') {
-      return '';
-    }
-    let leftTerms = this.getPositiveTermsForOperatorExpression(expression.left, 'OR');
-    let rightTerms = this.getPositiveTermsForOperatorExpression(expression.right, 'OR');
-    if (!leftTerms || !rightTerms) {
-      return '';
-    }
-    return `matching ${this.describeOneOfChoices(leftTerms)} and ${this.describeOneOfChoices(rightTerms)}`;
-  }
-
-  private buildExpressionTree(tokens: any[]): FilterExpressionNode {
-    let stack: FilterExpressionNode[] = [];
-    for (let tok of tokens) {
-      if (tok.type === 'term') {
-        stack.push({type: 'term', token: tok.token});
-        continue;
-      }
-      if (tok.type === 'op') {
-        if (stack.length < 2) {
-          return null;
-        }
-        let right = stack.pop();
-        let left = stack.pop();
-        stack.push({type: 'op', op: tok.op, left, right});
-      }
-    }
-    return stack.length === 1 ? stack[0] : null;
-  }
-
-  private tryBuildIncludeExcludeSummary(expression: FilterExpressionNode): string {
-    let conjuncts = this.flattenByOperator(expression, 'AND');
-    if (conjuncts.length < 2) {
-      return '';
-    }
-    let positiveConjuncts: FilterExpressionNode[] = [];
-    let negativeTerms: FilterToken[] = [];
-    for (let conjunct of conjuncts) {
-      if (this.isSimpleNegatedTerm(conjunct)) {
-        negativeTerms.push(conjunct.token);
-        continue;
-      }
-      if (this.containsNegation(conjunct)) {
-        return '';
-      }
-      positiveConjuncts.push(conjunct);
-    }
-    if (positiveConjuncts.length === 0 || negativeTerms.length === 0) {
-      return '';
-    }
-    let includeTree = this.combineNodesWithAnd(positiveConjuncts);
-    if (!includeTree) {
-      return '';
-    }
-    let includeText = this.buildIncludeSummaryText(includeTree);
-    let excludeText = this.describeTypedValues(negativeTerms, 'and');
-    return `${includeText}, then excluding ${excludeText}`;
-  }
-
-  private buildIncludeSummaryText(includeTree: FilterExpressionNode): string {
-    let pureOrTerms = this.getPositiveTermsForOperatorExpression(includeTree, 'OR');
-    if (pureOrTerms) {
-      return `matching any of ${this.describeTypedValues(pureOrTerms, 'or')}`;
-    }
-    return `from ${this.describeFromExpression(includeTree, true)}`;
-  }
-
-  private tryBuildWithWhereSummary(expression: FilterExpressionNode): string {
-    if (!expression || expression.type !== 'op' || expression.op !== 'AND') {
-      return '';
-    }
-    let leftHasOr = this.containsOperator(expression.left, 'OR');
-    let rightHasOr = this.containsOperator(expression.right, 'OR');
-    if (leftHasOr === rightHasOr) {
-      return '';
-    }
-    let groupedSide = leftHasOr ? expression.left : expression.right;
-    let baseSide = leftHasOr ? expression.right : expression.left;
-    if (this.containsNegation(baseSide)) {
-      return '';
-    }
-    return `with ${this.describeFromExpression(baseSide, true)}, where ${this.describeExpression(groupedSide, true)}`;
-  }
-
-  private tryBuildEitherOrBothSummary(expression: FilterExpressionNode): string {
-    if (!expression || expression.type !== 'op' || expression.op !== 'OR') {
-      return '';
-    }
-    let leftIsAndGroup = !!(expression.left && expression.left.type === 'op' && expression.left.op === 'AND');
-    let rightIsAndGroup = !!(expression.right && expression.right.type === 'op' && expression.right.op === 'AND');
-    if (leftIsAndGroup === rightIsAndGroup) {
-      return '';
-    }
-    let andGroup = leftIsAndGroup ? expression.left : expression.right;
-    let singleSide = leftIsAndGroup ? expression.right : expression.left;
-    let singleText = this.containsNegation(singleSide)
-      ? this.describeExpression(singleSide, true)
-      : this.describeFromExpression(singleSide, true);
-    return `matching either ${singleText} or ${this.describeBothExpression(andGroup)}`;
-  }
-
-  private combineNodesWithAnd(nodes: FilterExpressionNode[]): FilterExpressionNode {
-    if (nodes.length === 0) {
-      return null;
-    }
-    let combined = nodes[0];
-    for (let i = 1; i < nodes.length; i++) {
-      combined = {type: 'op', op: 'AND', left: combined, right: nodes[i]};
-    }
-    return combined;
-  }
-
-  private flattenByOperator(node: FilterExpressionNode, operator: 'AND' | 'OR'): FilterExpressionNode[] {
-    if (!node || node.type !== 'op' || node.op !== operator) {
-      return [node];
-    }
-    return this.flattenByOperator(node.left, operator).concat(this.flattenByOperator(node.right, operator));
-  }
-
-  private getPositiveTermsForOperatorExpression(node: FilterExpressionNode, operator: 'AND' | 'OR'): FilterToken[] {
-    if (!node) {
-      return null;
-    }
-    let parts = this.flattenByOperator(node, operator);
-    if (parts.length < 2) {
-      return null;
-    }
-    let tokens: FilterToken[] = [];
-    for (let part of parts) {
-      if (!part || part.type !== 'term' || !part.token || part.token.negated) {
-        return null;
-      }
-      tokens.push(part.token);
-    }
-    return tokens;
-  }
-
-  private getNegativeTermsForAndExpression(node: FilterExpressionNode): FilterToken[] {
-    if (!node) {
-      return null;
-    }
-    let parts = this.flattenByOperator(node, 'AND');
-    if (parts.length === 0) {
-      return null;
-    }
-    let tokens: FilterToken[] = [];
-    for (let part of parts) {
-      if (!this.isSimpleNegatedTerm(part)) {
-        return null;
-      }
-      tokens.push(part.token);
-    }
-    return tokens;
-  }
-
-  private isSimpleNegatedTerm(node: FilterExpressionNode): boolean {
-    return !!(node && node.type === 'term' && node.token && node.token.negated);
-  }
-
-  private containsNegation(node: FilterExpressionNode): boolean {
-    if (!node) {
-      return false;
-    }
-    if (node.type === 'term') {
-      return !!(node.token && node.token.negated);
-    }
-    return this.containsNegation(node.left) || this.containsNegation(node.right);
-  }
-
-  private containsOperator(node: FilterExpressionNode, operator: 'AND' | 'OR'): boolean {
-    if (!node || node.type !== 'op') {
-      return false;
-    }
-    if (node.op === operator) {
-      return true;
-    }
-    return this.containsOperator(node.left, operator) || this.containsOperator(node.right, operator);
-  }
-
-  private describeBothExpression(node: FilterExpressionNode): string {
-    let parts = this.flattenByOperator(node, 'AND');
-    if (parts.length >= 2 && parts.every((part: FilterExpressionNode) => part && part.type === 'term' && part.token && !part.token.negated)) {
-      return `both ${this.describeTypedValues(parts.map((part: FilterExpressionNode) => part.token), 'and')}`;
-    }
-    return `both ${this.describeExpression(node, true)}`;
-  }
-
-  private describeExpression(node: FilterExpressionNode, isTopLevel: boolean): string {
-    if (!node) {
-      return '';
-    }
-    if (node.type === 'term') {
-      let token = node.token;
-      return this.describeTokenComparison(token);
-    }
-    let leftText = this.describeExpression(node.left, false);
-    let rightText = this.describeExpression(node.right, false);
-    let text: string;
-    if (node.op === 'OR') {
-      text = isTopLevel ? `${leftText} or ${rightText}` : `either ${leftText} or ${rightText}`;
-    } else {
-      text = `${leftText} and ${rightText}`;
-    }
-    return isTopLevel ? text : `(${text})`;
-  }
-
-  private describeFromExpression(node: FilterExpressionNode, isTopLevel: boolean): string {
-    if (!node) {
-      return '';
-    }
-    if (node.type === 'term') {
-      let token = node.token;
-      let typeLabel = this.formatStrong(this.escapeHtml(this.getFilterTypeLabel(token.type)));
-      let valueLabel = this.formatStrong(this.quoteValue(this.getTokenDisplayLabel(token)));
-      if (token.negated) {
-        return `${typeLabel} not ${valueLabel}`;
-      }
-      return `${typeLabel} ${valueLabel}`;
-    }
-    let operatorText = node.op === 'OR' ? ' or ' : ' and ';
-    let text = `${this.describeFromExpression(node.left, false)}${operatorText}${this.describeFromExpression(node.right, false)}`;
-    return isTopLevel ? text : `(${text})`;
-  }
-
-  private describeTypedValues(tokens: FilterToken[], conjunction: 'and' | 'or'): string {
-    if (!tokens || tokens.length === 0) {
-      return '';
-    }
-    if (tokens.length === 1) {
-      return this.describeTokenTypeAndValue(tokens[0]);
-    }
-    let firstType = tokens[0].type;
-    let sameType = tokens.every((token: FilterToken) => token.type === firstType);
-    if (sameType) {
-      let values = tokens.map((token: FilterToken) => this.formatStrong(this.quoteValue(this.getTokenDisplayLabel(token))));
-      return `${this.formatStrong(this.escapeHtml(this.getFilterTypePluralLabel(firstType)))} ${this.joinWithConjunction(values, conjunction)}`;
-    }
-    let typedValues = tokens.map((token: FilterToken) => this.describeTokenTypeAndValue(token));
-    return this.joinWithConjunction(typedValues, conjunction);
-  }
-
-  private describeOneOfChoices(tokens: FilterToken[]): string {
-    if (!tokens || tokens.length === 0) {
-      return '';
-    }
-    let firstType = tokens[0].type;
-    let sameType = tokens.every((token: FilterToken) => token.type === firstType);
-    if (sameType) {
-      let values = tokens.map((token: FilterToken) => this.formatStrong(this.quoteValue(this.getTokenDisplayLabel(token))));
-      return `one of these ${this.formatStrong(this.escapeHtml(this.getFilterTypePluralLabel(firstType)))}: ${this.joinWithConjunction(values, 'or')}`;
-    }
-    let typedValues = tokens.map((token: FilterToken) => this.describeTokenTypeAndValue(token));
-    return `one of: ${this.joinWithConjunction(typedValues, 'or')}`;
-  }
-
-  private getFilterTypeLabel(type: 'pop' | 'dc' | 'ag'): string {
+  private getFilterTypeLabel(type: string): string {
     if (type === 'pop') {
       return 'population';
     }
@@ -673,7 +359,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     return 'technology';
   }
 
-  private getFilterTypePluralLabel(type: 'pop' | 'dc' | 'ag'): string {
+  private getFilterTypePluralLabel(type: string): string {
     if (type === 'pop') {
       return 'populations';
     }
@@ -691,52 +377,6 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
       return this.dcTitleMap[token.key] || token.key;
     }
     return this.agTitleMap[token.key] || token.key;
-  }
-
-  private quoteValue(value: string): string {
-    let safe = this.escapeHtml((value || '').replace(/"/g, '\''));
-    return `"${safe}"`;
-  }
-
-  private describeTokenComparison(token: FilterToken): string {
-    let typeLabel = this.formatStrong(this.escapeHtml(this.getFilterTypeLabel(token.type)));
-    let valueLabel = this.formatStrong(this.quoteValue(this.getTokenDisplayLabel(token)));
-    if (token.negated) {
-      return `${typeLabel} is not ${valueLabel}`;
-    }
-    return `${typeLabel} is ${valueLabel}`;
-  }
-
-  private describeTokenTypeAndValue(token: FilterToken): string {
-    let typeLabel = this.formatStrong(this.escapeHtml(this.getFilterTypeLabel(token.type)));
-    let valueLabel = this.formatStrong(this.quoteValue(this.getTokenDisplayLabel(token)));
-    return `${typeLabel} ${valueLabel}`;
-  }
-
-  private formatStrong(value: string): string {
-    return `<strong>${value}</strong>`;
-  }
-
-  private escapeHtml(value: string): string {
-    return (value || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  }
-
-  private joinWithConjunction(items: string[], conjunction: 'and' | 'or'): string {
-    if (items.length === 0) {
-      return '';
-    }
-    if (items.length === 1) {
-      return items[0];
-    }
-    if (items.length === 2) {
-      return `${items[0]} ${conjunction} ${items[1]}`;
-    }
-    return `${items.slice(0, items.length - 1).join(', ')}, ${conjunction} ${items[items.length - 1]}`;
   }
 
   private combineClauses(left: any, right: any, operator: string): any {
