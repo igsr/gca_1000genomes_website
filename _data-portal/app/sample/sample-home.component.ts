@@ -11,58 +11,30 @@ import { ApiDataCollectionService } from '../core/services/api-data-collection.s
 import { ApiPopulationService } from '../core/services/api-population.service';
 import { SearchHits } from '../shared/api-types/search-hits';
 import { Sample } from '../shared/api-types/sample';
+import { buildReadableFilterSummary as buildReadableFilterSummaryFromRpn } from '../shared/filter-builder-summary';
+import { FilterBuilderBase, FilterTokenBase } from '../shared/filter-builder-base';
+import { filterBuilderStyles } from '../shared/filter-builder.styles';
 
-let sampleHomeStyles: string = `
+interface FilterToken extends FilterTokenBase<'pop' | 'dc' | 'ag'> {}
 
-div.table-container {
-  padding-right: 90px;
-  position: relative;
-  overflow-y: auto;
-}
-
-h3.current-filters {
-  display: inline-block;
-}
-
-@media (max-width: 991px) {
-  div.table-container {
-    width: 100%;
-    overflow-x: scroll;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-    padding-right: 0px;
-  }
-}
-div.table-buttons {
-  position: absolute;
-  top: 0;
-}
-div.table-buttons h4 {
-  margin: 10px 0px;
-}
-
-button.page-button {
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  margin: 0px 0px 10px;
-}
-`;
+let sampleHomeStyles: string = filterBuilderStyles;
 
 @Component({
     templateUrl: './sample-home.component.html',
     styles: [ sampleHomeStyles ],
 })
-export class SampleHomeComponent implements OnInit, OnDestroy {
+export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', FilterToken> implements OnInit, OnDestroy {
   public constructor(
     private titleService: Title,
     private apiSampleService: ApiSampleService,
     apiAnalysisGroupService: ApiAnalysisGroupService,
     apiDataCollectionService: ApiDataCollectionService,
-		apiPopulationService: ApiPopulationService,
-  ) { 
+    apiPopulationService: ApiPopulationService,
+  ) {
+    super();
     this.agTitleMap = apiAnalysisGroupService.titleMap;
     this.dcTitleMap = apiDataCollectionService.titleMap;
-		this.popElasticIdDescriptionMap = apiPopulationService.elasticIdDescriptionMap;
+    this.popElasticIdDescriptionMap = apiPopulationService.elasticIdDescriptionMap;
   }
 
   public sampleHits: SearchHits<Sample>;
@@ -75,7 +47,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public popFilterVisible: boolean = false;
   public popFilters: {[code: string]: boolean} = {};
   public popFiltersArr: string[] = [];
-	readonly popElasticIdDescriptionMap: {[key: string]: string};
+  readonly popElasticIdDescriptionMap: {[key: string]: string};
 
   public agFilterVisible: boolean = false;
   public agFilters: {[code: string]: boolean} = {};
@@ -86,7 +58,9 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public dcFilters: {[code: string]: boolean} = {};
   public dcFiltersArr: string[] = [];
   readonly dcTitleMap: {[key: string]: string};
-  
+
+  public readableFilterSummary: string = '';
+
   private sampleHitsSource: Subject<Observable<SearchHits<Sample>>>;
   private sampleHitsSubscription: Subscription = null;
   private hitsPerPage: number = 10;
@@ -103,9 +77,10 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
             this.displayStart = h.hits && h.hits.length > 0 ? this.offset + 1 : 0;
             this.displayStop = h.hits ? this.offset + h.hits.length : 0;
           }
-        })
+        });
     this.search();
   }
+
   ngOnDestroy() {
     if (this.sampleHitsSubscription) {
       this.sampleHitsSubscription.unsubscribe();
@@ -113,10 +88,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   }
 
   hasMore(): boolean {
-    if (this.totalHits > this.offset + this.hitsPerPage) {
-      return true;
-    }
-    return false;
+    return this.totalHits > this.offset + this.hitsPerPage;
   }
 
   tableNext() {
@@ -144,58 +116,140 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   onPopFiltersChange(popFilters: {[code: string]: boolean}) {
     this.offset = 0;
     this.totalHits = -1;
-    this.popFiltersArr = [];
-    for (let key in popFilters) {
-      if (popFilters[key]) {
-        this.popFiltersArr.push(key);
-      }
-    }
+    let nextKeys = this.extractSelectedKeys(popFilters);
+    this.updateTokenOrder('pop', this.popFiltersArr, nextKeys);
+    this.popFiltersArr = nextKeys;
     this.search();
   }
 
   onAgFiltersChange(agFilters: {[code: string]: boolean}) {
     this.offset = 0;
     this.totalHits = -1;
-    this.agFiltersArr = [];
-    for (let key in agFilters) {
-      if (agFilters[key]) {
-        this.agFiltersArr.push(key);
-      }
-    }
+    let nextKeys = this.extractSelectedKeys(agFilters);
+    this.updateTokenOrder('ag', this.agFiltersArr, nextKeys);
+    this.agFiltersArr = nextKeys;
     this.search();
   }
 
   onDcFiltersChange(dcFilters: {[code: string]: boolean}) {
     this.offset = 0;
     this.totalHits = -1;
-    this.dcFiltersArr = [];
-    for (let key in dcFilters) {
-      if (dcFilters[key]) {
-        this.dcFiltersArr.push(key);
-      }
-    }
+    let nextKeys = this.extractSelectedKeys(dcFilters);
+    this.updateTokenOrder('dc', this.dcFiltersArr, nextKeys);
+    this.dcFiltersArr = nextKeys;
+    this.search();
+  }
+
+  toggleChainOperator(index: number) {
+    super.toggleChainOperator(index);
+    this.search();
+  }
+
+  groupSelection() {
+    super.groupSelection();
+    this.search();
+  }
+
+  ungroupSelection() {
+    super.ungroupSelection();
+    this.search();
+  }
+
+  toggleNegationForSelection() {
+    super.toggleNegationForSelection();
     this.search();
   }
 
   search() {
-    this.sampleHitsSource.next( this.apiSampleService.search(this.hitsPerPage, this.offset, this.buildQuery()));
-  }
-  searchExport() {
-    this.apiSampleService.searchExport(this.buildQuery(), 'igsr_samples');
+    this.readableFilterSummary = this.buildReadableFilterSummary();
+    this.sampleHitsSource.next(this.apiSampleService.search(this.hitsPerPage, this.offset, this.buildFilterQuery()));
   }
 
-  private buildQuery() {
-    let mustArray: any[] = [];
-    if (this.popFiltersArr.length > 0) {
-      mustArray.push({terms: {'populations.elasticId': this.popFiltersArr}});
-    }
-    for (let ag of this.agFiltersArr) {
-      mustArray.push({term: {'dataCollections._analysisGroups': ag}});
-    }
-    for (let dc of this.dcFiltersArr) {
-      mustArray.push({term: {'dataCollections.title': dc}});
-    }
-    return mustArray.length == 0 ? null
-       : { constant_score: { filter: { bool: { must: mustArray } } } };
+  searchExport() {
+    this.apiSampleService.searchExport(this.buildFilterQuery(), 'igsr_samples');
   }
-};
+
+  removeTokenFromFilters(token: FilterToken) {
+    if (token.type === 'pop') {
+      this.popFilters[token.key] = false;
+      this.onPopFiltersChange(this.popFilters);
+      return;
+    }
+    if (token.type === 'dc') {
+      this.dcFilters[token.key] = false;
+      this.onDcFiltersChange(this.dcFilters);
+      return;
+    }
+    this.agFilters[token.key] = false;
+    this.onAgFiltersChange(this.agFilters);
+  }
+
+  protected createToken(type: 'pop' | 'dc' | 'ag', key: string, id: string): FilterToken {
+    return { id, type, key, negated: false };
+  }
+
+  private buildFilterQuery() {
+    return super.buildQuery((token: FilterToken) => this.buildTokenClause(token));
+  }
+
+  private buildReadableFilterSummary(): string {
+    if (this.filterTokens.length === 0) {
+      return '';
+    }
+    return buildReadableFilterSummaryFromRpn(this.buildRpnTokens(), {
+      entityLabel: 'samples',
+      getFilterTypeLabel: (type: string) => this.getFilterTypeLabel(type),
+      getFilterTypePluralLabel: (type: string) => this.getFilterTypePluralLabel(type),
+      getTokenDisplayLabel: (token: FilterToken) => this.getTokenDisplayLabel(token),
+    });
+  }
+
+  private getFilterTypeLabel(type: string): string {
+    if (type === 'pop') {
+      return 'population';
+    }
+    if (type === 'dc') {
+      return 'data collection';
+    }
+    return 'technology';
+  }
+
+  private getFilterTypePluralLabel(type: string): string {
+    if (type === 'pop') {
+      return 'populations';
+    }
+    if (type === 'dc') {
+      return 'data collections';
+    }
+    return 'technologies';
+  }
+
+  private getTokenDisplayLabel(token: FilterToken): string {
+    if (token.type === 'pop') {
+      return this.popElasticIdDescriptionMap[token.key] || token.key;
+    }
+    if (token.type === 'dc') {
+      return this.dcTitleMap[token.key] || token.key;
+    }
+    return this.agTitleMap[token.key] || token.key;
+  }
+
+  private buildTokenClause(token: FilterToken): any {
+    if (token.type === 'pop') {
+      if (token.negated) {
+        return { bool: { must_not: [{ term: { 'populations.elasticId': token.key } }] } };
+      }
+      return { term: { 'populations.elasticId': token.key } };
+    }
+    if (token.type === 'dc') {
+      if (token.negated) {
+        return { bool: { must_not: [{ term: { 'dataCollections.title': token.key } }] } };
+      }
+      return { term: { 'dataCollections.title': token.key } };
+    }
+    if (token.negated) {
+      return { bool: { must_not: [{ term: { 'dataCollections._analysisGroups': token.key } }] } };
+    }
+    return { term: { 'dataCollections._analysisGroups': token.key } };
+  }
+}

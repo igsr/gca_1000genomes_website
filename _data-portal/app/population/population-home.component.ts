@@ -10,54 +10,26 @@ import { ApiAnalysisGroupService } from '../core/services/api-analysis-group.ser
 import { ApiDataCollectionService } from '../core/services/api-data-collection.service';
 import { SearchHits } from '../shared/api-types/search-hits';
 import { Population } from '../shared/api-types/population';
+import { buildReadableFilterSummary as buildReadableFilterSummaryFromRpn } from '../shared/filter-builder-summary';
+import { FilterBuilderBase, FilterTokenBase } from '../shared/filter-builder-base';
+import { filterBuilderStyles } from '../shared/filter-builder.styles';
 
-let populationHomeStyles: string = `
+interface FilterToken extends FilterTokenBase<'dc' | 'ag'> {}
 
-div.table-container {
-  padding-right: 90px;
-  position: relative;
-  overflow-y: auto;
-}
-
-h3.current-filters {
-  display: inline-block;
-}
-
-@media (max-width: 991px) {
-  div.table-container {
-    width: 100%;
-    overflow-x: scroll;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    -webkit-overflow-scrolling: touch;
-    padding-right: 0px;
-  }
-}
-div.table-buttons {
-  position: absolute;
-  top: 0;
-}
-div.table-buttons h4 {
-  margin: 10px 0px;
-}
-
-button.page-button {
-  border: 1px solid #ddd;
-  border-radius: 15px;
-  margin: 0px 0px 10px;
-}
-`;
+let populationHomeStyles: string = filterBuilderStyles;
 
 @Component({
     templateUrl: './population-home.component.html',
     styles: [ populationHomeStyles ],
 })
-export class PopulationHomeComponent implements OnInit, OnDestroy {
+export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', FilterToken> implements OnInit, OnDestroy {
   public constructor(
     private titleService: Title,
     private apiPopulationService: ApiPopulationService,
     apiAnalysisGroupService: ApiAnalysisGroupService,
     apiDataCollectionService: ApiDataCollectionService,
-  ) { 
+  ) {
+    super();
     this.agTitleMap = apiAnalysisGroupService.titleMap;
     this.dcTitleMap = apiDataCollectionService.titleMap;
   }
@@ -75,74 +47,143 @@ export class PopulationHomeComponent implements OnInit, OnDestroy {
   public dcFiltersArr: string[] = [];
   readonly dcTitleMap: {[key: string]: string};
 
-	public mapKeyVisible: boolean = false;
-  
+  public readableFilterSummary: string = '';
+  public mapKeyVisible: boolean = false;
+
   private populationHitsSource: Subject<Observable<SearchHits<Population>>>;
   private populationHitsSubscription: Subscription = null;
-  private hitsPerPage: number = 50;
 
   ngOnInit() {
     this.titleService.setTitle('IGSR | populations');
     this.populationHitsSource = new Subject<Observable<SearchHits<Population>>>();
     this.populationHitsSubscription = this.populationHitsSource
       .switchMap((o: Observable<SearchHits<Population>>): Observable<SearchHits<Population>> => o)
-      .subscribe((h: SearchHits<Population>) => this.populationHits = h )
+      .subscribe((h: SearchHits<Population>) => this.populationHits = h);
     this.search();
   }
+
   ngOnDestroy() {
     if (this.populationHitsSubscription) {
       this.populationHitsSubscription.unsubscribe();
     }
   }
 
-	mapView() {
-		this.viewOption = 0;
-	}
+  mapView() {
+    this.viewOption = 0;
+  }
 
-	dataCollectionView() {
-		this.viewOption = 1;
-	}
+  dataCollectionView() {
+    this.viewOption = 1;
+  }
 
-	technologyView() {
-		this.viewOption = 2;
-	}
+  technologyView() {
+    this.viewOption = 2;
+  }
 
   onAgFiltersChange(agFilters: {[code: string]: boolean}) {
-    this.agFiltersArr = [];
-    for (let key in agFilters) {
-      if (agFilters[key]) {
-        this.agFiltersArr.push(key);
-      }
-    }
+    let nextKeys = this.extractSelectedKeys(agFilters);
+    this.updateTokenOrder('ag', this.agFiltersArr, nextKeys);
+    this.agFiltersArr = nextKeys;
     this.search();
   }
 
   onDcFiltersChange(dcFilters: {[code: string]: boolean}) {
-    this.dcFiltersArr = [];
-    for (let key in dcFilters) {
-      if (dcFilters[key]) {
-        this.dcFiltersArr.push(key);
-      }
-    }
+    let nextKeys = this.extractSelectedKeys(dcFilters);
+    this.updateTokenOrder('dc', this.dcFiltersArr, nextKeys);
+    this.dcFiltersArr = nextKeys;
+    this.search();
+  }
+
+  toggleChainOperator(index: number) {
+    super.toggleChainOperator(index);
+    this.search();
+  }
+
+  groupSelection() {
+    super.groupSelection();
+    this.search();
+  }
+
+  ungroupSelection() {
+    super.ungroupSelection();
+    this.search();
+  }
+
+  toggleNegationForSelection() {
+    super.toggleNegationForSelection();
     this.search();
   }
 
   search() {
-    this.populationHitsSource.next( this.apiPopulationService.search(-1, 0, this.buildQuery()));
-  }
-  searchExport() {
-    this.apiPopulationService.searchExport(this.buildQuery(), 'igsr_populations');
+    this.readableFilterSummary = this.buildReadableFilterSummary();
+    this.populationHitsSource.next(this.apiPopulationService.search(-1, 0, this.buildFilterQuery()));
   }
 
-  private buildQuery() {
-    let mustArray: any[] = [];
-    for (let ag of this.agFiltersArr) {
-      mustArray.push({term: {'dataCollections._analysisGroups': ag}});
-    }
-    for (let dc of this.dcFiltersArr) {
-      mustArray.push({term: {'dataCollections.title': dc}});
-    }
-    return mustArray.length == 0 ? null
-       : { constant_score: { filter: { bool: { must: mustArray } } } };
+  searchExport() {
+    this.apiPopulationService.searchExport(this.buildFilterQuery(), 'igsr_populations');
   }
-};
+
+  removeTokenFromFilters(token: FilterToken) {
+    if (token.type === 'dc') {
+      this.dcFilters[token.key] = false;
+      this.onDcFiltersChange(this.dcFilters);
+      return;
+    }
+    this.agFilters[token.key] = false;
+    this.onAgFiltersChange(this.agFilters);
+  }
+
+  protected createToken(type: 'dc' | 'ag', key: string, id: string): FilterToken {
+    return { id, type, key, negated: false };
+  }
+
+  private buildFilterQuery() {
+    return super.buildQuery((token: FilterToken) => this.buildTokenClause(token));
+  }
+
+  private buildReadableFilterSummary(): string {
+    if (this.filterTokens.length === 0) {
+      return '';
+    }
+    return buildReadableFilterSummaryFromRpn(this.buildRpnTokens(), {
+      entityLabel: 'populations',
+      getFilterTypeLabel: (type: string) => this.getFilterTypeLabel(type),
+      getFilterTypePluralLabel: (type: string) => this.getFilterTypePluralLabel(type),
+      getTokenDisplayLabel: (token: FilterToken) => this.getTokenDisplayLabel(token),
+    });
+  }
+
+  private getFilterTypeLabel(type: string): string {
+    if (type === 'dc') {
+      return 'data collection';
+    }
+    return 'technology';
+  }
+
+  private getFilterTypePluralLabel(type: string): string {
+    if (type === 'dc') {
+      return 'data collections';
+    }
+    return 'technologies';
+  }
+
+  private getTokenDisplayLabel(token: FilterToken): string {
+    if (token.type === 'dc') {
+      return this.dcTitleMap[token.key] || token.key;
+    }
+    return this.agTitleMap[token.key] || token.key;
+  }
+
+  private buildTokenClause(token: FilterToken): any {
+    if (token.type === 'dc') {
+      if (token.negated) {
+        return { bool: { must_not: [{ term: { 'dataCollections.title': token.key } }] } };
+      }
+      return { term: { 'dataCollections.title': token.key } };
+    }
+    if (token.negated) {
+      return { bool: { must_not: [{ term: { 'dataCollections._analysisGroups': token.key } }] } };
+    }
+    return { term: { 'dataCollections._analysisGroups': token.key } };
+  }
+}
