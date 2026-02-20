@@ -12,13 +12,9 @@ import { ApiPopulationService } from '../core/services/api-population.service';
 import { SearchHits } from '../shared/api-types/search-hits';
 import { Sample } from '../shared/api-types/sample';
 import { buildReadableFilterSummary as buildReadableFilterSummaryFromRpn } from '../shared/filter-summary';
+import { FilterBuilderBase, FilterTokenBase } from '../shared/filter-builder-base';
 
-interface FilterToken {
-  id: string;
-  type: 'pop' | 'dc' | 'ag';
-  key: string;
-  negated: boolean;
-}
+interface FilterToken extends FilterTokenBase<'pop' | 'dc' | 'ag'> {}
 
 let sampleHomeStyles: string = `
 
@@ -38,7 +34,7 @@ h3.current-filters {
 }
 
 .group-controls {
-  margin-left: 10px;
+  margin-left: 0;
 }
 
 .tools-row {
@@ -65,7 +61,9 @@ h3.current-filters.section-indicator {
   letter-spacing: 0.06em;
   line-height: 1;
   margin: 0 10px 0 0;
+  min-width: 92px;
   padding: 6px 10px;
+  text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
 }
@@ -83,7 +81,24 @@ h3.current-filters.section-indicator {
 }
 
 .filter-builder-steps li {
-  margin-bottom: 4px;
+  margin-bottom: 10px;
+}
+
+.filter-builder-steps li:last-child {
+  margin-bottom: 0;
+}
+
+.filter-builder-steps li strong {
+  color: #444;
+  display: block;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.filter-builder-steps li code {
+  background-color: #ececec;
+  border-radius: 3px;
+  padding: 0 3px;
 }
 
 .group-control-btn {
@@ -100,7 +115,7 @@ h3.current-filters.section-indicator {
 
 p.readable-filter-summary {
   display: inline-block;
-  margin: 0 0 0 10px;
+  margin: 0;
   color: #6b7280;
   font-size: 15px;
   font-style: italic;
@@ -180,17 +195,18 @@ button.operator-chip {
     templateUrl: './sample-home.component.html',
     styles: [ sampleHomeStyles ],
 })
-export class SampleHomeComponent implements OnInit, OnDestroy {
+export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', FilterToken> implements OnInit, OnDestroy {
   public constructor(
     private titleService: Title,
     private apiSampleService: ApiSampleService,
     apiAnalysisGroupService: ApiAnalysisGroupService,
     apiDataCollectionService: ApiDataCollectionService,
-		apiPopulationService: ApiPopulationService,
-  ) { 
+    apiPopulationService: ApiPopulationService,
+  ) {
+    super();
     this.agTitleMap = apiAnalysisGroupService.titleMap;
     this.dcTitleMap = apiDataCollectionService.titleMap;
-		this.popElasticIdDescriptionMap = apiPopulationService.elasticIdDescriptionMap;
+    this.popElasticIdDescriptionMap = apiPopulationService.elasticIdDescriptionMap;
   }
 
   public sampleHits: SearchHits<Sample>;
@@ -203,7 +219,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public popFilterVisible: boolean = false;
   public popFilters: {[code: string]: boolean} = {};
   public popFiltersArr: string[] = [];
-	readonly popElasticIdDescriptionMap: {[key: string]: string};
+  readonly popElasticIdDescriptionMap: {[key: string]: string};
 
   public agFilterVisible: boolean = false;
   public agFilters: {[code: string]: boolean} = {};
@@ -215,18 +231,8 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   public dcFiltersArr: string[] = [];
   readonly dcTitleMap: {[key: string]: string};
 
-  public filterTokens: FilterToken[] = [];
-  public filterOperators: string[] = [];
-  public selectedTokenIds: {[id: string]: boolean} = {};
-  public groups: {id: number, tokenIds: string[]}[] = [];
-  public groupStartIds: {[id: string]: boolean} = {};
-  public groupEndIds: {[id: string]: boolean} = {};
-  public groupedTokenIds: {[id: string]: boolean} = {};
-  public autoGroupStartCount: {[id: string]: number} = {};
-  public autoGroupEndCount: {[id: string]: number} = {};
   public readableFilterSummary: string = '';
-  private groupIdCounter: number = 0;
-  
+
   private sampleHitsSource: Subject<Observable<SearchHits<Sample>>>;
   private sampleHitsSubscription: Subscription = null;
   private hitsPerPage: number = 10;
@@ -243,9 +249,10 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
             this.displayStart = h.hits && h.hits.length > 0 ? this.offset + 1 : 0;
             this.displayStop = h.hits ? this.offset + h.hits.length : 0;
           }
-        })
+        });
     this.search();
   }
+
   ngOnDestroy() {
     if (this.sampleHitsSubscription) {
       this.sampleHitsSubscription.unsubscribe();
@@ -253,10 +260,7 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   }
 
   hasMore(): boolean {
-    if (this.totalHits > this.offset + this.hitsPerPage) {
-      return true;
-    }
-    return false;
+    return this.totalHits > this.offset + this.hitsPerPage;
   }
 
   tableNext() {
@@ -309,32 +313,55 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
   }
 
   toggleChainOperator(index: number) {
-    if (index < 0 || index >= this.filterOperators.length) {
-      return;
-    }
-    this.filterOperators[index] = this.filterOperators[index] === 'AND' ? 'OR' : 'AND';
-    if (this.allOperatorsSame()) {
-      this.groups = [];
-    }
-    this.rebuildGroupMarkers();
+    super.toggleChainOperator(index);
+    this.search();
+  }
+
+  groupSelection() {
+    super.groupSelection();
+    this.search();
+  }
+
+  ungroupSelection() {
+    super.ungroupSelection();
+    this.search();
+  }
+
+  toggleNegationForSelection() {
+    super.toggleNegationForSelection();
     this.search();
   }
 
   search() {
     this.readableFilterSummary = this.buildReadableFilterSummary();
-    this.sampleHitsSource.next( this.apiSampleService.search(this.hitsPerPage, this.offset, this.buildQuery()));
-  }
-  searchExport() {
-    this.apiSampleService.searchExport(this.buildQuery(), 'igsr_samples');
+    this.sampleHitsSource.next(this.apiSampleService.search(this.hitsPerPage, this.offset, this.buildFilterQuery()));
   }
 
-  private buildQuery() {
-    if (this.filterTokens.length == 0) {
-      return null;
+  searchExport() {
+    this.apiSampleService.searchExport(this.buildFilterQuery(), 'igsr_samples');
+  }
+
+  removeTokenFromFilters(token: FilterToken) {
+    if (token.type === 'pop') {
+      this.popFilters[token.key] = false;
+      this.onPopFiltersChange(this.popFilters);
+      return;
     }
-    let rpn = this.buildRpnTokens();
-    let combined = this.evalRpn(rpn);
-    return combined ? { constant_score: { filter: combined } } : null;
+    if (token.type === 'dc') {
+      this.dcFilters[token.key] = false;
+      this.onDcFiltersChange(this.dcFilters);
+      return;
+    }
+    this.agFilters[token.key] = false;
+    this.onAgFiltersChange(this.agFilters);
+  }
+
+  protected createToken(type: 'pop' | 'dc' | 'ag', key: string, id: string): FilterToken {
+    return { id, type, key, negated: false };
+  }
+
+  private buildFilterQuery() {
+    return super.buildQuery((token: FilterToken) => this.buildTokenClause(token));
   }
 
   private buildReadableFilterSummary(): string {
@@ -379,103 +406,6 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     return this.agTitleMap[token.key] || token.key;
   }
 
-  private combineClauses(left: any, right: any, operator: string): any {
-    if (operator === 'OR') {
-      return { bool: { should: [left, right], minimum_should_match: 1 } };
-    }
-    return { bool: { must: [left, right] } };
-  }
-
-  private buildRpnTokens(): any[] {
-    let tokens: any[] = [];
-    let groupStartIndex: {[index: number]: boolean} = {};
-    let groupEndIndex: {[index: number]: boolean} = {};
-    for (let i = 0; i < this.filterTokens.length; i++) {
-      if (this.groupStartIds[this.filterTokens[i].id]) {
-        groupStartIndex[i] = true;
-      }
-      if (this.groupEndIds[this.filterTokens[i].id]) {
-        groupEndIndex[i] = true;
-      }
-    }
-    for (let i = 0; i < this.filterTokens.length; i++) {
-      if (groupStartIndex[i]) {
-        tokens.push({type: 'lparen'});
-      }
-      tokens.push({type: 'term', token: this.filterTokens[i]});
-      if (groupEndIndex[i]) {
-        tokens.push({type: 'rparen'});
-      }
-      if (i < this.filterOperators.length) {
-        tokens.push({type: 'op', op: this.filterOperators[i] || 'AND'});
-      }
-    }
-    return this.toRpn(tokens);
-  }
-
-  private toRpn(tokens: any[]): any[] {
-    let output: any[] = [];
-    let ops: any[] = [];
-    let precedence: {[op: string]: number} = { 'AND': 1, 'OR': 1 };
-    for (let tok of tokens) {
-      if (tok.type === 'term') {
-        output.push(tok);
-        continue;
-      }
-      if (tok.type === 'op') {
-        while (ops.length > 0) {
-          let top = ops[ops.length - 1];
-          if (top.type !== 'op') {
-            break;
-          }
-          if (precedence[top.op] >= precedence[tok.op]) {
-            output.push(ops.pop());
-            continue;
-          }
-          break;
-        }
-        ops.push(tok);
-        continue;
-      }
-      if (tok.type === 'lparen') {
-        ops.push(tok);
-        continue;
-      }
-      if (tok.type === 'rparen') {
-        while (ops.length > 0 && ops[ops.length - 1].type !== 'lparen') {
-          output.push(ops.pop());
-        }
-        if (ops.length > 0 && ops[ops.length - 1].type === 'lparen') {
-          ops.pop();
-        }
-        continue;
-      }
-    }
-    while (ops.length > 0) {
-      output.push(ops.pop());
-    }
-    return output;
-  }
-
-  private evalRpn(tokens: any[]): any {
-    let stack: any[] = [];
-    for (let tok of tokens) {
-      if (tok.type === 'term') {
-        stack.push(this.buildTokenClause(tok.token));
-        continue;
-      }
-      if (tok.type === 'op') {
-        if (stack.length < 2) {
-          return null;
-        }
-        let right = stack.pop();
-        let left = stack.pop();
-        stack.push(this.combineClauses(left, right, tok.op));
-      }
-    }
-    return stack.length === 1 ? stack[0] : null;
-  }
-
   private buildTokenClause(token: FilterToken): any {
     if (token.type === 'pop') {
       if (token.negated) {
@@ -494,323 +424,4 @@ export class SampleHomeComponent implements OnInit, OnDestroy {
     }
     return { term: { 'dataCollections._analysisGroups': token.key } };
   }
-
-  private extractSelectedKeys(filters: {[code: string]: boolean}): string[] {
-    let keys: string[] = [];
-    for (let key in filters) {
-      if (filters[key]) {
-        keys.push(key);
-      }
-    }
-    return keys;
-  }
-
-  private updateTokenOrder(type: 'pop' | 'dc' | 'ag', prevKeys: string[], nextKeys: string[]) {
-    let removed = prevKeys.filter((key: string) => nextKeys.indexOf(key) === -1);
-    let added = nextKeys.filter((key: string) => prevKeys.indexOf(key) === -1);
-    for (let key of removed) {
-      this.removeToken(type, key);
-    }
-    for (let key of added) {
-      this.addToken(type, key);
-    }
-    this.rebuildGroupMarkers();
-  }
-
-  private addToken(type: 'pop' | 'dc' | 'ag', key: string) {
-    let id = this.makeTokenId(type, key);
-    for (let token of this.filterTokens) {
-      if (token.id === id) {
-        return;
-      }
-    }
-    if (this.filterTokens.length > 0) {
-      this.filterOperators.push('AND');
-    }
-    this.filterTokens.push({id, type, key, negated: false});
-    this.selectedTokenIds[id] = false;
-  }
-
-  private removeToken(type: 'pop' | 'dc' | 'ag', key: string) {
-    let id = this.makeTokenId(type, key);
-    let index = -1;
-    for (let i = 0; i < this.filterTokens.length; i++) {
-      let token = this.filterTokens[i];
-      if (token.id === id) {
-        index = i;
-        break;
-      }
-    }
-    if (index === -1) {
-      return;
-    }
-    this.filterTokens.splice(index, 1);
-    delete this.selectedTokenIds[id];
-    this.removeGroupsContainingTokenIds([id]);
-    if (this.filterOperators.length === 0) {
-      return;
-    }
-    if (index === 0) {
-      this.filterOperators.splice(0, 1);
-      return;
-    }
-    this.filterOperators.splice(index - 1, 1);
-    if (this.filterOperators.length > this.filterTokens.length - 1) {
-      this.filterOperators = this.filterOperators.slice(0, this.filterTokens.length - 1);
-    }
-  }
-
-  removeTokenFromFilters(token: FilterToken) {
-    if (token.type === 'pop') {
-      this.popFilters[token.key] = false;
-      this.onPopFiltersChange(this.popFilters);
-      return;
-    }
-    if (token.type === 'dc') {
-      this.dcFilters[token.key] = false;
-      this.onDcFiltersChange(this.dcFilters);
-      return;
-    }
-    this.agFilters[token.key] = false;
-    this.onAgFiltersChange(this.agFilters);
-  }
-
-  toggleTokenSelected(token: FilterToken) {
-    this.selectedTokenIds[token.id] = !this.selectedTokenIds[token.id];
-  }
-
-  isTokenSelected(token: FilterToken): boolean {
-    return !!this.selectedTokenIds[token.id];
-  }
-
-  canGroupSelection(): boolean {
-    let selected = this.getSelectedTokensInOrder();
-    if (selected.length < 2) {
-      return false;
-    }
-    if (selected.length === this.filterTokens.length) {
-      return false;
-    }
-    for (let token of selected) {
-      if (this.groupedTokenIds[token.id]) {
-        return false;
-      }
-    }
-    return this.isSelectionContiguous(selected);
-  }
-
-  canUngroupSelection(): boolean {
-    let selected = this.getSelectedTokensInOrder();
-    if (selected.length === 0) {
-      return false;
-    }
-    if (selected.length === this.filterTokens.length) {
-      return false;
-    }
-    if (!this.isSelectionContiguous(selected)) {
-      return false;
-    }
-    for (let token of selected) {
-      if (this.groupedTokenIds[token.id]) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  canNegateSelection(): boolean {
-    let selected = this.getSelectedTokensInOrder();
-    return selected.length > 0;
-  }
-
-  groupSelection() {
-    if (!this.canGroupSelection()) {
-      return;
-    }
-    let selected = this.getSelectedTokensInOrder();
-    if (selected.length === this.filterTokens.length) {
-      this.groups = [];
-      this.clearSelection();
-      this.rebuildGroupMarkers();
-      this.search();
-      return;
-    }
-    this.groups.push({id: ++this.groupIdCounter, tokenIds: selected.map((token: FilterToken) => token.id)});
-    this.clearSelection();
-    this.rebuildGroupMarkers();
-    this.search();
-  }
-
-  ungroupSelection() {
-    if (!this.canUngroupSelection()) {
-      return;
-    }
-    let selectedIds = this.getSelectedTokensInOrder().map((token: FilterToken) => token.id);
-    this.groups = this.groups.filter((group) => !group.tokenIds.some((id: string) => selectedIds.indexOf(id) !== -1));
-    this.clearSelection();
-    this.rebuildGroupMarkers();
-    this.search();
-  }
-
-  toggleNegationForSelection() {
-    let selected = this.getSelectedTokensInOrder();
-    if (selected.length === 0) {
-      return;
-    }
-    for (let token of selected) {
-      token.negated = !token.negated;
-    }
-    this.search();
-  }
-
-  isGroupStart(token: FilterToken): boolean {
-    return !!this.groupStartIds[token.id];
-  }
-
-  isGroupEnd(token: FilterToken): boolean {
-    return !!this.groupEndIds[token.id];
-  }
-
-  groupStartCount(token: FilterToken): number {
-    if (this.groups.length > 0) {
-      return this.groupStartIds[token.id] ? 1 : 0;
-    }
-    return this.autoGroupStartCount[token.id] || 0;
-  }
-
-  groupEndCount(token: FilterToken): number {
-    if (this.groups.length > 0) {
-      return this.groupEndIds[token.id] ? 1 : 0;
-    }
-    return this.autoGroupEndCount[token.id] || 0;
-  }
-
-  parenRange(count: number): number[] {
-    if (!count || count <= 0) {
-      return [];
-    }
-    return Array.apply(null, Array(count)).map(() => 0);
-  }
-
-  private makeTokenId(type: 'pop' | 'dc' | 'ag', key: string): string {
-    return `${type}:${key}`;
-  }
-
-  private clearSelection() {
-    for (let key in this.selectedTokenIds) {
-      this.selectedTokenIds[key] = false;
-    }
-  }
-
-  private getSelectedTokensInOrder(): FilterToken[] {
-    return this.filterTokens.filter((token: FilterToken) => this.selectedTokenIds[token.id]);
-  }
-
-  private isSelectionContiguous(selected: FilterToken[]): boolean {
-    if (selected.length === 0) {
-      return false;
-    }
-    let indices = selected.map((token: FilterToken) => this.tokenIndex(token.id)).sort((a, b) => a - b);
-    return indices[indices.length - 1] - indices[0] + 1 === selected.length;
-  }
-
-  private tokenIndex(id: string): number {
-    for (let i = 0; i < this.filterTokens.length; i++) {
-      if (this.filterTokens[i].id === id) {
-        return i;
-      }
-    }
-    return -1;
-  }
-
-  private removeGroupsContainingTokenIds(tokenIds: string[]) {
-    if (tokenIds.length === 0) {
-      return;
-    }
-    this.groups = this.groups.filter((group) => !group.tokenIds.some((id: string) => tokenIds.indexOf(id) !== -1));
-  }
-
-  private rebuildGroupMarkers() {
-    this.groupStartIds = {};
-    this.groupEndIds = {};
-    this.groupedTokenIds = {};
-    let indexMap: {[id: string]: number} = {};
-    for (let i = 0; i < this.filterTokens.length; i++) {
-      indexMap[this.filterTokens[i].id] = i;
-    }
-    let nextGroups: {id: number, tokenIds: string[]}[] = [];
-    for (let group of this.groups) {
-      let indices: number[] = [];
-      let valid = true;
-      for (let id of group.tokenIds) {
-        if (!indexMap.hasOwnProperty(id)) {
-          valid = false;
-          break;
-        }
-        indices.push(indexMap[id]);
-      }
-      if (!valid) {
-        continue;
-      }
-      indices.sort((a, b) => a - b);
-      if (indices[indices.length - 1] - indices[0] + 1 !== indices.length) {
-        continue;
-      }
-      let startIndex = indices[0];
-      let endIndex = indices[indices.length - 1];
-      let startId = this.filterTokens[startIndex].id;
-      let endId = this.filterTokens[endIndex].id;
-      let overlap = false;
-      for (let id of group.tokenIds) {
-        if (this.groupedTokenIds[id]) {
-          overlap = true;
-          break;
-        }
-      }
-      if (overlap) {
-        continue;
-      }
-      this.groupStartIds[startId] = true;
-      this.groupEndIds[endId] = true;
-      for (let id of group.tokenIds) {
-        this.groupedTokenIds[id] = true;
-      }
-      nextGroups.push(group);
-    }
-    this.groups = nextGroups;
-    this.rebuildAutoGroupMarkers();
-  }
-
-  private rebuildAutoGroupMarkers() {
-    this.autoGroupStartCount = {};
-    this.autoGroupEndCount = {};
-    if (this.groups.length > 0) {
-      return;
-    }
-    if (this.allOperatorsSame()) {
-      return;
-    }
-    if (this.filterTokens.length <= 2) {
-      return;
-    }
-    let startId = this.filterTokens[0].id;
-    this.autoGroupStartCount[startId] = this.filterTokens.length - 2;
-    for (let i = 1; i < this.filterTokens.length - 1; i++) {
-      let endId = this.filterTokens[i].id;
-      this.autoGroupEndCount[endId] = (this.autoGroupEndCount[endId] || 0) + 1;
-    }
-  }
-
-  private allOperatorsSame(): boolean {
-    if (this.filterOperators.length === 0) {
-      return true;
-    }
-    let first = this.filterOperators[0] || 'AND';
-    for (let op of this.filterOperators) {
-      if ((op || 'AND') !== first) {
-        return false;
-      }
-    }
-    return true;
-  }
-};
+}

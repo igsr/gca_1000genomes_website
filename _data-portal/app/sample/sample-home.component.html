@@ -28,20 +28,33 @@
       </div>
       <div class="panel-body">
         <div class="filter-builder-help">
-          <p>You can apply custom filtering to the data table like so:</p>
+          <p>Build a custom filter query in 3 steps:</p>
           <ol class="filter-builder-steps">
-            <li>Add chips from the drop-downs in the desired order,</li>
-            <li>Click chips to select them, 'Group'/'Ungroup' to add or remove parentheses around contiguous chips, 'NOT' to negate the selected chip, toggle AND/OR operators between chips by clicking them.</li>
+            <li>
+              <strong>Add filters</strong>
+              Use the drop-downs to add filter chips in the order you want.
+            </li>
+            <li>
+              <strong>Edit query logic</strong>
+              Click a chip to select or deselect it.
+              <br>Use Group/Ungroup to add or remove parentheses around selected adjacent chips.
+              <br>Use NOT to exclude selected chips.
+              <br>Click AND/OR between chips to change the operator.
+            </li>
+            <li>
+              <strong>Remove filters</strong>
+              Click <code>x</code> on a chip to remove it.
+            </li>
           </ol>
         </div>
         <div class="tools-row">
           <h3 class="current-filters section-indicator">Tools</h3>
           <span class="group-controls">
-            <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canGroupSelection()}" (click)="groupSelection()"
+            <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canGroupSelection()}" [disabled]="!canGroupSelection()" (click)="groupSelection()"
               [popover]="'Select contiguous chips, then click here to group them'" [popoverOnHover]="true" popoverPlacement="auto top">Group</button>
-            <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canUngroupSelection()}" (click)="ungroupSelection()"
+            <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canUngroupSelection()}" [disabled]="!canUngroupSelection()" (click)="ungroupSelection()"
               [popover]="'Select chips inside a group, then click here to ungroup them'" [popoverOnHover]="true" popoverPlacement="auto top">Ungroup</button>
-            <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canNegateSelection()}" (click)="toggleNegationForSelection()"
+            <button class="btn btn-default btn-xs group-control-btn" [ngClass]="{disabled: !canNegateSelection()}" [disabled]="!canNegateSelection()" (click)="toggleNegationForSelection()"
               [popover]="'Select chip(s), then click here to negate them'" [popoverOnHover]="true" popoverPlacement="auto top">NOT</button>
           </span>
         </div>
