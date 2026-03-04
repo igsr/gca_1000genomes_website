@@ -99,7 +99,7 @@ export class ApiFileService {
 
     // Use server-side export endpoint for full result set (no size limit)
     const body = {
-      _source: [ 'url' ],
+      fields: [ 'url', 'md5' ],
       query: {
         multi_match: {
           query: query,
