@@ -62,7 +62,7 @@ pinned: [true|false] - this indicates if the page is pinned to the front page. I
 
 ### non-underscored directories
 
-Directories that do _not_ start with underscore (\_) are for url paths. For example, a file called vcf4.0.md in the directory /wiki/Analysis/ will be served as the url www.internationalgenome.org/wiki/Analysis/vcf4.0
+Directories that do _not_ start with underscore (\_) are for url paths. For example, a file called vcf4.0.md in the directory `/wiki/Analysis/` will be served as the url www.internationalgenome.org/wiki/Analysis/vcf4.0
 
 ### \_faq
 
