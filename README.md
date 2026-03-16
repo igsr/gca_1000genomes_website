@@ -69,8 +69,8 @@ Directories that do _not_ start with underscore (\_) are for url paths. For exam
 Any file in this directory will be served in the website FAQ section. The yaml front matter should contain:
 
 1. title - the title gets displayed at the top of the FAQ page and in the list of FAQ questions at www.internationalgenome.org/faq
-2. faq_related - an array of other files from the \_faq directory (without extension)
-3. faq_tags - an array of files in the \_faq_categories directory (without extension)
+2. faq_related - an array of other files from the `\_faq` directory (without extension)
+3. faq_tags - an array of files in the `\_faq_categories` directory (without extension)
 
 ### \_faq_categories
 
