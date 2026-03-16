@@ -36,7 +36,7 @@ An FAQ should be created in the \_faq directory. The filename needs to end with 
 title: "TITLE FOR PAGE"  
 faq_tags:
 
-- descriptive tag used to group pages (see [https://github.com/igsr/gca_1000genomes_website/tree/master/\_faq_categories](https://github.com/igsr/gca_1000genomes_website/tree/master/_faq_categories) for full list of current categories
+- descriptive tag used to group pages (see [https://github.com/igsr/gca_1000genomes_website/tree/master/\_faq_categories](https://github.com/igsr/gca_1000genomes_website/tree/master/_faq_categories) for full list of current categories)
   faq_related:  
   -Name (-.md) of any related FAQ e.g there_corrupt_file-your-ftp-site
 
