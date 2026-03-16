@@ -189,10 +189,10 @@ The `docker/` directory contains container runtime configuration and helper asse
 
 ```bash
 gca_1000genomes_website/scripts/local_igsr_site_instance_up.sh \
-    --fe-repo "/Users/fairbrot/Documents/igsr/gca_1000genomes_website" \
-    --be-repo "/Users/fairbrot/Documents/igsr/igsr-be" \
-    --es-py-repo "/Users/fairbrot/Documents/igsr/es/es-py" \
-    --es-config "/Users/fairbrot/Documents/igsr/es/config.ini" \
-    --api-config "/Users/fairbrot/Documents/igsr/igsr-be/.env" \
+    --fe-repo "gca_1000genomes_website" \
+    --be-repo "igsr-be" \
+    --es-py-repo "es-py" \
+    --es-config "config.ini" \
+    --api-config ".env" \
     --no-cache
 ```
