@@ -96,7 +96,7 @@ Files in this directory define the layouts available for any page you create.
 Any file in this directory gets listed on www.internationalgenome.org/media. Files should be named starting with the date e.g. 2016-02-19-beano.html. The yaml front matter should contain:
 
 1. link_url - link to the external website displaying the article
-2. publication - name of the newspaper / website displaying the article
+2. publication - name of the newspaper/website displaying the article
 3. date - format yyyy-mm-dd
 4. title - title of the article
 
