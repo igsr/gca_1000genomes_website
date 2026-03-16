@@ -11,7 +11,7 @@ This repo contains the static content for the IGSR website hosted at https://www
 
 ## How to add new general pages
 
-To add a new general page to the website, create a file ending in with the extension .md in the top level directory.
+To add a new general page to the website, create a file ending with the extension .md in the top level directory.
 The file name does not influence the link or page name but should reflect the contents of the page.
 At the top of any new file you need to add the following header:
 
