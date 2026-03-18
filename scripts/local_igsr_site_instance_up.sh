@@ -10,6 +10,7 @@ set -euo pipefail
 # - macOS with colima installed
 # - docker CLI installed (with buildx support)
 # - python3 available (for local indexing)
+# - node available when using --fe-dev
 # - network access to the MySQL host in config.ini (e.g., mysql-igsr-web)
 # - local clones of gca_1000genomes_website, igsr-be, and es/es-py
 # - open ports: 9200 (ES), 8000 (API), 8080 (FE)
@@ -43,7 +44,8 @@ set -euo pipefail
 # - --fe-port PORT       FE host port (default: 8080)
 # - --no-cache         Disable Docker build cache (default: on)
 # - --use-cache        Enable Docker build cache (default: off)
-# - --skip-index       Skip ES indexing (default: off)
+# - --skip-index       Skip ES indexing only when ES indices already exist (default: off)
+# - --fe-dev           Start portal watch/sync mode after FE container starts (default: off)
 # - --reset-colima     Delete/recreate Colima profiles (default: off)
 # - --dry-run          Print what would happen without running commands (default: off)
 # - --colima-dns LIST  Comma-separated DNS servers for Colima (e.g. 8.8.8.8,1.1.1.1)
@@ -86,7 +88,8 @@ ENV_FILE=""
 CONFIG_FILE=""
 
 NO_CACHE=1                            # 1 = rebuild images without cache
-SKIP_INDEX=0                          # 1 = skip ES indexing
+SKIP_INDEX=0                          # 1 = skip ES indexing only if indices exist
+FE_DEV=0                              # 1 = start portal watch/sync mode after stack startup
 RESET_COLIMA=0                        # 1 = delete/recreate colima profiles
 DRY_RUN=0                             # 1 = print actions only
 ESPY_VENV_DIR=""
@@ -101,6 +104,8 @@ ES_PY_REPO_SET=0
 ENV_FILE_SET=0
 CONFIG_FILE_SET=0
 ESPY_VENV_DIR_SET=0
+
+PORTAL_WEBPACK_PID=""
 
 log() { printf "\n==> %s\n" "$*"; }
 warn() { printf "\nWARN: %s\n" "$*" >&2; }
@@ -151,7 +156,8 @@ Options:
   --fe-port PORT       FE host port (default: 8080)
   --no-cache           Disable Docker build cache (default)
   --use-cache          Enable Docker build cache
-  --skip-index         Skip ES indexing
+  --skip-index         Skip ES indexing only if ES indices already exist
+  --fe-dev             Start portal watch/sync mode after FE starts
   --reset-colima       Delete/recreate Colima profiles
   --dry-run            Print actions only (no changes)
   --colima-dns LIST    Comma-separated DNS servers for Colima
@@ -210,6 +216,8 @@ parse_args() {
         NO_CACHE=0; shift 1 ;;
       --skip-index)
         SKIP_INDEX=1; shift 1 ;;
+      --fe-dev)
+        FE_DEV=1; shift 1 ;;
       --reset-colima)
         RESET_COLIMA=1; shift 1 ;;
       --dry-run)
@@ -257,12 +265,32 @@ need_cmd() {
   command -v "$1" >/dev/null 2>&1 || die "Missing required command: $1"
 }
 
+portal_dev_get_mtime() {
+  local f="$1"
+  if stat -f %m "$f" >/dev/null 2>&1; then
+    stat -f %m "$f"
+  else
+    stat -c %Y "$f"
+  fi
+}
+
+portal_dev_cleanup() {
+  if [ -n "$PORTAL_WEBPACK_PID" ] && kill -0 "$PORTAL_WEBPACK_PID" >/dev/null 2>&1; then
+    log "Stopping webpack watcher (pid=$PORTAL_WEBPACK_PID)"
+    kill "$PORTAL_WEBPACK_PID" >/dev/null 2>&1 || true
+    wait "$PORTAL_WEBPACK_PID" >/dev/null 2>&1 || true
+  fi
+}
+
 check_prereqs() {
   log "Checking prerequisites"
   need_cmd colima
   need_cmd docker
   if [ "$SKIP_INDEX" != "1" ]; then
     need_cmd python3
+  fi
+  if [ "$FE_DEV" = "1" ]; then
+    need_cmd node
   fi
 
   if ! docker buildx version >/dev/null 2>&1; then
@@ -341,6 +369,7 @@ Ports:
 Flags:
   NO_CACHE    = $NO_CACHE
   SKIP_INDEX  = $SKIP_INDEX
+  FE_DEV      = $FE_DEV
   RESET_COLIMA= $RESET_COLIMA
   DRY_RUN     = $DRY_RUN
 EOF
@@ -589,25 +618,28 @@ wait_for_es() {
 }
 
 clean_all() {
-  log "Stopping/removing containers and networks in both contexts"
+  log "Stopping/removing FE/BE containers and networks in both contexts (preserving ES)"
   if [ "$DRY_RUN" = "1" ]; then
-    log "DRY RUN: docker rm -f $FE_CONTAINER $BE_CONTAINER $ES_CONTAINER (both contexts)"
-    log "DRY RUN: docker network rm $NETWORK (both contexts)"
+    log "DRY RUN: docker rm -f $FE_CONTAINER $BE_CONTAINER (both contexts)"
+    log "DRY RUN: docker network rm $NETWORK (FE context, and STACK only if ES absent)"
     return 0
   fi
   for ctx in "$STACK_CONTEXT" "$FE_CONTEXT"; do
-    docker --context "$ctx" rm -f "$FE_CONTAINER" "$BE_CONTAINER" "$ES_CONTAINER" >/dev/null 2>&1 || true
-    docker --context "$ctx" network rm "$NETWORK" >/dev/null 2>&1 || true
+    docker --context "$ctx" rm -f "$FE_CONTAINER" "$BE_CONTAINER" >/dev/null 2>&1 || true
   done
+
+  # Keep the stack network if ES exists; ES may still reference it when restarted.
+  if docker --context "$STACK_CONTEXT" container inspect "$ES_CONTAINER" >/dev/null 2>&1; then
+    log "Preserving network '$NETWORK' in $STACK_CONTEXT (ES container exists)"
+  else
+    docker --context "$STACK_CONTEXT" network rm "$NETWORK" >/dev/null 2>&1 || true
+  fi
+
+  docker --context "$FE_CONTEXT" network rm "$NETWORK" >/dev/null 2>&1 || true
 }
 
-start_es() {
-  log "Starting Elasticsearch"
-  if [ "$DRY_RUN" = "1" ]; then
-    log "DRY RUN: docker --context $STACK_CONTEXT run -d --name $ES_CONTAINER ... $ES_IMAGE"
-    return 0
-  fi
-  docker --context "$STACK_CONTEXT" network create "$NETWORK" >/dev/null 2>&1 || true
+run_new_es_container() {
+  log "Starting new Elasticsearch container '$ES_CONTAINER'"
   docker --context "$STACK_CONTEXT" run -d --name "$ES_CONTAINER" --network "$NETWORK" \
     -p "${ES_PORT}:9200" -p 9300:9300 \
     -e discovery.type=single-node \
@@ -616,16 +648,77 @@ start_es() {
     "$ES_IMAGE" >/dev/null
 }
 
-index_es() {
-  if [ "$SKIP_INDEX" = "1" ]; then
-    log "Skipping ES indexing (SKIP_INDEX=1)"
-    return 0
-  fi
+start_es() {
+  log "Ensuring Elasticsearch is running"
   if [ "$DRY_RUN" = "1" ]; then
-    log "DRY RUN: would run es-py indexing locally"
+    log "DRY RUN: if $ES_CONTAINER exists -> start/reuse; else docker run -d --name $ES_CONTAINER ... $ES_IMAGE"
     return 0
   fi
+  docker --context "$STACK_CONTEXT" network create "$NETWORK" >/dev/null 2>&1 || true
+
+  if docker --context "$STACK_CONTEXT" container inspect "$ES_CONTAINER" >/dev/null 2>&1; then
+    if [ "$(docker --context "$STACK_CONTEXT" inspect -f '{{.State.Running}}' "$ES_CONTAINER")" = "true" ]; then
+      log "Elasticsearch container '$ES_CONTAINER' already running; reusing existing data"
+    else
+      log "Starting existing Elasticsearch container '$ES_CONTAINER'"
+      if ! docker --context "$STACK_CONTEXT" start "$ES_CONTAINER" >/dev/null; then
+        warn "Failed to start existing Elasticsearch container '$ES_CONTAINER'; recreating it"
+        docker --context "$STACK_CONTEXT" rm -f "$ES_CONTAINER" >/dev/null 2>&1 || true
+        run_new_es_container
+        return 0
+      fi
+    fi
+
+    if ! docker --context "$STACK_CONTEXT" inspect -f '{{range $k, $v := .NetworkSettings.Networks}}{{printf "%s\n" $k}}{{end}}' "$ES_CONTAINER" | grep -Fxq "$NETWORK"; then
+      log "Connecting existing Elasticsearch container '$ES_CONTAINER' to network '$NETWORK'"
+      docker --context "$STACK_CONTEXT" network connect "$NETWORK" "$ES_CONTAINER" >/dev/null 2>&1 || true
+    fi
+    return 0
+  fi
+
+  run_new_es_container
+}
+
+index_es() {
+  if [ "$DRY_RUN" = "1" ]; then
+    if [ "$SKIP_INDEX" = "1" ]; then
+      log "DRY RUN: would check ES indices and skip indexing only if indices already exist"
+    else
+      log "DRY RUN: would run es-py indexing locally"
+    fi
+    return 0
+  fi
+
+  if [ "$SKIP_INDEX" = "1" ]; then
+    if es_indices_exist; then
+      log "Skipping ES indexing (SKIP_INDEX=1 and existing indices detected)"
+      return 0
+    fi
+    warn "SKIP_INDEX=1 but no non-system ES indices were found; running indexing to create required indices."
+  fi
+
   index_es_local
+}
+
+es_indices_exist() {
+  local indices_url="http://localhost:${ES_PORT}/_cat/indices?format=txt&h=index"
+  local index_lines
+
+  if ! command -v curl >/dev/null 2>&1; then
+    warn "curl not found; cannot check if ES indices exist."
+    return 1
+  fi
+
+  if ! index_lines="$(curl -fsS "$indices_url" 2>/dev/null)"; then
+    warn "Unable to check ES indices at ${indices_url}."
+    return 1
+  fi
+
+  if printf '%s\n' "$index_lines" | awk 'NF && $1 !~ /^\./ {found=1} END {exit found ? 0 : 1}'; then
+    return 0
+  fi
+
+  return 1
 }
 
 index_es_local() {
@@ -706,17 +799,94 @@ build_and_start_be() {
 build_and_start_fe() {
   log "Building igsr-fe (amd64)"
   if [ "$DRY_RUN" = "1" ]; then
-    log "DRY RUN: docker --context $FE_CONTEXT build $(cache_arg) --platform $FE_PLATFORM -t $FE_IMAGE $FE_REPO"
+    if [ "$FE_DEV" = "1" ]; then
+      log "DRY RUN: if image missing: docker --context $FE_CONTEXT build $(cache_arg) --platform $FE_PLATFORM -t $FE_IMAGE $FE_REPO"
+    else
+      log "DRY RUN: docker --context $FE_CONTEXT build $(cache_arg) --platform $FE_PLATFORM -t $FE_IMAGE $FE_REPO"
+    fi
     log "DRY RUN: docker --context $FE_CONTEXT run -d --name $FE_CONTAINER ..."
     return 0
   fi
-  docker --context "$FE_CONTEXT" build $(cache_arg) --platform "$FE_PLATFORM" -t "$FE_IMAGE" "$FE_REPO"
+
+  if [ "$FE_DEV" = "1" ]; then
+    if docker --context "$FE_CONTEXT" image inspect "$FE_IMAGE" >/dev/null 2>&1; then
+      log "FE_DEV=1: reusing existing FE image ($FE_IMAGE), skipping FE rebuild"
+    else
+      log "FE_DEV=1: FE image not found, building once"
+      docker --context "$FE_CONTEXT" build $(cache_arg) --platform "$FE_PLATFORM" -t "$FE_IMAGE" "$FE_REPO"
+    fi
+  else
+    docker --context "$FE_CONTEXT" build $(cache_arg) --platform "$FE_PLATFORM" -t "$FE_IMAGE" "$FE_REPO"
+  fi
 
   log "Starting igsr-fe"
   docker --context "$FE_CONTEXT" run -d --name "$FE_CONTAINER" \
     -p "${FE_PORT}:80" \
     -e API_BASE="$FE_API_BASE" \
     "$FE_IMAGE" >/dev/null
+}
+
+run_portal_dev_mode() {
+  if [ "$FE_DEV" != "1" ]; then
+    return 0
+  fi
+
+  local portal_dir="$FE_REPO/_data-portal"
+  local build_js_rel="static/build.js"
+  local build_js="${portal_dir}/${build_js_rel}"
+  local container_path="/usr/share/nginx/html/data-portal/static/build.js"
+  local poll_seconds="1"
+
+  if [ "$DRY_RUN" = "1" ]; then
+    log "DRY RUN: would start webpack watch in $portal_dir and sync ${build_js_rel} into ${FE_CONTAINER}"
+    return 0
+  fi
+
+  [ -d "$portal_dir" ] || die "Portal directory not found: $portal_dir"
+  [ -f "$portal_dir/webpack.config.js" ] || die "Missing webpack config: $portal_dir/webpack.config.js"
+  [ -x "$portal_dir/node_modules/webpack/bin/webpack.js" ] || die "Missing webpack binary. Run: (cd $portal_dir && npm install --unsafe-perm --legacy-peer-deps)"
+
+  if ! docker --context "$FE_CONTEXT" ps --format '{{.Names}}' | grep -qx "$FE_CONTAINER"; then
+    die "Container '$FE_CONTAINER' not running in context '$FE_CONTEXT'"
+  fi
+
+  log "FE_DEV=1: starting portal watch/sync (Ctrl-C to stop watcher; containers stay running)"
+  trap portal_dev_cleanup EXIT INT TERM
+  (
+    cd "$portal_dir"
+    exec node node_modules/webpack/bin/webpack.js --watch --config webpack.config.js
+  ) &
+  PORTAL_WEBPACK_PID="$!"
+
+  local last_mtime=""
+  local rc=0
+  set +e
+  while kill -0 "$PORTAL_WEBPACK_PID" >/dev/null 2>&1; do
+    if [ -f "$build_js" ]; then
+      local current_mtime
+      current_mtime="$(portal_dev_get_mtime "$build_js")"
+      if [ "$current_mtime" != "$last_mtime" ]; then
+        docker --context "$FE_CONTEXT" cp "$build_js" "${FE_CONTAINER}:${container_path}"
+        log "Synced ${build_js_rel} to ${FE_CONTAINER}"
+        last_mtime="$current_mtime"
+      fi
+    fi
+    sleep "$poll_seconds"
+  done
+  wait "$PORTAL_WEBPACK_PID"
+  rc=$?
+  set -e
+
+  trap - EXIT INT TERM
+  PORTAL_WEBPACK_PID=""
+
+  if [ "$rc" -eq 130 ] || [ "$rc" -eq 143 ]; then
+    log "Portal watch stopped by signal; containers are still running"
+    return 0
+  fi
+  if [ "$rc" -ne 0 ]; then
+    die "Portal watch/sync exited with status $rc"
+  fi
 }
 
 main() {
@@ -770,6 +940,7 @@ main() {
   echo "FE: http://localhost:${FE_PORT}/"
   echo "BE: http://localhost:${BE_PORT}/beta/health"
   echo "ES: http://localhost:${ES_PORT}/"
+  run_portal_dev_mode
 }
 
 main "$@"
