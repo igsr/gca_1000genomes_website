@@ -21,6 +21,9 @@ interface RpnToken<TToken> {
   op?: FilterOperator;
 }
 
+const MAX_PLAIN_ENGLISH_FILTERS: number = 4;
+const MAX_INLINE_SUMMARY_LENGTH: number = 320;
+
 export function buildReadableFilterSummary<TToken extends {type: string; key: string; negated: boolean}>(
   rpnTokens: Array<RpnToken<TToken>>,
   options: FilterSummaryOptions<TToken>
@@ -28,39 +31,21 @@ export function buildReadableFilterSummary<TToken extends {type: string; key: st
   if (!rpnTokens || rpnTokens.length === 0) {
     return '';
   }
+
   let expression = buildExpressionTree(rpnTokens);
   if (!expression) {
     return '';
   }
-  let includeExcludeSummary = tryBuildIncludeExcludeSummary(expression, options);
-  if (includeExcludeSummary) {
-    return `Showing ${options.entityLabel} ${includeExcludeSummary}.`;
+
+  let filterCount = countTerms(expression);
+  if (filterCount <= MAX_PLAIN_ENGLISH_FILTERS) {
+    let plainEnglish = buildPlainEnglishSummary(expression, options);
+    if (plainEnglish && plainEnglish.length <= MAX_INLINE_SUMMARY_LENGTH) {
+      return plainEnglish;
+    }
   }
-  let positiveAndSummary = tryBuildPositiveAndSummary(expression, options);
-  if (positiveAndSummary) {
-    return `Showing ${options.entityLabel} ${positiveAndSummary}.`;
-  }
-  let positiveOrSummary = tryBuildPositiveOrSummary(expression, options);
-  if (positiveOrSummary) {
-    return `Showing ${options.entityLabel} ${positiveOrSummary}.`;
-  }
-  let exclusionOnlySummary = tryBuildExclusionOnlySummary(expression, options);
-  if (exclusionOnlySummary) {
-    return `Showing ${options.entityLabel} ${exclusionOnlySummary}.`;
-  }
-  let oneOfEachSummary = tryBuildOneOfEachSummary(expression, options);
-  if (oneOfEachSummary) {
-    return `Showing ${options.entityLabel} ${oneOfEachSummary}.`;
-  }
-  let eitherOrBothSummary = tryBuildEitherOrBothSummary(expression, options);
-  if (eitherOrBothSummary) {
-    return `Showing ${options.entityLabel} ${eitherOrBothSummary}.`;
-  }
-  let withWhereSummary = tryBuildWithWhereSummary(expression, options);
-  if (withWhereSummary) {
-    return `Showing ${options.entityLabel} ${withWhereSummary}.`;
-  }
-  return `Showing ${options.entityLabel} where ${describeExpression(expression, true, options)}.`;
+
+  return buildFallbackSummary(expression, filterCount, options);
 }
 
 function buildExpressionTree<TToken>(tokens: Array<RpnToken<TToken>>): FilterExpressionNode<TToken> | null {
@@ -85,194 +70,225 @@ function buildExpressionTree<TToken>(tokens: Array<RpnToken<TToken>>): FilterExp
   return stack.length === 1 ? stack[0] : null;
 }
 
-function tryBuildPositiveAndSummary<TToken extends {type: string; key: string; negated: boolean}>(
+function buildPlainEnglishSummary<TToken extends {type: string; key: string; negated: boolean}>(
   expression: FilterExpressionNode<TToken>,
   options: FilterSummaryOptions<TToken>
 ): string {
-  let terms = getPositiveTermsForOperatorExpression(expression, 'AND');
-  if (!terms) {
+  let withExclusionsSummary = tryBuildWithExclusionsSummary(expression, options);
+  if (withExclusionsSummary) {
+    return `Showing ${options.entityLabel} ${withExclusionsSummary}.`;
+  }
+
+  let alternativesSummary = tryBuildAlternativesSummary(expression, options);
+  if (alternativesSummary) {
+    return `Showing ${options.entityLabel} ${alternativesSummary}.`;
+  }
+
+  let queryText = describeQueryExpression(expression, true, undefined, options);
+  if (!queryText) {
     return '';
   }
-  return `from ${describeTypedValues(terms, 'and', options)}`;
+  return `Showing ${options.entityLabel} matching this query: ${queryText}.`;
 }
 
-function tryBuildPositiveOrSummary<TToken extends {type: string; key: string; negated: boolean}>(
+function tryBuildWithExclusionsSummary<TToken extends {type: string; key: string; negated: boolean}>(
   expression: FilterExpressionNode<TToken>,
   options: FilterSummaryOptions<TToken>
 ): string {
-  let terms = getPositiveTermsForOperatorExpression(expression, 'OR');
-  if (!terms) {
+  if (expression && expression.type === 'op' && expression.op === 'OR' && !containsNegation(expression)) {
     return '';
   }
-  return `matching any of ${describeTypedValues(terms, 'or', options)}`;
-}
 
-function tryBuildExclusionOnlySummary<TToken extends {type: string; key: string; negated: boolean}>(
-  expression: FilterExpressionNode<TToken>,
-  options: FilterSummaryOptions<TToken>
-): string {
-  let negatedTerms = getNegativeTermsForAndExpression(expression);
-  if (!negatedTerms) {
+  let parts = flattenByOperator(expression, 'AND');
+  if (parts.length === 0) {
     return '';
   }
-  return `excluding ${describeTypedValues(negatedTerms, 'and', options)}`;
-}
 
-function tryBuildOneOfEachSummary<TToken extends {type: string; key: string; negated: boolean}>(
-  expression: FilterExpressionNode<TToken>,
-  options: FilterSummaryOptions<TToken>
-): string {
-  if (!expression || expression.type !== 'op' || expression.op !== 'AND') {
-    return '';
-  }
-  let leftTerms = getPositiveTermsForOperatorExpression(expression.left, 'OR');
-  let rightTerms = getPositiveTermsForOperatorExpression(expression.right, 'OR');
-  if (!leftTerms || !rightTerms) {
-    return '';
-  }
-  return `matching ${describeOneOfChoices(leftTerms, options)} and ${describeOneOfChoices(rightTerms, options)}`;
-}
-
-function tryBuildIncludeExcludeSummary<TToken extends {type: string; key: string; negated: boolean}>(
-  expression: FilterExpressionNode<TToken>,
-  options: FilterSummaryOptions<TToken>
-): string {
-  let conjuncts = flattenByOperator(expression, 'AND');
-  if (conjuncts.length < 2) {
-    return '';
-  }
-  let positiveConjuncts: FilterExpressionNode<TToken>[] = [];
-  let negativeTerms: TToken[] = [];
-  for (let conjunct of conjuncts) {
-    if (isSimpleNegatedTerm(conjunct)) {
-      negativeTerms.push(conjunct.token);
+  let included: FilterExpressionNode<TToken>[] = [];
+  let excluded: TToken[] = [];
+  for (let part of parts) {
+    if (isSimpleNegatedTerm(part)) {
+      excluded.push(part.token);
       continue;
     }
-    if (containsNegation(conjunct)) {
+    if (containsNegation(part)) {
       return '';
     }
-    positiveConjuncts.push(conjunct);
+    included.push(part);
   }
-  if (positiveConjuncts.length === 0 || negativeTerms.length === 0) {
+
+  let clauses: string[] = [];
+  if (included.length > 0) {
+    clauses.push(`with ${joinReadablePhrases(included.map((part: FilterExpressionNode<TToken>) => describePositivePhrase(part, undefined, options)), 'and')}`);
+  }
+  if (excluded.length > 0) {
+    clauses.push(`excluding ${joinReadablePhrases(excluded.map((token: TToken) => describePositiveToken(token, options)), 'and')}`);
+  }
+
+  if (clauses.length === 0) {
     return '';
   }
-  let includeTree = combineNodesWithAnd(positiveConjuncts);
-  if (!includeTree) {
-    return '';
-  }
-  let includeText = buildIncludeSummaryText(includeTree, options);
-  let excludeText = describeTypedValues(negativeTerms, 'and', options);
-  return `${includeText}, then excluding ${excludeText}`;
+  return clauses.join(', ');
 }
 
-function buildIncludeSummaryText<TToken extends {type: string; key: string; negated: boolean}>(
-  includeTree: FilterExpressionNode<TToken>,
-  options: FilterSummaryOptions<TToken>
-): string {
-  let pureOrTerms = getPositiveTermsForOperatorExpression(includeTree, 'OR');
-  if (pureOrTerms) {
-    return `matching any of ${describeTypedValues(pureOrTerms, 'or', options)}`;
-  }
-  return `from ${describeFromExpression(includeTree, true, options)}`;
-}
-
-function tryBuildWithWhereSummary<TToken extends {type: string; key: string; negated: boolean}>(
+function tryBuildAlternativesSummary<TToken extends {type: string; key: string; negated: boolean}>(
   expression: FilterExpressionNode<TToken>,
   options: FilterSummaryOptions<TToken>
 ): string {
-  if (!expression || expression.type !== 'op' || expression.op !== 'AND') {
+  if (containsNegation(expression)) {
     return '';
   }
-  let leftHasOr = containsOperator(expression.left, 'OR');
-  let rightHasOr = containsOperator(expression.right, 'OR');
-  if (leftHasOr === rightHasOr) {
+  let parts = flattenByOperator(expression, 'OR');
+  if (parts.length < 2) {
     return '';
   }
-  let groupedSide = leftHasOr ? expression.left : expression.right;
-  let baseSide = leftHasOr ? expression.right : expression.left;
-  if (containsNegation(baseSide)) {
-    return '';
+
+  let phrases = parts.map((part: FilterExpressionNode<TToken>) => describePositivePhrase(part, 'OR', options));
+  if (parts.length === 2) {
+    return `matching either ${phrases[0]} or ${phrases[1]}`;
   }
-  return `with ${describeFromExpression(baseSide, true, options)}, where ${describeExpression(groupedSide, true, options)}`;
+  return `matching any of the following: ${joinReadablePhrases(phrases, 'or')}`;
 }
 
-function tryBuildEitherOrBothSummary<TToken extends {type: string; key: string; negated: boolean}>(
-  expression: FilterExpressionNode<TToken>,
+function describePositivePhrase<TToken extends {type: string; key: string; negated: boolean}>(
+  node: FilterExpressionNode<TToken>,
+  parentOperator: FilterOperator | undefined,
   options: FilterSummaryOptions<TToken>
 ): string {
-  if (!expression || expression.type !== 'op' || expression.op !== 'OR') {
+  if (!node) {
     return '';
   }
-  let leftIsAndGroup = !!(expression.left && expression.left.type === 'op' && expression.left.op === 'AND');
-  let rightIsAndGroup = !!(expression.right && expression.right.type === 'op' && expression.right.op === 'AND');
-  if (leftIsAndGroup === rightIsAndGroup) {
+  if (node.type === 'term') {
+    return describePositiveToken(node.token, options);
+  }
+
+  let operator = node.op || 'AND';
+  let parts = flattenByOperator(node, operator).map((part: FilterExpressionNode<TToken>) => describePositivePhrase(part, operator, options));
+  let text = joinReadablePhrases(parts, operator === 'OR' ? 'or' : 'and');
+
+  if (operator === 'OR') {
+    return `either ${text}`;
+  }
+  if (parentOperator === 'OR') {
+    return `both ${text}`;
+  }
+  return text;
+}
+
+function describeQueryExpression<TToken extends {type: string; key: string; negated: boolean}>(
+  node: FilterExpressionNode<TToken>,
+  isTopLevel: boolean,
+  parentOperator: FilterOperator | undefined,
+  options: FilterSummaryOptions<TToken>
+): string {
+  if (!node) {
     return '';
   }
-  let andGroup = leftIsAndGroup ? expression.left : expression.right;
-  let singleSide = leftIsAndGroup ? expression.right : expression.left;
-  let singleText = containsNegation(singleSide)
-    ? describeExpression(singleSide, true, options)
-    : describeFromExpression(singleSide, true, options);
-  return `matching either ${singleText} or ${describeBothExpression(andGroup, options)}`;
+  if (node.type === 'term') {
+    return describeQueryTerm(node.token, options);
+  }
+
+  let operator = node.op || 'AND';
+  let parts = flattenByOperator(node, operator).map((part: FilterExpressionNode<TToken>) =>
+    describeQueryExpression(part, false, operator, options)
+  );
+  let text = joinReadablePhrases(parts, operator === 'OR' ? 'or' : 'and');
+
+  if (operator === 'OR') {
+    return `either ${text}`;
+  }
+  if (!isTopLevel && parentOperator === 'OR') {
+    return `both ${text}`;
+  }
+  return text;
 }
 
-function combineNodesWithAnd<TToken>(nodes: FilterExpressionNode<TToken>[]): FilterExpressionNode<TToken> | null {
-  if (nodes.length === 0) {
-    return null;
-  }
-  let combined = nodes[0];
-  for (let i = 1; i < nodes.length; i++) {
-    combined = {type: 'op', op: 'AND', left: combined, right: nodes[i]};
-  }
-  return combined;
+function describePositiveToken<TToken extends {type: string; key: string; negated: boolean}>(
+  token: TToken,
+  options: FilterSummaryOptions<TToken>
+): string {
+  let typeLabel = formatStrong(escapeHtml(options.getFilterTypeLabel(token.type)));
+  let valueLabel = formatStrong(quoteValue(options.getTokenDisplayLabel(token)));
+  return `${typeLabel} ${valueLabel}`;
 }
 
-function flattenByOperator<TToken>(node: FilterExpressionNode<TToken>, operator: FilterOperator): FilterExpressionNode<TToken>[] {
+function describeQueryTerm<TToken extends {type: string; key: string; negated: boolean}>(
+  token: TToken,
+  options: FilterSummaryOptions<TToken>
+): string {
+  let typeLabel = formatStrong(escapeHtml(options.getFilterTypeLabel(token.type)));
+  let valueLabel = formatStrong(quoteValue(options.getTokenDisplayLabel(token)));
+  if (token.negated) {
+    return `${typeLabel} is not ${valueLabel}`;
+  }
+  return `${typeLabel} is ${valueLabel}`;
+}
+
+function buildFallbackSummary<TToken extends {type: string; key: string; negated: boolean}>(
+  expression: FilterExpressionNode<TToken>,
+  filterCount: number,
+  options: FilterSummaryOptions<TToken>
+): string {
+  let typeSummary = buildTypeSummary(expression, options);
+  if (typeSummary) {
+    return `Showing ${options.entityLabel} matching a custom query across ${formatStrong(String(filterCount))} filters (${typeSummary}).`;
+  }
+  return `Showing ${options.entityLabel} matching a custom query across ${formatStrong(String(filterCount))} filters.`;
+}
+
+function buildTypeSummary<TToken extends {type: string; key: string; negated: boolean}>(
+  node: FilterExpressionNode<TToken>,
+  options: FilterSummaryOptions<TToken>
+): string {
+  let tokens = collectTokens(node);
+  if (tokens.length === 0) {
+    return '';
+  }
+
+  let counts: {[type: string]: number} = {};
+  let order: string[] = [];
+  for (let token of tokens) {
+    if (!counts[token.type]) {
+      counts[token.type] = 0;
+      order.push(token.type);
+    }
+    counts[token.type] += 1;
+  }
+
+  let parts = order.map((type: string) => describeTypeCount(type, counts[type], options));
+  return joinReadablePhrases(parts, 'and');
+}
+
+function collectTokens<TToken extends {type: string; key: string; negated: boolean}>(
+  node: FilterExpressionNode<TToken>
+): TToken[] {
+  if (!node) {
+    return [];
+  }
+  if (node.type === 'term') {
+    return node.token ? [node.token] : [];
+  }
+  return collectTokens(node.left).concat(collectTokens(node.right));
+}
+
+function countTerms<TToken>(node: FilterExpressionNode<TToken>): number {
+  if (!node) {
+    return 0;
+  }
+  if (node.type === 'term') {
+    return 1;
+  }
+  return countTerms(node.left) + countTerms(node.right);
+}
+
+function flattenByOperator<TToken>(
+  node: FilterExpressionNode<TToken>,
+  operator: FilterOperator
+): FilterExpressionNode<TToken>[] {
   if (!node || node.type !== 'op' || node.op !== operator) {
     return [node];
   }
   return flattenByOperator(node.left, operator).concat(flattenByOperator(node.right, operator));
-}
-
-function getPositiveTermsForOperatorExpression<TToken extends {type: string; key: string; negated: boolean}>(
-  node: FilterExpressionNode<TToken>,
-  operator: FilterOperator
-): TToken[] | null {
-  if (!node) {
-    return null;
-  }
-  let parts = flattenByOperator(node, operator);
-  if (parts.length < 2) {
-    return null;
-  }
-  let tokens: TToken[] = [];
-  for (let part of parts) {
-    if (!part || part.type !== 'term' || !part.token || part.token.negated) {
-      return null;
-    }
-    tokens.push(part.token);
-  }
-  return tokens;
-}
-
-function getNegativeTermsForAndExpression<TToken extends {type: string; key: string; negated: boolean}>(
-  node: FilterExpressionNode<TToken>
-): TToken[] | null {
-  if (!node) {
-    return null;
-  }
-  let parts = flattenByOperator(node, 'AND');
-  if (parts.length === 0) {
-    return null;
-  }
-  let tokens: TToken[] = [];
-  for (let part of parts) {
-    if (!isSimpleNegatedTerm(part)) {
-      return null;
-    }
-    tokens.push(part.token);
-  }
-  return tokens;
 }
 
 function isSimpleNegatedTerm<TToken extends {negated: boolean}>(node: FilterExpressionNode<TToken>): boolean {
@@ -289,129 +305,15 @@ function containsNegation<TToken extends {negated: boolean}>(node: FilterExpress
   return containsNegation(node.left) || containsNegation(node.right);
 }
 
-function containsOperator<TToken>(node: FilterExpressionNode<TToken>, operator: FilterOperator): boolean {
-  if (!node || node.type !== 'op') {
-    return false;
-  }
-  if (node.op === operator) {
-    return true;
-  }
-  return containsOperator(node.left, operator) || containsOperator(node.right, operator);
-}
-
-function describeBothExpression<TToken extends {type: string; key: string; negated: boolean}>(
-  node: FilterExpressionNode<TToken>,
+function describeTypeCount<TToken>(
+  type: string,
+  count: number,
   options: FilterSummaryOptions<TToken>
 ): string {
-  let parts = flattenByOperator(node, 'AND');
-  if (parts.length >= 2 && parts.every((part: FilterExpressionNode<TToken>) => part && part.type === 'term' && part.token && !part.token.negated)) {
-    return `both ${describeTypedValues(parts.map((part: FilterExpressionNode<TToken>) => part.token), 'and', options)}`;
-  }
-  return `both ${describeExpression(node, true, options)}`;
-}
-
-function describeExpression<TToken extends {type: string; key: string; negated: boolean}>(
-  node: FilterExpressionNode<TToken>,
-  isTopLevel: boolean,
-  options: FilterSummaryOptions<TToken>
-): string {
-  if (!node) {
-    return '';
-  }
-  if (node.type === 'term') {
-    let token = node.token;
-    return describeTokenComparison(token, options);
-  }
-  let leftText = describeExpression(node.left, false, options);
-  let rightText = describeExpression(node.right, false, options);
-  let text: string;
-  if (node.op === 'OR') {
-    text = isTopLevel ? `${leftText} or ${rightText}` : `either ${leftText} or ${rightText}`;
-  } else {
-    text = `${leftText} and ${rightText}`;
-  }
-  return isTopLevel ? text : `(${text})`;
-}
-
-function describeFromExpression<TToken extends {type: string; key: string; negated: boolean}>(
-  node: FilterExpressionNode<TToken>,
-  isTopLevel: boolean,
-  options: FilterSummaryOptions<TToken>
-): string {
-  if (!node) {
-    return '';
-  }
-  if (node.type === 'term') {
-    let token = node.token;
-    let typeLabel = formatStrong(escapeHtml(options.getFilterTypeLabel(token.type)));
-    let valueLabel = formatStrong(quoteValue(options.getTokenDisplayLabel(token)));
-    if (token.negated) {
-      return `${typeLabel} not ${valueLabel}`;
-    }
-    return `${typeLabel} ${valueLabel}`;
-  }
-  let operatorText = node.op === 'OR' ? ' or ' : ' and ';
-  let text = `${describeFromExpression(node.left, false, options)}${operatorText}${describeFromExpression(node.right, false, options)}`;
-  return isTopLevel ? text : `(${text})`;
-}
-
-function describeTypedValues<TToken extends {type: string; key: string; negated: boolean}>(
-  tokens: TToken[],
-  conjunction: 'and' | 'or',
-  options: FilterSummaryOptions<TToken>
-): string {
-  if (!tokens || tokens.length === 0) {
-    return '';
-  }
-  if (tokens.length === 1) {
-    return describeTokenTypeAndValue(tokens[0], options);
-  }
-  let firstType = tokens[0].type;
-  let sameType = tokens.every((token: TToken) => token.type === firstType);
-  if (sameType) {
-    let values = tokens.map((token: TToken) => formatStrong(quoteValue(options.getTokenDisplayLabel(token))));
-    return `${formatStrong(escapeHtml(options.getFilterTypePluralLabel(firstType)))} ${joinWithConjunction(values, conjunction)}`;
-  }
-  let typedValues = tokens.map((token: TToken) => describeTokenTypeAndValue(token, options));
-  return joinWithConjunction(typedValues, conjunction);
-}
-
-function describeOneOfChoices<TToken extends {type: string; key: string; negated: boolean}>(
-  tokens: TToken[],
-  options: FilterSummaryOptions<TToken>
-): string {
-  if (!tokens || tokens.length === 0) {
-    return '';
-  }
-  let firstType = tokens[0].type;
-  let sameType = tokens.every((token: TToken) => token.type === firstType);
-  if (sameType) {
-    let values = tokens.map((token: TToken) => formatStrong(quoteValue(options.getTokenDisplayLabel(token))));
-    return `one of these ${formatStrong(escapeHtml(options.getFilterTypePluralLabel(firstType)))}: ${joinWithConjunction(values, 'or')}`;
-  }
-  let typedValues = tokens.map((token: TToken) => describeTokenTypeAndValue(token, options));
-  return `one of: ${joinWithConjunction(typedValues, 'or')}`;
-}
-
-function describeTokenComparison<TToken extends {type: string; key: string; negated: boolean}>(
-  token: TToken,
-  options: FilterSummaryOptions<TToken>
-): string {
-  let typeLabel = formatStrong(escapeHtml(options.getFilterTypeLabel(token.type)));
-  let valueLabel = formatStrong(quoteValue(options.getTokenDisplayLabel(token)));
-  if (token.negated) {
-    return `${typeLabel} is not ${valueLabel}`;
-  }
-  return `${typeLabel} is ${valueLabel}`;
-}
-
-function describeTokenTypeAndValue<TToken extends {type: string; key: string; negated: boolean}>(
-  token: TToken,
-  options: FilterSummaryOptions<TToken>
-): string {
-  let typeLabel = formatStrong(escapeHtml(options.getFilterTypeLabel(token.type)));
-  let valueLabel = formatStrong(quoteValue(options.getTokenDisplayLabel(token)));
-  return `${typeLabel} ${valueLabel}`;
+  let label = count === 1
+    ? options.getFilterTypeLabel(type)
+    : options.getFilterTypePluralLabel(type);
+  return `${formatStrong(String(count))} ${formatStrong(escapeHtml(label))}`;
 }
 
 function quoteValue(value: string): string {
@@ -432,15 +334,19 @@ function escapeHtml(value: string): string {
     .replace(/'/g, '&#39;');
 }
 
-function joinWithConjunction(items: string[], conjunction: 'and' | 'or'): string {
-  if (items.length === 0) {
+function joinReadablePhrases(items: string[], conjunction: 'and' | 'or'): string {
+  let filtered = items.filter((item: string) => !!item);
+  if (filtered.length === 0) {
     return '';
   }
-  if (items.length === 1) {
-    return items[0];
+  if (filtered.length === 1) {
+    return filtered[0];
   }
-  if (items.length === 2) {
-    return `${items[0]} ${conjunction} ${items[1]}`;
+  if (filtered.length === 2) {
+    let grouped = filtered.some((item: string) => item.indexOf('either ') === 0 || item.indexOf('both ') === 0);
+    return grouped
+      ? `${filtered[0]}, ${conjunction} ${filtered[1]}`
+      : `${filtered[0]} ${conjunction} ${filtered[1]}`;
   }
-  return `${items.slice(0, items.length - 1).join(', ')}, ${conjunction} ${items[items.length - 1]}`;
+  return `${filtered.slice(0, filtered.length - 1).join(', ')}, ${conjunction} ${filtered[filtered.length - 1]}`;
 }

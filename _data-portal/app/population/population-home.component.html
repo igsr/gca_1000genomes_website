@@ -5,28 +5,14 @@
 <button class="btn btn-default" (click)="dataCollectionView()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Data collection view</button>
 <button class="btn btn-default" (click)="technologyView()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> Technology view</button>
 </div>
-<br>
-<div class="form form-inline">
-<button class="btn btn-default" (click)="agFilterVisible = !agFilterVisible; dcFilterVisible = false;">Filter by technology <span class="caret"></span></button>
-<button class="btn btn-default" (click)="dcFilterVisible = !dcFilterVisible; agFilterVisible = false;">Filter by data collection <span class="caret"></span></button>
-<button class="btn btn-default" (click)="searchExport()"><span class="glyphicon glyphicon-download" aria-hidden="true"></span> Download the list</button>
-<button class="btn btn-default" *ngIf="viewOption == 0" (click)="mapKeyVisible = !mapKeyVisible;"><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#ffd845"></span><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#778500"></span><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#018ead"></span> Map colour key</button>
-</div>
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <analysis-group-filter [(visible)]="agFilterVisible" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></analysis-group-filter>
-    <data-collection-filter [(visible)]="dcFilterVisible" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></data-collection-filter>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1" *ngIf="filterTokens.length">
+<div class="row filter-builder-row">
+  <div class="col-md-12">
     <div class="panel panel-default filter-builder-panel">
-      <div class="panel-heading">
-        <h3 class="panel-title">Build filtration query</h3>
+      <div class="panel-heading filter-builder-heading" (click)="filterBuilderCollapsed = !filterBuilderCollapsed">
+        <h3 class="panel-title">Filtration query builder</h3>
       </div>
-      <div class="panel-body">
+      <div class="panel-body" *ngIf="!filterBuilderCollapsed">
         <div class="filter-builder-help">
           <p>Build a custom filter query in 3 steps:</p>
           <ol class="filter-builder-steps">
@@ -47,6 +33,7 @@
             </li>
           </ol>
         </div>
+        <hr class="filter-builder-divider">
         <div class="tools-row">
           <h3 class="current-filters section-indicator">Tools</h3>
           <span class="group-controls">
@@ -84,12 +71,26 @@
             {{filterOperators[i]}}
           </button>
         </ng-container>
-        <div class="query-description-block" *ngIf="readableFilterSummary">
+        <div class="query-description-block">
           <h3 class="current-filters section-indicator">Summary</h3>
-          <p class="readable-filter-summary" [innerHTML]="readableFilterSummary"></p>
+          <p class="readable-filter-summary" [innerHTML]="readableFilterSummary || '&nbsp;'"></p>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="form form-inline">
+<button class="btn btn-default" (click)="agFilterVisible = !agFilterVisible; dcFilterVisible = false;">Filter by technology <span class="caret"></span></button>
+<button class="btn btn-default" (click)="dcFilterVisible = !dcFilterVisible; agFilterVisible = false;">Filter by data collection <span class="caret"></span></button>
+<button class="btn btn-default" (click)="searchExport()"><span class="glyphicon glyphicon-download" aria-hidden="true"></span> Download the list</button>
+<button class="btn btn-default" *ngIf="viewOption == 0" (click)="mapKeyVisible = !mapKeyVisible;"><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#ffd845"></span><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#778500"></span><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#018ead"></span> Map colour key</button>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <analysis-group-filter [(visible)]="agFilterVisible" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></analysis-group-filter>
+    <data-collection-filter [(visible)]="dcFilterVisible" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></data-collection-filter>
   </div>
 </div>
 

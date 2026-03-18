@@ -180,17 +180,15 @@ export abstract class FilterBuilderBase<TTokenType extends string, TToken extend
   }
 
   public groupStartCount(token: TToken): number {
-    if (this.groups.length > 0) {
-      return this.groupStartIds[token.id] ? 1 : 0;
-    }
-    return this.autoGroupStartCount[token.id] || 0;
+    let explicitCount = this.groupStartIds[token.id] ? 1 : 0;
+    let autoCount = this.autoGroupStartCount[token.id] || 0;
+    return explicitCount + autoCount;
   }
 
   public groupEndCount(token: TToken): number {
-    if (this.groups.length > 0) {
-      return this.groupEndIds[token.id] ? 1 : 0;
-    }
-    return this.autoGroupEndCount[token.id] || 0;
+    let explicitCount = this.groupEndIds[token.id] ? 1 : 0;
+    let autoCount = this.autoGroupEndCount[token.id] || 0;
+    return explicitCount + autoCount;
   }
 
   public parenRange(count: number): number[] {
@@ -417,9 +415,6 @@ export abstract class FilterBuilderBase<TTokenType extends string, TToken extend
   private rebuildAutoGroupMarkers() {
     this.autoGroupStartCount = {};
     this.autoGroupEndCount = {};
-    if (this.groups.length > 0) {
-      return;
-    }
     if (this.filterTokens.length <= 2) {
       return;
     }
@@ -435,6 +430,17 @@ export abstract class FilterBuilderBase<TTokenType extends string, TToken extend
         runEnd += 1;
       }
       if (runEnd > runStart) {
+        let containsExplicitGroup = false;
+        for (let i = runStart; i <= runEnd; i++) {
+          if (this.groupedTokenIds[this.filterTokens[i].id]) {
+            containsExplicitGroup = true;
+            break;
+          }
+        }
+        if (containsExplicitGroup) {
+          runStart = runEnd + 1;
+          continue;
+        }
         let startId = this.filterTokens[runStart].id;
         let endId = this.filterTokens[runEnd].id;
         this.autoGroupStartCount[startId] = (this.autoGroupStartCount[startId] || 0) + 1;

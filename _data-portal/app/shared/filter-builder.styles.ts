@@ -23,14 +23,33 @@ h3.current-filters {
   margin-bottom: 8px;
 }
 
+.filter-builder-row {
+  margin: 24px 0;
+}
+
 .filter-builder-panel {
-  margin-top: 12px;
+  margin: 0;
   border-color: #d9d9d9;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .filter-builder-panel .panel-body {
   background-color: #fafafa;
+}
+
+.filter-builder-heading {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  user-select: none;
+}
+
+.filter-builder-heading .panel-title {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  margin: 0;
 }
 
 h3.current-filters.section-indicator {
@@ -111,6 +130,11 @@ p.readable-filter-summary strong {
 
 .filter-builder-help p {
   margin: 0;
+}
+
+.filter-builder-divider {
+  border-top: 1px solid #d9d9d9;
+  margin: 0 0 16px;
 }
 
 .query-description-block {

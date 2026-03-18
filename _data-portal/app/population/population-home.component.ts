@@ -36,6 +36,7 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
 
   public populationHits: SearchHits<Population>;
   public viewOption: number = 0;
+  public filterBuilderCollapsed: boolean = true;
 
   public agFilterVisible: boolean = false;
   public agFilters: {[code: string]: boolean} = {};
@@ -84,6 +85,7 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
     let nextKeys = this.extractSelectedKeys(agFilters);
     this.updateTokenOrder('ag', this.agFiltersArr, nextKeys);
     this.agFiltersArr = nextKeys;
+    this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();
   }
 
@@ -91,6 +93,7 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
     let nextKeys = this.extractSelectedKeys(dcFilters);
     this.updateTokenOrder('dc', this.dcFiltersArr, nextKeys);
     this.dcFiltersArr = nextKeys;
+    this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();
   }
 

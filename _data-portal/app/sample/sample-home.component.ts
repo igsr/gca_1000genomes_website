@@ -43,6 +43,7 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
   public displayStop: number = -1;
   public offset: number = 0;
   public viewOption: number = 1;
+  public filterBuilderCollapsed: boolean = true;
 
   public popFilterVisible: boolean = false;
   public popFilters: {[code: string]: boolean} = {};
@@ -119,6 +120,7 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
     let nextKeys = this.extractSelectedKeys(popFilters);
     this.updateTokenOrder('pop', this.popFiltersArr, nextKeys);
     this.popFiltersArr = nextKeys;
+    this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();
   }
 
@@ -128,6 +130,7 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
     let nextKeys = this.extractSelectedKeys(agFilters);
     this.updateTokenOrder('ag', this.agFiltersArr, nextKeys);
     this.agFiltersArr = nextKeys;
+    this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();
   }
 
@@ -137,6 +140,7 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
     let nextKeys = this.extractSelectedKeys(dcFilters);
     this.updateTokenOrder('dc', this.dcFiltersArr, nextKeys);
     this.dcFiltersArr = nextKeys;
+    this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();
   }
 

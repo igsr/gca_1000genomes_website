@@ -10,10 +10,31 @@ let popFilterStyles: string = `
     margin-top: 10px;
     margin-bottom: 10px;
   }
+  div.panel-body {
+    overflow: visible;
+  }
+  div.filter-options-scroll {
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+  div.form.filter-options-grid {
+    align-content: flex-start;
+    display: flex;
+    flex-flow: column wrap;
+    height: 240px;
+  }
   div.checkbox {
-    width: 50%;
-    display: inline-block;
+    display: block;
+    flex: 0 0 auto;
     margin: 2px 0;
+    padding-right: 16px;
+    width: 320px;
+  }
+  div.checkbox label {
+    display: block;
+    font-weight: 400;
+    line-height: 1.35;
+    white-space: normal;
   }
 `;
 
