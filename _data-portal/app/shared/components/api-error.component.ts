@@ -70,6 +70,15 @@ export class ApiErrorComponent implements OnInit{
     return this.errors.length > 0 ? this.errors[0].error : '';
   }
 
+  retry(): void {
+    for (let handle of this.errors) {
+      handle.retry();
+    }
+    this.errors = [];
+    this.apiErrorService.clearErrors();
+    return;
+  };
+
   dismiss(): void {
     for (let handle of this.errors) {
       handle.dismiss();

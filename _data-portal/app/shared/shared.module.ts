@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { PopoverModule } from 'ng4-popover';
 
 import { ApiErrorComponent } from './components/api-error.component';
+import { ApiSlowResponseComponent } from './components/api-slow-response.component';
 import { PopulationFilterComponent } from './components/population-filter.component';
 import { AnalysisGroupFilterComponent } from './components/analysis-group-filter.component';
 import { DataCollectionFilterComponent } from './components/data-collection-filter.component';
@@ -13,7 +14,7 @@ import { DataCollectionFilesComponent } from './components/data-collection-files
 
 @NgModule({
   imports: [ CommonModule, RouterModule, FormsModule, PopoverModule ],
-  declarations: [ ApiErrorComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent, SelectDcTabsComponent, DataCollectionFilesComponent ],
-  exports: [ CommonModule, RouterModule, FormsModule, PopoverModule, ApiErrorComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent, SelectDcTabsComponent, DataCollectionFilesComponent ],
+  declarations: [ ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent, SelectDcTabsComponent, DataCollectionFilesComponent ],
+  exports: [ CommonModule, RouterModule, FormsModule, PopoverModule, ApiErrorComponent, ApiSlowResponseComponent, PopulationFilterComponent, AnalysisGroupFilterComponent, DataCollectionFilterComponent, SelectDcTabsComponent, DataCollectionFilesComponent ],
 })
 export class SharedModule { }

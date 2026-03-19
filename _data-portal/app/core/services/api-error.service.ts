@@ -39,16 +39,17 @@ export class ApiErrorService {
         observer.next(res);
         observer.complete();
       },
-      (error: any) => this.onErrorFn(observer, error)
+      (error: any) => this.onErrorFn(observable, observer, error)
       );
   }
 
-  private onErrorFn(observer: Observer<Response>, error: any) {
+  private onErrorFn(observable: Observable<Response>, observer: Observer<Response>, error: any) {
     console.log('An error occurred', error); // for debugging
 
     let errMsg = this.makeFriendlyMessage(error);
+    let retryFn = () => this.try(observable, observer);
     this.activeErrorCountSource.next(1 + this.activeErrorCountSource.getValue());
-    this.errorSource.next(new ApiErrorHandle(errMsg, observer));
+    this.errorSource.next(new ApiErrorHandle(errMsg, observer, retryFn));
 
   }
 
