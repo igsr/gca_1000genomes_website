@@ -38,14 +38,6 @@ export class ApiErrorComponent implements OnInit{
     return;
   };
 
-  get hasBanner(): boolean {
-    return this.errors.length > 0;
-  }
-
-  get bannerLevel(): string {
-    return 'warning';
-  }
-
   get bannerTitle(): string {
     if (this.errors.length === 0) {
       return '';
