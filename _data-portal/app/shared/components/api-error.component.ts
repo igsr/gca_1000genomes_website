@@ -21,12 +21,8 @@ export class ApiErrorComponent implements OnInit{
   ) {};
 
   ngOnInit(): void {
-    this.errorSubscription =
-      this.apiErrorService.error$.subscribe((handle:ApiErrorHandle) => {
-        if (!this.errors.some((existing: ApiErrorHandle) => existing.error === handle.error)) {
-          this.errors.push(handle);
-        }
-      });
+    this.errorSubscription = 
+      this.apiErrorService.error$.subscribe((handle:ApiErrorHandle) => this.errors.push(handle));
     return;
   };
 
