@@ -68,24 +68,24 @@ export class PopulationMapKeyComponent implements OnInit, OnDestroy {
   private popHitsSubscription: Subscription = null;
 
   private readonly continentMap: Record<string, string> = {
-    'East Asian Ancestry':             'East Asia',
+    'East Asian Ancestry':             'Asia',
     'European Ancestry':               'Europe',
     'African Ancestry':                'Africa',
     'American Ancestry':               'America',
-    'South Asian Ancestry':            'South Asia',
+    'South Asian Ancestry':            'Asia',
     'America (HGDP)':                  'America',
-    'Central South Asia (HGDP)':       'Central/South Asia',
+    'Central South Asia (HGDP)':       'Asia',
     'Europe (HGDP)':                   'Europe',
     'Middle East (HGDP)':              'Middle East',
-    'East Asia (HGDP)':                'East Asia',
+    'East Asia (HGDP)':                'Asia',
     'Oceania (HGDP)':                  'Oceania',
     'Africa (HGDP)':                   'Africa',
     'Africa (SGDP)':                   'Africa',
     'America (SGDP)':                  'America',
-    'Central Asia and Siberia (SGDP)': 'Central/South Asia',
-    'East Asia (SGDP)':                'East Asia',
+    'Central Asia and Siberia (SGDP)': 'Asia',
+    'East Asia (SGDP)':                'Asia',
     'Oceania (SGDP)':                  'Oceania',
-    'South Asia (SGDP)':               'South Asia',
+    'South Asia (SGDP)':               'Asia',
     'West Eurasia (SGDP)':             'Europe',
   };
   
