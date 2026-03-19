@@ -9,9 +9,8 @@ Changes:
   margin-bottom: 10px;
 */ 
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/dist/providers/ga/angulartics2-ga';
-import { ApiStatusService } from './core/services/api-status.service';
 
 let appComponentStyles: string = `
 div.data-portal-section {
@@ -40,17 +39,6 @@ span.beta {
     templateUrl: './app.component.html',
     styles: [ appComponentStyles ],
 })
-export class AppComponent implements OnInit, OnDestroy {
-  constructor(
-    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
-    private apiStatusService: ApiStatusService,
-  ) {};
-
-  ngOnInit(): void {
-    this.apiStatusService.startPolling();
-  }
-
-  ngOnDestroy(): void {
-    this.apiStatusService.stopPolling();
-  }
-}
+export class AppComponent{
+  constructor(angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) {};
+};

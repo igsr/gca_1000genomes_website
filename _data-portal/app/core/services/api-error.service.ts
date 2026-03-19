@@ -2,27 +2,29 @@ import { Injectable }    from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subject } from 'rxjs/Subject';
 
 import { ApiErrorHandle } from '../../shared/api-error-handle';
-import { ApiStatusService } from './api-status.service';
 
 @Injectable()
 export class ApiErrorService {
 
   // private properties
   private errorSource: Subject<ApiErrorHandle>;
+  private activeErrorCountSource: BehaviorSubject<number>;
 
   // public properties
   readonly error$: Observable<ApiErrorHandle>;
+  readonly activeErrorCount$: Observable<number>;
 
   // public methods
 
-  constructor(
-    private apiStatusService: ApiStatusService,
-  ) {
+  constructor() {
     this.errorSource = new Subject<ApiErrorHandle>();
+    this.activeErrorCountSource = new BehaviorSubject<number>(0);
     this.error$ = this.errorSource.asObservable();
+    this.activeErrorCount$ = this.activeErrorCountSource.asObservable();
   };
 
   handleError(observable: Observable<Response>): Observable<Response> {
@@ -44,11 +46,14 @@ export class ApiErrorService {
   private onErrorFn(observer: Observer<Response>, error: any) {
     console.log('An error occurred', error); // for debugging
 
-    this.apiStatusService.reportError(error);
-
     let errMsg = this.makeFriendlyMessage(error);
+    this.activeErrorCountSource.next(1 + this.activeErrorCountSource.getValue());
     this.errorSource.next(new ApiErrorHandle(errMsg, observer));
 
+  }
+
+  clearErrors(): void {
+    this.activeErrorCountSource.next(0);
   }
 
   private makeFriendlyMessage(error: any): string {
@@ -63,7 +68,7 @@ export class ApiErrorService {
     }
 
     if (status === 0 || status >= 500) {
-      return 'The data portal is temporarily unavailable. Static site content is still available.';
+      return 'Apologies, the data portal is temporarily unavailable. We are working to get it back up.';
     }
 
     return 'The request could not be completed. Please try again.';

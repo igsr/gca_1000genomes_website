@@ -12,7 +12,6 @@ import { ApiAnalysisGroupService } from './services/api-analysis-group.service';
 import { ApiFileService } from './services/api-file.service';
 import { ApiSitemapService } from './services/api-sitemap.service';
 import { ApiErrorService } from './services/api-error.service';
-import { ApiStatusService } from './services/api-status.service';
 import { ApiTimeoutService } from './services/api-timeout.service';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { ApiTimeoutService } from './services/api-timeout.service';
         ApiPopulationService,
 				ApiSuperPopulationService,
         ApiErrorService,
-        ApiStatusService,
         ApiTimeoutService,
         ApiFileService,
         ApiSitemapService,
