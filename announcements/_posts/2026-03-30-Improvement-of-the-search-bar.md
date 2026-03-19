@@ -1,0 +1,12 @@
+---
+title: "Improvements to Data Portal Search"
+pinned: true
+---
+
+We’ve improved the search bar in the IGSR data portal. Search now does a better job of combining normal word matching with partial
+matching, so it is more likely to find what you expect whether you search by a full name, a shorter term, or part of an identifier.
+
+For example, searching for the data collection "MAGE RNA-seq" now returns the files that are actually linked to that data collection,
+instead of a much larger mixed set of unrelated files matched through the substring "RNA". Similarly, searching for a population such
+as "Toscani in Italy" now behaves more consistently, giving the same expected result as searching for "Toscani", so you no longer need
+to know the exact shorter form to get accurate results.
