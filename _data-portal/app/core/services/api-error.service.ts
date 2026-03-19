@@ -5,6 +5,7 @@ import { Observer } from 'rxjs/Observer';
 import { Subject } from 'rxjs/Subject';
 
 import { ApiErrorHandle } from '../../shared/api-error-handle';
+import { ApiStatusService } from './api-status.service';
 
 @Injectable()
 export class ApiErrorService {
@@ -17,7 +18,9 @@ export class ApiErrorService {
 
   // public methods
 
-  constructor() {
+  constructor(
+    private apiStatusService: ApiStatusService,
+  ) {
     this.errorSource = new Subject<ApiErrorHandle>();
     this.error$ = this.errorSource.asObservable();
   };
@@ -34,24 +37,36 @@ export class ApiErrorService {
         observer.next(res);
         observer.complete();
       },
-      (error: any) => this.onErrorFn(observable, observer, error)
+      (error: any) => this.onErrorFn(observer, error)
       );
   }
 
-  private onErrorFn(observable: Observable<Response>, observer: Observer<Response>, error: any) {
+  private onErrorFn(observer: Observer<Response>, error: any) {
     console.log('An error occurred', error); // for debugging
 
-    let errMsg = ""
-    if (error.statusText) {
-        errMsg = ` - ${error.statusText}`;
+    this.apiStatusService.reportError(error);
+
+    let errMsg = this.makeFriendlyMessage(error);
+    this.errorSource.next(new ApiErrorHandle(errMsg, observer));
+
+  }
+
+  private makeFriendlyMessage(error: any): string {
+    const status: number = error && error.status ? error.status : 0;
+
+    if (status === 403) {
+      return 'Too many requests are coming from your network. Please wait a moment and try again.';
     }
-    let errStatus = error.status ? `${error.status}` : "Could not connect";
-    errMsg = `API error: ${errStatus}${errMsg}`;
 
-    let retryFn = () => this.try(observable, observer);
+    if (status === 404) {
+      return 'The requested page or record could not be found.';
+    }
 
-    this.errorSource.next(new ApiErrorHandle(errMsg, observer, retryFn));
+    if (status === 0 || status >= 500) {
+      return 'The data portal is temporarily unavailable. Static site content is still available.';
+    }
 
+    return 'The request could not be completed. Please try again.';
   }
 
 }
