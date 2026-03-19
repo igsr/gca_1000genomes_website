@@ -12,7 +12,7 @@ import { ApiPopulationService } from '../core/services/api-population.service';
 import { SearchHits } from '../shared/api-types/search-hits';
 import { Sample } from '../shared/api-types/sample';
 import { buildReadableFilterSummary as buildReadableFilterSummaryFromRpn } from '../shared/filter-builder-summary';
-import { FilterBuilderBase, FilterTokenBase } from '../shared/filter-builder-base';
+import { FilterBuilderBase, FilterSelectionChange, FilterTokenBase } from '../shared/filter-builder-base';
 import { filterBuilderStyles } from '../shared/filter-builder.styles';
 
 interface FilterToken extends FilterTokenBase<'pop' | 'dc' | 'ag'> {}
@@ -114,31 +114,34 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
     this.viewOption = 2;
   }
 
-  onPopFiltersChange(popFilters: {[code: string]: boolean}) {
+  onPopFiltersChange(change: FilterSelectionChange) {
     this.offset = 0;
     this.totalHits = -1;
-    let nextKeys = this.extractSelectedKeys(popFilters);
+    let nextKeys = this.buildSelectedKeysFromChange(this.popFiltersArr, change);
     this.updateTokenOrder('pop', this.popFiltersArr, nextKeys);
+    this.popFilters = change.filters;
     this.popFiltersArr = nextKeys;
     this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();
   }
 
-  onAgFiltersChange(agFilters: {[code: string]: boolean}) {
+  onAgFiltersChange(change: FilterSelectionChange) {
     this.offset = 0;
     this.totalHits = -1;
-    let nextKeys = this.extractSelectedKeys(agFilters);
+    let nextKeys = this.buildSelectedKeysFromChange(this.agFiltersArr, change);
     this.updateTokenOrder('ag', this.agFiltersArr, nextKeys);
+    this.agFilters = change.filters;
     this.agFiltersArr = nextKeys;
     this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();
   }
 
-  onDcFiltersChange(dcFilters: {[code: string]: boolean}) {
+  onDcFiltersChange(change: FilterSelectionChange) {
     this.offset = 0;
     this.totalHits = -1;
-    let nextKeys = this.extractSelectedKeys(dcFilters);
+    let nextKeys = this.buildSelectedKeysFromChange(this.dcFiltersArr, change);
     this.updateTokenOrder('dc', this.dcFiltersArr, nextKeys);
+    this.dcFilters = change.filters;
     this.dcFiltersArr = nextKeys;
     this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();

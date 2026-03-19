@@ -11,7 +11,7 @@ import { ApiDataCollectionService } from '../core/services/api-data-collection.s
 import { SearchHits } from '../shared/api-types/search-hits';
 import { Population } from '../shared/api-types/population';
 import { buildReadableFilterSummary as buildReadableFilterSummaryFromRpn } from '../shared/filter-builder-summary';
-import { FilterBuilderBase, FilterTokenBase } from '../shared/filter-builder-base';
+import { FilterBuilderBase, FilterSelectionChange, FilterTokenBase } from '../shared/filter-builder-base';
 import { filterBuilderStyles } from '../shared/filter-builder.styles';
 
 interface FilterToken extends FilterTokenBase<'dc' | 'ag'> {}
@@ -81,17 +81,19 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
     this.viewOption = 2;
   }
 
-  onAgFiltersChange(agFilters: {[code: string]: boolean}) {
-    let nextKeys = this.extractSelectedKeys(agFilters);
+  onAgFiltersChange(change: FilterSelectionChange) {
+    let nextKeys = this.buildSelectedKeysFromChange(this.agFiltersArr, change);
     this.updateTokenOrder('ag', this.agFiltersArr, nextKeys);
+    this.agFilters = change.filters;
     this.agFiltersArr = nextKeys;
     this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();
   }
 
-  onDcFiltersChange(dcFilters: {[code: string]: boolean}) {
-    let nextKeys = this.extractSelectedKeys(dcFilters);
+  onDcFiltersChange(change: FilterSelectionChange) {
+    let nextKeys = this.buildSelectedKeysFromChange(this.dcFiltersArr, change);
     this.updateTokenOrder('dc', this.dcFiltersArr, nextKeys);
+    this.dcFilters = change.filters;
     this.dcFiltersArr = nextKeys;
     this.filterBuilderCollapsed = this.filterTokens.length === 0;
     this.search();

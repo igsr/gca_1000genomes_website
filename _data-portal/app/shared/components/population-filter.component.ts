@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { ApiPopulationService} from '../../core/services/api-population.service';
 import { SearchHits } from '../api-types/search-hits';
 import { Population } from '../api-types/population';
+import { FilterSelectionChange } from '../filter-builder-base';
 
 let popFilterStyles: string = `
   div.panel {
@@ -47,7 +48,7 @@ export class PopulationFilterComponent implements OnInit, OnDestroy {
   @Input() visible: boolean;
   @Input() filters: {[code: string]: boolean};
   @Output() visibleChange = new EventEmitter<boolean>();
-  @Output() filtersChange = new EventEmitter<{[code: string]: boolean}>();
+  @Output() filtersChange = new EventEmitter<FilterSelectionChange>();
 
 
   constructor(
@@ -73,7 +74,7 @@ export class PopulationFilterComponent implements OnInit, OnDestroy {
 
   changeFilter(code: string, isFiltered: boolean) {
     this.filters[code] = isFiltered;
-    this.filtersChange.emit(this.filters);
+    this.filtersChange.emit({ filters: this.filters, code, isFiltered });
   }
 
   closePanel() {

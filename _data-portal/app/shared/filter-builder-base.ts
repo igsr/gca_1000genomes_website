@@ -18,6 +18,12 @@ export interface FilterTokenBase<TTokenType extends string> {
   negated: boolean;
 }
 
+export interface FilterSelectionChange {
+  filters: {[code: string]: boolean};
+  code: string;
+  isFiltered: boolean;
+}
+
 export abstract class FilterBuilderBase<TTokenType extends string, TToken extends FilterTokenBase<TTokenType>> {
   public filterTokens: TToken[] = [];
   public filterOperators: FilterOperator[] = [];
@@ -32,16 +38,6 @@ export abstract class FilterBuilderBase<TTokenType extends string, TToken extend
   private groupIdCounter: number = 0;
 
   protected abstract createToken(type: TTokenType, key: string, id: string): TToken;
-
-  public extractSelectedKeys(filters: {[code: string]: boolean}): string[] {
-    let keys: string[] = [];
-    for (let key in filters) {
-      if (filters[key]) {
-        keys.push(key);
-      }
-    }
-    return keys;
-  }
 
   public updateTokenOrder(type: TTokenType, prevKeys: string[], nextKeys: string[]) {
     let removed = prevKeys.filter((key: string) => nextKeys.indexOf(key) === -1);
@@ -200,6 +196,19 @@ export abstract class FilterBuilderBase<TTokenType extends string, TToken extend
 
   protected makeTokenId(type: TTokenType, key: string): string {
     return `${type}:${key}`;
+  }
+
+  protected buildSelectedKeysFromChange(prevKeys: string[], change: FilterSelectionChange): string[] {
+    let nextKeys = prevKeys.filter((key: string) => key !== change.code && !!change.filters[key]);
+    if (change.isFiltered) {
+      nextKeys.push(change.code);
+    }
+    for (let key in change.filters) {
+      if (change.filters[key] && nextKeys.indexOf(key) === -1) {
+        nextKeys.push(key);
+      }
+    }
+    return nextKeys;
   }
 
   protected addToken(type: TTokenType, key: string) {
