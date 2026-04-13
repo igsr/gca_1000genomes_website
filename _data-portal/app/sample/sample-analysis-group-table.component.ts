@@ -4,6 +4,7 @@ import { ApiAnalysisGroupService} from '../core/services/api-analysis-group.serv
 import { AnalysisGroup } from '../shared/api-types/analysis-group';
 import { SearchHit,SearchHits } from '../shared/api-types/search-hits';
 import { Sample } from '../shared/api-types/sample';
+import { FilterSelectionChange } from '../shared/filter-builder-base';
 
 let sampleTableStyles: string = `
 
@@ -93,7 +94,7 @@ th.matrix-dot > div >div {
 export class SampleAnalysisGroupTableComponent implements OnInit {
   @Input() sampleHits: SearchHits<Sample>;
   @Input() filters: {[code: string]: boolean};
-  @Output() filtersChange = new EventEmitter<{[code: string]: boolean}>();
+  @Output() filtersChange = new EventEmitter<FilterSelectionChange>();
 
   constructor(
     private apiAnalysisGroupService: ApiAnalysisGroupService,
@@ -120,7 +121,7 @@ export class SampleAnalysisGroupTableComponent implements OnInit {
 
   changeFilter(code: string) {
     this.filters[code] = !this.filters[code];
-    this.filtersChange.emit(this.filters);
+    this.filtersChange.emit({ filters: this.filters, code, isFiltered: this.filters[code] });
   }
 
 }

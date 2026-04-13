@@ -4,16 +4,38 @@ import { Subscription } from 'rxjs/Subscription';
 import { ApiPopulationService} from '../../core/services/api-population.service';
 import { SearchHits } from '../api-types/search-hits';
 import { Population } from '../api-types/population';
+import { FilterSelectionChange } from '../filter-builder-base';
 
 let popFilterStyles: string = `
   div.panel {
     margin-top: 10px;
     margin-bottom: 10px;
   }
+  div.panel-body {
+    overflow: visible;
+  }
+  div.filter-options-scroll {
+    overflow-x: auto;
+    overflow-y: visible;
+  }
+  div.form.filter-options-grid {
+    align-content: flex-start;
+    display: flex;
+    flex-flow: column wrap;
+    height: 240px;
+  }
   div.checkbox {
-    width: 50%;
-    display: inline-block;
+    display: block;
+    flex: 0 0 auto;
     margin: 2px 0;
+    padding-right: 16px;
+    width: 320px;
+  }
+  div.checkbox label {
+    display: block;
+    font-weight: 400;
+    line-height: 1.35;
+    white-space: normal;
   }
 `;
 
@@ -26,7 +48,7 @@ export class PopulationFilterComponent implements OnInit, OnDestroy {
   @Input() visible: boolean;
   @Input() filters: {[code: string]: boolean};
   @Output() visibleChange = new EventEmitter<boolean>();
-  @Output() filtersChange = new EventEmitter<{[code: string]: boolean}>();
+  @Output() filtersChange = new EventEmitter<FilterSelectionChange>();
 
 
   constructor(
@@ -52,7 +74,7 @@ export class PopulationFilterComponent implements OnInit, OnDestroy {
 
   changeFilter(code: string, isFiltered: boolean) {
     this.filters[code] = isFiltered;
-    this.filtersChange.emit(this.filters);
+    this.filtersChange.emit({ filters: this.filters, code, isFiltered });
   }
 
   closePanel() {
