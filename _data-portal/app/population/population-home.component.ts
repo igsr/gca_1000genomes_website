@@ -131,11 +131,11 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
   removeTokenFromFilters(token: FilterToken) {
     if (token.type === 'dc') {
       this.dcFilters[token.key] = false;
-      this.onDcFiltersChange(this.dcFilters);
+      this.onDcFiltersChange({ filters: this.dcFilters, code: token.key, isFiltered: false });
       return;
     }
     this.agFilters[token.key] = false;
-    this.onAgFiltersChange(this.agFilters);
+    this.onAgFiltersChange({ filters: this.agFilters, code: token.key, isFiltered: false });
   }
 
   protected createToken(type: 'dc' | 'ag', key: string, id: string): FilterToken {
