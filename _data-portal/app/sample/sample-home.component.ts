@@ -179,16 +179,16 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
   removeTokenFromFilters(token: FilterToken) {
     if (token.type === 'pop') {
       this.popFilters[token.key] = false;
-      this.onPopFiltersChange(this.popFilters);
+      this.onPopFiltersChange({ filters: this.popFilters, code: token.key, isFiltered: false });
       return;
     }
     if (token.type === 'dc') {
       this.dcFilters[token.key] = false;
-      this.onDcFiltersChange(this.dcFilters);
+      this.onDcFiltersChange({ filters: this.dcFilters, code: token.key, isFiltered: false });
       return;
     }
     this.agFilters[token.key] = false;
-    this.onAgFiltersChange(this.agFilters);
+    this.onAgFiltersChange({ filters: this.agFilters, code: token.key, isFiltered: false });
   }
 
   protected createToken(type: 'pop' | 'dc' | 'ag', key: string, id: string): FilterToken {
