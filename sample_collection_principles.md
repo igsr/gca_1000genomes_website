@@ -4,7 +4,7 @@ title: Sample Collection Principles
 permalink: /sample_collection_principles/
 ---
 
-##Overview
+## Overview
 
 The International Genome Sample Resource (IGSR) was established at EMBL-EBI in January 2015. The resource was established with three main aims, to:
 
@@ -29,7 +29,7 @@ In order for a population collection to be accepted as part of the IGSR, it must
 
 The following information covers useful details for groups planning to create new sample collections. We cover details about educating local Institutional Review Boards/Research Ethics Committees (IRB/RECs) about the types of procedures that were used successfully for sample collection from other populations, in a way that allowed public data release and broad use of data and samples.  This commentary includes considerations with respect to cell line production. 
 
-##Consent process 
+## Consent process 
 
 The 1000 Genomes Samples and ELSI group determined that all consent forms, for the 1000 genomes project, were required to explicitly state the following items. A similar review would be undertaken for any new populations being added to the IGSR.
 
@@ -45,30 +45,30 @@ The 1000 Genomes Samples and ELSI group determined that all consent forms, for t
 - The consent process for collecting the 1000 Genomes samples is described at [{{site.url}}/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf](/sites/1000genomes.org/files/docs/Informed%20Consent%20Background%20Document.pdf)
 - A copy of the consent template that was used by the 1000 Genomes Project can be seen at [{{site.url}}/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf](/sites/1000genomes.org/files/docs/Informed%20Consent%20Form%20Template.pdf)
 
-##Sampling process
+## Sampling process
 - The samples should be collected from adults.
 - In order to achieve 100 unrelated cell lines from a population, it is recommended to collect primary material from at least 130 unrelated individuals.  Data from mother-father-adult child trios are valuable for assessing data quality and producing haplotypes, so collecting samples in trios and establishing cell lines from the offspring is strongly encouraged.  
 - All needed IRB/REC approvals should be obtained, as well as any other needed permissions, such as from health ministries for export of the samples to other countries.  
 
-##Sample collection review process
+## Sample collection review process
 - Local IRB/RECs need to provide the approvals for the ethical appropriateness of the sample collecting.  
 - P3G-IPAC will then review the consent and sample collection processes, and approve them as appropriate for this set of samples, similar to what the 1000 Genomes Samples and ELSI Group did for the 1000 Genomes samples.
 
-##Cell lines
+## Cell lines
 
 - An important component of the value of the HapMap and 1000 Genomes Project samples is that there are immortalized cell lines available that can be used to obtain essentially unlimited quantities of DNA.  This is desirable for new sample collections as well.  However, costs are not trivial.   If possible blood samples should be made into cell lines and distributed by the Coriell Institute or other central cell line repositories to any legitimate researcher.  Distribution should be subject to a Materials Transfer Agreement (MTA) that prohibits reproductive cloning and may restrict other activities including redistribution.
 
-##Data production
+## Data production
 - The samples (including from any adult children in trios) should be genotyped across the genome using a high-density genotyping array with over 500,000 markers.
 - At least 90 unrelated samples should be sequenced. This sequencing can follow two different strategies. Low coverage whole genome sequencing (minimum 3x aligned non duplicated coverage per sample) and exome sequencing (at least 70% of exome target bases covered to 30x of higher), this strategy was used by the main 1000 Genomes Project, or high coverage whole genome sequencing (minimum 30x aligned non duplicated coverage per sample).
 - Due to possible cell line artifacts, in some cases it may be better to generate sequences directly from blood DNA. We ask that the source of the DNA be included in the metadata regardless of whether from cell line or blood.
 
-##Data release
+## Data release
 - All sequence and genotype data from these samples should be deposited in open-access public databases such as the ENA or Genbank, the IGSR will support groups in achieving this aim. All samples should be registered in the EMBL-EBI or NCBI BioSample archives and this should include attributes such as the sample and DNA type (blood, cell line) studied, and measures of data quality.
 - Groups are encouraged to not collect phenotype data from the people providing samples.  If phenotype data are collected, the researchers are encouraged to not distribute the phenotype data widely, but to share those data only with close collaborators.  The distribution of any phenotype data should follow the consent form and be approved by the local IRB/REC.  Participants may be less likely to enroll and IRB/RECs may be less likely to approve of studies where the phenotypes as well as the sequence data are made publicly available.  
 - Another option is to provide the phenotype data in a controlled-access database such as dbGaP or the EGA.  Note that the goal of collecting these samples is to provide public genetic data as a genetic reference resource – sample numbers are not compatible with association studies on whole-person phenotypes.  
 
-##Costs  
+## Costs  
 IGSR includes no funding for sample collection or data production. The IGSR will work with the sample collection group to create alignments and variant calls integrated with the main 1000 Genomes datasets once sequence data is submitted to the public archives. Groups wishing to contribute the samples and data need to cover the costs of sample collection process review, sample collection, cell line transformation, and sequence and genotype data production
 
 This document was approved on the 30th June 2015

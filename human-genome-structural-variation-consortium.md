@@ -6,7 +6,7 @@ tags: Human Genome Structural Variation Consortium
 
 ---
 
-#The Human Genome Structural Variation Consortium
+# The Human Genome Structural Variation Consortium
 
 
 <img style="float: right;" src="/sites/1000genomes.org/files/images/HGSVC_logo_v5.png" width="500" height="300">

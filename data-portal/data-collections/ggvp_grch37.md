@@ -7,7 +7,7 @@ The Gambian Genome Variation Project is a collaboration of the [MRC Unit in The 
  * even more comprehensive discovery (variants down to frequencies of 0.1 - 0.5%) in functional gene regions, and
  * discovery of structural variants, such as copy number variants, other insertions and deletions, and inversions, including sequence-level understanding of breakpoints.
 
-###Data description
+### Data description
 The sequence data is 9x coverage of individuals from four Gambian populations.
 
 The data is from the following European Nucleotide Archive (ENA) study IDs:

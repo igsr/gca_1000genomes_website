@@ -3,39 +3,28 @@
 # IGSR front-end Dockerfile
 # --------------------------------
 # This builds the IGSR website and then serves it with nginx:
-#   - Jekyll site (Ruby 2.2 / Debian Jessie) -> /usr/share/nginx/html
+#   - Jekyll site (Ruby 3.2) -> /usr/share/nginx/html
 #   - Angular 4 portal built with Webpack 3 -> /usr/share/nginx/html/data-portal
 #   - nginx (stable-alpine) as the final runtime image
 #
 # Main tool versions (kept stable so the build stays repeatable):
-#   Ruby 2.2  | Bundler 1.16.0 | Jekyll (from Gemfile)
+#   Ruby 3.2  | Bundler 2.7.2 | Jekyll (from Gemfile)
 #   Node 16   | Webpack 3.12.0 | TypeScript 2.4.2 | RxJS 5.4.3 | Zone.js 0.8.29
 #   nginx:stable-alpine
 
 ##
-## Stage 1 — Build the Jekyll site (Ruby 2.2 / Debian Jessie)
+## Stage 1 — Build the Jekyll site (Ruby 3.2)
 ##
-FROM ruby:2.2 AS jekyll
+FROM ruby:3.2 AS jekyll
 
 # Build the site with production settings
 ENV JEKYLL_ENV=production
 
-# Jessie is end-of-life, so use the Debian archive to fetch packages
-RUN set -eux; \
-  sed -i 's/deb.debian.org/archive.debian.org/g; s|security.debian.org|archive.debian.org|g' /etc/apt/sources.list; \
-  sed -i '/jessie-updates/d' /etc/apt/sources.list; \
-  printf 'Acquire::Check-Valid-Until "false";\nAcquire::AllowInsecureRepositories "true";\n' > /etc/apt/apt.conf.d/99archive; \
-  apt-get -o Acquire::Check-Valid-Until=false -o Acquire::AllowInsecureRepositories=true update; \
-  apt-get -y --allow-unauthenticated --no-install-recommends install \
-  build-essential git ca-certificates libxml2-dev libxslt1-dev zlib1g-dev nodejs; \
-  ln -sf /usr/bin/nodejs /usr/bin/node || true; \
-  rm -rf /var/lib/apt/lists/*
-
 WORKDIR /site
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler -v 1.16.0 \
-  && bundle _1.16.0_ config set without 'development test' \
-  && bundle _1.16.0_ install
+RUN gem install bundler -v 2.7.2 \
+  && bundle _2.7.2_ config set without 'development test' \
+  && bundle _2.7.2_ install
 
 COPY . .
 RUN bundle exec jekyll build --destination /out/_site

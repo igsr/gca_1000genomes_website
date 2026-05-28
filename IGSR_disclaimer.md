@@ -5,9 +5,9 @@ permalink: /IGSR_disclaimer/
 tags: IGSR disclaimer
 ---
 
-#International Genome Sample Resource (IGSR) Disclaimer, Privacy and Cookies
+# International Genome Sample Resource (IGSR) Disclaimer, Privacy and Cookies
 
-##Disclaimer
+## Disclaimer
 
 IGSR is part of [EMBL](http://www.embl.org) - [European Bioinformatics Institute (EBI)](http://www.ebi.ac.uk) and the [“Terms of Use for EMBL-EBI Services”]( https://www.ebi.ac.uk/about/terms-of-use) apply to online services, data and software provided by IGSR. The following information specific to IGSR should be read in addition to the Terms of Use for EMBL-EBI Services. 
 
@@ -23,7 +23,7 @@ For all data collections in IGSR, please check the accompanying data reuse state
 
 For any enquiries, including the terms of use of data and citation, please contact info@1000genomes.org.
 
-##Privacy and Cookies
+## Privacy and Cookies
 
 As noted above, IGSR is part of [EMBL](http://www.embl.org) - [European Bioinformatics Institute (EBI)](http://www.ebi.ac.uk) and EMBL-EBI's [policies](http://www.ebi.ac.uk/Information/privacy) apply.
 
