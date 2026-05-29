@@ -4,12 +4,12 @@
 # --------------------------------
 # This builds the IGSR website and then serves it with nginx:
 #   - Jekyll site (Ruby 3.2) -> /usr/share/nginx/html
-#   - Angular 4 portal built with Webpack 3 -> /usr/share/nginx/html/data-portal
+#   - Angular portal built with Webpack 5 -> /usr/share/nginx/html/data-portal
 #   - nginx (stable-alpine) as the final runtime image
 #
 # Main tool versions (kept stable so the build stays repeatable):
 #   Ruby 3.2  | Bundler 2.7.2 | Jekyll (from Gemfile)
-#   Node 16   | Webpack 3.12.0 | TypeScript 2.4.2 | RxJS 5.4.3 | Zone.js 0.8.29
+#   Node 22   | Angular/Webpack/TypeScript/RxJS/Zone.js from _data-portal/package.json
 #   nginx:stable-alpine
 
 ##
@@ -30,9 +30,9 @@ COPY . .
 RUN bundle exec jekyll build --destination /out/_site
 
 ##
-## Stage 2 — Angular 4 portal bundle (Webpack 3)
+## Stage 2 — Angular portal bundle (Webpack 5)
 ##
-FROM node:16-buster AS portal
+FROM node:22-bookworm AS portal
 WORKDIR /portal
 
 # Copy the Angular app code into the image
@@ -43,40 +43,30 @@ COPY docker/scripts/ /portal/docker/scripts/
 # Install npm dependencies, allowing the older peer dependency rules this app needs
 RUN npm install --unsafe-perm --legacy-peer-deps
 
-# Install the build tools and runtime libraries at the older versions this app expects
-RUN npm i --no-save \
-  webpack@3.12.0 \
-  typescript@2.4.2 \
-  ts-loader@2.3.7 \
-  angular2-template-loader@0.6.2 \
-  raw-loader@0.5.1 \
-  rxjs@5.4.3 \
-  zone.js@0.8.29 \
-  reflect-metadata@0.1.10 \
-  core-js@2.4.1
-
 # Ensure production mode is enabled and use the runtime bootstrap
 RUN bash docker/scripts/fix-main-ts.sh
 
 # Build the portal bundle using the webpack config stored in the repo
 RUN set -eux; \
-  node node_modules/webpack/bin/webpack.js -p --config webpack.config.js; \
+  npx webpack --mode production --config webpack.config.js; \
   test -s static/build.js
 
 # Copy browser support scripts locally so we do not rely on external URLs
 RUN set -eux; \
   mkdir -p /portal/vendor; \
-  if [ -f node_modules/core-js/client/shim.min.js ]; then \
-  cp node_modules/core-js/client/shim.min.js /portal/vendor/core-js.min.js; \
-  elif [ -f node_modules/core-js-bundle/minified.js ]; then \
+  if [ -f node_modules/core-js-bundle/minified.js ]; then \
   cp node_modules/core-js-bundle/minified.js /portal/vendor/core-js.min.js; \
   fi; \
-  if [ -f node_modules/reflect-metadata/Reflect.min.js ]; then \
-  cp node_modules/reflect-metadata/Reflect.min.js /portal/vendor/reflect-metadata.js; \
-  else \
-  cp node_modules/reflect-metadata/Reflect.js /portal/vendor/reflect-metadata.js; \
-  fi; \
-  cp node_modules/zone.js/dist/zone.js /portal/vendor/zone.js
+  cp node_modules/leaflet/dist/leaflet.css /portal/vendor/leaflet.css; \
+  cp node_modules/leaflet/dist/leaflet.js /portal/vendor/leaflet.js; \
+  cp node_modules/leaflet.markercluster/dist/MarkerCluster.css /portal/vendor/MarkerCluster.css; \
+  cp node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css /portal/vendor/MarkerCluster.Default.css; \
+  cp node_modules/leaflet.markercluster/dist/leaflet.markercluster.js /portal/vendor/leaflet.markercluster.js; \
+  cp node_modules/leaflet-makimarkers/Leaflet.MakiMarkers.js /portal/vendor/Leaflet.MakiMarkers.js; \
+  cp node_modules/cookieconsent/build/cookieconsent.min.css /portal/vendor/cookieconsent.min.css; \
+  cp node_modules/cookieconsent/build/cookieconsent.min.js /portal/vendor/cookieconsent.min.js; \
+  mkdir -p /portal/vendor/images; \
+  cp node_modules/leaflet/dist/images/* /portal/vendor/images/
 
 ##
 ## Stage 3 — Final runtime image (nginx)
@@ -90,33 +80,18 @@ ENV PORT=80
 
 # Copy the nginx config template; it is filled in at container start
 COPY docker/nginx.conf.template /etc/nginx/templates/default.conf.template
-COPY docker/scripts/inject-polyfill-snippet.sh /usr/local/bin/inject-polyfill-snippet.sh
 
 # Bring in the built site files from earlier stages
 COPY --from=jekyll /out/_site/ /usr/share/nginx/html/
 RUN mkdir -p /usr/share/nginx/html/data-portal/static /usr/share/nginx/html/data-portal/vendor
 COPY --from=portal /portal/static/build.js  /usr/share/nginx/html/data-portal/static/build.js
 COPY --from=portal /portal/vendor/          /usr/share/nginx/html/data-portal/vendor/
+RUN mkdir -p /usr/share/nginx/html/vendor \
+  && cp /usr/share/nginx/html/data-portal/vendor/cookieconsent.min.css /usr/share/nginx/html/vendor/cookieconsent.min.css \
+  && cp /usr/share/nginx/html/data-portal/vendor/cookieconsent.min.js /usr/share/nginx/html/vendor/cookieconsent.min.js
 RUN rm -f /etc/nginx/conf.d/manual_redirects.server.conf
 RUN mkdir -p /etc/nginx/snippets
 COPY docker/manual_redirects.server.conf /etc/nginx/snippets/manual_redirects.inc
-
-# Add local browser support scripts to data-portal index.html
-RUN <<'SH'
-set -eux
-f=/usr/share/nginx/html/data-portal/index.html
-[ -f "$f" ] || exit 0
-
-# Remove any external script tags for these files
-sed -i \
-  -e '/ajax\/libs\/core-js\/[^"]*\/shim\.min\.js/d' \
-  -e '/ajax\/libs\/zone\.js\/[^"]*\/zone\(\.min\)\?\.js/d' \
-  -e '/ajax\/libs\/reflect-metadata\/[^"]*\/Reflect\(\.min\)\?\.js/d' \
-  "$f" || true
-
-# Insert the local script tags before build.js
-sh /usr/local/bin/inject-polyfill-snippet.sh "$f"
-SH
 
 RUN sed -i '/sourceMappingURL/d' /usr/share/nginx/html/data-portal/vendor/*.js || true
 

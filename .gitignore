@@ -9,3 +9,5 @@ _data-portal/typings/
 _data-portal/package-lock.json
 
 package-lock.json
+
+_data-portal/**/*.LICENSE.txt

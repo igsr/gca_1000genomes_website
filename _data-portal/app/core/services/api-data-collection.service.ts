@@ -1,5 +1,5 @@
 import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
@@ -15,7 +15,7 @@ import { ApiErrorService } from './api-error.service';
 export class ApiDataCollectionService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private apiErrorService: ApiErrorService,
     private apiTimeoutService: ApiTimeoutService,
   ) {}
@@ -49,10 +49,10 @@ export class ApiDataCollectionService {
   }
 
   getText(id: string): Observable<string> {
-      return this.http.get(`/data-portal/data-collections/${id}.html`)
-        .catch((err, caught): Observable<Response> => Observable.of<Response>(null))
-        .map((r:Response): string => {
-          let text: string = r ? r.text() : ''
+      return this.http.get(`/data-portal/data-collections/${id}.html`, {responseType: 'text'})
+        .catch((err, caught): Observable<any> => Observable.of<any>(null))
+        .map((r: any): string => {
+          let text: string = r ? r : ''
           return text.startsWith(`<!DOCTYPE`) ? '' : text;
         });
   }
@@ -91,8 +91,8 @@ export class ApiDataCollectionService {
     return this.apiTimeoutService.handleTimeout<SearchHits<DataCollection>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/beta/data-collection/_search`, body)
-      ).map((r:Response): SearchHits<DataCollection> => {
-        let h: {hits: SearchHits<DataCollection>} = r.json() as {hits: SearchHits<DataCollection>};
+      ).map((r: any): SearchHits<DataCollection> => {
+        let h: {hits: SearchHits<DataCollection>} = r as {hits: SearchHits<DataCollection>};
         return h.hits;
       })
     );
@@ -109,8 +109,8 @@ export class ApiDataCollectionService {
     this.apiTimeoutService.handleTimeout<SearchHits<DataCollection>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/beta/data-collection/_search`, query)
-      ).map((r:Response): SearchHits<DataCollection> => {
-          let h: {hits: SearchHits<DataCollection>} = r.json() as {hits: SearchHits<DataCollection>};
+      ).map((r: any): SearchHits<DataCollection> => {
+          let h: {hits: SearchHits<DataCollection>} = r as {hits: SearchHits<DataCollection>};
           for (let dc of h.hits.hits) {
             if (dc._source.shortTitle && dc._source.title) {
               this.titleMap[dc._source.title] = dc._source.shortTitle;

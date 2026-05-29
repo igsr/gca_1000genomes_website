@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription } from 'rxjs/Subscription';
-import 'rxjs/add/observable/timer';
+import { timer as rxTimer } from 'rxjs';
 
 @Injectable()
 export class ApiTimeoutService {
@@ -22,7 +22,7 @@ export class ApiTimeoutService {
 
   private try<T>(observable: Observable<T>, observer: Observer<T>) {
     let timer : {subscription: Subscription} = {subscription: null};
-    timer.subscription = Observable.timer(1000).subscribe( t => this.onTimeout(timer, observer));
+    timer.subscription = rxTimer(1000).subscribe( t => this.onTimeout(timer, observer));
     observable.subscribe((next: T) => this.onNext(next, timer, observer));
   };
 

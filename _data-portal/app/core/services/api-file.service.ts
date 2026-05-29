@@ -1,5 +1,5 @@
 import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
@@ -13,7 +13,7 @@ import { ApiErrorService } from './api-error.service';
 export class ApiFileService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private apiErrorService: ApiErrorService,
     private apiTimeoutService: ApiTimeoutService,
   ) {}
@@ -27,8 +27,8 @@ export class ApiFileService {
     return this.apiTimeoutService.handleTimeout<SearchHits<File>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/beta/file/_search`, body)
-      ).map((r:Response): SearchHits<File> => {
-        let h: {hits: SearchHits<File>} = r.json() as {hits: SearchHits<File>};
+      ).map((r: any): SearchHits<File> => {
+        let h: {hits: SearchHits<File>} = r as {hits: SearchHits<File>};
         return h.hits;
       })
     );
@@ -84,8 +84,8 @@ export class ApiFileService {
     return this.apiTimeoutService.handleTimeout<SearchHits<File>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/beta/file/_search`, body)
-      ).map((r:Response): SearchHits<File> => {
-        let h: {hits: SearchHits<File>} = r.json() as {hits: SearchHits<File>};
+      ).map((r: any): SearchHits<File> => {
+        let h: {hits: SearchHits<File>} = r as {hits: SearchHits<File>};
         return h.hits;
       })
     );

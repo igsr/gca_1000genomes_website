@@ -11,17 +11,44 @@
   </form>
 
   <div class="col-lg-4 col-md-4 col-sm-6">
-    <search-samples [query]="query"></search-samples>
+    <div class="panel panel-default" *ngIf="query">
+      <div class="panel-heading">
+        <h4 class="panel-title text-center">
+          {{ sampleHits?.total }} matching sample{{sampleHits?.total == 1 ? '' : 's' }}
+        </h4>
+      </div>
+      <ul class="list-group">
+        <a *ngFor="let hit of sampleHits?.hits" class="list-group-item text-center" [routerLink]="['/sample', hit._id]">{{hit._id}}</a>
+      </ul>
+    </div>
   </div>
 
   <div class="col-lg-4 col-md-4 col-sm-6">
-    <search-populations [query]="query"></search-populations>
+    <div class="panel panel-default" *ngIf="query">
+      <div class="panel-heading">
+        <h4 class="panel-title text-center">
+          {{ popHits?.total }} matching population{{popHits?.total == 1 ? '' : 's' }}
+        </h4>
+      </div>
+      <ul class="list-group">
+        <a *ngFor="let hit of popHits?.hits" class="list-group-item text-center" [routerLink]="['/population', hit._id]">{{ hit._source.description || hit._source.name }}</a>
+      </ul>
+    </div>
   </div>
 
   <div class="clearfix visible-sm-block visible-xs-block"></div>
 
   <div class="col-lg-4 col-md-4 col-sm-6">
-    <search-data-collections [query]="query"></search-data-collections>
+    <div class="panel panel-default" *ngIf="query">
+      <div class="panel-heading">
+        <h4 class="panel-title text-center">
+          {{ dcHits?.total }} matching data collection{{dcHits?.total == 1 ? '' : 's' }}
+        </h4>
+      </div>
+      <ul class="list-group">
+        <a *ngFor="let hit of dcHits?.hits" class="list-group-item text-center" [routerLink]="['/data-collection', hit._id]">{{hit._source.title}}</a>
+      </ul>
+    </div>
   </div>
 </div>
 
@@ -29,9 +56,25 @@
 <h2 *ngIf="!query">Want to search by gene, genomic location, rsID or associations? <a href="http://www.ensembl.org/Homo_sapiens/Search/New?db=core">Search at Ensembl</a>.</h2>
 </div>
 
-<search-files [query]="query"></search-files>
+<div class="panel panel-default file-results" *ngIf="query">
+  <div class="panel-heading">
+    <button class="btn btn-default download-button" (click)="downloadFileList()"> Download the list</button>
+    <h4 class="panel-title text-center">
+      {{ fileHits?.total }} matching data file{{fileHits?.total == 1 ? '' : 's' }}
+    </h4>
+  </div>
+  <ul class="list-group">
+    <ng-container *ngFor="let hit of fileHits?.hits">
+      <a *ngIf="hit._source.url" class="list-group-item" [href]="hit._source.url" [innerHtml]="hit._source.url"></a>
+    </ng-container>
+  </ul>
+</div>
 
-<search-sitemap [query]="query"></search-sitemap>
+<h2 *ngIf="query">Matching pages from this website:</h2>
+<ng-container *ngFor="let hit of sitemapList?.hits">
+  <h3><a [href]="hit._source.url">{{hit._source.title}}</a></h3>
+  <p [innerHtml]="joinHighlights(hit.highlight)"></p>
+</ng-container>
 <div *ngIf="query">
 <hr>
 <h2>Not what you are looking for? <a href="http://www.ensembl.org/Human/Search/Results?q={{query}};facet_feature_type=;site=ensembl;facet_species=Human">Try your search at Ensembl</a>.</h2> Ensembl can be searched by gene, genomic location, rsID or association, with 1000 Genomes and other data sets available.

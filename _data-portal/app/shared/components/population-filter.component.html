@@ -9,7 +9,7 @@
     <div class="filter-options-scroll">
       <div class="form filter-options-grid">
         <div class="checkbox" *ngFor="let pop of popHits?.hits">
-          <label *ngIf="pop._source.elasticId" [popover]="pop._source.superpopulation.name" [popoverOnHover]="true" popoverPlacement="auto bottom">
+          <label *ngIf="pop._source.elasticId" [popover]="pop._source.superpopulation?.name || pop._source.superpopulationName || ''" [popoverOnHover]="true" popoverPlacement="auto bottom">
           <!--<label *ngIf="pop._source.elasticId">-->
                <input type="checkbox" [ngModel]="filters[pop._source.elasticId]" (ngModelChange)="changeFilter(pop._source.elasticId, $event)">
                {{pop._source.description}}

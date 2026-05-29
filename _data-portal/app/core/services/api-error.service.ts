@@ -1,5 +1,4 @@
 import { Injectable }    from '@angular/core';
-import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -27,15 +26,15 @@ export class ApiErrorService {
     this.activeErrorCount$ = this.activeErrorCountSource.asObservable();
   };
 
-  handleError(observable: Observable<Response>): Observable<Response> {
-    return Observable.create((observer : Observer<Response>) => this.try(observable, observer));
+  handleError<T>(observable: Observable<T>): Observable<T> {
+    return Observable.create((observer : Observer<T>) => this.try(observable, observer));
   }
 
   // private methods
 
-  private try(observable: Observable<Response>, observer: Observer<Response>) {
+  private try<T>(observable: Observable<T>, observer: Observer<T>) {
     observable.subscribe(
-      (res: Response) => {
+      (res: T) => {
         observer.next(res);
         observer.complete();
       },
@@ -43,7 +42,7 @@ export class ApiErrorService {
       );
   }
 
-  private onErrorFn(observable: Observable<Response>, observer: Observer<Response>, error: any) {
+  private onErrorFn<T>(observable: Observable<T>, observer: Observer<T>, error: any) {
     console.log('An error occurred', error); // for debugging
 
     let errMsg = this.makeFriendlyMessage(error);

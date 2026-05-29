@@ -1,5 +1,5 @@
 import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
@@ -14,7 +14,7 @@ import { ApiErrorService } from './api-error.service';
 export class ApiPopulationService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private apiErrorService: ApiErrorService,
     private apiTimeoutService: ApiTimeoutService,
   ) {}
@@ -48,8 +48,8 @@ export class ApiPopulationService {
     return this.apiTimeoutService.handleTimeout<SearchHits<Population>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/beta/population/_search`, body)
-      ).map((r:Response): SearchHits<Population> => {
-        let h: {hits: SearchHits<Population>} = r.json() as {hits: SearchHits<Population>};
+      ).map((r: any): SearchHits<Population> => {
+        let h: {hits: SearchHits<Population>} = r as {hits: SearchHits<Population>};
         return h.hits;
       })
     );
@@ -59,8 +59,8 @@ export class ApiPopulationService {
    return this.apiTimeoutService.handleTimeout<Population>(
       this.apiErrorService.handleError(
         this.http.get(`/api/beta/population/${code}`)
-      ).map((r: Response) => {
-        let s = r.json() as {_source: Population};
+      ).map((r: any) => {
+        let s = r as {_source: Population};
         return s._source;
       })
     );
@@ -122,18 +122,27 @@ export class ApiPopulationService {
   private setPopListSource() {
     let query = {
       size: -1,
-      sort: ['display_order'],
-      _source: ['elasticId', 'description', 'display_order', 'superpopulation.name'],
+      _source: true,
     };
     this.popListSource = new ReplaySubject<SearchHits<Population>>(1);
     this.apiTimeoutService.handleTimeout<SearchHits<Population>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/beta/population/_search`, query)
-      ).map((r:Response): SearchHits<Population> => {
-          let h: {hits: SearchHits<Population>} = r.json() as {hits: SearchHits<Population>};
+      ).map((r: any): SearchHits<Population> => {
+          let h: {hits: SearchHits<Population>} = r as {hits: SearchHits<Population>};
+          h.hits.hits = h.hits.hits.sort((a: any, b: any): number => {
+            let aOrder = a._source.display_order || a._source.displayOrder || 0;
+            let bOrder = b._source.display_order || b._source.displayOrder || 0;
+            if (aOrder !== bOrder) {
+              return aOrder - bOrder;
+            }
+            let aDescription = a._source.description || '';
+            let bDescription = b._source.description || '';
+            return aDescription.localeCompare(bDescription);
+          });
 					for (let pop of h.hits.hits) {
 						if(pop._source.elasticId && pop._source.description) {
-							this .elasticIdDescriptionMap[pop._source.elasticId] = pop._source.description;
+							this.elasticIdDescriptionMap[pop._source.elasticId] = pop._source.description;
 						}
 					}
           return h.hits;
