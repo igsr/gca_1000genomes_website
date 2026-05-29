@@ -474,7 +474,7 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
     for (let hit of this.populationHits.hits) {
       let population = hit._source;
       let displayColour = population.superpopulation && population.superpopulation.display_colour ? population.superpopulation.display_colour : '#018ead';
-      let icon = L.MakiMarkers ? L.MakiMarkers.icon({ icon: 'circle-stroked', color: displayColour, size: 's' }) : undefined;
+      let icon = this.createPopulationMarkerIcon(displayColour);
       let lat = Number(population.latitude);
       let lon = Number(population.longitude);
       if (isNaN(lat) || isNaN(lon)) {
@@ -484,6 +484,20 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
       this.markers.addLayer(new L.marker([lat, lon], { icon }).bindPopup(`<a href="/data-portal/population/${population.elasticId}">${population.description}</a><br>${superpopulationName}`));
     }
     this.map.addLayer(this.markers);
+  }
+
+  private createPopulationMarkerIcon(color: string): any {
+    if (L.MakiMarkers && L.MakiMarkers.accessToken) {
+      return L.MakiMarkers.icon({ icon: 'circle-stroked', color, size: 's' });
+    }
+    let displayColor = /^#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/.test(color || '') ? color : '#018ead';
+    return L.divIcon({
+      className: 'population-marker',
+      html: `<span style="box-sizing:border-box;display:block;position:relative;width:22px;height:22px;background:${displayColor};border:2px solid rgba(0,0,0,.25);border-radius:50% 50% 50% 0;box-shadow:4px 4px 8px rgba(0,0,0,.35);transform:rotate(-45deg);"><span style="box-sizing:border-box;display:block;position:absolute;left:50%;top:50%;width:9px;height:9px;margin-left:-4.5px;margin-top:-4.5px;background:rgba(255,255,255,.18);border:2px solid #fff;border-radius:50%;transform:rotate(45deg);"></span></span>`,
+      iconSize: [22, 22],
+      iconAnchor: [11, 22],
+      popupAnchor: [0, -22],
+    });
   }
 
   private sortSuperpopulations(h: SearchHits<SuperPopulation>): SearchHits<SuperPopulation> {
