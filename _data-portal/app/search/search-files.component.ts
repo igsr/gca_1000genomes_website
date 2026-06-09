@@ -19,6 +19,12 @@ let searchFilesStyles: string = `
     white-space: nowrap;
     color: #337ab7;
   }
+  button.download-button {
+    float: right;
+  }
+  .panel-heading {
+    overflow: auto;
+  }
 `;
 
 @Component({
@@ -52,6 +58,10 @@ export class SearchFilesComponent implements OnChanges, OnDestroy {
     }
 
     this.fileHitsSource.next(this.apiFileService.textSearch(this.query, this.hitsPerPage));
+  }
+
+  public downloadFileList = (): void => {
+    this.apiFileService.downloadFileList(this.query);
   }
 
   ngOnDestroy() {

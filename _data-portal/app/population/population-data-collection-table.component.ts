@@ -4,6 +4,7 @@ import { ApiDataCollectionService} from '../core/services/api-data-collection.se
 import { DataCollection } from '../shared/api-types/data-collection';
 import { SearchHits } from '../shared/api-types/search-hits';
 import { Population } from '../shared/api-types/population';
+import { FilterSelectionChange } from '../shared/filter-builder-base';
 
 let populationTableStyles: string = `
 
@@ -89,7 +90,7 @@ th.matrix-dot > div >div {
 export class PopulationDataCollectionTableComponent implements OnInit {
   @Input() populationHits: SearchHits<Population>;
   @Input() filters: {[code: string]: boolean};
-  @Output() filtersChange = new EventEmitter<{[code: string]: boolean}>();
+  @Output() filtersChange = new EventEmitter<FilterSelectionChange>();
 
   constructor(
     private apiDataCollectionService: ApiDataCollectionService,
@@ -117,7 +118,7 @@ export class PopulationDataCollectionTableComponent implements OnInit {
 
   changeFilter(code: string) {
     this.filters[code] = !this.filters[code];
-    this.filtersChange.emit(this.filters);
+    this.filtersChange.emit({ filters: this.filters, code, isFiltered: this.filters[code] });
   }
 
 }

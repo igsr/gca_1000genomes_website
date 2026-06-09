@@ -14,6 +14,13 @@ server {
   # Redirect /data-portal -> /data-portal/
   location = /data-portal { return 301 /data-portal/$is_args$args; }
 
+  # FastAPI documentation is served by igsr-be via the /api/ proxy
+  location = /docs { return 301 /api/docs$is_args$args; }
+  location = /docs/ { return 301 /api/docs$is_args$args; }
+  location = /redoc { return 301 /api/redoc$is_args$args; }
+  location = /redoc/ { return 301 /api/redoc$is_args$args; }
+  location = /openapi.json { return 301 /api/openapi.json$is_args$args; }
+
   # Angular portal (SPA)
   location /data-portal/ { try_files $uri $uri/ /data-portal/index.html; }
 

@@ -1,5 +1,6 @@
 <div class="panel panel-default" *ngIf="query">
   <div class="panel-heading">
+    <button class="btn btn-default download-button" (click)="downloadFileList()"> Download the list</button>
     <h4 class="panel-title text-center">
       {{ fileHits?.total }} matching data file{{fileHits?.total == 1 ? '' : 's' }}
     </h4>

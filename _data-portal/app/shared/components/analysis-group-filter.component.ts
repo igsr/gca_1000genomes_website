@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { ApiAnalysisGroupService} from '../../core/services/api-analysis-group.service';
 import { SearchHits } from  '../api-types/search-hits';
 import { AnalysisGroup } from  '../api-types/analysis-group';
+import { FilterSelectionChange } from '../filter-builder-base';
 
 let agFilterStyles: string = `
   div.panel {
@@ -26,7 +27,7 @@ export class AnalysisGroupFilterComponent implements OnInit, OnDestroy {
   @Input() visible: boolean;
   @Input() filters: {[code: string]: boolean};
   @Output() visibleChange = new EventEmitter<boolean>();
-  @Output() filtersChange = new EventEmitter<{[code: string]: boolean}>();
+  @Output() filtersChange = new EventEmitter<FilterSelectionChange>();
 
 
   constructor(
@@ -52,7 +53,7 @@ export class AnalysisGroupFilterComponent implements OnInit, OnDestroy {
 
   changeFilter(code: string, isFiltered: boolean) {
     this.filters[code] = isFiltered;
-    this.filtersChange.emit(this.filters);
+    this.filtersChange.emit({ filters: this.filters, code, isFiltered });
   }
 
   closePanel() {
