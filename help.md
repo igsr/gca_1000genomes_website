@@ -13,7 +13,7 @@ We have an extensive set of [Frequently Asked Questions](/faq) which may have th
 
 #[API](/docs)
 
-You can use the public IGSR API to query samples, populations, data collections, analysis groups and files. See the [APIdocumentation](/docs) for available endpoints and example requests.
+You can use the public IGSR API to query samples, populations, data collections, analysis groups and files. See the [API documentation](/docs) for available endpoints and example requests.
 
 #[Downloading data](/data#download)
 
