@@ -4,14 +4,18 @@ title: "Help"
 permalink: /help/
 tags: Help
 redirect_from:
- - /contact/
+  - /contact/
 ---
 
 # [FAQs](/faq)
 
 We have an extensive set of [Frequently Asked Questions](/faq) which may have the information you are looking for. Please take a look to see if they answer your question.
 
-# [Downloading data](/data#download)
+#[API](/docs)
+
+You can use the public IGSR API to query samples, populations, data collections, analysis groups and files. See the [API documentation](/docs) for available endpoints and example requests.
+
+#[Downloading data](/data#download)
 
 Information on options for downloading data from our resources can be found on the [data](/data) page.
 
