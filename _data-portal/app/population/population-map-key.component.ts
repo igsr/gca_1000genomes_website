@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, OnDestroy, Input, Output } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
-import { ApiSuperPopulationService} from '../core/services/api-superpopulation.service';
+import { ApiPopulationService} from '../core/services/api-population.service';
 import { SearchHits } from '../shared/api-types/search-hits';
-import { SuperPopulation } from '../shared/api-types/superpopulation';
+import { Population } from '../shared/api-types/population';
 
 let popMapKeyStyles: string = `
   div.panel {
@@ -58,53 +58,112 @@ export class PopulationMapKeyComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    private apiSuperPopulationService: ApiSuperPopulationService,
+    private apiPopulationService: ApiPopulationService,
   ){};
   
   // public properties:
-  public superpopHits: SearchHits<SuperPopulation>;
+  public popHits: SearchHits<Population>;
 
   // private properties:
   private popHitsSubscription: Subscription = null;
 
-  private readonly continentMap: Record<string, string> = {
-    'East Asian Ancestry':             'Asia',
-    'European Ancestry':               'Europe',
-    'African Ancestry':                'Africa',
-    'American Ancestry':               'America',
-    'South Asian Ancestry':            'Asia',
-    'America (HGDP)':                  'America',
-    'Central South Asia (HGDP)':       'Asia',
-    'Europe (HGDP)':                   'Europe',
-    'Middle East (HGDP)':              'Middle East',
-    'East Asia (HGDP)':                'Asia',
-    'Oceania (HGDP)':                  'Oceania',
-    'Africa (HGDP)':                   'Africa',
-    'Africa (SGDP)':                   'Africa',
-    'America (SGDP)':                  'America',
-    'Central Asia and Siberia (SGDP)': 'Asia',
-    'East Asia (SGDP)':                'Asia',
-    'Oceania (SGDP)':                  'Oceania',
-    'South Asia (SGDP)':               'Asia',
-    'West Eurasia (SGDP)':             'Europe',
-  };
+  private getContinent(latitude: string | number, longitude: string | number): string {
+    const lat = Number(latitude);
+    const lon = this.normaliseLongitude(Number(longitude));
+
+    if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90) {
+      return 'Other';
+    }
+
+    if (lat <= -60) {
+      return 'Antarctica';
+    }
+
+    if (
+      this.isWithin(lat, lon, -50, 0, 110, 180) ||
+      (lat >= -30 && lat <= 30 && (lon >= 160 || lon <= -110))
+    ) {
+      return 'Oceania';
+    }
+
+    if (
+      this.isWithin(lat, lon, -56, 13, -82, -34) ||
+      this.isWithin(lat, lon, 5, 84, -170, -52)
+    ) {
+      return 'America';
+    }
+
+    if (lat >= 12 && lat <= 38 && lon >= 34 && lon <= 60) {
+      return 'Asia';
+    }
+
+    if (
+      this.isWithin(lat, lon, -35, 37, -20, 52) &&
+      !(lat > 12 && lon > 33)
+    ) {
+      return 'Africa';
+    }
+
+    if (this.isWithin(lat, lon, 35, 72, -25, 60)) {
+      return 'Europe';
+    }
+
+    if (lat >= -10 && lat <= 82 && (lon >= 25 || lon <= -168)) {
+      return 'Asia';
+    }
+
+    return 'Other';
+  }
+
+  private normaliseLongitude(longitude: number): number {
+    if (isNaN(longitude)) {
+      return longitude;
+    }
+
+    while (longitude < -180) {
+      longitude += 360;
+    }
+
+    while (longitude > 180) {
+      longitude -= 360;
+    }
+
+    return longitude;
+  }
+
+  private isWithin(
+    latitude: number,
+    longitude: number,
+    minLatitude: number,
+    maxLatitude: number,
+    minLongitude: number,
+    maxLongitude: number,
+  ): boolean {
+    return (
+      latitude >= minLatitude &&
+      latitude <= maxLatitude &&
+      longitude >= minLongitude &&
+      longitude <= maxLongitude
+    );
+  }
   
-  get populationsByContinent(): { continent: string; superPopulations: any[] }[] {
-    if (!this.superpopHits || !this.superpopHits.hits) return [];
+  get populationsByContinent(): { continent: string; populations: any[] }[] {
+    if (!this.popHits || !this.popHits.hits) return [];
   
-    const grouped = this.superpopHits.hits.reduce((acc, pop) => {
-      const popName = (pop && pop._source) ? pop._source.name : '';
-      const continent = (popName && this.continentMap[popName]) ? this.continentMap[popName] : 'Other';
+    const grouped = this.popHits.hits.reduce((acc, pop) => {
+      const latitude = (pop && pop._source) ? pop._source.latitude : null;
+      const longitude = (pop && pop._source) ? pop._source.longitude : null;
+      const continent = this.getContinent(latitude, longitude);
       if (!acc[continent]) acc[continent] = [];
       acc[continent].push(pop);
       return acc;
     }, {} as Record<string, any[]>);
   
-    return Object.entries(grouped)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([continent, superPopulations]) => ({
-        continent,
-        superPopulations: superPopulations.sort((a, b) => {
+    return Object.keys(grouped)
+      .sort((a, b) => a.localeCompare(b))
+      .map((continent) => ({
+        continent: continent,
+        populations: grouped[continent].sort((a, b) => {
           const aName = (a && a._source && a._source.name) ? a._source.name : '';
           const bName = (b && b._source && b._source.name) ? b._source.name : '';
           return aName.localeCompare(bName, undefined, { sensitivity: 'base' });
@@ -113,8 +172,8 @@ export class PopulationMapKeyComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.popHitsSubscription = this.apiSuperPopulationService.getAll()
-      .subscribe((h: SearchHits<SuperPopulation>) => {
+    this.popHitsSubscription = this.apiPopulationService.getAll()
+      .subscribe((h: SearchHits<Population>) => {
         
         // sort alphabetically by name for the key
         const hits = (h && h.hits) ? h.hits : [];
@@ -125,7 +184,7 @@ export class PopulationMapKeyComponent implements OnInit, OnDestroy {
         });
 
         
-        this.superpopHits = Object.assign({}, h, { hits: sortedHits });
+        this.popHits = Object.assign({}, h, { hits: sortedHits });
       });
   }
 

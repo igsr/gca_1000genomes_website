@@ -9,13 +9,13 @@
     <div class="continent" *ngFor="let group of populationsByContinent">
       <div class="continent-title">{{ group.continent }}</div>
       <ul class="continent-list">
-        <li class="continent-item" *ngFor="let superPop of group.superPopulations">
+        <li class="continent-item" *ngFor="let pop of group.populations">
           <span
             class="glyphicon glyphicon-stop swatch"
             aria-hidden="true"
-            [ngStyle]="{'color': superPop._source.display_colour}">
+            [ngStyle]="{'color': pop._source.superpopulation.display_colour}">
           </span>
-          <span class="continent-item-label">{{ superPop._source.name }}</span>
+          <span class="continent-item-label">{{ pop._source.name }}</span>
         </li>
       </ul>
     </div>
