@@ -11,12 +11,12 @@
             <dt>Sex:</dt>
             <dd class="capitalize">{{sample.sex}}</dd>
           </ng-container>
-					<ng-container *ngIf="sample.populations">
-						<dt>Populations:</dt>
-    				<ng-container *ngFor="let pop of sample.populations">
-      				<dd><a [routerLink]="['/population', pop.elasticId]">{{pop.description}}</a>, {{pop.superpopulationName}}</dd>
-    				</ng-container>
-					</ng-container>
+          <ng-container *ngIf="sample.populations">
+            <dt>Populations:</dt>
+            <ng-container *ngFor="let pop of sample.populations">
+              <dd><a [routerLink]="['/population', pop.elasticId]">{{pop.description}}</a></dd>
+            </ng-container>
+          </ng-container>
           <ng-container *ngIf="sample.biosampleId">
             <dt>Biosample ID:</dt>
             <dd><a [href]="'http://www.ebi.ac.uk/biosamples/samples/' + sample.biosampleId" target="_blank">{{sample.biosampleId}}</a></dd>
@@ -104,4 +104,3 @@
   </data-collection-files>
   </ng-container>
 </ng-container>
-
