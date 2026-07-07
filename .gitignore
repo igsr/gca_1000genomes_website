@@ -2,6 +2,7 @@ _site/
 
 _data-portal/app/npm-debug.log
 _data-portal/**/*.js
+!_data-portal/webpack.config.js
 _data-portal/**/*.js.map
 _data-portal/aot/
 _data-portal/node_modules/
