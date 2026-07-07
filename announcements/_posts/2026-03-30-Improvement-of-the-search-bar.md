@@ -1,6 +1,6 @@
 ---
 title: "Improvements to Data Portal Search"
-pinned: true
+pinned: false
 ---
 
 We’ve improved the search bar in the [IGSR data portal](https://internationalgenome.org/data-portal/search). Search now does a better job of combining normal word matching with partial matching, so it is more likely to find what you expect whether you search by a full name, a shorter term, or part of an identifier.
