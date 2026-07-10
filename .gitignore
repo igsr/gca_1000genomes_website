@@ -5,6 +5,7 @@ _data-portal/**/*.js
 _data-portal/**/*.js.map
 _data-portal/aot/
 _data-portal/node_modules/
+_data-portal/static/config.json
 _data-portal/typings/
 _data-portal/package-lock.json
 

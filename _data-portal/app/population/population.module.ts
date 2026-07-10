@@ -7,7 +7,7 @@ import { PopulationSamplesComponent }  from './population-samples.component';
 import { PopulationDataCollectionTableComponent }  from './population-data-collection-table.component';
 import { PopulationAnalysisGroupTableComponent }  from './population-analysis-group-table.component';
 import { PopulationMapComponent }  from './population-map.component';
-import { PopulationMapKeyComponent }  from './population-map-key.component';
+// import { PopulationMapKeyComponent }  from './population-map-key.component';
 
 @NgModule({
   imports: [ SharedModule ],
@@ -15,7 +15,6 @@ import { PopulationMapKeyComponent }  from './population-map-key.component';
     PopulationHomeComponent,
     PopulationDetailComponent,
 		PopulationMapComponent,
-		PopulationMapKeyComponent,
     PopulationSamplesComponent,
     PopulationDataCollectionTableComponent,
     PopulationAnalysisGroupTableComponent,

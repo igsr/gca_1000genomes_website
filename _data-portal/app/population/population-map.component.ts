@@ -30,16 +30,24 @@ export class PopulationMapComponent implements OnInit, OnChanges{
 	map: any;
 	layer: any;
 	markers: any;
-	token: any;
+	token: string;
   radius: any;
 
 	constructor(){
 	}
 
 	ngOnInit(){
+		let request = new XMLHttpRequest();
+		request.open('GET', 'static/config.json', true);
+		request.onload = () => {
+			this.token = JSON.parse(request.responseText).mapboxAccessToken;
+			this.setUpMap();
+		};
+		request.send();
+	}
 
+	private setUpMap(){
 		//map setup
-		this.token = 'pk.eyJ1IjoiaWdzciIsImEiOiJjandtMmZxb2MxOTdhNDVuNmxtN3IycTZvIn0.j1vNmN7B9ansOhnun1-nlQ';
 		L.MakiMarkers.accessToken = this.token;
 		this.map = new L.map('map').setView([0, 0], 2);
 		this.map.options.minZoom = 2;
@@ -84,8 +92,7 @@ export class PopulationMapComponent implements OnInit, OnChanges{
 
 		if(this.populationHits != null){
     	for(let hit of this.populationHits.hits){
-				let displayColour = hit._source.superpopulation.display_colour;
-				let icon = L.MakiMarkers.icon({icon: "circle-stroked", color: displayColour, size: "s"});
+				let icon = L.MakiMarkers.icon({icon: "circle-stroked", color: "0096c7", size: "s"});
       	let lat = Number(hit._source.latitude);
       	let lon = Number(hit._source.longitude);
       	this.markers.addLayer(new L.marker([lat, lon], {icon: icon}).bindPopup("<a href=\"/data-portal/population/"+hit._source.elasticId+"\">"+hit._source.description+"</a><br>"+hit._source.superpopulation.name));
@@ -96,4 +103,3 @@ export class PopulationMapComponent implements OnInit, OnChanges{
 	}
 
 };
-

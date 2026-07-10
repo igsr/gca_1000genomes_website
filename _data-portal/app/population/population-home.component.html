@@ -84,7 +84,7 @@
 <button class="btn btn-default" (click)="agFilterVisible = !agFilterVisible; dcFilterVisible = false;">Filter by technology <span class="caret"></span></button>
 <button class="btn btn-default" (click)="dcFilterVisible = !dcFilterVisible; agFilterVisible = false;">Filter by data collection <span class="caret"></span></button>
 <button class="btn btn-default" (click)="searchExport()"><span class="glyphicon glyphicon-download" aria-hidden="true"></span> Download the list</button>
-<button class="btn btn-default" *ngIf="viewOption == 0" (click)="mapKeyVisible = !mapKeyVisible;"><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#ffd845"></span><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#778500"></span><span class="glyphicon glyphicon-map-marker" aria-hidden="true" style="color:#018ead"></span> Map colour key</button>
+<!-- <button class="btn btn-default" *ngIf="viewOption == 0" (click)="mapKeyVisible = !mapKeyVisible;"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Populations</button> -->
 </div>
 
 <div class="row">
@@ -97,11 +97,6 @@
 <div class="table-container">
 <br>
 <h4 *ngIf="populationHits?.total == 0">No populations match all filters</h4>
-<population-map-key
-  *ngIf="viewOption == 0"
-  [(visible)]="mapKeyVisible"
-  [populationHits]="populationHits">
-</population-map-key>
 <population-map *ngIf="viewOption == 0" [populationHits]="populationHits"></population-map>
 <population-data-collection-table *ngIf="viewOption == 1" [populationHits]="populationHits" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></population-data-collection-table>
 <population-analysis-group-table *ngIf="viewOption == 2" [populationHits]="populationHits" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></population-analysis-group-table>
