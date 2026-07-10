@@ -4,7 +4,7 @@ title: "Aspera"
 permalink: /aspera/
 tags: aspera
 ---
-#Aspera
+# Aspera
 
 The updated 1000 Genomes website no longer supports the Aspera web interface. You can continue to use aspera with the command line tool ascp. The tool itself is available from [Aspera](http://asperasoft.com/software/transfer-clients/connect-web-browser-plug-in/). 
 

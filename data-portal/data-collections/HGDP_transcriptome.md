@@ -11,5 +11,5 @@ Further information is available in the publication by [Martin et al.](https://d
 ### Cell lines
 The data in this collection is from cell lines of seven Mbuti, seven Mozabites, seven Pathan, seven Cambodians, six Yakut, and seven Mayans from the Human Genome Diversity Panel. 
 
-###Questions
+### Questions
 If you have any questions please email info@1000genomes.org.

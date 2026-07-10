@@ -1,5 +1,5 @@
 import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
@@ -13,7 +13,7 @@ import { ApiErrorService } from './api-error.service';
 export class ApiAnalysisGroupService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private apiErrorService: ApiErrorService,
     private apiTimeoutService: ApiTimeoutService,
   ) {}
@@ -44,8 +44,8 @@ export class ApiAnalysisGroupService {
     this.apiTimeoutService.handleTimeout<SearchHits<AnalysisGroup>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/beta/analysis-group/_search`, query)
-      ).map((r:Response): SearchHits<AnalysisGroup> => {
-          let h: {hits: SearchHits<AnalysisGroup>} = r.json() as {hits: SearchHits<AnalysisGroup>};
+      ).map((r: any): SearchHits<AnalysisGroup> => {
+          let h: {hits: SearchHits<AnalysisGroup>} = r as {hits: SearchHits<AnalysisGroup>};
           for (let ag of h.hits.hits) {
             if (ag._source.shortTitle && ag._source.title) {
               this.titleMap[ag._source.title] = ag._source.shortTitle;

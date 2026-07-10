@@ -1,7 +1,8 @@
 import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
 
 import { Sitemap } from '../../shared/api-types/sitemap';
 import { SearchHits } from '../../shared/api-types/search-hits';
@@ -12,7 +13,7 @@ import { ApiErrorService } from './api-error.service';
 export class ApiSitemapService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private apiErrorService: ApiErrorService,
     private apiTimeoutService: ApiTimeoutService,
   ) {}
@@ -35,8 +36,8 @@ export class ApiSitemapService {
     return this.apiTimeoutService.handleTimeout<SearchHits<Sitemap>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/sitemap/_search`, body)
-      ).map((r:Response): SearchHits<Sitemap> => {
-        let h: {hits: SearchHits<Sitemap>} = r.json() as {hits: SearchHits<Sitemap>};
+      ).map((r: any): SearchHits<Sitemap> => {
+        let h: {hits: SearchHits<Sitemap>} = r as {hits: SearchHits<Sitemap>};
         return h.hits;
       })
     );

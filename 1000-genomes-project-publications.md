@@ -3,7 +3,7 @@ layout: single_section
 title: "1000 Genomes Project Publications"
 permalink: /1000-genomes-project-publications/
 ---
-#The 1000 Genomes Project Publications
+# The 1000 Genomes Project Publications
 
 The main publications from the 1000 Genomes Project are the final publications from phase 3 of the project, which were published in *Nature* in October 2015.
 

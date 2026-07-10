@@ -10,7 +10,6 @@ fi
 snippet=$(mktemp /tmp/vendors.snippet.XXXXXX)
 cat > "$snippet" <<'EOF'
   <script src="/data-portal/vendor/core-js.min.js"></script>
-  <script src="/data-portal/vendor/reflect-metadata.js"></script>
   <script src="/data-portal/vendor/zone.js"></script>
 EOF
 awk 'FNR==NR{buf=buf $0 ORS; next} /static\/build\.js/ && !done { printf "%s", buf; print; done=1; next } { print } END{ if(!done) printf "%s", buf }' \

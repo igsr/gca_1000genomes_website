@@ -1,5 +1,5 @@
 import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
@@ -13,7 +13,7 @@ import { ApiErrorService } from './api-error.service';
 export class ApiSampleService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private apiErrorService: ApiErrorService,
     private apiTimeoutService: ApiTimeoutService,
   ) {}
@@ -33,8 +33,8 @@ export class ApiSampleService {
     return this.apiTimeoutService.handleTimeout<SearchHits<Sample>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/beta/sample/_search`, body)
-      ).map((r:Response): SearchHits<Sample> => {
-        let h: {hits: SearchHits<Sample>} = r.json() as {hits: SearchHits<Sample>};
+      ).map((r: any): SearchHits<Sample> => {
+        let h: {hits: SearchHits<Sample>} = r as {hits: SearchHits<Sample>};
         return h.hits;
       })
     );
@@ -44,8 +44,8 @@ export class ApiSampleService {
    return this.apiTimeoutService.handleTimeout<Sample>(
       this.apiErrorService.handleError(
         this.http.get(`/api/beta/sample/${name}`)
-      ).map((r: Response) => {
-        let s = r.json() as {_source: Sample};
+      ).map((r: any) => {
+        let s = r as {_source: Sample};
         return s._source;
       })
     );

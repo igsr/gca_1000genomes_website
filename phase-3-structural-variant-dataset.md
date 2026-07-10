@@ -4,7 +4,7 @@ title: "Phase 3 structural variant dataset"
 permalink: /phase-3-structural-variant-dataset/
 tags: Phase 3 structural variant dataset
 ---
-#The phase 3 structural variant dataset
+# The phase 3 structural variant dataset
 
 The 1000 Genomes Project SV group produced an expanded dataset of structural variation for the individuals in phase 3 of the 1000 Genomes Project.
 

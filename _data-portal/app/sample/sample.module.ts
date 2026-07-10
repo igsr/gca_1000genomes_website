@@ -14,5 +14,11 @@ import { SampleAnalysisGroupTableComponent }  from './sample-analysis-group-tabl
     SampleDataCollectionTableComponent,
     SampleAnalysisGroupTableComponent,
   ],
+  exports: [
+    SampleHomeComponent,
+    SampleDetailComponent,
+    SampleDataCollectionTableComponent,
+    SampleAnalysisGroupTableComponent,
+  ],
 })
 export class SampleModule { };

@@ -17,5 +17,5 @@
   <td *ngFor="let dc of dataCollectionList?.hits">
     <div class="matrix-dot" *ngIf="hasDataCollection(hit._source, dc._source)" [popover]="dc._source.title" [popoverTitle]="hit._source.name" popoverPlacement="auto top" [popoverOnHover]="true">&#x25cf;</div>
   </td>
-<tr></tbody>
+</tr></tbody>
 </table>

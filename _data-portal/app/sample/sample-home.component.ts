@@ -9,7 +9,9 @@ import { ApiSampleService } from '../core/services/api-sample.service';
 import { ApiAnalysisGroupService } from '../core/services/api-analysis-group.service';
 import { ApiDataCollectionService } from '../core/services/api-data-collection.service';
 import { ApiPopulationService } from '../core/services/api-population.service';
-import { SearchHits } from '../shared/api-types/search-hits';
+import { AnalysisGroup } from '../shared/api-types/analysis-group';
+import { DataCollection } from '../shared/api-types/data-collection';
+import { SearchHit, SearchHits } from '../shared/api-types/search-hits';
 import { Sample } from '../shared/api-types/sample';
 import { buildReadableFilterSummary as buildReadableFilterSummaryFromRpn } from '../shared/filter-builder-summary';
 import { FilterBuilderBase, FilterSelectionChange, FilterTokenBase } from '../shared/filter-builder-base';
@@ -18,6 +20,67 @@ import { filterBuilderStyles } from '../shared/filter-builder.styles';
 interface FilterToken extends FilterTokenBase<'pop' | 'dc' | 'ag'> {}
 
 let sampleHomeStyles: string = filterBuilderStyles;
+sampleHomeStyles += `
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+table {
+  margin-top: 70px;
+}
+
+div.matrix-dot {
+  text-align: center;
+  font-size: 20px;
+  cursor: default;
+}
+
+th.matrix-dot {
+  width: 70px;
+  white-space: nowrap;
+  padding: 0;
+}
+
+th.matrix-dot > div {
+  transform: translate(100%, 0) rotate(315deg);
+  transform-origin: left bottom;
+  width: inherit;
+}
+
+th.matrix-dot > div > div {
+  border-bottom: 1px solid #ccc;
+  width: 125px;
+  height: 49px;
+  line-height: 49px;
+  cursor: pointer;
+}
+
+.data-collection-dot {
+  color: #DAA406;
+}
+
+.analysis-group-dot {
+  color: #79C7E7;
+}
+
+@media (max-width: 991px) {
+  table {
+    margin-top: 80px;
+  }
+  th.matrix-dot > div {
+    transform: translate(100%, 0) rotate(270deg);
+  }
+  th.matrix-dot {
+    width: 55px;
+  }
+  th.matrix-dot > div > div {
+    height: 55px;
+    line-height: 55px;
+    text-indent: 5px;
+  }
+}
+`;
 
 @Component({
     templateUrl: './sample-home.component.html',
@@ -27,17 +90,19 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
   public constructor(
     private titleService: Title,
     private apiSampleService: ApiSampleService,
-    apiAnalysisGroupService: ApiAnalysisGroupService,
-    apiDataCollectionService: ApiDataCollectionService,
+    private apiAnalysisGroupService: ApiAnalysisGroupService,
+    private apiDataCollectionService: ApiDataCollectionService,
     apiPopulationService: ApiPopulationService,
   ) {
     super();
-    this.agTitleMap = apiAnalysisGroupService.titleMap;
-    this.dcTitleMap = apiDataCollectionService.titleMap;
+    this.agTitleMap = this.apiAnalysisGroupService.titleMap;
+    this.dcTitleMap = this.apiDataCollectionService.titleMap;
     this.popElasticIdDescriptionMap = apiPopulationService.elasticIdDescriptionMap;
   }
 
   public sampleHits: SearchHits<Sample>;
+  public dataCollectionList: SearchHits<DataCollection>;
+  public analysisGroupList: SearchHits<AnalysisGroup>;
   public totalHits: number = -1;
   public displayStart: number = -1;
   public displayStop: number = -1;
@@ -64,6 +129,8 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
 
   private sampleHitsSource: Subject<Observable<SearchHits<Sample>>>;
   private sampleHitsSubscription: Subscription = null;
+  private dataCollectionSubscription: Subscription = null;
+  private analysisGroupSubscription: Subscription = null;
   private hitsPerPage: number = 10;
 
   ngOnInit() {
@@ -79,12 +146,22 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
             this.displayStop = h.hits ? this.offset + h.hits.length : 0;
           }
         });
+    this.dataCollectionSubscription = this.apiDataCollectionService.getAll()
+      .subscribe((l: SearchHits<DataCollection>) => this.dataCollectionList = l);
+    this.analysisGroupSubscription = this.apiAnalysisGroupService.getAll()
+      .subscribe((l: SearchHits<AnalysisGroup>) => this.analysisGroupList = l);
     this.search();
   }
 
   ngOnDestroy() {
     if (this.sampleHitsSubscription) {
       this.sampleHitsSubscription.unsubscribe();
+    }
+    if (this.dataCollectionSubscription) {
+      this.dataCollectionSubscription.unsubscribe();
+    }
+    if (this.analysisGroupSubscription) {
+      this.analysisGroupSubscription.unsubscribe();
     }
   }
 
@@ -174,6 +251,39 @@ export class SampleHomeComponent extends FilterBuilderBase<'pop' | 'dc' | 'ag', 
 
   searchExport() {
     this.apiSampleService.searchExport(this.buildFilterQuery(), 'igsr_samples');
+  }
+
+  toggleDcFilter(code: string) {
+    this.dcFilters[code] = !this.dcFilters[code];
+    this.onDcFiltersChange({ filters: this.dcFilters, code, isFiltered: this.dcFilters[code] });
+  }
+
+  toggleAgFilter(code: string) {
+    this.agFilters[code] = !this.agFilters[code];
+    this.onAgFiltersChange({ filters: this.agFilters, code, isFiltered: this.agFilters[code] });
+  }
+
+  public hasDataCollection(sample: Sample, dc: DataCollection): boolean {
+    if (!sample.dataCollections) {
+      return false;
+    }
+    for (let sampleDc of sample.dataCollections) {
+      if (sampleDc.title === dc.title) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public hasAnalysisGroup(sampleHit: SearchHit<Sample>, ag: AnalysisGroup): boolean {
+    if (sampleHit.fields && sampleHit.fields.hasOwnProperty('dataCollections._analysisGroups')) {
+      for (let agTitle of sampleHit.fields['dataCollections._analysisGroups']) {
+        if (agTitle === ag.title) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   removeTokenFromFilters(token: FilterToken) {

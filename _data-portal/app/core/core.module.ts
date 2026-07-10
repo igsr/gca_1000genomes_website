@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders, Optional, SkipSelf }      from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from '../shared/shared.module';
 import { NavComponent } from './components/nav.component';
@@ -15,7 +15,7 @@ import { ApiErrorService } from './services/api-error.service';
 import { ApiTimeoutService } from './services/api-timeout.service';
 
 @NgModule({
-  imports: [ SharedModule, CommonModule, HttpModule ],
+  imports: [ SharedModule, CommonModule, HttpClientModule ],
   providers: [
         ApiSampleService,
         ApiDataCollectionService,

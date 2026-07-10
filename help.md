@@ -7,37 +7,37 @@ redirect_from:
   - /contact/
 ---
 
-#[FAQs](/faq)
+# [FAQs](/faq)
 
 We have an extensive set of [Frequently Asked Questions](/faq) which may have the information you are looking for. Please take a look to see if they answer your question.
 
-#[API](/docs)
+# [API](/docs)
 
 You can use the public IGSR API to query samples, populations, data collections, analysis groups and files. See the [API documentation](/docs) for available endpoints and example requests.
 
-#[Downloading data](/data#download)
+# [Downloading data](/data#download)
 
 Information on options for downloading data from our resources can be found on the [data](/data) page.
 
-#[Data formats](/formats)
+# [Data formats](/formats)
 
 Genomics data is typically provided in one of a set of standard formats. We have information on the most [common formats](/formats) that our data is provided in.
 
-#Understanding the data collections
+# Understanding the data collections
 
 Most of our data collections have accompanying publications that provide detailed information on the data and associated analysis. These are [listed in our portal](/data-portal/data-collection).
 
-#Updates to IGSR
+# Updates to IGSR
 
 We [announce](/announcements) significant changes on this website. You can also find a [change log](http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/), listing file updates to our FTP site.
 
 IGSR can be found on Twitter at [@1000genomes](http://www.twitter.com/1000genomes)
 
-#New to genomics?
+# New to genomics?
 
 If you are new to the area of genomics, the [Your Genome resource provided by the Wellcome Sanger Institute](https://www.yourgenome.org) gives an introduction.
 
-#Contact us
+# Contact us
 
 Please direct any questions about IGSR or the 1000 Genomes Project to info@1000genomes.org.
 

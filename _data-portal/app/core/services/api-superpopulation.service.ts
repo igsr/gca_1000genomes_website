@@ -1,5 +1,5 @@
 import { Injectable }     from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/map';
@@ -13,7 +13,7 @@ import { ApiErrorService } from './api-error.service';
 export class ApiSuperPopulationService {
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private apiErrorService: ApiErrorService,
     private apiTimeoutService: ApiTimeoutService,
   ) {}
@@ -44,8 +44,8 @@ export class ApiSuperPopulationService {
     this.apiTimeoutService.handleTimeout<SearchHits<SuperPopulation>>(
       this.apiErrorService.handleError(
         this.http.post(`/api/beta/superpopulation/_search`, query)
-      ).map((r:Response): SearchHits<SuperPopulation> => {
-          let h: {hits: SearchHits<SuperPopulation>} = r.json() as {hits: SearchHits<SuperPopulation>};
+      ).map((r: any): SearchHits<SuperPopulation> => {
+          let h: {hits: SearchHits<SuperPopulation>} = r as {hits: SearchHits<SuperPopulation>};
           for (let sp of h.hits.hits) {
             //if (sp._source.name && sp._source.name) {
             //  this.titleMap[sp._source.name] = sp._source.shortTitle;

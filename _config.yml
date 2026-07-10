@@ -34,12 +34,10 @@ defaults:
       layout: "announcement"
   - scope:
       type: "faq"
-      path: "faq"
     values:
       layout: "faq"
   - scope:
       type: "faq_categories"
-      path: "category"
     values:
       layout: "faq_category"
   - scope:

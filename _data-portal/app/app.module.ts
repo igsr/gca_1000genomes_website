@@ -1,31 +1,64 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/dist/providers/ga/angulartics2-ga';
 
 import { AppComponent }  from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { CoreModule }  from './core/core.module';
 import { SharedModule }  from './shared/shared.module';
-import { SampleModule } from './sample/sample.module';
-import { PopulationModule } from './population/population.module';
-import { DataCollectionModule } from './data-collection/data-collection.module';
-import { SearchModule } from './search/search.module';
+import { SampleHomeComponent } from './sample/sample-home.component';
+import { SampleDetailComponent } from './sample/sample-detail.component';
+import { SampleDataCollectionTableComponent } from './sample/sample-data-collection-table.component';
+import { SampleAnalysisGroupTableComponent } from './sample/sample-analysis-group-table.component';
+import { PopulationHomeComponent } from './population/population-home.component';
+import { PopulationDetailComponent } from './population/population-detail.component';
+import { PopulationSamplesComponent } from './population/population-samples.component';
+import { PopulationDataCollectionTableComponent } from './population/population-data-collection-table.component';
+import { PopulationAnalysisGroupTableComponent } from './population/population-analysis-group-table.component';
+import { PopulationMapComponent } from './population/population-map.component';
+import { PopulationMapKeyComponent } from './population/population-map-key.component';
+import { DataCollectionHomeComponent } from './data-collection/data-collection-home.component';
+import { DataCollectionDetailComponent } from './data-collection/data-collection-detail.component';
+import { DcSamplesComponent } from './data-collection/dc-samples.component';
+import { DcPopulationsComponent } from './data-collection/dc-populations.component';
+import { SearchResultsComponent } from './search/search-results.component';
+import { SearchSamplesComponent } from './search/search-samples.component';
+import { SearchPopulationsComponent } from './search/search-populations.component';
+import { SearchDataCollectionsComponent } from './search/search-data-collections.component';
+import { SearchFilesComponent } from './search/search-files.component';
+import { SearchSitemapComponent } from './search/search-sitemap.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     CoreModule,
-    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
-    AppRoutingModule,
     SharedModule,
-    SampleModule,
-    PopulationModule,
-    DataCollectionModule,
-    SearchModule
+    AppRoutingModule
   ],
-  declarations: [ AppComponent ],
+  declarations: [
+    AppComponent,
+    SampleHomeComponent,
+    SampleDetailComponent,
+    SampleDataCollectionTableComponent,
+    SampleAnalysisGroupTableComponent,
+    PopulationHomeComponent,
+    PopulationDetailComponent,
+    PopulationMapComponent,
+    PopulationMapKeyComponent,
+    PopulationSamplesComponent,
+    PopulationDataCollectionTableComponent,
+    PopulationAnalysisGroupTableComponent,
+    DataCollectionHomeComponent,
+    DataCollectionDetailComponent,
+    DcSamplesComponent,
+    DcPopulationsComponent,
+    SearchResultsComponent,
+    SearchSamplesComponent,
+    SearchFilesComponent,
+    SearchSitemapComponent,
+    SearchPopulationsComponent,
+    SearchDataCollectionsComponent,
+  ],
   providers: [ Title ],
   bootstrap: [ AppComponent ]
 })

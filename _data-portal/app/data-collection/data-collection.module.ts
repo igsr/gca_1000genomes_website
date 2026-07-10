@@ -14,5 +14,11 @@ import { DcPopulationsComponent }  from './dc-populations.component';
     DcSamplesComponent,
     DcPopulationsComponent,
   ],
+  exports: [
+    DataCollectionHomeComponent,
+    DataCollectionDetailComponent,
+    DcSamplesComponent,
+    DcPopulationsComponent,
+  ],
 })
 export class DataCollectionModule { };

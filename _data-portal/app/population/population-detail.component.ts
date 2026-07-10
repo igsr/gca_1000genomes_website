@@ -23,6 +23,25 @@ import { DataCollection } from '../shared/api-types/data-collection';
 
 @Component({
     templateUrl: './population-detail.component.html',
+    styles: [`
+button.page-button {
+  border-bottom-width: 0;
+  border-radius: 15px 15px 0 0;
+}
+
+button.download-button {
+  display: block;
+  margin: 0 auto 15px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+table > thead > tr {
+  border-top: 2px solid #ddd;
+}
+`],
 })
 export class PopulationDetailComponent implements OnInit, OnDestroy {
   public constructor(
@@ -36,17 +55,37 @@ export class PopulationDetailComponent implements OnInit, OnDestroy {
   public pop: Population;
   public currentDC: DataCollection;
   public files: SearchHits<File>;
+  public sampleHits: SearchHits<any> = null;
+  public sampleOffset: number = 0;
+  public sampleTotalHits: number = -1;
 
   // private properties
   private routeSubscription: Subscription = null;
   private popSource: Subject<Observable<Population>> = null;
   private popSubscription: Subscription = null;
+  private sampleHitsSource: Subject<Observable<SearchHits<any>>> = null;
+  private sampleHitsSubscription: Subscription = null;
+  private hitsPerPage: number = 10;
 
   ngOnInit() {
     this.popSource = new Subject<Observable<Population>>();
     this.popSubscription = this.popSource
         .switchMap((o: Observable<Population>) : Observable<Population> => o)
-        .subscribe((p: Population) => this.pop = p);
+        .subscribe((p: Population) => {
+          this.pop = p;
+          this.sampleOffset = 0;
+          this.sampleTotalHits = -1;
+          this.searchSamples();
+        });
+    this.sampleHitsSource = new Subject<Observable<SearchHits<any>>>();
+    this.sampleHitsSubscription = this.sampleHitsSource
+        .switchMap((o: Observable<SearchHits<any>>) : Observable<SearchHits<any>> => o)
+        .subscribe((h: SearchHits<any>) => {
+          this.sampleHits = h;
+          if (h) {
+            this.sampleTotalHits = h.total;
+          }
+        });
     this.routeSubscription = this.activatedRoute.params.subscribe((params: {popCode: string}) => {
       this.popCode = params.popCode;
       this.titleService.setTitle( `${this.popCode} | IGSR population`);
@@ -60,6 +99,30 @@ export class PopulationDetailComponent implements OnInit, OnDestroy {
      /** return url ? url.replace(/[\/\.]/g, '$&&shy;') : url;  **/
     return url ? url.replace(/[\/\.]/g, '$&<wbr>') : url;
   }
+
+  hasMoreSamples(): boolean {
+    return this.sampleTotalHits > this.sampleOffset + this.hitsPerPage;
+  }
+
+  sampleTableNext() {
+    if (this.hasMoreSamples()) {
+      this.sampleOffset += this.hitsPerPage;
+      this.searchSamples();
+    }
+  }
+
+  sampleTablePrevious() {
+    if (this.sampleOffset > 0) {
+      this.sampleOffset -= this.hitsPerPage;
+      this.searchSamples();
+    }
+  }
+
+  searchSamplesExport() {
+    if (this.pop) {
+      this.apiSampleService.searchPopulationSamplesExport(this.pop.elasticId);
+    }
+  }
     
   ngOnDestroy() {
     if (this.popSubscription) {
@@ -68,6 +131,21 @@ export class PopulationDetailComponent implements OnInit, OnDestroy {
     if (this.routeSubscription) {
       this.routeSubscription.unsubscribe();
     }
+    if (this.sampleHitsSubscription) {
+      this.sampleHitsSubscription.unsubscribe();
+    }
+  }
+
+  private searchSamples() {
+    if (!this.sampleHitsSource) {
+      return;
+    }
+    if (!this.pop) {
+      this.sampleHits = null;
+      this.sampleTotalHits = -1;
+      return;
+    }
+    this.sampleHitsSource.next(this.apiSampleService.searchPopulationSamples(this.pop.elasticId, this.sampleOffset, this.hitsPerPage));
   }
 
 };

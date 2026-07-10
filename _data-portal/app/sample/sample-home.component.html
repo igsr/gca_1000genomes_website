@@ -100,8 +100,53 @@
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
   <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>
 </div>
-<sample-data-collection-table *ngIf="viewOption == 1" [sampleHits]="sampleHits" [filters]="dcFilters" (filtersChange)="onDcFiltersChange($event)"></sample-data-collection-table>
-<sample-analysis-group-table *ngIf="viewOption == 2" [sampleHits]="sampleHits" [filters]="agFilters" (filtersChange)="onAgFiltersChange($event)"></sample-analysis-group-table>
+<table *ngIf="viewOption == 1" class="table table-striped table-condensed sample-data-collection-table">
+<thead><tr>
+  <th>Sample</th>
+  <th>Sex</th>
+  <th>Populations</th>
+  <th *ngFor="let dc of dataCollectionList?.hits" class="matrix-dot"><div><div (click)="toggleDcFilter(dc._source.title)">{{dc._source.shortTitle}}</div></div></th>
+</tr></thead>
+<tbody><tr *ngFor="let hit of sampleHits?.hits">
+  <td><a *ngIf="hit._source.name" [routerLink]="[hit._source.name]">{{hit._source.name}}</a></td>
+  <td class="capitalize">{{ hit._source.sex }}</td>
+  <td>
+    <ng-container *ngFor="let pop of hit._source.populations">
+      <a *ngIf="pop.elasticId" [routerLink]="['/population', pop.elasticId]"
+        [popover]="pop.name" popoverPlacement="auto top" [popoverOnHover]="true">{{pop.description }}</a><br/>
+    </ng-container>
+  </td>
+  <td *ngFor="let dc of dataCollectionList?.hits">
+    <div class="matrix-dot data-collection-dot" *ngIf="hasDataCollection(hit._source, dc._source)" [popover]="dc._source.title" [popoverTitle]="hit._source.name" popoverPlacement="auto top" [popoverOnHover]="true">&#x25cf;</div>
+  </td>
+</tr></tbody>
+</table>
+
+<table *ngIf="viewOption == 2" class="table table-striped table-condensed sample-analysis-group-table">
+<thead><tr>
+  <th>Sample</th>
+  <th>Sex</th>
+  <th>Populations</th>
+  <ng-container *ngFor="let ag of analysisGroupList?.hits">
+    <th *ngIf="ag._source.displayOrder" class="matrix-dot"><div><div (click)="toggleAgFilter(ag._source.title)">{{ag._source.shortTitle}}</div></div></th>
+  </ng-container>
+</tr></thead>
+<tbody><tr *ngFor="let hit of sampleHits?.hits">
+  <td><a *ngIf="hit._source.name" [routerLink]="[hit._source.name]">{{hit._source.name}}</a></td>
+  <td class="capitalize">{{ hit._source.sex }}</td>
+  <td>
+    <ng-container *ngFor="let pop of hit._source.populations">
+      <a *ngIf="pop.elasticId" [routerLink]="['/population', pop.elasticId]"
+        [popover]="pop.name" popoverPlacement="auto top" [popoverOnHover]="true">{{pop.description }}</a><br/>
+    </ng-container>
+  </td>
+  <ng-container *ngFor="let ag of analysisGroupList?.hits">
+    <td *ngIf="ag._source.displayOrder">
+      <div class="matrix-dot analysis-group-dot" *ngIf="hasAnalysisGroup(hit, ag._source)" [popover]="ag._source.title" [popoverTitle]="hit._source.name" popoverPlacement="auto top" [popoverOnHover]="true">&#x25cf;</div>
+    </td>
+  </ng-container>
+</tr></tbody>
+</table>
 </div>
 <button class="btn btn-default page-button pull-left" [ngClass]="{disabled: offset <=0}" (click)="tablePrevious()">&#171; Previous</button>
 <button class="btn btn-default page-button pull-right" [ngClass]="{disabled: !hasMore()}" (click)="tableNext()">Next &#187;</button>

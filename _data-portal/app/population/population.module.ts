@@ -20,5 +20,14 @@ import { PopulationMapKeyComponent }  from './population-map-key.component';
     PopulationDataCollectionTableComponent,
     PopulationAnalysisGroupTableComponent,
   ],
+  exports: [
+    PopulationHomeComponent,
+    PopulationDetailComponent,
+		PopulationMapComponent,
+		PopulationMapKeyComponent,
+    PopulationSamplesComponent,
+    PopulationDataCollectionTableComponent,
+    PopulationAnalysisGroupTableComponent,
+  ],
 })
 export class PopulationModule { };

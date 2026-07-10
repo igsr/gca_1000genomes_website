@@ -18,5 +18,13 @@ import { SearchSitemapComponent }  from './search-sitemap.component';
     SearchPopulationsComponent,
     SearchDataCollectionsComponent,
   ],
+  exports: [
+    SearchResultsComponent,
+    SearchSamplesComponent,
+    SearchFilesComponent,
+    SearchSitemapComponent,
+    SearchPopulationsComponent,
+    SearchDataCollectionsComponent,
+  ],
 })
 export class SearchModule { };
