@@ -49,7 +49,8 @@ export class ApiDataCollectionService {
   }
 
   getText(id: string): Observable<string> {
-      return this.http.get(`/data-portal/data-collections/${id}.html`, {responseType: 'text'})
+      // Jekyll 4 emits each collection page as <id>/index.html.
+      return this.http.get(`/data-portal/data-collections/${id}/`, {responseType: 'text'})
         .catch((err, caught): Observable<any> => Observable.of<any>(null))
         .map((r: any): string => {
           let text: string = r ? r : ''
