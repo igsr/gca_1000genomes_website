@@ -161,9 +161,9 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
     this.dcTitleMap = this.apiDataCollectionService.titleMap;
   }
 
-  public populationHits: SearchHits<Population>;
-  public dataCollectionList: SearchHits<DataCollection>;
-  public analysisGroupList: SearchHits<AnalysisGroup>;
+  public populationHits: SearchHits<Population> | null = null;
+  public dataCollectionList: SearchHits<DataCollection> | null = null;
+  public analysisGroupList: SearchHits<AnalysisGroup> | null = null;
   public viewOption: number = 0;
   public filterBuilderCollapsed: boolean = true;
 
@@ -180,10 +180,10 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
   public readableFilterSummary: string = '';
   public mapKeyVisible: boolean = false;
 
-  private populationHitsSource: Subject<Observable<SearchHits<Population>>>;
-  private populationHitsSubscription: Subscription = null;
-  private dataCollectionSubscription: Subscription = null;
-  private analysisGroupSubscription: Subscription = null;
+  private populationHitsSource: Subject<Observable<SearchHits<Population>>> = new Subject<Observable<SearchHits<Population>>>();
+  private populationHitsSubscription: Subscription | null = null;
+  private dataCollectionSubscription: Subscription | null = null;
+  private analysisGroupSubscription: Subscription | null = null;
   private map: any;
   private mapLayer: any;
   private markers: any;
@@ -233,10 +233,12 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
 
   dataCollectionView() {
     this.viewOption = 1;
+    this.destroyMap();
   }
 
   technologyView() {
     this.viewOption = 2;
+    this.destroyMap();
   }
 
   onAgFiltersChange(change: FilterSelectionChange) {
@@ -392,24 +394,41 @@ export class PopulationHomeComponent extends FilterBuilderBase<'dc' | 'ag', Filt
       if (!mapElement) {
         return;
       }
-      if (!this.map) {
-        this.map = new L.map('population-map').setView([0, 0], 2);
-        this.map.options.minZoom = 2;
-        this.map.options.maxZoom = 6;
-        this.mapLayer = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png', {
-          attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a>, &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a>, &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
-          minZoom: 0,
-          maxZoom: 20,
-          ext: 'png'
-        }).addTo(this.map);
-        let corner1 = new L.latLng(-90, -180);
-        let corner2 = new L.latLng(90, 180);
-        this.map.options.maxBounds = new L.latLngBounds(corner1, corner2);
-        this.map.options.maxBoundsViscosity = 1.0;
+      if (!this.map || this.map.getContainer() !== mapElement) {
+        this.initializeMap(mapElement);
       }
       this.plotPopulationHits();
-      this.map.invalidateSize();
+      if (this.map) {
+        this.map.invalidateSize();
+        setTimeout(() => this.map.invalidateSize(), 0);
+      }
     }, 0);
+  }
+
+  private initializeMap(mapElement: HTMLElement) {
+    this.destroyMap();
+    this.map = new L.map(mapElement).setView([0, 0], 2);
+    this.map.options.minZoom = 2;
+    this.map.options.maxZoom = 6;
+    this.mapLayer = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a>, &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a>, &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+      minZoom: 0,
+      maxZoom: 20,
+      ext: 'png'
+    }).addTo(this.map);
+    let corner1 = new L.latLng(-90, -180);
+    let corner2 = new L.latLng(90, 180);
+    this.map.options.maxBounds = new L.latLngBounds(corner1, corner2);
+    this.map.options.maxBoundsViscosity = 1.0;
+  }
+
+  private destroyMap() {
+    if (this.map) {
+      this.map.remove();
+      this.map = null;
+    }
+    this.mapLayer = null;
+    this.markers = null;
   }
 
   private plotPopulationHits() {
