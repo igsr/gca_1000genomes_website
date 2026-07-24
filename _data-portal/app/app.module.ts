@@ -15,8 +15,6 @@ import { PopulationDetailComponent } from './population/population-detail.compon
 import { PopulationSamplesComponent } from './population/population-samples.component';
 import { PopulationDataCollectionTableComponent } from './population/population-data-collection-table.component';
 import { PopulationAnalysisGroupTableComponent } from './population/population-analysis-group-table.component';
-import { PopulationMapComponent } from './population/population-map.component';
-import { PopulationMapKeyComponent } from './population/population-map-key.component';
 import { DataCollectionHomeComponent } from './data-collection/data-collection-home.component';
 import { DataCollectionDetailComponent } from './data-collection/data-collection-detail.component';
 import { DcSamplesComponent } from './data-collection/dc-samples.component';
@@ -43,8 +41,6 @@ import { SearchSitemapComponent } from './search/search-sitemap.component';
     SampleAnalysisGroupTableComponent,
     PopulationHomeComponent,
     PopulationDetailComponent,
-    PopulationMapComponent,
-    PopulationMapKeyComponent,
     PopulationSamplesComponent,
     PopulationDataCollectionTableComponent,
     PopulationAnalysisGroupTableComponent,
