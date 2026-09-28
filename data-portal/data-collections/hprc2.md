@@ -18,3 +18,5 @@ Highlights of HPRC Release 2 Assemblies:
 
 
 Data files can be browsed by sample, population and data type below. All data are held in INSDC databases as well as via AWS S3 and Google Cloud buckets. See the HPRC [GitHub repository](https://github.com/human-pangenomics/hprc_intermediate_assembly/tree/main/data_tables/sequencing_data) for further information.
+
+Preprint available: [Lucas JK, Hebbar P, Liao W, et al., 2026](https://europepmc.org/article/PPR/PPR1283532)
