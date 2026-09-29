@@ -14,6 +14,8 @@ set -euo pipefail
 SERVICE="igsr-fe"
 REPO="igsr"
 REGION="europe-west2"
+BUILD_MAX_ATTEMPTS=3
+BUILD_RETRY_DELAY_SECONDS=5
 
 WEBSITE_PATH=""
 TARGET_ENV=""
@@ -36,6 +38,10 @@ Required:
 Optional:
   --dry-run            Print commands without executing
   -h, --help           Show help
+
+DNS recovery:
+  A Docker Hub DNS failure automatically recreates the amd64 Colima profile
+  and igsr-builder. This deletes all containers and images in that profile.
 
 Examples:
   $(basename "$0") --path ./gca_1000genomes_website --env dev --dry-run
@@ -72,6 +78,102 @@ run_in_dir() {
 
 need_cmd() {
   command -v "$1" >/dev/null 2>&1 || die "Required command not found: $1"
+}
+
+is_docker_dns_error() {
+  grep -Eqi 'docker\.io' "$1" &&
+    grep -Eqi \
+      'lookup .*i/o timeout|temporary failure in name resolution|could not resolve host|no such host' \
+      "$1"
+}
+
+docker_dns_error_help() {
+  printf '\nERROR: Docker Hub DNS resolution failed after %s attempts.\n' "$BUILD_MAX_ATTEMPTS" >&2
+  printf 'The amd64 Colima profile and BuildKit builder were recreated, but DNS still failed.\n' >&2
+  printf 'Check VPN/firewall settings or replace the configured public DNS servers.\n' >&2
+}
+
+repair_colima_dns() {
+  printf '\nWARNING: Recreating the amd64 Colima profile to repair Docker DNS.\n' >&2
+  printf 'All containers and images in that profile will be deleted.\n\n' >&2
+
+  colima stop --profile amd64
+  colima delete -f --profile amd64
+  colima start --profile amd64 \
+    --arch x86_64 \
+    --cpu 4 \
+    --memory 8 \
+    --disk 80 \
+    --dns 8.8.8.8 \
+    --dns 1.1.1.1
+
+  docker --context colima-amd64 buildx rm igsr-builder 2>/dev/null || true
+  docker --context colima-amd64 buildx create \
+    --name igsr-builder \
+    --driver docker-container \
+    --use
+  docker --context colima-amd64 buildx inspect --bootstrap
+
+  log "Verifying Docker Hub access"
+  docker --context colima-amd64 pull docker/dockerfile:1.6
+}
+
+build_and_push_image() {
+  local attempt=1
+  local build_log
+  local dns_repair_attempted=0
+
+  if [ "$DRY_RUN" -eq 1 ]; then
+    run_in_dir "$WEBSITE_PATH" \
+      docker buildx build \
+        --platform linux/amd64 \
+        -t "$IMAGE" \
+        --no-cache \
+        --push \
+        .
+    return 0
+  fi
+
+  while [ "$attempt" -le "$BUILD_MAX_ATTEMPTS" ]; do
+    build_log="$(mktemp -t igsr-deploy-build.XXXXXX)"
+
+    if (
+      cd "$WEBSITE_PATH"
+      docker buildx build \
+        --platform linux/amd64 \
+        -t "$IMAGE" \
+        --no-cache \
+        --push \
+        . 2>&1 | tee "$build_log"
+    ); then
+      rm -f "$build_log"
+      return 0
+    fi
+
+    if ! is_docker_dns_error "$build_log"; then
+      rm -f "$build_log"
+      die "Docker image build failed"
+    fi
+
+    rm -f "$build_log"
+
+    if [ "$dns_repair_attempted" -eq 0 ]; then
+      repair_colima_dns
+      dns_repair_attempted=1
+      attempt=$((attempt + 1))
+      continue
+    fi
+
+    if [ "$attempt" -eq "$BUILD_MAX_ATTEMPTS" ]; then
+      docker_dns_error_help
+      return 1
+    fi
+
+    printf '\nWARNING: Docker Hub DNS lookup timed out (attempt %s/%s). Retrying in %s seconds...\n' \
+      "$attempt" "$BUILD_MAX_ATTEMPTS" "$BUILD_RETRY_DELAY_SECONDS" >&2
+    sleep "$BUILD_RETRY_DELAY_SECONDS"
+    attempt=$((attempt + 1))
+  done
 }
 
 parse_args() {
@@ -186,13 +288,7 @@ main() {
     artifactregistry.googleapis.com \
     cloudbuild.googleapis.com
 
-  run_in_dir "$WEBSITE_PATH" \
-    docker buildx build \
-      --platform linux/amd64 \
-      -t "$IMAGE" \
-      --no-cache \
-      --push \
-      .
+  build_and_push_image
 
   deploy_args=(
     run deploy "$SERVICE"
