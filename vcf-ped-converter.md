@@ -6,10 +6,7 @@ permalink: /vcf-ped-converter/
 
 ## VCF to PED Converter
 
-The [VCF to PED converter](http://grch37.ensembl.org/Homo_sapiens/Tools/VcftoPed) allows you to parse a vcf file ([specification](http://vcftools.sourceforge.net/specs.html)) to create a linkage pedigree file (ped) and a marker information file, which together may be loaded into ld visualization tools like [Haploview](http://www.broadinstitute.org/scientific-community/science/programs/medical-and-population-genetics/haploview/haploview). There is both an online version of this tool and a perl script
-
-[Online Version](#online-version)  
-[API Script](#api-script)
+The [VCF to PED converter](http://grch37.ensembl.org/Homo_sapiens/Tools/VcftoPed) allows you to parse a vcf file ([specification](https://vcftools.github.io/specs.html)) to create a linkage pedigree file (ped) and a marker information file, which together may be loaded into ld visualization tools like [Haploview](http://www.broadinstitute.org/scientific-community/science/programs/medical-and-population-genetics/haploview/haploview). There is both an online version of this tool and a [perl script](https://github.com/igsr/gca_1000genomes_website/blob/main/archive/vcf-to-ped-converter/vcf_to_ped_convert.pl).
 
 ### Online version
 
@@ -31,7 +28,7 @@ The marker information file and linkage pedigree file can be downloaded by click
 
 ### API script
 
-A perl API script version of the [converter tool](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/browser/vcf_to_ped_converter/version_1.1/vcf_to_ped_convert.pl) is available from the ftp site. You can also find a link to the script from either the tools link in the menu bar at the top of every page or from the manage your data link which is on the left hand menu of many pages in the browser.
+A perl API script version of the converter tool is available [here](https://github.com/igsr/gca_1000genomes_website/blob/main/archive/vcf-to-ped-converter/vcf_to_ped_convert.pl). You can also find a link to the script from either the tools link in the menu bar at the top of every page or from the manage your data link which is on the left hand menu of many pages in the browser.
 
 This script converts locally or remotely accessible vcf files to linkage pedigree files. If the input file is only remotely accessible then it must be compressed by bgzip and indexed by tabix. There is no requirement to compress vcf files if they are held locally, but large files will be read more quickly using tabix. If the vcf file is compressed then you must have [tabix](http://sourceforge.net/projects/samtools/files/tabix/) installed.
 
@@ -51,11 +48,10 @@ The script is run from the command line and it takes the following arguments:
 
 **-output_dir** (optional argument) Name of a directory in which to put the output files.
 
-**-base_format** (optional argument) number|letter (defaults to number) if letter is specified the genotypes will be expressed as ATGC rather than 0123, by default this script uses the old style of plink allele annotation which used A => 1,   C => 2,   G => 3 and  T => 4
+**-base_format** (optional argument) number|letter (defaults to number) if letter is specified the genotypes will be expressed as ATGC rather than 0123, by default this script uses the old style of plink allele annotation which used A => 1, C => 2, G => 3 and T => 4
 
 **-help** (optional argument) Print out the help documentation
 
 Here is an example of a command line for running the script:
 
     perl vcf_to_ped_converter.pl -vcf ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr13.phase1_integrated_calls.20101123.snps_indels_svs.genotypes.vcf.gz -sample_panel_file ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/phase1_integrated_calls.20101123.ALL.sample_panel -region 13:32889611-32973805 -population GBR -population FIN
-
