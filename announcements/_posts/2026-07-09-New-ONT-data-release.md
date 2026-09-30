@@ -1,6 +1,6 @@
 ---
 title: "New ONT direct RNA-seq data release"
-pinned: false
+pinned: true
 ---
 
 Long-read direct RNA-seq data generated using ONT are now available for 60 lymphoblastoid cell lines from the 1000 Genomes/Geuvadis project.
