@@ -43,6 +43,8 @@ Changes: replace <div class="container"> with <div class="container-fluid">
         <li {% if page.tags contains "Home" %}class="active"{% endif %}><a href="{{ '/home' | relative_url }}" title="Home">Home</a></li>
         <li {% if page.tags contains "About" %}class="active"{% endif %}><a href="{{ '/about' | relative_url }}" title="About">About</a></li>
         <li {% if page.tags contains "Data" %}class="active"{% endif %}><a href="{{ '/data' | relative_url }}" title="Data">Data</a></li>
+        <li><a href="{{ '/data-portal/data-collection' | relative_url }}" title="Data collections">Data collections</a></li>
+        <li {% if page.tags contains "Announcements" %}class="active"{% endif %}><a href="{{ '/announcements/' | relative_url }}" title="Announcements">Announcements</a></li>
         <li {% if page.tags contains "Help" %}class="active"{% endif %}><a href="{{ '/help' | relative_url }}" title="Help">Help</a></li>
         <!--<li {% if page.tags contains "Portal" %}class="active"{% endif %}><a href="/data-portal" title="Portal">Portal</a></li>
         <li {% if page.tags contains "Analysis" %}class="active"{% endif %}><a href="/analysis" title="Analysis">Analysis</a></li>
