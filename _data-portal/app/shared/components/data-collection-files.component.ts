@@ -99,7 +99,7 @@ export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
       for (let dt of this.dataCollection.dataTypes) {
         this.filterDataTypesObj[dt] = {title: dt, isFiltered: false, isDisabled: false};
         this.filterDataTypes.push(this.filterDataTypesObj[dt]);
-        for (let ag of dcObj[dt]) {
+        for (let ag of (dcObj[dt] || [])) {
           this.filterAnalysisGroupsObj[ag] = {title: ag, isFiltered: false, isDisabled: false};
         }
       }
@@ -124,7 +124,7 @@ export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
     let dcObj = this.dataCollection as Object;
     for (let dt of this.filterDataTypes) {
       if (dt.isFiltered) {
-        for (let ag of dcObj[dt.title]) {
+        for (let ag of (dcObj[dt.title] || [])) {
           this.filterAnalysisGroupsObj[ag].isDisabled = false;
         }
         numFilteredDataTypes += 1;
@@ -153,7 +153,7 @@ export class DataCollectionFilesComponent implements OnChanges, OnDestroy {
     for (let ag of this.filterAnalysisGroups) {
       if (ag.isFiltered) {
         for (let dtTitle of this.dataCollection.dataTypes) {
-          if (dcObj[dtTitle].indexOf(ag.title) > -1) {
+          if ((dcObj[dtTitle] || []).indexOf(ag.title) > -1) {
             this.filterDataTypesObj[dtTitle].isDisabled = false
           }
         }
