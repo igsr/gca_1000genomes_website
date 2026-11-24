@@ -1,0 +1,27 @@
+---
+layout: single_section
+title: "Announcements"
+tags: Announcements
+permalink: /announcements/
+redirect_from:
+    - /announcements/faq/
+exclude_from_search: true
+---
+
+<div class="announcements-archive">
+  <h2>Announcements</h2>
+  <div class="announcement-list">
+    {% for announcement in site.categories.announcements %}
+      {% assign summary = announcement.excerpt | strip_html | normalize_whitespace | strip %}
+      <article class="announcement-card">
+        <time class="h5" datetime="{{ announcement.date | date: '%Y-%m-%d' }}">{{ announcement.date | date: '%B %-d, %Y' }}</time>
+        <div>
+          <h3 class="h3"><a href="{{ announcement.url | relative_url }}">{{ announcement.title | escape_once }}</a></h3>
+          {% if summary != empty %}
+            <p>{{ summary | truncatewords: 32 | escape_once }}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</div>
